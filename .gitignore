@@ -33,3 +33,9 @@ yarn-error.log*
 
 # turbo
 .turbo
+.cache
+
+# Storybook
+server/dist
+public/dist
+storybook-static/
