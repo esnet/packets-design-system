@@ -1,13 +1,12 @@
 import { ButtonProps } from "./Button.types";
 
-// @ts-ignore  
+// @ts-ignore
 import styles from "./Button.module.css";
-
 
 /**
  * Button - An extension of a HTML button that comes with different levels of action/intent.
- * 
- * @param {ButtonProps} props 
+ *
+ * @param {ButtonProps} props
  * @returns {JSX.Element}
  */
 const Button = ({
@@ -16,7 +15,11 @@ const Button = ({
   ...other
 }: ButtonProps): JSX.Element => {
   return (
-    <button className={`${styles.button} ${styles[variant]}`} type="button" {...other}>
+    <button
+      className={`${styles.button} ${styles[variant]}`}
+      type="button"
+      {...other}
+    >
       {children}
     </button>
   );
