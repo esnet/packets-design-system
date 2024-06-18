@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@esnet/packets-ui";
 
 const meta: Meta<typeof Button> = {
+  title: "Button",
   component: Button,
   argTypes: {
     type: {
