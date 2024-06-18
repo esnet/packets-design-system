@@ -1,4 +1,5 @@
 {
+  "name": "@esnet/packets-design-system",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -18,6 +19,5 @@
     "prettier": "^3.2.5",
     "turbo": "^2.0.4"
   },
-  "packageManager": "pnpm@8.15.6",
-  "name": "@esnet/packets-design-system"
+  "packageManager": "pnpm@8.15.6"
 }
