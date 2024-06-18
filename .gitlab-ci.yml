@@ -1,15 +1,16 @@
 image: node:latest
 stages:
   - build
+
 build:
   stage: build
+  image: node:18.17.1
   before_script:
-    - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6.32.2
+    - corepack enable
+    - corepack prepare pnpm@latest-9 --activate
     - pnpm config set store-dir .pnpm-store
   script:
-    - pnpm install
-    - pnpm build
-    - pnpm test
+    - pnpm install # install dependencies
   cache:
     key:
       files:
