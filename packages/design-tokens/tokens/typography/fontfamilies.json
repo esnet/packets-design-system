@@ -1,0 +1,28 @@
+{
+  "font": {
+    "family": {
+      "header": {
+        "display": {
+          "value": "Exo 2"
+        },
+        "mono": {
+          "value": "Martian Mono"
+        },
+        "sans": {
+          "value": "Noto Sans"
+        },
+        "serif": {
+          "value": "Zilla Slab"
+        }
+      },
+      "body": {
+        "sans": {
+          "value": "Noto Sans"
+        },
+        "mono": {
+          "value": "Martian Mono"
+        }
+      }
+    }
+  }
+}

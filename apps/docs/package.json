@@ -1,7 +1,6 @@
 {
   "name": "docs",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -24,7 +23,6 @@
     "@storybook/react": "^7.6.17",
     "@storybook/react-vite": "^7.6.17",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
     "serve": "^14.2.1",
     "storybook": "^7.6.17",
     "@repo/typescript-config": "workspace:*",

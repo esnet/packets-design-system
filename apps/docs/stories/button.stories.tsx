@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
     variant: {
       control: { type: "radio" },
       options: ["primary", "secondary", "error"],
-    }
+    },
   },
 };
 
@@ -47,6 +47,6 @@ export const Primary: Story = {
       padding: 10,
       borderRadius: 10,
     },
-    variant: "primary"
+    variant: "primary",
   },
 };

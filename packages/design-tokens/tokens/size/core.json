@@ -1,0 +1,24 @@
+{
+  "size": {
+    "spacing": {
+      "none": {
+        "value": "0"
+      },
+      "xsmall": {
+        "value": "8"
+      },
+      "medium": {
+        "value": "16"
+      },
+      "large": {
+        "value": "32"
+      },
+      "xlarge": {
+        "value": "64"
+      },
+      "xxlarge": {
+        "value": "88"
+      }
+    }
+  }
+}

@@ -1,5 +1,8 @@
 {
-  "extends": "@repo/typescript-config/react-app.json",
+  "extends": "@repo/typescript-config/storybook-app.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }]
+  },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }

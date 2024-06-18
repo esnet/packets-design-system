@@ -1,0 +1,27 @@
+{
+  "size": {
+    "radius": {
+      "none": {
+        "value": "0"
+      },
+      "small": {
+        "value": "2"
+      },
+      "medium": {
+        "value": "4"
+      },
+      "large": {
+        "value": "6"
+      },
+      "xlarge": {
+        "value": "8"
+      },
+      "xxlarge": {
+        "value": "12"
+      },
+      "circle": {
+        "value": "99999"
+      }
+    }
+  }
+}

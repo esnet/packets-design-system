@@ -1,0 +1,47 @@
+{
+  "color": {
+    "light": {
+      "primary": {
+        "type": "color",
+        "value": "{color.core.blue.800.value}"
+      },
+      "background": {
+        "type": "color",
+        "value": "{color.core.white.600.value}"
+      },
+      "surface-1": {
+        "type": "color",
+        "value": "{color.core.white.400.value}"
+      },
+      "surface-2": {
+        "description": "",
+        "type": "color",
+        "value": "{color.core.white.200.value}"
+      },
+      "shadow": {
+        "type": "color",
+        "value": "{color.core.slate.800.value}"
+      },
+      "copy": {
+        "type": "color",
+        "value": "{color.core.black.700.value}"
+      },
+      "copy-alt": {
+        "type": "color",
+        "value": "{color.core.black.100.value}"
+      },
+      "success": {
+        "type": "color",
+        "value": "{color.core.green.600.value}"
+      },
+      "warning": {
+        "type": "color",
+        "value": "{color.core.yellow.600.value}"
+      },
+      "error": {
+        "type": "color",
+        "value": "{color.core.orange.600.value}"
+      }
+    }
+  }
+}

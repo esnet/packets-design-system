@@ -15,5 +15,5 @@
     "turbo": "^2.0.4"
   },
   "packageManager": "pnpm@8.15.6",
-  "name": "with-rollup"
+  "name": "@esnet/packets-design-system"
 }

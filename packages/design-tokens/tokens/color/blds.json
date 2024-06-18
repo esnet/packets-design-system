@@ -1,0 +1,62 @@
+{
+  "color": {
+    "blds": {
+      "dark-blue": {
+        "type": "color",
+        "value": "#00313c"
+      },
+      "cloud": {
+        "type": "color",
+        "value": "#f0f3f3"
+      },
+      "medium-grey": {
+        "type": "color",
+        "value": "#b1b3b3"
+      },
+      "dark-grey": {
+        "type": "color",
+        "value": "#64666a"
+      },
+      "white": {
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "teal": {
+        "type": "color",
+        "value": "#007681"
+      },
+      "yellow": {
+        "type": "color",
+        "value": "#eabb5b"
+      },
+      "green": {
+        "type": "color",
+        "value": "#9ad175"
+      },
+      "rose": {
+        "type": "color",
+        "value": "#e8927c"
+      },
+      "olive": {
+        "type": "color",
+        "value": "#bbad44"
+      },
+      "purple": {
+        "type": "color",
+        "value": "#5d4777"
+      },
+      "burgundy": {
+        "type": "color",
+        "value": "#672e45"
+      },
+      "light-blue": {
+        "type": "color",
+        "value": "#91d0d7"
+      },
+      "error-red": {
+        "type": "color",
+        "value": "#be373f"
+      }
+    }
+  }
+}

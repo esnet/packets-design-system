@@ -1,0 +1,97 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "css": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/hex",
+        "size/pxToRem",
+        "typography/shorthand"
+      ],
+      "prefix": "esnet",
+      "transformGroup": "css",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "format": "css/variables",
+          "destination": "esnet-tokens.css",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "scss": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/hex",
+        "size/pxToRem",
+        "typography/shorthand"
+      ],
+      "prefix": "esnet",
+      "transformGroup": "scss",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "esnet-tokens.scss",
+          "format": "scss/variables",
+          "options": {
+            "outputReferences": true
+          }
+        },
+        {
+          "format": "css/variables",
+          "destination": "_esnet-tokens-css-variables.scss",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "js": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/constant",
+        "color/hex",
+        "size/pxToRem"
+      ],
+      "prefix": "esnet",
+      "transformGroup": "js",
+      "files": [
+        {
+          "destination": "build/js/tokens.js",
+          "format": "javascript/es6"
+        }
+      ]
+    },
+    "json": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/constant",
+        "color/hex",
+        "size/pxToRem"
+      ],
+      "prefix": "esnet",
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "tokens.json",
+          "format": "json",
+          "options": {
+            "outputReferences": true
+          }
+        },
+        {
+          "destination": "tokens.js",
+          "format": "javascript/es6",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -3,5 +3,3 @@ export {
   PacketsDesignTokenProviderContext,
   usePacketsDesignTokens,
 } from "./PacketsDesignTokenProvider";
-
-export { default as Button } from "./Button";
