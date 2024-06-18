@@ -10,4 +10,9 @@ export default {
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
+  modulePathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist",
+    "<rootDir>/.turbo",
+  ],
 };

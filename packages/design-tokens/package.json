@@ -16,7 +16,6 @@
     "postbuild": "pnpm run format; rollup --config",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{ts,tsx,md,json,js,jsx}\""
   },
   "devDependencies": {
