@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <PacketsDesignTokenProvider>
       <Button variant={"primary"}>Hello World</Button>
-      <h1>Test Page</h1>
+      <h1 className="test">Test Page</h1>
     </PacketsDesignTokenProvider>
   );
 }

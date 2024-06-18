@@ -10,6 +10,12 @@ Run the following command:
 npx create-turbo@latest -e with-rollup
 ```
 
+## How to add packages
+
+```
+  pnpm add postcss-import --save-dev --recursive --filter=@esnet/packets-ui
+```
+
 ## What's inside?
 
 This Turborepo includes the following packages/apps:
