@@ -4,6 +4,8 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
 import postcssImport from "postcss-import";
+import resolve from "@rollup/plugin-node-resolve";
+import external from "rollup-plugin-peer-deps-external";
 
 // import pkg from "./package.json" assert { type: "json" };
 
@@ -13,6 +15,7 @@ export default [
     input: "src/index.ts",
     output: {
       file: "dist/index.js",
+      sourcemap: true,
     },
     external: ["react/jsx-runtime"],
     plugins: [
@@ -25,5 +28,6 @@ export default [
       }),
       terser(),
     ],
+    external: ["react", "@esnet/esnet-tokens"],
   },
 ];

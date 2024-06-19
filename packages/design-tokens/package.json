@@ -2,15 +2,8 @@
   "name": "@esnet/esnet-tokens",
   "version": "0.2.2",
   "type": "module",
-  "main": "./dist/esnet-tokens.cjs.js",
-  "module": "./dist/esnet-tokens.esm.js",
-  "browser": "./dist/esnet-tokens.umd.js",
   "description": "A set of reusable UI tokens for the various ESnet frontend systems.",
   "author": "Jason Roeckle",
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "node ./build.js",
     "postbuild": "pnpm run format; rollup --config",
@@ -18,16 +11,28 @@
     "prepublishOnly": "npm run build",
     "format": "prettier --write \"**/*.{ts,tsx,md,json,js,jsx}\""
   },
+  "exports": {
+    ".": {
+      "types": "./dist/tokens.d.ts",
+      "default": "./dist/tokens.js"
+    }
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "@esnet:registry": "https://gitlab.es.net/api/v4/projects/665/packages/npm/"
+  },
+  "dependencies": {
+    "sd-tailwindcss-transformer": "^1.3.1"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.12.0",
     "style-dictionary": "^3.7.2"
   },
-  "dependencies": {
-    "sd-tailwindcss-transformer": "^1.3.1"
-  },
-  "publishConfig": {
-    "@esnet:registry": "https://gitlab.es.net/api/v4/projects/665/packages/npm/"
-  }
+  "files": [
+    "dist",
+    "dist/*.css"
+  ],
+  "types": "dist/index.d.ts"
 }

@@ -1,9 +1,13 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
-    "build": {
+    "@esnet/esnet-tokens#build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "storybook-static/**"]
+      "outputs": ["dist/**"]
+    },
+    "build": {
+      "dependsOn": ["@esnet/esnet-tokens#build", "^build"],
+      "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": []
