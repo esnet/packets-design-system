@@ -8,7 +8,7 @@ export default [
     input: "build/js/tokens.js",
     output: {
       name: "esnet-tokens",
-      file: pkg.browser,
+      file: "./dist/esnet-tokens.umd.js",
       format: "umd",
     },
     plugins: [
@@ -26,9 +26,22 @@ export default [
   {
     input: "build/js/tokens.js",
     external: [],
+    output: [{ file: "./dist/esnet-tokens.esm.js", format: "es" }],
+    plugins: [
+      resolve(), // so Rollup can find `ms`
+    ],
+  },
+
+  {
+    input: "build/js/tokens.js",
+    external: [],
     output: [
-      { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" },
+      { file: "./dist/esnet-tokens.cjs.js", format: "cjs" },
+      { file: "./dist/esnet-tokens.esm.js", format: "es" },
+    ],
+    plugins: [
+      resolve(), // so Rollup can find `ms`
+      commonjs(), // so Rollup can convert `ms` to an ES module
     ],
   },
 ];

@@ -10,6 +10,7 @@
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
+    "@esnet/esnet-tokens": "workspace:*",
     "@esnet/packets-ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

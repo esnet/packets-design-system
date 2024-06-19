@@ -26,6 +26,17 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerFormat({
+  name: "typings/es6",
+  formatter: (args) => {
+    console.log("args", args.allProperties);
+    const types = args.allProperties.map(
+      (prop) => `export const ${prop.name}: string;`,
+    );
+    return types.join("\r\n");
+  },
+});
+
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration

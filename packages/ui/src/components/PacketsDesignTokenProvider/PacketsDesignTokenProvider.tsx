@@ -1,6 +1,5 @@
 import { createContext, useContext, PropsWithChildren } from "react";
 
-// @ts-ignore
 import * as designTokens from "@esnet/esnet-tokens";
 
 export const PacketsDesignTokenProviderContext =
