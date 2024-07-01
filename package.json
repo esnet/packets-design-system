@@ -10,7 +10,8 @@
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
     "clean": "turbo run clean && rm -rf node_modules",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
