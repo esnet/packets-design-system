@@ -1,8 +1,11 @@
 image: node:latest
+
 stages:
-  - build
-build:
-  stage: build
+  - test
+  - publish
+
+test:
+  stage: test
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
@@ -10,7 +13,34 @@ build:
   script:
     - pnpm install
     - pnpm build
+    - pnpm lint
     - pnpm test
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store
+
+publish:
+  stage: publish
+  rules:
+    - if: $CI_COMMIT_REF_NAME =~ /^release/
+
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@latest-9 --activate
+    - pnpm config set store-dir .pnpm-store
+  script:
+    - pnpm install
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
+    - pnpm build
+    - pnpm lint
+    - pnpm test
+    - pnpm publish-packages
+  variables:
+    GITLAB_TOKEN: $GITLAB_TOKEN
+    NPM_TOKEN: $CI_JOB_TOKEN
   cache:
     key:
       files:

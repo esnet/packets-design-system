@@ -39,3 +39,5 @@ yarn-error.log*
 server/dist
 public/dist
 storybook-static/
+
+.npmrc
