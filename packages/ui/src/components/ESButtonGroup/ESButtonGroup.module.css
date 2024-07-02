@@ -1,0 +1,17 @@
+.buttonGroup {
+  --spacing: 8px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing);
+  flex-direction: row;
+
+  /* Variants */
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+}
