@@ -19,6 +19,10 @@
     ".": {
       "types": "./dist/tokens.d.ts",
       "default": "./dist/tokens.js"
+    },
+    "./tokens.json": {
+      "import": "./dist/tokens.json",
+      "require": "./dist/tokens.json"
     }
   },
   "license": "MIT",
