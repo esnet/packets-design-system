@@ -8,6 +8,44 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
       <section
         class="buttonGroup horizontal"
       >
+        <ul
+          class="list"
+        >
+          <button
+            class="button primary fill"
+            type="button"
+          >
+            Button 1
+          </button>
+          <button
+            class="button secondary fill"
+            type="button"
+          >
+            Button 2
+          </button>
+          <button
+            class="button secondary fill"
+            type="button"
+          >
+            Button 3
+          </button>
+          <button
+            class="button tertiary fill"
+            type="button"
+          >
+            Button 3
+          </button>
+        </ul>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="buttonGroup horizontal"
+    >
+      <ul
+        class="list"
+      >
         <button
           class="button primary fill"
           type="button"
@@ -32,37 +70,7 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
         >
           Button 3
         </button>
-      </section>
-    </div>
-  </body>,
-  "container": <div>
-    <section
-      class="buttonGroup horizontal"
-    >
-      <button
-        class="button primary fill"
-        type="button"
-      >
-        Button 1
-      </button>
-      <button
-        class="button secondary fill"
-        type="button"
-      >
-        Button 2
-      </button>
-      <button
-        class="button secondary fill"
-        type="button"
-      >
-        Button 3
-      </button>
-      <button
-        class="button tertiary fill"
-        type="button"
-      >
-        Button 3
-      </button>
+      </ul>
     </section>
   </div>,
   "debug": [Function],
@@ -127,6 +135,44 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
       <section
         class="buttonGroup vertical"
       >
+        <ul
+          class="list"
+        >
+          <button
+            class="button primary fill"
+            type="button"
+          >
+            Button 1
+          </button>
+          <button
+            class="button secondary fill"
+            type="button"
+          >
+            Button 2
+          </button>
+          <button
+            class="button secondary fill"
+            type="button"
+          >
+            Button 3
+          </button>
+          <button
+            class="button tertiary fill"
+            type="button"
+          >
+            Button 3
+          </button>
+        </ul>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="buttonGroup vertical"
+    >
+      <ul
+        class="list"
+      >
         <button
           class="button primary fill"
           type="button"
@@ -151,37 +197,7 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
         >
           Button 3
         </button>
-      </section>
-    </div>
-  </body>,
-  "container": <div>
-    <section
-      class="buttonGroup vertical"
-    >
-      <button
-        class="button primary fill"
-        type="button"
-      >
-        Button 1
-      </button>
-      <button
-        class="button secondary fill"
-        type="button"
-      >
-        Button 2
-      </button>
-      <button
-        class="button secondary fill"
-        type="button"
-      >
-        Button 3
-      </button>
-      <button
-        class="button tertiary fill"
-        type="button"
-      >
-        Button 3
-      </button>
+      </ul>
     </section>
   </div>,
   "debug": [Function],

@@ -1,17 +1,42 @@
 .buttonGroup {
-  --spacing: 8px;
+  /* --mobile-breakpoint: 640px; */
 
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing);
-  flex-direction: row;
+  --spacing: 8px;
+  --label-gap: 4px;
+  --label-color: var(--copy, #3d3d3d);
+
+  label {
+    color: var(--label-color);
+    font-family: "Source Sans 3";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 21px */
+    letter-spacing: 0.035px;
+
+    @media (prefers-color-scheme: dark) {
+      --label-color: var(--copy, #e6e6e6);
+    }
+  }
 
   /* Variants */
-  &.vertical {
+  .list {
+    padding: var(--label-gap) 0 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing);
+    flex-direction: row;
+  }
+
+  &.vertical .list {
     flex-direction: column;
   }
 
-  &.horizontal {
+  &.horizontal .list {
     flex-direction: row;
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
   }
 }

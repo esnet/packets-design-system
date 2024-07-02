@@ -3,4 +3,4 @@
 "docs": minor
 ---
 
-ESIconButton
+ESIconButton a general use branded ESnet Icon button. Best paired with Lucide Icons

@@ -5,6 +5,9 @@ const meta: Meta<typeof ESButtonGroup> = {
   title: "Components/ESButtonGroup",
   component: ESButtonGroup,
   argTypes: {
+    labelCopy: {
+      control: { type: "text" },
+    },
     direction: {
       control: { type: "radio" },
       options: ["vertical", "horizontal"],
@@ -23,7 +26,11 @@ type Story = StoryObj<typeof ESButtonGroup>;
  * to learn how to use render functions.
  */
 export const Defaultbutton: Story = {
-  render: (props) => <ESButtonGroup>{props.children}</ESButtonGroup>,
+  render: (props) => (
+    <ESButtonGroup direction={props.direction} labelCopy={props.labelCopy}>
+      {props.children}
+    </ESButtonGroup>
+  ),
   name: "ES Button Group",
   args: {
     children: (
@@ -34,12 +41,15 @@ export const Defaultbutton: Story = {
         <ESButton variant="tertiary">Button 3</ESButton>
       </>
     ),
+    labelCopy: "A Collection of Buttons",
   },
 };
 
 export const VerticalButtonGroup: Story = {
   render: (props) => (
-    <ESButtonGroup direction={props.direction}>{props.children}</ESButtonGroup>
+    <ESButtonGroup direction={props.direction} labelCopy={props.labelCopy}>
+      {props.children}
+    </ESButtonGroup>
   ),
   name: "Vertical ESButton Group",
   args: {

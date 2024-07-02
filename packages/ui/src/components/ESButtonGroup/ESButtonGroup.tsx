@@ -11,6 +11,7 @@ import styles from "./ESButtonGroup.module.css";
  */
 const ESButtonGroup = ({
   children,
+  labelCopy,
   hideLabel,
   direction = "horizontal",
   ...other
@@ -20,7 +21,8 @@ const ESButtonGroup = ({
       className={`${styles.buttonGroup} ${styles[direction]}`}
       {...other}
     >
-      {children}
+      {labelCopy && !hideLabel && <label>{labelCopy}</label>}
+      <ul className={styles.list}>{children}</ul>
     </section>
   );
 };
