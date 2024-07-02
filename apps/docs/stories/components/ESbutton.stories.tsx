@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ESButton } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESButton> = {
-  title: "ESButton",
+  title: "Components/ESButton",
   component: ESButton,
   argTypes: {
     type: {

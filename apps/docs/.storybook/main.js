@@ -29,6 +29,10 @@ const config = {
             find: "packets-ui",
             replacement: resolve(__dirname, "../../../packages/ui/"),
           },
+          {
+            find: "esnet-tokens",
+            replacement: resolve(__dirname, "../../../packages/esnet-tokens/"),
+          },
         ],
       },
     };
