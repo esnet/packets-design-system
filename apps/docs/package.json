@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build --docs",
-    "lint": "eslint ./stories/**/*.stories.tsx --max-warnings 0",
+    "lint": "eslint ./src/stories/**/*.stories.tsx --max-warnings 0",
     "preview": "serve storybook-static"
   },
   "dependencies": {
