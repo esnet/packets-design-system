@@ -1,5 +1,16 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- 0569f0e: Design Tokens Documentation Pages and Documentation UI Component
+
+### Patch Changes
+
+- Updated dependencies [0569f0e]
+  - doc-ui@1.1.0
+
 ## 0.1.0
 
 ### Minor Changes
