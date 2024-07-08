@@ -11,9 +11,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest",
     "lint": "eslint",
-    "test:watch": "jest --watch",
     "prepublishOnly": "npm run build"
   },
   "repository": {
