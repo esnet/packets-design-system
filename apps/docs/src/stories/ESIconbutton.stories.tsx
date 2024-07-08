@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESIconButton } from "@esnet/packets-ui";
 import { SettingsIcon } from "lucide-react";
@@ -5,6 +6,7 @@ import { SettingsIcon } from "lucide-react";
 const meta: Meta<typeof ESIconButton> = {
   title: "Components/ESIconButton",
   component: ESIconButton,
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },

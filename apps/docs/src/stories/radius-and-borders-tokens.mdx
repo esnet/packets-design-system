@@ -1,0 +1,34 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import { BorderDocBlock, RadiusDocBlock } from "doc-ui";
+
+<Meta title="Design Tokens/Radiuses and Borders" />
+
+#### Design Tokens
+
+# Radiuses and Borders
+
+## Radiuses
+
+Radiuses rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
+They can also be used to create circles with a 1/1 aspect ratio.
+
+### Tokens
+
+{
+    Object.keys(tokens.size.radius).map(raidusTokenKey => {
+        return(<RadiusDocBlock name={`--esnet-size-radius-${raidusTokenKey}`} value={tokens.size.radius[raidusTokenKey].value || 0} />)
+    })
+}
+
+## Borders
+
+Borders are the layer just inside the margin layer in the box model.
+
+### Tokens
+
+{
+    Object.keys(tokens.size["border-width"]).map(borderTokenKey => {
+        return(<BorderDocBlock name={`--esnet-size-border-width-${borderTokenKey}`} value={tokens.size["border-width"][borderTokenKey].value || 0} />)
+    })
+}

@@ -1,0 +1,12 @@
+.datumList {
+    --column-count: 3;
+
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), 1fr);
+    gap: var(--esnet-size-spacing-medium);
+
+
+    > :last-child {
+        flex: 1;
+    }
+}

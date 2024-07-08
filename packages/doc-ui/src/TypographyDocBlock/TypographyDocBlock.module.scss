@@ -1,0 +1,22 @@
+@import "../styles/utils/rem";
+
+.typographyDocBlock {
+  --fontFamily: var(--font-roboto-flex);
+  --fontWeight: 500;
+  --fontSize: 16px;
+  --letterSpacing: 0px;
+  --lineHeight: 1.4em;
+
+  display: block;
+  padding: var(--esnet-size-spacing-xsmall);
+
+  .previewblock {
+    display: inline-block;
+    font-family: var(--fontFamily);
+    font-weight: var(--fontWeight);
+    font-size: var(--fontSize);
+    letter-spacing: var(--letterSpacing);
+    line-height: var(--lineHeight);
+  }
+}
+

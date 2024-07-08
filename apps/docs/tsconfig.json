@@ -1,8 +1,11 @@
 {
-  "extends": "@repo/typescript-config/storybook-app.json",
-  "compilerOptions": {
-    "plugins": [{ "name": "next" }]
-  },
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

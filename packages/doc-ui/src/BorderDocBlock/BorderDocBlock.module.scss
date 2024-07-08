@@ -1,0 +1,16 @@
+@import "../styles/utils/rem";
+
+.borderDocBlock {
+  --border-border: 3px;
+  display: block;
+  padding: var(--esnet-size-spacing-xsmall);
+
+  .previewblock {
+    display: block;
+    aspect-ratio: 1/1;
+    width: 32px;
+    background-color: var(--esnet-color-core-white-500);
+    border: var(--border-border) solid var(--esnet-color-light-primary);
+  }
+}
+

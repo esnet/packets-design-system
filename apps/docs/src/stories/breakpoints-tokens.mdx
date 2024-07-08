@@ -1,0 +1,26 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import { SpacingDocBlock, Datum, DatumList } from "doc-ui";
+
+<Meta title="Design Tokens/Breakpoints" />
+
+#### Design Tokens
+
+# Breakpoints
+
+For use for creating viewport specific logic and boundaries. It is highly recommended engineers use a mobile first approach.
+
+### Tokens
+
+{Object.keys(tokens.size.breakpoints.width).map((widthBreakpointKey) => {
+return (
+<>
+
+<Datum
+name={`--esnet-size-breakpoints-width-${widthBreakpointKey}`}
+value={tokens.size.breakpoints.width[widthBreakpointKey].value || 0}
+/>
+<br />
+</>
+);
+})}

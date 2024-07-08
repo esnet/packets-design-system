@@ -1,0 +1,28 @@
+@import "../styles/utils/rem";
+
+.radiusDocBlock {
+  --border-radius-preview: 16px;
+  display: block;
+  padding: var(--esnet-size-spacing-xsmall);
+
+  .previewblock {
+    display: block;
+    aspect-ratio: 1/1;
+    width: 32px;
+    background-color: var(--esnet-color-core-white-500);
+    border: 1px solid var(--esnet-color-light-primary);
+    border-radius: var(--border-radius-preview);
+  }
+}
+
+@keyframes indicatorPreview {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}

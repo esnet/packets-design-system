@@ -1,0 +1,48 @@
+@import "../styles/utils/rem";
+
+.durationDocBlock {
+  --duration: 1000ms;
+  display: block;
+  border-radius: var(--esnet-size-radius-medium);
+  transition: all var(--esnet-time-duration-medium) ease-in;
+  padding: var(--esnet-size-spacing-xsmall);
+
+  .previewAnimation {
+    flex: 1;
+  }
+
+  .preview {
+    margin-top: var(--esnet-size-spacing-xsmall);
+    background-color: var(--esnet-color-core-white-500);
+    height: 12px;
+    border-radius: var(--esnet-size-radius-large);
+    display: flex;
+    align-items: center;
+
+    .indicator {
+      height: var(--esnet-size-spacing-xsmall);
+      background-color: var(--esnet-color-core-orange-500);
+      border-radius: var(--esnet-size-radius-large);
+    }
+  }
+
+  &:hover {
+    background-color: var(--esnet-color-core-white-200);
+
+    .indicator {
+      animation: indicatorPreview var(--duration) linear 0ms infinite;
+    }
+  }
+}
+
+@keyframes indicatorPreview {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}

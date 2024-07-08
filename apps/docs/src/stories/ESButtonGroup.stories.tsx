@@ -1,9 +1,11 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESButtonGroup, ESButton } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESButtonGroup> = {
   title: "Components/ESButtonGroup",
   component: ESButtonGroup,
+  tags: ["autodocs"],
   argTypes: {
     labelCopy: {
       control: { type: "text" },

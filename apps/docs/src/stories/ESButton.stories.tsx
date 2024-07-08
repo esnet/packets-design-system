@@ -1,9 +1,12 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import { ESButton } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESButton> = {
   title: "Components/ESButton",
   component: ESButton,
+  tags: ["autodocs"],
   argTypes: {
     type: {
       control: { type: "radio" },
@@ -19,13 +22,15 @@ const meta: Meta<typeof ESButton> = {
     },
     disabled: {
       control: { type: "boolean" },
+      defaultValue: false,
     },
   },
+  args: { onClick: fn() },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ESButton>;
+type Story = StoryObj<typeof meta>;
 
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.

@@ -1,0 +1,17 @@
+@import "../styles/utils/rem";
+
+.datum {
+  min-width: toRem(225);
+
+  .label {
+    display: block;
+    font: var(--esnet-typography-label);
+    color: black;
+    font-weight: 700;
+  }
+
+  .value {
+    font: var(--esnet-typography-copy);
+    color: black;
+  }
+}
