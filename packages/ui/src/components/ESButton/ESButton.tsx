@@ -16,10 +16,13 @@ const ESButton = ({
   disabled = false,
   prepend = null,
   append = null,
+  isLink = false,
   ...other
 }: ESButtonProps): JSX.Element => {
+  const As = isLink ? "a" : "button";
+
   return (
-    <button
+    <As
       className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""}`}
       type="button"
       disabled={disabled}
@@ -28,7 +31,7 @@ const ESButton = ({
       <>{prepend}</>
       {children}
       <>{append}</>
-    </button>
+    </As>
   );
 };
 

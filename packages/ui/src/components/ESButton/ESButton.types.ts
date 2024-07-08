@@ -4,6 +4,7 @@ export interface ESButtonProps
   variant: "primary" | "secondary" | "branded" | "tertiary" | "destructive"; // Type of Button
   prepend?: React.ReactNode;
   append?: React.ReactNode;
+  isLink?: boolean;
   fill?: boolean;
   disabled?: boolean;
 }
