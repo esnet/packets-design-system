@@ -4,6 +4,9 @@
       "none": {
         "value": "0"
       },
+      "xxsmall": {
+        "value": "4"
+      },
       "xsmall": {
         "value": "8"
       },
@@ -14,9 +17,12 @@
         "value": "32"
       },
       "xlarge": {
-        "value": "64"
+        "value": "40"
       },
       "xxlarge": {
+        "value": "64"
+      },
+      "xxxlarge": {
         "value": "88"
       }
     }

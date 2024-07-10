@@ -24,6 +24,15 @@ const meta: Meta<typeof ESButton> = {
       control: { type: "boolean" },
       defaultValue: false,
     },
+    as: {
+      control: { type: "radio" },
+      options: ["button", "a"],
+      defaultValue: "button",
+    },
+    href: {
+      control: "text",
+      if: { arg: "as", eq: "a" },
+    },
   },
   args: { onClick: fn() },
 };
@@ -39,14 +48,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Defaultbutton: Story = {
   render: (props) => (
-    <ESButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
+    <ESButton {...props} variant={props.variant}>
       {props.children}
     </ESButton>
   ),
@@ -76,6 +78,18 @@ export const Primary: Story = {
     children: "Primary ESButton",
     type: "button",
     variant: "primary",
+  },
+};
+
+export const ButtonAsLinkTag: Story = {
+  render: (props) => <ESButton {...props}>{props.children}</ESButton>,
+  name: "Button As Link",
+  args: {
+    children: "Go to Google",
+    variant: "primary",
+    disabled: true,
+    href: "http://www.google.com",
+    as: "a",
   },
 };
 
