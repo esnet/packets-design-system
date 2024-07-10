@@ -1,0 +1,122 @@
+.alert {
+  --icon-size: var(--esnet-size-touchtarget-min, 32px);
+  --section-gap: var(--esnet-size-spacing-medium, 16px);
+  --typography-title-font-size: 21px;
+  --typography-title-kerning: -0.27px;
+  --typography-title-font-weight: 700;
+
+  border-radius: var(--esnet-size-radius-xlarge, 8px);
+  padding: var(--esnet-size-spacing-medium, 16px);
+  display: flex;
+  gap: var(--section-gap);
+  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+
+  animation: fadeInSlideUp 200ms ease-in-out;
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    background-color: var(--esnet-color-dark-surface-2, #f2f2f2);
+  }
+
+  .icon {
+    display: block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .title {
+    margin: 0;
+
+    font-family: "Signika";
+    font-size: var(--typography-title-font-size, 16px);
+    font-style: normal;
+    font-weight: var(--typography-title-font-weight, 700);
+    line-height: normal;
+    letter-spacing: var(--typography-title-kerning, -0.27px);
+    text-decoration: none;
+  }
+
+  &.error {
+    background-color: var(--esnet-color-light-error, #d61200);
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+  }
+
+  &.warning {
+    background-color: var(--esnet-color-light-warning, #cc9e16);
+
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--esnet-color-dark-warning, #cc9e16);
+    }
+  }
+
+  &.success {
+    background-color: var(--esnet-color-light-success, #0e8a0e);
+
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    label,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--esnet-color-dark-success, #0e8a0e);
+    }
+  }
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    translate: 0 var(--esnet-size-spacing-medium, 16px);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

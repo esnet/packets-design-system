@@ -40,7 +40,7 @@
       },
       "error": {
         "type": "color",
-        "value": "{color.core.orange.600.value}"
+        "value": "{color.core.red.600.value}"
       }
     }
   }

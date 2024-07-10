@@ -7,3 +7,4 @@ export {
 export { default as ESButton } from "./ESButton";
 export { default as ESButtonGroup } from "./ESButtonGroup";
 export { default as ESIconButton } from "./ESIconButton";
+export { default as ESAlert } from "./ESAlert";
