@@ -3,7 +3,6 @@ import { ESButtonDefaultAsType, ESButtonProps } from "./ESButton.types";
 // @ts-ignore
 import styles from "./ESButton.module.css";
 
-
 /**
  * Button - An extension of a HTML button that comes with different levels of action/intent.
  *

@@ -48,10 +48,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Defaultbutton: Story = {
   render: (props) => (
-    <ESButton
-      {...props}
-      variant={props.variant}
-    >
+    <ESButton {...props} variant={props.variant}>
       {props.children}
     </ESButton>
   ),
