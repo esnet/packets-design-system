@@ -36,3 +36,12 @@ it("Branded matches DOM Snapshot", () => {
   const domTree = render(<ESButton variant={"branded"}>Hello World</ESButton>);
   expect(domTree).toMatchSnapshot();
 });
+
+it("Button as LInk matches DOM Snapshot", () => {
+  const domTree = render(
+    <ESButton as="a" href="http://www.google.com" variant={"primary"}>
+      Go to Google
+    </ESButton>,
+  );
+  expect(domTree).toMatchSnapshot();
+});

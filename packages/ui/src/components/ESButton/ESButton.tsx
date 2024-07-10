@@ -1,4 +1,4 @@
-import { ESButtonProps } from "./ESButton.types";
+import { ESButtonDefaultAsType, ESButtonProps } from "./ESButton.types";
 
 // @ts-ignore
 import styles from "./ESButton.module.css";
@@ -9,17 +9,20 @@ import styles from "./ESButton.module.css";
  * @param {ESButtonProps} props
  * @returns {JSX.Element}
  */
-const ESButton = ({
+const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
   variant = "secondary",
   children = "",
   fill = true,
   disabled = false,
   prepend = null,
+  as,
   append = null,
   ...other
-}: ESButtonProps): JSX.Element => {
+}: ESButtonProps<E>): JSX.Element => {
+  const Tag = as || ESButtonDefaultAsType;
+
   return (
-    <button
+    <Tag
       className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""}`}
       type="button"
       disabled={disabled}
@@ -28,7 +31,7 @@ const ESButton = ({
       <>{prepend}</>
       {children}
       <>{append}</>
-    </button>
+    </Tag>
   );
 };
 
