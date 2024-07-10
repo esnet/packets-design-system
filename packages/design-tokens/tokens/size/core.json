@@ -25,6 +25,9 @@
       "xxxlarge": {
         "value": "88"
       }
+    },
+    "touchtarget-min": {
+      "value": "32"
     }
   }
 }
