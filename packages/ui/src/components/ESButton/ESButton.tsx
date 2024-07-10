@@ -1,7 +1,8 @@
-import { ESButtonProps } from "./ESButton.types";
+import { ESButtonDefaultAsType, ESButtonProps } from "./ESButton.types";
 
 // @ts-ignore
 import styles from "./ESButton.module.css";
+
 
 /**
  * Button - An extension of a HTML button that comes with different levels of action/intent.
@@ -9,20 +10,20 @@ import styles from "./ESButton.module.css";
  * @param {ESButtonProps} props
  * @returns {JSX.Element}
  */
-const ESButton = ({
+const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
   variant = "secondary",
   children = "",
   fill = true,
   disabled = false,
   prepend = null,
+  as,
   append = null,
-  isLink = false,
   ...other
-}: ESButtonProps): JSX.Element => {
-  const As = isLink ? "a" : "button";
+}: ESButtonProps<E>): JSX.Element => {
+  const Tag = as || ESButtonDefaultAsType;
 
   return (
-    <As
+    <Tag
       className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""}`}
       type="button"
       disabled={disabled}
@@ -31,7 +32,7 @@ const ESButton = ({
       <>{prepend}</>
       {children}
       <>{append}</>
-    </As>
+    </Tag>
   );
 };
 
