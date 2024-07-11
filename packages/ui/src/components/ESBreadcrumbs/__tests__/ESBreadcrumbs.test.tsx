@@ -8,11 +8,11 @@ test("It renders without crashing", () => {
         {
           href: "http://www.es.net",
           target: "_blank",
-          copy: "www.es.net",
+          children: "www.es.net",
         },
         {
           href: "/?path=/docs/getting-started--docs",
-          copy: "Getting Started",
+          children: "Getting Started",
         },
       ]}
     />,
@@ -27,11 +27,11 @@ it("It renders a DOM Snapshot", () => {
         {
           href: "http://www.es.net",
           target: "_blank",
-          copy: "www.es.net",
+          children: "www.es.net",
         },
         {
           href: "/?path=/docs/getting-started--docs",
-          copy: "Getting Started",
+          children: "Getting Started",
         },
       ]}
     />,

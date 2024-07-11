@@ -1,11 +1,7 @@
-export interface BreadCrumbType {
-  href: string;
-  copy: string;
-  target?: string;
-}
+import { LinkType } from "../../lib/types";
 
 export interface BreadcrumbsProps {
-  breadcrumbs: BreadCrumbType[];
+  breadcrumbs: LinkType[];
   // eslint-disable-next-line no-unused-vars
-  renderLink?: (breadcrumb: BreadCrumbType) => React.ReactNode;
+  renderLink?: (breadcrumb: LinkType) => React.ReactNode;
 }

@@ -23,7 +23,7 @@ exports[`It renders a DOM Snapshot 1`] = `
         >
           <a
             href="/?path=/docs/getting-started--docs"
-            target="_self"
+            target="_top"
           >
             Getting Started
           </a>
@@ -50,7 +50,7 @@ exports[`It renders a DOM Snapshot 1`] = `
       >
         <a
           href="/?path=/docs/getting-started--docs"
-          target="_self"
+          target="_top"
         >
           Getting Started
         </a>
