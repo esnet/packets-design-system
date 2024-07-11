@@ -4,7 +4,10 @@ import { ESIconButtonProps } from "./ESIconButton.types";
 import styles from "./ESIconButton.module.css";
 
 /**
- * Button - An extension of a HTML button that comes with different levels of action/intent.
+ * ES Icon Button
+ *
+ * Generic Icon only button component.
+ * Can be a link or a button set with the "As" prop
  *
  * @param {ESIconButtonProps} props
  * @returns {JSX.Element}
