@@ -1,0 +1,33 @@
+.datum {
+  .label {
+    display: block;
+    color: var(--esnet-color-light-copy-alt, #a8a8a8);
+
+    font-family: "Source Sans 3";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.18px;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--esnet-color-dark-copy-alt, #a8a8a8);
+    }
+  }
+
+  .value {
+    font: var(--esnet-typography-body-1);
+    color: var(--esnet-color-light-copy, #3d3d3d);
+
+    font-family: "Source Sans 3";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.3px;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+  }
+}
