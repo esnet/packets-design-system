@@ -9,7 +9,7 @@ import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
 /**
  * ESFormSection Component
  *
- * A name value pair visualization
+ * A section wrapper for inputs that are related to each other in a form.
  *
  * @param {ESFormSectionProps} props
  * @returns {React.FunctionComponent} - Icon Component

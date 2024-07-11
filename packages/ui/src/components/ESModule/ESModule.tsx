@@ -7,7 +7,7 @@ import styles from "./ESModule.module.css";
 /**
  * ESModule Component
  *
- * A name value pair visualization
+ * A generic section component that can optionally add a surface.
  *
  * @param {ESModuleProps} props
  * @returns {React.FunctionComponent} - Icon Component
