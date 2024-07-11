@@ -80,7 +80,7 @@
     }
 
     /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       border-color: var(--esnet-color-core-teal-900, #0a4854);
       background-color: var(--esnet-color-core-blue-600, #0088b5);
     }
@@ -108,7 +108,7 @@
     }
 
     /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       color: var(--esnet-color-dark-copy, #e6e6e6);
       border: var(--esnet-size-border-width-small, 2px) solid
         var(--esnet-color-dark-primary, #64d2ff);
@@ -189,7 +189,7 @@
     }
 
     /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       color: var(--esnet-color-dark-copy, #e6e6e6);
 
       &:hover,

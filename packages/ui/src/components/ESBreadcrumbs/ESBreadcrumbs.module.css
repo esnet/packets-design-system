@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   margin-bottom: var(--esnet-size-spacing-medium);
 
-  @media (prefers-color-scheme: dark) {
+  :global(.dark) & {
     --divider-color: var(--esnet-color-core-white-800, #b3b3b3);
     --link-color: var(--esnet-color-dark-copy, #e6e6e6);
   }

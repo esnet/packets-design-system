@@ -10,7 +10,7 @@
     line-height: normal;
     letter-spacing: -0.18px;
 
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       color: var(--esnet-color-dark-copy-alt, #a8a8a8);
     }
   }
@@ -26,7 +26,7 @@
     line-height: normal;
     letter-spacing: -0.3px;
 
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
   }

@@ -13,7 +13,7 @@
 
   animation: fadeInSlideUp 200ms ease-in-out;
 
-  @media (prefers-color-scheme: dark) {
+  :global(.dark) & {
     color: var(--esnet-color-dark-copy, #e6e6e6);
 
     label,
@@ -80,7 +80,7 @@
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
 
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       background-color: var(--esnet-color-dark-warning, #cc9e16);
     }
   }
@@ -101,7 +101,7 @@
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
 
-    @media (prefers-color-scheme: dark) {
+    :global(.dark) & {
       background-color: var(--esnet-color-dark-success, #0e8a0e);
     }
   }
