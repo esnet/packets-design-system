@@ -1,0 +1,16 @@
+.esModule {
+  padding: 0 var(--esnet-size-spacing-medium, 16px);
+
+  @media (min-width: 640px) {
+    padding: 0 var(--esnet-size-spacing-xlarge, 40px);
+  }
+
+  &:global(.surface) {
+    border-radius: var(--esnet-size-spacing-xsmall);
+    padding: var(--esnet-size-spacing-medium, 16px);
+
+    @media (min-width: 640px) {
+      padding: var(--esnet-size-spacing-xlarge, 40px);
+    }
+  }
+}

@@ -12,3 +12,4 @@ export { default as ESCommaSeperatedList } from "./ESCommaSeperatedList";
 export { default as ESDatum } from "./ESDatum";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESFormSection } from "./ESFormSection";
+export { default as ESModule } from "./ESModule";
