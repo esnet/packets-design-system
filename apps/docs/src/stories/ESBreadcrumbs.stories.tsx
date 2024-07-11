@@ -30,15 +30,15 @@ export const DefaultBreadcrumbs: Story = {
     breadcrumbs: [
       {
         href: "/",
-        copy: "Home",
+        children: "Home",
       },
       {
         href: "/circuits",
-        copy: "Circuits",
+        children: "Circuits",
       },
       {
         href: "/circuits/THX-1138",
-        copy: "THX-1138",
+        children: "THX-1138",
       },
     ],
   },
@@ -52,12 +52,12 @@ export const ExternalLinksBreadcrumbs: Story = {
       {
         href: "http://www.es.net",
         target: "_blank",
-        copy: "www.es.net",
+        children: "www.es.net",
       },
       {
         href: "https://fasterdata.es.net/",
         target: "_blank",
-        copy: "Faster Data",
+        children: "Faster Data",
       },
     ],
   },
