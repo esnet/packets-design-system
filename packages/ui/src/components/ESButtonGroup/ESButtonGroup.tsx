@@ -4,7 +4,10 @@ import { ESButtonGroupProps } from "./ESButtonGroup.types";
 import styles from "./ESButtonGroup.module.css";
 
 /**
- * Button - An extension of a HTML button that comes with different levels of action/intent.
+ * ES Button Group
+ *
+ * A compositional component that takes in one or more buttons and
+ * regulates its layout across responsive screens.
  *
  * @param {ESButtonGroupProps} props
  * @returns {JSX.Element}

@@ -6,10 +6,12 @@ import { getAlertIconByType } from "./ESAlertUtils";
 import styles from "./ESAlert.module.css";
 
 /**
- * Button - An extension of a HTML button that comes with different levels of action/intent.
+ * ESAlert Component
  *
- * @param {ESButtonGroupProps} props
- * @returns {JSX.Element}
+ * Display message with alert level styling
+ *
+ * @param {ESAlertProps} props
+ * @returns {React.FunctionComponent} - Icon Component
  */
 const ESAlert: FC<ESAlertProps> = ({
   title,
