@@ -1,0 +1,46 @@
+.breadCrumbs {
+  --divider-color: var(--esnet-color-core-black-500, #4d4d4f);
+  --link-color: var(--esnet-color-light-copy, #3d3d3d);
+
+  display: flex;
+  gap: var(--esnet-size-spacing-xsmall);
+  flex-wrap: wrap;
+  margin-bottom: var(--esnet-size-spacing-medium);
+
+  @media (prefers-color-scheme: dark) {
+    --divider-color: var(--esnet-color-core-white-800, #b3b3b3);
+    --link-color: var(--esnet-color-dark-copy, #e6e6e6);
+  }
+
+  .breadCrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--esnet-size-spacing-xsmall);
+
+    > a {
+      color: var(--link-color) !important;
+      padding-bottom: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &::after {
+      content: "/";
+      display: inline-block;
+      color: var(--divider-color);
+
+      font-family: "Source Sans 3";
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.18px;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}

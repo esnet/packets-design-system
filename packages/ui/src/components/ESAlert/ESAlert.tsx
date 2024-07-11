@@ -9,7 +9,7 @@ import styles from "./ESAlert.module.css";
  * ESAlert Component
  *
  * Display message with alert level styling
- * 
+ *
  * @param {ESAlertProps} props
  * @returns {React.FunctionComponent} - Icon Component
  */

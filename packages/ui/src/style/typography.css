@@ -25,7 +25,7 @@ h6 {
   }
 }
 
-p {
+p, a {
   display: inline-block;
   width: 100%;
   margin: 0;
