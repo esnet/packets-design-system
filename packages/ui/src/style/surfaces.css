@@ -5,9 +5,10 @@ body,
   :global(.dark) & {
     background-color: var(--esnet-color-dark-background, #19191a);
   }
+}
 
+.packets {
   /* dark/light overide classes */
-
   &.light {
     background-color: var(--esnet-color-light-background, #cccccc) !important;
   }
