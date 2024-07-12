@@ -6,6 +6,7 @@ import RadiusDocBlock from "./RadiusDocBlock";
 import ShadowDocBlock from "./ShadowDocBlock";
 import SpacingDocBlock from "./SpacingDocBlock";
 import TypographyDocBlock from "./TypographyDocBlock";
+import SpacingDocSquare from "./SpacingDocSquare";
 
 export {
   BorderDocBlock,
@@ -16,4 +17,5 @@ export {
   ShadowDocBlock,
   SpacingDocBlock,
   TypographyDocBlock,
+  SpacingDocSquare,
 };

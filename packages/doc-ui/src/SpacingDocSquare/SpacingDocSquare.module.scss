@@ -1,0 +1,18 @@
+.square {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: var(--esnet-color-light-surface-1, #e3e3e3);
+  border-left: var(--esnet-size-border-xsmall) solid
+    var(--esnet-color-light-primary);
+  border-right: var(--esnet-size-border-xsmall) solid
+    var(--esnet-color-light-primary);
+
+  .dark & {
+    background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+  }
+
+  &.fill {
+    width: 100%;
+  }
+}
