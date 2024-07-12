@@ -6,7 +6,7 @@ import styles from "./ESSkeletonChip.module.css";
 /**
  * ESSkeletonChip Component
  *
- * A name value pair visualization
+ * Visual representation of a Pill/Chip loading.
  *
  * @param {ESSkeletonChipProps} props
  * @returns {React.FunctionComponent}

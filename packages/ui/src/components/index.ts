@@ -14,3 +14,5 @@ export { default as ESIconButton } from "./ESIconButton";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESModule } from "./ESModule";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
+export { default as ESSpacer } from "./ESSpacer";
+
