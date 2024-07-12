@@ -18,3 +18,4 @@ export { default as ESSpacer } from "./ESSpacer";
 export { default as ESSpinner } from "./ESSpinner";
 export { default as ESTableOfContents } from "./ESTableOfContents";
 export { ESTab, ESTabs } from "./ESTabs";
+export { default as ESTitleSection } from "./ESTitleSection";
