@@ -15,4 +15,4 @@ export { default as ESFormSection } from "./ESFormSection";
 export { default as ESModule } from "./ESModule";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
 export { default as ESSpacer } from "./ESSpacer";
-
+export { default as ESSpinner } from "./ESSpinner";
