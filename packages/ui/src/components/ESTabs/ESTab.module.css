@@ -1,0 +1,36 @@
+.tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xxsmall, 4px);
+
+  min-width: var(--esnet-size-spacing-xxlarge, 64px);
+  min-height: var(--esnet-size-spacing-large, 32px);
+
+  border-radius: var(--esnet-size-spacing-xsmall);
+  transition: background ease-in 100ms;
+
+  &.isActive {
+    background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+    }
+  }
+
+  &:hover {
+    background-color: rgba(256, 256, 256, 0.4);
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    padding: var(--esnet-size-spacing-xsmall, 8px)
+      var(--esnet-size-spacing-medium, 16px);
+
+    text-decoration: none;
+  }
+}
