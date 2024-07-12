@@ -10,7 +10,7 @@ import styles from "./ESIconButton.module.css";
  * Can be a link or a button set with the "As" prop
  *
  * @param {ESIconButtonProps} props
- * @returns {JSX.Element}
+ * @returns {React.FunctionComponent}
  */
 const ESIconButton = ({
   variant = "secondary",

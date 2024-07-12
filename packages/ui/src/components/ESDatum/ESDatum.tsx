@@ -10,7 +10,7 @@ import styles from "./ESDatum.module.css";
  * A name value pair visualization
  *
  * @param {ESDatumProps} props
- * @returns {React.FunctionComponent} - Icon Component
+ * @returns {React.FunctionComponent}
  */
 const ESDatum: FC<ESDatumProps> = ({ title = "", children }) => {
   return (

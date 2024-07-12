@@ -12,7 +12,7 @@ import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
  * A section wrapper for inputs that are related to each other in a form.
  *
  * @param {ESFormSectionProps} props
- * @returns {React.FunctionComponent} - Icon Component
+ * @returns {React.FunctionComponent}
  */
 const ESFormSection: FC<ESFormSectionProps> = ({
   title = "",

@@ -11,7 +11,7 @@ import styles from "./ESAlert.module.css";
  * Display message with alert level styling
  *
  * @param {ESAlertProps} props
- * @returns {React.FunctionComponent} - Icon Component
+ * @returns {React.FunctionComponent}
  */
 const ESAlert: FC<ESAlertProps> = ({
   title,

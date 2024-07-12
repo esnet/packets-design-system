@@ -13,7 +13,7 @@ import styles from "./ESBreadcrumbs.module.css";
  * and returns a bread crumbs formatted component.
  *
  * @param {BreadcrumbsProps} props
- * @returns {JSX.Element}
+ * @returns {React.FunctionComponent}
  */
 const ESBreadcrumbs: FC<BreadcrumbsProps> = ({
   breadcrumbs = [],
