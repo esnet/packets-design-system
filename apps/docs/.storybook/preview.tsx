@@ -5,6 +5,11 @@ import "@esnet/packets-ui/style.css";
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['About', 'Design Tokens', 'Components'],
+      },
+    },
     backgrounds: { disable: true },
     controls: {
       matchers: {
@@ -19,14 +24,14 @@ const preview: Preview = {
         ...themes.dark,
         brandTitle: "Packets Design System",
         brandImage: "/imgs/packetslogo.dark.png",
-        brandTarget: "_self",
+        brandTarget: "/?path=/docs/getting-started--docs",
       },
       // Override the default light theme
       light: {
         ...themes.normal,
         brandTitle: "Packets Design System",
         brandImage: "/imgs/packetslogo.light.png",
-        brandTarget: "_self",
+        brandTarget: "/?path=/docs/getting-started--docs",
       },
     },
   },
