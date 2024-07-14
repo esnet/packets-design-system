@@ -2,7 +2,40 @@ image: node:latest
 
 stages:
   - test
+  - build
   - publish
+
+include:
+  - project: "security/container-scanning"
+    file: ".ESnet-container-scan.yml"
+
+.wharf_logout: &wharf_logout |-
+  docker logout "$WHARF_SITE"
+
+.wharf_login: &wharf_login |-
+  echo "$WHARF_TOKEN" | docker login -u "$WHARF_USER" "$WHARF_SITE" --password-stdin
+
+.docker_login: &docker_login |-
+  docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+.build:
+  stage: build
+  script:
+    - *docker_login
+    - docker build -f Dockerfile . -t ${IMAGE_TAG}
+    - docker push $IMAGE_TAG
+
+.push:
+  stage: push
+  before_script:
+    - *docker_login
+    - *wharf_login
+  after_script:
+    - *wharf_logout
+  script:
+    - docker pull ${IMAGE_TAG}
+    - docker tag ${IMAGE_TAG} ${IMAGE_PREFIX}:${PUBLISH_TAG}
+    - docker push ${IMAGE_PREFIX}:${PUBLISH_TAG}
 
 test:
   stage: test
@@ -21,6 +54,18 @@ test:
         - pnpm-lock.yaml
     paths:
       - .pnpm-store
+
+build_image:
+  extends: .build
+  variables:
+    IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
+
+publish_backend_with_pipeline_id:
+  extends: .push
+  variables:
+    IMAGE_PREFIX: $WHARF_SITE/$WHARF_PROJECT
+    IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
+    PUBLISH_TAG: $CI_PIPELINE_ID
 
 publish:
   stage: publish
