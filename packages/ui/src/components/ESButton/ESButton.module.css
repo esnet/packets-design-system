@@ -2,9 +2,9 @@
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-medium, 16px);
 
   --spacing-height-xsmall: var(--esnet-size-spacing-xsmall, 8px);
-  --spacing-height-small: var(--esnet-size-spacing-medium, 16px);
-  --spacing-height-large: var(--esnet-size-spacing-xlarge, 40px);
-  --spacing-height-xlarge: var(--esnet-size-spacing-xxlarge, 64px);
+  --spacing-height-medium: var(--esnet-size-spacing-medium, 16px);
+  --spacing-height-xlarge: var(--esnet-size-spacing-xlarge, 40px);
+  --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
 
   --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
   --spacing-padding-vertical: var(--esnet-size-spacing-xxsmall, 4px);
