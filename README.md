@@ -35,3 +35,11 @@ Packets is a design system created as a cross organizational collaboration at ES
   rel="stylesheet"
 />
 ```
+
+# Running the system locally
+
+1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
+2. Run `pnpm i` on the root of the project.
+3. Run `pnpm run dev` to start the local watch build and storybook.
+4. Access storybook in at [http://localhost:6006/](http://localhost:6006/).
+5. Components and be access and edits in the `src/packages/ui` directory.
