@@ -1,86 +1,39 @@
-# Turborepo starter with Rollup
+![Packets Design System](apps/docs/public/imgs/packetslogo.light.lrg.png "Packets Design System")
 
-This is an official starter Turborepo, showing how Turborepo can be used with Rollup for bundling a `ui` package.
+# Packets Design System
 
-## Using this example
+Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
 
-Run the following command:
+## Getting Started
 
-```sh
-npx create-turbo@latest -e with-rollup
-```
+# Getting Started
 
-## How to add packages
+    Packets is currently only available to ESnet employees and is not open source. The monorepo can be found [here in our Gitlab instance](https://gitlab.es.net/esnet/packets-design-system).
 
-```
-  pnpm add postcss-import --save-dev --recursive --filter=@esnet/packets-ui
-```
+    # Adding the NPM packages to your project.
 
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `web`: a [Next.js](https://nextjs.org) app
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-- `@esnet/packets-ui`: a React component library used by the `web` application, compiled with Rollup
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+    1. Setup or get a Gitlab token so you can access our private Gitlab NPM registry. At the time of this writing you can use a personal token.
+    2. Add a `.npmrc` file to the root of your project.
+    3. Add the following code:
 
 ```
-cd my-turborepo
-pnpm run build
+@esnet:registry=https://gitlab.es.net/api/v4/projects/898/packages/npm/
+//gitlab.es.net/api/v4/projects/898/packages/npm/:_authToken=YOUR_TOKEN_HERE
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+    4. Run <br />
+    `npm i @esnet/esnet-tokens @esnet/packets-ui`, <br />
+    `pnpm i @esnet/esnet-tokens @esnet/packets-ui`, or <br />
+    `yarn add @esnet/esnet-tokens @esnet/packets-ui`
+    5. Add the `packets-ui` class to the body or root level tag of your project.
+    6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
+    7. Add the following to your header element to fetch our fonts from Google's CDN
 
 ```
-cd my-turborepo
-npx turbo login
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+  rel="stylesheet"
+/>
 ```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
