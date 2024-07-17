@@ -11,8 +11,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "lint": "eslint",
-    "prepublishOnly": "npm run build"
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
