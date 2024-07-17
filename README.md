@@ -1,10 +1,8 @@
-![Packets Design System](apps/docs/public/imgs/packetslogo.light.lrg.png "Packets Design System")
+![Packets Design System](apps/docs/public/imgs/packetslogo.neutral.png "Packets Design System")
 
 # Packets Design System
 
 Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
-
-## Getting Started
 
 # Getting Started
 
