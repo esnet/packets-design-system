@@ -1,4 +1,5 @@
-.button {
+.button,
+a.button {
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-medium, 16px);
 
   --spacing-height-xsmall: var(--esnet-size-spacing-xsmall, 8px);
