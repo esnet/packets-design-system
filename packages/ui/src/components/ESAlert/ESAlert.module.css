@@ -1,9 +1,10 @@
 .alert {
   --icon-size: var(--esnet-size-touchtarget-min, 32px);
   --section-gap: var(--esnet-size-spacing-medium, 16px);
-  --typography-title-font-size: 21px;
-  --typography-title-kerning: -0.27px;
-  --typography-title-font-weight: 700;
+  --title-label-font: var(
+    --esnet-typography-header-5-sans-font,
+    600 20px/140% var(--esnet-font-family-header-sans)
+  );
 
   border-radius: var(--esnet-size-radius-xlarge, 8px);
   padding: var(--esnet-size-spacing-medium, 16px);
@@ -39,12 +40,8 @@
   .title {
     margin: 0;
 
-    font-family: "Signika";
-    font-size: var(--typography-title-font-size, 16px);
-    font-style: normal;
-    font-weight: var(--typography-title-font-weight, 700);
-    line-height: normal;
-    letter-spacing: var(--typography-title-kerning, -0.27px);
+    font: var(--title-label-font);
+
     text-decoration: none;
   }
 

@@ -1,14 +1,19 @@
 .datum {
+  --label-font: var(
+    --esnet-typography-label-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans)
+  );
+  --label-letterspace: var(
+    --esnet-typography-label-2-sans-letterspacing,
+    -0.18px
+  );
+
   .label {
     display: block;
     color: var(--esnet-color-light-copy-alt, #a8a8a8);
 
-    font-family: "Source Sans 3";
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.18px;
+    font: var(--label-font);
+    letter-spacing: var(--label-letterspace);
 
     :global(.dark) & {
       color: var(--esnet-color-dark-copy-alt, #a8a8a8);
@@ -16,7 +21,10 @@
   }
 
   .value {
-    font: var(--esnet-typography-body-1);
+    font: var(
+      --esnet-typography-copy-1-sans-font,
+      400 16px/120% var(--esnet-font-family-body-sans)
+    );
     color: var(--esnet-color-light-copy, #3d3d3d);
 
     font-family: "Source Sans 3";

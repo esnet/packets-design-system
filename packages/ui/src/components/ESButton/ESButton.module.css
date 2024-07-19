@@ -2,7 +2,7 @@
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-medium, 16px);
 
   --spacing-height-xsmall: var(--esnet-size-spacing-xsmall, 8px);
-  --spacing-height-medium: var(--esnet-size-spacing-medium, 16px);
+  --spacing-height-medium: var(--esnet-size-spacing-medium, 22px);
   --spacing-height-xlarge: var(--esnet-size-spacing-xlarge, 40px);
   --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
 
@@ -12,9 +12,10 @@
   --spacing-border-radius: var(--esnet-size-radius-xxlarge, 18px);
   --spacing-border-width: var(--esnet-size-radius-small, 2px);
 
-  --typography-font-size: 16px;
-  --typography-font-weight: 600;
-  --typography-kerning: -0.27px;
+  --typography-font: var(
+    --esnet-typography-button-1-sans-font,
+    700 16px/120% var(--esnet-font-family-body-sans)
+  );
 
   /* Layout */
   display: inline-flex;
@@ -36,12 +37,10 @@
   /* Typography */
   color: var(--esnet-color-core-slate-900, #3f424d);
   text-align: center;
-  font-family: "Signika";
-  font-size: var(--typography-font-size);
-  font-style: normal;
-  font-weight: 700;
+
+  font: var(--typography-font);
+
   line-height: normal;
-  letter-spacing: var(--typography-kerning);
   text-decoration: none;
 
   transition:
@@ -145,6 +144,15 @@
   }
 
   &.branded {
+    box-sizing: border-box;
+
+    font: var(
+      --esnet-typography-button-1-display-font,
+      700 16px/100% var(--esnet-font-family-body-display)
+    );
+
+    line-height: 100%;
+
     --bg-graident-1: var(--esnet-color-core-blue-400, #00b6f2);
     --bg-graident-2: var(--esnet-color-core-blue-600, #0088b5);
 

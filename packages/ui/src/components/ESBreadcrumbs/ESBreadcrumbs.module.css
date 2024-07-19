@@ -31,12 +31,10 @@
       display: inline-block;
       color: var(--divider-color);
 
-      font-family: "Source Sans 3";
-      font-size: 0.75rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: -0.18px;
+      font: var(
+        --esnet-typography-label-2-sans-font,
+        700 12px/120% var(--esnet-font-family-body-sans)
+      );
     }
 
     &:last-child::after {

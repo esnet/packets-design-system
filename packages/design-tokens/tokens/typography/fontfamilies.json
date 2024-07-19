@@ -21,6 +21,9 @@
         },
         "mono": {
           "value": "\"Source Code Pro\""
+        },
+        "display": {
+          "value": "\"Signika\""
         }
       }
     }
