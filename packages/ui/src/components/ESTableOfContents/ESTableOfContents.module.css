@@ -1,16 +1,6 @@
 .tableOfContents {
   margin: 0 var(--esnet-size-spacing-large) var(--esnet-size-spacing-medium);
 
-  .title {
-    font-family: "Signika";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: var(--typography-kerning);
-    text-decoration: none;
-  }
-
   .list {
     list-style: none;
     margin: var(--esnet-size-spacing-xsmall, 12px) 0 0;
