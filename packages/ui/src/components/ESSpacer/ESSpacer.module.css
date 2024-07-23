@@ -1,0 +1,18 @@
+.spacer {
+  --size: var(--esnet-size-spacing-none);
+
+  border: none;
+
+  &.vertical {
+    height: var(--size);
+  }
+
+  &.horizontal {
+    width: var(--size);
+  }
+
+  &.square {
+    aspect-ratio: 1/1;
+    width: var(--size);
+  }
+}

@@ -7,7 +7,7 @@ import styles from "./ESButton.module.css";
  * Button - An extension of a HTML button that comes with different levels of action/intent.
  *
  * @param {ESButtonProps} props
- * @returns {JSX.Element}
+ * @returns {React.FunctionComponent}
  */
 const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
   variant = "secondary",

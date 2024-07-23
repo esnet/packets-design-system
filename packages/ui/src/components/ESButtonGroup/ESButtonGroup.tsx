@@ -10,7 +10,7 @@ import styles from "./ESButtonGroup.module.css";
  * regulates its layout across responsive screens.
  *
  * @param {ESButtonGroupProps} props
- * @returns {JSX.Element}
+ * @returns {React.FunctionComponent}
  */
 const ESButtonGroup = ({
   children,

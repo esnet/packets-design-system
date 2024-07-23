@@ -10,7 +10,7 @@ import styles from "./ESModule.module.css";
  * A generic section component that can optionally add a surface.
  *
  * @param {ESModuleProps} props
- * @returns {React.FunctionComponent} - Icon Component
+ * @returns {React.FunctionComponent}
  */
 const ESModule: FC<ESModuleProps> = ({
   className,

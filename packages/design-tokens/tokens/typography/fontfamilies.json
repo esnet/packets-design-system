@@ -3,24 +3,27 @@
     "family": {
       "header": {
         "display": {
-          "value": "Exo 2"
+          "value": "\"Signika\""
         },
         "mono": {
-          "value": "Martian Mono"
+          "value": "\"Source Code Pro\""
         },
         "sans": {
-          "value": "Noto Sans"
+          "value": "\"Source Sans 3\""
         },
         "serif": {
-          "value": "Zilla Slab"
+          "value": "\"Zilla Slab\""
         }
       },
       "body": {
         "sans": {
-          "value": "Noto Sans"
+          "value": "\"Source Sans 3\""
         },
         "mono": {
-          "value": "Martian Mono"
+          "value": "\"Source Code Pro\""
+        },
+        "display": {
+          "value": "\"Signika\""
         }
       }
     }

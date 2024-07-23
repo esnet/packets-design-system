@@ -1,5 +1,0 @@
-$html-font-size: 16;
-
-@function toRem($value) {
-  @return $value / $html-font-size + rem;
-}

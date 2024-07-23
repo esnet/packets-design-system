@@ -12,7 +12,7 @@ import { defaultItemRender } from "./ESCommaSeperatedListUtils";
  * expect for the last one
  *
  * @param {ESCommaSeperatedListType} props
- * @returns {React.FunctionComponent} - Icon Component
+ * @returns {React.FunctionComponent}
  */
 const ESCommaSeperatedList = <T extends {}>({
   items,

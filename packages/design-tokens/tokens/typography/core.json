@@ -190,6 +190,109 @@
           }
         }
       }
+    },
+    "copy": {
+      "1": {
+        "sans": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.sans.value}",
+              "fontWeight": "400",
+              "fontSize": "16px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          }
+        },
+        "mono": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.mono.value}",
+              "fontWeight": "400",
+              "fontSize": "16px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          }
+        }
+      }
+    },
+    "button": {
+      "1": {
+        "display": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.display.value}",
+              "fontWeight": "400",
+              "fontSize": "16px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "-1.5%"
+          }
+        },
+        "sans": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.sans.value}",
+              "fontWeight": "700",
+              "fontSize": "16px",
+              "lineHeight": "100%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "-1.5%"
+          }
+        }
+      }
+    },
+    "label": {
+      "1": {
+        "sans": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.sans.value}",
+              "fontWeight": "400",
+              "fontSize": "12px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "-0.18px"
+          }
+        },
+        "mono": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.mono.value}",
+              "fontWeight": "400",
+              "fontSize": "12px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          }
+        }
+      },
+      "2": {
+        "sans": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.sans.value}",
+              "fontWeight": "700",
+              "fontSize": "12px",
+              "lineHeight": "120%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "-0.18px"
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,4 @@
+.sortIcon {
+  display: inline-block;
+  width: var(--esnet-size-spacing-medium);
+}
