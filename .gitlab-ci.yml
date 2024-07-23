@@ -3,6 +3,7 @@ image: node:latest
 stages:
   - test
   - build
+  - push
   - publish
 
 include:
