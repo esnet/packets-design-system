@@ -35,7 +35,9 @@ include:
   script:
     - docker pull ${IMAGE_TAG}
     - docker tag ${IMAGE_TAG} ${IMAGE_PREFIX}:${PUBLISH_TAG}
+    - docker tag ${IMAGE_TAG} ${IMAGE_PREFIX}:latest
     - docker push ${IMAGE_PREFIX}:${PUBLISH_TAG}
+    - docker push ${IMAGE_PREFIX}:latest
 
 test:
   stage: test
@@ -63,7 +65,7 @@ build_image:
 publish_backend_with_pipeline_id:
   extends: .push
   variables:
-    IMAGE_PREFIX: $WHARF_SITE/$WHARF_PROJECT
+    IMAGE_PREFIX: $WHARF_SITE/$WHARF_PROJECT/packets-design-system
     IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
     PUBLISH_TAG: $CI_PIPELINE_ID
 
@@ -71,7 +73,6 @@ publish:
   stage: publish
   rules:
     - if: $CI_COMMIT_REF_NAME =~ /^release/
-
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
