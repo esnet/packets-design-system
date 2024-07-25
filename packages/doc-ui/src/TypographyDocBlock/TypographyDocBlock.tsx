@@ -14,24 +14,11 @@ const TypographyDocBlock: React.FC<TypographyDocBlockProps> = ({
   name = "",
   value = {},
 }) => {
-  console.log("value?.fontFamily", value?.fontFamily);
-  let font = "Arial";
-  if (value?.fontFamily) {
-    font =
-      value.fontFamily === "Roboto"
-        ? "var(--font-roboto-flex)"
-        : "var(--font-open-sans)";
-  }
-
   return (
     <div
       className={styles.typographyDocBlock}
       style={{
-        "--fontFamily": font,
-        "--fontWeight": value?.fontWeight || "500",
-        "--fontSize": value?.fontSize || "16px",
-        "--letterSpacing": value?.letterSpacing || "0px",
-        "--lineHeight": value?.lineHeight || "1.4em",
+        "--font": value,
       }}
     >
       <DatumList>

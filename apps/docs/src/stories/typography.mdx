@@ -1,0 +1,105 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import { TypographyDocBlock } from "doc-ui";
+
+{
+console.log("tokens", tokens)
+}
+
+<Meta title="Design Tokens/Typography" />
+
+## Fonts
+
+
+{
+Object.keys(tokens.font.family).map(familyKey => {
+const rampKey = ` --esnet-font-family-${familyKey}`;
+const familyOptions = tokens.font.family[familyKey];
+
+        const result = Object.keys(familyOptions).map(familyOptionKey => {
+            const { value } = familyOptions[familyOptionKey];
+
+            return(<TypographyDocBlock name={`${rampKey}-${familyOptionKey}`} value={value || 0} />)
+        })
+
+        return result;
+    })
+
+}
+
+## Header Tokens
+
+{
+Object.keys(tokens.typography.header).map(headerRampKey => {
+const rampKey = `--esnet-typography-header-${headerRampKey}`;
+const headerOptions = tokens.typography.header[headerRampKey];
+
+        const result = Object.keys(headerOptions).map(headerOptionKey => {
+            const { value } = headerOptions[headerOptionKey].font;
+            const parsedValue = `${value.fontWeight} ${value.fontSize}/${value.lineHeight} ${value.fontFamily}`;
+
+            return(<TypographyDocBlock name={`${rampKey}-${headerOptionKey}-font`} value={parsedValue || 0} />)
+        })
+
+        return result;
+    })
+
+}
+
+## Body tokens
+
+{
+Object.keys(tokens.typography.copy).map(copyRampKey => {
+const rampKey = `--esnet-typography-copy-${copyRampKey}`;
+const copyOptions = tokens.typography.copy[copyRampKey];
+
+        const result = Object.keys(copyOptions).map(copyOptionKey => {
+            const { value } = copyOptions[copyOptionKey].font;
+            const parsedValue = `${value.fontWeight} ${value.fontSize}/${value.lineHeight} ${value.fontFamily}`;
+
+            return(<TypographyDocBlock name={`${rampKey}-${copyOptionKey}-font`} value={parsedValue || 0} />)
+        })
+
+        return result;
+    })
+
+}
+
+## Label tokens
+
+{
+Object.keys(tokens.typography.label).map(labelRampKey => {
+const rampKey = `--esnet-typography-label-${labelRampKey}`;
+const labelOptions = tokens.typography.label[labelRampKey];
+
+        const result = Object.keys(labelOptions).map(labelOptionKey => {
+            const { value } = labelOptions[labelOptionKey].font;
+            const parsedValue = `${value.fontWeight} ${value.fontSize}/${value.lineHeight} ${value.fontFamily}`;
+
+            return(<TypographyDocBlock name={`${rampKey}-${labelOptionKey}-font`} value={parsedValue || 0} />)
+        })
+
+        return result;
+    })
+
+}
+
+
+## Button tokens
+
+{
+Object.keys(tokens.typography.button).map(buttonRampKey => {
+const rampKey = `--esnet-typography-button-${buttonRampKey}`;
+const buttonOptions = tokens.typography.button[buttonRampKey];
+
+        const result = Object.keys(buttonOptions).map(buttonOptionKey => {
+            const { value } = buttonOptions[buttonOptionKey].font;
+            const parsedValue = `${value.fontWeight} ${value.fontSize}/${value.lineHeight} ${value.fontFamily}`;
+
+            return(<TypographyDocBlock name={`${rampKey}-${buttonOptionKey}-font`} value={parsedValue || 0} />)
+        })
+
+        return result;
+    })
+
+}
