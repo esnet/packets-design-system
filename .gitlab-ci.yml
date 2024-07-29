@@ -70,6 +70,8 @@ build_image:
 
 publish_backend_with_pipeline_id:
   extends: .push
+  rules:
+    - if: $CI_COMMIT_REF_NAME =~ /^release/
   variables:
     IMAGE_PREFIX: $WHARF_SITE/$WHARF_PROJECT/packets-design-system
     IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
