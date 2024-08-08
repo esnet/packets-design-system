@@ -58,6 +58,12 @@ export const Defaultbutton: Story = {
     type: "button",
     fill: false,
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-350&t=vvvFZvCMEJjFdQf6-4",
+    },
+  },
 };
 
 export const Primary: Story = {
@@ -79,6 +85,12 @@ export const Primary: Story = {
     type: "button",
     variant: "primary",
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
+    },
+  },
 };
 
 export const ButtonAsLinkTag: Story = {
@@ -90,6 +102,12 @@ export const ButtonAsLinkTag: Story = {
     disabled: true,
     href: "http://www.google.com",
     as: "a",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
+    },
   },
 };
 
@@ -113,6 +131,12 @@ export const DisabledPrimary: Story = {
     type: "button",
     variant: "primary",
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
+    },
+  },
 };
 
 export const Secondary: Story = {
@@ -133,6 +157,12 @@ export const Secondary: Story = {
     children: "Secondary ESButton",
     type: "button",
     variant: "secondary",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-369&t=vvvFZvCMEJjFdQf6-4",
+    },
   },
 };
 
@@ -156,6 +186,12 @@ export const SecondaryDisabled: Story = {
     variant: "secondary",
     disabled: true,
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-369&t=vvvFZvCMEJjFdQf6-4",
+    },
+  },
 };
 
 export const Branded: Story = {
@@ -176,5 +212,11 @@ export const Branded: Story = {
     children: "Branded ESButton",
     type: "button",
     variant: "branded",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=109-906&t=vvvFZvCMEJjFdQf6-4",
+    },
   },
 };
