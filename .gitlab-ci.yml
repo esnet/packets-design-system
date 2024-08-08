@@ -1,11 +1,52 @@
-image: node:latest
+image: docker
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERT_DIR: ""
 
 stages:
+  - build
   - test
+  - push
   - publish
+
+include:
+  - project: "security/container-scanning"
+    file: ".ESnet-container-scan.yml"
+
+.wharf_logout: &wharf_logout |-
+  docker logout "$WHARF_SITE"
+
+.wharf_login: &wharf_login |-
+  echo "$WHARF_TOKEN" | docker login -u "$WHARF_USER" "$WHARF_SITE" --password-stdin
+
+.docker_login: &docker_login |-
+  docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+.build:
+  stage: build
+  script:
+    - *docker_login
+    - docker build -f Dockerfile . -t ${IMAGE_TAG}
+    - docker push $IMAGE_TAG
+
+.push:
+  stage: push
+  before_script:
+    - *docker_login
+    - *wharf_login
+  after_script:
+    - *wharf_logout
+  script:
+    - docker pull ${IMAGE_TAG}
+    - docker tag ${IMAGE_TAG} ${IMAGE_PREFIX}:${PUBLISH_TAG}
+    - docker tag ${IMAGE_TAG} ${IMAGE_PREFIX}:latest
+    - docker push ${IMAGE_PREFIX}:${PUBLISH_TAG}
+    - docker push ${IMAGE_PREFIX}:latest
 
 test:
   stage: test
+  image: node:latest
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
@@ -22,11 +63,25 @@ test:
     paths:
       - .pnpm-store
 
+build_image:
+  extends: .build
+  variables:
+    IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
+
+publish_backend_with_pipeline_id:
+  extends: .push
+  rules:
+    - if: $CI_COMMIT_REF_NAME =~ /^release/
+  variables:
+    IMAGE_PREFIX: $WHARF_SITE/$WHARF_PROJECT/packets-design-system
+    IMAGE_TAG: ${CI_REGISTRY_IMAGE}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}
+    PUBLISH_TAG: $CI_PIPELINE_ID
+
 publish:
+  image: node:latest
   stage: publish
   rules:
     - if: $CI_COMMIT_REF_NAME =~ /^release/
-
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
