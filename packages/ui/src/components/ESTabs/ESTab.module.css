@@ -15,7 +15,7 @@
     background-color: var(--esnet-color-light-surface-2, #f2f2f2);
 
     :global(.dark) & {
-      background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+      background-color: var(--esnet-color-dark-primary, #004573);
     }
   }
 

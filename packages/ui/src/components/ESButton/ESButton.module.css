@@ -153,6 +153,7 @@ a.button {
     );
 
     line-height: 100%;
+    min-height: 34px;
 
     --bg-graident-1: var(--esnet-color-core-blue-400, #00b6f2);
     --bg-graident-2: var(--esnet-color-core-blue-600, #0088b5);

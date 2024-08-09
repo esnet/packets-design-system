@@ -64,7 +64,7 @@
   &.warning {
     background-color: var(--esnet-color-light-warning, #cc9e16);
 
-    color: var(--esnet-color-dark-copy, #e6e6e6);
+    color: var(--esnet-color-light-copy, #000);
 
     label,
     p,
@@ -74,7 +74,7 @@
     h4,
     h5,
     h6 {
-      color: var(--esnet-color-dark-copy, #e6e6e6);
+      color: var(--esnet-color-light-copy, #000);
     }
 
     :global(.dark) & {
