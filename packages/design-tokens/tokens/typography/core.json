@@ -6,8 +6,8 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.header.display.value}",
-              "fontWeight": "700",
-              "fontSize": "49px",
+              "fontWeight": "600",
+              "fontSize": "48px",
               "lineHeight": "110%"
             },
             "type": "typography"
@@ -20,8 +20,8 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.header.sans.value}",
-              "fontWeight": "700",
-              "fontSize": "49px",
+              "fontWeight": "600",
+              "fontSize": "48px",
               "lineHeight": "110%"
             },
             "type": "typography"
@@ -37,7 +37,7 @@
             "value": {
               "fontFamily": "{font.family.header.sans.value}",
               "fontWeight": "700",
-              "fontSize": "39px",
+              "fontSize": "36px",
               "lineHeight": "130%"
             },
             "type": "typography"
@@ -48,7 +48,7 @@
             "value": {
               "fontFamily": "{font.family.header.serif.value}",
               "fontWeight": "700",
-              "fontSize": "39px",
+              "fontSize": "36px",
               "lineHeight": "130%"
             },
             "type": "typography"
@@ -61,7 +61,7 @@
             "value": {
               "fontFamily": "{font.family.header.sans.value}",
               "fontWeight": "700",
-              "fontSize": "31px",
+              "fontSize": "32px",
               "lineHeight": "140%"
             },
             "type": "typography"
@@ -72,7 +72,7 @@
             "value": {
               "fontFamily": "{font.family.header.serif.value}",
               "fontWeight": "700",
-              "fontSize": "31px",
+              "fontSize": "32px",
               "lineHeight": "140%"
             },
             "type": "typography"
@@ -84,8 +84,8 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.header.sans.value}",
-              "fontWeight": "700",
-              "fontSize": "25px",
+              "fontWeight": "500",
+              "fontSize": "24px",
               "lineHeight": "140%"
             },
             "type": "typography"
@@ -98,8 +98,8 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.header.serif.value}",
-              "fontWeight": "700",
-              "fontSize": "25px",
+              "fontWeight": "500",
+              "fontSize": "24px",
               "lineHeight": "140%"
             },
             "type": "typography"
@@ -113,7 +113,7 @@
             "value": {
               "fontFamily": "{font.family.header.mono.value}",
               "fontWeight": "500",
-              "fontSize": "25px",
+              "fontSize": "24px",
               "lineHeight": "140%"
             },
             "type": "typography"
@@ -223,7 +223,7 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.body.display.value}",
-              "fontWeight": "400",
+              "fontWeight": "600",
               "fontSize": "16px",
               "lineHeight": "120%"
             },
@@ -282,7 +282,7 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.body.sans.value}",
-              "fontWeight": "700",
+              "fontWeight": "600",
               "fontSize": "12px",
               "lineHeight": "120%"
             },

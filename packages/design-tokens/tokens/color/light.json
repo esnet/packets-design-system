@@ -3,7 +3,15 @@
     "light": {
       "primary": {
         "type": "color",
-        "value": "{color.core.blue.800.value}"
+        "value": "{color.core.blue.600.value}"
+      },
+      "secondary": {
+        "type": "color",
+        "value": "{color.core.blue.900.value}"
+      },
+      "accent": {
+        "type": "color",
+        "value": "{color.core.orange.600.value}"
       },
       "background": {
         "type": "color",
@@ -30,17 +38,21 @@
         "type": "color",
         "value": "{color.core.black.100.value}"
       },
+      "copy-alt-2": {
+        "type": "color",
+        "value": "{color.core.slate.700.value}"
+      },
       "success": {
         "type": "color",
         "value": "{color.core.green.600.value}"
       },
       "warning": {
         "type": "color",
-        "value": "{color.core.yellow.600.value}"
+        "value": "{color.core.yellow.500.value}"
       },
       "error": {
         "type": "color",
-        "value": "{color.core.red.600.value}"
+        "value": "{color.core.red.700.value}"
       }
     }
   }
