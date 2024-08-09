@@ -1,5 +1,12 @@
 # @esnet/packets-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 9ab9fdd: Header and Body copy typography rules based on tokens
+- e5535b5: Update: Updated typography rules with new font tokens
+
 ## 0.2.0
 
 ### Minor Changes

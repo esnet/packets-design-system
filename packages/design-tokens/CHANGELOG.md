@@ -1,5 +1,15 @@
 # @esnet/esnet-tokens
 
+## 1.0.0
+
+### Major Changes
+
+- ac340b5: 1.0.0 release. First version of common look and feel tokens
+
+### Minor Changes
+
+- e5535b5: Update: Updated typography rules with new font tokens
+
 ## 0.3.0
 
 ### Minor Changes

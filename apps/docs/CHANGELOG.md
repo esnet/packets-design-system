@@ -1,5 +1,22 @@
 # docs
 
+## 0.4.0
+
+### Minor Changes
+
+- 6d90c7c: Updated documentation on typography ramp
+- b5b12a2: Added HTML rendering integration and "Designs" integration for Figma linking
+
+### Patch Changes
+
+- Updated dependencies [9ab9fdd]
+- Updated dependencies [6d90c7c]
+- Updated dependencies [e5535b5]
+- Updated dependencies [ac340b5]
+  - @esnet/packets-ui@0.3.0
+  - doc-ui@1.3.0
+  - @esnet/esnet-tokens@1.0.0
+
 ## 0.3.0
 
 ### Minor Changes
