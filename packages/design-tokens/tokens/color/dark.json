@@ -24,7 +24,7 @@
       "surface-2": {
         "description": "",
         "type": "color",
-        "value": "{color.core.black.100.value}"
+        "value": "{color.core.black.1000.value}"
       },
       "shadow": {
         "description": "",
