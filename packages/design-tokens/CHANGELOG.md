@@ -1,5 +1,11 @@
 # @esnet/esnet-tokens
 
+## 1.0.1
+
+### Patch Changes
+
+- Patch fix: correct surface and background values for dark theme
+
 ## 1.0.0
 
 ### Major Changes

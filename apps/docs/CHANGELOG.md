@@ -1,5 +1,13 @@
 # docs
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @esnet/esnet-tokens@1.0.1
+  - @esnet/packets-ui@0.3.0
+
 ## 0.4.0
 
 ### Minor Changes

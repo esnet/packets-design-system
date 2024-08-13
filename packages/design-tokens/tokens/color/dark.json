@@ -14,17 +14,17 @@
         "value": "{color.core.orange.500.value}"
       },
       "background": {
-        "value": "{color.core.black.600.value}"
+        "value": "{color.core.black.800.value}"
       },
       "surface-1": {
         "description": "",
         "type": "color",
-        "value": "{color.core.black.700.value}"
+        "value": "{color.core.black.900.value}"
       },
       "surface-2": {
         "description": "",
         "type": "color",
-        "value": "{color.core.black.800.value}"
+        "value": "{color.core.black.100.value}"
       },
       "shadow": {
         "description": "",
@@ -39,7 +39,7 @@
       "copy-alt": {
         "description": "",
         "type": "color",
-        "value": "{color.core.white.600.value}"
+        "value": "{color.core.white.700.value}"
       },
       "copy-alt-2": {
         "description": "",

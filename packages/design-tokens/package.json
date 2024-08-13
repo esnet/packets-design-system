@@ -1,6 +1,6 @@
 {
   "name": "@esnet/esnet-tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A set of reusable UI tokens for the various ESnet frontend systems.",
   "author": "Jason Roeckle",
