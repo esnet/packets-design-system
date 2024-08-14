@@ -18,8 +18,9 @@ const familyOptions = tokens.font.family[familyKey];
 
         const result = Object.keys(familyOptions).map(familyOptionKey => {
             const { value } = familyOptions[familyOptionKey];
+            const parsedValue = `600 32px/110% ${value}`;
 
-            return(<TypographyDocBlock name={`${rampKey}-${familyOptionKey}`} value={value || 0} />)
+            return(<TypographyDocBlock name={`${rampKey}-${familyOptionKey}`} value={parsedValue || 0} />)
         })
 
         return result;
