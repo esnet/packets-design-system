@@ -8,19 +8,17 @@ import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcssImport from "postcss-import";
 
-import pkg from "./package.json" assert { type: "json" };
-
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        file: pkg.main,
+        file: "dist/cjs/bundle.js",
         format: "cjs",
         sourcemap: true,
       },
       {
-        file: pkg.module,
+        file: "dist/esm/bundle.js",
         format: "esm",
         sourcemap: true,
       },
