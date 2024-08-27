@@ -5,7 +5,7 @@
   "author": "Jason Roeckle",
   "scripts": {
     "rimraf": "./node_modules/rimraf/bin.js",
-    "build": "rollup -c",
+    "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
     "test:updatesnaps": "jest --updateSnapshot",
