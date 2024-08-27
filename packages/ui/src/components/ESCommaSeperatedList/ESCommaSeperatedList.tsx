@@ -14,7 +14,7 @@ import { defaultItemRender } from "./ESCommaSeperatedListUtils";
  * @param {ESCommaSeperatedListType} props
  * @returns {React.FunctionComponent}
  */
-const ESCommaSeperatedList = <T extends {}>({
+const ESCommaSeperatedList = <T extends any>({
   items,
   renderItem = defaultItemRender,
   className,

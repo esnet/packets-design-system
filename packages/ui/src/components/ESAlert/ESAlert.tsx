@@ -1,9 +1,8 @@
 import React from "react";
-import { useMemo, FC } from "react";
+import { useMemo } from "react";
 import { ESAlertProps } from "./ESAlert.types";
 import { getAlertIconByType } from "./ESAlertUtils";
 
-// @ts-ignore
 import styles from "./ESAlert.module.css";
 
 /**

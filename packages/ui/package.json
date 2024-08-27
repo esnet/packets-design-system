@@ -4,11 +4,12 @@
   "description": "The Packets Design System UI Package",
   "author": "Jason Roeckle",
   "scripts": {
+    "rimraf": "./node_modules/rimraf/bin.js",
     "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
     "test": "jest",
     "test:updatesnaps": "jest --updateSnapshot",
-    "lint": "eslint src",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "prepublishOnly": "npm run build"
   },

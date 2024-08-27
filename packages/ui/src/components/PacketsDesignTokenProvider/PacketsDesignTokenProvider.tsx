@@ -1,10 +1,12 @@
 import React from "react";
 import PacketsDesignTokenProviderContext from "./PacketsDesignTokenProviderContext";
 
+import * as designTokens from "@esnet/esnet-tokens";
+
 const PacketsDesignTokenProvider = ({
   children,
 }: React.PropsWithChildren<{}>) => (
-  <PacketsDesignTokenProviderContext.Provider value={{}}>
+  <PacketsDesignTokenProviderContext.Provider value={designTokens}>
     {children}
   </PacketsDesignTokenProviderContext.Provider>
 );
