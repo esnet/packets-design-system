@@ -1,18 +1,12 @@
-import { createContext, useContext, PropsWithChildren } from "react";
+import React from "react";
+import PacketsDesignTokenProviderContext from "./PacketsDesignTokenProviderContext";
 
-import * as designTokens from "@esnet/esnet-tokens";
-
-export const PacketsDesignTokenProviderContext =
-  createContext<object>(designTokens);
-
-export const PacketsDesignTokenProvider = ({
+const PacketsDesignTokenProvider = ({
   children,
-}: PropsWithChildren<{}>) => (
-  <PacketsDesignTokenProviderContext.Provider value={designTokens}>
+}: React.PropsWithChildren<{}>) => (
+  <PacketsDesignTokenProviderContext.Provider value={{}}>
     {children}
   </PacketsDesignTokenProviderContext.Provider>
 );
 
-export const usePacketsDesignTokens = () => {
-  return useContext(PacketsDesignTokenProviderContext);
-};
+export default PacketsDesignTokenProvider;

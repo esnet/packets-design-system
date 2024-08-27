@@ -1,7 +1,7 @@
+import React from "react";
 import { render } from "@testing-library/react";
 import ESButtonGroup from "../ESButtonGroup";
 import ESButton from "../../ESButton/ESButton";
-import { SettingsIcon } from "lucide-react";
 
 test("It renders without crashing", () => {
   const component = render(

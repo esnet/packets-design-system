@@ -1,4 +1,4 @@
-import { ESAlertTypes } from "./ESAlert.types";
+import React from "react";
 import {
   CircleAlertIcon,
   TriangleAlertIcon,
@@ -6,15 +6,15 @@ import {
   InfoIcon,
 } from "lucide-react";
 
-export const getAlertIconByType = (type: ESAlertTypes): React.ReactNode => {
+export const getAlertIconByType = (type: string): React.ReactNode => {
   switch (type) {
-    case ESAlertTypes.ERROR:
+    case "error":
       return <TriangleAlertIcon />;
-    case ESAlertTypes.SUCCESS:
+    case "success":
       return <CircleCheckIcon />;
-    case ESAlertTypes.WARNING:
+    case "warning":
       return <CircleAlertIcon />;
-    case ESAlertTypes.INFO:
+    case "info":
       return <InfoIcon />;
 
     default:

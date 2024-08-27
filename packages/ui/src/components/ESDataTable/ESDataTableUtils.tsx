@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowDownWideNarrowIcon, ArrowUpNarrowWideIcon } from "lucide-react";
 
 import { ESDataTableSortTypes } from "./ESDataTable.types";

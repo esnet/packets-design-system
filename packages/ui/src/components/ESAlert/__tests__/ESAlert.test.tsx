@@ -1,10 +1,10 @@
+import React from "react";
 import { render } from "@testing-library/react";
 import ESAlert from "../ESAlert";
-import { ESAlertTypes } from "../ESAlert.types";
 
 test("It renders without crashing", () => {
   const component = render(
-    <ESAlert type={ESAlertTypes.INFO} title="Alert Title">
+    <ESAlert type={"info"} title="Alert Title">
       <p>
         Bob Kahn and Vint Cerf are the American computer scientists who
         developed TCP/IP, the set of protocols that governs how data moves
@@ -18,7 +18,7 @@ test("It renders without crashing", () => {
 
 it("Info type matches DOM Snapshot", () => {
   const domTree = render(
-    <ESAlert type={ESAlertTypes.INFO} title="Did you know?">
+    <ESAlert type={"info"} title="Did you know?">
       <p>
         Bob Kahn and Vint Cerf are the American computer scientists who
         developed TCP/IP, the set of protocols that governs how data moves
@@ -32,7 +32,7 @@ it("Info type matches DOM Snapshot", () => {
 
 it("Warning matches DOM Snapshot", () => {
   const domTree = render(
-    <ESAlert type={ESAlertTypes.WARNING} title="Warning Title">
+    <ESAlert type={"warning"} title="Warning Title">
       <label>Node nearing capacity</label>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -46,7 +46,7 @@ it("Warning matches DOM Snapshot", () => {
 
 it("Success matches DOM Snapshot", () => {
   const domTree = render(
-    <ESAlert type={ESAlertTypes.SUCCESS} title="Success Title">
+    <ESAlert type={"success"} title="Success Title">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Enim diam vulputate
@@ -73,7 +73,7 @@ it("Success matches DOM Snapshot", () => {
 
 it("Error matches DOM Snapshot", () => {
   const domTree = render(
-    <ESAlert type={ESAlertTypes.ERROR} title="Error Fetching Data">
+    <ESAlert type={"error"} title="Error Fetching Data">
       <label>Network Error:</label>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

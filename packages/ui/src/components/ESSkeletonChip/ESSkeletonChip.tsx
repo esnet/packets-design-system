@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 // @ts-ignore
 import styles from "./ESSkeletonChip.module.css";

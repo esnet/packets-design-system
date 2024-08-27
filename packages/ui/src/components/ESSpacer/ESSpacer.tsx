@@ -1,10 +1,5 @@
-import { FC, useMemo } from "react";
-import {
-  ESSpacerProps,
-  ESSpacerSizes,
-  ESSpacerType,
-  getESSpacerSizesCSS,
-} from "./ESSpacer.types";
+import React, { FC, useMemo } from "react";
+import { ESSpacerProps, getESSpacerSizesCSS } from "./ESSpacer.types";
 
 // @ts-ignore
 import styles from "./ESSpacer.module.css";
@@ -19,8 +14,8 @@ import styles from "./ESSpacer.module.css";
  * @returns {React.FunctionComponent}
  */
 const ESSpacer: FC<ESSpacerProps> = ({
-  type = ESSpacerType.VERTICAL,
-  size = ESSpacerSizes.NONE,
+  type = "vertical",
+  size = "none",
   className,
 }) => {
   const sizeCSS = useMemo(() => {

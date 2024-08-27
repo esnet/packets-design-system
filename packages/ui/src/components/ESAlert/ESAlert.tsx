@@ -1,5 +1,6 @@
+import React from "react";
 import { useMemo, FC } from "react";
-import { ESAlertProps, ESAlertTypes } from "./ESAlert.types";
+import { ESAlertProps } from "./ESAlert.types";
 import { getAlertIconByType } from "./ESAlertUtils";
 
 // @ts-ignore
@@ -13,9 +14,9 @@ import styles from "./ESAlert.module.css";
  * @param {ESAlertProps} props
  * @returns {React.FunctionComponent}
  */
-const ESAlert: FC<ESAlertProps> = ({
+const ESAlert: React.FC<ESAlertProps> = ({
   title,
-  type = ESAlertTypes.INFO,
+  type = "info",
   children,
 }) => {
   const icon = useMemo(() => {

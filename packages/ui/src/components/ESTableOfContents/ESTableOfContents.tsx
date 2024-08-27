@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { ESTableOfContentsProps } from "./ESTableOfContents.types";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
@@ -19,7 +19,7 @@ import styles from "./ESTableOfContents.module.css";
  * @param {ESTableOfContentsProps} props
  * @returns {React.FunctionComponent}
  */
-const ESTableOfContents: FC<ESTableOfContentsProps> = ({
+const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
   title = "Table of Contents",
   sections = [],
   isSticky = true,

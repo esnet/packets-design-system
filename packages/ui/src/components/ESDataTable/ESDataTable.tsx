@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { ESDataTableProps } from "./ESDataTable.types";
 
 import ESDataTableHead from "./ESDataTableHead";

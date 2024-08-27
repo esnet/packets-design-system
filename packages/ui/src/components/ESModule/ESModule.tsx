@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { ESModuleProps } from "./ESModule.types";
 
 // @ts-ignore

@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import { ESFormSectionProps } from "./ESFormSection.types";
 
 // @ts-ignore

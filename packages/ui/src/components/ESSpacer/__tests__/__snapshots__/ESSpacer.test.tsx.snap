@@ -6,14 +6,14 @@ exports[`Spacer matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="spacer horizontal "
+        class="spacer hortizontal "
         style="--size: var(--esnet-size-spacing-medium);"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="spacer horizontal "
+      class="spacer hortizontal "
       style="--size: var(--esnet-size-spacing-medium);"
     />
   </div>,

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
@@ -15,7 +15,7 @@ import styles from "./ESBreadcrumbs.module.css";
  * @param {BreadcrumbsProps} props
  * @returns {React.FunctionComponent}
  */
-const ESBreadcrumbs: FC<BreadcrumbsProps> = ({
+const ESBreadcrumbs: React.FC<BreadcrumbsProps> = ({
   breadcrumbs = [],
   renderLink = defaultRenderLink,
 }) => {

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { ESDataTableHeadProps } from "./ESDataTable.types";
 
 // @ts-ignore

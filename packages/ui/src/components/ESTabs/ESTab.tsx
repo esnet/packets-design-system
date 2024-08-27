@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { ESTabProps } from "./ESTabs.types";
 
 // @ts-ignore
@@ -12,7 +12,7 @@ import styles from "./ESTab.module.css";
  * @param {ESTabsProps} props
  * @returns {React.FunctionComponent}
  */
-const ESTab: FC<ESTabProps> = ({
+const ESTab: React.FC<ESTabProps> = ({
   children,
   className = "",
   isActive = false,

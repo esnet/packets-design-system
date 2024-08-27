@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 
 // @ts-ignore
 import styles from "./ESSpinner.module.css";
@@ -11,7 +11,7 @@ import styles from "./ESSpinner.module.css";
  * @param {ESSpinnerProps} props
  * @returns {React.FunctionComponent}
  */
-const ESSpinner: FC = () => {
+const ESSpinner: React.FC = () => {
   return (
     <div role="alert" aria-busy="true" className={styles.spinner}>
       <span className={styles.dot}></span>

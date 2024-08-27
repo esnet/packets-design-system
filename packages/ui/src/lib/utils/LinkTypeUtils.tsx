@@ -1,3 +1,5 @@
+import React from "react";
+
 import { LinkType } from "../types";
 
 export const defaultRenderLink = (link: LinkType) => {

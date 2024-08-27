@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { ESTitleSectionProps } from "./ESTitleSection.types";
 
 // @ts-ignore
@@ -14,7 +14,7 @@ import ESModule from "../ESModule";
  * @param {ESTitleSectionProps} props
  * @returns {React.FunctionComponent}
  */
-const ESTitleSection: FC<ESTitleSectionProps> = ({
+const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   children,
   title = "",
   titleSlot,
