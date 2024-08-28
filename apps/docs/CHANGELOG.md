@@ -1,5 +1,13 @@
 # docs
 
+## 0.4.2
+
+### Patch Changes
+
+- d1ba157: Patch fix for Typography font-face rendering
+- Updated dependencies [384b20e]
+  - @esnet/packets-ui@0.4.0
+
 ## 0.4.1
 
 ### Patch Changes

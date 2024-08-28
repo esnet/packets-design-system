@@ -1,5 +1,16 @@
 # web
 
+## 1.1.0
+
+### Minor Changes
+
+- 384b20e: Change in build strategy to use React as a Peer Depedency and make ESM/CJS support better
+
+### Patch Changes
+
+- Updated dependencies [384b20e]
+  - @esnet/packets-ui@0.4.0
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @esnet/packets-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- 384b20e: Change in build strategy to use React as a Peer Depedency and make ESM/CJS support better
+
 ## 0.3.0
 
 ### Minor Changes
