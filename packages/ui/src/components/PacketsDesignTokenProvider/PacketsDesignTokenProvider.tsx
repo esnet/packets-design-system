@@ -1,6 +1,7 @@
 import React from "react";
 import PacketsDesignTokenProviderContext from "./PacketsDesignTokenProviderContext";
 
+// @ts-ignore
 import * as designTokens from "@esnet/esnet-tokens";
 
 const PacketsDesignTokenProvider = ({
