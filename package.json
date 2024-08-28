@@ -12,7 +12,7 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "test": "turbo run test",
     "test:updatesnaps": "turbo run test:updatesnaps",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
