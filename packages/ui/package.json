@@ -70,7 +70,7 @@
       "import": "./dist/esm/bundle.js"
     },
     "./style.css": {
-      "import": "./dist/cjs/style.css",
+      "import": "./dist/esm/style.css",
       "require": "./dist/cjs/style.css"
     }
   }
