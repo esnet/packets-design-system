@@ -1,5 +1,16 @@
 # web
 
+## 1.2.0
+
+### Minor Changes
+
+- 4871eab: Base Typography Updates
+
+### Patch Changes
+
+- Updated dependencies [4871eab]
+  - @esnet/packets-ui@0.5.0
+
 ## 1.1.0
 
 ### Minor Changes

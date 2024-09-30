@@ -1,5 +1,11 @@
 # @repo/eslint-config
 
+## 0.1.1
+
+### Patch Changes
+
+- 4871eab: Base Typography Updates
+
 ## 0.1.0
 
 ### Minor Changes

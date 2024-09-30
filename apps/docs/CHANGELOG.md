@@ -1,5 +1,17 @@
 # docs
 
+## 0.5.0
+
+### Minor Changes
+
+- 4871eab: Base Typography Updates
+
+### Patch Changes
+
+- Updated dependencies [4871eab]
+  - @esnet/packets-ui@0.5.0
+  - doc-ui@1.3.1
+
 ## 0.4.2
 
 ### Patch Changes

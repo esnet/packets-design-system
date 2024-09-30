@@ -1,5 +1,11 @@
 # @esnet/packets-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- 4871eab: Base Typography Updates
+
 ## 0.4.0
 
 ### Minor Changes

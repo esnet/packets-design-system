@@ -1,5 +1,11 @@
 # doc-ui
 
+## 1.3.1
+
+### Patch Changes
+
+- 4871eab: Base Typography Updates
+
 ## 1.3.0
 
 ### Minor Changes
