@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import {
   ESDataTableHeaderCellProps,
-  ESDataTableSortTypes,
 } from "./ESDataTable.types";
 
 import ESDataTableSortIcon from "./ESDataTableSortIcon";
@@ -22,7 +21,7 @@ const ESDataTableHeaderCell: FC<ESDataTableHeaderCellProps> = ({
   className,
   width,
   onLabelClick,
-  sort = ESDataTableSortTypes.NONE,
+  sort = "NONE",
   ...other
 }) => {
   const labelClick = (e: React.MouseEvent<HTMLInputElement>) => {

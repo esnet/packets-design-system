@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { useMemo } from "react";
 import {
   ESDataTableSortIconProps,
-  ESDataTableSortTypes,
 } from "./ESDataTable.types";
 
 // @ts-ignore
@@ -19,7 +18,7 @@ import { getSortIcon } from "./ESDataTableUtils";
  * @returns {React.FunctionComponent}
  */
 const ESDataTableSortIcon: FC<ESDataTableSortIconProps> = ({
-  sortDirection = ESDataTableSortTypes.NONE,
+  sortDirection = "NONE",
 }) => {
   const icon = useMemo(() => {
     if (!sortDirection) {

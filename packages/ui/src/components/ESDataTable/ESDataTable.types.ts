@@ -19,7 +19,7 @@ export interface ESDataTableHeaderCellProps {
   className?: string;
   width?: string;
   onLabelClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  sort?: ESDataTableSortTypes;
+  sort?: "ASC" | "DESC" | "NONE";
 }
 
 export interface ESDataTableBodyProps {
@@ -33,13 +33,7 @@ export interface ESDataTableRowProps {
 }
 
 export interface ESDataTableSortIconProps {
-  sortDirection?: ESDataTableSortTypes;
-}
-
-export enum ESDataTableSortTypes {
-  ASC = "ASC",
-  DESC = "DESC",
-  NONE = "NONE",
+  sortDirection?: "ASC" | "DESC" | "NONE";
 }
 
 export interface ESDataTableCellProps {

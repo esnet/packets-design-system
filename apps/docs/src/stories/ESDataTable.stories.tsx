@@ -21,7 +21,11 @@ export const DefaultTableExample: Story = {
   render: () => (
     <ESDataTable>
       <ESDataTable.ESDataTableHead>
-        <ESDataTable.ESDataTableHeaderCell width="40%">
+        <ESDataTable.ESDataTableHeaderCell
+          width="40%"
+          sort={"ASC"}
+          onLabelClick={() => {}}
+        >
           Name
         </ESDataTable.ESDataTableHeaderCell>
         <ESDataTable.ESDataTableHeaderCell width="20%">

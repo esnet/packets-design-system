@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowDownWideNarrowIcon, ArrowUpNarrowWideIcon } from "lucide-react";
 
-import { ESDataTableSortTypes } from "./ESDataTable.types";
 
 /**
  * Get Icon
@@ -11,11 +10,11 @@ import { ESDataTableSortTypes } from "./ESDataTable.types";
  * @param {string} type - DataTableSortTypes type
  * @returns {React.FunctionComponent}
  */
-export const getSortIcon = (type: ESDataTableSortTypes) => {
+export const getSortIcon = (type: string) => {
   switch (type) {
-    case ESDataTableSortTypes.ASC:
+    case "ASC":
       return <ArrowDownWideNarrowIcon size={16} />;
-    case ESDataTableSortTypes.DESC:
+    case "DESC":
       return <ArrowUpNarrowWideIcon size={16} />;
     default:
       return <></>;
