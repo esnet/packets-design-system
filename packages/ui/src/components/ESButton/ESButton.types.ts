@@ -3,7 +3,9 @@ export type ESButtonDefaultAsType = typeof ESButtonDefaultAsType;
 
 export type ButtonOwnProps<E extends React.ElementType> = {
   children: React.ReactNode;
+  className?: string;
   variant: "primary" | "secondary" | "branded" | "tertiary" | "destructive"; // Type of Button
+  size?: "medium" | "xxlarge"
   prepend?: React.ReactNode;
   append?: React.ReactNode;
   fill?: boolean;

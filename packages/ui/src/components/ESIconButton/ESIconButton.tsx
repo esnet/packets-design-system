@@ -15,13 +15,15 @@ import styles from "./ESIconButton.module.css";
  */
 const ESIconButton = ({
   variant = "secondary",
+  className,
   children = "",
   disabled = false,
+  square = false,
   ...other
 }: ESIconButtonProps): JSX.Element => {
   return (
     <button
-      className={`${styles.button} ${styles[variant]}`}
+      className={`${styles.button} ${styles[variant]} ${square ? styles["square"] : ""} ${className ? className : ""}`}
       type="button"
       disabled={disabled}
       {...other}

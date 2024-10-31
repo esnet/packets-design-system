@@ -16,7 +16,9 @@ const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
   fill = true,
   disabled = false,
   prepend = null,
+  size = "medium",
   as,
+  className,
   append = null,
   ...other
 }: ESButtonProps<E>): JSX.Element => {
@@ -24,7 +26,7 @@ const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
 
   return (
     <Tag
-      className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""}`}
+      className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""} ${size ? styles[size] : ""} ${className ? className : ""}`}
       type="button"
       disabled={disabled}
       {...other}

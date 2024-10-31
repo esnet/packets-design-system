@@ -16,6 +16,9 @@ const meta: Meta<typeof ESIconButton> = {
     disabled: {
       control: { type: "boolean" },
     },
+    square: {
+      control: { type: "boolean" },
+    },
   },
 };
 

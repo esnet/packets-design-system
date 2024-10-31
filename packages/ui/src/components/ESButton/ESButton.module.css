@@ -1,10 +1,8 @@
 .button,
 a.button {
-  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-medium, 16px);
+  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
-  --spacing-height-xsmall: var(--esnet-size-spacing-xsmall, 8px);
-  --spacing-height-medium: var(--esnet-size-spacing-medium, 22px);
-  --spacing-height-xlarge: var(--esnet-size-spacing-xlarge, 40px);
+  --spacing-height-medium: 40px;
   --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
 
   --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
@@ -21,13 +19,14 @@ a.button {
   /* Layout */
   display: inline-flex;
   width: auto;
-  min-height: var(--spacing-height-large);
-  padding: var(--spacing-padding-vertical) var(--spacing-padding-horizontal);
+  padding: var(--esnet-size-border-width-medium, 4px)
+    var(--esnet-size-spacing-medium, 16px);
   box-sizing: border-box;
 
   justify-content: center;
   align-items: center;
   gap: var(--spacing-horizontal-layout-gap);
+  min-width: 44px;
 
   /* Styling */
   border-radius: var(--spacing-border-radius);
@@ -56,10 +55,8 @@ a.button {
     border-width: 3px; /* TODO: Find token solution */
     box-shadow: var(--esnet-box-shadow-core-medium);
 
-    &:not(.fill) {
-      padding: var(--spacing-padding-vertical)
-        calc(var(--spacing-padding-horizontal) - 1px);
-    }
+    padding: var(--esnet-size-border-width-medium, 4px)
+    calc(var(--esnet-size-spacing-medium, 16px) - 1px);
   }
 
   &:disabled {
@@ -145,15 +142,12 @@ a.button {
   }
 
   &.branded {
-    box-sizing: border-box;
-
     font: var(
       --esnet-typography-button-1-display-font,
       700 16px/100% var(--esnet-font-family-body-display)
     );
 
     line-height: 100%;
-    min-height: 34px;
 
     --bg-graident-1: var(--esnet-color-core-blue-400, #00b6f2);
     --bg-graident-2: var(--esnet-color-core-blue-600, #0088b5);
@@ -264,19 +258,11 @@ a.button {
   }
 
   /* Height Options */
-  &.xsmall {
-    height: var(--spacing-height-xsmall);
-  }
-
   &.medium {
-    height: var(--spacing-height-medium);
+    min-height: var(--spacing-height-medium);
   }
 
-  &.large {
-    height: var(--spacing-height-large);
-  }
-
-  &.xlarge {
-    height: var(--spacing-height-xlarge);
+  &.xxlarge {
+    min-height: var(--spacing-height-xxlarge);
   }
 }

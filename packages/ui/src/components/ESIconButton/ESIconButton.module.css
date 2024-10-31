@@ -1,10 +1,8 @@
 .button {
-  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-medium, 16px);
+  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
-  --spacing-height-xsmall: var(--esnet-size-spacing-xsmall, 8px);
-  --spacing-height-small: var(--esnet-size-spacing-medium, 16px);
-  --spacing-height-large: var(--esnet-size-spacing-xlarge, 40px);
-  --spacing-height-xlarge: var(--esnet-size-spacing-xxlarge, 64px);
+  --spacing-height-medium: 40px;
+  --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
 
   --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
   --spacing-padding-vertical: var(--esnet-size-spacing-xxsmall, 4px);
@@ -12,20 +10,19 @@
   --spacing-border-radius: var(--esnet-size-radius-xxlarge, 18px);
   --spacing-border-width: var(--esnet-size-radius-small, 2px);
 
-  --typography-font-size: 16px;
-  --typography-font-weight: 600;
-  --typography-kerning: -0.27px;
-
   /* Layout */
   display: inline-flex;
   width: auto;
-  min-height: var(--spacing-height-large);
+  min-height: var(--spacing-height-medium);
   padding: var(--spacing-padding-vertical) var(--spacing-padding-horizontal);
   box-sizing: border-box;
 
   justify-content: center;
   align-items: center;
   gap: var(--spacing-horizontal-layout-gap);
+
+  padding: var(--esnet-size-border-width-medium, 4px)
+    var(--esnet-size-spacing-medium, 16px);
 
   /* Styling */
   border-radius: var(--spacing-border-radius);
@@ -46,10 +43,8 @@
     border-width: 3px; /* TODO: Find token solution */
     box-shadow: var(--esnet-box-shadow-core-medium);
 
-    &:not(.fill) {
-      padding: var(--spacing-padding-vertical)
-        calc(var(--spacing-padding-horizontal) - 1px);
-    }
+    padding: var(--esnet-size-border-width-medium, 4px)
+      calc(var(--esnet-size-spacing-medium, 16px) - 1px);
   }
 
   &:disabled {
@@ -243,20 +238,17 @@
     width: auto;
   }
 
+  &.square {
+    aspect-ratio: 1/1;
+    padding: 0;
+  }
+
   /* Height Options */
-  &.xsmall {
-    height: var(--spacing-height-xsmall);
-  }
-
   &.medium {
-    height: var(--spacing-height-medium);
+    min-height: var(--spacing-height-medium);
   }
 
-  &.large {
-    height: var(--spacing-height-large);
-  }
-
-  &.xlarge {
-    height: var(--spacing-height-xlarge);
+  &.xxlarge {
+    min-height: var(--spacing-height-xxlarge);
   }
 }

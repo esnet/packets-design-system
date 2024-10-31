@@ -37,10 +37,18 @@ export const Defaultbutton: Story = {
   args: {
     children: (
       <>
-        <ESButton variant="primary">Button 1</ESButton>
-        <ESButton variant="secondary">Button 2</ESButton>
-        <ESButton variant="secondary">Button 3</ESButton>
-        <ESButton variant="tertiary">Button 3</ESButton>
+        <ESButton variant="primary" size="medium" type="button">
+          Button 1
+        </ESButton>
+        <ESButton variant="secondary" size="medium" type="button">
+          Button 2
+        </ESButton>
+        <ESButton variant="secondary" size="medium" type="button">
+          Button 3
+        </ESButton>
+        <ESButton variant="tertiary" size="medium" type="button">
+          Button 3
+        </ESButton>
       </>
     ),
     labelCopy: "A Collection of Buttons",
