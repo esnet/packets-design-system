@@ -1,5 +1,15 @@
 # web
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [b7ddbc0]
+- Updated dependencies [181cc60]
+- Updated dependencies [dc8af7f]
+  - @esnet/packets-ui@0.6.0
+  - @esnet/esnet-tokens@1.1.0
+
 ## 1.2.0
 
 ### Minor Changes

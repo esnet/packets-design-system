@@ -1,5 +1,11 @@
 # @esnet/esnet-tokens
 
+## 1.1.0
+
+### Minor Changes
+
+- 181cc60: feat - new typography tokens
+
 ## 1.0.1
 
 ### Patch Changes

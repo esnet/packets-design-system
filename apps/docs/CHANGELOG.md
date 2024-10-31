@@ -1,5 +1,21 @@
 # docs
 
+## 0.6.0
+
+### Minor Changes
+
+- 181cc60: feat - new typography tokens
+
+### Patch Changes
+
+- b7ddbc0: Feat: ESDataTable Sorting now powered by String instead of Enum
+- dc8af7f: Fix - ESButton styling fixes for vertical height
+- Updated dependencies [b7ddbc0]
+- Updated dependencies [181cc60]
+- Updated dependencies [dc8af7f]
+  - @esnet/packets-ui@0.6.0
+  - @esnet/esnet-tokens@1.1.0
+
 ## 0.5.0
 
 ### Minor Changes
