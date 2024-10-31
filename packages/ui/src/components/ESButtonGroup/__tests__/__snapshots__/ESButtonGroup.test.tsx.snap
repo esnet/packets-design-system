@@ -12,25 +12,25 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
           class="list"
         >
           <button
-            class="button primary fill"
+            class="button primary fill medium "
             type="button"
           >
             Button 1
           </button>
           <button
-            class="button secondary fill"
+            class="button secondary fill medium "
             type="button"
           >
             Button 2
           </button>
           <button
-            class="button secondary fill"
+            class="button secondary fill medium "
             type="button"
           >
             Button 3
           </button>
           <button
-            class="button tertiary fill"
+            class="button tertiary fill medium "
             type="button"
           >
             Button 3
@@ -47,25 +47,25 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
         class="list"
       >
         <button
-          class="button primary fill"
+          class="button primary fill medium "
           type="button"
         >
           Button 1
         </button>
         <button
-          class="button secondary fill"
+          class="button secondary fill medium "
           type="button"
         >
           Button 2
         </button>
         <button
-          class="button secondary fill"
+          class="button secondary fill medium "
           type="button"
         >
           Button 3
         </button>
         <button
-          class="button tertiary fill"
+          class="button tertiary fill medium "
           type="button"
         >
           Button 3
@@ -139,25 +139,25 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
           class="list"
         >
           <button
-            class="button primary fill"
+            class="button primary fill medium "
             type="button"
           >
             Button 1
           </button>
           <button
-            class="button secondary fill"
+            class="button secondary fill medium "
             type="button"
           >
             Button 2
           </button>
           <button
-            class="button secondary fill"
+            class="button secondary fill medium "
             type="button"
           >
             Button 3
           </button>
           <button
-            class="button tertiary fill"
+            class="button tertiary fill medium "
             type="button"
           >
             Button 3
@@ -174,25 +174,25 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
         class="list"
       >
         <button
-          class="button primary fill"
+          class="button primary fill medium "
           type="button"
         >
           Button 1
         </button>
         <button
-          class="button secondary fill"
+          class="button secondary fill medium "
           type="button"
         >
           Button 2
         </button>
         <button
-          class="button secondary fill"
+          class="button secondary fill medium "
           type="button"
         >
           Button 3
         </button>
         <button
-          class="button tertiary fill"
+          class="button tertiary fill medium "
           type="button"
         >
           Button 3

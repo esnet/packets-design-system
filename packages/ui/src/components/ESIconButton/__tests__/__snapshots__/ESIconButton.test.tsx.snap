@@ -6,7 +6,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button branded"
+        class="button branded  "
         type="button"
       >
         <svg
@@ -35,7 +35,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button branded"
+      class="button branded  "
       type="button"
     >
       <svg
@@ -121,7 +121,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button destructive"
+        class="button destructive  "
         type="button"
       >
         <svg
@@ -150,7 +150,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button destructive"
+      class="button destructive  "
       type="button"
     >
       <svg
@@ -236,7 +236,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button primary"
+        class="button primary  "
         type="button"
       >
         <svg
@@ -265,7 +265,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button primary"
+      class="button primary  "
       type="button"
     >
       <svg
@@ -351,7 +351,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button secondary"
+        class="button secondary  "
         type="button"
       >
         <svg
@@ -380,7 +380,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button secondary"
+      class="button secondary  "
       type="button"
     >
       <svg
@@ -466,7 +466,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button tertiary"
+        class="button tertiary  "
         type="button"
       >
         <svg
@@ -495,7 +495,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button tertiary"
+      class="button tertiary  "
       type="button"
     >
       <svg
