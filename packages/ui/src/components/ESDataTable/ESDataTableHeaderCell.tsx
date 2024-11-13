@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import {
-  ESDataTableHeaderCellProps,
-} from "./ESDataTable.types";
+import { ESDataTableHeaderCellProps } from "./ESDataTable.types";
 
 import ESDataTableSortIcon from "./ESDataTableSortIcon";
 
