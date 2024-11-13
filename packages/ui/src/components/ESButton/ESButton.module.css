@@ -52,11 +52,10 @@ a.button {
 
   &:hover {
     cursor: pointer;
-    border-width: 3px; /* TODO: Find token solution */
     box-shadow: var(--esnet-box-shadow-core-medium);
 
     padding: var(--esnet-size-border-width-medium, 4px)
-    calc(var(--esnet-size-spacing-medium, 16px) - 1px);
+      var(--esnet-size-spacing-medium, 16px);
   }
 
   &:disabled {
@@ -90,6 +89,23 @@ a.button {
     :global(.dark) & {
       border-color: var(--esnet-color-core-teal-900, #0a4854);
       background-color: var(--esnet-color-core-blue-600, #0088b5);
+
+      &:hover,
+      &:focus {
+        background-color: var(--esnet-color-core-blue-500, #00a0d6);
+        border-color: var(--esnet-color-core-slate-100, #C3C7D9);
+      }
+
+      &:active {
+        border-color: var(--esnet-color-core-slate-200, #acb0bf);
+        background-color: var(--esnet-color-core-blue-700, #0075a2);
+      }
+
+      &:disabled {
+        /* TODO: Figure out how to represent these as solid colors */
+        border-color: rgba(10, 72, 84, 0.3);
+        background-color: rgba(0, 136, 181, 0.6);
+      }
     }
   }
 
