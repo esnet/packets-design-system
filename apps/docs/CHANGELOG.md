@@ -1,5 +1,12 @@
 # docs
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [db4532f]
+  - @esnet/packets-ui@0.6.1
+
 ## 0.6.0
 
 ### Minor Changes

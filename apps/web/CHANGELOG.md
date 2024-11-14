@@ -1,5 +1,12 @@
 # web
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [db4532f]
+  - @esnet/packets-ui@0.6.1
+
 ## 1.2.1
 
 ### Patch Changes

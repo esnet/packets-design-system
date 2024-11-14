@@ -1,5 +1,11 @@
 # @esnet/packets-ui
 
+## 0.6.1
+
+### Patch Changes
+
+- db4532f: Fix - Fixed Primary Button colors in Dark Mode on ESButton
+
 ## 0.6.0
 
 ### Minor Changes
