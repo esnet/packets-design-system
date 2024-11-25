@@ -1,5 +1,13 @@
 # web
 
+## 1.2.3
+
+### Patch Changes
+
+- 6539a01: Feat: ESTreeListView Component
+- Updated dependencies [6539a01]
+  - @esnet/packets-ui@0.7.0
+
 ## 1.2.2
 
 ### Patch Changes

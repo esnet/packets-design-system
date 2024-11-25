@@ -1,5 +1,11 @@
 # @esnet/packets-ui
 
+## 0.7.0
+
+### Minor Changes
+
+- 6539a01: Feat: ESTreeListView Component
+
 ## 0.6.1
 
 ### Patch Changes
