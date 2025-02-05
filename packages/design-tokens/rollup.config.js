@@ -5,7 +5,7 @@ import pkg from "./package.json" assert { type: "json" };
 export default [
   // browser-friendly UMD build
   {
-    input: "build/js/tokens.js",
+    input: "./dist/tokens.js",
     output: {
       name: "esnet-tokens",
       file: "./dist/esnet-tokens.umd.js",
@@ -24,7 +24,7 @@ export default [
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: "build/js/tokens.js",
+    input: "./dist/tokens.js",
     external: [],
     output: [{ file: "./dist/esnet-tokens.esm.js", format: "es" }],
     plugins: [
@@ -33,7 +33,7 @@ export default [
   },
 
   {
-    input: "build/js/tokens.js",
+    input: "./dist/tokens.js",
     external: [],
     output: [
       { file: "./dist/esnet-tokens.cjs.js", format: "cjs" },

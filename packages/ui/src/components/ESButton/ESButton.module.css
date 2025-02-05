@@ -64,6 +64,8 @@ a.button {
 
   /* Variants */
   &.primary {
+    --primary-color: var(--esnet-color-core-blue-700, #0075a2);
+
     color: var(--esnet-color-light-surface-2, #f2f2f2);
     border-color: var(--esnet-color-core-slate-200, #acb0bf);
     background-color: var(--esnet-color-core-blue-700, #0075a2);
