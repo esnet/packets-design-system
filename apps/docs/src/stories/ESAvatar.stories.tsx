@@ -25,7 +25,7 @@ const meta: Meta<typeof ESAvatar> = {
     size: {
       control: { type: "radio" },
       options: ["small", "medium", "large"],
-      defaultValue: "info",
+      defaultValue: "medium",
     },
     backgroundColor: {
       control: { type: "radio" },

@@ -54,13 +54,13 @@ const ESAvatar: FC<ESAvatarProps> = ({
   const rootStyles = useMemo(() => {
     return (
       `${styles.avatar} ` +
-      `${!!styles[size] && styles[size]} ` +
+      `${!!styles[size] ? styles[size] : ""} ` +
       `${error ? styles.brokenImage : ""} ` +
       `${styles[computedBackgroundColor]} ` +
       `${isHoverable ? styles.isHoverable : ""} ` +
       `${className}`
     );
-  }, [isHoverable, error, styles]);
+  }, [computedBackgroundColor, isHoverable, error, size, styles]);
 
   return (
     <section className={rootStyles} {...props}>
