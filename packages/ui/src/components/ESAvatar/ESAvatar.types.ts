@@ -5,5 +5,6 @@ export interface ESAvatarProps {
   size?: "small" | "medium" | "large";
   src?: string;
   srcSet?: string;
+  isHoverable?: boolean;
   [x: string]: any;
 }

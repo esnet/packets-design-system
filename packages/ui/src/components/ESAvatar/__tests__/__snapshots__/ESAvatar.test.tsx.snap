@@ -6,7 +6,7 @@ exports[`Info type matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="avatar medium  lime "
+        class="avatar medium  lime  "
       >
         <span
           class="label"
@@ -18,7 +18,7 @@ exports[`Info type matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="avatar medium  lime "
+      class="avatar medium  lime  "
     >
       <span
         class="label"
@@ -87,7 +87,7 @@ exports[`Large matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="avatar large  lime "
+        class="avatar large  lime  "
       >
         <span
           class="label"
@@ -99,7 +99,7 @@ exports[`Large matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="avatar large  lime "
+      class="avatar large  lime  "
     >
       <span
         class="label"
@@ -168,7 +168,7 @@ exports[`Small matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="avatar small  lime "
+        class="avatar small  lime  "
       >
         <span
           class="label"
@@ -180,7 +180,7 @@ exports[`Small matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="avatar small  lime "
+      class="avatar small  lime  "
     >
       <span
         class="label"
