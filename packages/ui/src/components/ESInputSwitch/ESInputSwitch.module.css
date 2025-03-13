@@ -1,0 +1,128 @@
+.inputSwitch {
+  --indicator-size: 1.55rem;
+  --label-font: var(
+    --esnet-typography-label-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans)
+  );
+  --label-letterspace: var(
+    --esnet-typography-label-2-sans-letterspacing,
+    -0.18px
+  );
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .inputWrapper {
+    display: flex;
+    position: relative;
+    width: 52px;
+    height: 25px;
+    background: var(--esnet-color-core-white-600, #ccc);
+    align-items: center;
+    border-radius: var(--esnet-size-radius-circle, 9999px);
+    padding: 1px;
+
+    border: 3px solid rgba(0, 0, 0, 0);
+
+    transition: all 120ms ease-in-out;
+
+    /* States */
+
+    .isChecked & {
+      justify-content: flex-end;
+      /* border: 1px solid var(--color-core-blue-700, #0075a2); */
+      background: var(--color-core-blue-600, #0088b5);
+      &:hover {
+        border-color: var(--color-core-blue-300, #64d2ff);
+      }
+    }
+
+    .inputBox {
+      opacity: 0;
+      display: block;
+      width: 52px;
+      height: var(--indicator-size, 24px);
+
+      /* Pseudo Events */
+      &:hover {
+        cursor: pointer;
+      }
+
+      /* States */
+      .isDisabled & {
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .indicator {
+      transition: all 100ms ease-in-out;
+      width: var(--indicator-size, 24px);
+      height: var(--indicator-size, 24px);
+      aspect-ratio: 1/1;
+      background-color: var(--esnet-color-core-white-100, #ffffff);
+      border-radius: var(--esnet-size-radius-circle, 9999px);
+      color: var(--esnet-color-core-white-600, #ccc);
+
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 1px;
+      left: 1px;
+      align-self: flex-start;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* States */
+
+      .isChecked & {
+        left: 28px;
+        color: var(--color-core-blue-600, #0088b5);
+      }
+
+      .isDisabled & {
+        background-color: var(--esnet-color-core-white-400, #e3e3e3);
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .label {
+    display: block;
+    color: var(--esnet-color-light-copy-alt, #a8a8a8);
+
+    font: var(--label-font);
+    letter-spacing: var(--label-letterspace);
+
+    :global(.dark) & {
+      color: var(--esnet-color-dark-copy-alt, #a8a8a8);
+    }
+
+    /* Pseudo Events */
+    &:hover {
+      cursor: pointer;
+    }
+
+    /* States */
+
+    .isDisabled & {
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &:hover {
+    .inputWrapper {
+      border-color: var(--color-core-white-400, #e3e3e3);
+    }
+  }
+}
