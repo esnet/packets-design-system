@@ -1,4 +1,11 @@
-import React, { FC, ChangeEvent, MouseEvent, useState, useMemo } from "react";
+import React, {
+  FC,
+  ChangeEvent,
+  FocusEvent,
+  MouseEvent,
+  useState,
+  useMemo,
+} from "react";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
 
 // @ts-ignore
@@ -21,8 +28,11 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   initiallyChecked = false,
   isDisabled = false,
   onChange = () => {},
+  onBlur = () => {},
+  onFocus = () => {},
 }) => {
   const [isChecked, setIsChecked] = useState(initiallyChecked);
+  const [isFocused, setIsFocused] = useState(false);
 
   // Composition
   const computedAriaLabel = ariaLabel || label || "";
@@ -36,6 +46,22 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
     ${className}`;
 
   // Events
+  const _onFocus = (event: FocusEvent<HTMLInputElement>) => {
+    setIsFocused(true);
+
+    if (typeof onFocus === "function") {
+      onFocus(event);
+    }
+  };
+
+  const _onBlur = (event: FocusEvent<HTMLInputElement>) => {
+    setIsFocused(false);
+
+    if (typeof onBlur === "function") {
+      onBlur(event);
+    }
+  };
+
   const _onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
 
@@ -56,17 +82,21 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   return (
     <span className={rootClasses}>
       <span className={styles.inputWrapper}>
-        <input
-          aria-label={computedAriaLabel}
-          className={styles.inputBox}
-          type="checkbox"
-          disabled={isDisabled}
-          checked={isChecked}
-          onChange={_onInputChange}
-          id={id}
-        />
-        <span className={styles.indicator} onClick={_onIndicatorClick}>
-          <span className={styles.icon}>{icon}</span>
+        <span className={styles.indicatorRail}>
+          <input
+            aria-label={computedAriaLabel}
+            className={styles.inputBox}
+            type="checkbox"
+            disabled={isDisabled}
+            checked={isChecked}
+            onChange={_onInputChange}
+            onFocus={_onFocus}
+            onBlur={_onBlur}
+            id={id}
+          />
+          <span className={styles.indicator} onClick={_onIndicatorClick}>
+            <span className={styles.icon}>{icon}</span>
+          </span>
         </span>
       </span>
       {label && (

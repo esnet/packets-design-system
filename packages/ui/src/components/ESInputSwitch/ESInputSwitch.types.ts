@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, FocusEvent } from "react";
 
 /* eslint-disable no-unused-vars */
 export interface ESInputSwitchProps {
@@ -9,4 +9,6 @@ export interface ESInputSwitchProps {
   initiallyChecked?: boolean;
   isDisabled?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
 }
