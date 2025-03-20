@@ -8,6 +8,7 @@ export interface ESInputSwitchProps {
   id: string;
   initiallyChecked?: boolean;
   isDisabled?: boolean;
+  showIcon?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent<HTMLInputElement>) => void;

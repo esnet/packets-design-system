@@ -42,3 +42,43 @@ it("renders with a custom CSS class Snapshot", () => {
   );
   expect(domTree).toMatchSnapshot();
 });
+
+it("renders with a disabled state Snapshot", () => {
+  const domTree = render(
+    <ESInputSwitch
+      id="switch-example-5"
+      ariaLabel="A Switch"
+      isDisabled={true}
+      label={"A switch label"}
+      className="active"
+    />,
+  );
+  expect(domTree).toMatchSnapshot();
+});
+
+it("renders with a disabled state with an 'on' indicator Snapshot", () => {
+  const domTree = render(
+    <ESInputSwitch
+      id="switch-example-5"
+      ariaLabel="A Switch"
+      isDisabled={true}
+      label={"A switch label"}
+      className="active"
+      initiallyChecked={true}
+    />,
+  );
+  expect(domTree).toMatchSnapshot();
+});
+
+it("renders with a no icons Snapshot", () => {
+  const domTree = render(
+    <ESInputSwitch
+      id="switch-example-6"
+      ariaLabel="A Switch"
+      label={"A switch label"}
+      className="active"
+      showIcon={false}
+    />,
+  );
+  expect(domTree).toMatchSnapshot();
+});

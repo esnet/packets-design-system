@@ -57,3 +57,24 @@ export const SwitchDisabled: Story = {
     label: "A Disabled Switch",
   },
 };
+
+export const SwitchDisabledButTurnedOn: Story = {
+  render: (props) => <ESInputSwitch {...props} />,
+  name: "Switch is disabled but turned on",
+  args: {
+    id: "a-switch",
+    isDisabled: true,
+    initiallyChecked: true,
+    label: "A Disabled Switch",
+  },
+};
+
+export const NoIcons: Story = {
+  render: (props) => <ESInputSwitch {...props} />,
+  name: "Switch icons are disabled",
+  args: {
+    id: "a-switch",
+    label: "Switch with No Icons",
+    showIcon: false,
+  },
+};

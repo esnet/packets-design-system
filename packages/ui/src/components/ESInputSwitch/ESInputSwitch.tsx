@@ -27,6 +27,7 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   className = "",
   initiallyChecked = false,
   isDisabled = false,
+  showIcon = true,
   onChange = () => {},
   onBlur = () => {},
   onFocus = () => {},
@@ -37,12 +38,17 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   // Composition
   const computedAriaLabel = ariaLabel || label || "";
   const icon = useMemo(() => {
+    if (!showIcon) {
+      return <></>;
+    }
+
     return getIconByCheckedState(isChecked);
   }, [isChecked]);
 
   const rootClasses = `${styles.inputSwitch} 
     ${isDisabled ? styles.isDisabled : ""}
     ${isChecked ? styles.isChecked : ""} 
+    ${isFocused ? styles.isFocused : ""} 
     ${className}`;
 
   // Events
