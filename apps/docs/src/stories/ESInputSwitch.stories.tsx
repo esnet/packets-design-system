@@ -75,6 +75,6 @@ export const NoIcons: Story = {
   args: {
     id: "a-switch",
     label: "Switch with No Icons",
-    showIcon: false,
+    hideIcons: true,
   },
 };

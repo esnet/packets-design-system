@@ -77,7 +77,7 @@ it("renders with a no icons Snapshot", () => {
       ariaLabel="A Switch"
       label={"A switch label"}
       className="active"
-      showIcon={false}
+      hideIcons={false}
     />,
   );
   expect(domTree).toMatchSnapshot();

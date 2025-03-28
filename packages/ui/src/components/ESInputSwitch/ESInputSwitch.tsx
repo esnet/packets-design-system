@@ -27,7 +27,7 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   className = "",
   initiallyChecked = false,
   isDisabled = false,
-  showIcon = true,
+  hideIcons = false,
   onChange = () => {},
   onBlur = () => {},
   onFocus = () => {},
@@ -38,7 +38,7 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
   // Composition
   const computedAriaLabel = ariaLabel || label || "";
   const icon = useMemo(() => {
-    if (!showIcon) {
+    if (hideIcons === true) {
       return <></>;
     }
 
