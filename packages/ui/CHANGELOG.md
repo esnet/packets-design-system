@@ -1,5 +1,16 @@
 # @esnet/packets-ui
 
+## 0.8.0
+
+### Minor Changes
+
+- 77e4cc3: Feat: New Component Switch
+- c656732: Feat: New Component Avatar
+
+### Patch Changes
+
+- b7f35de: Fix: primary color fixes and build pipeline fixes
+
 ## 0.7.0
 
 ### Minor Changes

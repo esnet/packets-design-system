@@ -1,5 +1,11 @@
 # @esnet/esnet-tokens
 
+## 1.1.1
+
+### Patch Changes
+
+- b7f35de: Fix: primary color fixes and build pipeline fixes
+
 ## 1.1.0
 
 ### Minor Changes
