@@ -18,6 +18,7 @@ const ESSpinner: React.FC = () => {
       <span className={styles.dot}></span>
       <span className={styles.dot}></span>
       <span className={styles.dot}></span>
+      <span className={styles.noMotionMessage}>Loading...</span>
     </div>
   );
 };
