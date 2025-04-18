@@ -22,6 +22,11 @@ exports[`Spinner matches DOM Snapshot 1`] = `
         <span
           class="dot"
         />
+        <span
+          class="noMotionMessage"
+        >
+          Loading...
+        </span>
       </div>
     </div>
   </body>,
@@ -43,6 +48,11 @@ exports[`Spinner matches DOM Snapshot 1`] = `
       <span
         class="dot"
       />
+      <span
+        class="noMotionMessage"
+      >
+        Loading...
+      </span>
     </div>
   </div>,
   "debug": [Function],

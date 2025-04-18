@@ -4,6 +4,31 @@
   width: var(--esnet-size-spacing-xxlarge);
   height: var(--esnet-size-spacing-medium);
 
+  @media (prefers-reduced-motion) {
+    .dot {
+      display: none;
+    }
+
+    .noMotionMessage {
+      display: inline !important;
+    }
+  }
+
+  .noMotionMessage {
+    display: none;
+    text-align: center;
+    font: var(
+      --esnet-typography-label-1-sans-font,
+      400 12px/120% var(--esnet-font-family-body-sans)
+    );
+
+    color: var(--esnet-color-light-copy-alt, #a8a8a8);
+
+    :global(.dark) & {
+      color: var(--esnet-color-dark-copy-alt, #a8a8a8);
+    }
+  }
+
   .dot {
     position: absolute;
     top: 0;

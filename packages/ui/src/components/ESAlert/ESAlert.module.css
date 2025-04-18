@@ -14,6 +14,10 @@
 
   animation: fadeInSlideUp 200ms ease-in-out;
 
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+
   :global(.dark) & {
     color: var(--esnet-color-dark-copy, #e6e6e6);
 
