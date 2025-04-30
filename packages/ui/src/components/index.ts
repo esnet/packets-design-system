@@ -5,6 +5,7 @@ export {
 } from "./PacketsDesignTokenProvider";
 
 export { default as ESAlert } from "./ESAlert";
+export { default as ESAvatar } from "./ESAvatar";
 export { default as ESBreadcrumbs } from "./ESBreadcrumbs";
 export { default as ESButton } from "./ESButton";
 export { default as ESButtonGroup } from "./ESButtonGroup";
