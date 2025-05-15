@@ -1,0 +1,108 @@
+.avatar {
+  --shadow: var(
+    --esnet-box-shadow-core-medium,
+    0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    0px 4px 5px -1px rgba(0, 0, 0, 0.1)
+  );
+  --border: var(--esnet-size-border-width-small, 2px) solid
+    var(--esnet-color-core-white-100, #fff);
+  --border-radius: var(--esnet-size-radius-xxlarge, 18px);
+  --border-hover-color: var(--esnet-color-core-blue-600, #0088b5);
+
+  --size: var(--esnet-size-spacing-xlarge, 40px);
+  --label-font: var(
+    --esnet-typography-header-5-sans-font,
+    600 20px/140% var(--esnet-font-family-header-sans)
+  );
+
+  display: block;
+  width: var(--size);
+  aspect-ratio: 1/1;
+
+  border: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size);
+    line-height: var(--size);
+
+    font: var(--label-font);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--esnet-color-core-white-100, #fff);
+  }
+
+  /* Pseudo Events */
+  &.isHoverable {
+    transition:
+      border 200ms ease-in,
+      box-shadow 200ms ease-in;
+
+    &:hover {
+      cursor: pointer;
+      border-color: var(--border-hover-color);
+      box-shadow:
+        0px 2px 3px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+      /* TODO: Consider making a darker shadow token */
+    }
+  }
+
+  /* Size Variants */
+  &.small {
+    --size: var(--esnet-size-spacing-large, 32px);
+    --label-font: var(
+      --esnet-typography-label-1-sans-font,
+      400 12px/120% var(--esnet-font-family-body-sans)
+    );
+    --border-radius: 10px;
+  }
+
+  &.medium {
+    --size: var(--esnet-size-spacing-xlarge, 40px);
+    --label-font: var(
+      --esnet-typography-header-5-sans-font,
+      600 20px/140% var(--esnet-font-family-header-sans)
+    );
+    --border-radius: 14px;
+  }
+
+  &.large {
+    --size: var(--esnet-size-spacing-xxlarge, 64px);
+    --label-font: var(
+      --esnet-typography-header-4-sans-font,
+      500 24px/140% var(--esnet-font-family-header-sans)
+    );
+    --border-radius: var(--esnet-size-radius-xxlarge, 18px);
+  }
+
+  /* Color Variants */
+  &.grape {
+    background-color: var(--esnet-color-core-purple-500, #a350ff);
+  }
+  &.lime {
+    background-color: var(--esnet-color-core-green-500, #11ad2b);
+  }
+  &.berry {
+    background-color: var(--esnet-color-core-berry-500, #ff2377);
+  }
+  &.orange {
+    background-color: var(--esnet-color-core-orange-500, #ff8000);
+  }
+
+  .image {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  &.brokenImage {
+    .image {
+      display: none;
+    }
+  }
+}
