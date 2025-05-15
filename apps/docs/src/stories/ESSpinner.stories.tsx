@@ -1,4 +1,5 @@
 import React from "react";
+import Rive from "@rive-app/react-canvas-lite";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESSpinner } from "@esnet/packets-ui";
 
@@ -20,4 +21,30 @@ type Story = StoryObj<typeof ESSpinner>;
 export const DefaultESSpinnerExample: Story = {
   render: () => <ESSpinner />,
   name: "ESSpinner Example",
+};
+
+export const BrandedESSpinnerRive: Story = {
+  render: ({ size }: { size: string }) => (
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
+    >
+      <Rive src="/riv/esnetspinner.riv" />
+    </div>
+  ),
+  name: "ESSpinner Branded RIVE",
+  args: {
+    size: "200px",
+  },
+};
+
+export const BrandedESSpinnerExample: Story = {
+  render: () => (
+    <>
+      <img src="/imgs/brandedSpinner.gif" />
+    </>
+  ),
+  name: "ESSpinner Branded GIF",
 };
