@@ -3,7 +3,7 @@ import { ESDataTableSkeletonLoadingProps } from "./ESDataTable.types";
 
 // @ts-ignore
 import ESDataTableCell from "./ESDataTableCell";
-import ESSkeletonChip from "../ESSkeletonChip";
+import ESSkeletonSurface from "../ESSkeletonSurface";
 import ESDataTableRow from "./ESDataTableRow";
 
 /**
@@ -26,7 +26,7 @@ const ESDataTableSkeletonLoading: FC<ESDataTableSkeletonLoadingProps> = ({
     for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
       cells.push(
         <ESDataTableCell key={`skeley-bones-cell-${columnIndex}`}>
-          <ESSkeletonChip />
+          <ESSkeletonSurface />
         </ESDataTableCell>,
       );
     }
