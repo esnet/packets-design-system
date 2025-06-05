@@ -7,16 +7,18 @@ exports[`Skeleton component matches DOM Snapshot 1`] = `
     <div>
       <div
         aria-busy="true"
-        class="skeletonSurface rounded"
+        class="skeletonSurface rounded "
         role="alert"
+        style="--stroke-size: var(--esnet-size-border-width-medium, 3px); --stroke-radius: var(--esnet-size-spacing-large, 2rem); --height: var(--esnet-size-touchtarget-min, 2rem);"
       />
     </div>
   </body>,
   "container": <div>
     <div
       aria-busy="true"
-      class="skeletonSurface rounded"
+      class="skeletonSurface rounded "
       role="alert"
+      style="--stroke-size: var(--esnet-size-border-width-medium, 3px); --stroke-radius: var(--esnet-size-spacing-large, 2rem); --height: var(--esnet-size-touchtarget-min, 2rem);"
     />
   </div>,
   "debug": [Function],
@@ -80,16 +82,18 @@ exports[`Skeleton component when square DOM Snapshot 1`] = `
     <div>
       <div
         aria-busy="true"
-        class="skeletonSurface "
+        class="skeletonSurface  "
         role="alert"
+        style="--stroke-size: var(--esnet-size-border-width-medium, 3px); --stroke-radius: var(--esnet-size-spacing-large, 2rem); --height: var(--esnet-size-touchtarget-min, 2rem);"
       />
     </div>
   </body>,
   "container": <div>
     <div
       aria-busy="true"
-      class="skeletonSurface "
+      class="skeletonSurface  "
       role="alert"
+      style="--stroke-size: var(--esnet-size-border-width-medium, 3px); --stroke-radius: var(--esnet-size-spacing-large, 2rem); --height: var(--esnet-size-touchtarget-min, 2rem);"
     />
   </div>,
   "debug": [Function],

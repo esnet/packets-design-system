@@ -1,11 +1,12 @@
 .skeletonSurface {
   --stroke-size: var(--esnet-size-border-width-medium, 3px);
-  --stroke-radius: var(--esnet-size-spacing-xxxlarge, 16px);
+  --stroke-radius: var(--esnet-size-spacing-large, 2rem);
+  --height: var(--esnet-size-touchtarget-min, 2rem);
 
   display: block;
   width: 100%;
   min-width: var(--esnet-size-spacing-large);
-  height: var(--esnet-size-touchtarget-min);
+  height: var(--height);
 
   position: relative;
   z-index: 0;
@@ -55,10 +56,10 @@
   /* Rounded */
 
   &.rounded {
-    border-radius: var(--esnet-size-spacing-xxxlarge);
+    border-radius: var(--stroke-radius);
 
     &::after {
-      border-radius: var(--esnet-size-spacing-xxxlarge);
+      border-radius: var(--stroke-radius);
     }
   }
 }
