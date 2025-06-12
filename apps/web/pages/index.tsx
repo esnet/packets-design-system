@@ -3,7 +3,7 @@ import React from "react";
 import {
   ESButton,
   ESButtonGroup,
-  ESSkeletonChip,
+  ESSkeletonSurface,
   ESAlert,
   ESBreadcrumbs,
   ESCommaSeperatedList,
@@ -60,7 +60,7 @@ export default function Page() {
         <ESButton variant="tertiary">Button 3</ESButton>
       </ESButtonGroup>
       <ESCommaSeperatedList items={["apples", "oranges", "lemons"]} />
-      <ESSkeletonChip />
+      <ESSkeletonSurface />
       <ESDataTable>
         <ESDataTable.ESDataTableHead>
           <ESDataTable.ESDataTableHeaderCell width="40%">
