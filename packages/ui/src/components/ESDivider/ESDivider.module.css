@@ -1,0 +1,27 @@
+.hr {
+  /* Layout */
+  height: 2px;
+  width: auto;
+
+  /* Styling */
+  border-radius: 999px;
+  border: none;
+
+  /* Set the thickness of the line */
+  background-color: var(--esnet-color-light-copy-alt, #6E6E70);
+
+  /* Dark Mode */
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-copy-alt, #C2C2C2);
+  }
+
+  /* Variants */
+  &.branded {
+    background-color: var(--esnet-color-light-primary, #0088B580);
+
+    /* Dark Mode */
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-primary, #00457380);
+    }
+  }
+}
