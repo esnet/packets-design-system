@@ -1,0 +1,84 @@
+.inputText {
+  /* Layout */
+  display: inline-flex;
+  width: auto;
+  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding-right: var(--esnet-size-spacing-xxlarge, 64px);
+
+  /* Styling */
+  box-sizing: border-box;
+  background-color: var(--esnet-color-core-white-100);
+  color: var(--esnet-color-light-copy);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall);
+  border-color: var(--esnet-color-core-slate-900);
+  outline: none;
+  /* border-radius: var(--spacing-border-radius);
+  border: var(--spacing-border-width) solid
+    var(--esnet-color-core-blue-900, #004573);
+  box-shadow: var(var(--esnet-box-shadow-core-light));
+  color: var(--esnet-color-core-slate-900, #3f424d); */
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-surface-1);
+    color: var(--esnet-color-dark-copy);
+    border-color: var(--esnet-color-core-slate-100);
+  }
+
+  &.error:not(:disabled) {
+    border-color: var(--esnet-color-core-red-700);
+    border-width: var(--esnet-size-border-width-small);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small) #de000044;
+  }
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans)
+  );
+
+  /* Pseudo-elements */
+  &::placeholder {
+    color: var(--esnet-color-light-copy-alt);
+  }
+
+  :global(.dark) &::placeholder {
+    color: var(--esnet-color-dark-copy-alt);
+  }
+
+  /* Pseudo-events */
+  &:hover:not(:disabled),
+  &:focus:not(:disabled),
+  &:active:not(:disabled) {
+    /* border color on focus takes precedence over error border color */
+    border-color: var(--esnet-color-core-slate-1000);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small)
+      var(--esnet-color-core-blue-400, #00b6f2);
+  }
+
+  &:disabled {
+    border-color: var(--esnet-color-core-slate-300);
+    color: var(--esnet-color-core-white-900);
+
+    &::placeholder {
+      color: var(--esnet-color-core-white-900);
+    }
+  }
+
+  :global(.dark) &:disabled {
+    border-color: var(--esnet-color-core-slate-500);
+    color: var(--esnet-color-core-slate-500);
+
+    &::placeholder {
+      color: var(--esnet-color-core-white-900);
+    }
+  }
+
+  /* Variants */
+  &.branded {
+    border-radius: 999px;
+    padding: var(--esnet-size-spacing-xsmall) var(--esnet-size-spacing-medium);
+  }
+
+  /* Modifiers */
+}
