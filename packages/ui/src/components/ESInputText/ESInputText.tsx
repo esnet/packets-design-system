@@ -7,29 +7,22 @@ import { ESInputTextProps } from "./ESInputText.types";
 /**
  * ESInputText Component
  *
+ * A wrapper around HTML <input type="text" /> element to provide styling
+ *
  * @param {ESInputTextProps} props
  * @returns {React.ReactElement}
  */
 const ESInputText: React.FC<ESInputTextProps> = ({
-  id,
-  className = "",
-  placeholder = "",
   variant = "default",
-  disabled = false,
   error = false,
-  label,
-  initialValue,
-  ariaLabel,
-  onChange,
-  onBlur,
-  onFocus,
+  className,
+  ...props
 }) => {
   return (
     <input
       className={`${styles.inputText} ${styles[variant]} ${error ? styles.error : ""} ${className}`}
-      placeholder={placeholder}
-      disabled={disabled}
       type="text"
+      {...props}
     />
   );
 };

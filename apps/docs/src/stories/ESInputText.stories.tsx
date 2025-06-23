@@ -7,27 +7,16 @@ const meta: Meta<typeof ESInputText> = {
   component: ESInputText,
   tags: ["autodocs"],
   argTypes: {
-    placeholder: {
-      control: { type: "text" },
-    },
-    className: {
-      control: { type: "text" },
-    },
     variant: {
       control: { type: "radio" },
       options: ["default", "branded"],
       defaultValue: "default",
-    },
-    disabled: {
-      control: { type: "boolean" },
     },
     error: {
       control: { type: "boolean" },
     },
   },
   args: {
-    placeholder: "Placeholder Text",
-    disabled: false,
     error: false,
     variant: "default",
   },
@@ -51,10 +40,10 @@ export const Default: Story = {
   },
 };
 
-export const DefaultError: Story = {
+export const BrandedWithPlaceholder: Story = {
   args: {
-    error: true,
-    placeholder: "Placeholder error text",
+    placeholder: "Branded text",
+    variant: "branded",
   },
   parameters: {
     design: {
@@ -64,15 +53,54 @@ export const DefaultError: Story = {
   },
 };
 
-export const Branded: Story = {
+export const BrandedWithValueSetAndDisabled: Story = {
   args: {
-    placeholder: "Branded text",
+    value: "Text already set",
+    placeholder: "Placeholder for Text Input",
     variant: "branded",
+    disabled: true,
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1412-2695&t=bzfAloA7Ts1Yloyi-4",
+    },
+  },
+};
+
+export const ErrorClearsOnChange: Story = {
+  render: (args) => {
+    const [error, setError] = React.useState(args.error);
+    const [value, setValue] = React.useState(args.value);
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setError(false);
+      setValue(event.target.value);
+    };
+    return (
+      <ESInputText {...args} value={value} onChange={onChange} error={error} />
+    );
+  },
+  args: {
+    error: true,
+    value: "Initially invalid value",
   },
   parameters: {
     design: {
       type: "figma",
       url: "",
+    },
+    docs: {
+      source: {
+        code: `const [error, setError] = React.useState(args.error);
+const [value, setValue] = React.useState(args.value);
+const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setError(false);
+    setValue(event.target.value);
+};
+// ...
+<ESInputText {...args} value={value} onChange={onChange} error={error} />
+        `.trim(),
+      },
     },
   },
 };

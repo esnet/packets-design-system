@@ -13,11 +13,9 @@
   border-width: var(--esnet-size-border-width-xsmall);
   border-color: var(--esnet-color-core-slate-900);
   outline: none;
-  /* border-radius: var(--spacing-border-radius);
-  border: var(--spacing-border-width) solid
-    var(--esnet-color-core-blue-900, #004573);
-  box-shadow: var(var(--esnet-box-shadow-core-light));
-  color: var(--esnet-color-core-slate-900, #3f424d); */
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   :global(.dark) & {
     background-color: var(--esnet-color-dark-surface-1);
