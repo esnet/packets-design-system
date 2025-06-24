@@ -26,16 +26,11 @@ export default meta;
 
 type Story = StoryObj<typeof ESInputText>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
 export const Default: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1-13&p=f&t=TsBf9t3EVbQXYenU-0",
     },
   },
 };
@@ -48,7 +43,7 @@ export const BrandedWithPlaceholder: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1-13&p=f&t=TsBf9t3EVbQXYenU-0",
     },
   },
 };
@@ -69,7 +64,8 @@ export const BrandedWithValueSetAndDisabled: Story = {
 };
 
 export const ErrorClearsOnChange: Story = {
-  render: (args) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  render: (args: any) => {
     const [error, setError] = React.useState(args.error);
     const [value, setValue] = React.useState(args.value);
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,7 +83,7 @@ export const ErrorClearsOnChange: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1-13&p=f&t=TsBf9t3EVbQXYenU-0",
     },
     docs: {
       source: {
