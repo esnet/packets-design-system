@@ -13,9 +13,10 @@
   border-width: var(--esnet-size-border-width-xsmall);
   border-color: var(--esnet-color-core-slate-900);
   outline: none;
+
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color var(--esnet-time-duration-quick) ease,
+    box-shadow var(--esnet-time-duration-quick) ease;
 
   :global(.dark) & {
     background-color: var(--esnet-color-dark-surface-1);
@@ -30,10 +31,8 @@
   }
 
   /* Typography */
-  font: var(
-    --esnet-typography-copy-1-sans-font,
-    400 12px/120% var(--esnet-font-family-body-sans)
-  );
+  font: var(--esnet-typography-copy-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans));
 
   /* Pseudo-elements */
   &::placeholder {
@@ -50,8 +49,7 @@
   &:active:not(:disabled) {
     /* border color on focus takes precedence over error border color */
     border-color: var(--esnet-color-core-slate-1000);
-    box-shadow: 0 0 0 var(--esnet-size-border-width-small)
-      var(--esnet-color-core-blue-400, #00b6f2);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small) var(--esnet-color-core-blue-400, #00b6f2);
   }
 
   &:disabled {
@@ -74,7 +72,7 @@
 
   /* Variants */
   &.branded {
-    border-radius: 999px;
+    border-radius: var(--esnet-size-radius-circle);
     padding: var(--esnet-size-spacing-xsmall) var(--esnet-size-spacing-medium);
   }
 
