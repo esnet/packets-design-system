@@ -16,7 +16,7 @@ const ESDivider: React.FC<ESDividerProps> = ({
 }) => {
   return (
     <hr
-      className={`${styles.hr} ${styles[variant]} ${className ? className : ""}`}
+      className={`${styles.ESDivider} ${styles[variant]} ${className ? className : ""}`}
     />
   );
 };
