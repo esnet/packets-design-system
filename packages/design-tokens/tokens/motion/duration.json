@@ -1,10 +1,10 @@
 {
   "time": {
     "duration": {
-      "short": { "value": "100" },
-      "quick": { "value": "250" },
-      "medium": { "value": "300" },
-      "long": { "value": "600" }
+      "short": { "value": "100ms" },
+      "quick": { "value": "250ms" },
+      "medium": { "value": "300ms" },
+      "long": { "value": "600ms" }
     }
   }
 }
