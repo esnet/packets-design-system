@@ -8,6 +8,14 @@ const StyleDictionary = StyleDictionaryModule.extend(
   makeSdTailwindConfig({
     type: "all",
     buildPath: "dist/",
+    transforms: [
+        "attribute/cti",
+        "name/cti/kebab",
+        "color/hex",
+        "size/pxToRem",
+        // "typography/shorthand",
+        "duration/units"
+    ]
   }),
 );
 
