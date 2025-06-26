@@ -26,6 +26,16 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "duration/units",
+  type: "value",
+  matcher: (token) => token.path.includes("duration"),
+  transformer: (token) => {
+    const { value, type } = token;
+    return `${value}${type}`
+  }
+})
+
 StyleDictionary.registerFormat({
   name: "typings/es6",
   formatter: (args) => {
