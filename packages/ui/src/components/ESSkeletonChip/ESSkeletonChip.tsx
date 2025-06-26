@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 // @ts-ignore
 import styles from "./ESSkeletonChip.module.css";
+import { ESSkeletonChipProps } from "./ESSkeletonChip.types";
 
 /**
  * ESSkeletonChip Component
@@ -11,9 +12,9 @@ import styles from "./ESSkeletonChip.module.css";
  * @param {ESSkeletonChipProps} props
  * @returns {React.FunctionComponent}
  */
-const ESSkeletonChip: FC = () => {
+const ESSkeletonChip: FC<ESSkeletonChipProps> = ({ className }) => {
   return (
-    <div role="alert" aria-busy="true" className={styles.skeletonChip}></div>
+    <div role="alert" aria-busy="true" className={`${styles.skeletonChip} ${className ?? ""}`}></div>
   );
 };
 

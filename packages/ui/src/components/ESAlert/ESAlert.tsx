@@ -13,13 +13,20 @@ import styles from "./ESAlert.module.css";
  * @param {ESAlertProps} props
  * @returns {React.FunctionComponent}
  */
-const ESAlert: FC<ESAlertProps> = ({ title, type = "info", children }) => {
+const ESAlert: FC<ESAlertProps> = ({
+  title,
+  type = "info",
+  className = "",
+  children,
+}) => {
   const icon = useMemo(() => {
     return getAlertIconByType(type);
   }, [type]);
 
   return (
-    <section className={`${styles.alert} ${!!styles[type] && styles[type]}`}>
+    <section
+      className={`${styles.alert} ${!!styles[type] && styles[type]} ${className}`}
+    >
       <aside className={styles.icon}>{icon}</aside>
       <section className={styles.content}>
         <h6 className={styles.title}>{title}</h6>

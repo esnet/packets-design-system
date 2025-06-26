@@ -19,6 +19,7 @@ const ESFormSection: FC<ESFormSectionProps> = ({
   titleURL = "",
   descriptionSlot = "",
   useColumnLayout = true,
+  className,
   children,
   renderTitleLink = defaultRenderLink,
   ...other
@@ -43,7 +44,7 @@ const ESFormSection: FC<ESFormSectionProps> = ({
 
   return (
     <section
-      className={`${styles.formSection} ${useColumnLayout ? "packets-grid" : ""}`}
+      className={`${styles.formSection} ${useColumnLayout ? "packets-grid" : ""} ${className}`}
       {...other}
     >
       <div className={`grid-col-3 ${styles.leftCol}`}>

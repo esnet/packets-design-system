@@ -17,12 +17,13 @@ const ESButtonGroup = ({
   children,
   labelCopy,
   hideLabel,
+  className = "",
   direction = "horizontal",
   ...other
 }: ESButtonGroupProps): JSX.Element => {
   return (
     <section
-      className={`${styles.buttonGroup} ${styles[direction]}`}
+      className={`${styles.buttonGroup} ${styles[direction]} ${className}`}
       {...other}
     >
       {labelCopy && !hideLabel && <label>{labelCopy}</label>}

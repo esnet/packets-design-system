@@ -23,11 +23,12 @@ const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
   title = "Table of Contents",
   sections = [],
   isSticky = true,
+  className,
   renderSectionLink = defaultRenderLink,
 }) => {
   return (
     <nav
-      className={`${styles.tableOfContents} ${isSticky ? styles.isSticky : ""}`}
+      className={`${styles.tableOfContents} ${isSticky ? styles.isSticky : ""} ${className ?? ""}`}
     >
       <h6 className={styles.title}>{title}</h6>
       <ul className={styles.list}>

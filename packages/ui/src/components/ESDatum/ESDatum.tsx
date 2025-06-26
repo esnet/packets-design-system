@@ -12,9 +12,9 @@ import styles from "./ESDatum.module.css";
  * @param {ESDatumProps} props
  * @returns {React.FunctionComponent}
  */
-const ESDatum: FC<ESDatumProps> = ({ title = "", children }) => {
+const ESDatum: FC<ESDatumProps> = ({ title = "", className, children }) => {
   return (
-    <div className={styles.datum}>
+    <div className={`${styles.datum} ${className ?? ""}`}>
       <label className={styles.label}>{title}</label>
       <span className={styles.value}>{children}</span>
     </div>

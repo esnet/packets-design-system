@@ -17,10 +17,11 @@ import styles from "./ESBreadcrumbs.module.css";
  */
 const ESBreadcrumbs: React.FC<BreadcrumbsProps> = ({
   breadcrumbs = [],
+  className = "",
   renderLink = defaultRenderLink,
 }) => {
   return (
-    <ul className={`${styles.breadCrumbs}`}>
+    <ul className={`${styles.breadCrumbs} ${className}`}>
       {breadcrumbs.map((breadcrumb, index) => {
         return (
           <li className={styles.breadCrumb} key={`breadcrumb-list-${index}`}>

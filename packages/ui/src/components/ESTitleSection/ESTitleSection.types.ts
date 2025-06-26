@@ -4,4 +4,5 @@ export type ESTitleSectionProps = {
   subtitle?: string;
   subTitleSlot?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
 };

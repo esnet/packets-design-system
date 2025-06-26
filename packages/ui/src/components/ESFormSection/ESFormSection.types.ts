@@ -6,6 +6,7 @@ export interface ESFormSectionProps {
   title: string;
   titleURL?: string;
   descriptionSlot?: React.ReactNode;
+  className?: string;
   children: React.ReactNode;
   useColumnLayout?: boolean;
 }
