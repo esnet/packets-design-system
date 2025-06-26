@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { ESDataTableBodyProps } from "./ESDataTable.types";
 
-// @ts-ignore
 import styles from "./ESDataTable.module.css";
 
 /**

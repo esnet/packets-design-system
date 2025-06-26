@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { ESListTreeViewProps } from "./ESListTreeView.types";
 import { ESListTreeLeafView } from "./partials";
 
-// @ts-ignore
 import styles from "./ESListTreeView.module.css";
 import { ChevronDownIcon, FolderOpenIcon, CheckIcon } from "lucide-react";
 
@@ -40,7 +39,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   };
 
   const _onAccordionIndicatorClick = (
-    e: React.MouseEvent<HTMLInputElement>,
+    e: React.MouseEvent<HTMLInputElement>
   ) => {
     e.preventDefault();
     _toggleIsOpen();

@@ -1,7 +1,6 @@
 import React from "react";
 import { ESIconButtonProps } from "./ESIconButton.types";
 
-// @ts-ignore
 import styles from "./ESIconButton.module.css";
 
 /**

@@ -1,7 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { ESSpacerProps, getESSpacerSizesCSS } from "./ESSpacer.types";
 
-// @ts-ignore
 import styles from "./ESSpacer.module.css";
 
 /**
