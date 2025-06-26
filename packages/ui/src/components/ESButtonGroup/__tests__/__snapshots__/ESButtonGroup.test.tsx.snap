@@ -6,7 +6,7 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="buttonGroup horizontal"
+        class="buttonGroup horizontal "
       >
         <ul
           class="list"
@@ -41,7 +41,7 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="buttonGroup horizontal"
+      class="buttonGroup horizontal "
     >
       <ul
         class="list"
@@ -133,7 +133,7 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
   "baseElement": <body>
     <div>
       <section
-        class="buttonGroup vertical"
+        class="buttonGroup vertical "
       >
         <ul
           class="list"
@@ -168,7 +168,7 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
   </body>,
   "container": <div>
     <section
-      class="buttonGroup vertical"
+      class="buttonGroup vertical "
     >
       <ul
         class="list"

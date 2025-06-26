@@ -6,7 +6,7 @@ exports[`Title Section matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="titleLayout esModule "
+        class="titleLayout  esModule "
       >
         <h1
           class="title"
@@ -32,7 +32,7 @@ exports[`Title Section matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="titleLayout esModule "
+      class="titleLayout  esModule "
     >
       <h1
         class="title"
@@ -115,7 +115,7 @@ exports[`Title section no subtitle matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="titleLayout esModule "
+        class="titleLayout  esModule "
       >
         <h1
           class="title"
@@ -133,7 +133,7 @@ exports[`Title section no subtitle matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="titleLayout esModule "
+      class="titleLayout  esModule "
     >
       <h1
         class="title"
@@ -208,7 +208,7 @@ exports[`Title section with no subtitle slot matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="titleLayout esModule "
+        class="titleLayout  esModule "
       >
         <h1
           class="title"
@@ -228,7 +228,7 @@ exports[`Title section with no subtitle slot matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="titleLayout esModule "
+      class="titleLayout  esModule "
     >
       <h1
         class="title"
@@ -305,7 +305,7 @@ exports[`Title section with no title slot matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="titleLayout esModule "
+        class="titleLayout  esModule "
       >
         <h1
           class="title"
@@ -320,7 +320,7 @@ exports[`Title section with no title slot matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="titleLayout esModule "
+      class="titleLayout  esModule "
     >
       <h1
         class="title"

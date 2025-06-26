@@ -6,7 +6,7 @@ exports[`Form Section with title url matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="formSection packets-grid"
+        class="formSection packets-grid "
       >
         <div
           class="grid-col-3 leftCol"
@@ -35,7 +35,7 @@ exports[`Form Section with title url matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="formSection packets-grid"
+      class="formSection packets-grid "
     >
       <div
         class="grid-col-3 leftCol"
@@ -121,7 +121,7 @@ exports[`Form section matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="formSection packets-grid"
+        class="formSection packets-grid "
       >
         <div
           class="grid-col-3 leftCol"
@@ -145,7 +145,7 @@ exports[`Form section matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="formSection packets-grid"
+      class="formSection packets-grid "
     >
       <div
         class="grid-col-3 leftCol"

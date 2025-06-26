@@ -44,7 +44,7 @@ const ESFormSection: FC<ESFormSectionProps> = ({
 
   return (
     <section
-      className={`${styles.formSection} ${useColumnLayout ? "packets-grid" : ""} ${className}`}
+      className={`${styles.formSection} ${useColumnLayout ? "packets-grid" : ""} ${className ?? ""}`}
       {...other}
     >
       <div className={`grid-col-3 ${styles.leftCol}`}>

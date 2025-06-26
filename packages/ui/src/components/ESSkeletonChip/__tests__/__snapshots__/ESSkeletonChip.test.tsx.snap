@@ -7,7 +7,7 @@ exports[`Datum matches DOM Snapshot 1`] = `
     <div>
       <div
         aria-busy="true"
-        class="skeletonChip"
+        class="skeletonChip "
         role="alert"
       />
     </div>
@@ -15,7 +15,7 @@ exports[`Datum matches DOM Snapshot 1`] = `
   "container": <div>
     <div
       aria-busy="true"
-      class="skeletonChip"
+      class="skeletonChip "
       role="alert"
     />
   </div>,

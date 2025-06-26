@@ -23,7 +23,7 @@ const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   subTitleSlot,
 }) => {
   return (
-    <ESModule className={`${styles.titleLayout} ${className}`}>
+    <ESModule className={`${styles.titleLayout} ${className ?? ""}`}>
       {title && (
         <h1 className={styles.title}>
           {title}

@@ -6,7 +6,7 @@ exports[`It renders a DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <ul
-        class="breadCrumbs"
+        class="breadCrumbs "
       >
         <li
           class="breadCrumb"
@@ -33,7 +33,7 @@ exports[`It renders a DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <ul
-      class="breadCrumbs"
+      class="breadCrumbs "
     >
       <li
         class="breadCrumb"
