@@ -10,7 +10,7 @@
     padding: 2px;
     gap: var(--row-gap-size);
     border-radius: var(--esnet-size-radius-large, 6px);
-    transition: background 100ms ease-in-out;
+    transition: background var(--esnet-time-duration-short, 100ms) ease-in-out;
 
     &:has(+ .list) {
       border-radius: var(--esnet-size-radius-large, 6px)
@@ -100,7 +100,7 @@
     list-style: none;
     padding: 0 var(--esnet-size-spacing-medium, 16px) 0;
     margin: 0;
-    transition: background 100ms ease-in-out;
+    transition: background var(--esnet-time-duration-short, 100ms) ease-in-out;
 
     > * {
       padding: 0 var(--row-gap-size);
