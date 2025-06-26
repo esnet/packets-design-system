@@ -5,17 +5,25 @@ exports[`ESInputText has an error state 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <input
-        class="inputText default error undefined"
-        type="text"
-      />
+      <div
+        class="ESInputText default error  undefined"
+      >
+        <input
+          type="text"
+        />
+        <div />
+      </div>
     </div>
   </body>,
   "container": <div>
-    <input
-      class="inputText default error undefined"
-      type="text"
-    />
+    <div
+      class="ESInputText default error  undefined"
+    >
+      <input
+        type="text"
+      />
+      <div />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -76,19 +84,27 @@ exports[`ESInputText has class and identity 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <input
-        class="inputText default  test class"
-        id="test ID"
-        type="text"
-      />
+      <div
+        class="ESInputText default   test class"
+      >
+        <input
+          id="test ID"
+          type="text"
+        />
+        <div />
+      </div>
     </div>
   </body>,
   "container": <div>
-    <input
-      class="inputText default  test class"
-      id="test ID"
-      type="text"
-    />
+    <div
+      class="ESInputText default   test class"
+    >
+      <input
+        id="test ID"
+        type="text"
+      />
+      <div />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -149,17 +165,25 @@ exports[`ESInputText is branded 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <input
-        class="inputText branded  undefined"
-        type="text"
-      />
+      <div
+        class="ESInputText branded   undefined"
+      >
+        <input
+          type="text"
+        />
+        <div />
+      </div>
     </div>
   </body>,
   "container": <div>
-    <input
-      class="inputText branded  undefined"
-      type="text"
-    />
+    <div
+      class="ESInputText branded   undefined"
+    >
+      <input
+        type="text"
+      />
+      <div />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

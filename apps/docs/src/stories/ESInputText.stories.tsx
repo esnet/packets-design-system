@@ -1,6 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESInputText } from "@esnet/packets-ui";
+import { Apple } from "lucide-react";
 
 const meta: Meta<typeof ESInputText> = {
   title: "Components/ESInputText",
@@ -35,10 +36,11 @@ export const Default: Story = {
   },
 };
 
-export const BrandedWithPlaceholder: Story = {
+export const BrandedWithPlaceholderAndLargerWidth: Story = {
   args: {
-    placeholder: "Branded text",
+    placeholder: "Branded placeholder",
     variant: "branded",
+    style: { width: "250px" },
   },
   parameters: {
     design: {
@@ -97,6 +99,20 @@ const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 <ESInputText {...args} value={value} onChange={onChange} error={error} />
         `.trim(),
       },
+    },
+  },
+};
+
+export const InputWithActionButtons: Story = {
+  args: {
+    placeholder: "Press the apple",
+    variant: "branded",
+    actionButtons: [<Apple onClick={() => alert("Action button pressed")} />],
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1412-2695&t=bzfAloA7Ts1Yloyi-4",
     },
   },
 };
