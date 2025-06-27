@@ -12,6 +12,7 @@ export { default as ESButtonGroup } from "./ESButtonGroup";
 export { default as ESCommaSeperatedList } from "./ESCommaSeperatedList";
 export { default as ESDataTable } from "./ESDataTable";
 export { default as ESDatum } from "./ESDatum";
+export { default as ESDivider } from "./ESDivider";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputSwitch } from "./ESInputSwitch";
