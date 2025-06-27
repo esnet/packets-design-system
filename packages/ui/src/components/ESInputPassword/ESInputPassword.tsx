@@ -37,9 +37,9 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   };
 
   const hideIcon = hidden ? (
-    <Eye onClick={onUnhideClick} />
+    <Eye key="eye" onClick={onUnhideClick} />
   ) : (
-    <EyeOff onClick={onHideClick} />
+    <EyeOff key="eye-off" onClick={onHideClick} />
   );
 
   const actionButtons = [hideIcon, <X key="x" onClick={onXClick} />];
