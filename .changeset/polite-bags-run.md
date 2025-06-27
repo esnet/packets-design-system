@@ -3,4 +3,4 @@
 "docs": patch
 ---
 
-implemented ESInputPassword
+implemented ESInputSearch
