@@ -3,7 +3,6 @@ import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
 
-// @ts-ignore
 import styles from "./ESBreadcrumbs.module.css";
 
 /**

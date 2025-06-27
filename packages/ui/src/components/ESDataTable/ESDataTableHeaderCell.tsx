@@ -3,7 +3,6 @@ import { ESDataTableHeaderCellProps } from "./ESDataTable.types";
 
 import ESDataTableSortIcon from "./ESDataTableSortIcon";
 
-// @ts-ignore
 import styles from "./ESDataTable.module.css";
 
 /**

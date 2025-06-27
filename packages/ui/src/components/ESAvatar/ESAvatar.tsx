@@ -1,7 +1,6 @@
 import React, { FC, useMemo, useState } from "react";
 import { ESAvatarProps } from "./ESAvatar.types";
 
-// @ts-ignore
 import styles from "./ESAvatar.module.css";
 
 /**
@@ -43,7 +42,7 @@ const ESAvatar: FC<ESAvatarProps> = ({
   const _onError = (event: any) => {
     console.error(
       `ESAvatar::${event?.type}`,
-      `Image ${src || srcSet} failed to load`,
+      `Image ${src || srcSet} failed to load`
     );
     setError(true);
   };

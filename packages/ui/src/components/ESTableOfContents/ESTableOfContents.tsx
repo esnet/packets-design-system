@@ -3,7 +3,6 @@ import { ESTableOfContentsProps } from "./ESTableOfContents.types";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
 
-// @ts-ignore
 import styles from "./ESTableOfContents.module.css";
 
 /**

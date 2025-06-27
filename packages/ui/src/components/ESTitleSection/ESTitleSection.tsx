@@ -1,7 +1,6 @@
 import React from "react";
 import { ESTitleSectionProps } from "./ESTitleSection.types";
 
-// @ts-ignore
 import styles from "./ESTitleSection.module.css";
 import ESModule from "../ESModule";
 
