@@ -46,6 +46,7 @@ export const Default: Story = {};
 export const Branded: Story = {
   args: {
     variant: "branded",
+    placeholder: "Branded",
   },
 };
 
@@ -58,6 +59,7 @@ export const Error: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+    id: "disabled-password",
   },
 };
 
