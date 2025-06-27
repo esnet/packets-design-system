@@ -18,7 +18,7 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   defaultValue,
   ...props
 }) => {
-  const [_value, setValue] = useState<string>(defaultValue as string);
+  const [_value, setValue] = useState<string>((defaultValue ?? "") as string);
   const [hidden, setHidden] = useState(true);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,9 +37,9 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   };
 
   const hideIcon = hidden ? (
-    <EyeOff onClick={onUnhideClick} />
+    <Eye onClick={onUnhideClick} />
   ) : (
-    <Eye onClick={onHideClick} />
+    <EyeOff onClick={onHideClick} />
   );
 
   const actionButtons = [hideIcon, <X key="x" onClick={onXClick} />];
@@ -52,7 +52,7 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
       placeholder={placeholder}
       variant={variant}
       error={error}
-      className={`${styles.ESInputPassword} ${_value === "" ? styles.empty : ""} ${hidden ? styles.hidden : ""}`}
+      className={`${styles.ESInputPassword} ${_value === "" ? styles.empty : ""}`}
       onChange={onChange}
       actionButtons={actionButtons}
     />
