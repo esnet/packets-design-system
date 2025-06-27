@@ -107,7 +107,7 @@ export const InputWithActionButtons: Story = {
   args: {
     placeholder: "Press the apple",
     variant: "branded",
-    actionButtons: [<Apple onClick={() => alert("Action button pressed")} />],
+    actionButtons: <Apple onClick={() => alert("Action button pressed")} />,
   },
   parameters: {
     design: {
