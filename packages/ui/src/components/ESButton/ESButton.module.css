@@ -44,9 +44,9 @@ a.button {
   text-decoration: none;
 
   transition:
-    background ease-in-out 200ms,
-    border-color ease-in-out 200ms,
-    box-shadow ease-in-out 200ms;
+    background ease-in-out var(--esnet-time-duration-quick, 250ms),
+    border-color ease-in-out var(--esnet-time-duration-quick, 250ms),
+    box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
 
   /* Pseudo-events */
 

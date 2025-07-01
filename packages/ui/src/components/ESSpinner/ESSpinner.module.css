@@ -44,22 +44,22 @@
 
     &:nth-child(1) {
       left: var(--esnet-size-spacing-xsmall);
-      animation: dot1Animation 600ms infinite;
+      animation: dot1Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
     &:nth-child(2) {
       left: var(--esnet-size-spacing-xsmall);
-      animation: dot2Animation 600ms infinite;
+      animation: dot2Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
     &:nth-child(3) {
       left: 32px;
-      animation: dot2Animation 600ms infinite;
+      animation: dot2Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
     &:nth-child(4) {
       left: 56px;
-      animation: dot3Animation 600ms infinite;
+      animation: dot3Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
   }
 }
