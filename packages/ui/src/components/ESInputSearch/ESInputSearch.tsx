@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./ESInputSearch.module.css";
 import { ESInputSearchProps } from "./ESInputSearch.types";
 import ESInputText from "../ESInputText";
-import { Search, SearchX } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 /**
  * ESInputSearch Component
@@ -15,10 +15,8 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
   placeholder = "Search...",
   variant = "default",
   error = false,
-  SearchIcon = Search,
   onSearchClick,
-  SearchXIcon = SearchX,
-  onSearchXClick,
+  onXClick,
   defaultValue = "",
   ...props
 }) => {
@@ -31,17 +29,17 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
     }
   };
 
-  const _onSearchXClick = () => {
+  const _onXClick = () => {
     setValue("");
-    if (onSearchXClick) {
-      onSearchXClick();
+    if (onXClick) {
+      onXClick();
     }
   };
 
   const actionButton = _value ? (
-    <SearchXIcon onClick={_onSearchXClick} />
+    <X onClick={_onXClick} />
   ) : (
-    <SearchIcon onClick={onSearchClick} />
+    <Search onClick={onSearchClick} />
   );
 
   return (
