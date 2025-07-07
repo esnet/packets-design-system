@@ -96,6 +96,6 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
   );
 };
 
-ESInputNumber.displayName = "ESInputSearch";
+ESInputNumber.displayName = "ESInputNumber";
 
 export default ESInputNumber;
