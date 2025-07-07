@@ -1,14 +1,4 @@
 .ESInputSearch input {
-  /* Layout */
-
-  /* Styling */
-
-  /* Typography */
-
-  /* Transitions */
-
-  /* Pseudo-elements */
-
   /* Pseudo-classes */
   /* Remove the search button that is provided by default */
   &::-webkit-search-decoration,
@@ -23,18 +13,5 @@
     display: none;
     width: 0;
     height: 0;
-  }
-
-  /* Variants */
-
-  /* Modifiers */
-}
-
-.ESInputSearch.empty div {
-  cursor: default;
-  color: var(--esnet-color-light-copy-alt, #6e6e70);
-
-  :global(.dark) & {
-    color: var(--esnet-color-dark-copy-alt, #c2c2c2);
   }
 }
