@@ -29,6 +29,7 @@ export { default as ESInputSwitch } from "./ESInputSwitch";
 export { default as ESInputSearch } from "./ESInputSearch";
 export { default as ESInputText } from "./ESInputText";
 export { default as ESInputTextArea } from "./ESInputTextArea";
+export { default as ESInputTypeahead } from "./ESInputTypeahead";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESModule } from "./ESModule";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
