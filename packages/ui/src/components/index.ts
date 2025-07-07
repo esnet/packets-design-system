@@ -17,6 +17,7 @@ export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputSwitch } from "./ESInputSwitch";
 export { default as ESInputText } from "./ESInputText";
+export { default as ESInputTypeahead } from "./ESInputTypeahead";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESModule } from "./ESModule";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
