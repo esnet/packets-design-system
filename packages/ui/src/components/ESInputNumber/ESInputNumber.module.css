@@ -1,5 +1,4 @@
 .ESInputNumber input {
-
   /* Pseudo-classes */
   /* Remove the number spinner that is provided by default */
   &::-webkit-outer-spin-button,

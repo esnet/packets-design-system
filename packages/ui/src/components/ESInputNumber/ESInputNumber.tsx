@@ -1,27 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import styles from "./ESInputNumber.module.css";
 import { ESInputNumberProps } from "./ESInputNumber.types";
 import ESInputText from "../ESInputText";
 import { Minus, Plus } from "lucide-react";
-
-// Utility function to take a value and definitely returns a number (that isn't NaN)
-const parseNumber = (value: unknown, defaultValue: number = 0): number => {
-  const numValue = Number(value);
-
-  if (isNaN(numValue)) {
-    return defaultValue;
-  } else {
-    return numValue;
-  }
-};
-
-// Utility function to bind a number between a minimum and maximum bound
-const boundNumber = (min: number, max: number) => {
-  return (value: number): number => {
-    return Math.min(Math.max(value, min), max);
-  };
-};
+import { boundNumber, parseNumber } from "./utils";
 
 /**
  * ESInputSearch Component
@@ -33,57 +16,74 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
   variant = "default",
   error = false,
   defaultValue = "0",
+  onAddClick,
+  onMinusClick,
   min,
   max,
   step,
   ...props
 }) => {
-  const minValue = parseNumber(min, -Infinity);
-  const maxValue = parseNumber(max, Infinity);
-  const stepValue = parseNumber(step, 1);
-  const bound = boundNumber(minValue, maxValue);
+  const [minValue, maxValue, stepValue] = useMemo(() => {
+    return [
+      parseNumber(min, -Infinity),
+      parseNumber(max, Infinity),
+      parseNumber(step, 1),
+    ];
+  }, [min, max, step]);
 
-  const [numValue, setNumValue] = useState<number>(
-    bound(parseNumber(defaultValue))
+  const [value, setValue] = useState<string>(defaultValue as string);
+  const [_error, setError] = useState<boolean>(error);
+
+  const addValue = useCallback(
+    (amount: number) => {
+      const numValue = parseNumber(value);
+      // increment and decrement buttons only work when the value is a valid number
+      if (isNaN(numValue)) {
+        setError(true);
+        return;
+      }
+      const newValue = boundNumber(numValue + amount, minValue, maxValue);
+      setValue(String(newValue));
+    },
+    [value, minValue, maxValue]
   );
-  const [_value, _setValue] = useState<string>(String(numValue));
-  const [_error, setError] = useState(false);
 
-  const addValue = (amount: number) => {
-    const value = bound(numValue + amount);
-    _setValue(String(value));
-    setNumValue(value);
-  };
+  const onChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = parseNumber(event.target.value);
+      setValue(event.target.value);
+      setError(isNaN(newValue));
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseNumber(event.target.value);
-    _setValue(event.target.value);
-    setNumValue(bound(newValue));
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    },
+    [props.onChange]
+  );
 
-    if (props.onChange) {
-      props.onChange(event);
-    }
-  };
+  const increment = useCallback(() => {
+    addValue(stepValue);
+    if (onAddClick) onAddClick();
+  }, [addValue, stepValue, onAddClick]);
 
-  // set value back to a valid value when focusing out of element
-  const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    _setValue(String(numValue));
+  const decrement = useCallback(() => {
+    addValue(-stepValue);
+    if (onMinusClick) onMinusClick();
+  }, [addValue, stepValue, onMinusClick]);
 
-    if (props.onBlur) {
-      props.onBlur(event);
-    }
-  };
-
-  const actionButton = [
-    <Plus key="increment" onClick={() => addValue(stepValue)} />,
-    <Minus key="decrement" onClick={() => addValue(-stepValue)} />,
-  ];
+  const actionButton = useMemo(
+    () => [
+      <Plus key="increment" onClick={increment} />,
+      <Minus key="decrement" onClick={decrement} />,
+    ],
+    [stepValue, addValue]
+  );
 
   return (
     <ESInputText
       {...props}
       type="number"
-      value={_value}
+      value={value}
       variant={variant}
       error={error || _error}
       className={`${styles.ESInputNumber}`}
@@ -91,7 +91,6 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
       min={min}
       max={max}
       step={step}
-      onBlur={onBlur}
       actionButtons={actionButton}
     />
   );
