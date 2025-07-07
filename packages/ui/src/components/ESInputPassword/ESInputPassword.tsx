@@ -13,7 +13,7 @@ import { Eye, EyeOff, X } from "lucide-react";
  */
 const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   variant = "default",
-  placeholder = "Please enter password",
+  placeholder = "",
   error = false,
   defaultValue,
   ...props
@@ -52,7 +52,7 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
       placeholder={placeholder}
       variant={variant}
       error={error}
-      className={`${styles.ESInputPassword} ${_value === "" ? styles.empty : ""}`}
+      className={styles.ESInputPassword}
       onChange={onChange}
       actionButtons={actionButtons}
     />
