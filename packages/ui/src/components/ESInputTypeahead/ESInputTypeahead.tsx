@@ -1,4 +1,9 @@
-import React, { useEffect, useImperativeHandle } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+} from "react";
 
 import styles from "./ESInputTypeahead.module.css";
 import {
@@ -24,7 +29,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
   className = "",
   variant = "default",
   error = false,
-  disabled = true,
+  disabled = false,
   defaultValue = "",
   defaultOptions = [],
   options = [],
@@ -33,7 +38,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
   onSelectedOptionsChange,
   ...props
 }) => {
-  // Logic to handle the selected options parent components can access them
+  // Logic to handle the selected options, and how parent components can access them and changes in them
   const [selectedOptions, setSelectedOptions] =
     React.useState<ESInputTypeaheadOptionType[]>(defaultOptions);
   useImperativeHandle(selectedOptionsRef, () => selectedOptions, [
@@ -43,48 +48,78 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
     if (onSelectedOptionsChange) {
       onSelectedOptionsChange(selectedOptions);
     }
-  }, [selectedOptions]);
+  }, [selectedOptions, onSelectedOptionsChange]);
 
   // Logic to handle handle the current typeahead value
-  const [currentValue, setCurrentValue] = React.useState(
-    defaultValue as string
-  );
-  const [filteredOptions, setFilteredOptions] =
-    React.useState<ESInputTypeaheadOptionType[]>(options);
-  const _onChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    setCurrentValue(event.target.value);
-
-    // we handle onChange events here first, before filtering,
-    // in case the onChange handler modifies the options prop in some way
-    if (props.onChange) {
-      props.onChange(event);
-    }
-
-    const token = event.target.value.toLowerCase().trim();
+  const [inputValue, setInputValue] = React.useState(defaultValue as string);
+  const filteredOptions = React.useMemo(() => {
+    const token = inputValue.toLowerCase().trim();
+    // if no token is specified, act as if there is no filter, show all options
     if (!token) {
-      // if there is no token, pass all options
-      setFilteredOptions(options);
-    } else {
-      // if the option ID or, if it exists, the option value matches the token, pass it
-      setFilteredOptions(
-        options.filter(
-          (option) =>
-            option.value && String(option.value).toLowerCase().includes(token)
-        )
-      );
+      return options;
     }
-  };
+    return options.filter((option) =>
+      option.value?.toString().toLowerCase().includes(token)
+    );
+  }, [inputValue, options]);
+
+  const _onChange = React.useCallback<
+    React.ChangeEventHandler<HTMLInputElement>
+  >(
+    (event) => {
+      setInputValue(event.target.value);
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    },
+    [props.onChange]
+  );
+
+  const toggleOption = useCallback(
+    (option: ESInputTypeaheadOptionType, isSelected: boolean) => {
+      setSelectedOptions((prevSelected) => {
+        if (isSelected) {
+          return prevSelected.filter((selected) => selected.id !== option.id);
+        } else {
+          return [...prevSelected, option];
+        }
+      });
+      inputRef.current?.focus();
+    },
+    []
+  );
+
+  const filteredOptionsComponents = useMemo(() => {
+    return filteredOptions.map((option) => {
+      const isSelected = selectedOptions.some(
+        (selected) => selected.id === option.id
+      );
+      const onOptionClick = () => toggleOption(option, isSelected);
+      return (
+        <ESInputTypeaheadOption
+          onClick={onOptionClick}
+          selected={isSelected}
+          token={inputValue}
+          key={option.id}
+          optionData={option}
+        />
+      );
+    });
+  }, [filteredOptions, selectedOptions, inputValue, toggleOption]);
 
   // Logic to handle if the input element is being focused, which controls if typeahead options are shown
   const [inputFocused, _setInputFocused] = React.useState(false);
   const setInputFocused = disabled ? () => {} : _setInputFocused;
   const inputRef = React.useRef<HTMLInputElement | null>(null);
-  const onFocus = () => setInputFocused(true);
-  const onBlurCapture: React.FocusEventHandler<HTMLDivElement> = (e) => {
-    if (!e.currentTarget.contains(e.relatedTarget)) {
-      setInputFocused(false);
-    }
-  };
+  const focus = useCallback(() => setInputFocused(true), []);
+  const onBlurCapture = useCallback<React.FocusEventHandler<HTMLDivElement>>(
+    (e) => {
+      if (!e.currentTarget.contains(e.relatedTarget)) {
+        setInputFocused(false);
+      }
+    },
+    []
+  );
 
   const baseClasses = [
     styles.ESInputTypeahead,
@@ -97,7 +132,8 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
 
   return (
     <div
-      onFocus={onFocus}
+      onFocus={focus}
+      onClick={focus}
       onBlurCapture={onBlurCapture}
       className={baseClasses}
     >
@@ -128,7 +164,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
             disabled={disabled}
             onChange={_onChange}
             type="text"
-            value={currentValue}
+            value={inputValue}
           />
         </div>
         {inputFocused ? (
@@ -149,39 +185,10 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
           <hr />
           <span>
             <strong>{filteredOptions.length}</strong> results for &quot;
-            <strong>{currentValue}</strong>
+            <strong>{inputValue}</strong>
             &quot;
           </span>
-          <div>
-            {filteredOptions.map((option) => (
-              <ESInputTypeaheadOption
-                onClick={() => {
-                  if (
-                    selectedOptions.some(
-                      (selectedOption) => selectedOption.id === option.id
-                    )
-                  ) {
-                    // if the selected options already includes this option, remove it
-                    setSelectedOptions(
-                      selectedOptions.filter(
-                        (selectedOption) => selectedOption.id !== option.id
-                      )
-                    );
-                  } else {
-                    // selected options doesn't include this option, add it
-                    setSelectedOptions([...selectedOptions, option]);
-                  }
-                  inputRef.current?.focus();
-                }}
-                selected={selectedOptions.some(
-                  (selectedOption) => selectedOption.id === option.id
-                )}
-                token={currentValue}
-                key={option.id}
-                optionData={option}
-              />
-            ))}
-          </div>
+          <div>{filteredOptionsComponents}</div>
         </div>
       )}
     </div>
