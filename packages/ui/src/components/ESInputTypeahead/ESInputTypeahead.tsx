@@ -21,6 +21,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
  * TODO: Add functionality where pressing backspace pops selected option components
  * TODO: Write tests
  * TODO: Write stories and documentation
+ * TODO: Aria accessbility- what is this div? this component
  *
  * @param {ESInputTypeaheadProps} props
  * @returns {React.ReactElement}
