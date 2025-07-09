@@ -1,25 +1,34 @@
-import React from "react";
+import React, { ComponentPropsWithRef, FC, ReactNode } from "react";
 
 // @ts-ignore
 import styles from "./ESInputText.module.css";
-import { ESInputTextProps } from "./ESInputText.types";
+// import { ESInputTextProps } from "./ESInputText.types";
+
+export interface ESInputTextProps extends ComponentPropsWithRef<"input"> {
+  /** variant */
+  variant?: "default" | "branded";
+  /** error state */
+  error?: boolean;
+  actionButtons?: ReactNode[];
+}
 
 /**
  * ESInputText Component
  *
- * A wrapper around HTML <input type="text" /> element to provide styling
+ * A wrapper around HTML `<input type="text" />` element to provide styling
+ *
  *
  * @param {ESInputTextProps} props
  * @returns {React.ReactElement}
  */
-const ESInputText: React.FC<ESInputTextProps> = ({
+export const ESInputText: FC<ESInputTextProps> = ({
   variant = "default",
   error = false,
   disabled,
   className,
   actionButtons,
   ...props
-}) => {
+}: ESInputTextProps) => {
   return (
     <div
       className={`${styles.ESInputText} ${styles[variant]} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className}`}
@@ -31,5 +40,3 @@ const ESInputText: React.FC<ESInputTextProps> = ({
 };
 
 ESInputText.displayName = "ESInputText";
-
-export default ESInputText;
