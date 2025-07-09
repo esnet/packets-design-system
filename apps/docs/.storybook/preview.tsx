@@ -1,6 +1,6 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
-import { themes } from "@storybook/theming";
+import { themes } from "storybook/theming";
 import "@esnet/packets-ui/style.css";
 
 const preview: Preview = {

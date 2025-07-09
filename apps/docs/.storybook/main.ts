@@ -1,28 +1,35 @@
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
 import type { StorybookConfig } from "@storybook/react-vite";
+
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    "@storybook/addon-designs",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@whitespace/storybook-addon-html",
-    "storybook-dark-mode",
+    getAbsolutePath("@storybook/addon-designs"),
+    getAbsolutePath("@storybook/addon-onboarding"),
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@whitespace/storybook-addon-html"),
+    getAbsolutePath("storybook-dark-mode"),
+    getAbsolutePath("@storybook/addon-docs"),
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  // typescript: {
-  //   reactDocgen: "react-docgen-typescript",
-  //   reactDocgenTypescriptOptions: {
-  //     propFilter: (prop) =>
-  //       prop.parent
-  //         ? !/node_modules\/(?!(@esnet))/.test(prop.parent.fileName)
-  //         : true,
-  //   },
-  // },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      propFilter: (prop) =>
+        prop.parent
+          ? !/node_modules\/(?!(@esnet))/.test(prop.parent.fileName)
+          : true,
+    },
+  },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}
