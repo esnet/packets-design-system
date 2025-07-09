@@ -1,5 +1,3 @@
-export { ESInputText, ESInputTextProps } from "./ESInputText";
-
 export {
   PacketsDesignTokenProvider,
   PacketsDesignTokenProviderContext,
@@ -18,7 +16,7 @@ export { default as ESDivider } from "./ESDivider";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputSwitch } from "./ESInputSwitch";
-// export { ESInputText } from "./ESInputText";
+export { ESInputText } from "./ESInputText";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESModule } from "./ESModule";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";

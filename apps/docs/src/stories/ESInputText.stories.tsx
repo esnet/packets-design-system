@@ -1,38 +1,18 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Apple } from "lucide-react";
-import {
-  ESInputText as _ESInputText,
-  ESInputTextProps as _ESInputTextProps,
-} from "@esnet/packets-ui/src";
-// import {
-//   ESInputText,
-//   ESInputTextProps,
-// } from "../../../../packages/ui/src/components/ESInputText";
+import { ESInputText } from "@esnet/packets-ui/src";
+// import { ESInputText } from "../../../../packages/ui/src/components/ESInputText";
 
 const meta = {
   title: "Components/ESInputText",
-  component: _ESInputText,
+  component: ESInputText,
   tags: ["autodocs"],
-  //   argTypes: {
-  //     variant: {
-  //       control: { type: "radio" },
-  //       options: ["default", "branded"],
-  //       defaultValue: "default",
-  //     },
-  //     error: {
-  //       control: { type: "boolean" },
-  //     },
-  //   },
-  //   args: {
-  //     error: false,
-  //     variant: "default",
-  //   },
-} satisfies Meta<typeof _ESInputText>;
+} satisfies Meta<typeof ESInputText>;
 
 export default meta;
 
-type Story = StoryObj<typeof _ESInputText>;
+type Story = StoryObj<typeof ESInputText>;
 
 export const Default: Story = {
   parameters: {

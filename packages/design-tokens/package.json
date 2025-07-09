@@ -24,6 +24,9 @@
     "./tokens.json": {
       "import": "./dist/tokens.json",
       "require": "./dist/tokens.json"
+    },
+    "./dist/*": {
+      "default": "./dist/*"
     }
   },
   "license": "MIT",
