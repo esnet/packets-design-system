@@ -25,16 +25,14 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value);
 
-      if (typeof props.onChange === "function") {
-        props.onChange(event);
-      }
+      props.onChange?.(event);
     },
     [props.onChange]
   );
 
   const _onXClick = useCallback(() => {
     setValue("");
-    if (onXClick) onXClick();
+    onXClick?.();
   }, [onXClick]);
 
   const actionButton = useMemo(() => {
