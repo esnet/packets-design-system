@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 
 import styles from "./ESInputEmail.module.css";
 import { ESInputEmailProps } from "./ESInputEmail.types";
@@ -37,12 +37,12 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
   return (
     <ESInputText
       {...props}
-      type="search"
+      type="email"
       value={_value}
       placeholder={placeholder}
       variant={variant}
       error={error}
-      className={`${styles.ESInputEmail} ${_value === "" ? styles.empty : ""}`}
+      className={`${styles.ESInputEmail}`}
       onChange={onChange}
       actionButtons={actionButton}
     />
