@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import styles from "./ESInputEmail.module.css";
 import { ESInputEmailProps } from "./ESInputEmail.types";
@@ -12,7 +12,7 @@ import { X } from "lucide-react";
  * @returns {React.ReactElement}
  */
 const ESInputEmail: React.FC<ESInputEmailProps> = ({
-  placeholder = "Email",
+  placeholder = "",
   variant = "default",
   error = false,
   defaultValue = "",
@@ -23,20 +23,16 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
 
-    if (props.onChange) {
-      props.onChange(event);
-    }
+    props.onChange?.(event);
   };
 
   const _onXClick = () => {
     setValue("");
 
-    if (onXClick) {
-      onXClick();
-    }
+    onXClick?.();
   };
 
-  const actionButton = _value ? <X onClick={_onXClick} /> : undefined;
+  const actionButton = <X onClick={_onXClick} />;
 
   return (
     <ESInputText
