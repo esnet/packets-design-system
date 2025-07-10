@@ -1,13 +1,9 @@
 .inputSwitch {
   --indicator-size: 1.55rem;
-  --label-font: var(
-    --esnet-typography-label-1-sans-font,
-    400 12px/120% var(--esnet-font-family-body-sans)
-  );
-  --label-letterspace: var(
-    --esnet-typography-label-2-sans-letterspacing,
-    -0.18px
-  );
+  --label-font: var(--esnet-typography-label-1-sans-font,
+      400 12px/120% var(--esnet-font-family-body-sans));
+  --label-letterspace: var(--esnet-typography-label-2-sans-letterspacing,
+      -0.18px);
   --width: 54px;
   --height: 29px;
   --border-width: 3px;
@@ -25,7 +21,7 @@
 
     border: var(--border-width) solid rgba(0, 0, 0, 0);
 
-    transition: all 120ms ease-in-out;
+    transition: all var(--esnet-time-duration-quick, 250ms) ease-in-out;
 
     /* States */
     &:hover {
@@ -50,7 +46,7 @@
       background: var(--esnet-color-core-white-600, #ccc);
       border-radius: var(--esnet-size-radius-circle, 9999px);
       border: 1px solid var(--esnet-color-core-white-700, #c2c2c2);
-      
+
       /* variable dimensions minus border and padding offset */
       width: calc(var(--width) - 4px);
       height: calc(var(--height) - 4px);
@@ -106,7 +102,7 @@
     }
 
     .indicator {
-      transition: all 100ms ease-in-out;
+      transition: all var(--esnet-time-duration-quick, 250ms) ease-in-out;
       width: var(--indicator-size, 24px);
       height: var(--indicator-size, 24px);
       aspect-ratio: 1/1;
@@ -145,6 +141,7 @@
 
       .isDisabled & {
         background-color: var(--esnet-color-core-white-400, #e3e3e3);
+
         &:hover {
           cursor: not-allowed;
         }
@@ -192,6 +189,7 @@
     .inputWrapper {
       border-color: var(--color-core-white-400, #e3e3e3);
     }
+
     &.isChecked {
       .inputWrapper {
         border-color: var(--color-core-blue-300, #64d2ff);

@@ -9,7 +9,7 @@
   min-height: var(--esnet-size-spacing-large, 32px);
 
   border-radius: var(--esnet-size-spacing-xsmall);
-  transition: background ease-in 100ms;
+  transition: background ease-in var(--esnet-time-duration-short, 100ms);
 
   &.isActive {
     background-color: var(--esnet-color-light-surface-2, #f2f2f2);

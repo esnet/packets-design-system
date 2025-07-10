@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESInputSearch } from "@esnet/packets-ui";
-import { Brain, SearchIcon, SearchX, X } from "lucide-react";
 
 const meta: Meta<typeof ESInputSearch> = {
   title: "Components/ESInputSearch",
@@ -21,26 +20,14 @@ const meta: Meta<typeof ESInputSearch> = {
     onSearchClick: {
       control: { type: "object" },
     },
-    onSearchXClick: {
+    onXClick: {
       control: { type: "object" },
-    },
-    SearchIcon: {
-      control: "object",
-      description:
-        "Lucide icon to represent search, default to Lucide's Search",
-    },
-    SearchXIcon: {
-      control: "object",
-      description:
-        "Lucide icon to represent search, default to Lucide's SearchX",
     },
   },
   args: {
     error: false,
     variant: "default",
     disabled: false,
-    SearchIcon: SearchIcon,
-    SearchXIcon: SearchX,
   },
   parameters: {
     docs: {
@@ -81,13 +68,5 @@ export const Error: Story = {
   args: {
     value: "Bad Query",
     error: true,
-  },
-};
-
-export const CustomIcons: Story = {
-  args: {
-    SearchIcon: Brain,
-    SearchXIcon: X,
-    placeholder: "Lucide icon custom controls",
   },
 };
