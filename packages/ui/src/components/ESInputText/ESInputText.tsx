@@ -1,16 +1,7 @@
-import React, { ComponentPropsWithRef, FC, ReactNode } from "react";
+import * as React from "react";
 
-// @ts-ignore
 import styles from "./ESInputText.module.css";
-// import { ESInputTextProps } from "./ESInputText.types";
-
-export interface ESInputTextProps extends ComponentPropsWithRef<"input"> {
-  /** variant */
-  variant?: "default" | "branded";
-  /** error state */
-  error?: boolean;
-  actionButtons?: ReactNode[];
-}
+import { ESInputTextProps } from "./ESInputText.types";
 
 /**
  * ESInputText Component
@@ -21,14 +12,14 @@ export interface ESInputTextProps extends ComponentPropsWithRef<"input"> {
  * @param {ESInputTextProps} props
  * @returns {React.ReactElement}
  */
-const ESInputText: FC<ESInputTextProps> = ({
+export const ESInputText: React.FC<ESInputTextProps> = ({
   variant = "default",
   error = false,
   disabled,
   className,
   actionButtons,
   ...props
-}: ESInputTextProps) => {
+}) => {
   return (
     <div
       className={`${styles.ESInputText} ${styles[variant]} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className}`}
