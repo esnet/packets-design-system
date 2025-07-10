@@ -2,13 +2,12 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Apple } from "lucide-react";
 import { ESInputText } from "@esnet/packets-ui/src";
-// import { ESInputText } from "../../../../packages/ui/src/components/ESInputText";
 
-const meta = {
+const meta: Meta<typeof ESInputText> = {
   title: "Components/ESInputText",
   component: ESInputText,
   tags: ["autodocs"],
-} satisfies Meta<typeof ESInputText>;
+};
 
 export default meta;
 
