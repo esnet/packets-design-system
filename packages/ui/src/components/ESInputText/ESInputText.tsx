@@ -21,7 +21,7 @@ export interface ESInputTextProps extends ComponentPropsWithRef<"input"> {
  * @param {ESInputTextProps} props
  * @returns {React.ReactElement}
  */
-export const ESInputText: FC<ESInputTextProps> = ({
+const ESInputText: FC<ESInputTextProps> = ({
   variant = "default",
   error = false,
   disabled,
@@ -40,3 +40,5 @@ export const ESInputText: FC<ESInputTextProps> = ({
 };
 
 ESInputText.displayName = "ESInputText";
+
+export default ESInputText;

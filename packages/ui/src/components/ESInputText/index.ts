@@ -1,1 +1,1 @@
-export { ESInputText } from "./ESInputText";
+export { default } from "./ESInputText";
