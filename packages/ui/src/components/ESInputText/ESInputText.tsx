@@ -15,14 +15,14 @@ import { ESInputTextProps } from "./ESInputText.types";
 const ESInputText: React.FC<ESInputTextProps> = ({
   variant = "default",
   error = false,
-  disabled,
+  disabled = false,
   className,
   actionButtons,
   ...props
 }) => {
   return (
     <div
-      className={`${styles.ESInputText} ${styles[variant]} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className}`}
+      className={`${styles.ESInputText} ${styles[variant] ?? ""} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className ?? ""}`}
     >
       <input type="text" disabled={disabled} {...props} />
       <div>{actionButtons}</div>
