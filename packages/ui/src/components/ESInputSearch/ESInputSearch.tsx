@@ -25,7 +25,7 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value);
 
-      if (props.onChange) {
+      if (typeof props.onChange === "function") {
         props.onChange(event);
       }
     },
