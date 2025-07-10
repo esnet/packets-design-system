@@ -8,7 +8,6 @@ import React, {
 } from "react";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
 
-// @ts-ignore
 import styles from "./ESInputSwitch.module.css";
 import { getIconByCheckedState } from "./ESInputSwitchUtils";
 

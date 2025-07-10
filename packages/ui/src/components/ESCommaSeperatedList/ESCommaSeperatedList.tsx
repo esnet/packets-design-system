@@ -1,7 +1,6 @@
 import React from "react";
 import { ESCommaSeperatedListType } from "./ESCommaSeperatedList.types";
 
-// @ts-ignore
 import styles from "./ESCommaSeperatedList.module.css";
 
 import { defaultItemRender } from "./ESCommaSeperatedListUtils";

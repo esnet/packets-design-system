@@ -40,6 +40,11 @@ Packets is a design system created as a cross organizational collaboration at ES
 
 1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
 2. Run `pnpm i` on the root of the project.
-3. Run `pnpm run dev` to start the local watch build and storybook.
-4. Access storybook in at [http://localhost:6006/](http://localhost:6006/).
-5. Components and be access and edits in the `src/packages/ui` directory.
+3. Navigate to `packages/design-tokens`, and run `pnpm run build` (production) or `pnpm run dev` (development).
+4. Navigate to `packages/ui`, and run `pnpm run build` (production) or `pnpm run dev` (development).
+5. Navigate back to the root of the project, and run `pnpm run dev` to start the local watch build and storybook.
+6. Access storybook in at [http://localhost:6006/](http://localhost:6006/).
+
+# Development
+
+Components can be created/modified in `packages/ui`, design tokens in `packages/design-tokens`, and stories in `apps/docs/src/stories`. To create a new component, create a directory for the component in `packages/ui/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.

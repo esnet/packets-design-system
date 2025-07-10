@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import { ESDataTableSkeletonLoadingProps } from "./ESDataTable.types";
 
-// @ts-ignore
-import ESDataTableCell from "./ESDataTableCell";
+// import ESDataTableCell from "./ESDataTableCell";
 import ESSkeletonChip from "../ESSkeletonChip";
 import ESDataTableRow from "./ESDataTableRow";
 
@@ -27,7 +26,7 @@ const ESDataTableSkeletonLoading: FC<ESDataTableSkeletonLoadingProps> = ({
       cells.push(
         <ESDataTableCell key={`skeley-bones-cell-${columnIndex}`}>
           <ESSkeletonChip />
-        </ESDataTableCell>,
+        </ESDataTableCell>
       );
     }
     rows.push(
@@ -36,7 +35,7 @@ const ESDataTableSkeletonLoading: FC<ESDataTableSkeletonLoadingProps> = ({
         className={className}
       >
         {cells}
-      </ESDataTableRow>,
+      </ESDataTableRow>
     );
   }
 

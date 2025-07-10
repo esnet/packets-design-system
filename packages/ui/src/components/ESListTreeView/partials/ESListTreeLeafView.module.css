@@ -23,7 +23,7 @@
     &.selectedIcon {
       color: var(--esnet-color-core-blue-600);
       :global {
-        animation: scaleBounceIn 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation: scaleBounceIn var(--esnet-time-duration-short, 100ms) cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
         @media (prefers-reduced-motion) {
           animation: none;
@@ -49,7 +49,7 @@
   }
 
   .selectedIcon :global {
-    animation: scaleBounceIn 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: scaleBounceIn var(--esnet-time-duration-short, 100ms) cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     @media (prefers-reduced-motion) {
       animation: none;

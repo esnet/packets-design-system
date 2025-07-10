@@ -10,8 +10,7 @@
   --label-typography: var(--esnet-typography-header-6-sans-font);
 
   --cornder-radius: var(--esnet-size-radius-large, 6px);
-  --cell-padding: var(--esnet-size-spacing-xsmall, 8px)
-    var(--esnet-size-spacing-medium, 16px);
+  --cell-padding: var(--esnet-size-spacing-xsmall, 8px) var(--esnet-size-spacing-medium, 16px);
 
   table-layout: auto;
   display: block;
@@ -87,7 +86,7 @@
     .tableRow {
       display: block;
       padding: var(--esnet-size-spacing-medium) 0;
-      transition: background ease-in 100ms;
+      transition: background ease-in var(--esnet-time-duration0short, 100ms);
 
       &:hover,
       &:nth-child(even):hover {
@@ -141,6 +140,7 @@
 
     .tableRow {
       display: block;
+
       @media (min-width: 640px) {
         display: table-row;
       }

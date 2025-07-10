@@ -7,7 +7,8 @@
         "name/cti/kebab",
         "color/hex",
         "size/pxToRem",
-        "typography/shorthand"
+        "typography/shorthand",
+        "duration/units"
       ],
       "prefix": "esnet",
       "transformGroup": "css",
@@ -28,7 +29,8 @@
         "name/cti/kebab",
         "color/hex",
         "size/pxToRem",
-        "typography/shorthand"
+        "typography/shorthand",
+        "duration/units"
       ],
       "prefix": "esnet",
       "transformGroup": "scss",
@@ -55,7 +57,8 @@
         "attribute/cti",
         "name/cti/constant",
         "color/hex",
-        "size/pxToRem"
+        "size/pxToRem",
+        "duration/units"
       ],
       "prefix": "esnet",
       "transformGroup": "js",
@@ -76,7 +79,8 @@
         "attribute/cti",
         "name/cti/constant",
         "color/hex",
-        "size/pxToRem"
+        "size/pxToRem",
+        "duration/units"
       ],
       "prefix": "esnet",
       "transformGroup": "js",

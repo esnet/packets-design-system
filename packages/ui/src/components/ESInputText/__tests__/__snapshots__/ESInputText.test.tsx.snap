@@ -6,7 +6,7 @@ exports[`ESInputText has an error state 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default error  undefined"
+        class="ESInputText default error  "
       >
         <input
           type="text"
@@ -17,7 +17,7 @@ exports[`ESInputText has an error state 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default error  undefined"
+      class="ESInputText default error  "
     >
       <input
         type="text"
@@ -166,7 +166,7 @@ exports[`ESInputText is branded 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText branded   undefined"
+        class="ESInputText branded   "
       >
         <input
           type="text"
@@ -177,7 +177,7 @@ exports[`ESInputText is branded 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText branded   undefined"
+      class="ESInputText branded   "
     >
       <input
         type="text"

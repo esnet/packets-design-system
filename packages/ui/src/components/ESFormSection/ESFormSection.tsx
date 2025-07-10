@@ -1,7 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { ESFormSectionProps } from "./ESFormSection.types";
 
-// @ts-ignore
 import styles from "./ESFormSection.module.css";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
