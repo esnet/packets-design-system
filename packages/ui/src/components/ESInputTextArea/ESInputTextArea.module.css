@@ -2,9 +2,10 @@
   /* Layout */
   display: inline-flex;
   flex-direction: column;
+  justify-content: space-between;
   width: auto;
   padding: var(--esnet-size-spacing-xsmall, 8px);
-  overflow: scroll;
+  overflow: auto;
   min-height: var(--esnet-size-spacing-xxxlarge, 5.5rem);
   min-width: var(--esnet-size-spacing-xxxlarge, 5.5rem);
 
@@ -122,20 +123,10 @@
   }
 }
 
-.ESInputTextArea div {
-  color: inherit;
-  display: flex;
-  justify-content: end;
-  width: 100%;
-}
-
-.ESInputTextArea div svg {
+.ESInputTextArea svg {
+  align-self: flex-end;
   color: inherit;
   transform: scaleX(-1);
   width: var(--esnet-size-spacing-medium, 8px);
   height: var(--esnet-size-spacing-medium, 8px);
-}
-
-.ESInputTextArea.disabled div svg {
-  color: var(--esnet-color-core-white-900, #a8a8a8);
 }

@@ -32,9 +32,7 @@ const ESInputTextArea: React.FC<ESInputTextAreaProps> = ({
   return (
     <div className={classNames}>
       <textarea {...props} disabled={disabled} />
-      <div>
-        <Text />
-      </div>
+      <Text />
     </div>
   );
 };
