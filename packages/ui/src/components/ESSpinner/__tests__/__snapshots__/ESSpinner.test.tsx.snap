@@ -7,7 +7,7 @@ exports[`Spinner matches DOM Snapshot 1`] = `
     <div>
       <div
         aria-busy="true"
-        class="spinner"
+        class="ESSpinner"
         role="alert"
       >
         <span
@@ -33,7 +33,7 @@ exports[`Spinner matches DOM Snapshot 1`] = `
   "container": <div>
     <div
       aria-busy="true"
-      class="spinner"
+      class="ESSpinner"
       role="alert"
     >
       <span

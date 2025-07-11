@@ -6,7 +6,7 @@ exports[`ESTableOfContents matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <nav
-        class="tableOfContents isSticky"
+        class="ESTableOfContents isSticky"
       >
         <h6
           class="title"
@@ -46,7 +46,7 @@ exports[`ESTableOfContents matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <nav
-      class="tableOfContents isSticky"
+      class="ESTableOfContents isSticky"
     >
       <h6
         class="title"
