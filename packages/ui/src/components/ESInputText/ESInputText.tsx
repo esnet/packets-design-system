@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./ESInputText.module.css";
 import { ESInputTextProps } from "./ESInputText.types";
+import clsx from "clsx";
 
 /**
  * ESInputText Component
@@ -19,10 +20,16 @@ const ESInputText: React.FC<ESInputTextProps> = ({
   actionButtons,
   ...props
 }) => {
+  const classNames = clsx(
+    styles.ESInputText,
+    variant && styles[variant],
+    error && styles.error,
+    disabled && styles.disabled,
+    className
+  );
+
   return (
-    <div
-      className={`${styles.ESInputText} ${styles[variant] ?? ""} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className ?? ""}`}
-    >
+    <div className={classNames}>
       <input
         className={styles.ESInputTextInput}
         type="text"
