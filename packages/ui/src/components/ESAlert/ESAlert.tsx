@@ -3,6 +3,7 @@ import { ESAlertProps } from "./ESAlert.types";
 import { getAlertIconByType } from "./ESAlertUtils";
 
 import styles from "./ESAlert.module.css";
+import { clsx } from "clsx";
 
 /**
  * ESAlert Component
@@ -17,8 +18,10 @@ const ESAlert: FC<ESAlertProps> = ({ title, type = "info", children }) => {
     return getAlertIconByType(type);
   }, [type]);
 
+  const classNames = clsx(styles.ESAlert, styles[type]);
+
   return (
-    <section className={`${styles.alert} ${!!styles[type] && styles[type]}`}>
+    <section className={classNames}>
       <aside className={styles.icon}>{icon}</aside>
       <section className={styles.content}>
         <h6 className={styles.title}>{title}</h6>

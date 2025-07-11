@@ -1,4 +1,6 @@
-.alert {
+.ESAlert {
+  width: stretch;
+
   --icon-size: var(--esnet-size-touchtarget-min, 32px);
   --section-gap: var(--esnet-size-spacing-medium, 16px);
   --title-label-font: var(
