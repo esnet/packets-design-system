@@ -108,7 +108,11 @@
 
 .ESInputTextActionButtons {
   cursor: pointer;
-  margin-left: var(--esnet-size-spacing-xxsmall, 4px);
+  padding-right: var(--esnet-size-spacing-xsmall, 8px);
+
+  .branded > & {
+    padding-right: var(--esnet-size-spacing-medium, 16px);
+  }
 
   input:disabled + & {
     cursor: default;

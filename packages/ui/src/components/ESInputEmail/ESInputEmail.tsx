@@ -4,6 +4,7 @@ import styles from "./ESInputEmail.module.css";
 import { ESInputEmailProps } from "./ESInputEmail.types";
 import ESInputText from "../ESInputText";
 import { X } from "lucide-react";
+import clsx from "clsx";
 
 /**
  * ESInputEmail Component
@@ -16,6 +17,7 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
   variant = "default",
   error = false,
   defaultValue = "",
+  className,
   onXClick,
   ...props
 }) => {
@@ -34,6 +36,8 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
 
   const actionButton = <X onClick={_onXClick} />;
 
+  const classNames = clsx(styles.ESInputEmail, className);
+
   return (
     <ESInputText
       {...props}
@@ -42,7 +46,7 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
       placeholder={placeholder}
       variant={variant}
       error={error}
-      className={`${styles.ESInputEmail}`}
+      className={classNames}
       onChange={onChange}
       actionButtons={actionButton}
     />
