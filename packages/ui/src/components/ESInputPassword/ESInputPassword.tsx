@@ -4,6 +4,7 @@ import styles from "./ESInputPassword.module.css";
 import { ESInputPasswordProps } from "./ESInputPassword.types";
 import ESInputText from "../ESInputText";
 import { Eye, EyeOff, X } from "lucide-react";
+import clsx from "clsx";
 
 /**
  * ESInputPassword Component
@@ -13,9 +14,10 @@ import { Eye, EyeOff, X } from "lucide-react";
  */
 const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   variant = "default",
-  placeholder = "",
+  placeholder,
   error = false,
   defaultValue,
+  className,
   ...props
 }) => {
   const [_value, setValue] = useState<string>((defaultValue ?? "") as string);
@@ -44,6 +46,8 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
 
   const actionButtons = [hideIcon, <X key="x" onClick={onXClick} />];
 
+  const classNames = clsx(styles.ESInputPassword, className);
+
   return (
     <ESInputText
       {...props}
@@ -52,7 +56,7 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
       placeholder={placeholder}
       variant={variant}
       error={error}
-      className={styles.ESInputPassword}
+      className={classNames}
       onChange={onChange}
       actionButtons={actionButtons}
     />
