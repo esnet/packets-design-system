@@ -18,10 +18,8 @@ const ESAlert: FC<ESAlertProps> = ({ title, type = "info", children }) => {
     return getAlertIconByType(type);
   }, [type]);
 
-  const classNames = clsx(styles.ESAlert, styles[type]);
-
   return (
-    <section className={classNames}>
+    <section className={clsx(styles.ESAlert, styles[type])}>
       <aside className={styles.icon}>{icon}</aside>
       <section className={styles.content}>
         <h6 className={styles.title}>{title}</h6>

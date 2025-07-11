@@ -1,8 +1,9 @@
-.spinner {
+.ESSpinner {
   display: inline-block;
   position: relative;
-  width: var(--esnet-size-spacing-xxlarge);
+  width: stretch;
   height: var(--esnet-size-spacing-medium);
+  margin: auto;
 
   @media (prefers-reduced-motion) {
     .dot {

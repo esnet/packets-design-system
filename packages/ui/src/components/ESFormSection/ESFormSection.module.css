@@ -1,4 +1,5 @@
-.formSection {
+.ESFormSection {
+  width: stretch;
   --section-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   padding: var(--esnet-size-spacing-medium);

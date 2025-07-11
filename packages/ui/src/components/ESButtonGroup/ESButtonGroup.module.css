@@ -1,4 +1,4 @@
-.buttonGroup {
+.ESButtonGroup {
   --spacing: var(--esnet-size-spacing-xsmall, 8px);
   --label-color: var(--esnet-color-light-copy, #3d3d3d);
   --label-color-dark: var(--esnet-color-dark-copy, #e6e6e6);

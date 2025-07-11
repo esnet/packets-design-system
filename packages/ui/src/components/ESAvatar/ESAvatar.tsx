@@ -48,16 +48,17 @@ const ESAvatar: FC<ESAvatarProps> = ({
     setError(true);
   };
 
-  const classNames = clsx(
-    styles.ESAvatar,
-    styles[size],
-    error && styles.brokenImage,
-    styles[computedBackgroundColor],
-    className
-  );
-
   return (
-    <section className={classNames} {...props}>
+    <section
+      className={clsx(
+        styles.ESAvatar,
+        styles[size],
+        error && styles.brokenImage,
+        styles[computedBackgroundColor],
+        className
+      )}
+      {...props}
+    >
       {hasImageSrc && (
         <img
           className={styles.image}

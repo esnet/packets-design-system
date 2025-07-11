@@ -1,4 +1,5 @@
-.esModule {
+.ESModule {
+  width: stretch;
   padding: 0 var(--esnet-size-spacing-medium, 16px);
 
   @media (min-width: 640px) {

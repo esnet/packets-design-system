@@ -1,8 +1,8 @@
-.skeletonChip {
+.ESSkeletonChip {
   --shimmerBGSize: 50rem;
 
   display: block;
-  width: 100%;
+  width: stretch;
   height: var(--esnet-size-touchtarget-min);
   border-radius: var(--esnet-size-spacing-xxxlarge);
 

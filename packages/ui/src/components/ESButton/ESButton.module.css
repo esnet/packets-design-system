@@ -1,5 +1,5 @@
-.button,
-a.button {
+.ESButton,
+a.ESButton {
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   --spacing-height-medium: 40px;
@@ -18,7 +18,7 @@ a.button {
 
   /* Layout */
   display: inline-flex;
-  width: auto;
+  width: stretch;
   padding: var(--esnet-size-border-width-medium, 4px)
     var(--esnet-size-spacing-medium, 16px);
   box-sizing: border-box;
@@ -95,7 +95,7 @@ a.button {
       &:hover,
       &:focus {
         background-color: var(--esnet-color-core-blue-500, #00a0d6);
-        border-color: var(--esnet-color-core-slate-100, #C3C7D9);
+        border-color: var(--esnet-color-core-slate-100, #c3c7d9);
       }
 
       &:active {

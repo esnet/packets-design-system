@@ -2,6 +2,7 @@ import React from "react";
 import { ESButtonGroupProps } from "./ESButtonGroup.types";
 
 import styles from "./ESButtonGroup.module.css";
+import clsx from "clsx";
 
 /**
  * ES Button Group
@@ -21,7 +22,7 @@ const ESButtonGroup = ({
 }: ESButtonGroupProps): JSX.Element => {
   return (
     <section
-      className={`${styles.buttonGroup} ${styles[direction]}`}
+      className={clsx(styles.ESButtonGroup, styles[direction])}
       {...other}
     >
       {labelCopy && !hideLabel && <label>{labelCopy}</label>}

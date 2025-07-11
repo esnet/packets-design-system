@@ -1,4 +1,5 @@
-.tableOfContents {
+.ESTableOfContents {
+  width: stretch;
   margin: 0 var(--esnet-size-spacing-large) var(--esnet-size-spacing-medium);
 
   .list {

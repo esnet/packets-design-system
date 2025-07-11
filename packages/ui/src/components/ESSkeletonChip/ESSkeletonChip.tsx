@@ -12,7 +12,7 @@ import styles from "./ESSkeletonChip.module.css";
  */
 const ESSkeletonChip: FC = () => {
   return (
-    <div role="alert" aria-busy="true" className={styles.skeletonChip}></div>
+    <div role="alert" aria-busy="true" className={styles.ESSkeletonChip}></div>
   );
 };
 
