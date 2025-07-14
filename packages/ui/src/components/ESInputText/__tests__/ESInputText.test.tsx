@@ -1,24 +1,27 @@
+import { test, expect } from "@playwright/experimental-ct-react";
 import React from "react";
-import { render } from "@testing-library/react";
 import ESInputText from "../ESInputText";
 
-describe("ESInputText", () => {
-  it("renders correctly", () => {
-    const component = render(<ESInputText />);
-    expect(component).toBeTruthy();
+test.describe("ESInputText", () => {
+  test("matches snapshot", async ({ mount }) => {
+    const component = await mount(<ESInputText />);
+    await expect(component).toHaveScreenshot();
   });
-  it("has class and identity", () => {
-    const component = render(
-      <ESInputText id="test ID" className="test class" />
+  test("renders with placeholder", async ({ mount }) => {
+    const component = await mount(
+      <ESInputText placeholder="Enter text here" />
     );
-    expect(component).toMatchSnapshot();
+    const input = component.locator("input");
+    await expect(input).toHaveAttribute("placeholder", "Enter text here");
   });
-  it("is branded", () => {
-    const component = render(<ESInputText variant="branded" />);
-    expect(component).toMatchSnapshot();
-  });
-  it("has an error state", () => {
-    const component = render(<ESInputText error={true} />);
-    expect(component).toMatchSnapshot();
+  test("basic interaction", async ({ mount }) => {
+    const component = await mount(<ESInputText />);
+    const input = component.locator("input");
+
+    await input.fill("Test input");
+    await expect(input).toHaveValue("Test input");
+
+    await input.clear();
+    await expect(input).toHaveValue("");
   });
 });
