@@ -3,8 +3,17 @@ import React from "react";
 import ESInputText from "../ESInputText";
 
 test.describe("ESInputText", () => {
-  test("matches snapshot", async ({ mount }) => {
+  test("default matches snapshot", async ({ mount, page }) => {
     const component = await mount(<ESInputText />);
+    await page.evaluate(async () => await document.fonts.ready);
+    await expect(component).toHaveScreenshot();
+  });
+  test("branded error matches snapshot", async ({ mount, page }) => {
+    const component = await mount(
+      <ESInputText placeholder="Enter text here" variant="branded" error />,
+      {}
+    );
+    await page.evaluate(() => document.fonts.ready);
     await expect(component).toHaveScreenshot();
   });
   test("renders with placeholder", async ({ mount }) => {
