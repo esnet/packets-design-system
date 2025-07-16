@@ -1,0 +1,109 @@
+.ESInputCheckbox {
+  /* Layout */
+  box-sizing: border-box;
+  /* Styling */
+  width: 24px;
+  height: 24px;
+}
+
+.ESInputCheckboxInput {
+  position: relative;
+  appearance: none;
+  width: stretch;
+  height: stretch;
+  margin: 0;
+  outline: none;
+  border-radius: var(--esnet-size-radius-large, 0.375rem);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-small, 0.125rem);
+  background-color: var(--esnet-color-core-white-100, #ffffff);
+  border-color: var(--esnet-color-light-shadow, #4d515e);
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-surface-1, #19191a);
+    border-color: var(--esnet-color-dark-shadow, #5c5f6b);
+  }
+
+  transition: border-color var(--esnet-time-duration-quick, 250ms) ease,
+  background var(--esnet-time-duration-quick, 250ms) ease,
+  box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+
+  /* Pseudo-events */
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    cursor: pointer;
+    box-shadow:
+      var(--esnet-box-shadow-core-medium,
+        0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+        0px 4px 5px -1px rgba(0, 0, 0, 0.1)),
+      0 0 0 1px var(--esnet-color-light-primary, #0088b5);
+
+    :global(.dark) & {
+      box-shadow:
+        var(--esnet-box-shadow-core-medium,
+          0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+          0px 4px 5px -1px rgba(0, 0, 0, 0.1)),
+        0 0 0 1px var(--esnet-color-dark-secondary, #00b6f2);
+    }
+  }
+
+  /* Pseudo-elements */
+  /* Custom checkmark */
+  &:checked::after {
+    content: "";
+    position: absolute;
+    left: 5.4px;
+    width: 6px;
+    height: 13px;
+    border-style: solid;
+    border-color: var(--esnet-color-light-shadow, #4d515e);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
+
+  :global(.dark) &:checked:not(:disabled)::after {
+    border-color: var(--esnet-color-core-white-100, #ffffff);
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    accent-color: var(--esnet-color-light-surface-2, #f3f4f8);
+    background-color: var(--esnet-color-light-surface-2, #f3f4f8);
+
+    border-color: var(--esnet-color-light-shadow, #4d515e);
+
+    :global(.dark) & {
+      accent-color: var(--esnet-color-dark-surface-2, #23242a);
+      background-color: var(--esnet-color-dark-surface-2, #23242a);
+      border-color: var(--esnet-color-dark-shadow, #5c5f6b);
+    }
+
+    &:checked::after {
+      border-color: var(--esnet-color-light-copy-alt, #b0b3ba);
+
+      :global(.dark) & {
+        border-color: var(--esnet-color-dark-copy-alt, #7c7f8a);
+      }
+    }
+  }
+
+  /* Variants */
+  .branded>& {
+    &:checked:not(:disabled) {
+      accent-color: var(--esnet-color-light-primary, #0088b5);
+      background-color: var(--esnet-color-light-primary, #0088b5);
+
+      :global(.dark) & {
+        accent-color: var(--esnet-color-dark-primary, #004573);
+        background-color: var(--esnet-color-dark-primary, #004573);
+      }
+
+      &::after {
+        border-color: var(--esnet-color-core-white-100, #ffffff);
+      }
+    }
+  }
+}
