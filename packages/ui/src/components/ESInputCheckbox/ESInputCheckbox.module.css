@@ -1,12 +1,8 @@
 .ESInputCheckbox {
   /* Layout */
-  display: inline-flex;
-  align-items: center;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   /* Styling */
-  /* width: var(--esnet-size-spacing-medium, 1rem); medium is too small, large is too large...*/
   width: 24px;
-  /* height: var(--esnet-size-spacing-medium, 1rem); medium is too small, large is too large...*/
   height: 24px;
 }
 
@@ -22,14 +18,15 @@
   border-width: var(--esnet-size-border-width-small, 0.125rem);
   background-color: var(--esnet-color-core-white-100, #ffffff);
   border-color: var(--esnet-color-light-shadow, #4d515e);
+
   :global(.dark) & {
     background-color: var(--esnet-color-dark-surface-1, #19191a);
     border-color: var(--esnet-color-dark-shadow, #5c5f6b);
   }
-  transition:
-    border-color var(--esnet-time-duration-quick, 250ms) ease,
-    background var(--esnet-time-duration-quick, 250ms) ease,
-    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+
+  transition: border-color var(--esnet-time-duration-quick, 250ms) ease,
+  background var(--esnet-time-duration-quick, 250ms) ease,
+  box-shadow var(--esnet-time-duration-quick, 250ms) ease;
 
   /* Pseudo-events */
 
@@ -37,19 +34,16 @@
   &:focus:not(:disabled) {
     cursor: pointer;
     box-shadow:
-      var(
-        --esnet-box-shadow-core-medium,
+      var(--esnet-box-shadow-core-medium,
         0px 2px 3px -1px rgba(0, 0, 0, 0.1),
-        0px 4px 5px -1px rgba(0, 0, 0, 0.1)
-      ),
+        0px 4px 5px -1px rgba(0, 0, 0, 0.1)),
       0 0 0 1px var(--esnet-color-light-primary, #0088b5);
+
     :global(.dark) & {
       box-shadow:
-        var(
-          --esnet-box-shadow-core-medium,
+        var(--esnet-box-shadow-core-medium,
           0px 2px 3px -1px rgba(0, 0, 0, 0.1),
-          0px 4px 5px -1px rgba(0, 0, 0, 0.1)
-        ),
+          0px 4px 5px -1px rgba(0, 0, 0, 0.1)),
         0 0 0 1px var(--esnet-color-dark-secondary, #00b6f2);
     }
   }
@@ -59,9 +53,9 @@
   &:checked::after {
     content: "";
     position: absolute;
-    left: 31%;
-    width: 30%;
-    height: 64%;
+    left: 5.4px;
+    width: 6px;
+    height: 13px;
     border-style: solid;
     border-color: var(--esnet-color-light-shadow, #4d515e);
     border-width: 0 3px 3px 0;
@@ -80,6 +74,7 @@
     background-color: var(--esnet-color-light-surface-2, #f3f4f8);
 
     border-color: var(--esnet-color-light-shadow, #4d515e);
+
     :global(.dark) & {
       accent-color: var(--esnet-color-dark-surface-2, #23242a);
       background-color: var(--esnet-color-dark-surface-2, #23242a);
@@ -88,6 +83,7 @@
 
     &:checked::after {
       border-color: var(--esnet-color-light-copy-alt, #b0b3ba);
+
       :global(.dark) & {
         border-color: var(--esnet-color-dark-copy-alt, #7c7f8a);
       }
@@ -95,14 +91,16 @@
   }
 
   /* Variants */
-  .branded > & {
+  .branded>& {
     &:checked:not(:disabled) {
       accent-color: var(--esnet-color-light-primary, #0088b5);
       background-color: var(--esnet-color-light-primary, #0088b5);
+
       :global(.dark) & {
         accent-color: var(--esnet-color-dark-primary, #004573);
         background-color: var(--esnet-color-dark-primary, #004573);
       }
+
       &::after {
         border-color: var(--esnet-color-core-white-100, #ffffff);
       }
