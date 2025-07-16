@@ -1,82 +1,52 @@
 .ESInputRadioButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: var(--esnet-size-spacing-medium, 1rem);
   height: var(--esnet-size-spacing-medium, 1rem);
-  box-sizing: border-box;
 }
 
 .ESInputRadioButtonInput {
-  all: unset;
+  margin: 0;
   box-sizing: border-box;
   appearance: none;
   width: stretch;
   height: stretch;
-  border-radius: 50%;
-  border: 2px solid var(--esnet-color-light-shadow, #4d515e);
-  background: var(--esnet-color-light-shadow, #4d515e);
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
-  position: relative;
+  border-radius: var(--esnet-size-radius-circle, 999px);
+  border-style: solid;
+  border-width: var(--esnet-size-spacing-xxsmall, 0.25rem);
+  border-color: var(--esnet-color-light-copy, #3d3d3d);
+  background-color: var(--esnet-color-light-copy, #3d3d3d);
+
+  :global(.dark) & {
+    border-color: var(--esnet-color-dark-copy, #ffffff);
+    background-color: var(--esnet-color-dark-copy, #ffffff);
+  }
+
+  transition: border-color var(--esnet-time-duration-quick, 250ms) ease,
+  background var(--esnet-time-duration-quick, 250ms) ease,
+  box-shadow var(--esnet-time-duration-quick, 250ms) ease;
   cursor: pointer;
-}
 
-.ESInputRadioButtonInput:checked {
-  border-color: var(--esnet-color-light-primary, #0088b5);
-  background: var(--esnet-color-light-shadow, #4d515e);
-}
+  /* Pseudo-events */
+  &:checked:not(:disabled), &:focus:not(:disabled), &:hover:not(:disabled) {
+    border-color: var(--esnet-color-light-primary, #0088b5);
 
-.ESInputRadioButtonInput:checked::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
-  background: var(--esnet-color-light-primary, #0088b5);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
+    :global(.dark) & {
+      border-color: var(--esnet-color-dark-secondary, #00b6f2);
+    }
+  }
 
-.ESInputRadioButtonInput:focus-visible,
-.ESInputRadioButtonInput:hover {
-  border-color: var(--esnet-color-light-primary, #0088b5);
-  box-shadow: 0 0 0 2px var(--esnet-color-light-primary, #0088b5);
-}
+  &:focus:not(:disabled), &:hover:not(:disabled) {
+    box-shadow: var(--esnet-box-shadow-core-medium, 0px 2px 3px -1px rgba(0, 0, 0, .1), 0px 4px 5px -1px rgba(0, 0, 0, .1));
+  }
 
-.ESInputRadioButtonInput:disabled {
-  background: var(--esnet-color-light-surface-2, #f3f4f8);
-  border-color: var(--esnet-color-light-copy-alt, #b0b3ba);
-  cursor: not-allowed;
-}
-.ESInputRadioButtonInput:disabled:checked::before {
-  background: var(--esnet-color-light-copy-alt, #b0b3ba);
-}
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: var(--esnet-color-light-copy-alt, #4d515e);
+    border-color: var(--esnet-color-light-copy-alt, #4d515e);
 
-:global(.dark) .ESInputRadioButtonInput {
-  border: 2px solid var(--esnet-color-dark-shadow, #5c5f6b);
-  background: var(--esnet-color-dark-shadow, #5c5f6b);
-}
-:global(.dark) .ESInputRadioButtonInput:checked {
-  border-color: var(--esnet-color-dark-primary, #00b6f2);
-  background: var(--esnet-color-dark-shadow, #5c5f6b);
-}
-:global(.dark) .ESInputRadioButtonInput:checked::before {
-  background: var(--esnet-color-dark-primary, #00b6f2);
-}
-:global(.dark) .ESInputRadioButtonInput:focus-visible,
-:global(.dark) .ESInputRadioButtonInput:hover {
-  border-color: var(--esnet-color-dark-primary, #00b6f2);
-  box-shadow: 0 0 0 2px var(--esnet-color-dark-primary, #00b6f2);
-}
-:global(.dark) .ESInputRadioButtonInput:disabled {
-  background: var(--esnet-color-dark-surface-2, #23242a);
-  border-color: var(--esnet-color-dark-copy-alt, #7c7f8a);
-}
-:global(.dark) .ESInputRadioButtonInput:disabled:checked::before {
-  background: var(--esnet-color-dark-copy-alt, #7c7f8a);
+    :global(.dark) & {
+      border-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+      background-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+    }
+  }
 }

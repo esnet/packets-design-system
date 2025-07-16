@@ -11,10 +11,15 @@ import { ESInputRadioButtonProps } from "./ESInputRadioButton.types";
  */
 const ESInputRadioButton: React.FC<ESInputRadioButtonProps> = ({
   className,
+  ...props
 }) => {
   return (
     <div className={clsx(styles.ESInputRadioButton, className)}>
-      <input type="radio" className={styles.ESInputRadioButtonInput} />
+      <input
+        type="radio"
+        className={styles.ESInputRadioButtonInput}
+        {...props}
+      />
     </div>
   );
 };
