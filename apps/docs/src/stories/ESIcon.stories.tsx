@@ -8,7 +8,7 @@ const meta: Meta<typeof ESIcon> = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=1-13&p=f&t=TsBf9t3EVbQXYenU-0",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=6070-5684",
     },
   },
 };
