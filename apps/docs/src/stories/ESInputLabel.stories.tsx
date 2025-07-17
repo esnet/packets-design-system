@@ -4,7 +4,6 @@ import { ESInputEmail, ESInputLabel, ESInputText } from "@esnet/packets-ui";
 const meta: Meta<typeof ESInputLabel> = {
   title: "Components/ESInputLabel",
   component: ESInputLabel,
-  // subcomponents: { ESInputText },
   tags: ["autodocs"],
   args: {},
   parameters: {
@@ -33,20 +32,8 @@ export default meta;
 type Story = StoryObj<typeof ESInputLabel>;
 
 export const Default: Story = {
-  // render: (props) => <ESAlert {...props}>{props.children}</ESAlert>,
   args: {
     label: "Input Label",
-    // error: false,
-    // disabled: false,
-    // required: false,
-    // children: (
-    //   <ESInputText
-    //     // id={args.htmlFor}
-    //     placeholder="Placeholder text"
-    //     // disabled={args.disabled}
-    //     // error={args.error}
-    //   />
-    // ),
   },
 };
 
