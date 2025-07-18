@@ -1,8 +1,8 @@
 import React from "react";
 
-// @ts-ignore
 import styles from "./ESInputText.module.css";
 import { ESInputTextProps } from "./ESInputText.types";
+import clsx from "clsx";
 
 /**
  * ESInputText Component
@@ -22,10 +22,23 @@ const ESInputText: React.FC<ESInputTextProps> = ({
 }) => {
   return (
     <div
-      className={`${styles.ESInputText} ${styles[variant] ?? ""} ${error ? styles.error : ""} ${disabled ? styles.disabled : ""} ${className ?? ""}`}
+      className={clsx(
+        styles.ESInputText,
+        variant && styles[variant],
+        error && styles.error,
+        disabled && styles.disabled,
+        className
+      )}
     >
-      <input type="text" disabled={disabled} {...props} />
-      <div>{actionButtons}</div>
+      <input
+        className={styles.ESInputTextInput}
+        type="text"
+        disabled={disabled}
+        {...props}
+      />
+      {actionButtons && (
+        <div className={styles.ESInputTextActionButtons}>{actionButtons}</div>
+      )}
     </div>
   );
 };

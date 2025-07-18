@@ -1,11 +1,9 @@
 .ESInputText {
   /* Layout */
   display: inline-flex;
-  width: auto;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  width: 100%;
 
   /* Styling */
-  box-sizing: border-box;
   background-color: var(--esnet-color-core-white-100, #ffffff);
   color: var(--esnet-color-light-copy, #3d3d3d);
   border-style: solid;
@@ -65,16 +63,14 @@
   /* Variants */
   &.branded {
     border-radius: var(--esnet-size-radius-circle, 999px);
-    padding: var(--esnet-size-spacing-xsmall, 0.0625rem)
-      var(--esnet-size-spacing-medium, 0.25rem);
   }
-
-  /* Modifiers */
 }
 
-.ESInputText input {
+.ESInputTextInput {
   all: unset;
+  width: 100%;
   font: inherit;
+  padding: var(--esnet-size-spacing-xsmall, 8px);
 
   /* Pseudo-elements */
   &::placeholder {
@@ -101,11 +97,21 @@
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
   }
+
+  /* Variants */
+  .branded > & {
+    padding: var(--esnet-size-spacing-xsmall, 0.0625rem)
+      var(--esnet-size-spacing-medium, 0.25rem);
+  }
 }
 
-.ESInputText div {
+.ESInputTextActionButtons {
   cursor: pointer;
-  margin-left: var(--esnet-size-spacing-xxsmall, 4px);
+  padding-right: var(--esnet-size-spacing-xsmall, 8px);
+
+  .branded > & {
+    padding-right: var(--esnet-size-spacing-medium, 16px);
+  }
 
   input:disabled + & {
     cursor: default;
