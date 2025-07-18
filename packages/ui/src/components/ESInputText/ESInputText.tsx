@@ -20,16 +20,16 @@ const ESInputText: React.FC<ESInputTextProps> = ({
   actionButtons,
   ...props
 }) => {
-  const classNames = clsx(
-    styles.ESInputText,
-    variant && styles[variant],
-    error && styles.error,
-    disabled && styles.disabled,
-    className
-  );
-
   return (
-    <div className={classNames}>
+    <div
+      className={clsx(
+        styles.ESInputText,
+        variant && styles[variant],
+        error && styles.error,
+        disabled && styles.disabled,
+        className
+      )}
+    >
       <input
         className={styles.ESInputTextInput}
         type="text"
