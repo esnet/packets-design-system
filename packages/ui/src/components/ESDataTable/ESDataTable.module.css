@@ -1,5 +1,4 @@
 .dataTableRoot {
-  width: stretch;
   --background-color: var(--esnet-color-core-white-100, #fff);
   --background-dark-color: var(--esnet-color-core-slate-1000, #30333b);
   --header-background-color: var(--esnet-color-core-blue-900);

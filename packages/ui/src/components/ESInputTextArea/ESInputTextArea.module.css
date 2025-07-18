@@ -4,13 +4,12 @@
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  width: stretch;
+  width: 100%;
   overflow: auto;
   min-height: var(--esnet-size-spacing-xxxlarge, 5.5rem);
   min-width: var(--esnet-size-spacing-xxxlarge, 5.5rem);
 
   /* Styling */
-  box-sizing: border-box;
   background-color: var(--esnet-color-core-white-100, #ffffff);
   color: var(--esnet-color-light-copy, #3d3d3d);
   border-style: solid;
@@ -91,7 +90,7 @@
   all: unset;
   font: inherit;
   word-break: break-all;
-  width: stretch;
+  width: 100%;
   padding: var(--esnet-size-spacing-xsmall, 8px);
   flex: 1;
   height: fit-content;

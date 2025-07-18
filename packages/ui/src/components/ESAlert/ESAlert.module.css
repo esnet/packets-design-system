@@ -1,12 +1,10 @@
 .ESAlert {
-  width: stretch;
+  width: 100%;
 
   --icon-size: var(--esnet-size-touchtarget-min, 32px);
   --section-gap: var(--esnet-size-spacing-medium, 16px);
-  --title-label-font: var(
-    --esnet-typography-header-5-sans-font,
-    600 20px/140% var(--esnet-font-family-header-sans)
-  );
+  --title-label-font: var(--esnet-typography-header-5-sans-font,
+      600 20px/140% var(--esnet-font-family-header-sans));
 
   border-radius: var(--esnet-size-radius-xlarge, 8px);
   padding: var(--esnet-size-spacing-medium, 16px);

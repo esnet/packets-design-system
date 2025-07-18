@@ -1,5 +1,5 @@
 .titleLayout {
-  width: stretch;
+  width: 100%;
   margin-bottom: var(--esnet-size-spacing-large);
 
   .title {

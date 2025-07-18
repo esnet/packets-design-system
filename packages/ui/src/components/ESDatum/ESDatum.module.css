@@ -1,5 +1,5 @@
 .ESDatum {
-  width: stretch;
+  width: 100%;
   --label-font: var(
     --esnet-typography-label-1-sans-font,
     400 12px/120% var(--esnet-font-family-body-sans)

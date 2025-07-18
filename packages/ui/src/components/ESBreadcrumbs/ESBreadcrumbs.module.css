@@ -1,5 +1,5 @@
 .ESBreadCrumbs {
-  width: stretch;
+  width: 100%;
   padding-left: 0;
   --divider-color: var(--esnet-color-core-black-500, #4d4d4f);
   --link-color: var(--esnet-color-light-copy, #3d3d3d);

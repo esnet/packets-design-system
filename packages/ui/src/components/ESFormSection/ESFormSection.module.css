@@ -1,5 +1,5 @@
 .ESFormSection {
-  width: stretch;
+  width: 100%;
   --section-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   padding: var(--esnet-size-spacing-medium);
@@ -14,7 +14,8 @@
 
   .leftCol {
     margin-bottom: var(--esnet-size-spacing-medium);
-    > p {
+
+    >p {
       color: var(--esnet-color-copy-alt);
     }
   }

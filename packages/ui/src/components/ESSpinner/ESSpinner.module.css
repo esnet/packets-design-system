@@ -1,7 +1,7 @@
 .ESSpinner {
   display: inline-block;
   position: relative;
-  width: stretch;
+  width: 100%;
   height: var(--esnet-size-spacing-medium);
   margin: auto;
 

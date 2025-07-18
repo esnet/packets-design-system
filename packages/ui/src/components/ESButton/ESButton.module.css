@@ -18,10 +18,9 @@ a.ESButton {
 
   /* Layout */
   display: inline-flex;
-  width: stretch;
+  width: 100%;
   padding: var(--esnet-size-border-width-medium, 4px)
     var(--esnet-size-spacing-medium, 16px);
-  box-sizing: border-box;
 
   justify-content: center;
   align-items: center;
