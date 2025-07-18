@@ -1,4 +1,4 @@
-.inputSwitch {
+.ESInputSwitch {
   --indicator-size: 1.55rem;
   --label-font: var(--esnet-typography-label-1-sans-font,
       400 12px/120% var(--esnet-font-family-body-sans));

@@ -2,7 +2,7 @@
   --shimmerBGSize: 50rem;
 
   display: block;
-  width: stretch;
+  width: 100%;
   height: var(--esnet-size-touchtarget-min);
   border-radius: var(--esnet-size-spacing-xxxlarge);
 

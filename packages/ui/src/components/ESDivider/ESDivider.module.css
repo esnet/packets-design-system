@@ -1,7 +1,7 @@
 .ESDivider {
   /* Layout */
   height: var(--esnet-size-border-width-small, 2px);
-  width: stretch;
+  width: 100%;
 
   /* Styling */
   border-radius: var(--esnet-size-radius-circle, 999px);

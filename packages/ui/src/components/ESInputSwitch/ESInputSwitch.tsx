@@ -44,7 +44,7 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
     return getIconByCheckedState(isChecked);
   }, [isChecked]);
 
-  const rootClasses = `${styles.inputSwitch} 
+  const rootClasses = `${styles.ESInputSwitch} 
     ${isDisabled ? styles.isDisabled : ""}
     ${isChecked ? styles.isChecked : ""} 
     ${isFocused ? styles.isFocused : ""} 

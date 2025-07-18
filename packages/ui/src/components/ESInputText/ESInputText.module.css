@@ -1,10 +1,9 @@
 .ESInputText {
   /* Layout */
   display: inline-flex;
-  width: stretch;
+  width: 100%;
 
   /* Styling */
-  box-sizing: border-box;
   background-color: var(--esnet-color-core-white-100, #ffffff);
   color: var(--esnet-color-light-copy, #3d3d3d);
   border-style: solid;
@@ -69,7 +68,7 @@
 
 .ESInputTextInput {
   all: unset;
-  width: stretch;
+  width: 100%;
   font: inherit;
   padding: var(--esnet-size-spacing-xsmall, 8px);
 
