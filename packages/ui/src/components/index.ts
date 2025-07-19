@@ -16,6 +16,7 @@ export { default as ESDivider } from "./ESDivider";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputCheckbox } from "./ESInputCheckbox";
+export { default as ESInputDatePicker } from "./ESInputDatePicker";
 export { default as ESInputEmail } from "./ESInputEmail";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";
