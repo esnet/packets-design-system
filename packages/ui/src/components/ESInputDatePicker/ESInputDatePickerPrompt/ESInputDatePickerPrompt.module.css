@@ -10,7 +10,7 @@
 
   /* Styling */
   width: 240px;
-  height: 240px;
+  height: 264px;
   background-color: var(--esnet-color-light-surface-2);
   color: var(--esnet-color-light-copy);
   :global(.dark) & {
@@ -18,6 +18,12 @@
     color: var(--esnet-color-dark-copy);
   }
   box-shadow: var(--esnet-box-shadow-core-medium);
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
 }
 
 .ESInputDatePickerDate {
@@ -26,19 +32,47 @@
   flex-direction: column;
   width: 100%;
   padding: var(--esnet-size-spacing-xsmall);
-
-  background-color: green;
 }
 
 .ESInputDatePickerDateNav {
   display: flex;
   gap: var(--esnet-size-spacing-xsmall);
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  background-color: red;
+}
+
+.ESInputDatePickerNavButton {
+  width: 24px;
+  height: 24px;
+}
+
+.ESInputDatePickerDateNavInfo {
+  display: flex;
+  gap: var(--esnet-size-spacing-medium);
+  justify-content: center;
+  align-items: center;
+
+  & > button {
+    outline: none;
+    border: none;
+    background: inherit;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    gap: var(--esnet-size-spacing-xxxsmall);
+    justify-content: center;
+    align-items: center;
+  }
+
+  & > button > svg {
+    cursor: pointer;
+    width: var(--esnet-size-spacing-medium);
+    height: var(--esnet-size-spacing-medium);
+  }
 }
 
 .ESInputDatePickerDateDayGrid {
@@ -46,7 +80,6 @@
   height: 100%;
   grid-template-columns: repeat(7, 1fr);
   place-items: center;
-  background-color: orange;
 }
 
 .ESInputDatePickerDateDayCellHeader {
@@ -65,18 +98,23 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: white;
   /* Styling */
   /* apply hover, active, focus, select, disabled, variant styles */
+  &:disabled {
+    cursor: default;
+    color: var(--esnet-color-core-white-600);
+    :global(.dark) & {
+      color: var(--esnet-color-core-white-900);
+    }
+  }
 }
 
 .ESInputDatePickerDateMonthGrid {
   display: grid;
   height: 100%;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--esnet-size-spacing-medium);
+  gap: var(--esnet-size-spacing-xsmall);
   place-items: center;
-  background-color: orange;
 }
 
 .ESInputDatePickerDateMonthCellButton {
@@ -90,7 +128,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: white;
   /* Styling */
   /* apply hover, active, focus, select, disabled, variant styles */
 }
@@ -101,7 +138,6 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--esnet-size-spacing-xxsmall);
   place-items: center;
-  background-color: orange;
 }
 
 .ESInputDatePickerDateYearCellButton {
@@ -115,7 +151,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: white;
   /* Styling */
   /* apply hover, active, focus, select, disabled, variant styles */
 }

@@ -3,11 +3,11 @@ import styles from "./ESInputDatePickerPrompt.module.css";
 import { ESInputDatePickerPromptProps } from "./ESInputDatePickerPrompt.types";
 import ESInputDatePickerTime from "./ESInputDatePickerTime";
 import ESInputDatePickerDate from "./ESInputDatePickerDate";
-import { clsx } from "clsx";
 
 const ESInputDatePickerPrompt: React.FC<ESInputDatePickerPromptProps> = ({
-  variant,
   type,
+  date,
+  onClickDate,
 }) => {
   const promptTypeComponent = React.useMemo(() => {
     switch (type) {
@@ -16,24 +16,17 @@ const ESInputDatePickerPrompt: React.FC<ESInputDatePickerPromptProps> = ({
       case "datetime":
         return (
           <>
-            <ESInputDatePickerDate />
+            <ESInputDatePickerDate date={date} onClickDate={onClickDate} />
             <ESInputDatePickerTime />
           </>
         );
       case "date":
       default:
-        return <ESInputDatePickerDate />;
+        return <ESInputDatePickerDate date={date} onClickDate={onClickDate} />;
     }
   }, [type]);
   return (
-    <div
-      className={clsx(
-        styles.ESInputDatePickerPrompt,
-        variant && styles[variant]
-      )}
-    >
-      {promptTypeComponent}
-    </div>
+    <div className={styles.ESInputDatePickerPrompt}>{promptTypeComponent}</div>
   );
 };
 
