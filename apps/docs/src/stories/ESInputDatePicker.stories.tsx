@@ -5,7 +5,12 @@ const meta: Meta<typeof ESInputDatePicker> = {
   title: "Components/ESInputDatePicker",
   component: ESInputDatePicker,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    variant: {
+      control: { type: "radio" },
+      options: ["default", "branded"],
+    },
+  },
   args: {},
   parameters: {
     design: {
@@ -16,7 +21,7 @@ const meta: Meta<typeof ESInputDatePicker> = {
   decorators: [
     // a larger height to fully view the absolutely positioned calendar prompt
     (Story) => (
-      <div style={{ minHeight: 250 }}>
+      <div style={{ minHeight: 280 }}>
         <Story />
       </div>
     ),
