@@ -21,8 +21,8 @@
   border-width: var(--esnet-size-border-width-small, 0.125rem);
   border-radius: var(--esnet-size-radius-circle, 999px);
 
-  background-color: var(--esnet-color-core-white-700);
-  border-color: var(--esnet-color-core-white-700);
+  background-color: var(--esnet-color-core-white-700, #c2c2c2);
+  border-color: var(--esnet-color-core-white-700, #c2c2c2);
   &.checked {
     background-color: var(--interaction-color);
     border-color: var(--interaction-border);
@@ -45,19 +45,19 @@
 
   &.disabled {
     cursor: default;
-    border-color: var(--esnet-color-core-white-500);
+    border-color: var(--esnet-color-core-white-500, #d9d9d9);
     box-shadow: none;
-    background-color: var(--esnet-color-core-white-500);
+    background-color: var(--esnet-color-core-white-500, #d9d9d9);
     &.checked {
       border-color: color-mix(
         in srgb,
         var(--interaction-color),
-        var(--esnet-color-core-white-500) 70%
+        var(--esnet-color-core-white-500, #d9d9d9) 70%
       );
       background-color: color-mix(
         in srgb,
         var(--interaction-color),
-        var(--esnet-color-core-white-500) 70%
+        var(--esnet-color-core-white-500, #d9d9d9) 70%
       );
     }
   }
