@@ -24,6 +24,10 @@
     --esnet-typography-copy-1-sans-font,
     400 16px/120% var(--esnet-font-family-body-sans)
   );
+
+  &.branded {
+    border-radius: var(--esnet-size-radius-medium, 0.25rem);
+  }
 }
 
 .ESInputDatePickerDate {
@@ -45,8 +49,27 @@
 }
 
 .ESInputDatePickerNavButton {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 24px;
   height: 24px;
+  box-sizing: border-box;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover,
+  &:focus {
+    border: var(--esnet-size-border-width-small, 0.125rem) solid
+      var(--esnet-color-light-primary, #0088b5);
+    border-radius: var(--esnet-size-radius-medium, 0.5rem);
+    .branded & {
+      border-radius: var(--esnet-size-radius-circle, 999px);
+    }
+  }
 }
 
 .ESInputDatePickerDateNavInfo {
@@ -57,7 +80,6 @@
 
   & > button {
     outline: none;
-    border: none;
     background: inherit;
     color: inherit;
     font: inherit;
@@ -66,6 +88,16 @@
     gap: var(--esnet-size-spacing-xxxsmall);
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-color: none;
+
+    &:focus {
+      border-color: var(--esnet-color-light-primary, #0088b5);
+      border-radius: var(--esnet-size-radius-medium, 0.5rem);
+      .branded & {
+        border-radius: var(--esnet-size-radius-circle, 999px);
+      }
+    }
   }
 
   & > button > svg {
@@ -90,21 +122,80 @@
   align-items: center;
 }
 
+.ESInputDatePickerButtonInteractions {
+  outline: none;
+  box-sizing: border-box;
+  border-radius: var(--esnet-size-radius-medium, 0.5rem);
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    text-decoration: underline;
+    border: var(--esnet-size-border-width-small, 0.125rem) solid
+      var(--esnet-color-light-primary, #0088b5);
+    :global(.dark) & {
+      border-color: var(--esnet-color-dark-secondary, #00b6f2);
+    }
+  }
+
+  &:disabled {
+    border: none;
+    cursor: default;
+    color: var(--esnet-color-core-white-600, #cccccc);
+    :global(.dark) & {
+      color: var(--esnet-color-core-white-900, #a8a8a8);
+    }
+  }
+}
+
+.selected {
+  text-decoration: underline;
+  background-color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--esnet-color-light-surface-2, #f2f2f2);
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-secondary, #00b6f2);
+  }
+}
+
 .ESInputDatePickerDateDayCellButton {
-  all: unset;
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
   aspect-ratio: 1 / 1;
   width: var(--esnet-size-spacing-large);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: var(--esnet-size-radius-medium, 0.5rem);
+  .branded & {
+    border-radius: var(--esnet-size-radius-circle, 999px);
+  }
+
   /* Styling */
-  /* apply hover, active, focus, select, disabled, variant styles */
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    text-decoration: underline;
+    border: var(--esnet-size-border-width-small, 0.125rem) solid
+      var(--esnet-color-light-primary, #0088b5);
+    :global(.dark) & {
+      border-color: var(--esnet-color-dark-secondary, #00b6f2);
+    }
+  }
+
   &:disabled {
     cursor: default;
-    color: var(--esnet-color-core-white-600);
+    color: var(--esnet-color-core-white-600, #cccccc);
     :global(.dark) & {
-      color: var(--esnet-color-core-white-900);
+      color: var(--esnet-color-core-white-900, #a8a8a8);
+    }
+  }
+
+  &.selected {
+    text-decoration: underline;
+    background-color: var(--esnet-color-light-primary, #0088b5);
+    color: var(--esnet-color-light-surface-2, #f2f2f2);
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-secondary, #00b6f2);
     }
   }
 }
@@ -118,9 +209,10 @@
 }
 
 .ESInputDatePickerDateMonthCellButton {
-  all: unset;
-  /* aspect-ratio: 1 / 1; */
-  /* width: var(--esnet-size-spacing-large); */
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
   width: 100%;
   height: 100%;
   /* Layout */
@@ -141,9 +233,10 @@
 }
 
 .ESInputDatePickerDateYearCellButton {
-  all: unset;
-  /* aspect-ratio: 1 / 1; */
-  /* width: var(--esnet-size-spacing-large); */
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
   width: 100%;
   height: 100%;
   /* Layout */

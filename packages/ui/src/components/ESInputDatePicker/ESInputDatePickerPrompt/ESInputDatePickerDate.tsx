@@ -14,6 +14,7 @@ import {
   weekdayNames,
 } from "./ESInputDatePickerPrompt.utils";
 import { ESInputDatePickerDateProps } from "./ESInputDatePickerPrompt.types";
+import { clsx } from "clsx";
 
 const ESInputDatePickerDate = ({
   date,
@@ -35,17 +36,23 @@ const ESInputDatePickerDate = ({
     ));
 
     const dates = flattenedDateGrid(viewDate);
-    const dateButtons = dates.map((date) => (
+    const dateButtons = dates.map((dateInfo) => (
       <button
-        key={date.toString()}
-        className={styles.ESInputDatePickerDateDayCellButton}
-        disabled={date.getMonth() !== viewDate.getMonth()}
+        key={dateInfo.toString()}
+        className={clsx(
+          styles.ESInputDatePickerDateDayCellButton,
+          styles.ESInputDatePickerButtonInteractions,
+          date &&
+            dateInfo.toDateString() === date.toDateString() &&
+            styles.selected
+        )}
+        disabled={dateInfo.getMonth() !== viewDate.getMonth()}
         onClick={() => {
-          setViewDate(date);
-          onClickDate?.(date);
+          setViewDate(dateInfo);
+          onClickDate?.(dateInfo);
         }}
       >
-        {date.getDate()}
+        {dateInfo.getDate()}
       </button>
     ));
 
@@ -70,7 +77,14 @@ const ESInputDatePickerDate = ({
     return Array.from(monthNames).map((monthName, monthIndex) => (
       <button
         key={monthName}
-        className={styles.ESInputDatePickerDateMonthCellButton}
+        className={clsx(
+          styles.ESInputDatePickerDateMonthCellButton,
+          styles.ESInputDatePickerButtonInteractions,
+          date &&
+            monthIndex === date.getMonth() &&
+            viewDate.getFullYear() === date.getFullYear() &&
+            styles.selected
+        )}
         onClick={onClickMonthFactory(monthIndex)}
       >
         {monthName}
@@ -94,7 +108,11 @@ const ESInputDatePickerDate = ({
     ).map((year) => (
       <button
         key={year}
-        className={styles.ESInputDatePickerDateYearCellButton}
+        className={clsx(
+          styles.ESInputDatePickerDateYearCellButton,
+          styles.ESInputDatePickerButtonInteractions,
+          date && year === date.getFullYear() && styles.selected
+        )}
         onClick={onClickYearFactory(year)}
       >
         {year}
@@ -108,20 +126,29 @@ const ESInputDatePickerDate = ({
       if (view === "day") {
         setViewDate((prev) => new Date(prev.setMonth(prev.getMonth() + value)));
       }
-      // no functionality for month view
+      if (view === "month") {
+        setViewDate(
+          (prev) => new Date(prev.setFullYear(prev.getFullYear() + value))
+        );
+      }
       if (view === "year") {
         setViewDate(
-          (prev) => new Date(prev.setFullYear(prev.getFullYear() - value * 8))
+          (prev) => new Date(prev.setFullYear(prev.getFullYear() + value * 8))
         );
       }
     };
 
     return (
       <div className={styles.ESInputDatePickerDateNav}>
-        <ChevronLeft
+        <button
+          className={clsx(
+            styles.ESInputDatePickerNavButton,
+            styles.ESInputDatePickerButtonInteractions
+          )}
           onClick={() => onClickNav("left")}
-          className={styles.ESInputDatePickerNavButton}
-        />
+        >
+          <ChevronLeft />
+        </button>
         <div className={styles.ESInputDatePickerDateNavInfo}>
           {view === "day" && (
             <>
@@ -144,10 +171,15 @@ const ESInputDatePickerDate = ({
             </button>
           )}
         </div>
-        <ChevronRight
+        <button
+          className={clsx(
+            styles.ESInputDatePickerNavButton,
+            styles.ESInputDatePickerButtonInteractions
+          )}
           onClick={() => onClickNav("right")}
-          className={styles.ESInputDatePickerNavButton}
-        />
+        >
+          <ChevronRight />
+        </button>
       </div>
     );
   }, [view, viewDate]);

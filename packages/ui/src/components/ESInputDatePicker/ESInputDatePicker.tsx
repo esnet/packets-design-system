@@ -38,7 +38,7 @@ function parseDate(str: string): Date {
  */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   className,
-  variant,
+  variant = "branded",
   error,
 }) => {
   const [value, setValue] = React.useState<string | undefined>(undefined);
@@ -60,7 +60,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
       className={clsx(
         styles.ESInputDatePicker,
         focus && styles.focus,
-        // variant && styles[variant],
+        variant && styles[variant],
         // error && styles.error,
         className
       )}
@@ -77,6 +77,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
         <ESInputDatePickerPrompt
           date={value ? parseDate(value) : undefined}
           onClickDate={onClickDate}
+          variant={variant}
         />
       )}
     </div>

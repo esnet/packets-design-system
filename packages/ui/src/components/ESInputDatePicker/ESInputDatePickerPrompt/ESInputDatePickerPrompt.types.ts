@@ -1,4 +1,5 @@
 export interface ESInputDatePickerPromptProps {
+  variant?: "branded" | "default";
   type?: "date" | "time" | "datetime";
 
   date?: Date;
