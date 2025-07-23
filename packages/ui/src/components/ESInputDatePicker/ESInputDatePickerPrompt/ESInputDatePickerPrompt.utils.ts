@@ -1,3 +1,4 @@
+/* Date related exports */
 const monthNames = [
   "Jan",
   "Feb",
@@ -70,3 +71,20 @@ export function flattenedDateGrid(date: Date): Date[] {
 }
 
 export { weekdayNames, monthNames };
+
+/* Time related exports */
+export function getTimeWheel(
+  level: "hour" | "minute" | "second",
+  step: number
+): number[] {
+  switch (level) {
+    case "hour":
+      return Array.from({ length: 24 / step }, (_, i) => i * step);
+    case "minute":
+      return Array.from({ length: 60 / step }, (_, i) => i * step);
+    case "second":
+      return Array.from({ length: 60 / step }, (_, i) => i * step);
+    default:
+      return [];
+  }
+}

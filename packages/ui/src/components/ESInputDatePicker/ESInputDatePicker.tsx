@@ -26,7 +26,8 @@ function parseDate(str: string): Date {
  *
  * major:
  * Should include a cross browser compatible consistent UI, thus no native date picker UI.
- * Should support the slashes between values, e.g MM/DD/YYYY
+ * Should have a specific, consistent, and keyboard activatable prompt activate (not just onClick)
+ *
  *
  * minor:
  * Should support different region formats, e.g. MM/DD/YYYY vs DD/MM/YYYY.
@@ -38,7 +39,7 @@ function parseDate(str: string): Date {
  */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   className,
-  variant = "branded",
+  variant = "primary",
   error,
 }) => {
   const [value, setValue] = React.useState<string | undefined>(undefined);
@@ -61,7 +62,6 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
         styles.ESInputDatePicker,
         focus && styles.focus,
         variant && styles[variant],
-        // error && styles.error,
         className
       )}
     >
@@ -78,6 +78,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
           date={value ? parseDate(value) : undefined}
           onClickDate={onClickDate}
           variant={variant}
+          type="time"
         />
       )}
     </div>

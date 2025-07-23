@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef, ReactNode } from "react";
 
 export interface ESInputTextProps extends ComponentPropsWithRef<"input"> {
-  variant?: "default" | "branded";
+  variant?: "primary" | "branded";
   error?: boolean;
   actionButtons?: ReactNode[] | ReactNode;
 }
