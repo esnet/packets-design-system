@@ -13,7 +13,7 @@ import { Search, X } from "lucide-react";
  */
 const ESInputSearch: React.FC<ESInputSearchProps> = ({
   placeholder = "",
-  variant = "default",
+  variant = "primary",
   error = false,
   onSearchClick,
   onXClick,

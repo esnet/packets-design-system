@@ -8,8 +8,8 @@ const meta: Meta<typeof ESInputNumber> = {
   argTypes: {
     variant: {
       control: { type: "radio" },
-      options: ["default", "branded"],
-      defaultValue: "default",
+      options: ["primary", "branded"],
+      defaultValue: "primary",
     },
     error: {
       control: { type: "boolean" },
@@ -29,7 +29,7 @@ const meta: Meta<typeof ESInputNumber> = {
   },
   args: {
     error: false,
-    variant: "default",
+    variant: "primary",
     disabled: false,
   },
   parameters: {

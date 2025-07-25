@@ -13,7 +13,7 @@ import { boundNumber, parseNumber } from "./utils";
  * @returns {React.ReactElement}
  */
 const ESInputNumber: React.FC<ESInputNumberProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   defaultValue = "0",
   onAddClick,

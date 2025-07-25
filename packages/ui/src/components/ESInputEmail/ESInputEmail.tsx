@@ -13,7 +13,7 @@ import { X } from "lucide-react";
  */
 const ESInputEmail: React.FC<ESInputEmailProps> = ({
   placeholder = "",
-  variant = "default",
+  variant = "primary",
   error = false,
   defaultValue = "",
   onXClick,

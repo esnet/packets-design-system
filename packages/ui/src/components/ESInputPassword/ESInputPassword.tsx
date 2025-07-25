@@ -12,7 +12,7 @@ import { Eye, EyeOff, X } from "lucide-react";
  * @returns {React.ReactElement}
  */
 const ESInputPassword: React.FC<ESInputPasswordProps> = ({
-  variant = "default",
+  variant = "primary",
   placeholder = "",
   error = false,
   defaultValue,

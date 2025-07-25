@@ -11,7 +11,7 @@ import { ESDividerProps } from "./ESDivider.types";
  * @returns {React.ReactElement}
  */
 const ESDivider: React.FC<ESDividerProps> = ({
-  variant = "default",
+  variant = "primary",
   className = "",
 }) => {
   return (
