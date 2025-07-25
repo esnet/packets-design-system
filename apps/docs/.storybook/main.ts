@@ -10,14 +10,15 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-designs"),
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@whitespace/storybook-addon-html"),
-    getAbsolutePath("storybook-dark-mode"),
+    // getAbsolutePath("@whitespace/storybook-addon-html"),
+    // getAbsolutePath("storybook-dark-mode"),
     getAbsolutePath("@storybook/addon-docs"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
