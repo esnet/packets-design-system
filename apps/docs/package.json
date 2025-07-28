@@ -19,11 +19,11 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@storybook-community/storybook-dark-mode": "^5.6.0",
     "@storybook/addon-designs": "^10.0.1",
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/addon-links": "^9.0.16",
     "@storybook/addon-onboarding": "^9.0.16",
-    "@storybook/addon-themes": "9.0.16",
     "@storybook/react": "^9.0.16",
     "@storybook/react-vite": "^9.0.16",
     "@types/react": "^18.3.12",

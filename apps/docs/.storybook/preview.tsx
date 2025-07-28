@@ -1,6 +1,6 @@
 import React from "react";
 import type { Preview, ReactRenderer } from "@storybook/react";
-import { withThemeByClassName } from "@storybook/addon-themes";
+import { themes } from "storybook/theming";
 import "@esnet/packets-ui/style.css";
 
 const preview: Preview = {
@@ -17,15 +17,25 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-  },
-  decorators: [
-    withThemeByClassName<ReactRenderer>({
-      themes: {
-        Light: "",
-        Dark: "dark",
+    darkMode: {
+      classTarget: "body",
+      stylePreview: true,
+      dark: {
+        ...themes.dark,
+        brandTitle: "Packets Design System",
+        brandImage: "/imgs/packetslogo.dark.png",
+        brandTarget: "/?path=/docs/getting-started--docs",
       },
-      defaultTheme: "light",
-    }),
+      light: {
+        ...themes.normal,
+        brandTitle: "Packets Design System",
+        brandImage: "/imgs/packetslogo.light.png",
+        brandTarget: "/?path=/docs/getting-started--docs",
+      },
+    },
+  },
+
+  decorators: [
     (Story) => (
       <div className="packets">
         <Story />
