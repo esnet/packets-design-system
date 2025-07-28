@@ -44,7 +44,7 @@ const ESInputDatePickerDate = ({
           styles.ESInputDatePickerButtonInteractions,
           date &&
             dateInfo.toDateString() === date.toDateString() &&
-            styles.selected
+            styles.ESInputDatePickerButtonSelected
         )}
         disabled={dateInfo.getMonth() !== viewDate.getMonth()}
         onClick={() => {
@@ -83,7 +83,7 @@ const ESInputDatePickerDate = ({
           date &&
             monthIndex === date.getMonth() &&
             viewDate.getFullYear() === date.getFullYear() &&
-            styles.selected
+            styles.ESInputDatePickerButtonSelected
         )}
         onClick={onClickMonthFactory(monthIndex)}
       >
@@ -111,7 +111,9 @@ const ESInputDatePickerDate = ({
         className={clsx(
           styles.ESInputDatePickerDateYearCellButton,
           styles.ESInputDatePickerButtonInteractions,
-          date && year === date.getFullYear() && styles.selected
+          date &&
+            year === date.getFullYear() &&
+            styles.ESInputDatePickerButtonSelected
         )}
         onClick={onClickYearFactory(year)}
       >
@@ -152,21 +154,33 @@ const ESInputDatePickerDate = ({
         <div className={styles.ESInputDatePickerDateNavInfo}>
           {view === "day" && (
             <>
-              <button onClick={() => changeView("month")}>
+              <button
+                className={styles.ESInputDatePickerButtonInteractions}
+                onClick={() => changeView("month")}
+              >
                 {getMonthName(viewDate)} <ChevronDown />
               </button>
-              <button onClick={() => changeView("year")}>
+              <button
+                className={styles.ESInputDatePickerButtonInteractions}
+                onClick={() => changeView("year")}
+              >
                 {viewDate.getFullYear()} <ChevronDown />
               </button>
             </>
           )}
           {view === "month" && (
-            <button onClick={() => changeView("day")}>
+            <button
+              className={styles.ESInputDatePickerButtonInteractions}
+              onClick={() => changeView("day")}
+            >
               {viewDate.getFullYear()} <ChevronDown />
             </button>
           )}
           {view === "year" && (
-            <button onClick={() => changeView("day")}>
+            <button
+              className={styles.ESInputDatePickerButtonInteractions}
+              onClick={() => changeView("day")}
+            >
               {viewDate.getFullYear()} <ChevronDown />
             </button>
           )}

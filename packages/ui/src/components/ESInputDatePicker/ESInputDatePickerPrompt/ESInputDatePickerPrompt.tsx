@@ -9,20 +9,20 @@ const ESInputDatePickerPrompt: React.FC<ESInputDatePickerPromptProps> = ({
   type,
   date,
   onClickDate,
-  onScrollTime,
+  onSelectTime,
   variant,
 }) => {
   const promptTypeComponent = React.useMemo(() => {
     switch (type) {
       case "time":
         return (
-          <ESInputDatePickerTime time={date} onScrollTime={onScrollTime} />
+          <ESInputDatePickerTime time={date} onSelectTime={onSelectTime} />
         );
       case "datetime":
         return (
           <>
             <ESInputDatePickerDate date={date} onClickDate={onClickDate} />
-            <ESInputDatePickerTime time={date} onScrollTime={onScrollTime} />
+            <ESInputDatePickerTime time={date} onSelectTime={onSelectTime} />
           </>
         );
       case "date":

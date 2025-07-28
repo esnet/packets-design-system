@@ -5,7 +5,7 @@ export interface ESInputDatePickerPromptProps {
   date?: Date;
   /** Callback to when a date is selected from the prompt. */
   onClickDate?: (date: Date) => void;
-  onScrollTime?: (time: Date) => void;
+  onSelectTime?: (time: Date) => void;
 }
 
 export interface ESInputDatePickerDateProps {
@@ -27,13 +27,14 @@ export interface ESInputDatePickerTimeProps {
   hourStep?: number;
   minuteStep?: number;
   secondStep?: number;
-  /** Callback to when a time is selected from the prompt. */
-  onScrollTime?: (time: Date) => void;
+  /** Callback to when a time is selected from the prompt. Could also be called onSelectTime */
+  onSelectTime?: (time: Date) => void;
 }
 
 export interface ESInputDatePickerTimeWheelProps {
   label: string;
-  values: number[] | string[];
-  value: number | string;
-  onScrollTime: (value: number | string) => void;
+  values: string[];
+  defaultValue?: string;
+  /** Callback to when a time is selected from the prompt. Could also be called onSelectTime */
+  onSelectTime: (value: string) => void;
 }

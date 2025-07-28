@@ -76,14 +76,14 @@ export { weekdayNames, monthNames };
 export function getTimeWheel(
   level: "hour" | "minute" | "second",
   step: number
-): number[] {
+): string[] {
   switch (level) {
     case "hour":
-      return Array.from({ length: 24 / step }, (_, i) => i * step);
+      return Array.from({ length: 24 / step }, (_, i) => String(i * step));
     case "minute":
-      return Array.from({ length: 60 / step }, (_, i) => i * step);
+      return Array.from({ length: 60 / step }, (_, i) => String(i * step));
     case "second":
-      return Array.from({ length: 60 / step }, (_, i) => i * step);
+      return Array.from({ length: 60 / step }, (_, i) => String(i * step));
     default:
       return [];
   }

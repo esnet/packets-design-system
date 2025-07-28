@@ -6,11 +6,11 @@
   right: 0;
   z-index: 1;
   display: flex;
-  gap: var(--esnet-size-spacing-xsmall);
 
   /* Styling */
-  width: 240px;
-  height: 264px;
+  /* width: 240px; */
+  width: fit-content;
+  height: fit-content;
   background-color: var(--esnet-color-light-surface-2);
   color: var(--esnet-color-light-copy);
   :global(.dark) & {
@@ -35,7 +35,7 @@
   /* Layout */
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-width: 240px;
   padding: var(--esnet-size-spacing-xsmall);
 }
 
@@ -45,7 +45,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+  min-height: var(--esnet-size-spacing-large, 32px);
   width: 100%;
 }
 
@@ -59,7 +59,7 @@
   box-sizing: border-box;
   outline: none;
 
-  &:hover {
+  /* &:hover {
     cursor: pointer;
   }
   &:hover,
@@ -70,7 +70,7 @@
     .branded & {
       border-radius: var(--esnet-size-radius-circle, 999px);
     }
-  }
+  } */
 }
 
 .ESInputDatePickerDateNavInfo {
@@ -89,16 +89,6 @@
     gap: var(--esnet-size-spacing-xxxsmall);
     justify-content: center;
     align-items: center;
-    border-style: solid;
-    border-color: none;
-
-    &:focus {
-      border-color: var(--esnet-color-light-primary, #0088b5);
-      border-radius: var(--esnet-size-radius-medium, 0.5rem);
-      .branded & {
-        border-radius: var(--esnet-size-radius-circle, 999px);
-      }
-    }
   }
 
   & > button > svg {
@@ -121,39 +111,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.ESInputDatePickerButtonInteractions {
-  outline: none;
-  box-sizing: border-box;
-  border-radius: var(--esnet-size-radius-medium, 0.5rem);
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    text-decoration: underline;
-    border: var(--esnet-size-border-width-small, 0.125rem) solid
-      var(--esnet-color-light-primary, #0088b5);
-    :global(.dark) & {
-      border-color: var(--esnet-color-dark-secondary, #00b6f2);
-    }
-  }
-
-  &:disabled {
-    border: none;
-    cursor: default;
-    color: var(--esnet-color-core-white-600, #cccccc);
-    :global(.dark) & {
-      color: var(--esnet-color-core-white-900, #a8a8a8);
-    }
-  }
-}
-
-.selected {
-  text-decoration: underline;
-  background-color: var(--esnet-color-light-primary, #0088b5);
-  color: var(--esnet-color-light-surface-2, #f2f2f2);
-  :global(.dark) & {
-    background-color: var(--esnet-color-dark-secondary, #00b6f2);
-  }
 }
 
 .ESInputDatePickerDateDayCellButton {
@@ -251,13 +208,10 @@
 
 /* Time Picker related styles */
 .ESInputDatePickerTime {
-  /* Layout */
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
   width: 100%;
   padding: var(--esnet-size-spacing-xsmall);
-  gap: 25px;
 }
 
 .ESInputDatePickerTimeWheel {
@@ -265,29 +219,26 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  width: 44px;
-  background: red;
+  width: var(--esnet-size-spacing-large);
 }
 
 .ESInputDatePickerTimeWheelLabel {
-  background: green;
+  min-height: var(--esnet-size-spacing-large, 32px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ESInputDatePickerTimeWheelButtons {
+  flex: 1;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  background: purple;
-  /* padding: 200px 0; */
-  box-sizing: content-box;
-  gap: var(--esnet-size-spacing-xxsmall);
-  width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 32px;
+  place-items: center;
+  width: var(--esnet-size-spacing-large);
+  max-height: calc(var(--esnet-size-spacing-large) * 7);
   overflow: auto;
-  /* scroll-snap-type: y mandatory;
-  scroll-behavior: smooth; */
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -296,16 +247,58 @@
   }
 }
 
-.whitespace {
+.ESInputDatePickerTimeWheelEmptySpace {
   width: 100%;
-  min-height: 200px;
-  background: orange;
+  grid-row: span 3;
+  user-select: none;
+  pointer-events: none;
 }
 
 .ESInputDatePickerTimeWheelButton {
-  outline: none;
-  background: white;
-  width: 100%;
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
   aspect-ratio: 1 / 1;
-  /* scroll-snap-align: center; */
+  width: var(--esnet-size-spacing-large);
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+/* Button styles used in both date and time pickers */
+.ESInputDatePickerButtonInteractions {
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  border-color: transparent !important;
+  border-radius: var(--esnet-size-radius-medium, 0.5rem);
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    text-decoration: underline;
+    border: var(--esnet-size-border-width-small, 0.125rem) solid
+      var(--esnet-color-light-primary, #0088b5) !important;
+    :global(.dark) & {
+      border-color: var(--esnet-color-dark-secondary, #00b6f2) !important;
+    }
+  }
+
+  /* active state */
+
+  &:disabled {
+    border: transparent;
+    cursor: default;
+    color: var(--esnet-color-core-white-600, #cccccc);
+    :global(.dark) & {
+      color: var(--esnet-color-core-white-900, #a8a8a8);
+    }
+  }
+}
+
+.ESInputDatePickerButtonSelected {
+  text-decoration: underline;
+  background-color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--esnet-color-light-surface-2, #f2f2f2);
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-secondary, #00b6f2);
+  }
 }

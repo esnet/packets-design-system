@@ -78,7 +78,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
           date={value ? parseDate(value) : undefined}
           onClickDate={onClickDate}
           variant={variant}
-          type="time"
+          type="datetime"
         />
       )}
     </div>

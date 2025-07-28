@@ -6,14 +6,40 @@ import clsx from "clsx";
 const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
   label,
   values,
-  value,
-  onScrollTime,
+  defaultValue,
+  onSelectTime,
 }) => {
-  // initial index should be the index of value in the values array
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const currentIndex = React.useRef(0);
+  const initialIndex = React.useMemo(() => {
+    if (defaultValue === undefined) return undefined;
+    const index = values.indexOf(defaultValue);
+    return index === -1 ? undefined : index;
+  }, [defaultValue]);
+  const [currentIndex, setCurrentIndex] = React.useState<number | undefined>(
+    initialIndex
+  );
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const wheelButtonRefs = React.useRef<HTMLButtonElement[]>([]);
+
+  const scrollToButton = React.useCallback(
+    (index: number, behavior?: "auto" | "instant" | "smooth") => {
+      console.log("received");
+      if (!containerRef.current) return;
+      if (currentIndex === undefined || !wheelButtonRefs.current[currentIndex])
+        return;
+
+      console.log("hello is this on lol");
+
+      containerRef.current.scrollTo({
+        top:
+          wheelButtonRefs.current[index].offsetTop -
+          containerRef.current.offsetHeight / 2 +
+          wheelButtonRefs.current[index].offsetHeight / 2,
+        behavior,
+      });
+    },
+    [containerRef, wheelButtonRefs]
+  );
 
   const wheelComponents = React.useMemo(() => {
     return values.map((v, i) => {
@@ -22,74 +48,57 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
           key={i}
           className={clsx(
             styles.ESInputDatePickerTimeWheelButton,
-            v === value && styles.selected
+            styles.ESInputDatePickerButtonInteractions,
+            currentIndex &&
+              v === values[currentIndex] &&
+              styles.ESInputDatePickerButtonSelected
           )}
           ref={(el) => (wheelButtonRefs.current[i] = el!)}
           onClick={() => {
-            if (!containerRef.current) return;
-            if (!wheelButtonRefs.current[i]) return;
-            containerRef.current.scrollTo({
-              top:
-                wheelButtonRefs.current[i].offsetTop -
-                containerRef.current.offsetHeight / 2 +
-                wheelButtonRefs.current[i].offsetHeight / 2,
-              behavior: "smooth",
-            });
-
-            onScrollTime(v);
+            setCurrentIndex(i);
+            scrollToButton(i, "smooth");
+            onSelectTime(v);
           }}
         >
           {v}
         </button>
       );
     });
-  }, [values, value]);
+  }, [values, currentIndex]);
 
-  const onWheel = (e: WheelEvent) => {
-    // e.preventDefault();
-    const delta = Math.sign(e.deltaY);
-    console.log("Wheel delta:", delta);
-  };
+  // Handle wheel event to scroll through the time wheel - will need to ensure this works on mobile
+  //   const onWheel = React.useCallback(
+  //     (e: WheelEvent) => {
+  //       e.preventDefault();
+  //       setCurrentIndex((prev) => {
+  //         const newIndex = Math.max(
+  //           0,
+  //           Math.min(values.length - 1, prev + Math.sign(e.deltaY))
+  //         );
+  //         scrollToButton(newIndex);
+  //         return newIndex;
+  //       });
+  //     },
+  //     [scrollToButton, values]
+  //   );
 
   React.useEffect(() => {
-    if (!containerRef.current) return;
-    if (wheelButtonRefs.current.length === 0) return;
+    if (currentIndex) {
+      scrollToButton(currentIndex);
+    }
+  }, []);
 
-    const selected = 0;
-    if (!wheelButtonRefs.current[selected]) return;
-    console.log(
-      wheelButtonRefs.current[selected].offsetTop,
-      containerRef.current.offsetHeight,
-      wheelButtonRefs.current[selected].offsetHeight
-    );
-    containerRef.current.scrollTo({
-      top:
-        wheelButtonRefs.current[selected].offsetTop -
-        containerRef.current.offsetHeight / 2 +
-        wheelButtonRefs.current[selected].offsetHeight / 2,
-      behavior: "smooth",
-    });
+  // Effect to initially scroll to the default initial value
+  //   React.useEffect(() => {
+  //     if (!containerRef.current) return;
 
-    console.log(
-      wheelButtonRefs.current[selected].offsetTop,
-      containerRef.current.offsetHeight
-    );
-
-    // containerRef.current.scrollTo({
-    //   top:
-    //     wheelButtonRefs.current[selected].offsetTop +
-    //     containerRef.current.offsetHeight / 2 -
-    //     wheelButtonRefs.current[selected].offsetHeight / 2,
-    //   behavior: "smooth",
-    // });
-
-    containerRef.current.addEventListener("wheel", onWheel, {
-      passive: false,
-    });
-    return () => {
-      containerRef.current?.removeEventListener("wheel", onWheel);
-    };
-  }, [onWheel]);
+  //     containerRef.current.addEventListener("wheel", onWheel, {
+  //       passive: false,
+  //     });
+  //     return () => {
+  //       containerRef.current?.removeEventListener("wheel", onWheel);
+  //     };
+  //   }, [onWheel, scrollToButton]);
 
   return (
     <div className={styles.ESInputDatePickerTimeWheel}>
@@ -98,9 +107,9 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
         className={styles.ESInputDatePickerTimeWheelButtons}
         ref={containerRef}
       >
-        <div className={styles.whitespace}>asd</div>
+        <div className={styles.ESInputDatePickerTimeWheelEmptySpace}></div>
         {wheelComponents}
-        <div className={styles.whitespace}>asd</div>
+        <div className={styles.ESInputDatePickerTimeWheelEmptySpace}></div>
       </div>
     </div>
   );

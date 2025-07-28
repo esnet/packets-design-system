@@ -13,40 +13,43 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
   hourStep = 1,
   minuteStep = 1,
   secondStep = 1,
-  onScrollTime,
+  onSelectTime,
 }) => {
   const timeWheels = React.useMemo(() => {
     const wheels = [];
     if (precision >= TimePrecision.Hour) {
+      const data = getTimeWheel("hour", hourStep);
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Hr"
           label="Hr"
-          values={getTimeWheel("hour", hourStep)}
-          value={0}
-          onScrollTime={(value) => console.log("Hour selected:", value)}
+          values={data}
+          defaultValue={data[0]}
+          onSelectTime={(value) => console.log("Hour selected:", value)}
         />
       );
     }
     if (precision >= TimePrecision.Minute) {
+      const data = getTimeWheel("minute", minuteStep);
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Min"
           label="Min"
-          values={getTimeWheel("minute", minuteStep)}
-          value={0}
-          onScrollTime={(value) => console.log("Minute selected:", value)}
+          values={data}
+          defaultValue={data[0]}
+          onSelectTime={(value) => console.log("Minute selected:", value)}
         />
       );
     }
     if (precision >= TimePrecision.Second) {
+      const data = getTimeWheel("second", secondStep);
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Sec"
           label="Sec"
-          values={getTimeWheel("second", secondStep)}
-          value={0}
-          onScrollTime={(value) => console.log("Second selected:", value)}
+          values={data}
+          defaultValue={data[0]}
+          onSelectTime={(value) => console.log("Second selected:", value)}
         />
       );
     }
@@ -54,7 +57,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
     return <>{wheels}</>;
   }, [time, precision]);
 
-  return <div className={styles.ESInputDatePickerTime}>{timeWheels}hello</div>;
+  return <div className={styles.ESInputDatePickerTime}>{timeWheels}</div>;
 };
 
 export default ESInputDatePickerTime;
