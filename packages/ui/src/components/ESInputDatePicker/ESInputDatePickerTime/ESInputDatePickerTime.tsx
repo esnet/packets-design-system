@@ -2,6 +2,7 @@ import * as React from "react";
 import styles from "./ESInputDatePickerTime.module.css";
 import {
   ESInputDatePickerTimeProps,
+  Meridiem,
   TimePrecision,
 } from "./ESInputDatePickerTime.types";
 import ESInputDatePickerTimeWheel from "./ESInputDatePickerTimeWheel";
@@ -19,11 +20,12 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
   settings = defaultSettings,
   onChange,
 }) => {
-  // settings
-  const { format, hour, minute, second } = React.useMemo(
-    () => mergeSettings(settings),
-    [settings]
-  );
+  const {
+    format: formatSetting,
+    hour: hourSetting,
+    minute: minuteSetting,
+    second: secondSetting,
+  } = React.useMemo(() => mergeSettings(settings), [settings]);
 
   const onChangePart = React.useCallback(
     (wheel: TimePrecision, timeWheelValue: number) => {
@@ -53,78 +55,115 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
 
   const timeWheels = React.useMemo(() => {
     const wheels = [];
-    if (hour) {
-      if (typeof hour === "boolean") {
-        const data = getTimeWheel("hour");
-      } else {
-        const data = getTimeWheel("hour", hour.min, hour.max, hour.step);
-      }
-      // necessary step to account for hour range being 0-11 due to meridiem
-      const hourValue = String(value ? value.getHours() % 12 : "");
+    if (hourSetting) {
+      const values =
+        typeof hourSetting === "boolean"
+          ? getTimeWheel("hour")
+          : getTimeWheel(
+              "hour",
+              hourSetting.min,
+              hourSetting.max,
+              hourSetting.step
+            );
+
+      const hourValue = value
+        ? formatSetting === "12-hour"
+          ? // necessary step to account for hour range being 0-11 due to meridiem
+            String(value.getHours() % 12)
+          : String(value.getHours())
+        : "";
+
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Hr"
           label="Hr"
           value={hourValue}
-          values={data}
+          values={values}
           onChange={(hourValue) => {
-            // necessary step to account for hour range being 0-11 due to meridiem
-            const meridiemValue = value ? getMeridiem(value) : "AM";
-            const newHour =
-              Number(hourValue) + (meridiemValue === "PM" ? 12 : 0);
-            onChangePart(TimePrecision.Hour, Number(newHour));
+            let hour = Number(hourValue);
+            if (formatSetting === "12-hour") {
+              // necessary step to account for hour range being 0-11 due to meridiem
+              const meridiemValue = value ? getMeridiem(value) : "AM";
+              hour += meridiemValue === "PM" ? 12 : 0;
+            }
+            onChangePart("hour", hour);
           }}
         />
       );
     }
-    if (precision >= TimePrecision.Minute) {
-      const data = getTimeWheel("minute", minuteStep);
+
+    if (minuteSetting) {
+      const values =
+        typeof minuteSetting === "boolean"
+          ? getTimeWheel("hour")
+          : getTimeWheel(
+              "hour",
+              minuteSetting.min,
+              minuteSetting.max,
+              minuteSetting.step
+            );
+
+      const minuteValue = String(value?.getMinutes() ?? "");
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Min"
           label="Min"
-          value={String(value?.getMinutes() ?? "")}
-          values={data}
+          value={minuteValue}
+          values={values}
           onChange={(value) => {
-            onChangePart(TimePrecision.Minute, Number(value));
+            onChangePart("minute", Number(value));
           }}
         />
       );
     }
-    if (precision >= TimePrecision.Second) {
-      const data = getTimeWheel("second", secondStep);
+
+    if (secondSetting) {
+      const values =
+        typeof secondSetting === "boolean"
+          ? getTimeWheel("hour")
+          : getTimeWheel(
+              "hour",
+              secondSetting.min,
+              secondSetting.max,
+              secondSetting.step
+            );
+
+      const secondValue = String(value?.getSeconds() ?? "");
       wheels.push(
         <ESInputDatePickerTimeWheel
           key="Sec"
           label="Sec"
-          value={String(value?.getSeconds() ?? "")}
-          values={data}
+          value={secondValue}
+          values={values}
           onChange={(value) => {
-            onChangePart(TimePrecision.Second, Number(value));
+            onChangePart("second", Number(value));
           }}
         />
       );
     }
-    wheels.push(
-      <ESInputDatePickerTimeWheel
-        key="Mer"
-        label="Mer"
-        value={value ? getMeridiem(value) : ""}
-        values={["AM", "PM"]}
-        onChange={(merValue) => {
-          onChangePart(
-            TimePrecision.Hour,
-            getHoursOnChangeMeridiem(
-              value?.getHours() ?? 0,
-              merValue as "AM" | "PM"
-            )
-          );
-        }}
-      />
-    );
+
+    if (formatSetting === "12-hour") {
+      wheels.push(
+        <ESInputDatePickerTimeWheel
+          key="Mer"
+          label="Mer"
+          value={value ? getMeridiem(value) : ""}
+          values={["AM", "PM"]}
+          onChange={(merValue) => {
+            onChangePart(
+              "hour",
+              getHoursOnChangeMeridiem(
+                value?.getHours() ?? 0,
+                merValue as Meridiem
+              )
+            );
+          }}
+        />
+      );
+    }
 
     return wheels;
-  }, [precision, value, hourStep, minuteStep, secondStep, onChangePart]);
+  }, [value, hourSetting, minuteSetting, secondSetting, onChangePart]);
 
   return <div className={styles.ESInputDatePickerTime}>{timeWheels}</div>;
 };

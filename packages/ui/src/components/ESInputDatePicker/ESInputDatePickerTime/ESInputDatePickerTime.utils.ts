@@ -1,10 +1,12 @@
 import {
   ESInputDatePickerTimeSettings,
+  Meridiem,
   Range,
+  TimePrecision,
 } from "./ESInputDatePickerTime.types";
 
 export function getTimeWheel(
-  precision: "hour" | "minute" | "second",
+  precision: TimePrecision,
   min: number = defaultSettings[precision].min,
   max: number = defaultSettings[precision].max,
   step: number = defaultSettings[precision].step
@@ -23,8 +25,6 @@ export function getTimeWheel(
       return [];
   }
 }
-
-type Meridiem = "AM" | "PM";
 
 export function getMeridiem(date: Date): Meridiem {
   return date.getHours() <= 11 ? "AM" : "PM";
@@ -53,14 +53,14 @@ export function getHoursOnChangeMeridiem(
 /**
  * Returns the current date, with zeroed out hour, minutes, seconds, and milliseconds
  */
-export function getCurrentDateWithoutTime() {
+export function getCurrentDateWithoutTime(): Date {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   return today;
 }
 
 export const defaultSettings = {
-  format: "12-hour" as "12-hour" | "24-hour",
+  format: "12-hour" as Required<ESInputDatePickerTimeSettings>["format"],
   hour: { min: 0, max: 23, step: 1 },
   minute: { min: 0, max: 59, step: 5 },
   second: { min: 0, max: 59, step: 5 },
