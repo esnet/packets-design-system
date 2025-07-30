@@ -8,6 +8,8 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   type,
   value,
   onChange,
+  timeSettings,
+  dateSettings,
 }) => {
   const inputTypeMenus = React.useMemo(() => {
     switch (type) {

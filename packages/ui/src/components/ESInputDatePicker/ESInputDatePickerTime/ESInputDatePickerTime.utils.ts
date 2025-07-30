@@ -1,16 +1,24 @@
-import { TimePrecision } from "./ESInputDatePickerTime.types";
+import {
+  ESInputDatePickerTimeSettings,
+  Range,
+} from "./ESInputDatePickerTime.types";
 
 export function getTimeWheel(
-  level: "hour" | "minute" | "second",
-  step: number
+  precision: "hour" | "minute" | "second",
+  min: number = defaultSettings[precision].min,
+  max: number = defaultSettings[precision].max,
+  step: number = defaultSettings[precision].step
 ): string[] {
-  switch (level) {
+  if (step <= 0) return [];
+
+  const length = Math.floor(Math.abs(max - min) / Math.abs(step)) + 1;
+  switch (precision) {
     case "hour":
-      return Array.from({ length: 12 / step }, (_, i) => String(i * step));
+      return Array.from({ length }, (_, i) => String(min + i * step));
     case "minute":
-      return Array.from({ length: 60 / step }, (_, i) => String(i * step));
+      return Array.from({ length }, (_, i) => String(min + i * step));
     case "second":
-      return Array.from({ length: 60 / step }, (_, i) => String(i * step));
+      return Array.from({ length }, (_, i) => String(min + i * step));
     default:
       return [];
   }
@@ -43,22 +51,45 @@ export function getHoursOnChangeMeridiem(
 }
 
 /**
- * getDateToPrecision provides the current date up to a specified time precision.
- * @param precision TimePrecision or undefined, if left undefined than only the date is returned with no time values (hours, minutes, seconds, etc. will be zero)
- * @return current date, up to a precision
+ * Returns the current date, with zeroed out hour, minutes, seconds, and milliseconds
  */
-export function getTodayDateToPrecision(precision?: TimePrecision | undefined) {
-  const p = precision ?? -1;
+export function getCurrentDateWithoutTime() {
   const today = new Date();
-  if (p < TimePrecision.Second) {
-    today.setSeconds(0, 0);
-  }
-  if (p < TimePrecision.Minute) {
-    // 1
-    today.setMinutes(0);
-  }
-  if (p < TimePrecision.Hour) {
-    today.setHours(0);
-  }
+  today.setHours(0, 0, 0, 0);
   return today;
+}
+
+export const defaultSettings = {
+  format: "12-hour" as "12-hour" | "24-hour",
+  hour: { min: 0, max: 23, step: 1 },
+  minute: { min: 0, max: 59, step: 5 },
+  second: { min: 0, max: 59, step: 5 },
+};
+
+function mergeRange(
+  defaultRange: Range,
+  userRange?: boolean | Range
+): boolean | Range {
+  if (typeof userRange === "boolean") return userRange;
+
+  const merged: Range = { ...defaultRange };
+  if (userRange) {
+    for (const key of Object.keys(defaultRange) as (keyof Range)[]) {
+      if (userRange[key] !== undefined) {
+        merged[key] = userRange[key];
+      }
+    }
+  }
+  return merged;
+}
+
+export function mergeSettings(
+  propSettings: ESInputDatePickerTimeSettings
+): Required<ESInputDatePickerTimeSettings> {
+  return {
+    format: propSettings.format ?? defaultSettings.format,
+    hour: mergeRange(defaultSettings.hour as Range, propSettings.hour),
+    minute: mergeRange(defaultSettings.minute as Range, propSettings.minute),
+    second: mergeRange(defaultSettings.second as Range, propSettings.second),
+  };
 }

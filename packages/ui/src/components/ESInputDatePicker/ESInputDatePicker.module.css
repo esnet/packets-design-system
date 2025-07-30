@@ -10,6 +10,7 @@
   /* Styling */
   width: fit-content;
   height: fit-content;
+  min-height: 272px;
   background-color: var(--esnet-color-light-surface-2, #f2f2f2);
 
   :global(.dark) & {

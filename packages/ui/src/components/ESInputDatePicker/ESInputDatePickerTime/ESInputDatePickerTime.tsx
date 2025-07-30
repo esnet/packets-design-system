@@ -9,17 +9,22 @@ import {
   getHoursOnChangeMeridiem,
   getMeridiem,
   getTimeWheel,
-  getTodayDateToPrecision,
+  getCurrentDateWithoutTime,
+  mergeSettings,
+  defaultSettings,
 } from "./ESInputDatePickerTime.utils";
 
 const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
   value,
-  precision = TimePrecision.Second,
-  hourStep = 1,
-  minuteStep = 5,
-  secondStep = 5,
+  settings = defaultSettings,
   onChange,
 }) => {
+  // settings
+  const { format, hour, minute, second } = React.useMemo(
+    () => mergeSettings(settings),
+    [settings]
+  );
+
   const onChangePart = React.useCallback(
     (wheel: TimePrecision, timeWheelValue: number) => {
       // use today as the value (up to specified time precision) to set time if a value prop is not provided
@@ -27,29 +32,33 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
       if (value) {
         updateDate = new Date(value);
       } else {
-        updateDate = getTodayDateToPrecision();
+        updateDate = getCurrentDateWithoutTime();
       }
 
       switch (wheel) {
-        case TimePrecision.Second:
+        case "second":
           updateDate.setSeconds(timeWheelValue);
           break;
-        case TimePrecision.Minute:
+        case "minute":
           updateDate.setMinutes(timeWheelValue);
           break;
-        case TimePrecision.Hour:
+        case "hour":
           updateDate.setHours(timeWheelValue);
           break;
       }
       onChange?.(updateDate);
     },
-    [onChange, value, precision]
+    [onChange, value]
   );
 
   const timeWheels = React.useMemo(() => {
     const wheels = [];
-    if (precision >= TimePrecision.Hour) {
-      const data = getTimeWheel("hour", hourStep);
+    if (hour) {
+      if (typeof hour === "boolean") {
+        const data = getTimeWheel("hour");
+      } else {
+        const data = getTimeWheel("hour", hour.min, hour.max, hour.step);
+      }
       // necessary step to account for hour range being 0-11 due to meridiem
       const hourValue = String(value ? value.getHours() % 12 : "");
       wheels.push(
