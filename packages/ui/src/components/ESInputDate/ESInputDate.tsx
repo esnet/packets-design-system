@@ -6,41 +6,18 @@ import ESInputText from "../ESInputText";
 import { Calendar } from "lucide-react";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESInputDatePicker from "../ESInputDatePicker";
-
-// TODO: MOVE TO UTILS
-// date is shown as MM/DD/YYYY in the input, and must be able to converted to and from a JS Date object
-// formatDate converts Date into a MM/DD/YYYY format
-function formatDate(date: Date): string {
-  const mm = date.getMonth() + 1;
-  const dd = date.getDate();
-  const yyyy = date.getFullYear();
-  return `${mm < 10 ? "0" + mm : mm}/${dd < 10 ? "0" + dd : dd}/${yyyy}`;
-}
-
-// formatTime converts Date into a HH:MM:SS MR (AM/PM) format
-function formatTime(date: Date): string {
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
-  let meridiem = hours >= 12 ? "PM" : "AM";
-
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-
-  return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds} ${meridiem}`;
-}
+import { formatDate, formatTime } from "./ESInputDate.utils";
 
 /**
  * ESInputDate Component
  *
- * major:
- * Should include a cross browser compatible consistent UI, thus no native date picker UI.
- * split up InputDate and InputDatePicker
+ * Input box (underlying is an input text box) that allows date picking with ESInputDatePicker.
+ * Currently only supports date selection from the date picker, no manual typing.
  *
- *
- * minor:
- * Should support different region formats, e.g. MM/DD/YYYY vs DD/MM/YYYY.
- * Should support min and max
+ * TODO:
+ * Should this be a strictly readonly component that only allows selection from ESInputDatePicker? Or should it allow any input (leaning towards this)
+ * Should support different region formats, e.g. MM/DD/YYYY vs DD/MM/YYYY?
+ * Should support min and max?
  * Should support some sort of validation?
  *
  * @param {ESInputDateProps} props
@@ -48,22 +25,27 @@ function formatTime(date: Date): string {
  */
 const ESInputDate: React.FC<ESInputDateProps> = ({
   type = "datetime",
-  className,
   variant = "primary",
+  className,
   error,
+  ...props
 }) => {
   const [value, setValue] = React.useState<Date | undefined>(undefined);
-  // most importantly manages whether or not the calendar picker prompt is active or not
+  // manages whether or not the calendar picker prompt is active or not
   const [focus, setFocus] = React.useState(true);
 
-  const onFocus = React.useCallback(() => setFocus(true), []);
+  const _onFocus: React.FocusEventHandler<HTMLInputElement> = React.useCallback(
+    (e) => {
+      setFocus(true);
+      props.onFocus?.(e);
+    },
+    [setFocus, props.onFocus]
+  );
   const containerRef = React.useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setFocus(false));
 
-  const onChange = React.useCallback((date: Date) => {
-    console.log("base value set to", date.toLocaleString());
+  const onChangePicker = React.useCallback((date: Date) => {
     setValue(date);
-    // setFocus(false);
   }, []);
 
   // the value to show in the text input
@@ -93,9 +75,10 @@ const ESInputDate: React.FC<ESInputDateProps> = ({
       )}
     >
       <ESInputText
+        {...props}
         value={formattedValue}
         readOnly
-        onFocus={onFocus}
+        onFocus={_onFocus}
         actionButtons={<Calendar onClick={() => setFocus(!focus)} />}
         variant={variant}
         error={error}
@@ -103,8 +86,7 @@ const ESInputDate: React.FC<ESInputDateProps> = ({
       {focus && (
         <ESInputDatePicker
           value={value}
-          onChange={onChange}
-          variant={variant}
+          onChange={onChangePicker}
           type={type}
         />
       )}
