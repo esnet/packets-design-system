@@ -35,3 +35,39 @@ export default meta;
 type Story = StoryObj<typeof ESInputDatePicker>;
 
 export const Default: Story = {};
+
+export const TwentyFourHourClockWith1IntervalsTimePicker: Story = {
+  args: {
+    type: "time",
+    timeSettings: {
+      format: "24-hour",
+      second: {
+        step: 1,
+      },
+      minute: {
+        step: 1,
+      },
+    },
+  },
+};
+
+export const TimePicker20MinuteStepNoSeconds: Story = {
+  args: {
+    type: "datetime",
+    timeSettings: {
+      second: false,
+      minute: {
+        step: 20,
+      },
+    },
+  },
+};
+
+export const OnlyWithinAugust2025: Story = {
+  args: {
+    dateSettings: {
+      min: new Date(2025, 7, 1),
+      max: new Date(2025, 7, 31),
+    },
+  },
+};

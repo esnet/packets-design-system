@@ -12,8 +12,11 @@ import { clsx } from "clsx";
 
 const ESInputDatePickerDate = ({
   value,
+  settings,
   onChange,
 }: ESInputDatePickerDateProps) => {
+  const { min: minSetting, max: maxSetting } = settings ?? {};
+
   const [view, setView] = React.useState<"day" | "month" | "year">("day");
   const changeView = (newView: "day" | "month" | "year") => {
     setView(newView);
@@ -41,7 +44,11 @@ const ESInputDatePickerDate = ({
             styles.selected,
           dateInfo.toDateString() === new Date().toDateString() && styles.today
         )}
-        disabled={dateInfo.getMonth() !== viewDate.getMonth()}
+        disabled={
+          dateInfo.getMonth() !== viewDate.getMonth() ||
+          (minSetting && dateInfo < minSetting) ||
+          (maxSetting && dateInfo > maxSetting)
+        }
         onClick={() => {
           setViewDate(dateInfo);
           // do not affect the time components of the date
@@ -66,7 +73,6 @@ const ESInputDatePickerDate = ({
     );
   }, [viewDate, value]);
 
-  // this should be moved to it's own seperate component, but would have to face prop drilling
   const monthMenu = React.useMemo(() => {
     const onClickMonthFactory = (
       month: number
@@ -76,25 +82,32 @@ const ESInputDatePickerDate = ({
         setView("day");
       };
     };
-    return Array.from(monthNames).map((monthName, monthIndex) => (
-      <button
-        key={monthName}
-        className={clsx(
-          styles.ESInputDatePickerDateMonthCellButton,
-          styles.ESInputDatePickerBaseButton,
-          value &&
-            monthIndex === value.getMonth() &&
-            viewDate.getFullYear() === value.getFullYear() &&
-            styles.selected
-        )}
-        onClick={onClickMonthFactory(monthIndex)}
-      >
-        {monthName}
-      </button>
-    ));
+    return Array.from(monthNames).map((monthName, monthIndex) => {
+      const monthDate = new Date(0);
+      monthDate.setFullYear(viewDate.getFullYear(), monthIndex);
+      return (
+        <button
+          key={monthName}
+          className={clsx(
+            styles.ESInputDatePickerDateMonthCellButton,
+            styles.ESInputDatePickerBaseButton,
+            value &&
+              monthDate.getMonth() === value.getMonth() &&
+              monthDate.getFullYear() === value.getFullYear() &&
+              styles.selected
+          )}
+          disabled={
+            (minSetting && monthDate < minSetting) ||
+            (maxSetting && monthDate > maxSetting)
+          }
+          onClick={onClickMonthFactory(monthIndex)}
+        >
+          {monthName}
+        </button>
+      );
+    });
   }, [viewDate, value]);
 
-  // this should be moved to it's own seperate component, but would have to face prop drilling
   const yearMenu = React.useMemo(() => {
     const onClickYearFactory = (
       year: number
@@ -107,19 +120,27 @@ const ESInputDatePickerDate = ({
     return Array.from(
       { length: 20 },
       (_, i) => viewDate.getFullYear() + i - 10
-    ).map((year) => (
-      <button
-        key={year}
-        className={clsx(
-          styles.ESInputDatePickerDateYearCellButton,
-          styles.ESInputDatePickerBaseButton,
-          value && year === value.getFullYear() && styles.selected
-        )}
-        onClick={onClickYearFactory(year)}
-      >
-        {year}
-      </button>
-    ));
+    ).map((year) => {
+      const yearDate = new Date(0);
+      yearDate.setFullYear(year);
+      return (
+        <button
+          key={year}
+          className={clsx(
+            styles.ESInputDatePickerDateYearCellButton,
+            styles.ESInputDatePickerBaseButton,
+            value && year === value.getFullYear() && styles.selected
+          )}
+          disabled={
+            (minSetting && yearDate < minSetting) ||
+            (maxSetting && yearDate > maxSetting)
+          }
+          onClick={onClickYearFactory(year)}
+        >
+          {year}
+        </button>
+      );
+    });
   }, [viewDate, value]);
 
   const navComponent = React.useMemo(() => {

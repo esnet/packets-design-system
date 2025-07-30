@@ -14,17 +14,37 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   const inputTypeMenus = React.useMemo(() => {
     switch (type) {
       case "time":
-        return <ESInputDatePickerTime value={value} onChange={onChange} />;
+        return (
+          <ESInputDatePickerTime
+            settings={timeSettings}
+            value={value}
+            onChange={onChange}
+          />
+        );
       case "datetime":
         return (
           <>
-            <ESInputDatePickerDate value={value} onChange={onChange} />
-            <ESInputDatePickerTime value={value} onChange={onChange} />
+            <ESInputDatePickerDate
+              settings={dateSettings}
+              value={value}
+              onChange={onChange}
+            />
+            <ESInputDatePickerTime
+              settings={timeSettings}
+              value={value}
+              onChange={onChange}
+            />
           </>
         );
       case "date":
       default:
-        return <ESInputDatePickerDate value={value} onChange={onChange} />;
+        return (
+          <ESInputDatePickerDate
+            settings={dateSettings}
+            value={value}
+            onChange={onChange}
+          />
+        );
     }
   }, [type, value, onChange]);
 

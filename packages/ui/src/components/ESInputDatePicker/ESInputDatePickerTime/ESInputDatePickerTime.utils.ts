@@ -61,7 +61,7 @@ export function getCurrentDateWithoutTime(): Date {
 
 export const defaultSettings = {
   format: "12-hour" as Required<ESInputDatePickerTimeSettings>["format"],
-  hour: { min: 0, max: 23, step: 1 },
+  hour: { min: 0, max: 11, step: 1 },
   minute: { min: 0, max: 59, step: 5 },
   second: { min: 0, max: 59, step: 5 },
 };
@@ -84,12 +84,12 @@ function mergeRange(
 }
 
 export function mergeSettings(
-  propSettings: ESInputDatePickerTimeSettings
+  propSettings?: ESInputDatePickerTimeSettings
 ): Required<ESInputDatePickerTimeSettings> {
   return {
-    format: propSettings.format ?? defaultSettings.format,
-    hour: mergeRange(defaultSettings.hour as Range, propSettings.hour),
-    minute: mergeRange(defaultSettings.minute as Range, propSettings.minute),
-    second: mergeRange(defaultSettings.second as Range, propSettings.second),
+    format: propSettings?.format ?? defaultSettings.format,
+    hour: mergeRange(defaultSettings.hour as Range, propSettings?.hour),
+    minute: mergeRange(defaultSettings.minute as Range, propSettings?.minute),
+    second: mergeRange(defaultSettings.second as Range, propSettings?.second),
   };
 }
