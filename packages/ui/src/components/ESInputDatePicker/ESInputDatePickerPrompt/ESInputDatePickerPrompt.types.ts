@@ -1,17 +1,19 @@
+/* eslint-disable no-unused-vars */
 export interface ESInputDatePickerPromptProps {
   variant?: "branded" | "primary";
   type?: "date" | "time" | "datetime";
 
-  date?: Date;
-  /** Callback to when a date is selected from the prompt. */
-  onClickDate?: (date: Date) => void;
+  value?: Date;
+  /** Callback to when a date is selected from the date input portion of the component. */
+  onSelectDate?: (date: Date) => void;
+  /** Callback to when a time is selected from the time input portion of the component. */
   onSelectTime?: (time: Date) => void;
 }
 
 export interface ESInputDatePickerDateProps {
-  date?: Date;
+  value?: Date;
   /** Callback to when a date is selected from the prompt. */
-  onClickDate?: (date: Date) => void;
+  onSelectDate?: (date: Date) => void;
 }
 
 export enum TimePrecision {
@@ -21,20 +23,21 @@ export enum TimePrecision {
 }
 
 export interface ESInputDatePickerTimeProps {
-  time?: Date;
+  value?: Date;
   precision?: TimePrecision;
   /* Steps for each precision level */
   hourStep?: number;
   minuteStep?: number;
   secondStep?: number;
-  /** Callback to when a time is selected from the prompt. Could also be called onSelectTime */
+  /** Callback to when a time is selected from the prompt. */
   onSelectTime?: (time: Date) => void;
 }
 
 export interface ESInputDatePickerTimeWheelProps {
   label: string;
+  value?: string;
   values: string[];
   defaultValue?: string;
-  /** Callback to when a time is selected from the prompt. Could also be called onSelectTime */
-  onSelectTime: (value: string) => void;
+  /** Callback to when a value (a part of the time) is selected from the prompt. */
+  onSelectValue: (value: string) => void;
 }

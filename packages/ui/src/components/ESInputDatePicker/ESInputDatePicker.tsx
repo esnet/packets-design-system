@@ -9,6 +9,7 @@ import useOutsideClick from "../../lib/hooks/useOutsideClick";
 
 // TODO: MOVE TO UTILS
 // date is shown as MM/DD/YYYY in the input, and must be able to converted to and from a JS Date object
+// formatDate converts Date into a MM/DD/YYYY format
 function formatDate(date: Date): string {
   const mm = date.getMonth() + 1;
   const dd = date.getDate();
@@ -16,9 +17,17 @@ function formatDate(date: Date): string {
   return `${mm < 10 ? "0" + mm : mm}/${dd < 10 ? "0" + dd : dd}/${yyyy}`;
 }
 
-function parseDate(str: string): Date {
-  const [mm, dd, yyyy] = str.split("/").map(Number);
-  return new Date(yyyy, mm - 1, dd);
+// formatTime converts Date into a HH:MM:SS MR (AM/PM) format
+function formatTime(date: Date): string {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  let meridiem = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds} ${meridiem}`;
 }
 
 /**
@@ -38,11 +47,12 @@ function parseDate(str: string): Date {
  * @returns {React.ReactElement}
  */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
+  type = "datetime",
   className,
   variant = "primary",
   error,
 }) => {
-  const [value, setValue] = React.useState<string | undefined>(undefined);
+  const [value, setValue] = React.useState<Date | undefined>(undefined);
   // most importantly manages whether or not the calendar prompt is active or not
   const [focus, setFocus] = React.useState(true);
 
@@ -50,10 +60,27 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setFocus(false));
 
-  const onClickDate = React.useCallback((date: Date) => {
-    setValue(formatDate(date));
-    setFocus(false);
+  const onSelect = React.useCallback((date: Date) => {
+    console.log("base value set to", date.toLocaleString());
+    setValue(date);
+    // setFocus(false);
   }, []);
+
+  // the value to show in the text input
+  const formattedValue = React.useMemo(() => {
+    if (!value) return "";
+    let time = formatTime(value);
+    let date = formatDate(value);
+    switch (type) {
+      case "time":
+        return time;
+      case "datetime":
+        return date + " " + time;
+      case "date":
+      default:
+        return date;
+    }
+  }, [type, value]);
 
   return (
     <div
@@ -66,8 +93,8 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
       )}
     >
       <ESInputText
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={formattedValue}
+        readOnly
         onFocus={onFocus}
         actionButtons={<Calendar onClick={() => setFocus(!focus)} />}
         variant={variant}
@@ -75,10 +102,11 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
       />
       {focus && (
         <ESInputDatePickerPrompt
-          date={value ? parseDate(value) : undefined}
-          onClickDate={onClickDate}
+          value={value}
+          onSelectDate={onSelect}
+          onSelectTime={onSelect}
           variant={variant}
-          type="datetime"
+          type={type}
         />
       )}
     </div>

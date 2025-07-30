@@ -7,8 +7,8 @@ import { clsx } from "clsx";
 
 const ESInputDatePickerPrompt: React.FC<ESInputDatePickerPromptProps> = ({
   type,
-  date,
-  onClickDate,
+  value,
+  onSelectDate,
   onSelectTime,
   variant,
 }) => {
@@ -16,20 +16,22 @@ const ESInputDatePickerPrompt: React.FC<ESInputDatePickerPromptProps> = ({
     switch (type) {
       case "time":
         return (
-          <ESInputDatePickerTime time={date} onSelectTime={onSelectTime} />
+          <ESInputDatePickerTime value={value} onSelectTime={onSelectTime} />
         );
       case "datetime":
         return (
           <>
-            <ESInputDatePickerDate date={date} onClickDate={onClickDate} />
-            <ESInputDatePickerTime time={date} onSelectTime={onSelectTime} />
+            <ESInputDatePickerDate value={value} onSelectDate={onSelectDate} />
+            <ESInputDatePickerTime value={value} onSelectTime={onSelectTime} />
           </>
         );
       case "date":
       default:
-        return <ESInputDatePickerDate date={date} onClickDate={onClickDate} />;
+        return (
+          <ESInputDatePickerDate value={value} onSelectDate={onSelectDate} />
+        );
     }
-  }, [type]);
+  }, [type, value, onSelectDate, onSelectTime]);
   return (
     <div
       className={clsx(

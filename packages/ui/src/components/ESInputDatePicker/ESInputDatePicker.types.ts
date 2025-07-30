@@ -4,4 +4,5 @@ export interface ESInputDatePickerProps extends ComponentPropsWithRef<"input"> {
   variant?: "primary" | "branded";
   error?: boolean;
   actionButtons?: ReactNode[] | ReactNode;
+  type?: "date" | "time" | "datetime";
 }

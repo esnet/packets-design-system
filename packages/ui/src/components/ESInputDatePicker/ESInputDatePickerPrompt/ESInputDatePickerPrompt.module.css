@@ -8,22 +8,21 @@
   display: flex;
 
   /* Styling */
-  /* width: 240px; */
   width: fit-content;
   height: fit-content;
   background-color: var(--esnet-color-light-surface-2);
   color: var(--esnet-color-light-copy);
+
   :global(.dark) & {
     background-color: var(--esnet-color-dark-surface-2);
     color: var(--esnet-color-dark-copy);
   }
+
   box-shadow: var(--esnet-box-shadow-core-medium);
 
   /* Typography */
-  font: var(
-    --esnet-typography-copy-1-sans-font,
-    400 16px/120% var(--esnet-font-family-body-sans)
-  );
+  font: var(--esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans));
 
   &.branded {
     border-radius: var(--esnet-size-radius-medium, 0.25rem);
@@ -79,7 +78,7 @@
   justify-content: center;
   align-items: center;
 
-  & > button {
+  &>button {
     outline: none;
     background: inherit;
     color: inherit;
@@ -91,7 +90,7 @@
     align-items: center;
   }
 
-  & > button > svg {
+  &>button>svg {
     cursor: pointer;
     width: var(--esnet-size-spacing-medium);
     height: var(--esnet-size-spacing-medium);
@@ -125,6 +124,7 @@
   align-items: center;
   cursor: pointer;
   border-radius: var(--esnet-size-radius-medium, 0.5rem);
+
   .branded & {
     border-radius: var(--esnet-size-radius-circle, 999px);
   }
@@ -133,8 +133,8 @@
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     text-decoration: underline;
-    border: var(--esnet-size-border-width-small, 0.125rem) solid
-      var(--esnet-color-light-primary, #0088b5);
+    border: var(--esnet-size-border-width-small, 0.125rem) solid var(--esnet-color-light-primary, #0088b5);
+
     :global(.dark) & {
       border-color: var(--esnet-color-dark-secondary, #00b6f2);
     }
@@ -143,6 +143,7 @@
   &:disabled {
     cursor: default;
     color: var(--esnet-color-core-white-600, #cccccc);
+
     :global(.dark) & {
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
@@ -152,6 +153,7 @@
     text-decoration: underline;
     background-color: var(--esnet-color-light-primary, #0088b5);
     color: var(--esnet-color-light-surface-2, #f2f2f2);
+
     :global(.dark) & {
       background-color: var(--esnet-color-dark-secondary, #00b6f2);
     }
@@ -242,6 +244,7 @@
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -258,11 +261,15 @@
   background: inherit;
   font: inherit;
   color: inherit;
+  padding: 0;
   border-style: solid;
   aspect-ratio: 1 / 1;
   width: var(--esnet-size-spacing-large);
-  aspect-ratio: 1 / 1;
-  width: 100%;
+
+
+  .branded & {
+    border-radius: var(--esnet-size-radius-circle, 999px);
+  }
 }
 
 /* Button styles used in both date and time pickers */
@@ -272,11 +279,12 @@
   box-sizing: border-box;
   border-color: transparent !important;
   border-radius: var(--esnet-size-radius-medium, 0.5rem);
+
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     text-decoration: underline;
-    border: var(--esnet-size-border-width-small, 0.125rem) solid
-      var(--esnet-color-light-primary, #0088b5) !important;
+    border: var(--esnet-size-border-width-small, 0.125rem) solid var(--esnet-color-light-primary, #0088b5) !important;
+
     :global(.dark) & {
       border-color: var(--esnet-color-dark-secondary, #00b6f2) !important;
     }
@@ -288,6 +296,7 @@
     border: transparent;
     cursor: default;
     color: var(--esnet-color-core-white-600, #cccccc);
+
     :global(.dark) & {
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
@@ -298,6 +307,7 @@
   text-decoration: underline;
   background-color: var(--esnet-color-light-primary, #0088b5);
   color: var(--esnet-color-light-surface-2, #f2f2f2);
+
   :global(.dark) & {
     background-color: var(--esnet-color-dark-secondary, #00b6f2);
   }

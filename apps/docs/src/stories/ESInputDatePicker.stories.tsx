@@ -10,6 +10,10 @@ const meta: Meta<typeof ESInputDatePicker> = {
       control: { type: "radio" },
       options: ["default", "branded"],
     },
+    type: {
+      control: "radio",
+      options: ["date", "time", "datetime"],
+    },
   },
   args: {},
   parameters: {
