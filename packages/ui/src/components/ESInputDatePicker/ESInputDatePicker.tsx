@@ -35,8 +35,6 @@ function formatTime(date: Date): string {
  *
  * major:
  * Should include a cross browser compatible consistent UI, thus no native date picker UI.
- * Should have a specific, consistent, and keyboard activatable prompt activate (not just onClick)
- * there is no "branded" theme
  * split up InputDate and InputDatePicker
  *
  *

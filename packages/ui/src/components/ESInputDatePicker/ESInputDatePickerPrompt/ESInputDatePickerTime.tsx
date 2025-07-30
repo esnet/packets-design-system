@@ -22,15 +22,13 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
 }) => {
   const onSelectTimePart = React.useCallback(
     (wheel: TimePrecision, timeWheelValue: number) => {
-      // use today as the value to set time if a value prop is not provided
+      // use today as the value (up to specified time precision) to set time if a value prop is not provided
       let updateDate: Date;
       if (value) {
         updateDate = new Date(value);
       } else {
         updateDate = getTodayDateToPrecision();
       }
-
-      // if no value is provided, use today's current value, up to the precision
 
       switch (wheel) {
         case TimePrecision.Second:

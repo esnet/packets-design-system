@@ -9,15 +9,6 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
   value,
   onSelectValue,
 }) => {
-  // const initialIndex = React.useMemo(() => {
-  //   if (defaultValue === undefined) return undefined;
-  //   const index = values.indexOf(defaultValue);
-  //   return index === -1 ? undefined : index;
-  // }, [defaultValue]);
-  // const [currentIndex, setCurrentIndex] = React.useState<number | undefined>(
-  //   initialIndex
-  // );
-
   const containerRef = React.useRef<HTMLDivElement>(null);
   const wheelButtonRefs = React.useRef<HTMLButtonElement[]>([]);
 
