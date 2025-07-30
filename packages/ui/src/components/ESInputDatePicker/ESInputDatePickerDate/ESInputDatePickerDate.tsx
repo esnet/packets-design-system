@@ -24,7 +24,6 @@ const ESInputDatePickerDate = ({
   // the current MONTH and YEAR that is currently being viewed; do not care about date number
   const [viewDate, setViewDate] = React.useState(value ?? new Date());
 
-  // TODO: refactor for consistent naming day/months (plural?)
   const dayMenu = React.useMemo(() => {
     const weekdayHeaders = Array.from(weekdayNames).map((day) => (
       <div key={day} className={styles.ESInputDatePickerDateDayCellHeader}>

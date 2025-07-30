@@ -20,15 +20,12 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
   settings = defaultSettings,
   onChange,
 }) => {
-  console.log("supplied", settings);
   const {
     format: formatSetting,
     hour: hourSetting,
     minute: minuteSetting,
     second: secondSetting,
   } = React.useMemo(() => mergeSettings(settings), [settings]);
-
-  console.log(formatSetting);
 
   const onChangePart = React.useCallback(
     (wheel: TimePrecision, timeWheelValue: number) => {

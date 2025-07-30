@@ -4,6 +4,13 @@ import { ESInputDatePickerProps } from "./ESInputDatePicker.types";
 import ESInputDatePickerDate from "./ESInputDatePickerDate/ESInputDatePickerDate";
 import ESInputDatePickerTime from "./ESInputDatePickerTime/ESInputDatePickerTime";
 
+/**
+ * ESInputDatePicker Component
+ *
+ * Allows for date, time, and datetime selections.
+ *
+ * TODO: Implement range selection
+ */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
   type,
   value,

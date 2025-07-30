@@ -19,6 +19,7 @@ import { formatDate, formatTime } from "./ESInputDate.utils";
  * Should support different region formats, e.g. MM/DD/YYYY vs DD/MM/YYYY?
  * Should support min and max?
  * Should support some sort of validation?
+ * Ability to pass in dateSetting and timeSetting to underlying InputDatePicker component
  *
  * @param {ESInputDateProps} props
  * @returns {React.ReactElement}
