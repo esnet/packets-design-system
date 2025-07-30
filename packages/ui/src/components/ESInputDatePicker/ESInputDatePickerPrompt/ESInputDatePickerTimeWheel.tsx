@@ -44,7 +44,7 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
           key={i}
           className={clsx(
             styles.ESInputDatePickerTimeWheelButton,
-            styles.ESInputDatePickerButtonInteractions,
+            styles.ESInputDatePickerBaseButton,
             v === value && styles.selected
           )}
           ref={(el) => (wheelButtonRefs.current[i] = el!)}

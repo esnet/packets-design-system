@@ -4,7 +4,6 @@ import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   flattenedDateGrid,
   getMonthName,
-  getTodayDateToPrecision,
   monthNames,
   weekdayNames,
 } from "./ESInputDatePickerPrompt.utils";
@@ -36,7 +35,7 @@ const ESInputDatePickerDate = ({
         key={dateInfo.toString()}
         className={clsx(
           styles.ESInputDatePickerDateDayCellButton,
-          styles.ESInputDatePickerButtonInteractions,
+          styles.ESInputDatePickerBaseButton,
           value &&
             dateInfo.toDateString() === value.toDateString() &&
             styles.selected,
@@ -82,7 +81,7 @@ const ESInputDatePickerDate = ({
         key={monthName}
         className={clsx(
           styles.ESInputDatePickerDateMonthCellButton,
-          styles.ESInputDatePickerButtonInteractions,
+          styles.ESInputDatePickerBaseButton,
           value &&
             monthIndex === value.getMonth() &&
             viewDate.getFullYear() === value.getFullYear() &&
@@ -113,7 +112,7 @@ const ESInputDatePickerDate = ({
         key={year}
         className={clsx(
           styles.ESInputDatePickerDateYearCellButton,
-          styles.ESInputDatePickerButtonInteractions,
+          styles.ESInputDatePickerBaseButton,
           value && year === value.getFullYear() && styles.selected
         )}
         onClick={onClickYearFactory(year)}
@@ -147,7 +146,7 @@ const ESInputDatePickerDate = ({
         <button
           className={clsx(
             styles.ESInputDatePickerNavButton,
-            styles.ESInputDatePickerButtonInteractions
+            styles.ESInputDatePickerBaseButton
           )}
           onClick={() => onClickNav("left")}
         >
@@ -157,13 +156,13 @@ const ESInputDatePickerDate = ({
           {view === "day" && (
             <>
               <button
-                className={styles.ESInputDatePickerButtonInteractions}
+                className={styles.ESInputDatePickerBaseButton}
                 onClick={() => changeView("month")}
               >
                 {getMonthName(viewDate)} <ChevronDown />
               </button>
               <button
-                className={styles.ESInputDatePickerButtonInteractions}
+                className={styles.ESInputDatePickerBaseButton}
                 onClick={() => changeView("year")}
               >
                 {viewDate.getFullYear()} <ChevronDown />
@@ -172,7 +171,7 @@ const ESInputDatePickerDate = ({
           )}
           {view === "month" && (
             <button
-              className={styles.ESInputDatePickerButtonInteractions}
+              className={styles.ESInputDatePickerBaseButton}
               onClick={() => changeView("day")}
             >
               {viewDate.getFullYear()} <ChevronDown />
@@ -180,7 +179,7 @@ const ESInputDatePickerDate = ({
           )}
           {view === "year" && (
             <button
-              className={styles.ESInputDatePickerButtonInteractions}
+              className={styles.ESInputDatePickerBaseButton}
               onClick={() => changeView("day")}
             >
               {viewDate.getFullYear()} <ChevronDown />
@@ -190,7 +189,7 @@ const ESInputDatePickerDate = ({
         <button
           className={clsx(
             styles.ESInputDatePickerNavButton,
-            styles.ESInputDatePickerButtonInteractions
+            styles.ESInputDatePickerBaseButton
           )}
           onClick={() => onClickNav("right")}
         >

@@ -218,8 +218,8 @@
   width: var(--esnet-size-spacing-large);
 }
 
-/* Button styles used in both date and time pickers */
-.ESInputDatePickerButtonInteractions {
+/* Button style used in both date and time pickers, specifies mostly border and color behavior on different events */
+.ESInputDatePickerBaseButton {
   cursor: pointer;
   outline: none;
   box-sizing: border-box;
