@@ -1,8 +1,8 @@
-import { ComponentPropsWithRef, ReactNode } from "react";
-
-export interface ESInputDatePickerProps extends ComponentPropsWithRef<"input"> {
-  variant?: "primary" | "branded";
-  error?: boolean;
-  actionButtons?: ReactNode[] | ReactNode;
+/* eslint-disable no-unused-vars */
+export interface ESInputDatePickerProps {
   type?: "date" | "time" | "datetime";
+
+  value?: Date;
+  /**Callback to when any part of the Date object is changed.  */
+  onChange?: (date: Date) => void;
 }

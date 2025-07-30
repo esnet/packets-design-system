@@ -1,6 +1,30 @@
 .ESInputDatePicker {
   /* Layout */
-  display: inline-flex;
-  width: 100%;
-  position: relative;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+
+  /* Styling */
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-surface-2, #000000);
+  }
+
+  box-shadow: var(--esnet-box-shadow-core-medium);
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+
+  &.branded {
+    border-radius: var(--esnet-size-radius-medium, 0.25rem);
+  }
 }

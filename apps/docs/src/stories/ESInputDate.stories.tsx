@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputDatePicker } from "@esnet/packets-ui";
+import { ESInputDate, ESInputDatePicker } from "@esnet/packets-ui";
 
-const meta: Meta<typeof ESInputDatePicker> = {
-  title: "Components/ESInputDatePicker",
-  component: ESInputDatePicker,
+const meta: Meta<typeof ESInputDate> = {
+  title: "Components/ESInputDate",
+  component: ESInputDate,
   tags: ["autodocs"],
   argTypes: {
+    variant: {
+      control: { type: "radio" },
+      options: ["default", "branded"],
+    },
     type: {
       control: "radio",
       options: ["date", "time", "datetime"],
@@ -22,9 +26,7 @@ const meta: Meta<typeof ESInputDatePicker> = {
     // a larger height to fully view the absolutely positioned calendar prompt
     (Story) => (
       <div style={{ minHeight: 280 }}>
-        <div style={{ position: "relative" }}>
-          <Story />
-        </div>
+        <Story />
       </div>
     ),
   ],
@@ -32,6 +34,6 @@ const meta: Meta<typeof ESInputDatePicker> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ESInputDatePicker>;
+type Story = StoryObj<typeof ESInputDate>;
 
 export const Default: Story = {};

@@ -1,13 +1,13 @@
 import * as React from "react";
-import { ESInputDatePickerTimeWheelProps } from "./ESInputDatePickerPrompt.types";
-import styles from "./ESInputDatePickerPrompt.module.css";
+import { ESInputDatePickerTimeWheelProps } from "./ESInputDatePickerTime.types";
+import styles from "./ESInputDatePickerTime.module.css";
 import clsx from "clsx";
 
 const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
   label,
   values,
   value,
-  onSelectValue,
+  onChange,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const wheelButtonRefs = React.useRef<HTMLButtonElement[]>([]);
@@ -41,14 +41,14 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
           ref={(el) => (wheelButtonRefs.current[i] = el!)}
           onClick={() => {
             scrollToButton(i, "smooth");
-            onSelectValue(v);
+            onChange(v);
           }}
         >
           {v}
         </button>
       );
     });
-  }, [values, onSelectValue]);
+  }, [values, onChange]);
 
   React.useEffect(() => {
     if (!value) return;

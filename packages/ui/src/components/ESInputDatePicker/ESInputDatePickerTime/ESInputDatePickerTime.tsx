@@ -1,26 +1,26 @@
 import * as React from "react";
-import styles from "./ESInputDatePickerPrompt.module.css";
+import styles from "./ESInputDatePickerTime.module.css";
 import {
   ESInputDatePickerTimeProps,
   TimePrecision,
-} from "./ESInputDatePickerPrompt.types";
+} from "./ESInputDatePickerTime.types";
 import ESInputDatePickerTimeWheel from "./ESInputDatePickerTimeWheel";
 import {
   getHoursOnChangeMeridiem,
   getMeridiem,
   getTimeWheel,
   getTodayDateToPrecision,
-} from "./ESInputDatePickerPrompt.utils";
+} from "./ESInputDatePickerTime.utils";
 
 const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
   value,
-  precision = TimePrecision.Minute,
+  precision = TimePrecision.Second,
   hourStep = 1,
-  minuteStep = 1,
-  secondStep = 1,
-  onSelectTime,
+  minuteStep = 5,
+  secondStep = 5,
+  onChange,
 }) => {
-  const onSelectTimePart = React.useCallback(
+  const onChangePart = React.useCallback(
     (wheel: TimePrecision, timeWheelValue: number) => {
       // use today as the value (up to specified time precision) to set time if a value prop is not provided
       let updateDate: Date;
@@ -41,9 +41,9 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           updateDate.setHours(timeWheelValue);
           break;
       }
-      onSelectTime?.(updateDate);
+      onChange?.(updateDate);
     },
-    [onSelectTime, value, precision]
+    [onChange, value, precision]
   );
 
   const timeWheels = React.useMemo(() => {
@@ -58,12 +58,12 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           label="Hr"
           value={hourValue}
           values={data}
-          onSelectValue={(hourValue) => {
+          onChange={(hourValue) => {
             // necessary step to account for hour range being 0-11 due to meridiem
             const meridiemValue = value ? getMeridiem(value) : "AM";
             const newHour =
               Number(hourValue) + (meridiemValue === "PM" ? 12 : 0);
-            onSelectTimePart(TimePrecision.Hour, Number(newHour));
+            onChangePart(TimePrecision.Hour, Number(newHour));
           }}
         />
       );
@@ -76,8 +76,8 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           label="Min"
           value={String(value?.getMinutes() ?? "")}
           values={data}
-          onSelectValue={(value) => {
-            onSelectTimePart(TimePrecision.Minute, Number(value));
+          onChange={(value) => {
+            onChangePart(TimePrecision.Minute, Number(value));
           }}
         />
       );
@@ -90,8 +90,8 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           label="Sec"
           value={String(value?.getSeconds() ?? "")}
           values={data}
-          onSelectValue={(value) => {
-            onSelectTimePart(TimePrecision.Second, Number(value));
+          onChange={(value) => {
+            onChangePart(TimePrecision.Second, Number(value));
           }}
         />
       );
@@ -102,8 +102,8 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
         label="Mer"
         value={value ? getMeridiem(value) : ""}
         values={["AM", "PM"]}
-        onSelectValue={(merValue) => {
-          onSelectTimePart(
+        onChange={(merValue) => {
+          onChangePart(
             TimePrecision.Hour,
             getHoursOnChangeMeridiem(
               value?.getHours() ?? 0,
@@ -114,8 +114,8 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
       />
     );
 
-    return <>{wheels}</>;
-  }, [precision, value, hourStep, minuteStep, secondStep, onSelectTimePart]);
+    return wheels;
+  }, [precision, value, hourStep, minuteStep, secondStep, onChangePart]);
 
   return <div className={styles.ESInputDatePickerTime}>{timeWheels}</div>;
 };

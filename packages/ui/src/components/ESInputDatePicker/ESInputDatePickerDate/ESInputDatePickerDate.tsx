@@ -1,24 +1,24 @@
 import * as React from "react";
-import styles from "./ESInputDatePickerPrompt.module.css";
+import styles from "./ESInputDatePickerDate.module.css";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   flattenedDateGrid,
   getMonthName,
   monthNames,
   weekdayNames,
-} from "./ESInputDatePickerPrompt.utils";
-import { ESInputDatePickerDateProps } from "./ESInputDatePickerPrompt.types";
+} from "./ESInputDatePickerDate.utils";
+import { ESInputDatePickerDateProps } from "./ESInputDatePickerDate.types";
 import { clsx } from "clsx";
 
 const ESInputDatePickerDate = ({
   value,
-  onSelectDate,
+  onChange,
 }: ESInputDatePickerDateProps) => {
   const [view, setView] = React.useState<"day" | "month" | "year">("day");
   const changeView = (newView: "day" | "month" | "year") => {
     setView(newView);
   };
-  // the current MONTH and YEAR that is currently being viewed on the prompt; do not care about date number
+  // the current MONTH and YEAR that is currently being viewed; do not care about date number
   const [viewDate, setViewDate] = React.useState(value ?? new Date());
 
   // TODO: refactor for consistent naming day/months (plural?)
@@ -51,7 +51,7 @@ const ESInputDatePickerDate = ({
             value?.getSeconds() ?? 0,
             value?.getMilliseconds() ?? 0
           );
-          onSelectDate?.(dateInfo);
+          onChange?.(dateInfo);
         }}
       >
         {dateInfo.getDate()}
@@ -190,7 +190,7 @@ const ESInputDatePickerDate = ({
       <div className={styles.ESInputDatePickerDateNav}>
         <button
           className={clsx(
-            styles.ESInputDatePickerNavButton,
+            styles.ESInputDatePickerDateNavButton,
             styles.ESInputDatePickerBaseButton
           )}
           onClick={() => onClickNav("left")}
@@ -200,7 +200,7 @@ const ESInputDatePickerDate = ({
         <div className={styles.ESInputDatePickerDateNavInfo}>{navInfo}</div>
         <button
           className={clsx(
-            styles.ESInputDatePickerNavButton,
+            styles.ESInputDatePickerDateNavButton,
             styles.ESInputDatePickerBaseButton
           )}
           onClick={() => onClickNav("right")}
