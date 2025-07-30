@@ -11,11 +11,9 @@
   width: fit-content;
   height: fit-content;
   background-color: var(--esnet-color-light-surface-2);
-  color: var(--esnet-color-light-copy);
 
   :global(.dark) & {
     background-color: var(--esnet-color-dark-surface-2);
-    color: var(--esnet-color-dark-copy);
   }
 
   box-shadow: var(--esnet-box-shadow-core-medium);
@@ -57,19 +55,6 @@
   height: 24px;
   box-sizing: border-box;
   outline: none;
-
-  /* &:hover {
-    cursor: pointer;
-  }
-  &:hover,
-  &:focus {
-    border: var(--esnet-size-border-width-small, 0.125rem) solid
-      var(--esnet-color-light-primary, #0088b5);
-    border-radius: var(--esnet-size-radius-medium, 0.5rem);
-    .branded & {
-      border-radius: var(--esnet-size-radius-circle, 999px);
-    }
-  } */
 }
 
 .ESInputDatePickerDateNavInfo {
@@ -81,7 +66,6 @@
   &>button {
     outline: none;
     background: inherit;
-    color: inherit;
     font: inherit;
     cursor: pointer;
     display: flex;
@@ -116,46 +100,19 @@
   background: inherit;
   font: inherit;
   color: inherit;
-  border-style: solid;
   aspect-ratio: 1 / 1;
   width: var(--esnet-size-spacing-large);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: var(--esnet-size-radius-medium, 0.5rem);
 
-  .branded & {
+  &.today {
     border-radius: var(--esnet-size-radius-circle, 999px);
-  }
-
-  /* Styling */
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    text-decoration: underline;
-    border: var(--esnet-size-border-width-small, 0.125rem) solid var(--esnet-color-light-primary, #0088b5);
+    border-color: var(--esnet-color-light-primary, #0088b5);
 
     :global(.dark) & {
       border-color: var(--esnet-color-dark-secondary, #00b6f2);
-    }
-  }
-
-  &:disabled {
-    cursor: default;
-    color: var(--esnet-color-core-white-600, #cccccc);
-
-    :global(.dark) & {
-      color: var(--esnet-color-core-white-900, #a8a8a8);
-    }
-  }
-
-  &.selected {
-    text-decoration: underline;
-    background-color: var(--esnet-color-light-primary, #0088b5);
-    color: var(--esnet-color-light-surface-2, #f2f2f2);
-
-    :global(.dark) & {
-      background-color: var(--esnet-color-dark-secondary, #00b6f2);
     }
   }
 }
@@ -180,8 +137,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  /* Styling */
-  /* apply hover, active, focus, select, disabled, variant styles */
 }
 
 .ESInputDatePickerDateYearGrid {
@@ -199,13 +154,10 @@
   border-style: solid;
   width: 100%;
   height: 100%;
-  /* Layout */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  /* Styling */
-  /* apply hover, active, focus, select, disabled, variant styles */
 }
 
 /* Time Picker related styles */
@@ -262,14 +214,8 @@
   font: inherit;
   color: inherit;
   padding: 0;
-  border-style: solid;
   aspect-ratio: 1 / 1;
   width: var(--esnet-size-spacing-large);
-
-
-  .branded & {
-    border-radius: var(--esnet-size-radius-circle, 999px);
-  }
 }
 
 /* Button styles used in both date and time pickers */
@@ -277,38 +223,53 @@
   cursor: pointer;
   outline: none;
   box-sizing: border-box;
-  border-color: transparent !important;
   border-radius: var(--esnet-size-radius-medium, 0.5rem);
+  border-width: var(--esnet-size-border-width-small, 0.125rem);
+  border-style: solid;
+  border-color: transparent;
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  color: var(--esnet-color-light-copy, #3d3d3d);
+
+  :global(.dark) & {
+    color: var(--esnet-color-dark-copy, #ffffff);
+  }
+
+  &:hover:not(:disabled) {
     text-decoration: underline;
-    border: var(--esnet-size-border-width-small, 0.125rem) solid var(--esnet-color-light-primary, #0088b5) !important;
+    background-color: var(--esnet-color-core-blue-300, #64d2ff);
+    color: var(--esnet-color-light-copy, #3d3d3d);
 
     :global(.dark) & {
-      border-color: var(--esnet-color-dark-secondary, #00b6f2) !important;
+      background-color: var(--esnet-color-core-blue-400, #00b6f2);
+      color: var(--esnet-color-dark-copy, #ffffff);
     }
   }
 
-  /* active state */
+  &:focus:not(:disabled, .disabled) {
+    text-decoration: underline;
+    border-color: var(--esnet-color-core-blue-300, #64d2ff);
+  }
+
+  &:active:not(:disabled),
+  &.selected {
+    text-decoration: underline;
+    background-color: var(--esnet-color-light-primary, #0088b5);
+    color: var(--esnet-color-light-surface-2);
+    border-color: transparent !important;
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-core-blue-500, #00a0d6);
+      color: var(--esnet-color-dark-copy, #ffffff);
+    }
+  }
 
   &:disabled {
-    border: transparent;
+    border-color: transparent;
     cursor: default;
     color: var(--esnet-color-core-white-600, #cccccc);
 
     :global(.dark) & {
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
-  }
-}
-
-.ESInputDatePickerButtonSelected {
-  text-decoration: underline;
-  background-color: var(--esnet-color-light-primary, #0088b5);
-  color: var(--esnet-color-light-surface-2, #f2f2f2);
-
-  :global(.dark) & {
-    background-color: var(--esnet-color-dark-secondary, #00b6f2);
   }
 }

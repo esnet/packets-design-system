@@ -39,7 +39,8 @@ const ESInputDatePickerDate = ({
           styles.ESInputDatePickerButtonInteractions,
           value &&
             dateInfo.toDateString() === value.toDateString() &&
-            styles.ESInputDatePickerButtonSelected
+            styles.selected,
+          dateInfo.toDateString() === new Date().toDateString() && styles.today
         )}
         disabled={dateInfo.getMonth() !== viewDate.getMonth()}
         onClick={() => {
@@ -85,7 +86,7 @@ const ESInputDatePickerDate = ({
           value &&
             monthIndex === value.getMonth() &&
             viewDate.getFullYear() === value.getFullYear() &&
-            styles.ESInputDatePickerButtonSelected
+            styles.selected
         )}
         onClick={onClickMonthFactory(monthIndex)}
       >
@@ -113,9 +114,7 @@ const ESInputDatePickerDate = ({
         className={clsx(
           styles.ESInputDatePickerDateYearCellButton,
           styles.ESInputDatePickerButtonInteractions,
-          value &&
-            year === value.getFullYear() &&
-            styles.ESInputDatePickerButtonSelected
+          value && year === value.getFullYear() && styles.selected
         )}
         onClick={onClickYearFactory(year)}
       >
