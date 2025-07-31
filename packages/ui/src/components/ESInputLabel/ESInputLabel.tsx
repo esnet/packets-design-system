@@ -19,7 +19,7 @@ const ESInputLabel: React.FC<ESInputLabelProps> = ({
 }) => {
   const errorText = React.useMemo(() => {
     if (typeof error === "boolean") {
-      return "";
+      return "Error";
     }
 
     return error;
