@@ -18,6 +18,7 @@ export { default as ESIcon } from "./ESIcon";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputCheckbox } from "./ESInputCheckbox";
 export { default as ESInputEmail } from "./ESInputEmail";
+export { default as ESLabel } from "./ESLabel";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";
 export { default as ESInputRadioButton } from "./ESInputRadioButton";
