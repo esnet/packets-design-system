@@ -1,199 +1,109 @@
 .ESInputSwitch {
-  --indicator-size: 1.55rem;
-  --label-font: var(--esnet-typography-label-1-sans-font,
-      400 12px/120% var(--esnet-font-family-body-sans));
-  --label-letterspace: var(--esnet-typography-label-2-sans-letterspacing,
-      -0.18px);
-  --width: 54px;
-  --height: 29px;
-  --border-width: 3px;
+  --interaction-color: var(--esnet-color-core-blue-600);
+  --interaction-border: var(--esnet-color-core-blue-700);
+  --interaction-shadow: var(--esnet-color-core-blue-300);
+  &.secondary {
+    --interaction-color: var(--esnet-color-core-orange-600);
+    --interaction-border: var(--esnet-color-core-orange-700);
+    --interaction-shadow: var(--esnet-color-core-orange-300);
+  }
+  position: relative;
+  overflow: hidden;
+  width: 52px;
+  height: 26px;
 
+  transition:
+    border-color var(--esnet-time-duration-quick, 250ms) ease,
+    box-shadow var(--esnet-time-duration-quick, 250ms) ease,
+    background-color var(--esnet-time-duration-quick, 250ms) ease;
+
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-small, 0.125rem);
+  border-radius: var(--esnet-size-radius-circle, 999px);
+
+  background-color: var(--esnet-color-core-white-700, #c2c2c2);
+  border-color: var(--esnet-color-core-white-700, #c2c2c2);
+  &.checked {
+    background-color: var(--interaction-color);
+    border-color: var(--interaction-border);
+  }
+
+  &:hover:not(.disabled),
+  &:focus-within:not(.disabled) {
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
+      var(--esnet-color-core-white-400);
+    &.checked {
+      box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
+        var(--interaction-shadow);
+    }
+  }
+
+  &.checked:has(*:active):not(.disabled),
+  &:has(*:active):not(.disabled) {
+    box-shadow: none;
+  }
+
+  &.disabled {
+    cursor: default;
+    border-color: var(--esnet-color-core-white-500, #d9d9d9);
+    box-shadow: none;
+    background-color: var(--esnet-color-core-white-500, #d9d9d9);
+    &.checked {
+      border-color: color-mix(
+        in srgb,
+        var(--interaction-color),
+        var(--esnet-color-core-white-500, #d9d9d9) 70%
+      );
+      background-color: color-mix(
+        in srgb,
+        var(--interaction-color),
+        var(--esnet-color-core-white-500, #d9d9d9) 70%
+      );
+    }
+  }
+}
+
+/* Actual input element, invisible but spans entire component for functionality */
+.ESInputSwitchInput {
+  all: unset;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.ESInputSwitchIndicator {
+  position: absolute;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  :checked ~ & {
+    right: 0;
+    left: auto;
+  }
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  user-select: none;
+  border-radius: var(--esnet-size-radius-circle, 999px);
 
-  /* Children */
-  .inputWrapper {
-    width: var(--width);
-    height: var(--height);
-    align-items: center;
-    border-radius: var(--esnet-size-radius-circle, 9999px);
+  background-color: var(--esnet-color-core-white-100, #ffffff);
+  color: var(--esnet-color-core-white-600, #cccccc);
 
-    border: var(--border-width) solid rgba(0, 0, 0, 0);
-
-    transition: all var(--esnet-time-duration-quick, 250ms) ease-in-out;
-
-    /* States */
-    &:hover {
-      border-color: var(--esnet-color-core-white-400, #e3e3e3);
-    }
-
-    .isChecked & {
-      justify-content: flex-end;
-
-      &:hover {
-        border-color: var(--esnet-color-core-blue-300, #64d2ff);
-      }
-    }
-
-    .isFocused & {
-      border-color: var(--esnet-color-core-white-500, #d9d9d9);
-    }
-
-    /* Children */
-    .indicatorRail {
-      position: relative;
-      background: var(--esnet-color-core-white-600, #ccc);
-      border-radius: var(--esnet-size-radius-circle, 9999px);
-      border: 1px solid var(--esnet-color-core-white-700, #c2c2c2);
-
-      /* variable dimensions minus border and padding offset */
-      width: calc(var(--width) - 4px);
-      height: calc(var(--height) - 4px);
-      padding: 1px;
-
-      display: flex;
-      position: relative;
-
-      /* States */
-      .isChecked & {
-        border-color: var(--esnet-color-core-blue-700, #0075a2);
-        background: var(--esnet-color-core-blue-600, #0088b5);
-      }
-
-      .isFocused & {
-        border-color: var(--esnet-color-core-white-700, #c2c2c2);
-      }
-
-      .isDisabled & {
-        background: var(--esnet-color-core-white-500, #d9d9d9);
-        border-color: var(--esnet-color-core-white-600, #cccccc);
-      }
-
-      .isChecked.isDisabled & {
-        border-color: #6994a5;
-        background: #83aebd;
-      }
-
-      .isFocused.isChecked & {
-        border-color: var(--esnet-color-core-blue-700, #0075a2);
-      }
-
-      /* Children */
-
-      .inputBox {
-        opacity: 0;
-        display: block;
-        width: var(--width, 52px);
-        height: var(--height, 24px);
-
-        /* Pseudo Events */
-        &:hover {
-          cursor: pointer;
-        }
-
-        /* States */
-        .isDisabled & {
-          &:hover {
-            cursor: not-allowed;
-          }
-        }
-      }
-    }
-
-    .indicator {
-      transition: all var(--esnet-time-duration-quick, 250ms) ease-in-out;
-      width: var(--indicator-size, 24px);
-      height: var(--indicator-size, 24px);
-      aspect-ratio: 1/1;
-      background-color: var(--esnet-color-core-white-100, #ffffff);
-      border-radius: var(--esnet-size-radius-circle, 9999px);
-      color: var(--esnet-color-core-white-600, #ccc);
-
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 1px;
-      left: 1px;
-      align-self: flex-start;
-
-      .icon {
-        width: 16px;
-        height: 16px;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        .isDisabled & {
-          &:hover {
-            cursor: not-allowed;
-          }
-        }
-      }
-
-      /* States */
-      .isChecked & {
-        left: 26px;
-        color: var(--color-core-blue-600, #0088b5);
-      }
-
-      .isDisabled & {
-        background-color: var(--esnet-color-core-white-400, #e3e3e3);
-
-        &:hover {
-          cursor: not-allowed;
-        }
-      }
-    }
+  .checked > & {
+    color: var(--esnet-color-core-blue-600);
   }
 
-  .label {
-    display: block;
-    color: var(--esnet-color-light-copy-alt, #a8a8a8);
-
-    font: var(--label-font);
-    letter-spacing: var(--label-letterspace);
-
-    :global(.dark) & {
-      color: var(--esnet-color-dark-copy-alt, #a8a8a8);
-    }
-
-    /* Pseudo Events */
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    /* States */
-
-    .isDisabled & {
-      &:hover {
-        cursor: not-allowed;
-      }
-    }
-
-    .isFocused & {
-      text-decoration: underline;
-    }
+  :active:checked ~ :not(.disabled > &) {
+    background-color: var(--esnet-color-core-blue-100, #cff1ff);
   }
 
-  &:active {
-    .inputWrapper {
-      border-color: rgba(0, 0, 0, 0) !important;
-    }
-  }
-
-  &:hover {
-    .inputWrapper {
-      border-color: var(--color-core-white-400, #e3e3e3);
-    }
-
-    &.isChecked {
-      .inputWrapper {
-        border-color: var(--color-core-blue-300, #64d2ff);
-      }
-    }
+  .disabled > & {
+    background-color: var(--esnet-color-core-white-400, #d9d9d9);
   }
 }
