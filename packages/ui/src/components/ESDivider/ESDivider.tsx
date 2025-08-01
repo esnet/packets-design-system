@@ -12,7 +12,7 @@ import { ESDividerProps } from "./ESDivider.types";
  * @returns {React.ReactElement}
  */
 const ESDivider: React.FC<ESDividerProps> = ({
-  variant = "default",
+  variant = "primary",
   className,
 }) => {
   return <hr className={clsx(styles.ESDivider, styles[variant], className)} />;

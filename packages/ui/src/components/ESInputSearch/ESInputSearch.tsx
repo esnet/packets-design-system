@@ -13,7 +13,7 @@ import { clsx } from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputSearch: React.FC<ESInputSearchProps> = ({
-  variant = "default",
+  variant = "primary",
   className,
   error = false,
   onSearchClick,

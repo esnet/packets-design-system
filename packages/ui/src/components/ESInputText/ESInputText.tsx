@@ -13,7 +13,7 @@ import clsx from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputText: React.FC<ESInputTextProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   disabled = false,
   className,

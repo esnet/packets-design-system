@@ -13,7 +13,7 @@ import clsx from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputEmail: React.FC<ESInputEmailProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   defaultValue = "",
   className,

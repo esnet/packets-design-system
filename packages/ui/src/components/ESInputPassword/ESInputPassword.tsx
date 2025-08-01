@@ -13,7 +13,7 @@ import clsx from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputPassword: React.FC<ESInputPasswordProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   defaultValue,
   className,

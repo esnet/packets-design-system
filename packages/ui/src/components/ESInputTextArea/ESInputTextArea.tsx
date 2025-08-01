@@ -14,7 +14,7 @@ import clsx from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputTextArea: React.FC<ESInputTextAreaProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   resize = "none",
   disabled,
