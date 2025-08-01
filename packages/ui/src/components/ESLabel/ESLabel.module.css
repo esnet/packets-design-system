@@ -1,4 +1,4 @@
-.ESInputLabel {
+.ESLabel {
   cursor: auto;
   box-sizing: border-box;
   width: stretch;
@@ -8,7 +8,7 @@
 }
 
 /* refers to the "label" text part of the top of the component */
-.ESInputLabelText {
+.text {
   /* color: var(--esnet-color-core-black-800, #252526); */
 
   :global(.dark) & {
@@ -38,7 +38,7 @@
     400 16px/120% var(--esnet-font-family-body-sans));
 }
 
-.ESInputLabelRequiredAsterisk {
+.requiredAsterisk {
   margin-left: 2px;
   color: var(--esnet-color-core-red-600, #d61200);
 
@@ -47,7 +47,7 @@
   }
 }
 
-.ESInputLabelError {
+.error {
   color: var(--esnet-color-core-red-600, #a6611b);
 
   :global(.dark) {

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputEmail, ESInputLabel, ESInputText } from "@esnet/packets-ui";
+import { ESInputEmail, ESLabel, ESInputText } from "@esnet/packets-ui";
 
-const meta: Meta<typeof ESInputLabel> = {
-  title: "Components/ESInputLabel",
-  component: ESInputLabel,
+const meta: Meta<typeof ESLabel> = {
+  title: "Components/ESLabel",
+  component: ESLabel,
   tags: ["autodocs"],
   args: {},
   parameters: {
@@ -14,7 +14,7 @@ const meta: Meta<typeof ESInputLabel> = {
   },
   render: (args) => {
     return (
-      <ESInputLabel {...args}>
+      <ESLabel {...args}>
         {args.children || (
           <ESInputText
             placeholder="Placeholder text"
@@ -22,14 +22,14 @@ const meta: Meta<typeof ESInputLabel> = {
             error={!!args.error}
           />
         )}
-      </ESInputLabel>
+      </ESLabel>
     );
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ESInputLabel>;
+type Story = StoryObj<typeof ESLabel>;
 
 export const Default: Story = {
   args: {
@@ -41,7 +41,7 @@ export const HasError: Story = {
   parameters: {
     docs: {
       description:
-        "ESInputLabel wraps the children (input elements) with a label element, linking them.",
+        "ESLabel wraps the children (input elements) with a label element, linking them.",
     },
   },
   args: {

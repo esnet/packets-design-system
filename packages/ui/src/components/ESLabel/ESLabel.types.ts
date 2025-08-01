@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import * as React from "react";
 
-export interface ESInputLabelProps extends ComponentPropsWithoutRef<"label"> {
+export interface ESLabelProps extends ComponentPropsWithoutRef<"label"> {
   error?: React.ReactNode;
   label: React.ReactNode;
   disabled?: boolean;

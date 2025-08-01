@@ -16,7 +16,7 @@ export { default as ESDivider } from "./ESDivider";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputEmail } from "./ESInputEmail";
-export { default as ESInputLabel } from "./ESInputLabel";
+export { default as ESLabel } from "./ESLabel";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";
 export { default as ESInputSwitch } from "./ESInputSwitch";
