@@ -6,7 +6,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button branded fill medium "
+        class="ESButton branded fill medium"
         type="button"
       >
         Hello World
@@ -15,7 +15,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button branded fill medium "
+      class="ESButton branded fill medium"
       type="button"
     >
       Hello World
@@ -81,7 +81,7 @@ exports[`Button as LInk matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <a
-        class="button primary fill medium "
+        class="ESButton primary fill medium"
         href="http://www.google.com"
         type="button"
       >
@@ -91,7 +91,7 @@ exports[`Button as LInk matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <a
-      class="button primary fill medium "
+      class="ESButton primary fill medium"
       href="http://www.google.com"
       type="button"
     >
@@ -158,7 +158,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button destructive fill medium "
+        class="ESButton destructive fill medium"
         type="button"
       >
         Hello World
@@ -167,7 +167,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button destructive fill medium "
+      class="ESButton destructive fill medium"
       type="button"
     >
       Hello World
@@ -233,7 +233,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button primary fill medium "
+        class="ESButton primary fill medium"
         type="button"
       >
         Hello World
@@ -242,7 +242,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button primary fill medium "
+      class="ESButton primary fill medium"
       type="button"
     >
       Hello World
@@ -308,7 +308,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button secondary fill medium "
+        class="ESButton secondary fill medium"
         type="button"
       >
         Hello World
@@ -317,7 +317,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button secondary fill medium "
+      class="ESButton secondary fill medium"
       type="button"
     >
       Hello World
@@ -383,7 +383,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="button tertiary fill medium "
+        class="ESButton tertiary fill medium"
         type="button"
       >
         Hello World
@@ -392,7 +392,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="button tertiary fill medium "
+      class="ESButton tertiary fill medium"
       type="button"
     >
       Hello World

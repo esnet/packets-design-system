@@ -1,4 +1,4 @@
-.esListTreeView {
+.ESListTreeView {
   --icon-size: var(--esnet-size-spacing-medium, 1rem);
   --row-gap-size: var(--esnet-size-spacing-xxsmall, 4px);
 

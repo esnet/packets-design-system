@@ -1,4 +1,4 @@
-.commaSeparatedList {
+.ESCommaSeparatedList {
   display: inline;
   list-style: none;
   padding: 0;
@@ -10,7 +10,7 @@
 
   .commaSeparatedListItem {
     display: inline;
-    
+
     &:not(:last-child)::after {
       content: ", ";
     }

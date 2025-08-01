@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { ESIconButtonProps } from "./ESIconButton.types";
 
 import styles from "./ESIconButton.module.css";
@@ -22,7 +23,12 @@ const ESIconButton = ({
 }: ESIconButtonProps): JSX.Element => {
   return (
     <button
-      className={`${styles.button} ${styles[variant]} ${square ? styles["square"] : ""} ${className ? className : ""}`}
+      className={clsx(
+        styles.ESIconButton,
+        styles[variant],
+        square && styles.square,
+        className
+      )}
       type="button"
       disabled={disabled}
       {...other}

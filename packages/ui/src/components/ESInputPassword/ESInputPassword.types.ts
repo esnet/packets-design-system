@@ -1,6 +1,6 @@
 import { ComponentPropsWithRef } from "react";
 
 export interface ESInputPasswordProps extends ComponentPropsWithRef<"input"> {
-  variant?: "default" | "branded";
+  variant?: "primary" | "branded";
   error?: boolean;
 }
