@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
   overflow: auto;
   min-height: var(--esnet-size-spacing-xxxlarge, 5.5rem);
   min-width: var(--esnet-size-spacing-xxxlarge, 5.5rem);
@@ -27,22 +28,17 @@
   }
 
   /* Typography */
-  font: var(
-    --esnet-typography-copy-1-sans-font,
-    400 16px/120% var(--esnet-font-family-body-sans)
-  );
+  font: var(--esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans));
 
   /* Pseudo-events */
   /* based on a pseudo event of input tag (invalid), thus included here */
   &.error {
     border-color: var(--esnet-color-core-red-700, #a6111b);
     border-width: var(--esnet-size-border-width-small, 0.125rem);
-    box-shadow: 0 0 0 var(--esnet-size-border-width-small)
-      color-mix(
-        in srgb,
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb,
         var(--esnet-color-light-error, #a6111b) 26%,
-        transparent
-      );
+        transparent);
   }
 
   &:hover:not(.disabled),
@@ -50,8 +46,7 @@
   &:has(*:active):not(.disabled) {
     /* border color on focus takes precedence over error border color */
     border-color: var(--esnet-color-core-slate-1000, #30333b);
-    box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
-      var(--esnet-color-core-blue-400, #00b6f2);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-blue-400, #00b6f2);
   }
 
   /* based on a pseudo event of input tag (disabled), thus included here */

@@ -1,5 +1,6 @@
 .ESAlert {
   width: 100%;
+  box-sizing: border-box;
 
   --icon-size: var(--esnet-size-touchtarget-min, 32px);
   --section-gap: var(--esnet-size-spacing-medium, 16px);
