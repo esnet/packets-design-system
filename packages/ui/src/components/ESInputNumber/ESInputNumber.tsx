@@ -5,6 +5,7 @@ import { ESInputNumberProps } from "./ESInputNumber.types";
 import ESInputText from "../ESInputText";
 import { Minus, Plus } from "lucide-react";
 import { boundNumber, parseNumber } from "./utils";
+import { clsx } from "clsx";
 
 /**
  * ESInputSearch Component
@@ -18,6 +19,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
   defaultValue = "0",
   onAddClick,
   onMinusClick,
+  className,
   min,
   max,
   step,
@@ -79,6 +81,8 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
     [stepValue, addValue]
   );
 
+  const classNames = clsx(styles.ESInputNumber, className);
+
   return (
     <ESInputText
       {...props}
@@ -86,7 +90,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
       value={value}
       variant={variant}
       error={error || _error}
-      className={`${styles.ESInputNumber}`}
+      className={classNames}
       onChange={onChange}
       min={min}
       max={max}

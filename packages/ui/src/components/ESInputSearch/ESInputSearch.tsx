@@ -4,6 +4,7 @@ import styles from "./ESInputSearch.module.css";
 import { ESInputSearchProps } from "./ESInputSearch.types";
 import ESInputText from "../ESInputText";
 import { Search, X } from "lucide-react";
+import { clsx } from "clsx";
 
 /**
  * ESInputSearch Component
@@ -12,8 +13,8 @@ import { Search, X } from "lucide-react";
  * @returns {React.ReactElement}
  */
 const ESInputSearch: React.FC<ESInputSearchProps> = ({
-  placeholder = "",
   variant = "primary",
+  className,
   error = false,
   onSearchClick,
   onXClick,
@@ -43,15 +44,16 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
     );
   }, [_value, _onXClick, onSearchClick]);
 
+  const classNames = clsx(styles.ESInputSearch, className);
+
   return (
     <ESInputText
       {...props}
       type="search"
       value={_value}
-      placeholder={placeholder}
       variant={variant}
       error={error}
-      className={styles.ESInputSearch}
+      className={classNames}
       onChange={onChange}
       actionButtons={actionButton}
     />

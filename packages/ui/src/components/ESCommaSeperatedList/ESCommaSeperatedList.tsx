@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { ESCommaSeperatedListType } from "./ESCommaSeperatedList.types";
 
 import styles from "./ESCommaSeperatedList.module.css";
@@ -20,11 +21,11 @@ const ESCommaSeperatedList = <T extends any>({
   listItemClassName,
 }: ESCommaSeperatedListType<T>) => {
   return (
-    <ul className={`${styles.commaSeparatedList} ${className || ""}`}>
+    <ul className={clsx(styles.ESCommaSeparatedList, className)}>
       {items.map((item, i) => (
         <li
           key={`escomma-list-${i}`}
-          className={`${styles.commaSeparatedListItem} ${listItemClassName || ""}`}
+          className={clsx(styles.commaSeparatedListItem, listItemClassName)}
         >
           {renderItem(item)}
         </li>

@@ -36,7 +36,7 @@ const meta: Meta<typeof ESInputNumber> = {
     docs: {
       description: {
         component:
-          "An extension of ESInputText with some preset control buttons to increment and decrement. Includes handling to ensure the input is a valid number that will always be within the min and max, if specified.",
+          "An extension of ESInputText with some preset control buttons to increment and decrement.",
       },
     },
     design: {
