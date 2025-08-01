@@ -27,3 +27,23 @@ export const BrandedDisabledFilled: Story = {
     checked: true,
   },
 };
+
+export const SameName: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div>
+        <ESInputRadioButton name="food" value="Pizza" />
+        Pizza
+      </div>
+      <div>
+        <ESInputRadioButton name="food" value="Noodles" />
+        Noodles
+      </div>
+    </div>
+  ),
+};
