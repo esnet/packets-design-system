@@ -81,7 +81,7 @@
   }
 }
 
-.ESInputTextAreaTextArea {
+.textArea {
   all: unset;
   font: inherit;
   word-break: break-all;
@@ -127,7 +127,7 @@
   }
 }
 
-.ESInputTextAreaIcon {
+.textIcon {
   position: absolute;
   bottom: var(--esnet-size-spacing-xsmall, 8px);
   right: var(--esnet-size-spacing-xsmall, 8px);

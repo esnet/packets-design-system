@@ -30,14 +30,9 @@ const ESInputText: React.FC<ESInputTextProps> = ({
         className
       )}
     >
-      <input
-        className={styles.ESInputTextInput}
-        type="text"
-        disabled={disabled}
-        {...props}
-      />
+      <input {...props} className={styles.input} disabled={disabled} />
       {actionButtons && (
-        <div className={styles.ESInputTextActionButtons}>{actionButtons}</div>
+        <div className={styles.actionButtons}>{actionButtons}</div>
       )}
     </div>
   );

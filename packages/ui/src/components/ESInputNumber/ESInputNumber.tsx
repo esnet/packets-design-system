@@ -16,7 +16,7 @@ import { clsx } from "clsx";
 const ESInputNumber: React.FC<ESInputNumberProps> = ({
   variant = "default",
   error = false,
-  defaultValue,
+  defaultValue = "0",
   onAddClick,
   onMinusClick,
   className,

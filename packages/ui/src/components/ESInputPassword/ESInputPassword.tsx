@@ -14,7 +14,6 @@ import clsx from "clsx";
  */
 const ESInputPassword: React.FC<ESInputPasswordProps> = ({
   variant = "default",
-  placeholder,
   error = false,
   defaultValue,
   className,
@@ -53,7 +52,6 @@ const ESInputPassword: React.FC<ESInputPasswordProps> = ({
       {...props}
       type={hidden ? "password" : "text"}
       value={_value}
-      placeholder={placeholder}
       variant={variant}
       error={error}
       className={classNames}

@@ -32,12 +32,8 @@ const ESInputTextArea: React.FC<ESInputTextAreaProps> = ({
 
   return (
     <div className={classNames}>
-      <textarea
-        className={styles.ESInputTextAreaTextArea}
-        {...props}
-        disabled={disabled}
-      />
-      <Text className={styles.ESInputTextAreaIcon} />
+      <textarea className={styles.textArea} {...props} disabled={disabled} />
+      <Text className={styles.textIcon} />
     </div>
   );
 };

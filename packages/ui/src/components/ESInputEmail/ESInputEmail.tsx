@@ -13,7 +13,6 @@ import clsx from "clsx";
  * @returns {React.ReactElement}
  */
 const ESInputEmail: React.FC<ESInputEmailProps> = ({
-  placeholder = "",
   variant = "default",
   error = false,
   defaultValue = "",
@@ -43,7 +42,6 @@ const ESInputEmail: React.FC<ESInputEmailProps> = ({
       {...props}
       type="email"
       value={_value}
-      placeholder={placeholder}
       variant={variant}
       error={error}
       className={classNames}
