@@ -15,11 +15,7 @@ const ESInputRadioButton: React.FC<ESInputRadioButtonProps> = ({
 }) => {
   return (
     <div className={clsx(styles.ESInputRadioButton, className)}>
-      <input
-        type="radio"
-        className={styles.ESInputRadioButtonInput}
-        {...props}
-      />
+      <input type="radio" className={styles.input} {...props} />
     </div>
   );
 };
