@@ -1,42 +1,45 @@
 {
-  "name": "@esnet/esnet-tokens",
-  "version": "1.1.1",
-  "type": "module",
-  "description": "A set of reusable UI tokens for the various ESnet frontend systems.",
-  "author": "Jason Roeckle",
-  "scripts": {
-    "build": "node ./build.js",
-    "dev": "rollup -c -w",
-    "postbuild": "pnpm run format; rollup --config",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json,js,jsx}\""
-  },
-  "files": [
-    "dist",
-    "dist/*.css"
-  ],
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/tokens.d.ts",
-      "default": "./dist/tokens.js"
+    "name": "@esnet/esnet-tokens",
+    "version": "1.1.1",
+    "type": "module",
+    "description": "A set of reusable UI tokens for the various ESnet frontend systems.",
+    "author": "Jason Roeckle",
+    "scripts": {
+        "build": "node ./build.js",
+        "dev": "rollup -c -w",
+        "postbuild": "pnpm run format; rollup --config",
+        "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+        "format": "prettier --write \"**/*.{ts,tsx,md,json,js,jsx}\""
     },
-    "./tokens.json": {
-      "import": "./dist/tokens.json",
-      "require": "./dist/tokens.json"
+    "files": [
+        "dist",
+        "dist/*.css"
+    ],
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/tokens.d.ts",
+            "default": "./dist/tokens.js"
+        },
+        "./tokens.json": {
+            "import": "./dist/tokens.json",
+            "require": "./dist/tokens.json"
+        },
+        "./dist/esnet-tokens.css": {
+            "default": "./dist/esnet-tokens.css"
+        }
+    },
+    "license": "MIT",
+    "publishConfig": {
+        "@esnet:registry": "https://gitlab.es.net/api/v4/projects/898/packages/npm/"
+    },
+    "dependencies": {
+        "sd-tailwindcss-transformer": "^1.4.6"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^26.0.3",
+        "@rollup/plugin-node-resolve": "^15.3.0",
+        "rollup": "^4.27.3",
+        "style-dictionary": "^3.9.2"
     }
-  },
-  "license": "MIT",
-  "publishConfig": {
-    "@esnet:registry": "https://gitlab.es.net/api/v4/projects/898/packages/npm/"
-  },
-  "dependencies": {
-    "sd-tailwindcss-transformer": "^1.4.6"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^26.0.3",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "rollup": "^4.27.3",
-    "style-dictionary": "^3.9.2"
-  }
 }
