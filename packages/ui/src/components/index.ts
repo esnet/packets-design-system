@@ -20,6 +20,7 @@ export { default as ESInputCheckbox } from "./ESInputCheckbox";
 export { default as ESInputEmail } from "./ESInputEmail";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";
+export { default as ESInputRadioButton } from "./ESInputRadioButton";
 export { default as ESInputSwitch } from "./ESInputSwitch";
 export { default as ESInputSearch } from "./ESInputSearch";
 export { default as ESInputText } from "./ESInputText";
