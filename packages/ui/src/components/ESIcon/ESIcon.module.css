@@ -1,7 +1,7 @@
 .ESIcon {
-    color: var(--esnet-color-light-surface-2);
+    color: var(--esnet-color-dark-surface-2);
 
     :global(.dark) & {
-        color: var(--esnet-color-dark-surface-2);
+        color: var(--esnet-color-light-surface-2);
     }
 }
