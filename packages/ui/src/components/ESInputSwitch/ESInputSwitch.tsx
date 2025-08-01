@@ -1,115 +1,59 @@
-import React, {
-  FC,
-  ChangeEvent,
-  FocusEvent,
-  MouseEvent,
-  useState,
-  useMemo,
-} from "react";
+import React, { FC, ChangeEvent, useState, useMemo } from "react";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
 
 import styles from "./ESInputSwitch.module.css";
 import { getIconByCheckedState } from "./ESInputSwitchUtils";
+import clsx from "clsx";
 
 /**
  * ESInputSwitch Component
- *
- * Display message with alert level styling
  *
  * @param {ESInputSwitchProps} props
  * @returns {React.FunctionComponent}
  */
 const ESInputSwitch: FC<ESInputSwitchProps> = ({
-  label,
-  id = "",
-  ariaLabel = "",
-  className = "",
-  initiallyChecked = false,
-  isDisabled = false,
+  variant = "primary",
   hideIcons = false,
-  onChange = () => {},
-  onBlur = () => {},
-  onFocus = () => {},
+  className = "",
+  defaultChecked,
+  disabled,
+  ...props
 }) => {
-  const [isChecked, setIsChecked] = useState(initiallyChecked);
-  const [isFocused, setIsFocused] = useState(false);
+  const [value, setValue] = useState(defaultChecked);
 
-  // Composition
-  const computedAriaLabel = ariaLabel || label || "";
   const icon = useMemo(() => {
     if (hideIcons === true) {
       return <></>;
     }
 
-    return getIconByCheckedState(isChecked);
-  }, [isChecked]);
+    return getIconByCheckedState(value);
+  }, [value]);
 
-  const rootClasses = `${styles.inputSwitch} 
-    ${isDisabled ? styles.isDisabled : ""}
-    ${isChecked ? styles.isChecked : ""} 
-    ${isFocused ? styles.isFocused : ""} 
-    ${className}`;
-
-  // Events
-  const _onFocus = (event: FocusEvent<HTMLInputElement>) => {
-    setIsFocused(true);
-
-    if (typeof onFocus === "function") {
-      onFocus(event);
-    }
-  };
-
-  const _onBlur = (event: FocusEvent<HTMLInputElement>) => {
-    setIsFocused(false);
-
-    if (typeof onBlur === "function") {
-      onBlur(event);
-    }
-  };
-
-  const _onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-
-    if (typeof onChange === "function") {
-      onChange(event);
-    }
-  };
-
-  const _onIndicatorClick = (event: MouseEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    if (isDisabled) {
-      return;
-    }
-
-    setIsChecked(!isChecked);
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.checked);
+    props?.onChange?.(event);
   };
 
   return (
-    <span className={rootClasses}>
-      <span className={styles.inputWrapper}>
-        <span className={styles.indicatorRail}>
-          <input
-            aria-label={computedAriaLabel}
-            className={styles.inputBox}
-            type="checkbox"
-            disabled={isDisabled}
-            checked={isChecked}
-            onChange={_onInputChange}
-            onFocus={_onFocus}
-            onBlur={_onBlur}
-            id={id}
-          />
-          <span className={styles.indicator} onClick={_onIndicatorClick}>
-            <span className={styles.icon}>{icon}</span>
-          </span>
-        </span>
-      </span>
-      {label && (
-        <label htmlFor={id} className={styles.label}>
-          {label}
-        </label>
+    <div
+      className={clsx(
+        styles.ESInputSwitch,
+        styles[variant],
+        value && styles.checked,
+        disabled && styles.disabled,
+        className
       )}
-    </span>
+    >
+      <input
+        {...props}
+        type="checkbox"
+        disabled={disabled}
+        checked={value}
+        onChange={onChange}
+        className={styles.input}
+      />
+      <span className={styles.switchIndicator}>{icon}</span>
+    </div>
   );
 };
 

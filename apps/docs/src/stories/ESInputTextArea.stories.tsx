@@ -8,7 +8,7 @@ const meta: Meta<typeof ESInputTextArea> = {
   argTypes: {
     variant: {
       control: { type: "radio" },
-      options: ["default", "branded"],
+      options: ["primary", "branded"],
     },
     resize: {
       control: "radio",
@@ -26,7 +26,7 @@ const meta: Meta<typeof ESInputTextArea> = {
   },
   args: {
     error: false,
-    variant: "default",
+    variant: "primary",
     resize: "none",
   },
   parameters: {

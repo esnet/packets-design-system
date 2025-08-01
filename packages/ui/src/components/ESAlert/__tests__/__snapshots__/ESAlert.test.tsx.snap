@@ -6,7 +6,7 @@ exports[`Error matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="alert error"
+        class="ESAlert error"
       >
         <aside
           class="icon"
@@ -66,7 +66,7 @@ exports[`Error matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="alert error"
+      class="ESAlert error"
     >
       <aside
         class="icon"
@@ -183,7 +183,7 @@ exports[`Info type matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="alert info"
+        class="ESAlert info"
       >
         <aside
           class="icon"
@@ -230,7 +230,7 @@ exports[`Info type matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="alert info"
+      class="ESAlert info"
     >
       <aside
         class="icon"
@@ -334,7 +334,7 @@ exports[`Success matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="alert success"
+        class="ESAlert success"
       >
         <aside
           class="icon"
@@ -378,7 +378,7 @@ exports[`Success matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="alert success"
+      class="ESAlert success"
     >
       <aside
         class="icon"
@@ -479,7 +479,7 @@ exports[`Warning matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="alert warning"
+        class="ESAlert warning"
       >
         <aside
           class="icon"
@@ -535,7 +535,7 @@ exports[`Warning matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="alert warning"
+      class="ESAlert warning"
     >
       <aside
         class="icon"

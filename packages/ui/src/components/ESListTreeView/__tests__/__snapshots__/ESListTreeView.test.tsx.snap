@@ -81,7 +81,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
           class="list"
         >
           <div
-            class="esListTreeLeafView  "
+            class="ESListTreeLeafView"
           >
             <section
               class="contentWrapper"
@@ -216,7 +216,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
         class="list"
       >
         <div
-          class="esListTreeLeafView  "
+          class="ESListTreeLeafView"
         >
           <section
             class="contentWrapper"
@@ -557,7 +557,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
           class="list"
         >
           <div
-            class="esListTreeLeafView  "
+            class="ESListTreeLeafView"
           >
             <section
               class="contentWrapper"
@@ -672,7 +672,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
         class="list"
       >
         <div
-          class="esListTreeLeafView  "
+          class="ESListTreeLeafView"
         >
           <section
             class="contentWrapper"

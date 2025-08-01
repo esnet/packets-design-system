@@ -1,4 +1,4 @@
-.avatar {
+.ESAvatar {
   --shadow: var(
     --esnet-box-shadow-core-medium,
     0px 2px 3px -1px rgba(0, 0, 0, 0.1),
@@ -7,14 +7,13 @@
   --border: var(--esnet-size-border-width-small, 2px) solid
     var(--esnet-color-core-white-100, #fff);
   --border-radius: var(--esnet-size-radius-xxlarge, 12px);
-  
+
   /* TODO: Consider adding a 18px xxxlarge radius */
   --size: var(--esnet-size-spacing-xlarge, 40px);
   --label-font: var(
     --esnet-typography-header-5-sans-font,
     600 20px/140% var(--esnet-font-family-header-sans)
   );
-
 
   display: block;
   width: var(--size);

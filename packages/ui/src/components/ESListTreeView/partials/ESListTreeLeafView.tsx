@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import clsx from "clsx";
 import IconChildHierarchyIndicator from "../../../assets/svgs/IconChildHierarchyIndicator";
 import { ESListTreeLeafViewProps } from "../ESListTreeView.types";
 
@@ -25,7 +26,11 @@ const ESListTreeLeafView: FC<ESListTreeLeafViewProps> = ({
 
   return (
     <div
-      className={`${styles.esListTreeLeafView} ${isSublist ? styles.isSublist : ""} ${className}`}
+      className={clsx(
+        styles.ESListTreeLeafView,
+        isSublist && styles.isSublist,
+        className
+      )}
     >
       <section className={styles.contentWrapper}>
         {_icon && (

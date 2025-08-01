@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import ESDivider from "../ESDivider";
 
 test("It renders without crashing", () => {
-  const component = render(<ESDivider variant="default" />);
+  const component = render(<ESDivider variant="primary" />);
   expect(component).toBeTruthy();
 });
 

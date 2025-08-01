@@ -6,23 +6,23 @@ exports[`ESInputText has an error state 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default error  "
+        class="ESInputText default error"
       >
         <input
+          class="ESInputTextInput"
           type="text"
         />
-        <div />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="ESInputText default error  "
+      class="ESInputText default error"
     >
       <input
+        class="ESInputTextInput"
         type="text"
       />
-      <div />
     </div>
   </div>,
   "debug": [Function],
@@ -85,25 +85,25 @@ exports[`ESInputText has class and identity 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default   test class"
+        class="ESInputText default test class"
       >
         <input
+          class="ESInputTextInput"
           id="test ID"
           type="text"
         />
-        <div />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="ESInputText default   test class"
+      class="ESInputText default test class"
     >
       <input
+        class="ESInputTextInput"
         id="test ID"
         type="text"
       />
-      <div />
     </div>
   </div>,
   "debug": [Function],
@@ -166,23 +166,23 @@ exports[`ESInputText is branded 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText branded   "
+        class="ESInputText branded"
       >
         <input
+          class="ESInputTextInput"
           type="text"
         />
-        <div />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="ESInputText branded   "
+      class="ESInputText branded"
     >
       <input
+        class="ESInputTextInput"
         type="text"
       />
-      <div />
     </div>
   </div>,
   "debug": [Function],

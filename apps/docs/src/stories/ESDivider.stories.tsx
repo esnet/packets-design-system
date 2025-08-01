@@ -8,7 +8,7 @@ const meta: Meta<typeof ESDivider> = {
   argTypes: {
     variant: {
       control: { type: "radio" },
-      options: ["default", "branded"],
+      options: ["primary", "branded"],
     },
     className: {
       control: "text",

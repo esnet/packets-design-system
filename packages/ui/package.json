@@ -15,7 +15,7 @@
   },
   "peerDependencies": {
     "antd": "^5.4.0",
-    "lucide-react": "^0.436.0",
+    "lucide-react": "^0.525.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
@@ -74,5 +74,8 @@
       "import": "./dist/esm/style.css",
       "require": "./dist/cjs/style.css"
     }
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   }
 }
