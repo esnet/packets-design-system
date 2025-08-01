@@ -10,12 +10,3 @@
   -moz-appearance: textfield;
   appearance: none;
 }
-
-.ESInputNumber.empty div {
-  cursor: default;
-  color: var(--esnet-color-light-copy-alt, #6e6e70);
-
-  :global(.dark) & {
-    color: var(--esnet-color-dark-copy-alt, #c2c2c2);
-  }
-}

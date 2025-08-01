@@ -74,5 +74,8 @@
       "import": "./dist/esm/style.css",
       "require": "./dist/cjs/style.css"
     }
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   }
 }

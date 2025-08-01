@@ -6,24 +6,24 @@ exports[`Comma Seperated List DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <ul
-        class="commaSeparatedList "
+        class="ESCommaSeparatedList"
       >
         <li
-          class="commaSeparatedListItem "
+          class="commaSeparatedListItem"
         >
           <p>
             apples
           </p>
         </li>
         <li
-          class="commaSeparatedListItem "
+          class="commaSeparatedListItem"
         >
           <p>
             oranges
           </p>
         </li>
         <li
-          class="commaSeparatedListItem "
+          class="commaSeparatedListItem"
         >
           <p>
             lemons
@@ -34,24 +34,24 @@ exports[`Comma Seperated List DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <ul
-      class="commaSeparatedList "
+      class="ESCommaSeparatedList"
     >
       <li
-        class="commaSeparatedListItem "
+        class="commaSeparatedListItem"
       >
         <p>
           apples
         </p>
       </li>
       <li
-        class="commaSeparatedListItem "
+        class="commaSeparatedListItem"
       >
         <p>
           oranges
         </p>
       </li>
       <li
-        class="commaSeparatedListItem "
+        class="commaSeparatedListItem"
       >
         <p>
           lemons

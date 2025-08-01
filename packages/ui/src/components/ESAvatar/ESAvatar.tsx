@@ -2,6 +2,7 @@ import React, { FC, useMemo, useState } from "react";
 import { ESAvatarProps } from "./ESAvatar.types";
 
 import styles from "./ESAvatar.module.css";
+import clsx from "clsx";
 
 /**
  * ESAvatar Component
@@ -49,7 +50,13 @@ const ESAvatar: FC<ESAvatarProps> = ({
 
   return (
     <section
-      className={`${styles.avatar} ${!!styles[size] && styles[size]} ${error ? styles.brokenImage : ""} ${styles[computedBackgroundColor]} ${className}`}
+      className={clsx(
+        styles.ESAvatar,
+        styles[size],
+        error && styles.brokenImage,
+        styles[computedBackgroundColor],
+        className
+      )}
       {...props}
     >
       {hasImageSrc && (

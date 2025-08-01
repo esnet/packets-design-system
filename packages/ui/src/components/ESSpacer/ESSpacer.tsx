@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from "react";
+import clsx from "clsx";
 import { ESSpacerProps, getESSpacerSizesCSS } from "./ESSpacer.types";
 
 import styles from "./ESSpacer.module.css";
@@ -23,7 +24,7 @@ const ESSpacer: FC<ESSpacerProps> = ({
 
   return (
     <div
-      className={`${styles.spacer} ${styles[type]} ${className || ""}`}
+      className={clsx(styles.ESSpacer, styles[type], className)}
       style={
         {
           "--size": sizeCSS,

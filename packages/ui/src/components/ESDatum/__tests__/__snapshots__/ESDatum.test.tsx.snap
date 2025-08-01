@@ -6,7 +6,7 @@ exports[`Datum matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="datum"
+        class="ESDatum"
       >
         <label
           class="label"
@@ -23,7 +23,7 @@ exports[`Datum matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="datum"
+      class="ESDatum"
     >
       <label
         class="label"
@@ -97,7 +97,7 @@ exports[`Datum with not title matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="datum"
+        class="ESDatum"
       >
         <label
           class="label"
@@ -112,7 +112,7 @@ exports[`Datum with not title matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <div
-      class="datum"
+      class="ESDatum"
     >
       <label
         class="label"
