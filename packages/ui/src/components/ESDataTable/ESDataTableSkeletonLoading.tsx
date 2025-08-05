@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ESDataTableSkeletonLoadingProps } from "./ESDataTable.types";
 
-// import ESDataTableCell from "./ESDataTableCell";
+import ESDataTableCell from "./ESDataTableCell";
 import ESSkeletonChip from "../ESSkeletonChip";
 import ESDataTableRow from "./ESDataTableRow";
 
