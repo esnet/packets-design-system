@@ -1,4 +1,5 @@
 import React from "react";
+import Rive from "@rive-app/react-canvas-lite";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESSpinner } from "@esnet/packets-ui";
 
@@ -20,4 +21,74 @@ type Story = StoryObj<typeof ESSpinner>;
 export const DefaultESSpinnerExample: Story = {
   render: () => <ESSpinner />,
   name: "ESSpinner Example",
+};
+
+export const BrandedESSpinnerRive: Story = {
+  render: ({ size }: { size: string }) => (
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
+    >
+      <Rive src="/riv/esnetspinner.riv" />
+    </div>
+  ),
+  name: "ESSpinner Branded RIVE",
+  args: {
+    size: "200px",
+  },
+};
+
+export const BrandedESSpinnerRiveEasing: Story = {
+  render: ({ size }: { size: string }) => (
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
+    >
+      <Rive src="/riv/esnetspinner_easing.riv" />
+    </div>
+  ),
+  name: "ESSpinner Branded RIVE with Easing",
+  args: {
+    size: "200px",
+  },
+};
+
+export const BrandedESSpinnerExample: Story = {
+  render: ({ size }: { size: string }) => (
+    <>
+      <img
+        style={{
+          width: size,
+          height: size,
+        }}
+        src="/imgs/brandedSpinner.gif"
+      />
+    </>
+  ),
+  name: "ESSpinner Branded GIF",
+  args: {
+    size: "200px",
+  },
+};
+
+export const BrandedESSpinnerEasingExample: Story = {
+  render: ({ size }: { size: string }) => (
+    <>
+      <img
+        style={{
+          width: size,
+          height: size,
+        }}
+        src="/imgs/brandedSpinnerEasing.gif"
+      />
+    </>
+  ),
+  name: "ESSpinner Branded GIF with Easing",
+  args: {
+    size: "200px",
+  },
 };
