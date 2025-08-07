@@ -30,5 +30,5 @@ export { default as ESSpacer } from "./ESSpacer";
 export { default as ESSpinner } from "./ESSpinner";
 export { default as ESTableOfContents } from "./ESTableOfContents";
 export { default as ESTitleSection } from "./ESTitleSection";
-export { default as ESInputTypeahead } from "./ESInputTypeahead";
+export { default as ESInputTextArea } from "./ESInputTextArea";
 export { ESTab, ESTabs } from "./ESTabs";

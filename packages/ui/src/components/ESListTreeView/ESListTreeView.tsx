@@ -27,7 +27,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   onIconClick,
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen || alwaysOpen);
-  const _icon = icon || FolderOpenIcon;
+  const _icon: any = icon || FolderOpenIcon;
 
   // Events
   const _toggleIsOpen = () => {
