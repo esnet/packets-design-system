@@ -25,7 +25,7 @@ const ESDataTableSkeletonLoading: FC<ESDataTableSkeletonLoadingProps> = ({
       cells.push(
         <ESDataTableCell key={`skeley-bones-cell-${columnIndex}`}>
           <ESSkeletonSurface />
-        </ESDataTableCell>
+        </ESDataTableCell>,
       );
     }
     rows.push(
@@ -34,7 +34,7 @@ const ESDataTableSkeletonLoading: FC<ESDataTableSkeletonLoadingProps> = ({
         className={className}
       >
         {cells}
-      </ESDataTableRow>
+      </ESDataTableRow>,
     );
   }
 

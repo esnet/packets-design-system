@@ -9,7 +9,7 @@ describe("ESInputTextArea", () => {
   });
   it("has class and identity", () => {
     const component = render(
-      <ESInputTextArea id="test ID" className="test class" />
+      <ESInputTextArea id="test ID" className="test class" />,
     );
     expect(component).toMatchSnapshot();
   });
@@ -23,7 +23,7 @@ describe("ESInputTextArea", () => {
   });
   it("matches size correctly", () => {
     const component = render(
-      <ESInputTextArea resize="both" rows={50} cols={30} />
+      <ESInputTextArea resize="both" rows={50} cols={30} />,
     );
     expect(component).toMatchSnapshot();
   });

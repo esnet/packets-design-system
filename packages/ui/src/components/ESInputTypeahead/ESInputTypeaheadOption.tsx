@@ -6,7 +6,7 @@ import { Check, Square } from "lucide-react";
 
 function matchToken(
   str: string,
-  token: string
+  token: string,
 ): [string, string, string] | null {
   const index = str.toLowerCase().indexOf(token.toLowerCase());
   if (index === -1) return null;

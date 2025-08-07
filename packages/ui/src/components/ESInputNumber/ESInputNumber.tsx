@@ -45,7 +45,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
       const newValue = boundNumber(numValue + amount, minValue, maxValue);
       setValue(String(newValue));
     },
-    [value, minValue, maxValue]
+    [value, minValue, maxValue],
   );
 
   const onChange = useCallback(
@@ -58,7 +58,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
         props.onChange(event);
       }
     },
-    [props.onChange]
+    [props.onChange],
   );
 
   const increment = useCallback(() => {
@@ -76,7 +76,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
       <Plus key="increment" onClick={increment} />,
       <Minus key="decrement" onClick={decrement} />,
     ],
-    [stepValue, addValue]
+    [stepValue, addValue],
   );
 
   return (

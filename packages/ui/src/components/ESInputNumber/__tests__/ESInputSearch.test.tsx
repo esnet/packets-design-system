@@ -21,7 +21,7 @@ describe("ESInputSearch", () => {
   });
   it("matches DOM Snapshot on pre-set value and disabled", () => {
     const domTree = render(
-      <ESInputSearch defaultValue="hello there!" disabled />
+      <ESInputSearch defaultValue="hello there!" disabled />,
     );
     expect(domTree).toMatchSnapshot();
   });

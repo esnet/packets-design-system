@@ -12,7 +12,7 @@ export interface ESInputTypeaheadProps extends ComponentPropsWithRef<"input"> {
   defaultOptions?: ESInputTypeaheadOptionType[];
   selectedOptionsRef?: RefObject<ESInputTypeaheadOptionType[]>;
   onSelectedOptionsChange?: (
-    selectedOptions: ESInputTypeaheadOptionType[]
+    selectedOptions: ESInputTypeaheadOptionType[],
   ) => void;
 }
 

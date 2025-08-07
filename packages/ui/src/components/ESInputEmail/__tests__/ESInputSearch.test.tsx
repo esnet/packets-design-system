@@ -21,7 +21,7 @@ describe("ESInputEmail", () => {
   });
   it("matches DOM Snapshot on pre-set value and disabled", () => {
     const domTree = render(
-      <ESInputEmail defaultValue="hello there!" disabled />
+      <ESInputEmail defaultValue="hello there!" disabled />,
     );
     expect(domTree).toMatchSnapshot();
   });

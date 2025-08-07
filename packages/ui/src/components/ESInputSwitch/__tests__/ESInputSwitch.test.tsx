@@ -20,14 +20,14 @@ it("Without Label matches DOM Snapshot", () => {
 
 it("renders with a custom CSS class Snapshot", () => {
   const domTree = render(
-    <ESInputSwitch id="switch-example-4" className="active" />
+    <ESInputSwitch id="switch-example-4" className="active" />,
   );
   expect(domTree).toMatchSnapshot();
 });
 
 it("renders with a disabled state Snapshot", () => {
   const domTree = render(
-    <ESInputSwitch id="switch-example-5" disabled className="active" />
+    <ESInputSwitch id="switch-example-5" disabled className="active" />,
   );
   expect(domTree).toMatchSnapshot();
 });
@@ -39,14 +39,14 @@ it("renders with a disabled state with an 'on' indicator Snapshot", () => {
       disabled
       className="active"
       defaultChecked
-    />
+    />,
   );
   expect(domTree).toMatchSnapshot();
 });
 
 it("renders with a no icons Snapshot", () => {
   const domTree = render(
-    <ESInputSwitch id="switch-example-6" className="active" hideIcons={true} />
+    <ESInputSwitch id="switch-example-6" className="active" hideIcons={true} />,
   );
   expect(domTree).toMatchSnapshot();
 });

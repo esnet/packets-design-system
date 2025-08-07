@@ -9,7 +9,7 @@ describe("ESInputText", () => {
   });
   it("has class and identity", () => {
     const component = render(
-      <ESInputText id="test ID" className="test class" />
+      <ESInputText id="test ID" className="test class" />,
     );
     expect(component).toMatchSnapshot();
   });

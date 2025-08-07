@@ -60,7 +60,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
       return options;
     }
     return options.filter((option) =>
-      option.value?.toString().toLowerCase().includes(token)
+      option.value?.toString().toLowerCase().includes(token),
     );
   }, [inputValue, options]);
 
@@ -73,7 +73,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
         props.onChange(event);
       }
     },
-    [props.onChange]
+    [props.onChange],
   );
 
   const toggleOption = useCallback(
@@ -87,13 +87,13 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
       });
       inputRef.current?.focus();
     },
-    []
+    [],
   );
 
   const filteredOptionsComponents = useMemo(() => {
     return filteredOptions.map((option) => {
       const isSelected = selectedOptions.some(
-        (selected) => selected.id === option.id
+        (selected) => selected.id === option.id,
       );
       const onOptionClick = () => toggleOption(option, isSelected);
       return (
@@ -119,7 +119,7 @@ const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
         setInputFocused(false);
       }
     },
-    []
+    [],
   );
 
   const baseClasses = [

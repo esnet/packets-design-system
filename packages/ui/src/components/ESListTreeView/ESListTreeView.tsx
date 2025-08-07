@@ -39,7 +39,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   };
 
   const _onAccordionIndicatorClick = (
-    e: React.MouseEvent<HTMLInputElement>
+    e: React.MouseEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     _toggleIsOpen();
