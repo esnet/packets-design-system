@@ -15,6 +15,7 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-plus"
             fill="none"
             height="24"
@@ -34,6 +35,7 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
             />
           </svg>
           <svg
+            aria-hidden="true"
             class="lucide lucide-minus"
             fill="none"
             height="24"
@@ -64,6 +66,7 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-plus"
           fill="none"
           height="24"
@@ -83,6 +86,7 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
           />
         </svg>
         <svg
+          aria-hidden="true"
           class="lucide lucide-minus"
           fill="none"
           height="24"
@@ -169,6 +173,7 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-plus"
             fill="none"
             height="24"
@@ -188,6 +193,7 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
             />
           </svg>
           <svg
+            aria-hidden="true"
             class="lucide lucide-minus"
             fill="none"
             height="24"
@@ -217,6 +223,7 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-plus"
           fill="none"
           height="24"
@@ -236,6 +243,7 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
           />
         </svg>
         <svg
+          aria-hidden="true"
           class="lucide lucide-minus"
           fill="none"
           height="24"
@@ -318,10 +326,11 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
       >
         <input
           type="number"
-          value="0"
+          value="hello there!"
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-plus"
             fill="none"
             height="24"
@@ -341,6 +350,7 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
             />
           </svg>
           <svg
+            aria-hidden="true"
             class="lucide lucide-minus"
             fill="none"
             height="24"
@@ -366,10 +376,11 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
     >
       <input
         type="number"
-        value="0"
+        value="hello there!"
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-plus"
           fill="none"
           height="24"
@@ -389,6 +400,7 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
           />
         </svg>
         <svg
+          aria-hidden="true"
           class="lucide lucide-minus"
           fill="none"
           height="24"
@@ -472,10 +484,11 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
         <input
           disabled=""
           type="number"
-          value="0"
+          value="hello there!"
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-plus"
             fill="none"
             height="24"
@@ -495,6 +508,7 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
             />
           </svg>
           <svg
+            aria-hidden="true"
             class="lucide lucide-minus"
             fill="none"
             height="24"
@@ -521,10 +535,11 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
       <input
         disabled=""
         type="number"
-        value="0"
+        value="hello there!"
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-plus"
           fill="none"
           height="24"
@@ -544,6 +559,7 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
           />
         </svg>
         <svg
+          aria-hidden="true"
           class="lucide lucide-minus"
           fill="none"
           height="24"

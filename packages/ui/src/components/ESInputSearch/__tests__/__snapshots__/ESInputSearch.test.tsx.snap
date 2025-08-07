@@ -6,16 +6,17 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default  disabled ESInputSearch empty"
+        class="ESInputText default  disabled ESInputSearch"
       >
         <input
           disabled=""
-          placeholder="Search..."
+          placeholder=""
           type="search"
           value=""
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-search"
             fill="none"
             height="24"
@@ -27,13 +28,13 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <path
+              d="m21 21-4.34-4.34"
+            />
             <circle
               cx="11"
               cy="11"
               r="8"
-            />
-            <path
-              d="m21 21-4.3-4.3"
             />
           </svg>
         </div>
@@ -42,16 +43,17 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default  disabled ESInputSearch empty"
+      class="ESInputText default  disabled ESInputSearch"
     >
       <input
         disabled=""
-        placeholder="Search..."
+        placeholder=""
         type="search"
         value=""
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-search"
           fill="none"
           height="24"
@@ -63,13 +65,13 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <path
+            d="m21 21-4.34-4.34"
+          />
           <circle
             cx="11"
             cy="11"
             r="8"
-          />
-          <path
-            d="m21 21-4.3-4.3"
           />
         </svg>
       </div>
@@ -135,15 +137,16 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default error  ESInputSearch empty"
+        class="ESInputText default error  ESInputSearch"
       >
         <input
-          placeholder="Search..."
+          placeholder=""
           type="search"
           value=""
         />
         <div>
           <svg
+            aria-hidden="true"
             class="lucide lucide-search"
             fill="none"
             height="24"
@@ -155,13 +158,13 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <path
+              d="m21 21-4.34-4.34"
+            />
             <circle
               cx="11"
               cy="11"
               r="8"
-            />
-            <path
-              d="m21 21-4.3-4.3"
             />
           </svg>
         </div>
@@ -170,15 +173,16 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default error  ESInputSearch empty"
+      class="ESInputText default error  ESInputSearch"
     >
       <input
-        placeholder="Search..."
+        placeholder=""
         type="search"
         value=""
       />
       <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-search"
           fill="none"
           height="24"
@@ -190,13 +194,13 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
           width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <path
+            d="m21 21-4.34-4.34"
+          />
           <circle
             cx="11"
             cy="11"
             r="8"
-          />
-          <path
-            d="m21 21-4.3-4.3"
           />
         </svg>
       </div>
@@ -262,16 +266,17 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default   ESInputSearch "
+        class="ESInputText default   ESInputSearch"
       >
         <input
-          placeholder="Search..."
+          placeholder=""
           type="search"
           value="hello there!"
         />
         <div>
           <svg
-            class="lucide lucide-search-x"
+            aria-hidden="true"
+            class="lucide lucide-x"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -283,18 +288,10 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="m13.5 8.5-5 5"
+              d="M18 6 6 18"
             />
             <path
-              d="m8.5 8.5 5 5"
-            />
-            <circle
-              cx="11"
-              cy="11"
-              r="8"
-            />
-            <path
-              d="m21 21-4.3-4.3"
+              d="m6 6 12 12"
             />
           </svg>
         </div>
@@ -303,16 +300,17 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default   ESInputSearch "
+      class="ESInputText default   ESInputSearch"
     >
       <input
-        placeholder="Search..."
+        placeholder=""
         type="search"
         value="hello there!"
       />
       <div>
         <svg
-          class="lucide lucide-search-x"
+          aria-hidden="true"
+          class="lucide lucide-x"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -324,18 +322,10 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="m13.5 8.5-5 5"
+            d="M18 6 6 18"
           />
           <path
-            d="m8.5 8.5 5 5"
-          />
-          <circle
-            cx="11"
-            cy="11"
-            r="8"
-          />
-          <path
-            d="m21 21-4.3-4.3"
+            d="m6 6 12 12"
           />
         </svg>
       </div>
@@ -401,17 +391,18 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default  disabled ESInputSearch "
+        class="ESInputText default  disabled ESInputSearch"
       >
         <input
           disabled=""
-          placeholder="Search..."
+          placeholder=""
           type="search"
           value="hello there!"
         />
         <div>
           <svg
-            class="lucide lucide-search-x"
+            aria-hidden="true"
+            class="lucide lucide-x"
             fill="none"
             height="24"
             stroke="currentColor"
@@ -423,18 +414,10 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="m13.5 8.5-5 5"
+              d="M18 6 6 18"
             />
             <path
-              d="m8.5 8.5 5 5"
-            />
-            <circle
-              cx="11"
-              cy="11"
-              r="8"
-            />
-            <path
-              d="m21 21-4.3-4.3"
+              d="m6 6 12 12"
             />
           </svg>
         </div>
@@ -443,17 +426,18 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
   </body>,
   "container": <div>
     <div
-      class="ESInputText default  disabled ESInputSearch "
+      class="ESInputText default  disabled ESInputSearch"
     >
       <input
         disabled=""
-        placeholder="Search..."
+        placeholder=""
         type="search"
         value="hello there!"
       />
       <div>
         <svg
-          class="lucide lucide-search-x"
+          aria-hidden="true"
+          class="lucide lucide-x"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -465,18 +449,10 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="m13.5 8.5-5 5"
+            d="M18 6 6 18"
           />
           <path
-            d="m8.5 8.5 5 5"
-          />
-          <circle
-            cx="11"
-            cy="11"
-            r="8"
-          />
-          <path
-            d="m21 21-4.3-4.3"
+            d="m6 6 12 12"
           />
         </svg>
       </div>

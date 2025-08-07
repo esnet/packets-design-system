@@ -9,40 +9,8 @@ exports[`ESInputTextArea has an error state 1`] = `
         class="ESInputTextArea default none error  "
       >
         <textarea />
-        <div>
-          <svg
-            class="lucide lucide-text"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 6.1H3"
-            />
-            <path
-              d="M21 12.1H3"
-            />
-            <path
-              d="M15.1 18H3"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ESInputTextArea default none error  "
-    >
-      <textarea />
-      <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-text"
           fill="none"
           height="24"
@@ -55,16 +23,46 @@ exports[`ESInputTextArea has an error state 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M17 6.1H3"
+            d="M15 18H3"
           />
           <path
-            d="M21 12.1H3"
+            d="M17 6H3"
           />
           <path
-            d="M15.1 18H3"
+            d="M21 12H3"
           />
         </svg>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ESInputTextArea default none error  "
+    >
+      <textarea />
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-text"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18H3"
+        />
+        <path
+          d="M17 6H3"
+        />
+        <path
+          d="M21 12H3"
+        />
+      </svg>
     </div>
   </div>,
   "debug": [Function],
@@ -132,42 +130,8 @@ exports[`ESInputTextArea has class and identity 1`] = `
         <textarea
           id="test ID"
         />
-        <div>
-          <svg
-            class="lucide lucide-text"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 6.1H3"
-            />
-            <path
-              d="M21 12.1H3"
-            />
-            <path
-              d="M15.1 18H3"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ESInputTextArea default none   test class"
-    >
-      <textarea
-        id="test ID"
-      />
-      <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-text"
           fill="none"
           height="24"
@@ -180,16 +144,48 @@ exports[`ESInputTextArea has class and identity 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M17 6.1H3"
+            d="M15 18H3"
           />
           <path
-            d="M21 12.1H3"
+            d="M17 6H3"
           />
           <path
-            d="M15.1 18H3"
+            d="M21 12H3"
           />
         </svg>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ESInputTextArea default none   test class"
+    >
+      <textarea
+        id="test ID"
+      />
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-text"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18H3"
+        />
+        <path
+          d="M17 6H3"
+        />
+        <path
+          d="M21 12H3"
+        />
+      </svg>
     </div>
   </div>,
   "debug": [Function],
@@ -255,40 +251,8 @@ exports[`ESInputTextArea is branded 1`] = `
         class="ESInputTextArea branded none   "
       >
         <textarea />
-        <div>
-          <svg
-            class="lucide lucide-text"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 6.1H3"
-            />
-            <path
-              d="M21 12.1H3"
-            />
-            <path
-              d="M15.1 18H3"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ESInputTextArea branded none   "
-    >
-      <textarea />
-      <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-text"
           fill="none"
           height="24"
@@ -301,16 +265,46 @@ exports[`ESInputTextArea is branded 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M17 6.1H3"
+            d="M15 18H3"
           />
           <path
-            d="M21 12.1H3"
+            d="M17 6H3"
           />
           <path
-            d="M15.1 18H3"
+            d="M21 12H3"
           />
         </svg>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ESInputTextArea branded none   "
+    >
+      <textarea />
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-text"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18H3"
+        />
+        <path
+          d="M17 6H3"
+        />
+        <path
+          d="M21 12H3"
+        />
+      </svg>
     </div>
   </div>,
   "debug": [Function],
@@ -379,43 +373,8 @@ exports[`ESInputTextArea matches size correctly 1`] = `
           cols="30"
           rows="50"
         />
-        <div>
-          <svg
-            class="lucide lucide-text"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 6.1H3"
-            />
-            <path
-              d="M21 12.1H3"
-            />
-            <path
-              d="M15.1 18H3"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="ESInputTextArea default both   "
-    >
-      <textarea
-        cols="30"
-        rows="50"
-      />
-      <div>
         <svg
+          aria-hidden="true"
           class="lucide lucide-text"
           fill="none"
           height="24"
@@ -428,16 +387,49 @@ exports[`ESInputTextArea matches size correctly 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M17 6.1H3"
+            d="M15 18H3"
           />
           <path
-            d="M21 12.1H3"
+            d="M17 6H3"
           />
           <path
-            d="M15.1 18H3"
+            d="M21 12H3"
           />
         </svg>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ESInputTextArea default both   "
+    >
+      <textarea
+        cols="30"
+        rows="50"
+      />
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-text"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 18H3"
+        />
+        <path
+          d="M17 6H3"
+        />
+        <path
+          d="M21 12H3"
+        />
+      </svg>
     </div>
   </div>,
   "debug": [Function],
