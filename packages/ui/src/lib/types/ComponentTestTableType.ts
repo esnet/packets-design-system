@@ -39,6 +39,7 @@
 //         await expect(component).toHaveScreenshot();
 //       });
 //       actionStates.forEach((state) => {
+//         if (props.disabled) return;
 //         test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
 //           // do any locator selection if needed
 //           const component = await mount(themedComponent);
