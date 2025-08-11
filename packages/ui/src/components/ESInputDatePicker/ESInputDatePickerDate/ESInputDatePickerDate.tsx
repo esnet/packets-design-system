@@ -1,5 +1,6 @@
 import * as React from "react";
 import styles from "./ESInputDatePickerDate.module.css";
+import baseStyles from "../ESInputDatePicker.module.css";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   flattenedDateGrid,
@@ -26,7 +27,7 @@ const ESInputDatePickerDate = ({
 
   const dayMenu = React.useMemo(() => {
     const weekdayHeaders = Array.from(weekdayNames).map((day) => (
-      <div key={day} className={styles.ESInputDatePickerDateDayCellHeader}>
+      <div key={day} className={styles.dayGridHeader}>
         {day}
       </div>
     ));
@@ -36,8 +37,8 @@ const ESInputDatePickerDate = ({
       <button
         key={dateInfo.toString()}
         className={clsx(
-          styles.ESInputDatePickerDateDayCellButton,
-          styles.ESInputDatePickerBaseButton,
+          styles.dayGridButton,
+          baseStyles.button,
           value &&
             dateInfo.toDateString() === value.toDateString() &&
             styles.selected,
@@ -88,8 +89,8 @@ const ESInputDatePickerDate = ({
         <button
           key={monthName}
           className={clsx(
-            styles.ESInputDatePickerDateMonthCellButton,
-            styles.ESInputDatePickerBaseButton,
+            styles.monthGridButton,
+            baseStyles.button,
             value &&
               monthDate.getMonth() === value.getMonth() &&
               monthDate.getFullYear() === value.getFullYear() &&
@@ -126,8 +127,8 @@ const ESInputDatePickerDate = ({
         <button
           key={year}
           className={clsx(
-            styles.ESInputDatePickerDateYearCellButton,
-            styles.ESInputDatePickerBaseButton,
+            styles.yearGridButton,
+            baseStyles.button,
             value && year === value.getFullYear() && styles.selected
           )}
           disabled={
@@ -164,65 +165,41 @@ const ESInputDatePickerDate = ({
       }
     };
 
-    let navInfo: React.ReactElement;
+    // onClicks are toggles to go back to the 'default' view which is day
+    let onClickYear, onClickMonth;
     switch (view) {
       case "day":
-        navInfo = (
-          <>
-            <button
-              className={styles.ESInputDatePickerBaseButton}
-              onClick={() => changeView("month")}
-            >
-              {getMonthName(viewDate)} <ChevronDown />
-            </button>
-            <button
-              className={styles.ESInputDatePickerBaseButton}
-              onClick={() => changeView("year")}
-            >
-              {viewDate.getFullYear()} <ChevronDown />
-            </button>
-          </>
-        );
+        onClickMonth = () => changeView("month");
+        onClickYear = () => changeView("year");
         break;
       case "month":
-        navInfo = (
-          <button
-            className={styles.ESInputDatePickerBaseButton}
-            onClick={() => changeView("day")}
-          >
-            {viewDate.getMonth()} <ChevronDown />
-          </button>
-        );
+        onClickMonth = () => changeView("day");
+        onClickYear = () => changeView("year");
         break;
       case "year":
-        navInfo = (
-          <button
-            className={styles.ESInputDatePickerBaseButton}
-            onClick={() => changeView("day")}
-          >
-            {viewDate.getFullYear()} <ChevronDown />
-          </button>
-        );
+        onClickMonth = () => changeView("month");
+        onClickYear = () => changeView("day");
         break;
     }
 
     return (
-      <div className={styles.ESInputDatePickerDateNav}>
+      <div className={styles.nav}>
         <button
-          className={clsx(
-            styles.ESInputDatePickerDateNavButton,
-            styles.ESInputDatePickerBaseButton
-          )}
+          className={clsx(styles.navButton, baseStyles.button)}
           onClick={() => onClickNav("left")}
         >
           <ChevronLeft />
         </button>
-        <div className={styles.ESInputDatePickerDateNavInfo}>{navInfo}</div>
+        <div className={styles.navInfo}>
+          <button className={baseStyles.button} onClick={onClickMonth}>
+            {getMonthName(viewDate)} <ChevronDown />
+          </button>
+          <button className={baseStyles.button} onClick={onClickYear}>
+            {viewDate.getFullYear()} <ChevronDown />
+          </button>
+        </div>
         <button
-          className={clsx(
-            styles.ESInputDatePickerDateNavButton,
-            styles.ESInputDatePickerBaseButton
-          )}
+          className={clsx(styles.navButton, baseStyles.button)}
           onClick={() => onClickNav("right")}
         >
           <ChevronRight />
@@ -234,19 +211,11 @@ const ESInputDatePickerDate = ({
   const menuComponent = React.useMemo(() => {
     switch (view) {
       case "day":
-        return (
-          <div className={styles.ESInputDatePickerDateDayGrid}>{dayMenu}</div>
-        );
+        return <div className={styles.dayGrid}>{dayMenu}</div>;
       case "month":
-        return (
-          <div className={styles.ESInputDatePickerDateMonthGrid}>
-            {monthMenu}
-          </div>
-        );
+        return <div className={styles.monthGrid}>{monthMenu}</div>;
       case "year":
-        return (
-          <div className={styles.ESInputDatePickerDateYearGrid}>{yearMenu}</div>
-        );
+        return <div className={styles.yearGrid}>{yearMenu}</div>;
     }
   }, [view, dayMenu, monthMenu, yearMenu]);
 

@@ -57,7 +57,7 @@
     }
   }
 
-  &:focus:not(:disabled, .disabled) {
+  &:focus:not(:disabled) {
     text-decoration: underline;
     border-color: var(--esnet-color-core-blue-300, #64d2ff);
   }
