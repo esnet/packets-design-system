@@ -24,6 +24,20 @@ export function getWeekdayName(date: Date): string {
 }
 
 /**
+ * Given two dates, return them in order from earliest to latest (swapping them).
+ *
+ * @param first Date to compare
+ * @param second Date to compare
+ * @returns
+ */
+export function orderDates(first: Date, second: Date): [Date, Date] {
+  if (first.getTime() > second.getTime()) {
+    return [second, first];
+  }
+  return [first, second];
+}
+
+/**
  * To have a proper 6 row x 7 column grid of dates, there needs to be dates padding the current date's month, which are taken from the previous and next month.
  * This function returns a flattened array of dates that fill out that grid.
  * @param date The current date.

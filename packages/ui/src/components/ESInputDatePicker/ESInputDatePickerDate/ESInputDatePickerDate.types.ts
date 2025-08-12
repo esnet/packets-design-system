@@ -9,4 +9,8 @@ export interface ESInputDatePickerDateProps {
   value?: Date;
   settings?: ESInputDatePickerDateSettings;
   onChange?: (date: Date) => void;
+
+  dateRange?: boolean;
+  rangeEndValue?: Date;
+  onChangeRangeEnd?: (date: Date | undefined) => void;
 }

@@ -7,14 +7,17 @@ import ESInputDatePickerTime from "./ESInputDatePickerTime/ESInputDatePickerTime
 /**
  * ESInputDatePicker Component
  *
- * Allows for date, time, and datetime selections.
+ * Allows for date, time, and datetime selections. It's not encouraged to use this component directly unless absolutely necessary.
  *
- * TODO: Implement range selection
+ * Instead, use ESInputDate, or ESInputDateRange, which wrap this component and provide an input box.
+ *
  */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
-  type,
+  type = "daterange",
   value,
   onChange,
+  rangeEndValue,
+  onChangeRangeEnd,
   timeSettings,
   dateSettings,
 }) => {
@@ -43,6 +46,17 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
             />
           </>
         );
+      case "daterange":
+        return (
+          <ESInputDatePickerDate
+            settings={dateSettings}
+            value={value}
+            onChange={onChange}
+            dateRange
+            rangeEndValue={rangeEndValue}
+            onChangeRangeEnd={onChangeRangeEnd}
+          />
+        );
       case "date":
       default:
         return (
@@ -53,7 +67,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
           />
         );
     }
-  }, [type, value, onChange]);
+  }, [type, value, onChange, rangeEndValue, onChangeRangeEnd]);
 
   return <div className={styles.ESInputDatePicker}>{inputTypeMenus}</div>;
 };

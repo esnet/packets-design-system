@@ -8,7 +8,7 @@ const meta: Meta<typeof ESInputDatePicker> = {
   argTypes: {
     type: {
       control: "radio",
-      options: ["date", "time", "datetime"],
+      options: ["date", "time", "datetime", "daterange"],
     },
   },
   args: {},

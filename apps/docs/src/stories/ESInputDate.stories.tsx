@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputDate, ESInputDatePicker } from "@esnet/packets-ui";
+import { ESInputDate } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESInputDate> = {
   title: "Components/ESInputDate",

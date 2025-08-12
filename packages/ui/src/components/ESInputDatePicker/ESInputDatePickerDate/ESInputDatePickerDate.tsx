@@ -6,15 +6,19 @@ import {
   flattenedDateGrid,
   getMonthName,
   monthNames,
+  orderDates,
   weekdayNames,
 } from "./ESInputDatePickerDate.utils";
 import { ESInputDatePickerDateProps } from "./ESInputDatePickerDate.types";
 import { clsx } from "clsx";
 
 const ESInputDatePickerDate = ({
-  value,
   settings,
+  value,
   onChange,
+  dateRange = false,
+  rangeEndValue,
+  onChangeRangeEnd,
 }: ESInputDatePickerDateProps) => {
   const { min: minSetting, max: maxSetting } = settings ?? {};
 
@@ -24,6 +28,13 @@ const ESInputDatePickerDate = ({
   };
   // the current MONTH and YEAR that is currently being viewed; do not care about date number
   const [viewDate, setViewDate] = React.useState(value ?? new Date());
+
+  // DATE RANGE LOGIC ONLY
+  // the value is the date start, rangeEndValue is the date end
+  // if dateRange is enabled, keep an internal ref for the first selected date
+  // when the second date is selected, if it's before the first, swap them, then call onChangeRangeEnd
+  // track the last selected date, as it will serve as start or end of the range
+  const [toggle, setToggle] = React.useState(false);
 
   const dayMenu = React.useMemo(() => {
     const weekdayHeaders = Array.from(weekdayNames).map((day) => (
@@ -41,8 +52,23 @@ const ESInputDatePickerDate = ({
           baseStyles.button,
           value &&
             dateInfo.toDateString() === value.toDateString() &&
-            styles.selected,
-          dateInfo.toDateString() === new Date().toDateString() && styles.today
+            baseStyles.selected,
+          dateInfo.toDateString() === new Date().toDateString() && styles.today,
+          // messy conditional styling handling date ranges
+          dateRange &&
+            value &&
+            rangeEndValue &&
+            ((dateInfo.toDateString() === value.toDateString() && [
+              styles.dateRangeStart,
+              styles.dateRangeEdge,
+            ]) ||
+              (dateInfo.toDateString() === rangeEndValue.toDateString() && [
+                styles.dateRangeEnd,
+                styles.dateRangeEdge,
+              ]) ||
+              (dateInfo > value &&
+                dateInfo < rangeEndValue &&
+                styles.dateRangeMiddle))
         )}
         disabled={
           dateInfo.getMonth() !== viewDate.getMonth() ||
@@ -58,7 +84,31 @@ const ESInputDatePickerDate = ({
             value?.getSeconds() ?? 0,
             value?.getMilliseconds() ?? 0
           );
-          onChange?.(dateInfo);
+          if (!dateRange) {
+            onChange?.(dateInfo);
+          } else {
+            // if there is no first date, or both dates are selected (re-selecting range), set the first date to a new date
+            if (toggle === false) {
+              onChange?.(dateInfo);
+              onChangeRangeEnd?.(undefined);
+              console.log("First date selected:", dateInfo.getDate());
+              setToggle(true);
+            } else {
+              console.log("second clicked!");
+              // if the first date is already set, the date range is whatever is selected next, ensure they are ordered
+              const [start, end] = orderDates(value!, dateInfo);
+              console.log(
+                "should be setting to",
+                start.getDate(),
+                end.getDate()
+              );
+              onChange?.(start);
+              onChangeRangeEnd?.(end);
+
+              // reset the first date to null so the next
+              setToggle(false);
+            }
+          }
         }}
       >
         {dateInfo.getDate()}
@@ -71,7 +121,23 @@ const ESInputDatePickerDate = ({
         {dateButtons}
       </>
     );
-  }, [viewDate, value]);
+  }, [
+    viewDate,
+    value,
+    dateRange,
+    rangeEndValue,
+    toggle,
+    onChange,
+    onChangeRangeEnd,
+  ]);
+
+  React.useEffect(() => {
+    console.log(
+      "Date range selected:",
+      value?.getDate(),
+      rangeEndValue?.getDate()
+    );
+  }, [value, rangeEndValue]);
 
   const monthMenu = React.useMemo(() => {
     const onClickMonthFactory = (

@@ -14,13 +14,6 @@ import { formatDate, formatTime } from "./ESInputDate.utils";
  * Input box (underlying is an input text box) that allows date picking with ESInputDatePicker.
  * Currently only supports date selection from the date picker, no manual typing.
  *
- * TODO:
- * Should this be a strictly readonly component that only allows selection from ESInputDatePicker? Or should it allow any input (leaning towards this)
- * Should support different region formats, e.g. MM/DD/YYYY vs DD/MM/YYYY?
- * Should support min and max?
- * Should support some sort of validation?
- * Ability to pass in dateSetting and timeSetting to underlying InputDatePicker component
- *
  * @param {ESInputDateProps} props
  * @returns {React.ReactElement}
  */
