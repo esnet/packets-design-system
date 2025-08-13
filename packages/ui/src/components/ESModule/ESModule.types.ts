@@ -1,5 +1,7 @@
+import * as React from "react";
+
 export interface ESModuleProps {
-  title?: string;
+  title?: React.ReactNode;
   className?: string;
   surface?: boolean;
   children: React.ReactNode;
