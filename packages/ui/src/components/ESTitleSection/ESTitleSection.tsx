@@ -18,7 +18,7 @@ const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   title = "",
   titleSlot,
   subtitle,
-  subTitleSlot,
+  subtitleSlot,
 }) => {
   return (
     <ESModule className={styles.titleLayout}>
@@ -31,7 +31,7 @@ const ESTitleSection: React.FC<ESTitleSectionProps> = ({
       {subtitle && (
         <h4 className={styles.subtitle}>
           {subtitle}
-          {subTitleSlot}
+          {subtitleSlot}
         </h4>
       )}
       {children}
