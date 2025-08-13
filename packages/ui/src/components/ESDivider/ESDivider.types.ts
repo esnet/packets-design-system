@@ -1,4 +1,4 @@
 export type ESDividerProps = {
-  variant?: "default" | "branded";
-  className: string;
+  variant?: "primary" | "branded";
+  className?: string;
 };

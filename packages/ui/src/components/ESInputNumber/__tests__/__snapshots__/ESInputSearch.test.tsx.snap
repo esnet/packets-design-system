@@ -6,14 +6,17 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default  disabled ESInputNumber"
+        class="ESInputText default disabled ESInputNumber"
       >
         <input
+          class="ESInputTextInput"
           disabled=""
           type="number"
-          value="0"
+          value=""
         />
-        <div>
+        <div
+          class="ESInputTextActionButtons"
+        >
           <svg
             class="lucide lucide-plus"
             fill="none"
@@ -55,14 +58,17 @@ exports[`ESInputSearch matches DOM Snapshot on disabled 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default  disabled ESInputNumber"
+      class="ESInputText default disabled ESInputNumber"
     >
       <input
+        class="ESInputTextInput"
         disabled=""
         type="number"
-        value="0"
+        value=""
       />
-      <div>
+      <div
+        class="ESInputTextActionButtons"
+      >
         <svg
           class="lucide lucide-plus"
           fill="none"
@@ -161,13 +167,16 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default error  ESInputNumber"
+        class="ESInputText default error ESInputNumber"
       >
         <input
+          class="ESInputTextInput"
           type="number"
-          value="0"
+          value=""
         />
-        <div>
+        <div
+          class="ESInputTextActionButtons"
+        >
           <svg
             class="lucide lucide-plus"
             fill="none"
@@ -209,13 +218,16 @@ exports[`ESInputSearch matches DOM Snapshot on error 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default error  ESInputNumber"
+      class="ESInputText default error ESInputNumber"
     >
       <input
+        class="ESInputTextInput"
         type="number"
-        value="0"
+        value=""
       />
-      <div>
+      <div
+        class="ESInputTextActionButtons"
+      >
         <svg
           class="lucide lucide-plus"
           fill="none"
@@ -314,13 +326,16 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default   ESInputNumber"
+        class="ESInputText default ESInputNumber"
       >
         <input
+          class="ESInputTextInput"
           type="number"
-          value="0"
+          value="hello there!"
         />
-        <div>
+        <div
+          class="ESInputTextActionButtons"
+        >
           <svg
             class="lucide lucide-plus"
             fill="none"
@@ -362,13 +377,16 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value 1`] = `
   </body>,
   "container": <div>
     <div
-      class="ESInputText default   ESInputNumber"
+      class="ESInputText default ESInputNumber"
     >
       <input
+        class="ESInputTextInput"
         type="number"
-        value="0"
+        value="hello there!"
       />
-      <div>
+      <div
+        class="ESInputTextActionButtons"
+      >
         <svg
           class="lucide lucide-plus"
           fill="none"
@@ -467,14 +485,17 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
   "baseElement": <body>
     <div>
       <div
-        class="ESInputText default  disabled ESInputNumber"
+        class="ESInputText default disabled ESInputNumber"
       >
         <input
+          class="ESInputTextInput"
           disabled=""
           type="number"
-          value="0"
+          value="hello there!"
         />
-        <div>
+        <div
+          class="ESInputTextActionButtons"
+        >
           <svg
             class="lucide lucide-plus"
             fill="none"
@@ -516,14 +537,17 @@ exports[`ESInputSearch matches DOM Snapshot on pre-set value and disabled 1`] = 
   </body>,
   "container": <div>
     <div
-      class="ESInputText default  disabled ESInputNumber"
+      class="ESInputText default disabled ESInputNumber"
     >
       <input
+        class="ESInputTextInput"
         disabled=""
         type="number"
-        value="0"
+        value="hello there!"
       />
-      <div>
+      <div
+        class="ESInputTextActionButtons"
+      >
         <svg
           class="lucide lucide-plus"
           fill="none"

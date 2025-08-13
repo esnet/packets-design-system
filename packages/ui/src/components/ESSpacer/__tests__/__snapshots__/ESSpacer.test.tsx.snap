@@ -6,14 +6,14 @@ exports[`Spacer matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="spacer hortizontal "
+        class="ESSpacer hortizontal"
         style="--size: var(--esnet-size-spacing-medium);"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="spacer hortizontal "
+      class="ESSpacer hortizontal"
       style="--size: var(--esnet-size-spacing-medium);"
     />
   </div>,
@@ -77,14 +77,14 @@ exports[`Square with not title matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="spacer square "
+        class="ESSpacer square"
         style="--size: var(--esnet-size-spacing-medium);"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="spacer square "
+      class="ESSpacer square"
       style="--size: var(--esnet-size-spacing-medium);"
     />
   </div>,
@@ -148,14 +148,14 @@ exports[`Vertical with not title matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="spacer vertical "
+        class="ESSpacer vertical"
         style="--size: var(--esnet-size-spacing-medium);"
       />
     </div>
   </body>,
   "container": <div>
     <div
-      class="spacer vertical "
+      class="ESSpacer vertical"
       style="--size: var(--esnet-size-spacing-medium);"
     />
   </div>,
