@@ -131,13 +131,15 @@
 
 /* Date Range Styles */
 .dateRangeStart {
-  border-top-right-radius: var(--esnet-size-radius-none, 0px) !important;
-  border-bottom-right-radius: var(--esnet-size-radius-none, 0px) !important;
+  border-radius: var(--esnet-size-radius-medium, 0.5rem)
+    var(--esnet-size-radius-none, 0px) var(--esnet-size-radius-none, 0px)
+    var(--esnet-size-radius-medium, 0.5rem) !important;
 }
 
 .dateRangeEnd {
-  border-top-left-radius: var(--esnet-size-radius-none, 0px) !important;
-  border-bottom-left-radius: var(--esnet-size-radius-none, 0px) !important;
+  border-radius: var(--esnet-size-radius-none, 0px)
+    var(--esnet-size-radius-medium, 0.5rem)
+    var(--esnet-size-radius-medium, 0.5rem) var(--esnet-size-radius-none, 0px) !important;
 }
 
 .dateRangeEdge {

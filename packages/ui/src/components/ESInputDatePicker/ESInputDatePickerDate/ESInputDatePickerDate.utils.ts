@@ -31,10 +31,12 @@ export function getWeekdayName(date: Date): string {
  * @returns
  */
 export function orderDates(first: Date, second: Date): [Date, Date] {
+  const _first = new Date(first);
+  const _second = new Date(second);
   if (first.getTime() > second.getTime()) {
-    return [second, first];
+    return [_second, _first];
   }
-  return [first, second];
+  return [_first, _second];
 }
 
 /**
@@ -46,6 +48,7 @@ export function orderDates(first: Date, second: Date): [Date, Date] {
 export function flattenedDateGrid(date: Date): Date[] {
   const dates = [];
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  firstDay.setHours(0, 0, 0, 0);
   const daysInCurrentMonth = new Date(
     date.getFullYear(),
     date.getMonth() + 1,
@@ -59,7 +62,7 @@ export function flattenedDateGrid(date: Date): Date[] {
       (_, i) =>
         new Date(
           date.getFullYear(),
-          date.getMonth() - 1,
+          date.getMonth(),
           -1 * (firstDay.getDay() - i)
         )
     )

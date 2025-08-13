@@ -26,3 +26,19 @@ export function formatTime(date: Date): string {
 
   return `${hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds} ${meridiem}`;
 }
+
+export function formatValue(
+  value: Date | undefined,
+  type: "date" | "time" | "datetime"
+): string {
+  if (!value) return "";
+  switch (type) {
+    case "time":
+      return formatTime(value);
+    case "datetime":
+      return `${formatDate(value)} ${formatTime(value)}`;
+    case "date":
+    default:
+      return formatDate(value);
+  }
+}

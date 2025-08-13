@@ -9,7 +9,7 @@ import ESInputDatePickerTime from "./ESInputDatePickerTime/ESInputDatePickerTime
  *
  * Allows for date, time, and datetime selections. It's not encouraged to use this component directly unless absolutely necessary.
  *
- * Instead, use ESInputDate, or ESInputDateRange, which wrap this component and provide an input box.
+ * Instead, use ESInputDate, or ESInputDateRange for selecting a date range, which wrap this component and provide an input box.
  *
  */
 const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({

@@ -1,19 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputDate } from "@esnet/packets-ui";
+import { DateRange, ESInputDateRange } from "@esnet/packets-ui";
 import * as React from "react";
 
-const meta: Meta<typeof ESInputDate> = {
-  title: "Components/ESInputDate",
-  component: ESInputDate,
+const meta: Meta<typeof ESInputDateRange> = {
+  title: "Components/ESInputDateRange",
+  component: ESInputDateRange,
   tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },
       options: ["primary", "branded"],
-    },
-    type: {
-      control: "radio",
-      options: ["date", "time", "datetime"],
     },
   },
   args: {},
@@ -35,20 +31,22 @@ const meta: Meta<typeof ESInputDate> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ESInputDate>;
+type Story = StoryObj<typeof ESInputDateRange>;
 
 export const Default: Story = {};
 
-export const ControlledInputDate: Story = {
+export const ControlledInputDateRange: Story = {
   render: () => {
-    const [value, setValue] = React.useState<Date>(new Date());
+    const [value, setValue] = React.useState<DateRange>();
     return (
       <>
-        <span>The currently selected date is {value.toLocaleDateString()}</span>
-        <ESInputDate
-          placeholder="Select a date"
+        <span>
+          The currently selected date is {value?.start?.toDateString()} to{" "}
+          {value?.end?.toDateString()}
+        </span>
+        <ESInputDateRange
+          placeholder="Select a date range"
           value={value}
-          type="date"
           onChange={(newValue) => {
             setValue(newValue);
           }}
@@ -58,18 +56,12 @@ export const ControlledInputDate: Story = {
   },
 };
 
-export const DatePickerWithTimeSettings: Story = {
+export const OnlyWithinAugust2025: Story = {
   args: {
-    type: "time",
-    timeSettings: {
-      format: "24-hour",
-      second: {
-        step: 1,
-      },
-      minute: {
-        step: 1,
-      },
+    dateSettings: {
+      min: new Date(2025, 7, 1),
+      max: new Date(2025, 7, 31),
     },
-    placeholder: "See ESInputDatePicker for time and date settings",
+    placeholder: "See ESInputDatePicker for details on date settings",
   },
 };

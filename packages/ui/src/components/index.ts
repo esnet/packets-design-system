@@ -18,6 +18,7 @@ export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputCheckbox } from "./ESInputCheckbox";
 export { default as ESInputDate } from "./ESInputDate";
 export { default as ESInputDatePicker } from "./ESInputDatePicker";
+export { default as ESInputDateRange, DateRange } from "./ESInputDateRange";
 export { default as ESInputEmail } from "./ESInputEmail";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";

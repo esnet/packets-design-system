@@ -34,7 +34,9 @@ const ESInputDatePickerDate = ({
   // if dateRange is enabled, keep an internal ref for the first selected date
   // when the second date is selected, if it's before the first, swap them, then call onChangeRangeEnd
   // track the last selected date, as it will serve as start or end of the range
-  const [toggle, setToggle] = React.useState(false);
+  const [firstSelectedDate, setFirstSelectedDate] = React.useState<Date | null>(
+    null
+  );
 
   const dayMenu = React.useMemo(() => {
     const weekdayHeaders = Array.from(weekdayNames).map((day) => (
@@ -88,25 +90,17 @@ const ESInputDatePickerDate = ({
             onChange?.(dateInfo);
           } else {
             // if there is no first date, or both dates are selected (re-selecting range), set the first date to a new date
-            if (toggle === false) {
-              onChange?.(dateInfo);
+            if (firstSelectedDate === null) {
+              const selectedDate = new Date(dateInfo);
+              setFirstSelectedDate(selectedDate);
+              onChange?.(selectedDate);
               onChangeRangeEnd?.(undefined);
-              console.log("First date selected:", dateInfo.getDate());
-              setToggle(true);
             } else {
-              console.log("second clicked!");
               // if the first date is already set, the date range is whatever is selected next, ensure they are ordered
-              const [start, end] = orderDates(value!, dateInfo);
-              console.log(
-                "should be setting to",
-                start.getDate(),
-                end.getDate()
-              );
+              const [start, end] = orderDates(firstSelectedDate, dateInfo);
               onChange?.(start);
               onChangeRangeEnd?.(end);
-
-              // reset the first date to null so the next
-              setToggle(false);
+              setFirstSelectedDate(null);
             }
           }
         }}
@@ -123,21 +117,17 @@ const ESInputDatePickerDate = ({
     );
   }, [
     viewDate,
-    value,
     dateRange,
+    value,
     rangeEndValue,
-    toggle,
+    firstSelectedDate,
     onChange,
     onChangeRangeEnd,
   ]);
 
   React.useEffect(() => {
-    console.log(
-      "Date range selected:",
-      value?.getDate(),
-      rangeEndValue?.getDate()
-    );
-  }, [value, rangeEndValue]);
+    console.log("firstSelectedDate changed:", firstSelectedDate);
+  }, [firstSelectedDate]);
 
   const monthMenu = React.useMemo(() => {
     const onClickMonthFactory = (

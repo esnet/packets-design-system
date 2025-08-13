@@ -6,13 +6,14 @@ import ESInputText from "../ESInputText";
 import { Calendar } from "lucide-react";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESInputDatePicker from "../ESInputDatePicker";
-import { formatDate, formatTime } from "./ESInputDate.utils";
+import { formatDate, formatTime, formatValue } from "./ESInputDate.utils";
 
 /**
  * ESInputDate Component
  *
  * Input box (underlying is an input text box) that allows date picking with ESInputDatePicker.
  * Currently only supports date selection from the date picker, no manual typing.
+ * Differs from HTML input type date in that the underlying value is stored as a Date object, not a string. Thus, when controlling the value, it must be a Date object.
  *
  * @param {ESInputDateProps} props
  * @returns {React.ReactElement}
@@ -22,9 +23,15 @@ const ESInputDate: React.FC<ESInputDateProps> = ({
   variant = "primary",
   className,
   error,
+  timeSettings,
+  dateSettings,
+  defaultValue,
+  value,
+  onChange,
   ...props
 }) => {
-  const [value, setValue] = React.useState<Date | undefined>(undefined);
+  const [_value, setValue] = React.useState<Date | undefined>(defaultValue);
+  const controlled = value !== undefined;
   // manages whether or not the calendar picker prompt is active or not
   const [focus, setFocus] = React.useState(true);
 
@@ -38,25 +45,15 @@ const ESInputDate: React.FC<ESInputDateProps> = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setFocus(false));
 
-  const onChangePicker = React.useCallback((date: Date) => {
-    setValue(date);
-  }, []);
-
-  // the value to show in the text input
-  const formattedValue = React.useMemo(() => {
-    if (!value) return "";
-    let time = formatTime(value);
-    let date = formatDate(value);
-    switch (type) {
-      case "time":
-        return time;
-      case "datetime":
-        return date + " " + time;
-      case "date":
-      default:
-        return date;
-    }
-  }, [type, value]);
+  const onChangeValue = React.useCallback(
+    (date: Date) => {
+      if (!controlled) {
+        setValue(date);
+      }
+      onChange?.(date);
+    },
+    [onChange, setValue, value]
+  );
 
   return (
     <div
@@ -70,18 +67,21 @@ const ESInputDate: React.FC<ESInputDateProps> = ({
     >
       <ESInputText
         {...props}
-        value={formattedValue}
+        value={formatValue(controlled ? value : _value, type)}
         readOnly
         onFocus={_onFocus}
         actionButtons={<Calendar onClick={() => setFocus(!focus)} />}
         variant={variant}
         error={error}
+        type="text"
       />
       {focus && (
         <ESInputDatePicker
-          value={value}
-          onChange={onChangePicker}
+          value={controlled ? value : _value}
+          onChange={onChangeValue}
           type={type}
+          timeSettings={timeSettings}
+          dateSettings={dateSettings}
         />
       )}
     </div>
