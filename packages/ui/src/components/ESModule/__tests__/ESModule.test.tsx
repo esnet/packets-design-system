@@ -4,6 +4,7 @@ import React from "react";
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import { ESModuleProps } from "../ESModule.types";
 import ESModule from "../ESModule";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 
 test.describe("ESModule", () => {
   const { testTable, themes }: ComponentTestTableType<ESModuleProps> = {
@@ -50,21 +51,18 @@ test.describe("ESModule", () => {
 
   testTable.forEach(({ name, props }) => {
     themes.forEach((theme) => {
-      let themedComponent = (
-        <div className={theme}>
-          <ESModule {...props} />
-        </div>
+      const testBox = (
+        <ComponentTestBox component={<ESModule {...props} />} theme={theme} />
       );
       test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
+        const component = await mount(testBox);
         await expect(component).toHaveScreenshot();
       });
     });
   });
 
-  test("media-size-small", async ({ page, mount }) => {
-    await page.setViewportSize({ width: 320, height: 480 });
-    const component = await mount(
+  test("media-size-small", async ({ mount }) => {
+    const raw = (
       <ESModule title="Small Media Size Styling">
         <p>
           Module content: Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -85,6 +83,9 @@ test.describe("ESModule", () => {
           Purus sit amet luctus venenatis lectus magna.
         </p>
       </ESModule>
+    );
+    const component = await mount(
+      <ComponentTestBox component={raw} size="small" />
     );
     await expect(component).toHaveScreenshot();
   });
