@@ -45,7 +45,7 @@
 //       actionStates.forEach((state) => {
 //         test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
 //           // do any locator selection if needed
-//           const component = await mount(themedComponent);
+//           const component = await mount(testBox);
 //           if (state === "focus") await component.focus();
 //           if (state === "hover" || state === "active") await component.hover();
 //           if (state === "active") await page.mouse.down();
