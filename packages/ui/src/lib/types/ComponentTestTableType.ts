@@ -9,6 +9,7 @@
  *
  * The boilerplate looks like below for component ESComponent
  */
+
 // import * as React from "react";
 // import { test, expect } from "@playwright/experimental-ct-react";
 // import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
@@ -43,12 +44,13 @@
 //         await expect(component).toHaveScreenshot();
 //       });
 //       actionStates.forEach((state) => {
-//         test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
-//           // do any locator selection if needed
+//         test(`${name}-${theme}-${state}`, async ({ mount }) => {
+//           if (props.disabled) return; // skip if component is disabled
+
 //           const component = await mount(testBox);
 //           if (state === "focus") await component.focus();
 //           if (state === "hover" || state === "active") await component.hover();
-//           if (state === "active") await page.mouse.down();
+//           if (state === "active") await component.click();
 //           await expect(component).toHaveScreenshot();
 //         });
 //       });
