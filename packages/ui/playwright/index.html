@@ -12,12 +12,11 @@
       rel="stylesheet"
     />
     <style>
-      .light {
+      body {
         background-color: var(--esnet-color-light-background, #cccccc) !important;
       }
-
-      .dark {
-        background-color: var(--esnet-color-dark-background, #19191a);
+      body:has(*.dark) {
+        background-color: var(--esnet-color-dark-background, #19191a) !important;
       }
     </style>
   </head>
