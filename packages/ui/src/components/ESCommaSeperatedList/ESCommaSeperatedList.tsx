@@ -1,10 +1,8 @@
 import React from "react";
 import clsx from "clsx";
-import { ESCommaSeperatedListType } from "./ESCommaSeperatedList.types";
+import { ESCommaSeperatedListProps } from "./ESCommaSeperatedList.types";
 
 import styles from "./ESCommaSeperatedList.module.css";
-
-import { defaultItemRender } from "./ESCommaSeperatedListUtils";
 /**
  * ES Comma Seperated List
  *
@@ -12,22 +10,20 @@ import { defaultItemRender } from "./ESCommaSeperatedListUtils";
  * expect for the last one
  *
  * @param {ESCommaSeperatedListType} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-const ESCommaSeperatedList = <T extends any>({
+const ESCommaSeperatedList: React.FC<ESCommaSeperatedListProps> = ({
   items,
-  renderItem = defaultItemRender,
   className,
-  listItemClassName,
-}: ESCommaSeperatedListType<T>) => {
+}) => {
   return (
     <ul className={clsx(styles.ESCommaSeparatedList, className)}>
       {items.map((item, i) => (
         <li
           key={`escomma-list-${i}`}
-          className={clsx(styles.commaSeparatedListItem, listItemClassName)}
+          className={clsx(styles.commaSeparatedListItem)}
         >
-          {renderItem(item)}
+          {item}
         </li>
       ))}
     </ul>
