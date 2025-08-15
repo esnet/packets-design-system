@@ -15,6 +15,7 @@ const ESLabel: React.FC<ESLabelProps> = ({
   required,
   disabled,
   children,
+  labelPlacement = "top",
   ...props
 }) => {
   const errorText = React.useMemo(() => {
@@ -26,14 +27,25 @@ const ESLabel: React.FC<ESLabelProps> = ({
   }, [error]);
 
   return (
-    <label {...props} aria-disabled={disabled} className={styles.ESLabel}>
-      <span className={clsx(styles.text, disabled && styles.disabled)}>
-        {label}
-        {required && <span className={styles.requiredAsterisk}>*</span>}
-      </span>
-      {children}
+    <div className={styles.ESLabel}>
+      <label
+        {...props}
+        aria-disabled={disabled}
+        className={clsx(styles.label, {
+          [styles.labelPlacementTop]: labelPlacement === "top",
+          [styles.labelPlacementLeft]: labelPlacement === "left",
+          [styles.labelPlacementRight]: labelPlacement === "right",
+          [styles.labelPlacementBottom]: labelPlacement === "bottom",
+        })}
+      >
+        <span className={clsx(styles.text, disabled && styles.disabled)}>
+          {label}
+          {required && <span className={styles.requiredAsterisk}>*</span>}
+        </span>
+        {children}
+      </label>
       {error && errorText && <span className={styles.error}>{errorText}</span>}
-    </label>
+    </div>
   );
 };
 
