@@ -10,7 +10,6 @@ import ESDataTableCell from "./ESDataTableCell";
 import ESDataTableFooter from "./ESDataTableFooter";
 import ESDataTableSkeletonLoading from "./ESDataTableSkeletonLoading";
 
-// @ts-ignore
 import styles from "./ESDataTable.module.css";
 
 /**

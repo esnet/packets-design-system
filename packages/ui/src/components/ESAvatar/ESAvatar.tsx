@@ -1,7 +1,6 @@
 import React, { FC, useMemo, useState } from "react";
 import { ESAvatarProps } from "./ESAvatar.types";
 
-// @ts-ignore
 import styles from "./ESAvatar.module.css";
 
 /**
@@ -12,6 +11,7 @@ import styles from "./ESAvatar.module.css";
  * @param {ESAvatarProps} props
  * @returns {React.FunctionComponent}
  */
+
 const ESAvatar: FC<ESAvatarProps> = ({
   label = "avatar",
   size = "medium",
@@ -19,6 +19,7 @@ const ESAvatar: FC<ESAvatarProps> = ({
   className = "",
   src,
   srcSet,
+  isHoverable = false,
   ...props
 }) => {
   // Hooks
@@ -48,11 +49,20 @@ const ESAvatar: FC<ESAvatarProps> = ({
     setError(true);
   };
 
+  // Composition
+  const rootStyles = useMemo(() => {
+    return (
+      `${styles.avatar} ` +
+      `${!!styles[size] ? styles[size] : ""} ` +
+      `${error ? styles.brokenImage : ""} ` +
+      `${styles[computedBackgroundColor]} ` +
+      `${isHoverable ? styles.isHoverable : ""} ` +
+      `${className}`
+    );
+  }, [computedBackgroundColor, isHoverable, error, size, styles]);
+
   return (
-    <section
-      className={`${styles.avatar} ${!!styles[size] && styles[size]} ${error ? styles.brokenImage : ""} ${styles[computedBackgroundColor]} ${className}`}
-      {...props}
-    >
+    <section className={rootStyles} {...props}>
       {hasImageSrc && (
         <img
           className={styles.image}

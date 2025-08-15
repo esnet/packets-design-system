@@ -1,7 +1,6 @@
 import React from "react";
 import { ESTabProps } from "./ESTabs.types";
 
-// @ts-ignore
 import styles from "./ESTab.module.css";
 
 /**

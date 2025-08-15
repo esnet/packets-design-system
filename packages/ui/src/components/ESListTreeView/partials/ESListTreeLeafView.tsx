@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import IconChildHierarchyIndicator from "../../../assets/svgs/IconChildHierarchyIndicator";
 import { ESListTreeLeafViewProps } from "../ESListTreeView.types";
 
-// @ts-ignore
 import styles from "./ESListTreeLeafView.module.css";
 import { CheckIcon, FileIcon } from "lucide-react";
 

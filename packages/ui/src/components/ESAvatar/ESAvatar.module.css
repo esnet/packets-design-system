@@ -6,15 +6,14 @@
   );
   --border: var(--esnet-size-border-width-small, 2px) solid
     var(--esnet-color-core-white-100, #fff);
-  --border-radius: var(--esnet-size-radius-xxlarge, 12px);
-  
-  /* TODO: Consider adding a 18px xxxlarge radius */
+  --border-radius: var(--esnet-size-radius-xxlarge, 18px);
+  --border-hover-color: var(--esnet-color-core-blue-600, #0088b5);
+
   --size: var(--esnet-size-spacing-xlarge, 40px);
   --label-font: var(
     --esnet-typography-header-5-sans-font,
     600 20px/140% var(--esnet-font-family-header-sans)
   );
-
 
   display: block;
   width: var(--size);
@@ -38,6 +37,22 @@
     color: var(--esnet-color-core-white-100, #fff);
   }
 
+  /* Pseudo Events */
+  &.isHoverable {
+    transition:
+      border 200ms ease-in,
+      box-shadow 200ms ease-in;
+
+    &:hover {
+      cursor: pointer;
+      border-color: var(--border-hover-color);
+      box-shadow:
+        0px 2px 3px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+      /* TODO: Consider making a darker shadow token */
+    }
+  }
+
   /* Size Variants */
   &.small {
     --size: var(--esnet-size-spacing-large, 32px);
@@ -45,7 +60,7 @@
       --esnet-typography-label-1-sans-font,
       400 12px/120% var(--esnet-font-family-body-sans)
     );
-    --border-radius: var(--esnet-size-radius-xlarge, 8px);
+    --border-radius: 10px;
   }
 
   &.medium {
@@ -54,7 +69,7 @@
       --esnet-typography-header-5-sans-font,
       600 20px/140% var(--esnet-font-family-header-sans)
     );
-    --border-radius: var(--esnet-size-radius-xxlarge, 12px);
+    --border-radius: 14px;
   }
 
   &.large {
@@ -63,7 +78,7 @@
       --esnet-typography-header-4-sans-font,
       500 24px/140% var(--esnet-font-family-header-sans)
     );
-    --border-radius: var(--esnet-size-radius-xxlarge, 12px);
+    --border-radius: var(--esnet-size-radius-xxlarge, 18px);
   }
 
   /* Color Variants */
@@ -91,17 +106,3 @@
     }
   }
 }
-
-/* @keyframes fadeInSlideUp {
-  from {
-    translate: 0 var(--esnet-size-spacing-medium, 16px);
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    translate: 0 0;
-    opacity: 1;
-    transform: scale(1);
-  }
-} */

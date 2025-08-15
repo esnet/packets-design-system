@@ -1,0 +1,71 @@
+.skeletonSurface {
+  --stroke-size: var(--esnet-size-border-width-medium, 3px);
+  --stroke-radius: var(--esnet-size-spacing-large, 2rem);
+  --height: var(--esnet-size-touchtarget-min, 2rem);
+
+  display: block;
+  width: 100%;
+  min-width: var(--esnet-size-spacing-large);
+  height: var(--height);
+
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--esnet-color-core-white-500, #d9d9d9);
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-core-black-500, #4d4d4f);
+  }
+
+  /* Shimmer Overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -200%;
+    width: 100%;
+    height: 200%;
+    background-repeat: no-repeat;
+
+    background-image: linear-gradient(
+      to left,
+      rgb(245, 245, 245, 0),
+      rgb(245, 245, 245) 45%,
+      rgb(245, 245, 245) 65%,
+      rgb(245, 245, 245, 0) 100%
+    );
+    animation: shimmerBackground 1s linear infinite;
+  }
+
+  /* Internal  */
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: var(--stroke-size);
+    top: var(--stroke-size);
+    width: calc(100% - calc(var(--stroke-size) * 2));
+    height: calc(100% - calc(var(--stroke-size) * 2));
+    background: var(--esnet-color-core-white-700, #c2c2c2);
+  }
+
+  :global(.dark) &::after {
+    background-color: var(--esnet-color-core-black-900, #19191a) !important;
+  }
+
+  /* Rounded */
+
+  &.rounded {
+    border-radius: var(--stroke-radius);
+
+    &::after {
+      border-radius: var(--stroke-radius);
+    }
+  }
+}
+
+@keyframes shimmerBackground {
+  100% {
+    transform: translateX(300%);
+  }
+}

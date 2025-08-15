@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { ESDatumProps } from "./ESDatum.types";
 
-// @ts-ignore
 import styles from "./ESDatum.module.css";
 
 /**

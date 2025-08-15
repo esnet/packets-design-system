@@ -19,10 +19,13 @@ const meta: Meta<typeof ESAvatar> = {
     className: {
       control: { type: "text" },
     },
+    isHoverable: {
+      control: { type: "boolean" },
+    },
     size: {
       control: { type: "radio" },
       options: ["small", "medium", "large"],
-      defaultValue: "info",
+      defaultValue: "medium",
     },
     backgroundColor: {
       control: { type: "radio" },
@@ -48,6 +51,19 @@ export const DefaultAvatar: Story = {
     label: "Ernest Lawrence",
     size: "medium",
     src: "/imgs/fpo-avatars/large.png",
+    srcSet:
+      "/imgs/fpo-avatars/large.png, /imgs/fpo-avatars/large@2x.png 2x, /imgs/fpo-avatars/large@3x.png 3x",
+  },
+};
+
+export const HoverableAvatar: Story = {
+  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
+  name: "Hoverable Example",
+  args: {
+    label: "Ernest Lawrence",
+    size: "medium",
+    src: "/imgs/fpo-avatars/large.png",
+    isHoverable: true,
     srcSet:
       "/imgs/fpo-avatars/large.png, /imgs/fpo-avatars/large@2x.png 2x, /imgs/fpo-avatars/large@3x.png 3x",
   },

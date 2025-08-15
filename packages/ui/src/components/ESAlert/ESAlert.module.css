@@ -12,7 +12,7 @@
   gap: var(--section-gap);
   background-color: var(--esnet-color-light-surface-2, #f2f2f2);
 
-  animation: fadeInSlideUp 200ms ease-in-out;
+  animation: fadeInSlideUp var(--esnet-time-duration-quick, 250ms) ease-in-out;
 
   @media (prefers-reduced-motion) {
     animation: none;

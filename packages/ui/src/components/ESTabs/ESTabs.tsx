@@ -1,7 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { ESTabsProps } from "./ESTabs.types";
 
-// @ts-ignore
 import styles from "./ESTabs.module.css";
 import ESTab from "./ESTab";
 

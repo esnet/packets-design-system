@@ -8,6 +8,14 @@ const StyleDictionary = StyleDictionaryModule.extend(
   makeSdTailwindConfig({
     type: "all",
     buildPath: "dist/",
+    transforms: [
+      "attribute/cti",
+      "name/cti/kebab",
+      "color/hex",
+      "size/pxToRem",
+      // "typography/shorthand",
+      "duration/units",
+    ],
   }),
 );
 
@@ -23,6 +31,16 @@ StyleDictionary.registerTransform({
   transformer: (token) => {
     const { value } = token;
     return `${value.fontWeight} ${value.fontSize}/${value.lineHeight} ${value.fontFamily}`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: "duration/units",
+  type: "value",
+  matcher: (token) => token.path.includes("duration"),
+  transformer: (token) => {
+    const { value, type } = token;
+    return `${value}${type}`;
   },
 });
 

@@ -18,12 +18,12 @@ const DurationDocBlock: React.FC<DurationDocBlockProps> = ({
     <div
       className={styles.durationDocBlock}
       style={{
-        "--duration": `${duration}ms`,
+        "--duration": `${duration}`,
       }}
     >
       <DatumList>
         <Datum name="token" value={name} />
-        <Datum name="value" value={`${duration}ms`} />
+        <Datum name="value" value={`${duration}`} />
         <Datum
           className={styles.previewAnimation}
           name="Hover for Preview"

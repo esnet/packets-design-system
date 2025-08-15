@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { useMemo } from "react";
 import { ESDataTableSortIconProps } from "./ESDataTable.types";
 
-// @ts-ignore
 import styles from "./ESDataTableSortIcon.module.css";
 import { getSortIcon } from "./ESDataTableUtils";
 

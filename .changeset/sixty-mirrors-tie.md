@@ -1,0 +1,6 @@
+---
+"@esnet/packets-ui": patch
+"docs": patch
+---
+
+feat - ESInputNumber
