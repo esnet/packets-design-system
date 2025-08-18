@@ -1,5 +1,25 @@
 # @esnet/packets-ui
 
+## 0.9.0
+
+### Minor Changes
+
+- f7f38a9: Refactored Component - Skeletal Pill become more generically useful Skeletal Surface matching new designs provided by Rive
+- 1e4b4f5: refactor - ESInputSwitch to have a simpler and matching API as other input elements
+- 0a5ad3d: feat - ESIcon
+- 5dcfcab: Feature: New Branded Spinner
+- 717fb00: feat - implemented ESInputCheckbox. New components will now be updated as minor bumps.
+
+### Patch Changes
+
+- ef6a20c: feat - ESInputTextArea
+- 161be57: implemented ESInputPassword
+- ba12102: implemented ESInputSearch
+- de2466e: feat - ESInputNumber
+- feb9307: Feature: Added Reduced Motion Options to CSS Animations
+- e7ec4c8: feat - ESInputEmail
+- 7506233: Added input text components
+
 ## 0.8.0
 
 ### Minor Changes

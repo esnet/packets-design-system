@@ -1,5 +1,27 @@
 # web
 
+## 1.3.0
+
+### Minor Changes
+
+- f7f38a9: Refactored Component - Skeletal Pill become more generically useful Skeletal Surface matching new designs provided by Rive
+
+### Patch Changes
+
+- Updated dependencies [f7f38a9]
+- Updated dependencies [1e4b4f5]
+- Updated dependencies [ef6a20c]
+- Updated dependencies [161be57]
+- Updated dependencies [0a5ad3d]
+- Updated dependencies [ba12102]
+- Updated dependencies [de2466e]
+- Updated dependencies [5dcfcab]
+- Updated dependencies [feb9307]
+- Updated dependencies [e7ec4c8]
+- Updated dependencies [717fb00]
+- Updated dependencies [7506233]
+  - @esnet/packets-ui@0.9.0
+
 ## 1.2.4
 
 ### Patch Changes
