@@ -25,6 +25,7 @@ At this point the .md files in `.changeset` should be gone and your `package.jso
 4. Push to gitlab
 5. Gitlab CI/CD should run `npm run publish-packages`
 6. Verify new packages are available at [https://gitlab.es.net/esnet/packets-design-system/-/packages](https://gitlab.es.net/esnet/packets-design-system/-/packages)
+7. Merge release branch into `main` if release is successful.
 
 
 ### Commmon Issues
