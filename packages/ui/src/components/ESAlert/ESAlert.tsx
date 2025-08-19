@@ -10,6 +10,8 @@ import {
   InfoIcon,
   CircleX,
 } from "lucide-react";
+import { getAlertIconByType } from "./ESAlertUtils";
+import ESIcon from "../ESIcon";
 
 /**
  * ESAlert Component
@@ -26,29 +28,19 @@ const ESAlert: React.FC<ESAlertProps> = ({
   onClickClose,
 }) => {
   const icon = React.useMemo(() => {
-    switch (variant) {
-      case "error":
-        return <TriangleAlertIcon />;
-      case "success":
-        return <CircleCheckIcon />;
-      case "warning":
-        return <CircleAlertIcon />;
-      case "info":
-      default:
-        return <InfoIcon />;
-    }
+    return getAlertIconByType(variant);
   }, [variant]);
 
   return (
     <section className={clsx(styles.ESAlert, styles[variant])}>
       <aside className={styles.icon}>{icon}</aside>
       <div className={styles.content}>
-        <span className={styles.title}>{title}</span>
+        <div className={styles.title}>{title}</div>
         {children}
       </div>
       <aside className={styles.icon}>
         <button className={styles.closeButton} onClick={onClickClose}>
-          <CircleX />
+          <ESIcon name="circle-x" />
         </button>
       </aside>
     </section>

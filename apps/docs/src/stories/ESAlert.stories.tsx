@@ -40,6 +40,13 @@ export const DefaultAlert: Story = {
   },
 };
 
+export const ShortAlert: Story = {
+  args: {
+    title: "Info",
+    children: "Information",
+  },
+};
+
 export const SuccessExample: Story = {
   args: {
     title: "Success!",

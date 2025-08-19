@@ -64,14 +64,24 @@
     }
   }
 
-  .title {
-    margin: 0;
-    font: var(--title-label-font);
-    text-decoration: none;
+  .content {
+    flex: 1;
+    font: var(
+      --esnet-typography-body-1-sans-font,
+      400 16px/140% var(--esnet-font-family-body-sans)
+    );
   }
 
   .content * {
     color: var(--color) !important;
+  }
+
+  .title {
+    margin: 0;
+    margin-bottom: var(--esnet-size-spacing-xxsmall, 4px);
+    font: var(--title-label-font);
+    text-decoration: none;
+    width: 100%;
   }
 
   border-radius: var(--esnet-size-radius-xlarge, 8px);
