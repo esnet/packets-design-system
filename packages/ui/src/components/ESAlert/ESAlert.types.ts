@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
+import * as React from "react";
+
 export interface ESAlertProps {
   title: string;
-  type?: "error" | "warning" | "info" | "success";
+  variant?: "error" | "warning" | "info" | "success" | "branded";
   children: React.ReactNode;
 }

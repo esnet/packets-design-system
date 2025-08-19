@@ -15,8 +15,6 @@ export const getAlertIconByType = (type: string): React.ReactNode => {
     case "warning":
       return <CircleAlertIcon />;
     case "info":
-      return <InfoIcon />;
-
     default:
       return <InfoIcon />;
   }

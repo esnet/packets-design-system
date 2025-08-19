@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import * as React from "react";
 import { ESAlertProps } from "./ESAlert.types";
 import { getAlertIconByType } from "./ESAlertUtils";
 
@@ -8,23 +8,27 @@ import { clsx } from "clsx";
 /**
  * ESAlert Component
  *
- * Display message with alert level styling
+ * Display message with different variants for success, error, warning, info, or branded alerts.
  *
  * @param {ESAlertProps} props
  * @returns {React.FunctionComponent}
  */
-const ESAlert: FC<ESAlertProps> = ({ title, type = "info", children }) => {
-  const icon = useMemo(() => {
-    return getAlertIconByType(type);
-  }, [type]);
+const ESAlert: React.FC<ESAlertProps> = ({
+  title,
+  variant = "info",
+  children,
+}) => {
+  const icon = React.useMemo(() => {
+    return getAlertIconByType(variant);
+  }, [variant]);
 
   return (
-    <section className={clsx(styles.ESAlert, styles[type])}>
+    <section className={clsx(styles.ESAlert, styles[variant])}>
       <aside className={styles.icon}>{icon}</aside>
-      <section className={styles.content}>
-        <h6 className={styles.title}>{title}</h6>
+      <div className={styles.content}>
+        <span className={styles.title}>{title}</span>
         {children}
-      </section>
+      </div>
     </section>
   );
 };
