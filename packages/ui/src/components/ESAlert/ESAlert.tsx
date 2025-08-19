@@ -1,9 +1,15 @@
 import * as React from "react";
 import { ESAlertProps } from "./ESAlert.types";
-import { getAlertIconByType } from "./ESAlertUtils";
 
 import styles from "./ESAlert.module.css";
 import { clsx } from "clsx";
+import {
+  TriangleAlertIcon,
+  CircleCheckIcon,
+  CircleAlertIcon,
+  InfoIcon,
+  CircleX,
+} from "lucide-react";
 
 /**
  * ESAlert Component
@@ -17,9 +23,20 @@ const ESAlert: React.FC<ESAlertProps> = ({
   title,
   variant = "info",
   children,
+  onClickClose,
 }) => {
   const icon = React.useMemo(() => {
-    return getAlertIconByType(variant);
+    switch (variant) {
+      case "error":
+        return <TriangleAlertIcon />;
+      case "success":
+        return <CircleCheckIcon />;
+      case "warning":
+        return <CircleAlertIcon />;
+      case "info":
+      default:
+        return <InfoIcon />;
+    }
   }, [variant]);
 
   return (
@@ -29,6 +46,11 @@ const ESAlert: React.FC<ESAlertProps> = ({
         <span className={styles.title}>{title}</span>
         {children}
       </div>
+      <aside className={styles.icon}>
+        <button className={styles.closeButton} onClick={onClickClose}>
+          <CircleX />
+        </button>
+      </aside>
     </section>
   );
 };

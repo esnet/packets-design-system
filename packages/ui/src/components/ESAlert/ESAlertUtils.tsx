@@ -1,21 +1,16 @@
 import React from "react";
-import {
-  CircleAlertIcon,
-  TriangleAlertIcon,
-  CircleCheckIcon,
-  InfoIcon,
-} from "lucide-react";
+import { DynamicIcon } from "lucide-react/dynamic";
 
 export const getAlertIconByType = (type: string): React.ReactNode => {
   switch (type) {
     case "error":
-      return <TriangleAlertIcon />;
+      return <DynamicIcon name="triangle-alert" />;
     case "success":
-      return <CircleCheckIcon />;
+      return <DynamicIcon name="circle-check" />;
     case "warning":
-      return <CircleAlertIcon />;
+      return <DynamicIcon name="alert-circle" />;
     case "info":
     default:
-      return <InfoIcon />;
+      return <DynamicIcon name="info" />;
   }
 };

@@ -59,9 +59,9 @@
   }
 
   .icon {
-    display: block;
-    width: var(--icon-size);
-    height: var(--icon-size);
+    & svg {
+      stroke: var(--color);
+    }
   }
 
   .title {
@@ -80,6 +80,16 @@
   gap: var(--section-gap);
   color: var(--color);
   background-color: var(--bg-color);
+}
+
+.closeButton {
+  background: none;
+  padding: 0;
+  border: none;
+  outline: none;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
 }
 
 @keyframes fadeInSlideUp {
