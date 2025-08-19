@@ -10,7 +10,7 @@ import {
   InfoIcon,
   CircleX,
 } from "lucide-react";
-import { getAlertIconByType } from "./ESAlertUtils";
+import { getAlertIconByType } from "./ESAlert.utils";
 import ESIcon from "../ESIcon";
 
 /**
