@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESChipGroup, ESChip, ESIcon } from "@esnet/packets-ui";
+import { ESChipGroup, ESChip, ESIcon, ESAvatar } from "@esnet/packets-ui";
 import { fn } from "@storybook/test";
 
 const meta: Meta<typeof ESChipGroup> = {
@@ -34,6 +35,21 @@ export const Example: Story = {
 
 export const Example2: Story = {
   args: {
+    children: Array.from({ length: 25 }, (_, i) => (
+      <ESChip
+        label={`CHIP-${i.toString().padStart(6, "0")}`}
+        key={i}
+        prepend={<ESAvatar alt={i.toString().padStart(2, "0")} size="small" />}
+        variant="outline"
+        rounded={false}
+        onDelete={fn()}
+      />
+    )),
+  },
+};
+
+export const Example3: Story = {
+  args: {
     children: [
       "bookmark",
       "bookmark-check",
@@ -42,8 +58,16 @@ export const Example2: Story = {
       "bookmark-x",
     ].map((icon) => (
       <>
-        <ESChip prepend={<ESIcon name={icon} />} label={icon} onDelete={fn()} />
-        <ESChip prepend={<ESIcon name={icon} />} label={icon} onDelete={fn()} />
+        <ESChip
+          prepend={<ESIcon name={icon as any} />}
+          label={icon}
+          onDelete={fn()}
+        />
+        <ESChip
+          prepend={<ESIcon name={icon as any} />}
+          label={icon}
+          onDelete={fn()}
+        />
       </>
     )),
   },
