@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESChip, ESIcon } from "@esnet/packets-ui";
+import { ESAvatar, ESChip, ESIcon } from "@esnet/packets-ui";
 import { fn } from "@storybook/test";
+import * as React from "react";
 
 const meta: Meta<typeof ESChip> = {
   title: "Components/ESChip",
@@ -26,7 +27,7 @@ export const Default: Story = {};
 export const HasDifferentOnClickAndOnDelete: Story = {
   args: {
     onClick: () => alert("clicked"),
-    onDelete: (e: MouseEvent) => {
+    onDelete: (e: React.MouseEvent) => {
       e.stopPropagation();
       alert("deleted");
     },
@@ -46,6 +47,17 @@ export const HasIconPrepended: Story = {
     label: "Fruits",
     prepend: <ESIcon name="apple" />,
     append: <ESIcon name="banana" />,
+  },
+};
+
+export const HasAvatarPrepended: Story = {
+  args: {
+    // prepend: <ESAvatar size="small" label="EC" />,
+    label: "Circuit 124",
+    prepend: (
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="grape" />
+    ),
+    onDelete: () => fn(),
   },
 };
 
