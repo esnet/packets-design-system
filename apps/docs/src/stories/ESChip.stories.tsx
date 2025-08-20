@@ -68,3 +68,19 @@ export const Rectangular: Story = {
     rounded: false,
   },
 };
+
+export const RectangularWithAvatarImagePrepended: Story = {
+  args: {
+    label: "Filter: Spring 2024 Deadlines",
+    prepend: (
+      <ESAvatar
+        src="/imgs/fpo-avatars/small.png"
+        alt="Ernest Lawrence"
+        size="small"
+        backgroundColor="grape"
+      />
+    ),
+
+    rounded: false,
+  },
+};
