@@ -19,9 +19,9 @@ const ESAvatar: React.FC<ESAvatarProps> = ({
   alt = "avatar",
   size = "medium",
   backgroundColor,
-  className = "",
   src,
   srcSet,
+  className,
   ...props
 }) => {
   const [error, setError] = React.useState(false);

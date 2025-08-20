@@ -7,14 +7,15 @@
   --border: var(--esnet-size-border-width-small, 2px) solid
     var(--esnet-color-core-white-100, #fff);
 
+  /* Size Variants; default medium (styles seen above) */
   --size: 36px;
   --label-font: var(
     --esnet-typography-header-5-sans-font,
     600 20px/140% var(--esnet-font-family-header-sans)
   );
-  --border-radius: var(--esnet-size-radius-xxlarge, 12px);
+  /* There isn't a token for border radius of 14px (or even 12px/0.75rem) that matches the Figma specification*/
+  --border-radius: 14px;
 
-  /* Size Variants; default medium */
   &.small {
     --size: 24px;
     --label-font: var(
@@ -48,8 +49,9 @@
   }
 
   .image {
-    width: 100%;
-    aspect-ratio: 1/1;
+    /* If we don't set the width and height to be a little over, a bit of the background color shows on the edges, likely a CSS rounding error */
+    max-width: 110%;
+    max-height: 110%;
   }
 
   &.brokenImage {
@@ -65,7 +67,12 @@
   border: var(--border);
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
+  box-sizing: border-box;
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .label {
     display: flex;
