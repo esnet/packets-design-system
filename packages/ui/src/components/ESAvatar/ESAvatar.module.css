@@ -6,40 +6,17 @@
   );
   --border: var(--esnet-size-border-width-small, 2px) solid
     var(--esnet-color-core-white-100, #fff);
-  --border-radius: var(--esnet-size-radius-xxlarge, 12px);
 
-  /* TODO: Consider adding a 18px xxxlarge radius */
-  --size: var(--esnet-size-spacing-xlarge, 40px);
+  --size: 36px;
   --label-font: var(
     --esnet-typography-header-5-sans-font,
     600 20px/140% var(--esnet-font-family-header-sans)
   );
+  --border-radius: var(--esnet-size-radius-xxlarge, 12px);
 
-  display: block;
-  width: var(--size);
-  aspect-ratio: 1/1;
-
-  border: var(--border);
-  box-shadow: var(--shadow);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-
-  .label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: var(--size);
-    line-height: var(--size);
-
-    font: var(--label-font);
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--esnet-color-core-white-100, #fff);
-  }
-
-  /* Size Variants */
+  /* Size Variants; default medium */
   &.small {
-    --size: var(--esnet-size-spacing-large, 32px);
+    --size: 24px;
     --label-font: var(
       --esnet-typography-label-1-sans-font,
       400 12px/120% var(--esnet-font-family-body-sans)
@@ -47,22 +24,13 @@
     --border-radius: var(--esnet-size-radius-xlarge, 8px);
   }
 
-  &.medium {
-    --size: var(--esnet-size-spacing-xlarge, 40px);
-    --label-font: var(
-      --esnet-typography-header-5-sans-font,
-      600 20px/140% var(--esnet-font-family-header-sans)
-    );
-    --border-radius: var(--esnet-size-radius-xxlarge, 12px);
-  }
-
   &.large {
-    --size: var(--esnet-size-spacing-xxlarge, 64px);
+    --size: 48px;
     --label-font: var(
       --esnet-typography-header-4-sans-font,
       500 24px/140% var(--esnet-font-family-header-sans)
     );
-    --border-radius: var(--esnet-size-radius-xxlarge, 12px);
+    --border-radius: var(--esnet-size-radius-xxlarge, 14px);
   }
 
   /* Color Variants */
@@ -89,18 +57,26 @@
       display: none;
     }
   }
+
+  display: block;
+  width: var(--size);
+  aspect-ratio: 1/1;
+
+  border: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  .label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size);
+    line-height: var(--size);
+
+    font: var(--label-font);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--esnet-color-core-white-100, #fff);
+  }
 }
-
-/* @keyframes fadeInSlideUp {
-  from {
-    translate: 0 var(--esnet-size-spacing-medium, 16px);
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    translate: 0 0;
-    opacity: 1;
-    transform: scale(1);
-  }
-} */
