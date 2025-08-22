@@ -14,6 +14,8 @@ type ESButtonCustomProps = {
   append?: React.ReactNode;
   /** Prependable ESIcon, ESAvatar, or other React element */
   prepend?: React.ReactNode;
+
+  children: React.ReactNode;
 };
 
 type AsButtonProps = {
