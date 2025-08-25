@@ -1,7 +1,6 @@
 import * as React from "react";
 
 export interface ESChipProps extends React.ComponentPropsWithoutRef<"button"> {
-  label: string;
   variant?: "primary" | "outline";
   /** For prepending icons or avatars, ideally using `ESIcon` or `ESAvatar`. */
   prepend?: React.ReactNode;
@@ -11,5 +10,6 @@ export interface ESChipProps extends React.ComponentPropsWithoutRef<"button"> {
   onDelete?: React.MouseEventHandler<HTMLButtonElement>;
   /** Whether to be fully rounded or rectangular (but with partially rounded corners). Defaults to true. */
   rounded?: boolean;
+  /* Children text to be rendered as a label for the chip, recommended just to be regular text. */
   children?: React.ReactNode;
 }
