@@ -14,7 +14,7 @@ const meta: Meta<typeof ESChip> = {
     },
   },
   args: {
-    label: "Chip Label",
+    children: "Chip Label",
   },
 };
 
@@ -44,7 +44,7 @@ export const OutlineVariant: Story = {
 export const HasIconPrepended: Story = {
   args: {
     // prepend: <ESAvatar size="small" label="EC" />,
-    label: "Fruits",
+    children: "Fruits",
     prepend: <ESIcon name="apple" />,
     append: <ESIcon name="banana" />,
   },
@@ -53,7 +53,7 @@ export const HasIconPrepended: Story = {
 export const HasAvatarPrepended: Story = {
   args: {
     // prepend: <ESAvatar size="small" label="EC" />,
-    label: "Circuit 124",
+    children: "Circuit 124",
     prepend: (
       <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="grape" />
     ),
@@ -63,7 +63,7 @@ export const HasAvatarPrepended: Story = {
 
 export const Rectangular: Story = {
   args: {
-    label: "Filter: Spring 2024 Deadlines",
+    children: "Filter: Spring 2024 Deadlines",
     onDelete: () => fn(),
     rounded: false,
   },
@@ -71,7 +71,7 @@ export const Rectangular: Story = {
 
 export const RectangularWithAvatarImagePrepended: Story = {
   args: {
-    label: "Filter: Spring 2024 Deadlines",
+    children: "Filter: Spring 2024 Deadlines",
     prepend: (
       <ESAvatar
         src="/imgs/fpo-avatars/small.png"
