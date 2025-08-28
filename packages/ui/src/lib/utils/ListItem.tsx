@@ -1,12 +1,20 @@
 import * as React from "react";
 
 interface ListItemLinkType {
+  type: "link";
   href: string;
   target?: string;
   children: React.ReactNode;
 }
 
 interface ListItemTextType {
+  type: "text";
+  children: React.ReactNode;
+}
+
+interface ListItemButtonType {
+  type: "button";
+  onClick: () => void;
   children: React.ReactNode;
 }
 
@@ -20,26 +28,25 @@ interface ListItemTextType {
  *
  * @example
  * ```tsx
- * interface Component
  *
- * const ComponentWithListItems = (props: )
+ * interface CompWithListItemsProps {
+ *   items: ListItemType[];
+ *   renderListItem?: RenderListItemType;
+ * }
+ *
+ * const ComponentWithListItems: React.FC<CompWithListItemsProps> = ({
+ *   items,
+ *   renderListItem = RenderListItem,
+ * }) => {
+ *   return <ul>{items.map((item) => renderListItem(item))}</ul>;
+ * };
  *
  * ```
  */
-
-interface CompWithListItemsProps {
-  items: ListItemType[];
-  renderListItem?: RenderListItemType;
-}
-
-const ComponentWithListItems: React.FC<CompWithListItemsProps> = ({
-  items,
-  renderListItem = RenderListItem,
-}) => {
-  return <ul>{items.map((item, index) => renderListItem(item))}</ul>;
-};
-
-export type ListItemType = ListItemLinkType | ListItemTextType;
+export type ListItemType = {
+  key: string | number;
+  [x: string]: any;
+} & (ListItemLinkType | ListItemTextType | ListItemButtonType);
 
 /**
  * Function type definition for rendering ListItemType objects. When used in a component prop, it should be defaulted to `RenderListItem`.
@@ -55,19 +62,21 @@ export type RenderListItemType = (item: ListItemType) => React.ReactNode;
  * Otherwise, it is rendered as plain text inside a list item.
  *
  */
-export const RenderListItem: RenderListItemType = (item) => {
-  if ("href" in item) {
-    const { href, children, target = "_top" } = item;
-    return (
-      <li>
-        <a href={href} target={target}>
-          {children}
-        </a>
-      </li>
-    );
-  } else {
-    return <li>{item.children}</li>;
+export const DefaultRenderListItem: RenderListItemType = (item) => {
+  let content: React.ReactNode;
+  switch (item.type) {
+    case "link":
+      content = <a {...item} />;
+      break;
+    case "button":
+      content = <button {...item} />;
+      break;
+    default:
+      content = item.children;
+      break;
   }
+
+  return <li key={item.key}>{content}</li>;
 };
 
 /**
