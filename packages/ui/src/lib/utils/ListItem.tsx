@@ -1,5 +1,3 @@
-import * as React from "react";
-
 /**
  * Goals:
  * Provide a standard type definition so that users can write this type as a prop list and it can be rendered easily
@@ -14,12 +12,12 @@ import * as React from "react";
  *
  * For some components (ESInputTypeahead), this still needs to be figured out (TODO)
  */
+import * as React from "react";
 
-interface ListItemBaseProps {
+type ListItemBaseProps = {
   children: React.ReactNode;
-  key: string | number;
   [x: string]: any;
-}
+};
 /**
  * Discriminated union type for `ListItemLinkType`, `ListItemTextType`, and `ListItemButtonType`. It's recommended to use one of these types directly instead of this union type.
  *
@@ -34,13 +32,13 @@ interface ListItemBaseProps {
  * ```tsx
  *
  * interface CompWithListItemsProps {
- *   items: ListItemType[];
+ *   items: ListItemType[]; // would want to use a more specific type in practice
  *   renderListItem?: RenderListItemType;
  * }
  *
  * const ComponentWithListItems: React.FC<CompWithListItemsProps> = ({
  *   items,
- *   renderListItem = RenderListItem,
+ *   renderListItem = DefaultRenderListItem,
  * }) => {
  *   return <ul>{items.map((item) => renderListItem(item))}</ul>;
  * };
@@ -55,32 +53,32 @@ export type ListItemType =
 /**
  * A discriminated type in `ListItemType` representing a link item. Useful for `ESBreadcrumbs` and `ESTableOfContents`.
  */
-export interface ListItemLinkType extends ListItemBaseProps {
-  type: "link";
+export type ListItemLinkType = ListItemBaseProps & {
   href: string;
   target?: string;
-}
+};
 
 /**
  * A discriminated type in `ListItemType` representing an only-text item. Useful for `ESCommaSeparatedList`.
  */
-export interface ListItemTextType extends ListItemBaseProps {
-  type: "text";
-}
+export type ListItemTextType = ListItemBaseProps & {};
 
 /**
  * A discriminated type in `ListItemType` representing a button item. Useful for `ESTabs`.
  */
-export interface ListItemButtonType extends ListItemBaseProps {
-  type: "button";
+export type ListItemButtonType = ListItemBaseProps & {
   onClick: () => void;
-}
+};
 
 /**
- * Function type definition for rendering ListItemType objects. When used in a component prop, it should be defaulted to `RenderListItem`.
+ * Function type definition for rendering ListItemType objects. When used in a component prop, it should be defaulted to `DefaultRenderListItem`.
  */
-// eslint-disable-next-line no-unused-vars
-export type RenderListItemType = (item: Partial<ListItemType>) => React.ReactNode;
+export type RenderListItemType = (
+  // eslint-disable-next-line no-unused-vars
+  item: ListItemBaseProps,
+  // eslint-disable-next-line no-unused-vars
+  key: React.Key
+) => React.ReactNode;
 
 /**
  * Default renderer for ListItemType objects.
@@ -91,18 +89,11 @@ export type RenderListItemType = (item: Partial<ListItemType>) => React.ReactNod
  *
  */
 export const DefaultRenderListItem: RenderListItemType = (item) => {
-  let content: React.ReactNode;
-  switch (item.type) {
-    case "link":
-      content = <a {...item} />;
-      break;
-    case "button":
-      content = <button {...item} />;
-      break;
-    default:
-      content = item.children;
-      break;
+  if ("href" in item) {
+    return <a {...item} />;
+  } else if ("onClick" in item) {
+    return <button {...item} />;
+  } else {
+    return <span {...item} />;
   }
-
-  return <li key={item.key}>{content}</li>;
 };
