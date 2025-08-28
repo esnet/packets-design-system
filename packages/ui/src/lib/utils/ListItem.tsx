@@ -80,7 +80,7 @@ export interface ListItemButtonType extends ListItemBaseProps {
  * Function type definition for rendering ListItemType objects. When used in a component prop, it should be defaulted to `RenderListItem`.
  */
 // eslint-disable-next-line no-unused-vars
-export type RenderListItemType = (item: ListItemType) => React.ReactNode;
+export type RenderListItemType = (item: Partial<ListItemType>) => React.ReactNode;
 
 /**
  * Default renderer for ListItemType objects.
