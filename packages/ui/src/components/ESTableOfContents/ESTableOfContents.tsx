@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { ESTableOfContentsProps } from "./ESTableOfContents.types";
 import styles from "./ESTableOfContents.module.css";
+import { DefaultRenderListItem } from "../../lib/utils/ListItem";
 
 /**
  * ESTableOfContents Component
@@ -14,29 +15,25 @@ import styles from "./ESTableOfContents.module.css";
  *   })
  *
  * @param {ESTableOfContentsProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
   title = "Table of Contents",
-  sections = [],
-  isSticky = true,
+  links = [],
+  sticky,
+  renderLink = DefaultRenderListItem,
 }) => {
   return (
-    <nav
-      className={clsx(styles.ESTableOfContents, isSticky && styles.isSticky)}
-    >
+    <nav className={clsx(styles.ESTableOfContents, sticky && styles.sticky)}>
       <h6 className={styles.title}>{title}</h6>
-      <ul className={styles.list}>
-        {sections.map((sectionLink, index) => {
-          return (
-            <li key={`table-of-contents-section-${index}`}>
-              <a href={sectionLink.href} target={sectionLink.target}>
-                {sectionLink.children}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+      <div className={styles.content}>
+        <div className={styles.verticalLine} />
+        <ul className={styles.list}>
+          {links.map((link, index) => (
+            <li key={`toc-link-${index}`}>{renderLink(link, index)}</li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };
