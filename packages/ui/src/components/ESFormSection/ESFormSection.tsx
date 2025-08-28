@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from "react";
+import clsx from "clsx";
 import { ESFormSectionProps } from "./ESFormSection.types";
 
 import styles from "./ESFormSection.module.css";
@@ -42,7 +43,7 @@ const ESFormSection: FC<ESFormSectionProps> = ({
 
   return (
     <section
-      className={`${styles.formSection} ${useColumnLayout ? "packets-grid" : ""}`}
+      className={clsx(styles.ESFormSection, useColumnLayout && "packets-grid")}
       {...other}
     >
       <div className={`grid-col-3 ${styles.leftCol}`}>

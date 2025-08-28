@@ -19,7 +19,7 @@ const ESBreadcrumbs: React.FC<BreadcrumbsProps> = ({
   renderLink = defaultRenderLink,
 }) => {
   return (
-    <ul className={`${styles.breadCrumbs}`}>
+    <ul className={`${styles.ESBreadCrumbs}`}>
       {breadcrumbs.map((breadcrumb, index) => {
         return (
           <li className={styles.breadCrumb} key={`breadcrumb-list-${index}`}>

@@ -60,7 +60,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   };
 
   return (
-    <div className={`${styles.esListTreeView} ${className}`}>
+    <div className={`${styles.ESListTreeView} ${className}`}>
       <section className={styles.sectionRow}>
         <div
           className={`${styles.icon} ${styles.accordionIndicator} ${isOpen && styles.isOpen}`}

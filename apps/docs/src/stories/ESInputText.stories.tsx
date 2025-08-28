@@ -6,7 +6,21 @@ import { ESInputText } from "@esnet/packets-ui/src";
 const meta: Meta<typeof ESInputText> = {
   title: "Components/ESInputText",
   component: ESInputText,
-  tags: ["autodocs"],
+  //   tags: ["autodocs"],
+  //   argTypes: {
+  //     variant: {
+  //       control: { type: "radio" },
+  //       options: ["primary", "branded"],
+  //       defaultValue: "primary",
+  //     },
+  //     error: {
+  //       control: { type: "boolean" },
+  //     },
+  //   },
+  //   args: {
+  //     error: false,
+  //     variant: "primary",
+  //   },
 };
 
 export default meta;
@@ -93,7 +107,7 @@ export const InputWithActionButtons: Story = {
   args: {
     placeholder: "Press the apple",
     variant: "branded",
-    actionButtons: [<Apple onClick={() => alert("Action button pressed")} />],
+    actionButtons: <Apple onClick={() => alert("Action button pressed")} />,
   },
   parameters: {
     design: {

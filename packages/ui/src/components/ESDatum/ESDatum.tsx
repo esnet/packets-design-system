@@ -13,7 +13,7 @@ import styles from "./ESDatum.module.css";
  */
 const ESDatum: FC<ESDatumProps> = ({ title = "", children }) => {
   return (
-    <div className={styles.datum}>
+    <div className={styles.ESDatum}>
       <label className={styles.label}>{title}</label>
       <span className={styles.value}>{children}</span>
     </div>

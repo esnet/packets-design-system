@@ -1,4 +1,7 @@
-.breadCrumbs {
+.ESBreadCrumbs {
+  inline-size: 100%;
+  padding-left: 0;
+
   --divider-color: var(--esnet-color-core-black-500, #4d4d4f);
   --link-color: var(--esnet-color-light-copy, #3d3d3d);
 
@@ -17,7 +20,7 @@
     align-items: center;
     gap: var(--esnet-size-spacing-xsmall);
 
-    > a {
+    >a {
       color: var(--link-color) !important;
       padding-bottom: 0;
 
@@ -31,10 +34,8 @@
       display: inline-block;
       color: var(--divider-color);
 
-      font: var(
-        --esnet-typography-label-2-sans-font,
-        700 12px/120% var(--esnet-font-family-body-sans)
-      );
+      font: var(--esnet-typography-label-2-sans-font,
+          700 12px/120% var(--esnet-font-family-body-sans));
     }
 
     &:last-child::after {

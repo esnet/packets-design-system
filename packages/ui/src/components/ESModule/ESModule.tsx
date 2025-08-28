@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import clsx from "clsx";
 import { ESModuleProps } from "./ESModule.types";
 
 import styles from "./ESModule.module.css";
@@ -18,10 +19,11 @@ const ESModule: FC<ESModuleProps> = ({
   children,
   ...other
 }) => {
-  const allClassNames = `${className || ""} ${styles.esModule} ${surface ? "surface" : ""}`;
-
   return (
-    <section className={allClassNames} {...other}>
+    <section
+      className={clsx(className, styles.ESModule, surface && "surface")}
+      {...other}
+    >
       {title && <h6 className={styles.title}>{title}</h6>}
       {children}
     </section>
