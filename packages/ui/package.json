@@ -79,6 +79,6 @@
             "import": "./dist/esm/style.css",
             "require": "./dist/cjs/style.css"
         },
-        "./src": "./src/index.ts"
+        "./src/*": "./src/*"
     }
 }

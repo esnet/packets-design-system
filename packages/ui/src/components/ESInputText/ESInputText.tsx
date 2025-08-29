@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React from "react";
 import styles from "./ESInputText.module.css";
 import { ESInputTextProps } from "./ESInputText.types";
 import clsx from "clsx";
@@ -7,20 +6,17 @@ import clsx from "clsx";
 /**
  * ESInputText Component
  *
- * A wrapper around HTML `<input type="text" />` element to provide styling
+ * A wrapper around HTML `<input type="text" />` element to provide styling. If the case applies, use any of the other ESInput components instead.
  *
- *
- * @param {ESInputTextProps} props
- * @returns {React.ReactElement}
  */
-export const ESInputText: React.FC<ESInputTextProps> = ({
+export function ESInputText({
   variant = "primary",
   error = false,
   disabled = false,
   className,
   actionButtons,
   ...props
-}) => {
+}: ESInputTextProps) {
   return (
     <div
       className={clsx(
@@ -37,7 +33,7 @@ export const ESInputText: React.FC<ESInputTextProps> = ({
       )}
     </div>
   );
-};
+}
 
 ESInputText.displayName = "ESInputText";
 
