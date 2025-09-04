@@ -72,3 +72,13 @@ export const Default: Story = {
     </div>
   ),
 };
+
+export const DefaultTextStyling: Story = {
+  render: () => (
+    <>
+      This is how text is styled as default, with this font and this size. There
+      are no additional stylings added to this text, no tag wrapped it to apply
+      styling.
+    </>
+  ),
+};
