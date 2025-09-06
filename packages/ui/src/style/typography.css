@@ -34,7 +34,7 @@
   &,
   body {
     color: var(--esnet-color-light-copy, #3d3d3d);
-    .dark & {
+    &.dark, & .dark {
       color: var(--esnet-color-dark-copy, #ffffff);
     }
 
@@ -315,6 +315,11 @@
       400 12px/120% var(--esnet-font-family-body-sans)
     );
     letter-spacing: var(--esnet-typography-label-1-sans-letterspacing, -0.18px);
+
+    color: var(--esnet-color-light-copy-alt, #6E6E70);
+    .dark & {
+      color: var(--esnet-color-dark-copy-alt, #C2C2C2);
+    }
   }
 
   /* Code (in-line only) */
@@ -322,14 +327,12 @@
   .code {
     padding: 0 var(--size-border-width-medium, 4px);
     border-radius: var(--size-radius-large, 6px);
-    border: var(--size-border-width-xsmall, 1px) solid
-      var(--esnet-color-core-white-600, #ccc);
+    border: var(--size-border-width-xsmall, 1px) solid var(--esnet-color-core-white-600, #ccc);
     background-color: var(--esnet-color-core-white-500, #d9d9d9);
     color: var(--esnet-color-light-primary, #0088b5);
 
     .dark & {
-      border: var(--size-border-width-xsmall, 1px) solid
-        var(--esnet-color-core-slate-1000, #ccc);
+      border: var(--size-border-width-xsmall, 1px) solid var(--esnet-color-core-slate-1000, #ccc);
       background-color: var(--esnet-color-core-black-800, #252526);
       color: var(--esnet-color-dark-secondary, #00b6f2);
     }
