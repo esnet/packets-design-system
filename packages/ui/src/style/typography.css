@@ -33,22 +33,21 @@
   /* Body */
   &,
   body {
+    color: var(--esnet-color-light-copy, #3d3d3d);
+    .dark & {
+      color: var(--esnet-color-dark-copy, #ffffff);
+    }
+
     font: var(
       --esnet-typography-copy-1-sans-font,
       400 16px/120% var(--esnet-font-family-body-sans)
     );
 
-    & .body2 {
+    .body2 {
       font: var(
         --esnet-typography-copy-2-sans-font,
         400 16px/120% var(--esnet-font-family-body-sans)
       );
-    }
-
-    color: var(--esnet-color-light-copy, #3d3d3d);
-
-    .dark & {
-      color: var(--esnet-color-dark-copy, #ffffff);
     }
 
     b,
