@@ -76,7 +76,6 @@ test.describe("RichText", () => {
       );
       await expect(component).toHaveScreenshot();
     });
-    return;
 
     // typography test: display
     test(`${theme}-display`, async ({ mount }) => {
@@ -96,11 +95,14 @@ test.describe("RichText", () => {
       test(`${theme}-anchor-${actionState}`, async ({ mount }) => {
         const component = await mount(
           <body className={theme}>
-            <a href={actionState === "inactive" ? "/" : undefined}>
+            <a href={actionState !== "inactive" ? "/" : undefined}>
               Example Link ({theme})
             </a>
           </body>
         );
+        const anchor = component.locator("a");
+        if (actionState === "hover") await anchor.hover();
+        if (actionState === "focus") await anchor.focus();
         await expect(component).toHaveScreenshot();
       });
     });
