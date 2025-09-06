@@ -8,8 +8,8 @@
         "build": "rimraf dist && rollup -c",
         "dev": "rollup -c -w",
         "test": "playwright test",
-        "test:ui": "playwright test --ui",
-        "test:updatesnaps": "playwright test --update-snapshots",
+        "test:ui": "playwright clear-cache && playwright test --ui",
+        "test:updatesnaps": "playwright clear-cache && playwright test --update-snapshots",
         "lint": "eslint \"**/*.{ts,tsx}\"",
         "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
         "prepublishOnly": "npm run build"

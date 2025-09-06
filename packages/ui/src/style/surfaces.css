@@ -1,17 +1,23 @@
-body,
+/* body,
 .packets-ui {
   background-color: var(--esnet-color-light-background, #cccccc);
 
   .dark & {
     background-color: var(--esnet-color-dark-background, #19191a);
   }
-}
+} */
 
+/* body, */
 .packets {
   /* dark/light overide classes */
   background-color: var(--esnet-color-light-background, #cccccc);
 
-  .dark & {
+  /* .dark & {
+    background-color: var(--esnet-color-dark-background, #19191a);
+  } */
+
+  &.dark,
+  .dark {
     background-color: var(--esnet-color-dark-background, #19191a);
   }
 

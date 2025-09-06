@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
+import { useDarkMode } from "storybook-dark-mode";
 import "@esnet/packets-ui/style.css";
 
 const preview: Preview = {
@@ -36,11 +37,14 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <div className="packets">
-        <Story />
-      </div>
-    ),
+    (Story) => {
+      return (
+        // useDarkMode has a slight delay - but storybook-dark-mode will get wiped when bumping to Storybook 9 anyway
+        <body className={`packets ${useDarkMode() ? "dark" : "light"}`}>
+          <Story />
+        </body>
+      );
+    },
   ],
 };
 
