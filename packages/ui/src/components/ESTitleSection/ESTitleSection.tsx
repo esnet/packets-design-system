@@ -15,25 +15,13 @@ import ESModule from "../ESModule";
  */
 const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   children,
-  title = "",
-  titleSlot,
+  title,
   subtitle,
-  subtitleSlot,
 }) => {
   return (
     <ESModule className={styles.titleLayout}>
-      {title && (
-        <h1 className={styles.title}>
-          {title}
-          {titleSlot}
-        </h1>
-      )}
-      {subtitle && (
-        <h4 className={styles.subtitle}>
-          {subtitle}
-          {subtitleSlot}
-        </h4>
-      )}
+      {title && <h1 className={styles.title}>{title}</h1>}
+      {subtitle && <h4 className={styles.subtitle}>{subtitle}</h4>}
       {children}
     </ESModule>
   );

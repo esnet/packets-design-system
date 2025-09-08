@@ -1,10 +1,9 @@
 import { test, expect } from "@playwright/experimental-ct-react";
 import React from "react";
-
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import { ESTitleSectionProps } from "../ESTitleSection.types";
 import ESTitleSection from "../ESTitleSection";
-import ESIcon from "../../ESIcon";
+import { MicroscopeIcon, ZapIcon } from "lucide-react";
 
 test.describe("ESTitleSection", () => {
   const { testTable, themes }: ComponentTestTableType<ESTitleSectionProps> = {
@@ -17,17 +16,23 @@ test.describe("ESTitleSection", () => {
         },
       },
       {
-        name: "slots",
+        name: "react-nodes",
         props: {
-          title: "Lawrence Berkeley National Laboratory",
-          titleSlot: "🔬",
-          subtitle: "Department of Energy Laboratory",
-          subtitleSlot: "⚡",
+          title: (
+            <>
+              ESNet <ZapIcon size={24} />
+            </>
+          ),
+          subtitle: (
+            <>
+              Powering Science <MicroscopeIcon size={16} />
+            </>
+          ),
         },
       },
     ],
     actionStates: [],
-    themes: ["light"],
+    themes: ["light", "dark"],
   };
 
   testTable.forEach(({ name, props }) => {
@@ -74,62 +79,3 @@ test.describe("ESTitleSection", () => {
     await expect(component).toHaveScreenshot();
   });
 });
-
-// import React from "react";
-// import { render } from "@testing-library/react";
-// import ESTitleSection from "../ESTitleSection";
-
-// test("It renders without crashing", () => {
-//   const component = render(
-//     <ESTitleSection
-//       title="Title"
-//       titleSlot={<p>😀</p>}
-//       subtitle="Subtitle"
-//       subTitleSlot={<p>😀</p>}
-//     >
-//       <p>Hello World</p>
-//     </ESTitleSection>,
-//   );
-//   expect(component).toBeTruthy();
-// });
-
-// it("Title Section matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESTitleSection
-//       title="Title"
-//       titleSlot={<p>😀</p>}
-//       subtitle="Subtitle"
-//       subTitleSlot={<p>😀</p>}
-//     >
-//       <p>Hello World</p>
-//     </ESTitleSection>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Title section no subtitle matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESTitleSection title="Title" titleSlot={<p>😀</p>}>
-//       <p>Hello World</p>
-//     </ESTitleSection>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Title section with no title slot matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESTitleSection title="Title">
-//       <p>Hello World</p>
-//     </ESTitleSection>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Title section with no subtitle slot matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESTitleSection title="Title" subtitle="Subtitle">
-//       <p>Hello World</p>
-//     </ESTitleSection>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
