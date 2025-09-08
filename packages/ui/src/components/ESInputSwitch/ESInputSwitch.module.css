@@ -31,7 +31,7 @@
   }
 
   &:hover:not(.disabled),
-  &:focus-within:not(.disabled) {
+  &:focus:not(.disabled) {
     box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-white-400);
 
     &.checked {
@@ -97,6 +97,9 @@
 
   .checked>& {
     color: var(--esnet-color-core-blue-600);
+    .secondary & {
+      color: var(--esnet-color-core-orange-600);
+    }
   }
 
   :active:checked~ :not(.disabled > &) {
