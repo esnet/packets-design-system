@@ -6,10 +6,6 @@
   --bg-color: var(--esnet-color-light-surface-2, #f2f2f2);
   --icon-size: var(--esnet-size-touchtarget-min, 32px);
   --section-gap: var(--esnet-size-spacing-medium, 16px);
-  --title-label-font: var(
-    --esnet-typography-header-5-sans-font,
-    600 20px/140% var(--esnet-font-family-header-sans)
-  );
 
   animation: fadeInSlideUp var(--esnet-time-duration-quick, 250ms) ease-in-out;
 
@@ -66,22 +62,14 @@
 
   .content {
     flex: 1;
-    font: var(
-      --esnet-typography-body-1-sans-font,
-      400 16px/140% var(--esnet-font-family-body-sans)
-    );
-  }
 
-  .content * {
-    color: var(--color) !important;
+    & * {
+      color: var(--color) !important;
+    }
   }
 
   .title {
     margin: 0;
-    margin-bottom: var(--esnet-size-spacing-xxsmall, 4px);
-    font: var(--title-label-font);
-    text-decoration: none;
-    width: 100%;
   }
 
   border-radius: var(--esnet-size-radius-xlarge, 8px);

@@ -32,10 +32,10 @@ const ESAlert: React.FC<ESAlertProps> = ({
   }, [variant]);
 
   return (
-    <section className={clsx(styles.ESAlert, styles[variant])}>
+    <div className={clsx(styles.ESAlert, styles[variant])}>
       <aside className={styles.icon}>{icon}</aside>
       <div className={styles.content}>
-        <div className={styles.title}>{title}</div>
+        <h5 className={styles.title}>{title}</h5>
         {children}
       </div>
       <aside className={styles.icon}>
@@ -43,7 +43,7 @@ const ESAlert: React.FC<ESAlertProps> = ({
           <ESIcon name="circle-x" />
         </button>
       </aside>
-    </section>
+    </div>
   );
 };
 
