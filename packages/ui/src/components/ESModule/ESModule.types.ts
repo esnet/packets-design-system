@@ -1,8 +1,8 @@
 import * as React from "react";
 
-export interface ESModuleProps {
+export interface ESModuleProps
+  extends Omit<React.ComponentPropsWithoutRef<"section">, "title"> {
   title?: React.ReactNode;
-  className?: string;
   surface?: boolean;
   children: React.ReactNode;
 }

@@ -44,6 +44,24 @@ test.describe("ESModule", () => {
           surface: true,
         },
       },
+      {
+        name: "nested",
+        props: {
+          title: "Modules Nested Inside a Module",
+          children: (
+            <>
+              <ESModule title="Inner Module 1 (No Surface)">
+                Sample Text No Surface
+              </ESModule>
+              <ESModule title="Inner Module 2 (Surface)" surface>
+                Sample Text Surface
+              </ESModule>
+            </>
+          ),
+          style: { display: "flex", flexDirection: "column", gap: "2rem" },
+          surface: true,
+        },
+      },
     ],
     actionStates: [],
     themes: ["light", "dark"],
