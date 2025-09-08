@@ -9,43 +9,47 @@
  *
  * The boilerplate looks like below for component ESComponent
  */
+
+// import * as React from "react";
+// import { test, expect } from "@playwright/experimental-ct-react";
+// import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
+// import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
+// import { ESComponentProps } from "../ESComponent.types";
+// import ESComponent from "../ESComponent";
 // test.describe("ESComponent", () => {
-//   const {
-//     testTable,
-//     themes,
-//     actionStates,
-//   }: ComponentTestTableType<ESComponentProps> = {
+//   const { testTable, themes, actionStates }: ComponentTestTableType<ESComponentProps> = {
 //     testTable: [
-//       { name: "test-1", props: { prop1: "foo" } },
-//       { name: "test-2", props: { prop1: "bar" } },
-//       // etc...
+//       {
+//         name: "test-1",
+//         props: {
+//         },
+//       },
+//       {
+//         name: "test-2",
+//         props: {
+//             // ...
+//         },
+//       },
 //     ],
 //     themes: ["light", "dark"],
 //     actionStates: ["hover", "focus", "active"],
 //   };
-//
 //   testTable.forEach(({ name, props }) => {
 //     themes.forEach((theme) => {
-//       let themedComponent = (
-//         <div style={{ padding: "8px" }}>
-//           <ESComponent {...props} />
-//         </div>
+//       const testBox = (
+//         <ComponentTestBox component={<ESComponent {...props} />} theme={theme} />
 //       );
-//       if (theme === "dark") {
-//         themedComponent = <div className="dark">{themedComponent}</div>;
-//       }
 //       test(`${name}-${theme}`, async ({ mount }) => {
-//         const component = await mount(themedComponent);
+//         const component = await mount(testBox);
 //         await expect(component).toHaveScreenshot();
 //       });
 //       actionStates.forEach((state) => {
-//         if (props.disabled) return;
-//         test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
-//           // do any locator selection if needed
-//           const component = await mount(themedComponent);
+//         test(`${name}-${theme}-${state}`, async ({ mount }) => {
+//           if (props.disabled) return; // skip if component is disabled
+//           const component = await mount(testBox);
 //           if (state === "focus") await component.focus();
 //           if (state === "hover" || state === "active") await component.hover();
-//           if (state === "active") await page.mouse.down();
+//           if (state === "active") await component.click();
 //           await expect(component).toHaveScreenshot();
 //         });
 //       });
