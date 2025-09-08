@@ -8,7 +8,6 @@ import clsx from "clsx";
  *
  * ESIcon component that dynamically imports Lucide icons based on the provided name.
  *
- *
  * @param props {ESIconProps}
  * @returns {React.ReactElement}
  */
