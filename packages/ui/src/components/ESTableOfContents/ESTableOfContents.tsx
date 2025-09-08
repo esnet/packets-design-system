@@ -8,11 +8,6 @@ import { DefaultRenderListItem } from "../../lib/utils/ListItem";
  * ESTableOfContents Component
  *
  * Visual representation of the sections of a page.
- * Composed from an array of sections(LinkType) ({
- *   href: string;
- *   children: React.ReactNode;
- *   target?: string;
- *   })
  *
  * @param {ESTableOfContentsProps} props
  * @returns {React.ReactElement}
