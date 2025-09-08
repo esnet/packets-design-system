@@ -1,7 +1,4 @@
 .ESIcon {
-    color: var(--esnet-color-dark-surface-2);
-
-    :global(.dark) & {
-        color: var(--esnet-color-light-surface-2);
-    }
+    /* Inherit current text color, which ideally should be following dark/light mode styling */
+    color: inherit;
 }
