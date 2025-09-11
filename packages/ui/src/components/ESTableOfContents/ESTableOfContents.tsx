@@ -1,9 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import { ESTableOfContentsProps } from "./ESTableOfContents.types";
-
-import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
-
 import styles from "./ESTableOfContents.module.css";
 
 /**
@@ -23,7 +20,6 @@ const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
   title = "Table of Contents",
   sections = [],
   isSticky = true,
-  renderSectionLink = defaultRenderLink,
 }) => {
   return (
     <nav
@@ -34,7 +30,9 @@ const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
         {sections.map((sectionLink, index) => {
           return (
             <li key={`table-of-contents-section-${index}`}>
-              {renderSectionLink(sectionLink)}
+              <a href={sectionLink.href} target={sectionLink.target}>
+                {sectionLink.children}
+              </a>
             </li>
           );
         })}

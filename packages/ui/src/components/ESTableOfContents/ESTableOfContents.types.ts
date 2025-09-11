@@ -1,8 +1,8 @@
-import { LinkType } from "../../lib/types";
+import { ListItemLinkType, RenderListItemType } from "../../lib/utils/ListItem";
 
 export interface ESTableOfContentsProps {
   title?: string;
-  sections: LinkType[];
+  sections: ListItemLinkType[];
   isSticky?: boolean;
-  renderSectionLink?: (link: LinkType) => React.ReactNode;
+  renderSectionLink?: RenderListItemType;
 }
