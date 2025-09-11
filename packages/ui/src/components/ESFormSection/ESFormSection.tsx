@@ -4,7 +4,7 @@ import { ESFormSectionProps } from "./ESFormSection.types";
 
 import styles from "./ESFormSection.module.css";
 
-import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
+import { defaultRenderLink } from "../../lib/utils/link";
 
 /**
  * ESFormSection Component

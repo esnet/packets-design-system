@@ -1,7 +1,7 @@
 import React from "react";
 import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
 
-import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
+import { defaultRenderLink } from "../../lib/utils/link";
 
 import styles from "./ESBreadcrumbs.module.css";
 
