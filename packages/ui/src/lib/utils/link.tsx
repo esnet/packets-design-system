@@ -7,6 +7,9 @@ export interface LinkType
   children: React.ReactNode;
 }
 
-export const defaultRenderLink = (linkProps: LinkType) => {
+// eslint-disable-next-line no-unused-vars
+export type RenderLink = (linkProps: LinkType) => React.ReactNode;
+
+export const defaultRenderLink: RenderLink = (linkProps) => {
   return <a {...linkProps} />;
 };
