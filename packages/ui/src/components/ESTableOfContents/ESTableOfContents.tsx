@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { ESTableOfContentsProps } from "./ESTableOfContents.types";
 
-import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
+import { defaultRenderLink } from "../../lib/utils/link";
 
 import styles from "./ESTableOfContents.module.css";
 
