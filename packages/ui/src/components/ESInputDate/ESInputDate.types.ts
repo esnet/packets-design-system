@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ComponentPropsWithRef } from "react";
 import { ESInputDatePickerTimeSettings } from "../ESInputDatePicker/ESInputDatePickerTime/ESInputDatePickerTime.types";
 import { ESInputDatePickerDateSettings } from "../ESInputDatePicker/ESInputDatePickerDate/ESInputDatePickerDate.types";
@@ -11,9 +12,9 @@ export interface ESInputDateProps
   error?: boolean;
   type?: "date" | "time" | "datetime";
 
-  /** Time settings */
+  /** Time settings. See type definition for description, or ESInputDatePicker Storybook page for information. */
   timeSettings?: ESInputDatePickerTimeSettings;
-  /** Date settings */
+  /** Date settings. See type definition for description, or ESInputDatePicker Storybook page for information. */
   dateSettings?: ESInputDatePickerDateSettings;
 
   /** The value stored internally, stored as a Javascript Date object.

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { DateRange, ESInputDateRange } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import ESInputDateRange from "@esnet/packets-ui/src/components/ESInputDateRange/ESInputDateRange.tsx";
+import type { DateRange } from "@esnet/packets-ui";
 import * as React from "react";
 
 const meta: Meta<typeof ESInputDateRange> = {

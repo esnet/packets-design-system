@@ -16,7 +16,7 @@ const ESInputDatePickerDate = ({
   settings,
   value,
   onChange,
-  dateRangeMode = false,
+  isDateRange = false,
   rangeEndValue,
   onChangeRangeEnd,
 }: ESInputDatePickerDateProps) => {
@@ -56,7 +56,7 @@ const ESInputDatePickerDate = ({
             dateInfo.toDateString() === value.toDateString() &&
             baseStyles.selected,
           dateInfo.toDateString() === new Date().toDateString() && styles.today,
-          dateRangeMode &&
+          isDateRange &&
             value &&
             rangeEndValue &&
             ((dateInfo.toDateString() === value.toDateString() && [
@@ -85,7 +85,7 @@ const ESInputDatePickerDate = ({
             value?.getSeconds() ?? 0,
             value?.getMilliseconds() ?? 0
           );
-          if (!dateRangeMode) {
+          if (!isDateRange) {
             onChange?.(dateInfo);
           } else {
             // if there is no first date, or both dates are selected (re-selecting range), set the first date to a new date
@@ -116,7 +116,7 @@ const ESInputDatePickerDate = ({
     );
   }, [
     viewDate,
-    dateRangeMode,
+    isDateRange,
     value,
     rangeEndValue,
     firstSelectedDate,

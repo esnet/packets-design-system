@@ -9,16 +9,18 @@ import ESInputDatePicker from "../ESInputDatePicker";
 import { formatDate } from "../ESInputDate/ESInputDate.utils";
 
 /**
- * ESInputDate Component
+ * ESInputDateRange Component
  *
- * Input box (underlying is an input text box) that allows selection of a date range.
+ * Input box (underlying is an ESInputText component) that allows selection of a date range.
+ *
  * Note that due to the custom nature of this component, it does not store the internal value as a formatted string, but rather a custom object of type `DateRange` with `start` and `end` properties, both of which are `Date` objects.
- * To access these values the component MUST be controlled. Attempting to use a ref to get the current value will only get you the formatted string value shown in the input box.
+ *
+ * To access these values the component must be controlled. Attempting to use a ref to get the current value will only get you the formatted string value shown in the input box, but a ref can still be passed in for other purposes.
  *
  * @param {ESInputDateRangeProps} props
  * @returns {React.ReactElement}
  */
-const ESInputDateRange: React.FC<ESInputDateRangeProps> = ({
+export function ESInputDateRange({
   variant = "primary",
   className,
   error,
@@ -26,7 +28,7 @@ const ESInputDateRange: React.FC<ESInputDateRangeProps> = ({
   onChange,
   dateSettings,
   ...props
-}) => {
+}: ESInputDateRangeProps) {
   const [_value, setValue] = React.useState<DateRange>(defaultValue ?? {});
 
   const onChangeDateRangeFactory = React.useCallback(
@@ -87,14 +89,13 @@ const ESInputDateRange: React.FC<ESInputDateRangeProps> = ({
           dateSettings={dateSettings}
           value={_value.start}
           onChange={onChangeDateRangeFactory("start")}
-          dateRange
           rangeEndValue={_value.end}
           onChangeRangeEnd={onChangeDateRangeFactory("end")}
         />
       )}
     </div>
   );
-};
+}
 
 ESInputDateRange.displayName = "ESInputDateRange";
 

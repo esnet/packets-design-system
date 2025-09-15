@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputDate } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ESInputDate } from "@esnet/packets-ui/src/components/ESInputDate/ESInputDate.tsx";
 import * as React from "react";
 
 const meta: Meta<typeof ESInputDate> = {
