@@ -16,7 +16,7 @@ const ESInputDatePickerDate = ({
   settings,
   value,
   onChange,
-  dateRange = false,
+  dateRangeMode = false,
   rangeEndValue,
   onChangeRangeEnd,
 }: ESInputDatePickerDateProps) => {
@@ -56,8 +56,7 @@ const ESInputDatePickerDate = ({
             dateInfo.toDateString() === value.toDateString() &&
             baseStyles.selected,
           dateInfo.toDateString() === new Date().toDateString() && styles.today,
-          // messy conditional styling handling date ranges
-          dateRange &&
+          dateRangeMode &&
             value &&
             rangeEndValue &&
             ((dateInfo.toDateString() === value.toDateString() && [
@@ -86,7 +85,7 @@ const ESInputDatePickerDate = ({
             value?.getSeconds() ?? 0,
             value?.getMilliseconds() ?? 0
           );
-          if (!dateRange) {
+          if (!dateRangeMode) {
             onChange?.(dateInfo);
           } else {
             // if there is no first date, or both dates are selected (re-selecting range), set the first date to a new date
@@ -117,17 +116,13 @@ const ESInputDatePickerDate = ({
     );
   }, [
     viewDate,
-    dateRange,
+    dateRangeMode,
     value,
     rangeEndValue,
     firstSelectedDate,
     onChange,
     onChangeRangeEnd,
   ]);
-
-  React.useEffect(() => {
-    console.log("firstSelectedDate changed:", firstSelectedDate);
-  }, [firstSelectedDate]);
 
   const monthMenu = React.useMemo(() => {
     const onClickMonthFactory = (

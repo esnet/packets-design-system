@@ -52,7 +52,7 @@ const ESInputDatePicker: React.FC<ESInputDatePickerProps> = ({
             settings={dateSettings}
             value={value}
             onChange={onChange}
-            dateRange
+            isDateRange
             rangeEndValue={rangeEndValue}
             onChangeRangeEnd={onChangeRangeEnd}
           />
