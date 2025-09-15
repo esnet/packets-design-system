@@ -90,8 +90,9 @@
   display: grid;
   height: 100%;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--esnet-size-spacing-medium, 1rem);
+  gap: var(--esnet-size-spacing-small, 0.75rem);
   place-items: center;
+  min-width: 224px;
 }
 
 .monthGridButton {
@@ -114,6 +115,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--esnet-size-spacing-xxsmall, 0.25rem);
   place-items: center;
+  min-width: 224px;
 }
 
 .yearGridButton {

@@ -36,6 +36,14 @@ type Story = StoryObj<typeof ESInputDatePicker>;
 
 export const Default: Story = {};
 
+export const DateRangeWithValues: Story = {
+  args: {
+    type: "daterange",
+    value: new Date(2025, 8, 10),
+    rangeEndValue: new Date(2025, 8, 20),
+  },
+};
+
 export const TwentyFourHourClockWith1IntervalsTimePicker: Story = {
   args: {
     type: "time",
