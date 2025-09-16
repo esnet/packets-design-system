@@ -30,8 +30,14 @@
           700 12px/120% var(--esnet-font-family-body-sans));
     }
 
-    &:last-child::after {
-      content: none;
+    &:last-child {
+      a {
+        text-decoration: none !important;
+      }
+
+      &::after {
+        content: none;
+      }
     }
   }
 }
