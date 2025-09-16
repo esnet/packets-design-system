@@ -1,6 +1,6 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESBreadcrumbs } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ESBreadcrumbs } from "@esnet/packets-ui/src/components/ESBreadcrumbs/ESBreadcrumbs.tsx";
+import { defaultRenderLink } from "@esnet/packets-ui/src/lib/utils/link.js";
 
 const meta: Meta<typeof ESBreadcrumbs> = {
   title: "Components/ESBreadcrumbs",
@@ -11,6 +11,15 @@ const meta: Meta<typeof ESBreadcrumbs> = {
       control: { control: "object" },
       defaultValue: [],
     },
+    renderLink: {
+      type: "function",
+      control: false,
+      table: {
+        type: {
+          summary: "(linkProps: LinkType) => React.ReactNode",
+        },
+      },
+    },
   },
 };
 
@@ -18,14 +27,7 @@ export default meta;
 
 type Story = StoryObj<typeof ESBreadcrumbs>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultBreadcrumbs: Story = {
-  render: (props) => <ESBreadcrumbs breadcrumbs={props.breadcrumbs} />,
-  name: "Breadcrumb Example",
+export const Default: Story = {
   args: {
     breadcrumbs: [
       {
@@ -41,11 +43,11 @@ export const DefaultBreadcrumbs: Story = {
         children: "THX-1138",
       },
     ],
+    renderLink: defaultRenderLink,
   },
 };
 
 export const ExternalLinksBreadcrumbs: Story = {
-  render: (props) => <ESBreadcrumbs breadcrumbs={props.breadcrumbs} />,
   name: "External Links Example",
   args: {
     breadcrumbs: [
@@ -60,5 +62,58 @@ export const ExternalLinksBreadcrumbs: Story = {
         children: "Faster Data",
       },
     ],
+  },
+};
+
+const code = `<ESBreadcrumbs
+  breadcrumbs={[
+    {
+      href: "/",
+      children: "Home",
+    },
+    {
+      href: "/circuits",
+      children: "Circuits",
+    },
+    {
+      href: "/circuits/THX-1138",
+      children: "THX-1138",
+    },
+  ]}
+  renderLink={(linkProps) => (
+    <h5>
+      <a href={linkProps.href}>Custom Text - {linkProps.children}</a>
+    </h5>
+  )}
+/>;`;
+
+export const CustomRenderLink: Story = {
+  args: {
+    breadcrumbs: [
+      {
+        href: "/",
+        children: "Home",
+      },
+      {
+        href: "/circuits",
+        children: "Circuits",
+      },
+      {
+        href: "/circuits/THX-1138",
+        children: "THX-1138",
+      },
+    ],
+    renderLink: (linkProps) => (
+      <h5>
+        <a href={linkProps.href}>Custom Text - {linkProps.children}</a>
+      </h5>
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code,
+      },
+    },
   },
 };

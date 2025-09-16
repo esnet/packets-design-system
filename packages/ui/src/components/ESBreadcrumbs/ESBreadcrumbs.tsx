@@ -1,5 +1,5 @@
 import React from "react";
-import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
+import { ESBreadcrumbsProps } from "./ESBreadcrumbs.types";
 
 import { defaultRenderLink } from "../../lib/utils/link";
 
@@ -8,28 +8,42 @@ import styles from "./ESBreadcrumbs.module.css";
 /**
  * ESBreadcrumbs Component
  *
- * Factory component that intakes an array of bread crumb objects (href, and copy)
- * and returns a bread crumbs formatted component.
+ * Takes in an array of breadcrumb objects, which have a required href and children attribute.
  *
- * @param {BreadcrumbsProps} props
+ * @param {ESBreadcrumbsProps} props
  * @returns {React.FunctionComponent}
+ * @example
+ * <ESBreadcrumbs
+ *   breadcrumbs={[
+ *     {
+ *       href: "/",
+ *       children: "Home",
+ *     },
+ *     {
+ *       href: "/docs",
+ *       children: "Docs",
+ *     },
+ *     {
+ *       href: "/docs/version3",
+ *       children: "Version 3",
+ *     },
+ *   ]}
+ * />;
  */
-const ESBreadcrumbs: React.FC<BreadcrumbsProps> = ({
+export function ESBreadcrumbs({
   breadcrumbs = [],
   renderLink = defaultRenderLink,
-}) => {
+}: ESBreadcrumbsProps) {
   return (
     <ul className={`${styles.ESBreadCrumbs}`}>
-      {breadcrumbs.map((breadcrumb, index) => {
-        return (
-          <li className={styles.breadCrumb} key={`breadcrumb-list-${index}`}>
-            {renderLink(breadcrumb)}
-          </li>
-        );
-      })}
+      {breadcrumbs.map((breadcrumb, index) => (
+        <li className={styles.breadCrumb} key={`breadcrumb-list-${index}`}>
+          {renderLink(breadcrumb)}
+        </li>
+      ))}
     </ul>
   );
-};
+}
 
 ESBreadcrumbs.displayName = "ESBreadcrumbs";
 
