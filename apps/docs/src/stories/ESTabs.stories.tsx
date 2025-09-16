@@ -1,6 +1,6 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESTabs, ESTab } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ESTabs } from "@esnet/packets-ui/src/components/ESTabs/ESTabs.tsx";
+import { ESTab } from "@esnet/packets-ui/src/components/ESTabs/ESTab.tsx";
 
 const meta: Meta<typeof ESTabs> = {
   title: "Components/ESTabs",
@@ -12,65 +12,30 @@ export default meta;
 
 type Story = StoryObj<typeof ESTabs>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultTabsExample: Story = {
-  render: (props) => (
-    <>
-      <ESTabs {...props}>
-        <ESTab isActive={true}>
-          <a href="#" target="_self">
-            Link 1
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 2
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 3
-          </a>
-        </ESTab>
-      </ESTabs>
-    </>
-  ),
+export const Default: Story = {
   name: "ESTabs Example",
   args: {
     border: true,
-    verticalPadding: true,
+    children: [
+      <ESTab active>Tab 1</ESTab>,
+      <ESTab>Tab 2</ESTab>,
+      <ESTab>Tab 3</ESTab>,
+    ],
   },
 };
 
-export const NoBorderTabsExample: Story = {
-  render: (props) => (
-    <>
-      <ESTabs {...props}>
-        <ESTab isActive={true}>
-          <a href="#" target="_self">
-            Link 1
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 2
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 3
-          </a>
-        </ESTab>
-      </ESTabs>
-    </>
-  ),
-  name: "ESTabs No Border",
+export const FullWidthAndBranded: Story = {
   args: {
-    border: false,
-    verticalPadding: true,
+    fullWidth: true,
+    branded: true,
+    children: [
+      <ESTab>Individuals</ESTab>,
+      <ESTab>Business</ESTab>,
+      <ESTab active>Enterprise</ESTab>,
+    ],
   },
+};
+
+export const WorkingExample: Story = {
+  // example where there is a state managing and getting each tab index, then displaying a different panel based on
 };

@@ -1,6 +1,5 @@
-import React, { FC, useMemo } from "react";
+import React, { useMemo } from "react";
 import { ESTabsProps } from "./ESTabs.types";
-
 import styles from "./ESTabs.module.css";
 import ESTab from "./ESTab";
 import clsx from "clsx";
@@ -11,14 +10,15 @@ import clsx from "clsx";
  * Composable component that manages the layout of a list of tabs.
  *
  * @param {ESTabsProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactNode}
  */
-const ESTabs: FC<ESTabsProps> = ({
+export function ESTabs({
   children,
-  className,
-  border = false,
-  verticalPadding = true,
-}) => {
+  border,
+  branded,
+  fullWidth,
+  ...props
+}: ESTabsProps) {
   const tabChildren = useMemo(() => {
     return React.Children.toArray(children).filter(
       (child) => (child as React.ReactElement).type !== ESTab.displayName
@@ -26,18 +26,20 @@ const ESTabs: FC<ESTabsProps> = ({
   }, [children]);
 
   return (
-    <section
+    <nav
       className={clsx(
         styles.ESTabs,
-        border && styles.hasBorder,
-        !verticalPadding && styles.noPadding,
-        className
+        branded && styles.branded,
+        border && styles.border,
+        fullWidth && styles.fullWidth,
+        props.className
       )}
+      {...props}
     >
       <ul className={styles.tabList}>{tabChildren}</ul>
-    </section>
+    </nav>
   );
-};
+}
 
 ESTabs.displayName = "ESTabs";
 

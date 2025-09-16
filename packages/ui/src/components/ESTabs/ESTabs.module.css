@@ -1,31 +1,17 @@
 .ESTabs {
-  --tabGaps: var(--esnet-size-spacing-xxsmall, 4px);
-
   display: block;
-  padding: var(--esnet-size-spacing-xxsmall, 4px);
   width: fit-content;
-  margin-bottom: var(--esnet-size-spacing-large, 32px);
+  box-sizing: border-box;
+  padding: var(--esnet-size-spacing-xxsmall, 4px);
 
+  border-radius: var(--esnet-size-radius-xlarge, 8px);
   background: var(--esnet-color-light-surface-1, #e3e3e3);
-  border-radius: var(--esnet-size-spacing-xsmall, 8px);
 
   :global(.dark) & {
     background: var(--esnet-color-dark-surface-1, #3d3d3d);
   }
 
-  >.tabList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-
-    gap: var(--tabGaps, 4px);
-  }
-
-  &.hasBorder {
-    border-radius: var(--esnet-size-spacing-xsmall, 8px);
+  &.border {
     border: var(--esnet-size-border-width-small, 2px) solid var(--esnet-color-core-white-200, #f2f2f2);
 
     :global(.dark) & {
@@ -33,7 +19,79 @@
     }
   }
 
-  &.noPadding {
-    margin-bottom: 0;
+  &.fullWidth {
+    width: 100%;
+  }
+}
+
+.tabList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--esnet-size-spacing-xxsmall, 4px);
+}
+
+li.tabWrapper {
+  display: contents;
+}
+
+.ESTab {
+  flex: 1;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--esnet-size-spacing-xxsmall, 4px) var(--esnet-size-spacing-xsmall, 8px);
+  border-radius: var(--esnet-size-radius-xlarge, 8px);
+  transition: background ease-in var(--esnet-time-duration-short, 100ms);
+  background-color: transparent;
+
+  font: var(--esnet-typography-copy-1-sans-font, 400 16px/120% var(--esnet-font-family-body-sans));
+
+  color: var(--esnet-color-light-copy, #3d3d3d);
+
+  :global(.dark) & {
+    color: var(--esnet-color-dark-copy, #ffffff);
+  }
+
+  &.active {
+    background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-core-slate-1000, #30333b);
+    }
+  }
+
+  .branded &.active {
+    background-color: var(--esnet-color-light-primary, #0088b5);
+    color: var(--esnet-color-dark-copy, #ffffff);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-primary, #00b6f2);
+      color: var(--esnet-color-dark-copy, #ffffff);
+    }
+  }
+
+  &:hover {
+    background-color: var(--esnet-color-core-white-700, #C2C2C2);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-core-black-300, #5e5e5e);
+    }
+  }
+
+  &:focus {
+    background-color: var(--esnet-color-core-white-800, #b3b3b3);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-core-black-200, #656566);
+    }
+  }
+
+  &:disabled {
+    /* hard coded (seen in Figma specs) */
+    opacity: 0.2;
   }
 }
