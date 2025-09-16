@@ -6,6 +6,10 @@ import { ESFigureProps } from "./ESFigure.types";
 /**
  * ESFigure Component. Takes in a figure component (can be a table, image, etc.) and a text caption, rendering the caption underneath the figure.
  *
+ * By default, the figure wrapper is `width: 100%`, and so whatever is inside should also expand to fill this space.
+ * To change the size of the figure wrapper, use CSS styling for the wrapper, not the actual inner figure itself.
+ * Changing the inner figure child will not affect the figure wrapper's `width: 100%`.
+ *
  * @param {ESFigureProps} props
  * @returns {React.ReactElement}
  */
