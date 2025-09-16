@@ -5,6 +5,7 @@ import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import { ESBreadcrumbsProps } from "../ESBreadcrumbs.types";
 import ESBreadcrumbs from "../ESBreadcrumbs";
 import { defaultRenderLink } from "../../../lib/utils/link";
+
 test.describe("ESBreadcrumbs", () => {
   const breadcrumbs = [
     {
@@ -28,14 +29,19 @@ test.describe("ESBreadcrumbs", () => {
           breadcrumbs,
         },
       },
-      {
-        name: "different-rendering",
-        props: {
-          breadcrumbs: breadcrumbs,
-          renderLink: (linkProps) => linkProps.children,
-          // renderLink: (linkProps) => <a {...linkProps}>{linkProps.children}</a>,
-        },
-      },
+      // playwright-ct is incapable of handling "live objects" like functions, thus it's not possible to test a custom renderLink easily
+      // https://playwright.dev/docs/test-components#test-stories
+      //   {
+      //     name: "different-rendering",
+      //     props: {
+      //       breadcrumbs,
+      //       renderLink: (linkProps) => (
+      //         <h6>
+      //           <a {...linkProps}>{linkProps.children}</a>
+      //         </h6>
+      //       ),
+      //     },
+      //   },
     ],
     themes: ["light", "dark"],
     actionStates: [],
@@ -50,6 +56,8 @@ test.describe("ESBreadcrumbs", () => {
       );
       test(`${name}-${theme}`, async ({ mount }) => {
         const component = await mount(testBox);
+        await component.getByRole("link").first().focus();
+        await component.getByRole("link").nth(1).hover();
         await expect(component).toHaveScreenshot();
       });
     });
