@@ -12,7 +12,8 @@
   }
 
   &.border {
-    border: var(--esnet-size-border-width-small, 2px) solid var(--esnet-color-core-white-200, #f2f2f2);
+    border: var(--esnet-size-border-width-small, 2px) solid
+      var(--esnet-color-core-white-200, #f2f2f2);
 
     :global(.dark) & {
       border-color: var(--esnet-color-core-black-400, #565657);
@@ -43,12 +44,17 @@ li.tabWrapper {
   outline: none;
   border: none;
   cursor: pointer;
-  padding: var(--esnet-size-spacing-xxsmall, 4px) var(--esnet-size-spacing-xsmall, 8px);
+  min-width: fit-content;
+  padding: var(--esnet-size-spacing-xxsmall, 4px)
+    var(--esnet-size-spacing-xsmall, 8px);
   border-radius: var(--esnet-size-radius-xlarge, 8px);
   transition: background ease-in var(--esnet-time-duration-short, 100ms);
   background-color: transparent;
 
-  font: var(--esnet-typography-copy-1-sans-font, 400 16px/120% var(--esnet-font-family-body-sans));
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
 
   color: var(--esnet-color-light-copy, #3d3d3d);
 
@@ -75,7 +81,7 @@ li.tabWrapper {
   }
 
   &:hover {
-    background-color: var(--esnet-color-core-white-700, #C2C2C2);
+    background-color: var(--esnet-color-core-white-700, #c2c2c2);
 
     :global(.dark) & {
       background-color: var(--esnet-color-core-black-300, #5e5e5e);
