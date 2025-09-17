@@ -14,9 +14,9 @@ import clsx from "clsx";
  */
 export function ESTabs({
   children,
-  border,
-  branded,
-  fullWidth,
+  border = true,
+  branded = false,
+  fullWidth = false,
   ...props
 }: ESTabsProps) {
   const tabChildren = useMemo(() => {

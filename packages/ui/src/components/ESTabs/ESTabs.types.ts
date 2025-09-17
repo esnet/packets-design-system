@@ -5,7 +5,7 @@ export interface ESTabProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   /** Whether the tab is active or not. */
   active?: boolean;
-  /** Optional callback handler when a tab is clicked. */
+  /** Optional callback handler when a tab is clicked. Useful to set a tab index state and conditionally render tab panels. */
   onTabSelect?: () => void;
 }
 

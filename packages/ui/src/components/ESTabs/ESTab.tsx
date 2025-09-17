@@ -7,7 +7,7 @@ import clsx from "clsx";
 /**
  * ESTab Component
  *
- *
+ * To be used to compose the ESTabs component.
  *
  * @param {ESTabsProps} props
  * @returns {React.FunctionComponent}
