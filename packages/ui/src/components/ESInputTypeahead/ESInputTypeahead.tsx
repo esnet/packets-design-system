@@ -12,6 +12,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import clsx from "clsx";
 import useControllableState from "../../lib/hooks/useControllableState";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
+import ESChip from "../ESChip";
+import ESChipGroup from "../ESChipGroup";
 
 /**
  * ESInputTypeahead Component
@@ -75,12 +77,38 @@ export function ESInputTypeahead({
     onChange: onSelectedOptionsChange,
   });
 
-  //TODO: convert to use chips
+  const toggleOptionFactory = React.useCallback(
+    (option: OptionType, selected: boolean) => () => {
+      setSelectedOptionIds((prev) => {
+        if (selected) {
+          return prev.filter((optionId) => optionId !== option.id);
+        }
+        return [...prev, option.id];
+      });
+      inputSearchRef.current?.focus();
+    },
+    []
+  );
+
   const selectedOptionsComponent = useMemo(() => {
     const options = selectedOptionIds
-      .map((optionId) => optionsMap[optionId].value ?? undefined)
+      .map((optionId) => optionsMap[optionId] ?? undefined)
       .filter((option) => option !== undefined);
-    return <div className={styles.selectedOptionsWrapper}>{options}</div>;
+    const chips = options.map((option, i) => (
+      <ESChip
+        onDelete={toggleOptionFactory(option, true)}
+        rounded={false}
+        {...option.chipProps}
+        key={`typeahead-option-${option.id}-${i}`}
+      >
+        {option.value}
+      </ESChip>
+    ));
+    return (
+      <ESChipGroup className={styles.selectedOptionsWrapper}>
+        {chips}
+      </ESChipGroup>
+    );
   }, [selectedOptionIds]);
 
   // 2) state relating to the typeahead search feature
@@ -100,19 +128,6 @@ export function ESInputTypeahead({
     if (!disabled) setDropdownOpen(true);
   };
   const closeDropdown = () => setDropdownOpen(false);
-
-  const toggleOptionFactory = React.useCallback(
-    (option: OptionType, selected: boolean) => () => {
-      setSelectedOptionIds((prev) => {
-        if (selected) {
-          return prev.filter((optionId) => optionId !== option.id);
-        }
-        return [...prev, option.id];
-      });
-      inputSearchRef.current?.focus();
-    },
-    []
-  );
 
   const searchedDropdownOptions = useMemo(() => {
     const token = search.toLowerCase().trim();
@@ -152,7 +167,7 @@ export function ESInputTypeahead({
       return "No results available.";
     }
     if (search === "") {
-      return "Showing all results.";
+      return "Showing all results. Type in the input above to search results.";
     }
     return (
       <>

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { ReactNode, MouseEventHandler, ComponentPropsWithRef } from "react";
+import { ESChipProps } from "../ESChip/ESChip.types";
 
 export interface ESInputTypeaheadProps
   extends Omit<
@@ -43,6 +44,8 @@ export type OptionType = {
   unselectedIcon?: ReactNode;
   /** Lucide icon component to be rendered for selected state, prepended to text. Defaults to 'check' icon. */
   selectedIcon?: ReactNode;
+  /** When selected, the option is shown as a chip at the top of the box. You can pass props to the chip via this prop. */
+  chipProps?: ESChipProps;
 };
 
 /**

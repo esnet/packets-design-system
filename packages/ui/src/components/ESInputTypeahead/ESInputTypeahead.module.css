@@ -89,11 +89,8 @@
 }
 
 .selectedOptionsWrapper {
-  display: flex;
+  display: flex !important;
   gap: var(--esnet-size-spacing-xsmall, 0.125rem);
-  flex-wrap: wrap;
-  min-height: 0;
-  height: fit-content;
   padding: var(--esnet-size-spacing-xsmall, 8px)
     var(--esnet-size-spacing-xsmall, 8px) 0;
 }
