@@ -13,12 +13,13 @@ export interface ESInputTypeaheadProps
    * which have a required `id` string to show selected and `value` to render in dropdown,
    * as well as optional `id` string, and `unselectedIcon` and `selectedIcon` slot for customization of icon. */
   options: OptionType[];
-  /** Controllable array of selected options. */
-  selectedOptionsValue?: OptionType[];
-  /** Default selected options. */
-  defaultSelectedOptionsValue?: OptionType[];
+
+  /** Controllable array of selected Ids, which should be keys of options. */
+  selectedIdsValue?: OptionId[];
+  /** Default array of selected options. */
+  defaultSelectedIdsValue?: OptionId[];
   /** Callback to whenever the selected options change, which is whenever the user checks/unchecks an option. */
-  onSelectedOptionsChange?: (selectedOptions?: OptionType[]) => void;
+  onSelectedOptionsChange?: (selectedOptions?: OptionId[]) => void;
 
   /** Controllable search value, the value used to search through the given options array. */
   searchValue?: string;
@@ -28,12 +29,14 @@ export interface ESInputTypeaheadProps
   onSearchChange?: (search?: string) => void;
 }
 
+export type OptionId = string;
+
 /**
  * List of objects that are passed to the typeahead
  */
 export type OptionType = {
   /** Required ID used to search/filter option results in the typeahead. */
-  id: string;
+  id: OptionId;
   /** Required value to render as text on the option in the dropdown. */
   value: string;
   /** Lucide icon component to be rendered for unselected state, prepended to text. Defaults to 'square' icon. */

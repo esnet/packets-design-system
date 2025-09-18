@@ -1,14 +1,11 @@
-import React, {
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useMemo, useState } from "react";
 
 import styles from "./ESInputTypeahead.module.css";
-import { OptionType, ESInputTypeaheadProps } from "./ESInputTypeahead.types";
+import {
+  OptionType,
+  ESInputTypeaheadProps,
+  OptionId,
+} from "./ESInputTypeahead.types";
 
 import ESDropdownOption from "./ESInputTypeaheadOption";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -41,15 +38,15 @@ export function ESInputTypeahead({
   error = false,
   disabled = false,
   options = [],
-  selectedOptionsValue,
-  defaultSelectedOptionsValue = [],
+  selectedIdsValue,
+  defaultSelectedIdsValue = [],
   onSelectedOptionsChange,
   searchValue,
   defaultSearchValue = "",
   onSearchChange,
   ...props
 }: ESInputTypeaheadProps) {
-  /**
+  /*
    * ESInputTypeahead is composed of three parts (ordered by visual top to bottom appearance)
    * 1) The currently selected options
    * 2) The input for searching through selected options
@@ -60,19 +57,31 @@ export function ESInputTypeahead({
    * and you can fetch it's value with a ref to a hidden input storing the value.
    */
 
+  // transform the options array into a map with keys that are useful when creating a set of selected keys
+  const optionsMap = useMemo(
+    () => Object.fromEntries(options.map((option) => [option.id, option])),
+    [options]
+  );
+
   // 1) state relating to currently selected options
-  const [selectedOptions, setSelectedOptions] = useControllableState<
-    OptionType[]
+  // I once considered using a set (JS's Set object) to represent the selectedOptions
+  // but after experimentation, I've found Sets to be awful (and slower dependong on size) to arrays
+  // and in React? Where you have to copy the previous state to the new state? Even worse. Absolute disdain.
+  const [selectedOptionIds, setSelectedOptionIds] = useControllableState<
+    OptionId[]
   >({
-    value: selectedOptionsValue,
-    defaultValue: defaultSelectedOptionsValue,
+    value: selectedIdsValue,
+    defaultValue: defaultSelectedIdsValue,
     onChange: onSelectedOptionsChange,
   });
 
+  //TODO: convert to use chips
   const selectedOptionsComponent = useMemo(() => {
-    const options = selectedOptions.map((option) => option.value);
+    const options = selectedOptionIds
+      .map((optionId) => optionsMap[optionId].value ?? undefined)
+      .filter((option) => option !== undefined);
     return <div className={styles.selectedOptionsWrapper}>{options}</div>;
-  }, [selectedOptions]);
+  }, [selectedOptionIds]);
 
   // 2) state relating to the typeahead search feature
   const [search, setSearch] = useControllableState<string>({
@@ -94,14 +103,11 @@ export function ESInputTypeahead({
 
   const toggleOptionFactory = React.useCallback(
     (option: OptionType, selected: boolean) => () => {
-      setSelectedOptions((prev) => {
-        // filter out the one
+      setSelectedOptionIds((prev) => {
         if (selected) {
-          return prev.filter(
-            (selectedOptions) => selectedOptions.id !== option.id
-          );
+          return prev.filter((optionId) => optionId !== option.id);
         }
-        return [...prev, option];
+        return [...prev, option.id];
       });
       inputSearchRef.current?.focus();
     },
@@ -122,8 +128,8 @@ export function ESInputTypeahead({
   const dropdownOptionsComponent = useMemo(() => {
     const token = search.toLowerCase().trim();
     const dropdownOptions = searchedDropdownOptions.map((option, i) => {
-      const selected = selectedOptions.some(
-        (selected) => selected.id === option.id
+      const selected = selectedOptionIds.some(
+        (optionId) => optionId === option.id
       );
       const onOptionClick = toggleOptionFactory(option, selected);
       return (
@@ -139,7 +145,7 @@ export function ESInputTypeahead({
     return (
       <div className={styles.dropdownOptionsWrapper}>{dropdownOptions}</div>
     );
-  }, [selectedOptions, searchedDropdownOptions]);
+  }, [selectedOptionIds, searchedDropdownOptions]);
 
   return (
     <div
@@ -162,7 +168,10 @@ export function ESInputTypeahead({
           <input
             {...props}
             type="hidden"
-            value={selectedOptions.map((option) => option.value).join(",")}
+            value={selectedOptionIds
+              .map((optionId) => optionsMap[optionId] ?? undefined)
+              .filter((value) => value !== undefined)
+              .join(",")}
           />
 
           {/* Input for the typeahead search */}
