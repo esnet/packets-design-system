@@ -197,9 +197,9 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--esnet-color-light-surface-1);
+      background-color: var(--esnet-color-light-background);
       :global(.dark) & {
-        background-color: var(--esnet-color-dark-surface-1);
+        background-color: var(--esnet-color-dark-background);
       }
     }
 
@@ -220,7 +220,7 @@
       color: var(--esnet-color-light-primary, #0088b5);
 
       :global(.dark) & {
-        color: var(--esnet-color-dark-primary, #004573);
+        color: var(--esnet-color-dark-secondary, #004573);
       }
     }
   }
