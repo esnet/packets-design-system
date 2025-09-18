@@ -12,16 +12,16 @@ import ESIcon from "../ESIcon";
  * @param {ESChipProps} props
  * @returns {React.ReactElement}
  */
-const ESChip: React.FC<ESChipProps> = ({
+export function ESChip({
   variant = "primary",
-  className,
   rounded = true,
   prepend,
   append,
   onDelete,
   children,
+  className,
   ...props
-}) => {
+}: ESChipProps) {
   const _onClick = React.useMemo(
     () => onDelete || props.onClick || undefined,
     [onDelete, props.onClick]
@@ -45,7 +45,7 @@ const ESChip: React.FC<ESChipProps> = ({
       {onDelete && <ESIcon name="x" className={styles.delete} />}
     </button>
   );
-};
+}
 
 ESChip.displayName = "ESChip";
 

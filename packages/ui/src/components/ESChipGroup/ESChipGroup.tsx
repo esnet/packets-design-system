@@ -11,9 +11,9 @@ import ESChip from "../ESChip/ESChip";
  * If a child is not a chip component, it is not rendered.
  *
  * @param {ESChipGroupProps} props
- * @returns {React.ReactNode}
+ * @returns {React.ReactElement}
  */
-const ESChipGroup: React.FC<ESChipGroupProps> = ({ className, children }) => {
+export function ESChipGroup({ className, children }: ESChipGroupProps) {
   const chipChildren = React.useMemo(() => {
     return React.Children.toArray(children).filter(
       (child) => (child as React.ReactElement).type !== ESChip.displayName
@@ -22,7 +22,7 @@ const ESChipGroup: React.FC<ESChipGroupProps> = ({ className, children }) => {
   return (
     <div className={clsx(styles.ESChipGroup, className)}>{chipChildren}</div>
   );
-};
+}
 
 ESChipGroup.displayName = "ESChipGroup";
 

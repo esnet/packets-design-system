@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ESAvatar, ESChip, ESIcon } from "@esnet/packets-ui";
+import { ESAvatar, ESIcon } from "@esnet/packets-ui";
+import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
 import * as React from "react";
 
 const meta: Meta<typeof ESChip> = {
