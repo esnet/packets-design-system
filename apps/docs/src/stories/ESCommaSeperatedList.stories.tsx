@@ -1,5 +1,5 @@
 import React from "react";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESCommaSeperatedList } from "@esnet/packets-ui";
 
