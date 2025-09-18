@@ -1,5 +1,5 @@
-import React from "react";
-import { ESInputTypeaheadOptionProps } from "./ESInputTypeahead.types";
+import React, { useMemo } from "react";
+import { DropdownOptionProps as ESDropdownOptionProps } from "./ESInputTypeahead.types";
 
 import styles from "./ESInputTypeahead.module.css";
 import { Check, Square } from "lucide-react";
@@ -19,45 +19,42 @@ function matchToken(
   return [before, match, after];
 }
 
-const ESInputTypeaheadOption = ({
+const ESDropdownOption = ({
   selected,
   token,
   onClick,
   optionData,
-}: ESInputTypeaheadOptionProps) => {
-  const { id, value } = optionData;
+}: ESDropdownOptionProps) => {
+  const {
+    value,
+    unselectedIcon = <Check className={styles.checked} />,
+    selectedIcon = <Square />,
+  } = optionData;
 
-  let text;
-  if (typeof value === "string") {
-    const out = matchToken(value, token);
-    if (!out) {
-      console.log(out);
-      text = value;
-    } else {
-      const [before, match, after] = out;
-      console.log(before, "|", match, "|", after);
-      text = (
-        <>
-          {before}
-          <strong>{match}</strong>
-          {after}
-        </>
-      );
-    }
-  } else {
-    text = value;
-  }
+  const text = useMemo(() => {
+    const tokenMatch = matchToken(value, token);
+    if (!tokenMatch) return value;
+
+    const [before, match, after] = tokenMatch;
+    return (
+      <>
+        {before}
+        <strong>{match}</strong>
+        {after}
+      </>
+    );
+  }, [token, value]);
 
   return (
-    <div
+    <button
       onClick={onClick}
       tabIndex={0}
-      className={`${styles.ESInputTypeaheadOption}`}
+      className={`${styles.dropdownOption}`}
     >
-      {selected ? <Check className={styles.checked} /> : <Square />}
-      <span>{text}</span>
-    </div>
+      {selected ? unselectedIcon : selectedIcon}
+      <span className={styles.optionLabel}>{text}</span>
+    </button>
   );
 };
 
-export default ESInputTypeaheadOption;
+export default ESDropdownOption;

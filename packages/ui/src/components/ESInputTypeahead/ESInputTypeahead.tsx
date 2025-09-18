@@ -3,19 +3,29 @@ import React, {
   useEffect,
   useImperativeHandle,
   useMemo,
+  useRef,
+  useState,
 } from "react";
 
 import styles from "./ESInputTypeahead.module.css";
-import {
-  ESInputTypeaheadOptionType,
-  ESInputTypeaheadProps,
-} from "./ESInputTypeahead.types";
+import { OptionType, ESInputTypeaheadProps } from "./ESInputTypeahead.types";
 
-import ESInputTypeaheadOption from "./ESInputTypeaheadOption";
+import ESDropdownOption from "./ESInputTypeaheadOption";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import clsx from "clsx";
+import useControllableState from "../../lib/hooks/useControllableState";
+import useOutsideClick from "../../lib/hooks/useOutsideClick";
 
 /**
  * ESInputTypeahead Component
+ *
+ * The typeahead consists of two HTML input parts: the selected options (the value of main interest) and the search value
+ *
+ * This component mimics HTML input components as closely as possible, being able to be controlled or uncontrolled based on it's given props.
+ *
+ * If uncontrolled, the selected options can be acquired via ref, be it on form submission or a ref passed in.
+ * A hidden input with the name matching the given prop `name` has the `value` of the current option's values, comma separated.
+ * A text input with the name matching `${name}-typeahead-search` matching the given prop `name` has the `value` of the current search value.
  *
  * TODO: Add chip as selected option component
  * TODO: Add functionality where pressing backspace pops selected option components
@@ -26,175 +36,175 @@ import { ChevronDown, ChevronUp } from "lucide-react";
  * @param {ESInputTypeaheadProps} props
  * @returns {React.ReactElement}
  */
-const ESInputTypeahead: React.FC<ESInputTypeaheadProps> = ({
-  className = "",
-  variant = "default",
+export function ESInputTypeahead({
+  variant = "primary",
   error = false,
   disabled = false,
-  defaultValue = "",
-  defaultOptions = [],
   options = [],
-  ref,
-  selectedOptionsRef,
+  selectedOptionsValue,
+  defaultSelectedOptionsValue = [],
   onSelectedOptionsChange,
+  searchValue,
+  defaultSearchValue = "",
+  onSearchChange,
   ...props
-}) => {
-  // Logic to handle the selected options, and how parent components can access them and changes in them
-  const [selectedOptions, setSelectedOptions] =
-    React.useState<ESInputTypeaheadOptionType[]>(defaultOptions);
-  useImperativeHandle(selectedOptionsRef, () => selectedOptions, [
-    selectedOptions,
-  ]);
-  useEffect(() => {
-    if (onSelectedOptionsChange) {
-      onSelectedOptionsChange(selectedOptions);
-    }
-  }, [selectedOptions, onSelectedOptionsChange]);
+}: ESInputTypeaheadProps) {
+  /**
+   * ESInputTypeahead is composed of three parts (ordered by visual top to bottom appearance)
+   * 1) The currently selected options
+   * 2) The input for searching through selected options
+   * 3) The dropdown for the (filtered) options, to be selected
+   *
+   * This component can be controlled or uncontrolled.
+   * During uncontrolled behavior, this component tries it's best to mimic an HTML input component,
+   * and you can fetch it's value with a ref to a hidden input storing the value.
+   */
 
-  // Logic to handle handle the current typeahead value
-  const [inputValue, setInputValue] = React.useState(defaultValue as string);
-  const filteredOptions = React.useMemo(() => {
-    const token = inputValue.toLowerCase().trim();
-    // if no token is specified, act as if there is no filter, show all options
-    if (!token) {
-      return options;
-    }
-    return options.filter((option) =>
-      option.value?.toString().toLowerCase().includes(token)
-    );
-  }, [inputValue, options]);
+  // 1) state relating to currently selected options
+  const [selectedOptions, setSelectedOptions] = useControllableState<
+    OptionType[]
+  >({
+    value: selectedOptionsValue,
+    defaultValue: defaultSelectedOptionsValue,
+    onChange: onSelectedOptionsChange,
+  });
 
-  const _onChange = React.useCallback<
-    React.ChangeEventHandler<HTMLInputElement>
-  >(
-    (event) => {
-      setInputValue(event.target.value);
-      if (props.onChange) {
-        props.onChange(event);
-      }
-    },
-    [props.onChange]
-  );
+  const selectedOptionsComponent = useMemo(() => {
+    const options = selectedOptions.map((option) => option.value);
+    return <div className={styles.selectedOptionsWrapper}>{options}</div>;
+  }, [selectedOptions]);
 
-  const toggleOption = useCallback(
-    (option: ESInputTypeaheadOptionType, isSelected: boolean) => {
-      setSelectedOptions((prevSelected) => {
-        if (isSelected) {
-          return prevSelected.filter((selected) => selected.id !== option.id);
-        } else {
-          return [...prevSelected, option];
+  // 2) state relating to the typeahead search feature
+  const [search, setSearch] = useControllableState<string>({
+    value: searchValue,
+    defaultValue: defaultSearchValue,
+    onChange: onSearchChange,
+  });
+  const inputSearchRef = React.useRef<HTMLInputElement | null>(null);
+
+  // 3) dropdown related component to show searched options
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  // if user clicks outside the wrapping div, close the dropdown
+  useOutsideClick(containerRef, () => setDropdownOpen(false));
+  const openDropdown = () => {
+    if (!disabled) setDropdownOpen(true);
+  };
+  const closeDropdown = () => setDropdownOpen(false);
+
+  const toggleOptionFactory = React.useCallback(
+    (option: OptionType, selected: boolean) => () => {
+      setSelectedOptions((prev) => {
+        // filter out the one
+        if (selected) {
+          return prev.filter(
+            (selectedOptions) => selectedOptions.id !== option.id
+          );
         }
+        return [...prev, option];
       });
-      inputRef.current?.focus();
+      inputSearchRef.current?.focus();
     },
     []
   );
 
-  const filteredOptionsComponents = useMemo(() => {
-    return filteredOptions.map((option) => {
-      const isSelected = selectedOptions.some(
+  const searchedDropdownOptions = useMemo(() => {
+    const token = search.toLowerCase().trim();
+    if (!token) {
+      return options;
+    }
+    // TODO: regex this
+    return options.filter((option) =>
+      option.value.toLowerCase().includes(token)
+    );
+  }, [search, options]);
+
+  const dropdownOptionsComponent = useMemo(() => {
+    const token = search.toLowerCase().trim();
+    const dropdownOptions = searchedDropdownOptions.map((option, i) => {
+      const selected = selectedOptions.some(
         (selected) => selected.id === option.id
       );
-      const onOptionClick = () => toggleOption(option, isSelected);
+      const onOptionClick = toggleOptionFactory(option, selected);
       return (
-        <ESInputTypeaheadOption
+        <ESDropdownOption
           onClick={onOptionClick}
-          selected={isSelected}
-          token={inputValue}
-          key={option.id}
+          selected={selected}
+          token={token}
+          key={"typeahead-option-" + i}
           optionData={option}
         />
       );
     });
-  }, [filteredOptions, selectedOptions, inputValue, toggleOption]);
-
-  // Logic to handle if the input element is being focused, which controls if typeahead options are shown
-  const [inputFocused, _setInputFocused] = React.useState(false);
-  const setInputFocused = disabled ? () => {} : _setInputFocused;
-  const inputRef = React.useRef<HTMLInputElement | null>(null);
-  const focus = useCallback(() => setInputFocused(true), []);
-  const onBlurCapture = useCallback<React.FocusEventHandler<HTMLDivElement>>(
-    (e) => {
-      if (!e.currentTarget.contains(e.relatedTarget)) {
-        setInputFocused(false);
-      }
-    },
-    []
-  );
-
-  const baseClasses = [
-    styles.ESInputTypeahead,
-    styles[variant],
-    error ? styles.error : "",
-    disabled ? styles.disabled : "",
-    inputFocused ? styles["focused"] : "",
-    className,
-  ].join(" ");
+    return (
+      <div className={styles.dropdownOptionsWrapper}>{dropdownOptions}</div>
+    );
+  }, [selectedOptions, searchedDropdownOptions]);
 
   return (
     <div
-      onFocus={focus}
-      onClick={focus}
-      onBlurCapture={onBlurCapture}
-      className={baseClasses}
+      onFocus={openDropdown}
+      onClick={openDropdown}
+      className={clsx(
+        styles.ESInputTypeahead,
+        variant && styles[variant],
+        error && styles.error,
+        disabled && styles.disabled
+      )}
+      ref={containerRef}
+      aria-disabled={disabled}
     >
-      <div className={`${styles.ESInputTypeaheadTop}`}>
-        <div className={`${styles.ESInputTypeaheadInputContainer}`}>
-          <div>
-            {selectedOptions.map((option) => (
-              /* TODO: replace with ESChip element */
-              <div key={option.id}>
-                {option.id}: {option.value}
-              </div>
-            ))}
-          </div>
+      <div className={`${styles.inputBox}`}>
+        <div className={`${styles.optionsAndInputWrapper}`}>
+          {selectedOptionsComponent}
 
+          {/* Hidden input for storing the raw value options as an array of text values. */}
           <input
             {...props}
-            ref={(el) => {
-              // complicated silly way to allow this input to have 2 refs, one internal one external from props
-              inputRef.current = el;
-              if (typeof ref === "function") {
-                ref(el);
-              } else if (ref && "current" in ref) {
-                (
-                  ref as React.MutableRefObject<HTMLInputElement | null>
-                ).current = el;
-              }
-            }}
+            type="hidden"
+            value={selectedOptions.map((option) => option.value).join(",")}
+          />
+
+          {/* Input for the typeahead search */}
+          <input
+            name={props.name ? `${props.name}-typeahead-search` : undefined}
             disabled={disabled}
-            onChange={_onChange}
+            placeholder={props.placeholder}
             type="text"
-            value={inputValue}
+            onChange={(e) => setSearch(e.target.value)}
+            ref={inputSearchRef}
+            value={search}
+            className={styles.searchInput}
           />
         </div>
-        {inputFocused ? (
+
+        {dropdownOpen ? (
           <ChevronUp
-            className={styles.disabled}
-            onClick={() => setInputFocused(false)}
+            className={styles.dropdownIcon}
+            onClick={(e) => {
+              e.stopPropagation();
+              closeDropdown();
+            }}
           />
         ) : (
-          <ChevronDown
-            className={styles.disabled}
-            onClick={() => setInputFocused(true)}
-          />
+          <ChevronDown className={styles.dropdownIcon} onClick={openDropdown} />
         )}
       </div>
 
-      {inputFocused && (
-        <div tabIndex={-1} className={`${styles.ESInputTypeaheadBottom}`}>
+      {dropdownOpen && (
+        <div tabIndex={-1} className={`${styles.dropdown}`}>
           <hr />
-          <span>
-            <strong>{filteredOptions.length}</strong> results for &quot;
-            <strong>{inputValue}</strong>
+          <span className={styles.resultInfo}>
+            <strong>{searchedDropdownOptions.length}</strong> results for &quot;
+            <strong>{search}</strong>
             &quot;
           </span>
-          <div>{filteredOptionsComponents}</div>
+          {dropdownOptionsComponent}
         </div>
       )}
     </div>
   );
-};
+}
 
 ESInputTypeahead.displayName = "ESInputTypeahead";
 
