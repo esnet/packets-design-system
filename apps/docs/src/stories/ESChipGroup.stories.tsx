@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESChipGroup, ESChip, ESIcon, ESAvatar } from "@esnet/packets-ui";
-import { fn } from "@storybook/test";
 
 const meta: Meta<typeof ESChipGroup> = {
   title: "Components/ESChipGroup",
   component: ESChipGroup,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  subcomponents: { ESChip },
   parameters: {
     design: {
       type: "figma",
@@ -23,27 +21,40 @@ type Story = StoryObj<typeof ESChipGroup>;
 
 export const Example: Story = {
   args: {
-    children: (
-      <>
-        <ESChip label="Foo Chip" />
-        <ESChip label="Bar Chip" />
-        <ESChip label="Baz Chip" />
-      </>
-    ),
+    children: [
+      <ESChip>Foo Chip</ESChip>,
+      <ESChip>Bar Chip</ESChip>,
+      <ESChip>Baz Chip</ESChip>,
+    ],
   },
 };
 
 export const Example2: Story = {
   args: {
-    children: Array.from({ length: 25 }, (_, i) => (
+    children: Array.from({ length: 24 }, (_, i) => (
       <ESChip
-        label={`CHIP-${i.toString().padStart(6, "0")}`}
         key={i}
         prepend={<ESAvatar alt={i.toString().padStart(2, "0")} size="small" />}
         variant="outline"
         rounded={false}
-        onDelete={fn()}
-      />
+        onDelete={() => {}}
+      >{`CHIP-${i.toString().padStart(6, "0")}`}</ESChip>
+    )),
+  },
+};
+
+export const SeveralVariants: Story = {
+  args: {
+    children: Array.from({ length: 9 }).map((_, i) => (
+      <ESChip
+        variant={i % 2 === 0 ? "outline" : "primary"}
+        rounded={i % 3 === 0}
+        onDelete={i % 5 === 0 ? () => {} : undefined}
+        prepend={i % 7 === 0 ? <ESAvatar alt="CH" size="small" /> : undefined}
+        key={i}
+      >
+        CHIP-XYZ{`${i}`.repeat(i + 1)}
+      </ESChip>
     )),
   },
 };
@@ -56,19 +67,13 @@ export const Example3: Story = {
       "bookmark-minus",
       "bookmark-plus",
       "bookmark-x",
-    ].map((icon) => (
-      <>
-        <ESChip
-          prepend={<ESIcon name={icon as any} />}
-          label={icon}
-          onDelete={fn()}
-        />
-        <ESChip
-          prepend={<ESIcon name={icon as any} />}
-          label={icon}
-          onDelete={fn()}
-        />
-      </>
-    )),
+    ].map((icon) => [
+      <ESChip prepend={<ESIcon name={icon as any} />} onDelete={() => {}}>
+        {icon}
+      </ESChip>,
+      <ESChip prepend={<ESIcon name={icon as any} />} onDelete={() => {}}>
+        {icon}
+      </ESChip>,
+    ]),
   },
 };
