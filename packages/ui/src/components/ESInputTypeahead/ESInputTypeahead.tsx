@@ -37,7 +37,7 @@ export function ESInputTypeahead({
   variant = "primary",
   error = false,
   disabled = false,
-  options = [],
+  options,
   selectedIdsValue,
   defaultSelectedIdsValue = [],
   onSelectedOptionsChange,
@@ -147,6 +147,22 @@ export function ESInputTypeahead({
     );
   }, [selectedOptionIds, searchedDropdownOptions]);
 
+  const resultsInfo = useMemo(() => {
+    if (options.length === 0) {
+      return "No results available.";
+    }
+    if (search === "") {
+      return "Showing all results.";
+    }
+    return (
+      <>
+        <strong>{searchedDropdownOptions.length}</strong> results for &quot;
+        <strong>{search}</strong>
+        &quot;
+      </>
+    );
+  }, [options, search]);
+
   return (
     <div
       onFocus={openDropdown}
@@ -203,11 +219,7 @@ export function ESInputTypeahead({
       {dropdownOpen && (
         <div tabIndex={-1} className={`${styles.dropdown}`}>
           <hr />
-          <span className={styles.resultInfo}>
-            <strong>{searchedDropdownOptions.length}</strong> results for &quot;
-            <strong>{search}</strong>
-            &quot;
-          </span>
+          <span className={styles.resultInfo}>{resultsInfo}</span>
           {dropdownOptionsComponent}
         </div>
       )}
