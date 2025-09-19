@@ -5,10 +5,6 @@
   width: 100%;
   outline: none;
   overflow: hidden;
-  /* &:not(&.focused) {
-    padding: var(--esnet-size-spacing-xsmall, 8px);
-  }
-  padding-top: var(--esnet-size-spacing-xsmall, 8px); */
 
   /* Styling */
   background-color: var(--esnet-color-core-white-100, #ffffff);
@@ -86,6 +82,9 @@
 .optionsAndInputWrapper {
   flex: 1;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esnet-size-spacing-xxsmall, 4px);
 }
 
 .selectedOptionsWrapper {
@@ -104,6 +103,10 @@
   height: 100%;
   padding: 0 var(--esnet-size-spacing-xsmall, 8px)
     var(--esnet-size-spacing-xsmall, 8px);
+
+  &.noOptionsSelected {
+    padding: var(--esnet-size-spacing-xsmall, 8px);
+  }
 
   /* Pseudo-elements */
   &::placeholder {
@@ -134,7 +137,10 @@
 
 .dropdownIcon {
   cursor: pointer;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding-right: var(--esnet-size-spacing-xsmall, 8px);
+  /* to match that found in ESInputText */
+  width: 20px;
+  height: 20px;
 }
 
 .disabled {
@@ -194,15 +200,16 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--esnet-color-light-background);
+      background-color: var(--esnet-color-light-background, #cccccc);
       :global(.dark) & {
-        background-color: var(--esnet-color-dark-background);
+        background-color: var(--esnet-color-dark-background, #252526);
       }
     }
 
     > svg {
       flex-shrink: 0;
-      height: 100%;
+      width: 20px;
+      height: 20px;
     }
 
     .optionLabel {

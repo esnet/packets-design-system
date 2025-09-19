@@ -14,6 +14,7 @@ import useControllableState from "../../lib/hooks/useControllableState";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESChip from "../ESChip";
 import ESChipGroup from "../ESChipGroup";
+import ESIcon from "../ESIcon";
 
 /**
  * ESInputTypeahead Component
@@ -26,11 +27,9 @@ import ESChipGroup from "../ESChipGroup";
  * A hidden input with the name matching the given prop `name` has the `value` of the current option's values, comma separated.
  * A text input with the name matching `${name}-typeahead-search` matching the given prop `name` has the `value` of the current search value.
  *
- * TODO: Add chip as selected option component
  * TODO: Add functionality where pressing backspace pops selected option components
  * TODO: Write tests
- * TODO: Write stories and documentation
- * TODO: Aria accessbility- what is this div? this component
+ * TODO: ARIA the wrapping div
  *
  * @param {ESInputTypeaheadProps} props
  * @returns {React.ReactElement}
@@ -91,6 +90,9 @@ export function ESInputTypeahead({
   );
 
   const selectedOptionsComponent = useMemo(() => {
+    if (selectedOptionIds.length === 0) {
+      return undefined;
+    }
     const options = selectedOptionIds
       .map((optionId) => optionsMap[optionId] ?? undefined)
       .filter((option) => option !== undefined);
@@ -192,7 +194,7 @@ export function ESInputTypeahead({
       aria-disabled={disabled}
     >
       <div className={`${styles.inputBox}`}>
-        <div className={`${styles.optionsAndInputWrapper}`}>
+        <div className={clsx(styles.optionsAndInputWrapper)}>
           {selectedOptionsComponent}
 
           {/* Hidden input for storing the raw value options as an array of text values. */}
@@ -214,12 +216,16 @@ export function ESInputTypeahead({
             onChange={(e) => setSearch(e.target.value)}
             ref={inputSearchRef}
             value={search}
-            className={styles.searchInput}
+            className={clsx(
+              styles.searchInput,
+              selectedOptionIds.length === 0 && styles.noOptionsSelected
+            )}
           />
         </div>
 
         {dropdownOpen ? (
-          <ChevronUp
+          <ESIcon
+            name="chevron-down"
             className={styles.dropdownIcon}
             onClick={(e) => {
               e.stopPropagation();
@@ -227,7 +233,11 @@ export function ESInputTypeahead({
             }}
           />
         ) : (
-          <ChevronDown className={styles.dropdownIcon} onClick={openDropdown} />
+          <ESIcon
+            name="chevron-up"
+            className={styles.dropdownIcon}
+            onClick={openDropdown}
+          />
         )}
       </div>
 
