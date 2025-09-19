@@ -1,10 +1,12 @@
 .ESInputTypeahead {
   /* Layout */
   display: inline-flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
+  height: fit-content;
   outline: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   /* Styling */
   background-color: var(--esnet-color-core-white-100, #ffffff);
@@ -70,6 +72,8 @@
 }
 
 .inputBox {
+  width: 100%;
+  height: 100%;
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -96,7 +100,6 @@
 
 .searchInput {
   all: unset;
-  box-sizing: border-box;
   font: inherit;
   color: inherit;
   width: 100%;
@@ -134,20 +137,11 @@
   }
 }
 
-.dropdownIconButton {
-  outline: none;
-  background: transparent;
-  border: 0;
-  color: inherit;
+.dropdownIcon {
   cursor: pointer;
-  padding: 0;
-  height: 100%;
   padding-right: var(--esnet-size-spacing-xsmall, 0.5rem);
-
-  .dropdownIcon {
-    width: 20px;
-    height: 20px;
-  }
+  width: 20px;
+  height: 20px;
 }
 
 .disabled {
@@ -155,23 +149,20 @@
 }
 
 .dropdown {
-  /* position: absolute; */
+  position: absolute;
+  top: 101%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding-top: var(--esnet-size-spacing-xsmall, 8px);
 
-  > hr {
-    all: unset;
-    margin: 0 var(--esnet-size-spacing-xsmall, 8px)
-      var(--esnet-size-spacing-xsmall, 8px);
-    height: var(--esnet-size-border-width-xsmall, 1px);
-
-    background-color: var(--esnet-color-light-copy-alt, #6e6e70);
-    /* Dark Mode */
-    :global(.dark) & {
-      background-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
-    }
+  background: var(--esnet-color-light-surface-2);
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-2);
   }
+
+  box-shadow: var(--esnet-box-shadow-core-medium);
 
   .resultInfo {
     padding: 0 var(--esnet-size-spacing-xsmall, 8px);
@@ -183,7 +174,7 @@
   }
 
   .dropdownOptionsWrapper {
-    max-height: 150px;
+    max-height: 272px;
     overflow-x: hidden;
     padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
   }
@@ -193,6 +184,7 @@
     padding: var(--esnet-size-spacing-xsmall, 8px);
     padding-right: var(--esnet-size-spacing-xxsmall, 4px);
     width: 100%;
+
     outline: none;
     align-items: center;
     gap: var(--esnet-size-spacing-xsmall, 8px);
@@ -207,9 +199,9 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      background-color: var(--esnet-color-light-background, #cccccc);
+      background-color: var(--esnet-color-light-surface-1, #cccccc);
       :global(.dark) & {
-        background-color: var(--esnet-color-dark-background, #252526);
+        background-color: var(--esnet-color-dark-surface-1, #252526);
       }
     }
 

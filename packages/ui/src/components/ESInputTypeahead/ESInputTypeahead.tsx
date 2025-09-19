@@ -26,8 +26,23 @@ import ESIcon from "../ESIcon";
  * A hidden input with the name matching the given prop `name` has the `value` of the current option's values, comma separated.
  * A text input with the name matching `${name}-typeahead-search` matching the given prop `name` has the `value` of the current search value.
  *
- * TODO: Write tests
- * TODO: ARIA the wrapping div
+ * The options prop accepts an array of options, which have the following interface:
+ *
+ * ```ts
+ * type OptionId = string;
+ * export type OptionType = {
+ *   // Required ID used to search/filter option results in the typeahead.
+ *   id: OptionId;
+ *   // Required value to render as text on the option in the dropdown.
+ *   value: string;
+ *   // Lucide icon component to be rendered for unselected state, prepended to text. Defaults to 'square' icon.
+ *   unselectedIcon?: ReactNode;
+ *   // Lucide icon component to be rendered for selected state, prepended to text. Defaults to 'check' icon.
+ *   selectedIcon?: ReactNode;
+ *   // When selected, the option is shown as a chip at the top of the box. You can pass props to the chip via this prop.
+ *   chipProps?: ESChipProps;
+ * };
+ * ```
  *
  * @param {ESInputTypeaheadProps} props
  * @returns {React.ReactElement}
@@ -204,6 +219,7 @@ export function ESInputTypeahead({
           <input
             {...props}
             type="hidden"
+            style={{ display: "none" }}
             value={selectedOptionIds
               .map((optionId) => optionsMap[optionId] ?? undefined)
               .filter((value) => value !== undefined)
@@ -227,29 +243,30 @@ export function ESInputTypeahead({
           />
         </div>
 
-        <button className={styles.dropdownIconButton}>
-          {dropdownOpen ? (
-            <ESIcon
-              name="chevron-down"
-              className={styles.dropdownIcon}
-              onClick={(e) => {
-                e.stopPropagation();
-                closeDropdown();
-              }}
-            />
-          ) : (
-            <ESIcon
-              name="chevron-up"
-              className={styles.dropdownIcon}
-              onClick={openDropdown}
-            />
-          )}
-        </button>
+        {dropdownOpen ? (
+          <ESIcon
+            name="chevron-down"
+            className={styles.dropdownIcon}
+            onClick={(e) => {
+              e.stopPropagation();
+              closeDropdown();
+            }}
+          />
+        ) : (
+          <ESIcon
+            name="chevron-up"
+            className={styles.dropdownIcon}
+            onClick={openDropdown}
+          />
+        )}
       </div>
 
       {dropdownOpen && (
-        <div tabIndex={-1} className={`${styles.dropdown}`}>
-          <hr />
+        <div
+          role="listbox"
+          aria-label="Typeahead Dropdown Options"
+          className={`${styles.dropdown}`}
+        >
           <span className={styles.resultInfo}>{resultsInfo}</span>
           {dropdownOptionsComponent}
         </div>

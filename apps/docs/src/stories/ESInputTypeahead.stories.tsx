@@ -13,6 +13,16 @@ const meta: Meta<typeof ESInputTypeahead> = {
       url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4478-110&p=f&t=wFd5nwUZcysZsqKH-0",
     },
   },
+  decorators: [
+    // a larger height to fully view the absolutely dropdown
+    (Story) => (
+      <div style={{ minHeight: 280 }}>
+        <div style={{ position: "relative" }}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
 };
 
 export default meta;
