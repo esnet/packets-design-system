@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { KeyboardEventHandler, useMemo, useState } from "react";
 
 import styles from "./ESInputTypeahead.module.css";
 import {
@@ -8,7 +8,6 @@ import {
 } from "./ESInputTypeahead.types";
 
 import ESDropdownOption from "./ESInputTypeaheadOption";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import clsx from "clsx";
 import useControllableState from "../../lib/hooks/useControllableState";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
@@ -27,7 +26,6 @@ import ESIcon from "../ESIcon";
  * A hidden input with the name matching the given prop `name` has the `value` of the current option's values, comma separated.
  * A text input with the name matching `${name}-typeahead-search` matching the given prop `name` has the `value` of the current search value.
  *
- * TODO: Add functionality where pressing backspace pops selected option components
  * TODO: Write tests
  * TODO: ARIA the wrapping div
  *
@@ -66,7 +64,7 @@ export function ESInputTypeahead({
 
   // 1) state relating to currently selected options
   // I once considered using a set (JS's Set object) to represent the selectedOptions
-  // but after experimentation, I've found Sets to be awful (and slower dependong on size) to arrays
+  // but after experimentation, sets are awful and slower for small amounts compared to arrays
   // and in React? Where you have to copy the previous state to the new state? Even worse. Absolute disdain.
   const [selectedOptionIds, setSelectedOptionIds] = useControllableState<
     OptionId[]
@@ -120,6 +118,12 @@ export function ESInputTypeahead({
     onChange: onSearchChange,
   });
   const inputSearchRef = React.useRef<HTMLInputElement | null>(null);
+  // if there's no search value and backspace is pressed, then pop the last ID
+  const popSelectedOption: KeyboardEventHandler = (e) => {
+    if (e.key === "Backspace" && search.length === 0) {
+      setSelectedOptionIds((prev) => prev.slice(0, -1));
+    }
+  };
 
   // 3) dropdown related component to show searched options
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -136,7 +140,6 @@ export function ESInputTypeahead({
     if (!token) {
       return options;
     }
-    // TODO: regex this
     return options.filter((option) =>
       option.value.toLowerCase().includes(token)
     );
@@ -216,6 +219,7 @@ export function ESInputTypeahead({
             onChange={(e) => setSearch(e.target.value)}
             ref={inputSearchRef}
             value={search}
+            onKeyDown={popSelectedOption}
             className={clsx(
               styles.searchInput,
               selectedOptionIds.length === 0 && styles.noOptionsSelected
@@ -223,22 +227,24 @@ export function ESInputTypeahead({
           />
         </div>
 
-        {dropdownOpen ? (
-          <ESIcon
-            name="chevron-down"
-            className={styles.dropdownIcon}
-            onClick={(e) => {
-              e.stopPropagation();
-              closeDropdown();
-            }}
-          />
-        ) : (
-          <ESIcon
-            name="chevron-up"
-            className={styles.dropdownIcon}
-            onClick={openDropdown}
-          />
-        )}
+        <button className={styles.dropdownIconButton}>
+          {dropdownOpen ? (
+            <ESIcon
+              name="chevron-down"
+              className={styles.dropdownIcon}
+              onClick={(e) => {
+                e.stopPropagation();
+                closeDropdown();
+              }}
+            />
+          ) : (
+            <ESIcon
+              name="chevron-up"
+              className={styles.dropdownIcon}
+              onClick={openDropdown}
+            />
+          )}
+        </button>
       </div>
 
       {dropdownOpen && (
