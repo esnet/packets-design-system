@@ -38,9 +38,7 @@ function useControllableState<T>({
       let nextValue;
       if (typeof next === "function") {
         nextValue = (next as (prevState: T) => T)(prev);
-        console.log("nbot pranked????!!!!", nextValue);
       } else {
-        console.log("pranked!!!!");
         nextValue = next;
       }
       onChange(nextValue);

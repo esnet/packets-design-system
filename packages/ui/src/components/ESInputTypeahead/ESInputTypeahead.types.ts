@@ -28,6 +28,9 @@ export interface ESInputTypeaheadProps
   defaultSearchValue?: string;
   /** Callback to whenever the search value option changes. */
   onSearchChange?: (search: string) => void;
+
+  /** Whether to render a loading state. Defaults to false. */
+  loading?: boolean;
 }
 
 export type OptionId = string;

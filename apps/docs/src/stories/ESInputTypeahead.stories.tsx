@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESInputTypeahead } from "@esnet/packets-ui/src/components/ESInputTypeahead/ESInputTypeahead.tsx";
 import { useState } from "react";
-import { ESButton, ESLabel } from "@esnet/packets-ui";
+import { ESButton, ESLabel, OptionType } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESInputTypeahead> = {
   title: "Components/ESInputTypeahead",
@@ -73,15 +73,14 @@ export const ControlledExample: Story = {
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
     return (
-      <div className="p-4 space-y-4">
-        <div className="mt-2">
+      <div>
+        <div>
           <strong>Live Value:</strong>{" "}
           {selectedIds ? selectedIds.join(", ") : "[empty]"}{" "}
           <strong>Live Search Value:</strong> {search ?? "[empty] "}
         </div>
-        <ESLabel htmlFor="typeahead-form-name" label="Typeahead Options">
+        <ESLabel label="Typeahead Options">
           <ESInputTypeahead
-            name="typeahead-form-name"
             options={options}
             searchValue={search}
             onSearchChange={setSearch}
@@ -116,9 +115,9 @@ export const UncontrolledExample: Story = {
       setSubmittedValue(`option Ids: ${value}, search value: ${searchValue}`);
     };
     return (
-      <div className="p-4 space-y-4">
+      <div>
         {
-          <div className="mt-2">
+          <div>
             <strong>Submitted Value:</strong>{" "}
             {submittedValue ? submittedValue : "[empty]"}
           </div>
@@ -127,15 +126,59 @@ export const UncontrolledExample: Story = {
           <ESLabel htmlFor="typeahead-form-name" label="Typeahead Options">
             <ESInputTypeahead name="typeahead-form-name" options={options} />
           </ESLabel>
-          <ESButton
-            variant="primary"
-            type="submit"
-            className="px-4 py-2 bg-blue-600 text-white rounded"
-          >
+          <ESButton variant="primary" type="submit">
             Submit
           </ESButton>
         </form>
       </div>
     );
+  },
+};
+
+/**
+ * If you want to load in new values based on the search value you can use `onSearchChange` in conjunction with `loading` props. The `setTimeout` is meant to simulate fetching from an API.
+ *
+ * Type into the search, and results will load in.
+ */
+export const LoadingExample: Story = {
+  render: () => {
+    const [options, setOptions] = useState<OptionType[]>([]);
+    const [search, setSearch] = useState<string>("");
+    const [loading, setLoading] = useState(false);
+    const onSearchChange = (next: string) => {
+      setSearch(next);
+      setLoading(true);
+
+      setTimeout(() => {
+        setLoading(false);
+        setOptions((prev) => [
+          ...prev,
+          { id: next, value: next + "-1" },
+          { id: next, value: next + "-2" },
+        ]);
+      }, 500);
+    };
+
+    return (
+      <ESLabel label="Typeahead Options">
+        <ESInputTypeahead
+          options={options}
+          searchValue={search}
+          onSearchChange={onSearchChange}
+          loading={loading}
+        />
+      </ESLabel>
+    );
+  },
+};
+
+export const BrandedAndErrorAndDisabled: Story = {
+  args: {
+    variant: "branded",
+    error: true,
+    disabled: true,
+    options: options,
+    selectedIdsValue: ["option-1", "option-2"],
+    searchValue: "disabled search",
   },
 };

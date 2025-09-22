@@ -60,6 +60,7 @@ export function ESInputTypeahead({
   searchValue,
   defaultSearchValue = "",
   onSearchChange,
+  loading = false,
   ...props
 }: ESInputTypeaheadProps) {
   /*
@@ -116,6 +117,7 @@ export function ESInputTypeahead({
       <ESChip
         onDelete={toggleOptionFactory(option, true)}
         rounded={false}
+        disabled={disabled}
         {...option.chipProps}
         key={`typeahead-option-${option.id}-${i}`}
       >
@@ -189,6 +191,9 @@ export function ESInputTypeahead({
   }, [selectedOptionIds, searchedDropdownOptions]);
 
   const resultsInfo = useMemo(() => {
+    if (loading) {
+      return "Loading...";
+    }
     if (options.length === 0) {
       return "No results available.";
     }
@@ -202,7 +207,7 @@ export function ESInputTypeahead({
         &quot;
       </>
     );
-  }, [options, search]);
+  }, [options, search, loading]);
 
   return (
     <div
@@ -243,6 +248,7 @@ export function ESInputTypeahead({
             onKeyDown={onSearchKeyDown}
             className={clsx(
               styles.searchInput,
+              styles[variant],
               selectedOptionIds.length === 0 && styles.noOptionsSelected
             )}
             autoComplete="off"
@@ -252,17 +258,16 @@ export function ESInputTypeahead({
         {dropdownOpen ? (
           <ESIcon
             name="chevron-down"
-            className={styles.dropdownIcon}
+            className={clsx(styles.dropdownIcon, styles[variant])}
             onClick={(e) => {
               e.stopPropagation();
               closeDropdown();
-              console.log("haha dont think so");
             }}
           />
         ) : (
           <ESIcon
             name="chevron-up"
-            className={styles.dropdownIcon}
+            className={clsx(styles.dropdownIcon, styles[variant])}
             onClick={openDropdown}
           />
         )}
@@ -275,7 +280,7 @@ export function ESInputTypeahead({
           className={`${styles.dropdown}`}
         >
           <span className={styles.resultInfo}>{resultsInfo}</span>
-          {dropdownOptionsComponent}
+          {loading ? null : dropdownOptionsComponent}
         </div>
       )}
     </div>
