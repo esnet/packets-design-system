@@ -19,7 +19,7 @@ function useControllableState<T>({
   /** Value that can be controlled or uncontrolled.  */
   value?: T;
   /** Calback when the value is changed. */
-  onChange?: (value?: T) => void;
+  onChange?: (value: T) => void;
 }) {
   const controlled = value !== undefined;
   // internal value and set value when uncontrolled
@@ -27,24 +27,26 @@ function useControllableState<T>({
 
   const setValue: React.Dispatch<SetStateAction<T>> = React.useCallback(
     (next: SetStateAction<T>) => {
+      const prev = controlled ? value : _value;
       if (!controlled) {
         _setValue(next);
       }
-    },
-    [controlled, onChange]
-  );
 
-  // why not just include it in the setValue function?
-  // because SetStateAction might accept a callback function
-  // in which case it's hard to get the next value from
-  // just wait for the value to be updated, then bam
-  useEffect(() => {
-    if (controlled) {
-      onChange?.(value);
-    } else {
-      onChange?.(_value);
-    }
-  }, [onChange, _value, value]);
+      if (!onChange) return;
+
+      // if onChange exists, determine the value to pass into it and call it
+      let nextValue;
+      if (typeof next === "function") {
+        nextValue = (next as (prevState: T) => T)(prev);
+        console.log("nbot pranked????!!!!", nextValue);
+      } else {
+        console.log("pranked!!!!");
+        nextValue = next;
+      }
+      onChange(nextValue);
+    },
+    [controlled, onChange, value, _value]
+  );
 
   return [controlled ? (value as T) : _value, setValue] as const;
 }

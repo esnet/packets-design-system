@@ -50,6 +50,7 @@ const ESDropdownOption = ({
       onClick={onClick}
       tabIndex={0}
       className={`${styles.dropdownOption}`}
+      type="button"
     >
       {selected ? unselectedIcon : selectedIcon}
       <span className={styles.optionLabel}>{text}</span>

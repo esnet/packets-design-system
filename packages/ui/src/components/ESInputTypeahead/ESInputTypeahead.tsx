@@ -23,8 +23,10 @@ import ESIcon from "../ESIcon";
  * This component mimics HTML input components as closely as possible, being able to be controlled or uncontrolled based on it's given props.
  *
  * If uncontrolled, the selected options can be acquired via ref, be it on form submission or a ref passed in.
- * A hidden input with the name matching the given prop `name` has the `value` of the current option's values, comma separated.
+ * A hidden input with the name matching the given prop `name` has the `id` of the selected options, comma separated.
  * A text input with the name matching `${name}-typeahead-search` matching the given prop `name` has the `value` of the current search value.
+ *
+ * When controlled, you have the option to both control the selected options, represented by a controllable array of option IDs (`selectedIdsValue`) and the search value (`searchValue`)
  *
  * The options prop accepts an array of options, which have the following interface:
  *
@@ -97,9 +99,10 @@ export function ESInputTypeahead({
         }
         return [...prev, option.id];
       });
+      // intentionally focus back on the input search ref for better UX
       inputSearchRef.current?.focus();
     },
-    []
+    [setSelectedOptionIds]
   );
 
   const selectedOptionsComponent = useMemo(() => {
@@ -134,7 +137,10 @@ export function ESInputTypeahead({
   });
   const inputSearchRef = React.useRef<HTMLInputElement | null>(null);
   // if there's no search value and backspace is pressed, then pop the last ID
-  const popSelectedOption: KeyboardEventHandler = (e) => {
+  const onSearchKeyDown: KeyboardEventHandler = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
     if (e.key === "Backspace" && search.length === 0) {
       setSelectedOptionIds((prev) => prev.slice(0, -1));
     }
@@ -217,17 +223,16 @@ export function ESInputTypeahead({
 
           {/* Hidden input for storing the raw value options as an array of text values. */}
           <input
-            {...props}
+            // {...props}
             type="hidden"
             style={{ display: "none" }}
-            value={selectedOptionIds
-              .map((optionId) => optionsMap[optionId] ?? undefined)
-              .filter((value) => value !== undefined)
-              .join(",")}
+            name={props.name} // only the form needs the name
+            value={selectedOptionIds.join(",")}
           />
 
           {/* Input for the typeahead search */}
           <input
+            id={props.name}
             name={props.name ? `${props.name}-typeahead-search` : undefined}
             disabled={disabled}
             placeholder={props.placeholder}
@@ -235,11 +240,12 @@ export function ESInputTypeahead({
             onChange={(e) => setSearch(e.target.value)}
             ref={inputSearchRef}
             value={search}
-            onKeyDown={popSelectedOption}
+            onKeyDown={onSearchKeyDown}
             className={clsx(
               styles.searchInput,
               selectedOptionIds.length === 0 && styles.noOptionsSelected
             )}
+            autoComplete="off"
           />
         </div>
 
@@ -250,6 +256,7 @@ export function ESInputTypeahead({
             onClick={(e) => {
               e.stopPropagation();
               closeDropdown();
+              console.log("haha dont think so");
             }}
           />
         ) : (

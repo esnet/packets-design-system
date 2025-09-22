@@ -1,1 +1,2 @@
-export { default } from './ESInputTypeahead';
+export { default } from "./ESInputTypeahead";
+export type { OptionType } from "./ESInputTypeahead.types";

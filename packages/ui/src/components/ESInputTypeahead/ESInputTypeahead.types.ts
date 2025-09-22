@@ -20,14 +20,14 @@ export interface ESInputTypeaheadProps
   /** Default array of selected options. */
   defaultSelectedIdsValue?: OptionId[];
   /** Callback to whenever the selected options change, which is whenever the user checks/unchecks an option. */
-  onSelectedOptionsChange?: (selectedOptions?: OptionId[]) => void;
+  onSelectedOptionsChange?: (selectedOptions: OptionId[]) => void;
 
   /** Controllable search value, the value used to search through the given options array. */
   searchValue?: string;
   /** Default search value. */
   defaultSearchValue?: string;
   /** Callback to whenever the search value option changes. */
-  onSearchChange?: (search?: string) => void;
+  onSearchChange?: (search: string) => void;
 }
 
 export type OptionId = string;
