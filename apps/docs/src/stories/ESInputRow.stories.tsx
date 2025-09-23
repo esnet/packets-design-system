@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ESInputEmail,
   ESInputPassword,
+  ESInputSwitch,
   ESInputText,
   ESModule,
 } from "@esnet/packets-ui";
@@ -60,7 +61,20 @@ export const RequiredTooltip: Story = {
   },
 };
 
-export const HasError: Story = {
+/**
+ * Even with switches, consider using `labelPlacement` as top. Below is set to left.
+ */
+export const LabelPlacementWithSwitch: Story = {
+  args: {
+    label: "Agree to Terms",
+    tooltip: "See terms elsewhere",
+    required: true,
+    children: <ESInputSwitch />,
+    labelPlacement: "left",
+  },
+};
+
+export const ExampleForm: Story = {
   render: (props) => {
     return (
       <ESModule title="Create Account">

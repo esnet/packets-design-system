@@ -20,6 +20,7 @@ export function ESInputRow({
   success = false,
   required = false,
   disabled = false,
+  labelPlacement = "top",
   tooltip,
   ...props
 }: ESInputRowProps) {
@@ -45,16 +46,18 @@ export function ESInputRow({
         </span>
       );
     }
-
-    return (
-      <span className={clsx(styles.caption, styles.hidden)}>Placeholder</span>
-    );
   }, [error, success]);
 
   return (
-    <label {...props} className={styles.ESLabel}>
+    <label
+      {...props}
+      className={clsx(styles.ESLabel, {
+        [styles.labelPlacementTop]: labelPlacement === "top",
+        [styles.labelPlacementLeft]: labelPlacement === "left",
+      })}
+    >
       <span
-        className={clsx(styles.text, disabled && styles.disabled)}
+        className={clsx(styles.label, disabled && styles.disabled)}
         title={tooltip}
       >
         {label}
