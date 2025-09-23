@@ -257,7 +257,7 @@ export function ESInputTypeahead({
 
         {dropdownOpen ? (
           <ESIcon
-            name="chevron-down"
+            name="chevron-up"
             className={clsx(styles.dropdownIcon, styles[variant])}
             onClick={(e) => {
               e.stopPropagation();
@@ -266,7 +266,7 @@ export function ESInputTypeahead({
           />
         ) : (
           <ESIcon
-            name="chevron-up"
+            name="chevron-down"
             className={clsx(styles.dropdownIcon, styles[variant])}
             onClick={openDropdown}
           />
