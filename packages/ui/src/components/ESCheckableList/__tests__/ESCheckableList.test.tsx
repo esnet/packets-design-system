@@ -4,7 +4,7 @@ import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableTyp
 import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import { ESCheckableListProps } from "../ESCheckableList.types";
 import ESCheckableList from "../ESCheckableList";
-import ESLabel from "../../ESLabel";
+import ESInputRow from "../../ESInputRow";
 import ESInputCheckbox from "../../ESInputCheckbox";
 import ESInputRadioButton from "../../ESInputRadioButton";
 test.describe("ESCheckableList", () => {
@@ -16,15 +16,15 @@ test.describe("ESCheckableList", () => {
           legend: "Checkbox Options",
           children: (
             <>
-              <ESLabel labelPlacement="right" label="NA-WEST-1">
+              <ESInputRow labelPlacement="right" label="NA-WEST-1">
                 <ESInputCheckbox />
-              </ESLabel>
-              <ESLabel labelPlacement="right" label="NA-WEST-2">
+              </ESInputRow>
+              <ESInputRow labelPlacement="right" label="NA-WEST-2">
                 <ESInputCheckbox />
-              </ESLabel>
-              <ESLabel labelPlacement="right" label="NA-WEST-3">
+              </ESInputRow>
+              <ESInputRow labelPlacement="right" label="NA-WEST-3">
                 <ESInputCheckbox />
-              </ESLabel>
+              </ESInputRow>
             </>
           ),
         },
@@ -35,15 +35,15 @@ test.describe("ESCheckableList", () => {
           legend: "Radio Options",
           children: (
             <>
-              <ESLabel labelPlacement="right" label="NA-WEST-1">
+              <ESInputRow labelPlacement="right" label="NA-WEST-1">
                 <ESInputRadioButton name="deployment" />
-              </ESLabel>
-              <ESLabel labelPlacement="right" label="NA-WEST-2">
+              </ESInputRow>
+              <ESInputRow labelPlacement="right" label="NA-WEST-2">
                 <ESInputRadioButton name="deployment" />
-              </ESLabel>
-              <ESLabel labelPlacement="right" label="NA-WEST-3">
+              </ESInputRow>
+              <ESInputRow labelPlacement="right" label="NA-WEST-3">
                 <ESInputRadioButton name="deployment" />
-              </ESLabel>
+              </ESInputRow>
             </>
           ),
         },
