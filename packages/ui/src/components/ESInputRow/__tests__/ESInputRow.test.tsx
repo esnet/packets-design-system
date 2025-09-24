@@ -9,6 +9,7 @@ import ESInputText from "../../ESInputText";
 import ESInputSearch from "../../ESInputSearch";
 import ESInputTextArea from "../../ESInputTextArea";
 import ESInputSwitch from "../../ESInputSwitch";
+import ESInputCheckbox from "../../ESInputCheckbox";
 
 test.describe("ESInputRow", () => {
   const { testTable, themes }: ComponentTestTableType<ESInputRowProps> = {
@@ -55,6 +56,16 @@ test.describe("ESInputRow", () => {
           tooltip: "Switch",
           labelPlacement: "left",
           children: <ESInputSwitch />,
+        },
+      },
+      {
+        name: "label-right-checkbox",
+        props: {
+          label: "Checkbox",
+          required: true,
+          success: "successful checkbox",
+          labelPlacement: "right",
+          children: <ESInputCheckbox />,
         },
       },
     ],
