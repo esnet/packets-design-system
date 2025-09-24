@@ -54,6 +54,8 @@ export function ESInputRow({
       className={clsx(styles.ESLabel, {
         [styles.labelPlacementTop]: labelPlacement === "top",
         [styles.labelPlacementLeft]: labelPlacement === "left",
+        [styles.labelPlacementRight]: labelPlacement === "right",
+        [styles.labelPlacementBottom]: labelPlacement === "bottom",
       })}
     >
       <span

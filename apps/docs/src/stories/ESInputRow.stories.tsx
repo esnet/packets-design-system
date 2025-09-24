@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
+  ESInputCheckbox,
   ESInputEmail,
   ESInputPassword,
   ESInputSwitch,
@@ -64,13 +65,25 @@ export const RequiredTooltip: Story = {
 /**
  * Even with switches, consider using `labelPlacement` as top. Below is set to left.
  */
-export const LabelPlacementWithSwitch: Story = {
+export const LabelPlacementLeftWithSwitch: Story = {
   args: {
     label: "Agree to Terms",
     tooltip: "See terms elsewhere",
     required: true,
     children: <ESInputSwitch />,
     labelPlacement: "left",
+    success: "success/error message would be placed here",
+  },
+};
+
+export const LabelPlacementRightWithCheckbox: Story = {
+  args: {
+    label: "Agree to Terms",
+    tooltip: "See terms elsewhere",
+    required: true,
+    labelPlacement: "right",
+    children: <ESInputCheckbox />,
+    error: "success/error message would be placed here",
   },
 };
 

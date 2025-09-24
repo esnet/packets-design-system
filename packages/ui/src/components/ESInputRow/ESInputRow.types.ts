@@ -19,6 +19,6 @@ export interface ESInputRowProps extends ComponentPropsWithoutRef<"label"> {
   required?: boolean;
   /** When provided, a question mark icon will appear to the right of the label, and when hovering, this tooltip text will be shown. */
   tooltip?: string;
-  /** Where to place the label, defaults to top. Use top for all text inputs, and only use left for non-full-width input cases such as switches. */
-  labelPlacement?: "top" | "left";
+  /** Where to place the label, defaults to top. Use top for all text inputs, and only use left and right for non-full-width input cases such as switches and check boxes. Bottom is left as an option, but should almost never be used. */
+  labelPlacement?: "top" | "left" | "right" | "bottom";
 }
