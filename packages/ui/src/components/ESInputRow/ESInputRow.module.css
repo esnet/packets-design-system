@@ -19,6 +19,7 @@
   }
 
   display: flex;
+  align-self: flex-start;
   &:has(input[type="checkbox"]),
   &:has(input[type="radio"]) {
     display: inline-flex;
