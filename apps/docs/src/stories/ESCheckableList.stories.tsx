@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ESCheckableList,
   ESInputCheckbox,
-  ESLabel,
+  ESInputRow,
   ESInputRadioButton,
 } from "@esnet/packets-ui";
 
@@ -29,15 +29,15 @@ export const Default: Story = {
     legend: "Deployment Options",
     children: (
       <>
-        <ESLabel labelPlacement="right" label="NA-WEST-1">
+        <ESInputRow labelPlacement="right" label="NA-WEST-1">
           <ESInputCheckbox />
-        </ESLabel>
-        <ESLabel labelPlacement="right" label="NA-WEST-2">
+        </ESInputRow>
+        <ESInputRow labelPlacement="right" label="NA-WEST-2">
           <ESInputCheckbox />
-        </ESLabel>
-        <ESLabel labelPlacement="right" label="NA-WEST-3">
+        </ESInputRow>
+        <ESInputRow labelPlacement="right" label="NA-WEST-3">
           <ESInputCheckbox />
-        </ESLabel>
+        </ESInputRow>
       </>
     ),
   },
@@ -48,15 +48,15 @@ export const RadioList: Story = {
     legend: "Deployment Options",
     children: (
       <>
-        <ESLabel labelPlacement="right" label="NA-WEST-1">
+        <ESInputRow labelPlacement="right" label="NA-WEST-1">
           <ESInputRadioButton name="deployment" />
-        </ESLabel>
-        <ESLabel labelPlacement="right" label="NA-WEST-2">
+        </ESInputRow>
+        <ESInputRow labelPlacement="right" label="NA-WEST-2">
           <ESInputRadioButton name="deployment" />
-        </ESLabel>
-        <ESLabel labelPlacement="right" label="NA-WEST-3">
+        </ESInputRow>
+        <ESInputRow labelPlacement="right" label="NA-WEST-3">
           <ESInputRadioButton name="deployment" />
-        </ESLabel>
+        </ESInputRow>
       </>
     ),
   },
@@ -68,27 +68,27 @@ export const NestedList: Story = {
     children: (
       <>
         <ESCheckableList legend="Meat">
-          <ESLabel labelPlacement="right" label="Carne Asada">
+          <ESInputRow labelPlacement="right" label="Carne Asada">
             <ESInputRadioButton name="taco_type" />
-          </ESLabel>
-          <ESLabel labelPlacement="right" label="Pollo">
+          </ESInputRow>
+          <ESInputRow labelPlacement="right" label="Pollo">
             <ESInputRadioButton name="taco_type" />
-          </ESLabel>
+          </ESInputRow>
         </ESCheckableList>
         <ESCheckableList legend="Add-Ons">
-          <ESLabel labelPlacement="right" label="Cilantro">
+          <ESInputRow labelPlacement="right" label="Cilantro">
             <ESInputCheckbox />
-          </ESLabel>
-          <ESLabel labelPlacement="right" label="Onions">
+          </ESInputRow>
+          <ESInputRow labelPlacement="right" label="Onions">
             <ESInputCheckbox />
-          </ESLabel>
-          <ESLabel labelPlacement="right" label="Salsa">
+          </ESInputRow>
+          <ESInputRow labelPlacement="right" label="Salsa">
             <ESInputCheckbox />
-          </ESLabel>
+          </ESInputRow>
         </ESCheckableList>
-        <ESLabel labelPlacement="right" label="Drink">
+        <ESInputRow labelPlacement="right" label="Drink">
           <ESInputCheckbox />
-        </ESLabel>
+        </ESInputRow>
       </>
     ),
   },
