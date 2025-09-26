@@ -38,17 +38,49 @@ export function ESInputSelect({
     onChange,
   });
 
+  const dropdownOptions = React.useMemo(() => {
+    return options.map((option, i) => {
+      const selected = selectedOption === option;
+      return (
+        <button
+          className={styles.dropdownOption}
+          key={"select-option-" + i}
+          type="button"
+          role="option"
+          aria-selected={selected}
+          onClick={(e) => {
+            setSelectedOption(option);
+            closeDropdown();
+            e.stopPropagation();
+          }}
+        >
+          {selected ? (
+            <ESIcon name="check" className={styles.checked} />
+          ) : (
+            <ESIcon name="square" />
+          )}
+          <span className={clsx(styles.optionLabel)}>{option}</span>
+        </button>
+      );
+    });
+  }, [options, selectedOption]);
+
   return (
     <div
       onFocus={openDropdown}
       onClick={openDropdown}
+      tabIndex={0}
       className={clsx(
-        styles.ESInputTypeahead,
+        styles.ESInputSelect,
         variant && styles[variant],
         error && styles.error,
         disabled && styles.disabled
       )}
       ref={containerRef}
+      aria-disabled={disabled}
+      aria-haspopup="listbox"
+      aria-expanded={dropdownOpen}
+      role="textbox"
     >
       <div className={`${styles.inputBox}`}>
         <input
@@ -58,7 +90,9 @@ export function ESInputSelect({
           value={selectedOption}
           defaultValue={defaultValue}
         />
-        <div>{selectedOption || "Select an option"}</div>
+        <span className={styles.selectedOptionLabel}>
+          {selectedOption || "Select an option"}
+        </span>
         {dropdownOpen ? (
           <ESIcon
             name="chevron-up"
@@ -86,14 +120,7 @@ export function ESInputSelect({
           {options.length === 0 && (
             <span className={styles.noOptionsLabel}>No options provided.</span>
           )}
-          {options &&
-            options.map((option, i) => {
-              return (
-                <button key={"select-option-" + i} type="button" role="option">
-                  {option}
-                </button>
-              );
-            })}
+          {dropdownOptions}
         </div>
       )}
     </div>
