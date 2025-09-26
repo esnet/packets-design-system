@@ -74,7 +74,8 @@ export function ESInputSelect({
         styles.ESInputSelect,
         variant && styles[variant],
         error && styles.error,
-        disabled && styles.disabled
+        disabled && styles.disabled,
+        className
       )}
       ref={containerRef}
       aria-disabled={disabled}
