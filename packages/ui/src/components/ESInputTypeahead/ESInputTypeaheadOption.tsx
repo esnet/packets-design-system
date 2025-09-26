@@ -51,6 +51,8 @@ const ESDropdownOption = ({
       tabIndex={0}
       className={`${styles.dropdownOption}`}
       type="button"
+      aria-selected={selected}
+      role="option"
     >
       {selected ? unselectedIcon : selectedIcon}
       <span className={styles.optionLabel}>{text}</span>

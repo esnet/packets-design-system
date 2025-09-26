@@ -221,6 +221,8 @@ export function ESInputTypeahead({
       )}
       ref={containerRef}
       aria-disabled={disabled}
+      aria-haspopup="listbox"
+      aria-expanded={dropdownOpen}
     >
       <div className={`${styles.inputBox}`}>
         <div className={clsx(styles.optionsAndInputWrapper)}>
