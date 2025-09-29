@@ -7,6 +7,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcssImport from "postcss-import";
+import image from "@rollup/plugin-image";
 
 export default [
   {
@@ -41,6 +42,7 @@ export default [
         plugins: [postcssImport()],
       }),
       terser(),
+      image(),
     ],
   },
   {

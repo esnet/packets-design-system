@@ -22,6 +22,7 @@ export { default as ESInputDatePicker } from "./ESInputDatePicker";
 export { default as ESInputDateRange, DateRange } from "./ESInputDateRange";
 export { default as ESInputEmail } from "./ESInputEmail";
 export { default as ESLabel } from "./ESLabel";
+export { default as ESLogo } from "./ESLogo";
 export { default as ESInputNumber } from "./ESInputNumber";
 export { default as ESInputPassword } from "./ESInputPassword";
 export { default as ESInputRadioButton } from "./ESInputRadioButton";
