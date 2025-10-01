@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
-import { ESDropdownTrigger } from ".";
+import { ESDropdownAnchor } from ".";
 import ESDropdownContent from "./ESDropdownContent";
 import useDropdownUtils from "./ESDropdown.utils";
 import useControllableState from "../../lib/hooks/useControllableState";
@@ -44,7 +44,7 @@ export function ESDropdown({
 
   const trigger = React.useMemo(() => {
     const el = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.type === ESDropdownTrigger
+      (child) => React.isValidElement(child) && child.type === ESDropdownAnchor
     ) as React.ReactElement | undefined;
     if (!el) return null;
 

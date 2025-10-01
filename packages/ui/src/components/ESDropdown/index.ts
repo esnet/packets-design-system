@@ -1,3 +1,3 @@
 export { ESDropdownContent } from "./ESDropdownContent";
-export { ESDropdownTrigger } from "./ESDropdownTrigger";
+export { ESDropdownAnchor } from "./ESDropdownAnchor";
 export { ESDropdown } from "./ESDropdown";

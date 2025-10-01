@@ -6,5 +6,5 @@ export interface ESDropdownProps extends ComponentPropsWithoutRef<"div"> {
   onOpenChange?: (next: boolean) => void;
 }
 
-export type ESDropdownTriggerProps = ComponentPropsWithoutRef<"div">;
+export type ESDropdownAnchorProps = ComponentPropsWithoutRef<"div">;
 export type ESDropdownContentProps = ComponentPropsWithoutRef<"div">;

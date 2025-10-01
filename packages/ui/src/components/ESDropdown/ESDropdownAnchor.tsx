@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { ESDropdownTriggerProps } from "./ESDropdown.types";
+import { ESDropdownAnchorProps } from "./ESDropdown.types";
 import styles from "./ESDropdown.module.css";
 
 /**
@@ -8,11 +8,11 @@ import styles from "./ESDropdown.module.css";
  *
  * @returns {React.ReactElement}
  */
-export function ESDropdownTrigger({
+export function ESDropdownAnchor({
   children,
   className,
   ...props
-}: ESDropdownTriggerProps) {
+}: ESDropdownAnchorProps) {
   return (
     <div {...props} className={clsx(styles.trigger, className)}>
       {children}
@@ -20,6 +20,6 @@ export function ESDropdownTrigger({
   );
 }
 
-ESDropdownTrigger.displayName = "ESDropdownTrigger";
+ESDropdownAnchor.displayName = "ESDropdownAnchor";
 
-export default ESDropdownTrigger;
+export default ESDropdownAnchor;
