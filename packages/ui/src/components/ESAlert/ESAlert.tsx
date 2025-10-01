@@ -3,14 +3,7 @@ import { ESAlertProps } from "./ESAlert.types";
 
 import styles from "./ESAlert.module.css";
 import { clsx } from "clsx";
-import {
-  TriangleAlertIcon,
-  CircleCheckIcon,
-  CircleAlertIcon,
-  InfoIcon,
-  CircleX,
-} from "lucide-react";
-import { getAlertIconByType } from "./ESAlertUtils";
+import { getAlertIconByType } from "./ESAlert.utils";
 import ESIcon from "../ESIcon";
 
 /**
@@ -39,9 +32,11 @@ const ESAlert: React.FC<ESAlertProps> = ({
         {children}
       </div>
       <aside className={styles.icon}>
-        <button className={styles.closeButton} onClick={onClickClose}>
-          <ESIcon name="circle-x" />
-        </button>
+        {onClickClose && (
+          <button className={styles.closeButton} onClick={onClickClose}>
+            <ESIcon name="circle-x" />
+          </button>
+        )}
       </aside>
     </div>
   );
