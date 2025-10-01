@@ -1,0 +1,38 @@
+.ESDropdown {
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+  /* Layout */
+
+  /* Styling */
+
+  /* Typography */
+
+  /* Transitions */
+
+  /* Pseudo-elements */
+
+  /* Pseudo-classes */
+
+  /* Variants */
+
+  /* Modifiers */
+}
+
+.content {
+  position: absolute;
+  /* display: contents; */
+  width: fit-content;
+  /* min-width: 242px; */
+  top: 100%;
+  overflow: auto;
+  max-height: 242px;
+  height: fit-content;
+
+  background: var(--esnet-color-light-surface-1);
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-1);
+  }
+
+  box-shadow: var(--esnet-box-shadow-core-medium);
+}

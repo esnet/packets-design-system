@@ -15,6 +15,7 @@ export { default as ESCommaSeperatedList } from "./ESCommaSeperatedList";
 export { default as ESDataTable } from "./ESDataTable";
 export { default as ESDatum } from "./ESDatum";
 export { default as ESDivider } from "./ESDivider";
+export { ESDropdown, ESDropdownTrigger } from "./ESDropdown";
 export { default as ESFormSection } from "./ESFormSection";
 export { default as ESIcon } from "./ESIcon";
 export { default as ESIconButton } from "./ESIconButton";
