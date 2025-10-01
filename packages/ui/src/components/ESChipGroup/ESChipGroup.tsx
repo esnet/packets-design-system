@@ -16,7 +16,7 @@ import ESChip from "../ESChip/ESChip";
 export function ESChipGroup({ className, children }: ESChipGroupProps) {
   const chipChildren = React.useMemo(() => {
     return React.Children.toArray(children).filter(
-      (child) => (child as React.ReactElement).type !== ESChip.displayName
+      (child) => (child as React.ReactElement).type === ESChip
     );
   }, [children]);
   return (

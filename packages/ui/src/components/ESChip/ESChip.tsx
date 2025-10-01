@@ -22,10 +22,6 @@ export function ESChip({
   className,
   ...props
 }: ESChipProps) {
-  const _onClick = React.useMemo(
-    () => onDelete || props.onClick || undefined,
-    [onDelete, props.onClick]
-  );
   return (
     <button
       {...props}
@@ -37,7 +33,8 @@ export function ESChip({
         (append || onDelete) && styles.appendStyle,
         className
       )}
-      onClick={_onClick}
+      type="button"
+      onClick={onDelete || props.onClick}
     >
       {prepend}
       <span className={styles.label}>{children}</span>
