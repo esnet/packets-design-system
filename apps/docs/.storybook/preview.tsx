@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import type { Preview } from "@storybook/react";
-import { themes } from "@storybook/theming";
-import { useDarkMode } from "storybook-dark-mode";
+import React from "react";
+import type { Preview, ReactRenderer } from "@storybook/react";
+import { themes } from "storybook/theming";
+import { useDarkMode } from "@storybook-community/storybook-dark-mode";
 import "@esnet/packets-ui/style.css";
 
 const preview: Preview = {
@@ -27,7 +27,6 @@ const preview: Preview = {
         brandImage: "/imgs/packetslogo.dark.png",
         brandTarget: "/?path=/docs/getting-started--docs",
       },
-      // Override the default light theme
       light: {
         ...themes.normal,
         brandTitle: "Packets Design System",
@@ -36,6 +35,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     (Story) => {
       return (
