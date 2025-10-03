@@ -23,8 +23,8 @@
   position: absolute;
   /* display: contents; */
   width: fit-content;
-  /* min-width: 242px; */
-  top: 100%;
+  min-width: 100%;
+  /* top: 100%; */
   overflow: auto;
   max-height: 242px;
   height: fit-content;
@@ -34,5 +34,21 @@
     background: var(--esnet-color-dark-surface-1);
   }
 
+  box-shadow: var(--esnet-box-shadow-core-medium);
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.carat {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--esnet-color-light-surface-1);
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-1);
+  }
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   box-shadow: var(--esnet-box-shadow-core-medium);
 }

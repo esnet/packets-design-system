@@ -8,16 +8,8 @@ import styles from "./ESDropdown.module.css";
  *
  * @returns {React.ReactElement}
  */
-export function ESDropdownAnchor({
-  children,
-  className,
-  ...props
-}: ESDropdownAnchorProps) {
-  return (
-    <div {...props} className={clsx(styles.trigger, className)}>
-      {children}
-    </div>
-  );
+export function ESDropdownAnchor({ children }: ESDropdownAnchorProps) {
+  return <>{children}</>;
 }
 
 ESDropdownAnchor.displayName = "ESDropdownAnchor";

@@ -3,8 +3,12 @@ import { useEffect, RefObject } from "react";
 /**
  * Custom React hook that adds accessibility handling and open/close behavior to ESDropdown.
  *
- * @param ref - React ref object pointing to the element to detect outside clicks for.
- * @param callback - Function to call when an outside click is detected.
+ * - Opens dropdown on click, focus, or hover.
+ * - Closes dropdown on click outside, focus outside, escape key, or hover leave (excluding descendants).
+ *
+ * @param ref - React ref object pointing to the dropdown wrapper element.
+ * @param openDropdown - Function to call when dropdown should open.
+ * @param closeDropdown - Function to call when dropdown should close.
  */
 function useDropdownClick(
   ref: RefObject<HTMLElement>,
@@ -12,40 +16,66 @@ function useDropdownClick(
   closeDropdown: () => void
 ) {
   useEffect(() => {
-    function handleMouseDown(event: MouseEvent) {
+    if (!ref.current) return;
+
+    // ----- Document-wide events -----
+    const handleMouseDown = (event: MouseEvent) => {
       if (!ref.current) return;
       if (ref.current.contains(event.target as Node)) {
         openDropdown();
       } else {
         closeDropdown();
       }
-    }
+    };
 
-    function handleFocusChange(event: FocusEvent) {
+    const handleFocusChange = (event: FocusEvent) => {
       if (!ref.current) return;
-      // focusin gives the *new* active element
       const target = (event.target || document.activeElement) as Node | null;
       if (target && ref.current.contains(target)) {
         openDropdown();
       } else {
         closeDropdown();
       }
-    }
+    };
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        closeDropdown();
-      }
-    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeDropdown();
+    };
 
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("focusin", handleFocusChange);
     document.addEventListener("keydown", handleKeyDown);
 
+    // ----- Hover events -----
+    const handleMouseEnter = () => {
+      openDropdown();
+    };
+
+    const handleMouseLeave = (event: MouseEvent) => {
+      if (!ref.current) return;
+      const related = event.relatedTarget as Node | null;
+
+      // the issue is when the user briefly hovers in the space between the anchor and the dropdown (produced by the carat), it triggers
+
+      // If the new hovered element is inside the dropdown, do nothing
+      if (related && ref.current.contains(related)) return;
+
+      closeDropdown();
+    };
+
+    ref.current.addEventListener("mouseenter", handleMouseEnter);
+    ref.current.addEventListener("mouseleave", handleMouseLeave);
+
+    // ----- Cleanup -----
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("focusin", handleFocusChange);
       document.removeEventListener("keydown", handleKeyDown);
+
+      if (ref.current) {
+        ref.current.removeEventListener("mouseenter", handleMouseEnter);
+        ref.current.removeEventListener("mouseleave", handleMouseLeave);
+      }
     };
   }, [ref, openDropdown, closeDropdown]);
 }

@@ -8,16 +8,8 @@ import styles from "./ESDropdown.module.css";
  *
  * @returns {React.ReactElement}
  */
-export function ESDropdownContent({
-  children,
-  className,
-  ...props
-}: ESDropdownContentProps) {
-  return (
-    <div {...props} className={clsx(styles.content, className)}>
-      {children}
-    </div>
-  );
+export function ESDropdownContent({ children }: ESDropdownContentProps) {
+  return <>{children}</>;
 }
 
 ESDropdownContent.displayName = "ESDropdownContent";
