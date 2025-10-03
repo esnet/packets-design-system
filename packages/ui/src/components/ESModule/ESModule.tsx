@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import * as React from "react";
+import clsx from "clsx";
 import { ESModuleProps } from "./ESModule.types";
 
 import styles from "./ESModule.module.css";
@@ -9,19 +10,20 @@ import styles from "./ESModule.module.css";
  * A generic section component that can optionally add a surface.
  *
  * @param {ESModuleProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-const ESModule: FC<ESModuleProps> = ({
+const ESModule: React.FC<ESModuleProps> = ({
   className,
   surface = false,
   title,
   children,
-  ...other
+  ...props
 }) => {
-  const allClassNames = `${className || ""} ${styles.esModule} ${surface ? "surface" : ""}`;
-
   return (
-    <section className={allClassNames} {...other}>
+    <section
+      className={clsx(className, styles.ESModule, surface && "surface")}
+      {...props}
+    >
       {title && <h6 className={styles.title}>{title}</h6>}
       {children}
     </section>

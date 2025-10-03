@@ -8,11 +8,11 @@ import styles from "./ESSkeletonChip.module.css";
  * Visual representation of a Pill/Chip loading.
  *
  * @param {ESSkeletonChipProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESSkeletonChip: FC = () => {
   return (
-    <div role="alert" aria-busy="true" className={styles.skeletonChip}></div>
+    <div role="alert" aria-busy="true" className={styles.ESSkeletonChip}></div>
   );
 };
 

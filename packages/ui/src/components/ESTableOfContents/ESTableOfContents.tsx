@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { ESTableOfContentsProps } from "./ESTableOfContents.types";
 
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
@@ -26,7 +27,7 @@ const ESTableOfContents: React.FC<ESTableOfContentsProps> = ({
 }) => {
   return (
     <nav
-      className={`${styles.tableOfContents} ${isSticky ? styles.isSticky : ""}`}
+      className={clsx(styles.ESTableOfContents, isSticky && styles.isSticky)}
     >
       <h6 className={styles.title}>{title}</h6>
       <ul className={styles.list}>

@@ -1,27 +1,13 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputText } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Apple } from "lucide-react";
+import { ESInputText } from "@esnet/packets-ui/src/components/ESInputText/ESInputText.tsx";
 
-const meta: Meta<typeof ESInputText> = {
+const meta = {
   title: "Components/ESInputText",
   component: ESInputText,
   tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: { type: "radio" },
-      options: ["default", "branded"],
-      defaultValue: "default",
-    },
-    error: {
-      control: { type: "boolean" },
-    },
-  },
-  args: {
-    error: false,
-    variant: "default",
-  },
-};
+} satisfies Meta<typeof ESInputText>;
 
 export default meta;
 
@@ -36,11 +22,10 @@ export const Default: Story = {
   },
 };
 
-export const BrandedWithPlaceholderAndLargerWidth: Story = {
+export const BrandedWithPlaceholder: Story = {
   args: {
     placeholder: "Branded placeholder",
     variant: "branded",
-    style: { width: "250px" },
   },
   parameters: {
     design: {

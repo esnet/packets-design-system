@@ -1,23 +1,23 @@
 .ESDivider {
   /* Layout */
   height: var(--esnet-size-border-width-small, 2px);
-  width: auto;
+  width: 100%;
 
   /* Styling */
   border-radius: var(--esnet-size-radius-circle, 999px);
   border: none;
 
   /* Set the thickness of the line */
-  background-color: var(--esnet-color-light-copy-alt, #6E6E70);
+  background-color: var(--esnet-color-light-copy-alt, #6e6e70);
 
   /* Dark Mode */
   :global(.dark) & {
-    background-color: var(--esnet-color-dark-copy-alt, #C2C2C2);
+    background-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
   }
 
   /* Variants */
   &.branded {
-    background-color: var(--esnet-color-light-primary, #0088B5);
+    background-color: var(--esnet-color-light-primary, #0088b5);
 
     /* Dark Mode */
     :global(.dark) & {

@@ -6,31 +6,31 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
   "baseElement": <body>
     <div>
       <section
-        class="buttonGroup horizontal"
+        class="ESButtonGroup horizontal"
       >
         <ul
           class="list"
         >
           <button
-            class="button primary fill medium "
+            class="ESButton primary fill medium"
             type="button"
           >
             Button 1
           </button>
           <button
-            class="button secondary fill medium "
+            class="ESButton secondary fill medium"
             type="button"
           >
             Button 2
           </button>
           <button
-            class="button secondary fill medium "
+            class="ESButton secondary fill medium"
             type="button"
           >
             Button 3
           </button>
           <button
-            class="button tertiary fill medium "
+            class="ESButton tertiary fill medium"
             type="button"
           >
             Button 3
@@ -41,31 +41,31 @@ exports[`Horizontal matches DOM Snapshot 1`] = `
   </body>,
   "container": <div>
     <section
-      class="buttonGroup horizontal"
+      class="ESButtonGroup horizontal"
     >
       <ul
         class="list"
       >
         <button
-          class="button primary fill medium "
+          class="ESButton primary fill medium"
           type="button"
         >
           Button 1
         </button>
         <button
-          class="button secondary fill medium "
+          class="ESButton secondary fill medium"
           type="button"
         >
           Button 2
         </button>
         <button
-          class="button secondary fill medium "
+          class="ESButton secondary fill medium"
           type="button"
         >
           Button 3
         </button>
         <button
-          class="button tertiary fill medium "
+          class="ESButton tertiary fill medium"
           type="button"
         >
           Button 3
@@ -133,31 +133,31 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
   "baseElement": <body>
     <div>
       <section
-        class="buttonGroup vertical"
+        class="ESButtonGroup vertical"
       >
         <ul
           class="list"
         >
           <button
-            class="button primary fill medium "
+            class="ESButton primary fill medium"
             type="button"
           >
             Button 1
           </button>
           <button
-            class="button secondary fill medium "
+            class="ESButton secondary fill medium"
             type="button"
           >
             Button 2
           </button>
           <button
-            class="button secondary fill medium "
+            class="ESButton secondary fill medium"
             type="button"
           >
             Button 3
           </button>
           <button
-            class="button tertiary fill medium "
+            class="ESButton tertiary fill medium"
             type="button"
           >
             Button 3
@@ -168,31 +168,31 @@ exports[`Horizontal matches DOM Snapshot 2`] = `
   </body>,
   "container": <div>
     <section
-      class="buttonGroup vertical"
+      class="ESButtonGroup vertical"
     >
       <ul
         class="list"
       >
         <button
-          class="button primary fill medium "
+          class="ESButton primary fill medium"
           type="button"
         >
           Button 1
         </button>
         <button
-          class="button secondary fill medium "
+          class="ESButton secondary fill medium"
           type="button"
         >
           Button 2
         </button>
         <button
-          class="button secondary fill medium "
+          class="ESButton secondary fill medium"
           type="button"
         >
           Button 3
         </button>
         <button
-          class="button tertiary fill medium "
+          class="ESButton tertiary fill medium"
           type="button"
         >
           Button 3

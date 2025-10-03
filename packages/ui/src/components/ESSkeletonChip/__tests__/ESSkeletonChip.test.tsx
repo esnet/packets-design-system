@@ -1,13 +1,25 @@
+import { test, expect } from "@playwright/experimental-ct-react";
 import React from "react";
-import { render } from "@testing-library/react";
+
 import ESSkeletonChip from "../ESSkeletonChip";
 
-test("It renders without crashing", () => {
-  const component = render(<ESSkeletonChip />);
-  expect(component).toBeTruthy();
-});
-
-it("Datum matches DOM Snapshot", () => {
-  const domTree = render(<ESSkeletonChip />);
-  expect(domTree).toMatchSnapshot();
+test.describe("ESSkeletonChip", () => {
+  test("light", async ({ mount }) => {
+    const themedComponent = (
+      <div className="light">
+        <ESSkeletonChip />
+      </div>
+    );
+    const component = await mount(themedComponent);
+    await expect(component).toHaveScreenshot();
+  });
+  test("dark", async ({ mount }) => {
+    const themedComponent = (
+      <div className="dark">
+        <ESSkeletonChip />
+      </div>
+    );
+    const component = await mount(themedComponent);
+    await expect(component).toHaveScreenshot();
+  });
 });

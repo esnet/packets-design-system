@@ -1,8 +1,8 @@
-.spinner {
+.ESSpinner {
   display: inline-block;
   position: relative;
-  width: var(--esnet-size-spacing-xxlarge);
-  height: var(--esnet-size-spacing-medium);
+  width: 82px;
+  height: var(--esnet-size-spacing-medium, 1rem);
 
   @media (prefers-reduced-motion) {
     .dot {
@@ -17,10 +17,8 @@
   .noMotionMessage {
     display: none;
     text-align: center;
-    font: var(
-      --esnet-typography-label-1-sans-font,
-      400 12px/120% var(--esnet-font-family-body-sans)
-    );
+    font: var(--esnet-typography-label-1-sans-font,
+        400 12px/120% var(--esnet-font-family-body-sans));
 
     color: var(--esnet-color-light-copy-alt, #a8a8a8);
 
@@ -32,8 +30,8 @@
   .dot {
     position: absolute;
     top: 0;
-    width: var(--esnet-size-spacing-medium);
-    height: var(--esnet-size-spacing-medium);
+    width: var(--esnet-size-spacing-medium, 1rem);
+    height: var(--esnet-size-spacing-medium, 1rem);
     border-radius: 50%;
     background: var(--esnet-color-light-copy, #3d3d3d);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
@@ -43,12 +41,12 @@
     }
 
     &:nth-child(1) {
-      left: var(--esnet-size-spacing-xsmall);
+      left: var(--esnet-size-spacing-xsmall, 0.5rem);
       animation: dot1Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
     &:nth-child(2) {
-      left: var(--esnet-size-spacing-xsmall);
+      left: var(--esnet-size-spacing-xsmall, 0.5rem);
       animation: dot2Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
@@ -68,6 +66,7 @@
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
@@ -77,6 +76,7 @@
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(24px, 0);
   }
@@ -86,6 +86,7 @@
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
   }

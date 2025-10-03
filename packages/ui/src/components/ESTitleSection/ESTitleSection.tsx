@@ -11,7 +11,7 @@ import ESModule from "../ESModule";
  * the layouts of titles and subtitles.
  *
  * @param {ESTitleSectionProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   children,

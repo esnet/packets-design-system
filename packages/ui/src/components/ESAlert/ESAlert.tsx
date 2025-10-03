@@ -1,30 +1,44 @@
-import React, { FC, useMemo } from "react";
+import * as React from "react";
 import { ESAlertProps } from "./ESAlert.types";
-import { getAlertIconByType } from "./ESAlertUtils";
 
 import styles from "./ESAlert.module.css";
+import { clsx } from "clsx";
+import { getAlertIconByType } from "./ESAlert.utils";
+import ESIcon from "../ESIcon";
 
 /**
  * ESAlert Component
  *
- * Display message with alert level styling
+ * Display message with different variants for success, error, warning, info, or branded alerts.
  *
  * @param {ESAlertProps} props
  * @returns {React.FunctionComponent}
  */
-const ESAlert: FC<ESAlertProps> = ({ title, type = "info", children }) => {
-  const icon = useMemo(() => {
-    return getAlertIconByType(type);
-  }, [type]);
+const ESAlert: React.FC<ESAlertProps> = ({
+  title,
+  variant = "info",
+  children,
+  onClickClose,
+}) => {
+  const icon = React.useMemo(() => {
+    return getAlertIconByType(variant);
+  }, [variant]);
 
   return (
-    <section className={`${styles.alert} ${!!styles[type] && styles[type]}`}>
+    <div className={clsx(styles.ESAlert, styles[variant])}>
       <aside className={styles.icon}>{icon}</aside>
-      <section className={styles.content}>
-        <h6 className={styles.title}>{title}</h6>
+      <div className={styles.content}>
+        <h5 className={styles.title}>{title}</h5>
         {children}
-      </section>
-    </section>
+      </div>
+      <aside className={styles.icon}>
+        {onClickClose && (
+          <button className={styles.closeButton} onClick={onClickClose}>
+            <ESIcon name="circle-x" />
+          </button>
+        )}
+      </aside>
+    </div>
   );
 };
 
