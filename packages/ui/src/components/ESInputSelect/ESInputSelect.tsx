@@ -9,6 +9,8 @@ import useControllableState from "../../lib/hooks/useControllableState";
 /**
  * ESInputSelect Component
  *
+ * If there is no value or default value provided, the rendered text will default to "Select an option".
+ *
  * @param {ESInputSelectProps} props
  * @returns {React.ReactElement}
  */
