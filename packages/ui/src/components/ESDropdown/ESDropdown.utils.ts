@@ -46,7 +46,6 @@ function useDropdownClick(
     document.addEventListener("focusin", handleFocusChange);
     document.addEventListener("keydown", handleKeyDown);
 
-    // ----- Hover events -----
     const handleMouseEnter = () => {
       openDropdown();
     };
@@ -54,10 +53,6 @@ function useDropdownClick(
     const handleMouseLeave = (event: MouseEvent) => {
       if (!ref.current) return;
       const related = event.relatedTarget as Node | null;
-
-      // the issue is when the user briefly hovers in the space between the anchor and the dropdown (produced by the carat), it triggers
-
-      // If the new hovered element is inside the dropdown, do nothing
       if (related && ref.current.contains(related)) return;
 
       closeDropdown();
@@ -66,7 +61,6 @@ function useDropdownClick(
     ref.current.addEventListener("mouseenter", handleMouseEnter);
     ref.current.addEventListener("mouseleave", handleMouseLeave);
 
-    // ----- Cleanup -----
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("focusin", handleFocusChange);

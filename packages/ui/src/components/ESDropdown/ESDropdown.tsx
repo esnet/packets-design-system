@@ -143,6 +143,15 @@ export function ESDropdown({
 
   return (
     <div {...props} ref={wrapperRef} className={clsx(styles.ESDropdown)}>
+      {carat && open && (
+        <div
+          className={clsx(styles.hoverGap)}
+          //   style={{
+          //     left: caratPosition.left,
+          //     top: caratPosition.top,
+          //   }}
+        />
+      )}
       <div
         {...trigger.props}
         className={clsx(trigger.props.className, styles.trigger)}
