@@ -35,7 +35,7 @@ export const Default: Story = {
     carat: true,
     children: [
       <ESDropdownAnchor>
-        <ESButton variant="tertiary">Open Dropdown</ESButton>
+        <ESButton variant="primary">Open Dropdown</ESButton>
       </ESDropdownAnchor>,
       <ESDropdownContent style={{ width: 250, padding: 4 }}>
         <ESButtonGroup direction="vertical">

@@ -4,7 +4,7 @@ import { useEffect, RefObject } from "react";
  * Custom React hook that adds accessibility handling and open/close behavior to ESDropdown.
  *
  * - Opens dropdown on click, focus, or hover.
- * - Closes dropdown on click outside, focus outside, escape key, or hover leave (excluding descendants).
+ * - Closes dropdown on escape press, or hover leave, click outside, and focus out of a non-descendant.
  *
  * @param ref - React ref object pointing to the dropdown wrapper element.
  * @param openDropdown - Function to call when dropdown should open.
@@ -18,7 +18,6 @@ function useDropdownClick(
   useEffect(() => {
     if (!ref.current) return;
 
-    // ----- Document-wide events -----
     const handleMouseDown = (event: MouseEvent) => {
       if (!ref.current) return;
       if (ref.current.contains(event.target as Node)) {

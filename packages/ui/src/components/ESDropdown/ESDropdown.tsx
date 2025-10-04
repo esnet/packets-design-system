@@ -154,12 +154,12 @@ export function ESDropdown({
       )}
       <div
         {...trigger.props}
-        className={clsx(trigger.props.className, styles.trigger)}
+        className={clsx(trigger.props.className, styles.anchor)}
         ref={anchorRef}
       />
-      {carat && open && (
+      {carat && (
         <div
-          className={clsx(styles.carat)}
+          className={clsx(styles.carat, styles.fade, open && styles.open)}
           style={{
             left: caratPosition.left,
             top: caratPosition.top,
@@ -172,7 +172,8 @@ export function ESDropdown({
         className={clsx(
           content.props.className,
           styles.content,
-          !open && styles.hidden
+          styles.fade,
+          open && styles.open
         )}
         ref={dropdownRef}
       />
