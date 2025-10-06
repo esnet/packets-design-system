@@ -41,7 +41,7 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
         styles[variant],
         value && styles.checked,
         disabled && styles.disabled,
-        className
+        className,
       )}
     >
       <input

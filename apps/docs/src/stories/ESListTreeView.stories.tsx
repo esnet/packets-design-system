@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESListTreeView } from "@esnet/packets-ui";
@@ -24,32 +25,32 @@ type Story = StoryObj<typeof ESListTreeView>;
  * to learn how to use render functions.
  */
 export const DefaultESListTreeViewExample: Story = {
-  render: (props) => {
+  render: (props: any) => {
     const [state, setState] = useState(props.root);
 
-    const _findItemById = (item, targetId, forceUpdate = {}) => {
+    const _findItemById = (item: any, targetId: string, forceUpdate: any) => {
       if (typeof forceUpdate?.value === "boolean") {
         item.isSelected = forceUpdate.value;
-        item?.list?.map((itemChild) =>
+        item?.list?.map((itemChild: any) =>
           _findItemById(itemChild, targetId, forceUpdate),
         );
       } else if (item?.id === targetId) {
         const newVal = !item.isSelected;
         item.isSelected = newVal;
         console.log("newVal", newVal);
-        item?.list?.map((itemChild) =>
+        item?.list?.map((itemChild: any) =>
           _findItemById(itemChild, targetId, { value: newVal }),
         );
       } else if (item?.list) {
-        item.list.map((itemChild) => _findItemById(itemChild, targetId));
+        item.list.map((itemChild: any) =>
+          _findItemById(itemChild, targetId, {}),
+        );
       }
     };
 
-    const _toggleSelectedById = (id) => {
-      console.log("id", id);
-      let clone = structuredClone(state);
+    const _toggleSelectedById = (id: string) => {
+      const clone = structuredClone(state);
       _findItemById(clone, id);
-      console.log("clone", clone);
 
       setState(clone);
     };
@@ -61,7 +62,7 @@ export const DefaultESListTreeViewExample: Story = {
       isSelected: any;
     }) => {
       // const [isSelected, setIsSelected] = useState(false);
-      const _toggleSelected = (e) => {
+      const _toggleSelected = () => {
         _toggleSelectedById(item.id);
       };
 

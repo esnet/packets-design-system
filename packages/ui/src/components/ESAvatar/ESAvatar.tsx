@@ -43,11 +43,23 @@ const ESAvatar: React.FC<ESAvatarProps> = ({
   const onError = (event: any) => {
     console.error(
       `ESAvatar::${event?.type}`,
-      `Image ${src || srcSet} failed to load`
+      `Image ${src || srcSet} failed to load`,
     );
     setError(true);
     props.onError?.(event);
   };
+
+  // Composition
+  const rootStyles = useMemo(() => {
+    return (
+      `${styles.avatar} ` +
+      `${!!styles[size] ? styles[size] : ""} ` +
+      `${error ? styles.brokenImage : ""} ` +
+      `${styles[computedBackgroundColor]} ` +
+      `${isHoverable ? styles.isHoverable : ""} ` +
+      `${className}`
+    );
+  }, [computedBackgroundColor, isHoverable, error, size, styles]);
 
   return (
     <div

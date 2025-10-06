@@ -15,6 +15,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
             class="icon accordionIndicator isOpen"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-chevron-down"
               fill="none"
               height="24"
@@ -35,6 +36,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
             class="icon groupIcon"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-folder-open"
               fill="none"
               height="24"
@@ -60,6 +62,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
             class="icon selectedIcon"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-check"
               fill="none"
               height="24"
@@ -107,6 +110,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
                 class="icon leafIcon"
               >
                 <svg
+                  aria-hidden="true"
                   class="lucide lucide-file"
                   fill="none"
                   height="24"
@@ -150,6 +154,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
           class="icon accordionIndicator isOpen"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-chevron-down"
             fill="none"
             height="24"
@@ -170,6 +175,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
           class="icon groupIcon"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-folder-open"
             fill="none"
             height="24"
@@ -195,6 +201,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
           class="icon selectedIcon"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-check"
             fill="none"
             height="24"
@@ -242,6 +249,7 @@ exports[`ESListTreeView matches DOM Snapshot 1`] = `
               class="icon leafIcon"
             >
               <svg
+                aria-hidden="true"
                 class="lucide lucide-file"
                 fill="none"
                 height="24"
@@ -342,6 +350,7 @@ exports[`ESListTreeView that is not initially open matches DOM Snapshot 1`] = `
             class="icon accordionIndicator false"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-chevron-down"
               fill="none"
               height="24"
@@ -362,6 +371,7 @@ exports[`ESListTreeView that is not initially open matches DOM Snapshot 1`] = `
             class="icon groupIcon"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-folder-open"
               fill="none"
               height="24"
@@ -398,6 +408,7 @@ exports[`ESListTreeView that is not initially open matches DOM Snapshot 1`] = `
           class="icon accordionIndicator false"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-chevron-down"
             fill="none"
             height="24"
@@ -418,6 +429,7 @@ exports[`ESListTreeView that is not initially open matches DOM Snapshot 1`] = `
           class="icon groupIcon"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-folder-open"
             fill="none"
             height="24"
@@ -511,6 +523,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
             class="icon accordionIndicator isOpen"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-chevron-down"
               fill="none"
               height="24"
@@ -531,6 +544,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
             class="icon groupIcon"
           >
             <svg
+              aria-hidden="true"
               class="lucide lucide-folder-open"
               fill="none"
               height="24"
@@ -583,6 +597,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
                 class="icon leafIcon"
               >
                 <svg
+                  aria-hidden="true"
                   class="lucide lucide-file"
                   fill="none"
                   height="24"
@@ -626,6 +641,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
           class="icon accordionIndicator isOpen"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-chevron-down"
             fill="none"
             height="24"
@@ -646,6 +662,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
           class="icon groupIcon"
         >
           <svg
+            aria-hidden="true"
             class="lucide lucide-folder-open"
             fill="none"
             height="24"
@@ -698,6 +715,7 @@ exports[`ESListTreeView that is not selected matches DOM Snapshot 1`] = `
               class="icon leafIcon"
             >
               <svg
+                aria-hidden="true"
                 class="lucide lucide-file"
                 fill="none"
                 height="24"

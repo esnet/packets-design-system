@@ -21,7 +21,7 @@ const ESTabs: FC<ESTabsProps> = ({
 }) => {
   const tabChildren = useMemo(() => {
     return React.Children.toArray(children).filter(
-      (child) => (child as React.ReactElement).type !== ESTab.displayName
+      (child) => (child as React.ReactElement).type !== ESTab.displayName,
     );
   }, [children]);
 

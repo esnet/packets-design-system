@@ -28,7 +28,7 @@ const ESInputSearch: React.FC<ESInputSearchProps> = ({
 
       props.onChange?.(event);
     },
-    [props.onChange]
+    [props.onChange],
   );
 
   const _onXClick = useCallback(() => {

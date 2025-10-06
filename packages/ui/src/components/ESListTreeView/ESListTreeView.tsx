@@ -27,7 +27,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   onIconClick,
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen || alwaysOpen);
-  const _icon = icon || FolderOpenIcon;
+  const _icon: any = icon || FolderOpenIcon;
 
   // Events
   const _toggleIsOpen = () => {
@@ -39,7 +39,7 @@ const ESListTreeView: FC<ESListTreeViewProps> & {
   };
 
   const _onAccordionIndicatorClick = (
-    e: React.MouseEvent<HTMLInputElement>
+    e: React.MouseEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     _toggleIsOpen();

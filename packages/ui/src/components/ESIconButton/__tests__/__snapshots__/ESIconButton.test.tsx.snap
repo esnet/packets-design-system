@@ -10,6 +10,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="lucide lucide-settings"
           fill="none"
           height="24"
@@ -39,6 +40,7 @@ exports[`Branded matches DOM Snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="lucide lucide-settings"
         fill="none"
         height="24"
@@ -125,6 +127,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="lucide lucide-settings"
           fill="none"
           height="24"
@@ -154,6 +157,7 @@ exports[`Destructive matches DOM Snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="lucide lucide-settings"
         fill="none"
         height="24"
@@ -240,6 +244,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="lucide lucide-settings"
           fill="none"
           height="24"
@@ -269,6 +274,7 @@ exports[`Primary matches DOM Snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="lucide lucide-settings"
         fill="none"
         height="24"
@@ -355,6 +361,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="lucide lucide-settings"
           fill="none"
           height="24"
@@ -384,6 +391,7 @@ exports[`Secondary matches DOM Snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="lucide lucide-settings"
         fill="none"
         height="24"
@@ -470,6 +478,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="lucide lucide-settings"
           fill="none"
           height="24"
@@ -499,6 +508,7 @@ exports[`Teritary matches DOM Snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="lucide lucide-settings"
         fill="none"
         height="24"

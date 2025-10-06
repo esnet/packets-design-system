@@ -6,9 +6,25 @@ const meta: Meta<typeof ESAvatar> = {
   component: ESAvatar,
   tags: ["autodocs"],
   argTypes: {
+    label: {
+      control: { type: "text" },
+    },
+    src: {
+      control: { type: "text" },
+    },
+    srcSrc: {
+      control: { type: "text" },
+    },
+    className: {
+      control: { type: "text" },
+    },
+    isHoverable: {
+      control: { type: "boolean" },
+    },
     size: {
       control: { type: "radio" },
       options: ["small", "medium", "large"],
+      defaultValue: "medium",
     },
     backgroundColor: {
       control: { type: "radio" },
@@ -35,6 +51,19 @@ export const Fallback: Story = {
     alt: "echennau",
     src: "invalid image source",
     backgroundColor: "grape",
+  },
+};
+
+export const HoverableAvatar: Story = {
+  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
+  name: "Hoverable Example",
+  args: {
+    label: "Ernest Lawrence",
+    size: "medium",
+    src: "/imgs/fpo-avatars/large.png",
+    isHoverable: true,
+    srcSet:
+      "/imgs/fpo-avatars/large.png, /imgs/fpo-avatars/large@2x.png 2x, /imgs/fpo-avatars/large@3x.png 3x",
   },
 };
 
