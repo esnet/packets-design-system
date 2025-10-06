@@ -31,6 +31,54 @@ type Story = StoryObj<typeof ESDropdown>;
 
 export const Default: Story = {
   args: {
+    children: [
+      <ESDropdownAnchor>
+        <ESButton variant="primary">
+          Open Dropdown by hovering, focusing, or clicking
+        </ESButton>
+      </ESDropdownAnchor>,
+      <ESDropdownContent style={{ padding: 8 }}>
+        <ESButtonGroup direction="vertical">
+          <ESButton
+            style={{ minWidth: 300 }}
+            variant="primary"
+            size="medium"
+            type="button"
+          >
+            Navigate to Profile
+          </ESButton>
+          <ESButton
+            style={{ minWidth: 300 }}
+            variant="secondary"
+            size="medium"
+            type="button"
+          >
+            Navigate to Billing
+          </ESButton>
+          <ESButton
+            style={{ minWidth: 300 }}
+            variant="secondary"
+            size="medium"
+            type="button"
+          >
+            Navigate to Settings
+          </ESButton>
+          <ESButton
+            style={{ minWidth: 300 }}
+            variant="tertiary"
+            size="medium"
+            type="button"
+          >
+            Navigate to Sign Out
+          </ESButton>
+        </ESButtonGroup>
+      </ESDropdownContent>,
+    ],
+  },
+};
+
+export const WithCarat: Story = {
+  args: {
     carat: true,
     children: [
       <ESDropdownAnchor>
