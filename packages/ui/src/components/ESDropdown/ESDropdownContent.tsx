@@ -1,15 +1,13 @@
-import clsx from "clsx";
 import React from "react";
 import { ESDropdownContentProps } from "./ESDropdown.types";
-import styles from "./ESDropdown.module.css";
 
 /**
- * ESDropdownContent component, used to compose ESDropdown.
+ * ESDropdownContent component, used to compose ESDropdown. Used as a wrapper to indicate elements that should belong to the dropdown's component. Takes all attributes a div would take.
  *
  * @returns {React.ReactElement}
  */
-export function ESDropdownContent({ children }: ESDropdownContentProps) {
-  return <>{children}</>;
+export function ESDropdownContent(props: ESDropdownContentProps) {
+  return <div {...props} />;
 }
 
 ESDropdownContent.displayName = "ESDropdownContent";

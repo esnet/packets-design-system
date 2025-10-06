@@ -1,17 +1,19 @@
-/* eslint-disable no-unused-vars */
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, Ref } from "react";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 
 export interface ESDropdownProps extends ComponentPropsWithoutRef<"div"> {
-  /** Whether to force an open state. */
-  open?: boolean;
-  /** Whether to include a carat for the dropdown menu. */
+  /** Whether to include a carat for the dropdown menu pointing towards the anchor. */
   carat?: boolean;
-  onOpenChange?: (next: boolean) => void;
 }
 
-export type ESDropdownAnchorProps = ComponentPropsWithoutRef<"div"> & {
-  sizeRef?: Ref<HTMLDivElement>;
+export type ESDropdownAnchorProps = Omit<
+  ComponentPropsWithoutRef<"div">,
+  "children"
+> & {
+  children: ReactNode;
 };
-export type ESDropdownContentProps = ComponentPropsWithoutRef<"div"> & {
-  sizeRef?: Ref<HTMLDivElement>;
+export type ESDropdownContentProps = Omit<
+  ComponentPropsWithoutRef<"div">,
+  "children"
+> & {
+  children: ReactNode;
 };

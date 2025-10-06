@@ -2,14 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESDropdown } from "@esnet/packets-ui/src/components/ESDropdown/ESDropdown.tsx";
 import { ESDropdownAnchor } from "@esnet/packets-ui/src/components/ESDropdown/ESDropdownAnchor.tsx";
 import { ESDropdownContent } from "@esnet/packets-ui/src/components/ESDropdown/ESDropdownContent.tsx";
-import { ESAvatar, ESButton, ESButtonGroup } from "@esnet/packets-ui";
+import { ESButton, ESButtonGroup } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESDropdown> = {
   title: "Components/ESDropdown",
   component: ESDropdown,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
+  subcomponents: { ESDropdownAnchor, ESDropdownContent },
   parameters: {
     design: {
       type: "figma",
@@ -17,7 +16,7 @@ const meta: Meta<typeof ESDropdown> = {
     },
   },
   decorators: [
-    // a larger height to fully view the absolutely positioned calendar prompt
+    // a larger height to fully view the absolutely positioned popup
     (Story) => (
       <div style={{ minHeight: 280 }}>
         <Story />
@@ -35,9 +34,11 @@ export const Default: Story = {
     carat: true,
     children: [
       <ESDropdownAnchor>
-        <ESButton variant="primary">Open Dropdown</ESButton>
+        <ESButton variant="primary">
+          Open Dropdown by hovering, focusing, or clicking
+        </ESButton>
       </ESDropdownAnchor>,
-      <ESDropdownContent style={{ width: 250, padding: 4 }}>
+      <ESDropdownContent style={{ padding: 8 }}>
         <ESButtonGroup direction="vertical">
           <ESButton
             style={{ minWidth: 300 }}

@@ -1,15 +1,13 @@
-import clsx from "clsx";
 import React from "react";
 import { ESDropdownAnchorProps } from "./ESDropdown.types";
-import styles from "./ESDropdown.module.css";
 
 /**
- * ESDropdownTrigger component, used to compose ESDropdown.
+ * ESDropdownAnchor component, used to compose ESDropdown. Used as a wrapper to indicate elements that should belong to the dropdown's anchor. Takes all attributes a div would take.
  *
  * @returns {React.ReactElement}
  */
-export function ESDropdownAnchor({ children }: ESDropdownAnchorProps) {
-  return <>{children}</>;
+export function ESDropdownAnchor(props: ESDropdownAnchorProps) {
+  return <div {...props} />;
 }
 
 ESDropdownAnchor.displayName = "ESDropdownAnchor";

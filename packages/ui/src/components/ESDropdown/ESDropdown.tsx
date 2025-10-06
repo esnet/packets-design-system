@@ -2,10 +2,9 @@ import React, { CSSProperties, useLayoutEffect } from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
-import { ESDropdownAnchor } from ".";
+import { ESDropdownAnchor } from "./ESDropdownAnchor";
 import ESDropdownContent from "./ESDropdownContent";
-import useDropdownUtils from "./ESDropdown.utils";
-import useControllableState from "../../lib/hooks/useControllableState";
+import usePopupState from "./ESDropdown.utils";
 
 const CARAT_OFFSET = "8px";
 
@@ -16,19 +15,9 @@ const CARAT_OFFSET = "8px";
  *
  * Can also be controlled, able to have a open state forced on or off, with a change handler to receive when the dropdown would have been opened/closed.
  *
- * Automatically adjusts position based on position on page as to not clip off.
- *
- *
- * TODO: add carat, add not clip off thing
- *
+ * On open, automatically adjusts position based on position on page as to not clip off.
  */
-export function ESDropdown({
-  children,
-  open: _open,
-  onOpenChange,
-  carat,
-  ...props
-}: ESDropdownProps) {
+export function ESDropdown({ children, carat, ...props }: ESDropdownProps) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -39,17 +28,7 @@ export function ESDropdown({
     bottom?: CSSProperties["bottom"];
   }>({});
 
-  const [open, setOpen] = useControllableState({
-    value: _open,
-    defaultValue: false,
-    onChange: onOpenChange,
-  });
-  const openDropdown = () => {
-    if (!open) setOpen(true);
-  };
-  const closeDropdown = () => {
-    if (open) setOpen(false);
-  };
+  const [open] = usePopupState(wrapperRef, false);
 
   const [caratPosition, setCaratPosition] = React.useState<{
     left?: string;
@@ -67,6 +46,11 @@ export function ESDropdown({
       bottom: "auto",
     };
 
+    if (!open) {
+      setPosition(next);
+      return;
+    }
+
     const dropdownRect = dropdownRef.current.getBoundingClientRect();
     const anchorRect = anchorRef.current.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
@@ -76,11 +60,6 @@ export function ESDropdown({
       dropdownRect.right > viewportWidth ? "right" : "left";
     let yPos: "top" | "bottom" =
       dropdownRect.bottom > viewportHeight ? "top" : "bottom";
-
-    if (!open) {
-      setPosition(next);
-      return;
-    }
 
     if (xPos === "right") {
       next.left = "auto";
@@ -120,9 +99,7 @@ export function ESDropdown({
     });
   }, [open, carat]);
 
-  useDropdownUtils(wrapperRef, openDropdown, closeDropdown);
-
-  const trigger = React.useMemo(() => {
+  const anchor = React.useMemo(() => {
     const el = React.Children.toArray(children).find(
       (child) => React.isValidElement(child) && child.type === ESDropdownAnchor
     ) as React.ReactElement | undefined;
@@ -139,24 +116,23 @@ export function ESDropdown({
   }, [children]);
 
   // invalid state
-  if (!trigger || !content) return null;
+  if (!anchor || !content) return null;
 
   return (
     <div {...props} ref={wrapperRef} className={clsx(styles.ESDropdown)}>
-      {carat && open && (
+      {/* carat hover gap div */}
+      {carat && (
         <div
-          className={clsx(styles.hoverGap)}
-          //   style={{
-          //     left: caratPosition.left,
-          //     top: caratPosition.top,
-          //   }}
+          className={clsx(styles.hoverGap, styles.fade, open && styles.open)}
         />
       )}
+      {/* anchor component */}
       <div
-        {...trigger.props}
-        className={clsx(trigger.props.className, styles.anchor)}
+        {...anchor.props}
+        className={clsx(anchor.props.className, styles.anchor)}
         ref={anchorRef}
       />
+      {/* carat div */}
       {carat && (
         <div
           className={clsx(styles.carat, styles.fade, open && styles.open)}
@@ -166,9 +142,10 @@ export function ESDropdown({
           }}
         />
       )}
+      {/* dropdown content component */}
       <div
         {...content.props}
-        style={{ ...content.props.styles, ...position }}
+        style={{ ...content.props.style, ...position }}
         className={clsx(
           content.props.className,
           styles.content,
