@@ -43,7 +43,7 @@ test.describe("ESDropdown", () => {
   testTable.forEach(({ name, props }) => {
     themes.forEach((theme) => {
       const testBox = (
-        <div className={theme} style={{ height: 60, width: 60 }}>
+        <div className={theme} style={{ height: 160, width: 160 }}>
           <ESDropdown {...props} />
         </div>
       );
