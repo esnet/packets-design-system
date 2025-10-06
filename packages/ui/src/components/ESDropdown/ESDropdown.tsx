@@ -131,6 +131,8 @@ export function ESDropdown({ children, carat, ...props }: ESDropdownProps) {
         {...anchor.props}
         className={clsx(anchor.props.className, styles.anchor)}
         ref={anchorRef}
+        aria-haspopup="true"
+        aria-expanded={open}
       />
       {/* carat div */}
       {carat && (
@@ -153,6 +155,7 @@ export function ESDropdown({ children, carat, ...props }: ESDropdownProps) {
           open && styles.open
         )}
         ref={dropdownRef}
+        aria-hidden={!open}
       />
     </div>
   );
