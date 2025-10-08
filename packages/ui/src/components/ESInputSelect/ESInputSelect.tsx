@@ -5,6 +5,7 @@ import { ESInputSelectProps } from "./ESInputSelect.types";
 import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESIcon from "../ESIcon";
 import useControllableState from "../../lib/hooks/useControllableState";
+import usePopupState from "../../lib/hooks/usePopupState";
 
 /**
  * ESInputSelect Component
@@ -25,14 +26,12 @@ export function ESInputSelect({
   onChange,
   ...props
 }: ESInputSelectProps) {
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  // if user clicks outside the wrapping div, close the dropdown
-  useOutsideClick(containerRef, () => setDropdownOpen(false));
-  const openDropdown = () => {
-    if (!disabled) setDropdownOpen(true);
-  };
-  const closeDropdown = () => setDropdownOpen(false);
+  const [dropdownOpen, setDropdownOpen] = usePopupState(
+    containerRef,
+    false,
+    "active"
+  );
 
   const [selectedOption, setSelectedOption] = useControllableState<string>({
     value,
@@ -52,7 +51,7 @@ export function ESInputSelect({
           aria-selected={selected}
           onClick={(e) => {
             setSelectedOption(option);
-            closeDropdown();
+            setDropdownOpen(false);
             e.stopPropagation();
           }}
         >
@@ -69,9 +68,6 @@ export function ESInputSelect({
 
   return (
     <div
-      onFocus={openDropdown}
-      onClick={openDropdown}
-      tabIndex={0}
       className={clsx(
         styles.ESInputSelect,
         variant && styles[variant],
@@ -84,6 +80,7 @@ export function ESInputSelect({
       aria-haspopup="listbox"
       aria-expanded={dropdownOpen}
       role="textbox"
+      tabIndex={0}
     >
       <div className={`${styles.inputBox}`}>
         <input
@@ -100,16 +97,11 @@ export function ESInputSelect({
           <ESIcon
             name="chevron-up"
             className={clsx(styles.dropdownIcon, styles[variant])}
-            onClick={(e) => {
-              e.stopPropagation();
-              closeDropdown();
-            }}
           />
         ) : (
           <ESIcon
             name="chevron-down"
             className={clsx(styles.dropdownIcon, styles[variant])}
-            onClick={openDropdown}
           />
         )}
       </div>
