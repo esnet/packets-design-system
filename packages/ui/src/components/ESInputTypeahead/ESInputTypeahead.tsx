@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useMemo, useState } from "react";
+import React, { KeyboardEventHandler, useMemo } from "react";
 
 import styles from "./ESInputTypeahead.module.css";
 import {
@@ -10,10 +10,10 @@ import {
 import ESDropdownOption from "./ESInputTypeaheadOption";
 import clsx from "clsx";
 import useControllableState from "../../lib/hooks/useControllableState";
-import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESChip from "../ESChip";
 import ESChipGroup from "../ESChipGroup";
 import ESIcon from "../ESIcon";
+import usePopupState from "../../lib/hooks/usePopupState";
 
 /**
  * ESInputTypeahead Component
@@ -149,14 +149,8 @@ export function ESInputTypeahead({
   };
 
   // 3) dropdown related component to show searched options
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  // if user clicks outside the wrapping div, close the dropdown
-  useOutsideClick(containerRef, () => setDropdownOpen(false));
-  const openDropdown = () => {
-    if (!disabled) setDropdownOpen(true);
-  };
-  const closeDropdown = () => setDropdownOpen(false);
+  const [dropdownOpen] = usePopupState(containerRef, false, "active");
 
   const searchedDropdownOptions = useMemo(() => {
     const token = search.toLowerCase().trim();
@@ -211,8 +205,6 @@ export function ESInputTypeahead({
 
   return (
     <div
-      onFocus={openDropdown}
-      onClick={openDropdown}
       className={clsx(
         styles.ESInputTypeahead,
         variant && styles[variant],
@@ -221,8 +213,6 @@ export function ESInputTypeahead({
       )}
       ref={containerRef}
       aria-disabled={disabled}
-      aria-haspopup="listbox"
-      aria-expanded={dropdownOpen}
     >
       <div className={`${styles.inputBox}`}>
         <div className={clsx(styles.optionsAndInputWrapper)}>
@@ -230,7 +220,6 @@ export function ESInputTypeahead({
 
           {/* Hidden input for storing the raw value options as an array of text values. */}
           <input
-            // {...props}
             type="hidden"
             style={{ display: "none" }}
             name={props.name} // only the form needs the name
@@ -261,16 +250,11 @@ export function ESInputTypeahead({
           <ESIcon
             name="chevron-up"
             className={clsx(styles.dropdownIcon, styles[variant])}
-            onClick={(e) => {
-              e.stopPropagation();
-              closeDropdown();
-            }}
           />
         ) : (
           <ESIcon
             name="chevron-down"
             className={clsx(styles.dropdownIcon, styles[variant])}
-            onClick={openDropdown}
           />
         )}
       </div>
