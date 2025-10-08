@@ -27,6 +27,7 @@ export const Example: Story = {
       <ESChip>Foo Chip</ESChip>,
       <ESChip>Bar Chip</ESChip>,
       <ESChip>Baz Chip</ESChip>,
+      <div>This gets filtered out as is not rendered.</div>,
     ],
   },
 };
