@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, RefObject, useState } from "react";
 
 /**
@@ -8,7 +9,10 @@ import { useEffect, RefObject, useState } from "react";
  *
  * @param ref - React ref object pointing to the popup wrapper element.
  */
-function usePopupState(ref: RefObject<HTMLElement>, defaultOpen: boolean) {
+function usePopupState(
+  ref: RefObject<HTMLElement>,
+  defaultOpen: boolean
+): [boolean, (next: boolean) => void] {
   const [open, setOpen] = useState<0 | 1 | 2>(defaultOpen ? 2 : 0);
 
   const openDropdown = (level: typeof open) => {
