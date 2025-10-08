@@ -11,7 +11,8 @@ import { useEffect, RefObject, useState } from "react";
  */
 function usePopupState(
   ref: RefObject<HTMLElement>,
-  defaultOpen: boolean
+  defaultOpen: boolean,
+  mode: "hover" | "active" | "both"
 ): [boolean, (next: boolean) => void] {
   const [open, setOpen] = useState<0 | 1 | 2>(defaultOpen ? 2 : 0);
 
@@ -50,9 +51,11 @@ function usePopupState(
       if (event.key === "Escape") closeDropdown(2);
     };
 
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("focusin", handleFocusChange);
-    document.addEventListener("keydown", handleKeyDown);
+    if (mode === "active" || mode === "both") {
+      document.addEventListener("mousedown", handleMouseDown);
+      document.addEventListener("focusin", handleFocusChange);
+      document.addEventListener("keydown", handleKeyDown);
+    }
 
     const handleMouseEnter = () => {
       openDropdown(open > 1 ? open : 1);
@@ -66,8 +69,10 @@ function usePopupState(
       closeDropdown(1);
     };
 
-    ref.current.addEventListener("mouseenter", handleMouseEnter);
-    ref.current.addEventListener("mouseleave", handleMouseLeave);
+    if (mode === "hover" || mode === "both") {
+      ref.current.addEventListener("mouseenter", handleMouseEnter);
+      ref.current.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);

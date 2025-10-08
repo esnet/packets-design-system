@@ -4,7 +4,7 @@ import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
 import { ESDropdownAnchor } from "./ESDropdownAnchor";
 import ESDropdownContent from "./ESDropdownContent";
-import usePopupState from "./ESDropdown.utils";
+import usePopupState from "../../lib/hooks/usePopupState";
 
 const CARAT_OFFSET = "8px";
 
@@ -17,7 +17,12 @@ const CARAT_OFFSET = "8px";
  *
  * On open, automatically adjusts position based on position on page as to not clip off.
  */
-export function ESDropdown({ children, carat, ...props }: ESDropdownProps) {
+export function ESDropdown({
+  children,
+  carat,
+  mode = "both",
+  ...props
+}: ESDropdownProps) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -28,7 +33,7 @@ export function ESDropdown({ children, carat, ...props }: ESDropdownProps) {
     bottom?: CSSProperties["bottom"];
   }>({});
 
-  const [open] = usePopupState(wrapperRef, false);
+  const [open] = usePopupState(wrapperRef, false, mode);
 
   const [caratPosition, setCaratPosition] = React.useState<{
     left?: string;
