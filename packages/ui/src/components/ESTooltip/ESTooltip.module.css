@@ -1,0 +1,10 @@
+.ESTooltip {
+  .tooltip {
+    & {
+      padding: var(--esnet-size-spacing-xsmall, 0.5rem);
+      border-radius: var(--esnet-size-radius-large);
+      /* width: fit-content;
+      min-width: fit-content; */
+    }
+  }
+}
