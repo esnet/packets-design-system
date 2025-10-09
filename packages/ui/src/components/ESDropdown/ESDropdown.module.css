@@ -11,8 +11,6 @@
 
 .content {
   position: absolute;
-  width: fit-content;
-  min-width: 100%;
   overflow: auto;
   max-height: 242px;
   height: fit-content;
@@ -37,7 +35,6 @@
   }
 
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  box-shadow: var(--esnet-box-shadow-core-medium);
 }
 
 .hoverGap {

@@ -24,16 +24,10 @@ export function ESDropdown({
   ...props
 }: ESDropdownProps) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const anchorRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState<{
-    left?: CSSProperties["left"];
-    right?: CSSProperties["right"];
-    top?: CSSProperties["top"];
-    bottom?: CSSProperties["bottom"];
-  }>({});
+  const [position, setPosition] = React.useState<any>({});
 
-  const [open] = usePopupState(wrapperRef, false, mode);
+  const [open] = usePopupState(wrapperRef, true, mode);
 
   const [caratPosition, setCaratPosition] = React.useState<{
     left?: string;
@@ -41,14 +35,14 @@ export function ESDropdown({
   }>({});
 
   useLayoutEffect(() => {
-    if (!dropdownRef.current || !anchorRef.current) return;
+    if (!dropdownRef.current) return;
 
     // default setting
-    let next = {
+    let next: any = {
       top: "100%",
-      left: "0",
-      right: "auto",
+      left: "50%",
       bottom: "auto",
+      transform: "translateX(-50%)",
     };
 
     if (!open) {
@@ -57,21 +51,20 @@ export function ESDropdown({
     }
 
     const dropdownRect = dropdownRef.current.getBoundingClientRect();
-    const anchorRect = anchorRef.current.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
-    let xPos: "left" | "right" =
-      dropdownRect.right > viewportWidth ? "right" : "left";
     let yPos: "top" | "bottom" =
       dropdownRect.bottom > viewportHeight ? "top" : "bottom";
 
-    if (xPos === "right") {
+    if (dropdownRect.right > viewportWidth) {
       next.left = "auto";
       next.right = "0";
-    } else {
+      next.transform = "";
+    } else if (dropdownRect.left < 0) {
       next.left = "0";
       next.right = "auto";
+      next.transform = "";
     }
 
     if (yPos === "top") {
@@ -92,11 +85,8 @@ export function ESDropdown({
 
     setPosition(next);
 
-    const anchorCenterX =
-      anchorRect.left + anchorRect.width / 2 - dropdownRect.left;
-
     setCaratPosition({
-      left: `${anchorCenterX}px`,
+      left: `50%`,
       top:
         yPos === "bottom"
           ? `calc(100% + ${CARAT_OFFSET})`
@@ -135,7 +125,6 @@ export function ESDropdown({
       <div
         {...anchor.props}
         className={clsx(anchor.props.className, styles.anchor)}
-        ref={anchorRef}
         aria-haspopup="true"
         aria-expanded={open}
       />
