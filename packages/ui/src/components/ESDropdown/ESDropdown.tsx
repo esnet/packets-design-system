@@ -28,7 +28,7 @@ export function ESDropdown({
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const [position, setPosition] = React.useState<any>({});
 
-  const [open] = usePopupState(wrapperRef, true, mode);
+  const [open] = usePopupState(wrapperRef, false, mode);
 
   const [caratPosition, setCaratPosition] = React.useState<{
     left?: string;
