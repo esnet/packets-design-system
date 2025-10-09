@@ -21,6 +21,7 @@ export function ESDropdown({
   children,
   carat,
   mode = "both",
+  className,
   ...props
 }: ESDropdownProps) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
@@ -114,7 +115,11 @@ export function ESDropdown({
   if (!anchor || !content) return null;
 
   return (
-    <div {...props} ref={wrapperRef} className={clsx(styles.ESDropdown)}>
+    <div
+      {...props}
+      ref={wrapperRef}
+      className={clsx(styles.ESDropdown, className)}
+    >
       {/* carat hover gap div */}
       {carat && (
         <div
@@ -124,7 +129,7 @@ export function ESDropdown({
       {/* anchor component */}
       <div
         {...anchor.props}
-        className={clsx(anchor.props.className, styles.anchor)}
+        className={clsx(styles.anchor, anchor.props.className)}
         aria-haspopup="true"
         aria-expanded={open}
       />
@@ -143,10 +148,10 @@ export function ESDropdown({
         {...content.props}
         style={{ ...content.props.style, ...position }}
         className={clsx(
-          content.props.className,
           styles.content,
           styles.fade,
-          open && styles.open
+          open && styles.open,
+          content.props.className
         )}
         ref={dropdownRef}
         aria-hidden={!open}
