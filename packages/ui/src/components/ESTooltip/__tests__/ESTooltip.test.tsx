@@ -34,7 +34,7 @@ test.describe("ESTooltip", () => {
               Hover me
             </p>
           ),
-          text: "tooltip",
+          text: "this tooltip should be above the anchor now.",
         },
       },
     ],
@@ -49,6 +49,19 @@ test.describe("ESTooltip", () => {
           <ESTooltip {...props} />
         </div>
       );
+
+      if (name === "positioning") {
+        test.use({
+          viewport: { width: 300, height: 200 },
+        });
+        testBox.props.style = {
+          width: 300,
+          height: 200,
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+        };
+      }
 
       test(`${name}-${theme}`, async ({ mount }) => {
         const component = await mount(testBox);
