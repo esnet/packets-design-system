@@ -15,19 +15,18 @@
         "dist",
         "dist/*.css"
     ],
-    "types": "dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/tokens.d.ts",
             "default": "./dist/tokens.js"
         },
-        "./tokens.json": {
-            "import": "./dist/tokens.json",
-            "require": "./dist/tokens.json"
+        "./tokens.js": {
+            "types": "./dist/tokens.d.ts",
+            "import": "./dist/esnet-tokens.esm.js",
+            "require": "./dist/esnet-tokens.cjs.js",
+            "default": "./dist/tokens.js"
         },
-        "./dist/esnet-tokens.css": {
-            "default": "./dist/esnet-tokens.css"
-        }
+        "./*": "./dist/*"
     },
     "license": "MIT",
     "publishConfig": {

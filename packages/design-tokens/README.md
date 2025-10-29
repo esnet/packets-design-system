@@ -1,17 +1,24 @@
 ## ESNet UI Design Tokens
 
-This example shows how to set up a style dictionary as an npm module, either to publish to a local npm service or to publish externally.
+#### Exports
 
-When you publish this npm module, the `prepublishOnly` hook will run, calling the style dictionary build system to create the necessary files.
+ESNet's code repository of tokens, available in the following formats:
 
-#### Running the example
+- JavaScript constants, including ESM, CJS, and UMD definitions, along with TypeScript declarations
+- Tailwind configuration object (soon to support Tailwind v4 configuration)
+- SCSS and CSS variables
+- JSON
 
-First of all, set up the required dependencies running the command `npm install` in your local CLI environment (if you prefer to use _yarn_, update the commands accordingly).
+The default export is the JavaScript constants with the TypeScript type declaration.
 
-At this point, run `npm run build`. This command will generate the files in the `dist` folder.
+If you wish to consume any other files, you can conveniently import them as such: `import "@esnet/design-tokens/filename"`, as defined in the package.json's `exports` field.
 
-#### What to look at
+##### Caveats
 
-Open the `package.json` file and see how in this specific example there is an extra [`prepublishOnly`](https://docs.npmjs.com/misc/scripts) command script, that builds the dictionary.
+When importing token files in CSS using PostCSS (or likely any CSS compiler), it struggles to resolve the path names exported by package.json's `exports` field. Import them like this instead: `@import "@esnet/esnet-tokens/dist/esnet-tokens.css";`.
 
-This command is run automatically before the package is prepared and packed via the `npm publish` command.
+#### Build process
+
+Run `pnpm run build`. This command will generate the tokens files in the `dist` folder.
+
+This project has a [`prepublishOnly`](https://docs.npmjs.com/misc/scripts) command script that builds all of the above. This command is run automatically before the package is prepared and packed via the `npm publish` command.

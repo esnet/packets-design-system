@@ -1,1 +1,4 @@
+/* @import "@esnet/esnet-tokens/esnet-tokens.css"; */
+/* Doesn't seem to be an easy solution for PostCSS to compile and resolve exports found from package.json
+Instead, we'll just import the direct path to the file. */
 @import "@esnet/esnet-tokens/dist/esnet-tokens.css";
