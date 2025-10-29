@@ -36,6 +36,34 @@ export const InlineNoFooter: Story = {
   },
 };
 
+export const Stacked: Story = {
+  args: {
+    title: "Title",
+    footer: "stacked accordion",
+    children: (
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <ESAccordion footer="Accordion 1, Footer" title="Accordion 1, Inline">
+          Accordion Content
+        </ESAccordion>
+        <ESAccordion
+          variant="primary"
+          footer="Accordion 2, Footer"
+          title="Accordion 2, Surface"
+        >
+          Accordion Content
+          <ESAccordion
+            variant="primary"
+            footer="Accordion 2.1, Footer"
+            title="Accordion 2.1, Surface"
+          >
+            Accordion Content
+          </ESAccordion>
+        </ESAccordion>
+      </div>
+    ),
+  },
+};
+
 export const WithActionButtons: Story = {
   args: {
     title: "Title",

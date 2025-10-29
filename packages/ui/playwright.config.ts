@@ -9,7 +9,7 @@ import { defineConfig, devices } from "@playwright/experimental-ct-react";
  */
 export default defineConfig({
   testDir: "./",
-  testMatch: "**/__tests__/*.ts?(x)",
+  testMatch: "**/__tests__/*ion.test.ts?(x)",
   //   testMatch: "**/__tests__/*.ts?(x)",
   snapshotPathTemplate:
     "{testFileDir}/__screenshots__/{/projectName}/{arg}{ext}",

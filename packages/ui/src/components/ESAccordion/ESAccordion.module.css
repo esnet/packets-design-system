@@ -6,8 +6,17 @@
   flex-direction: column;
 
   /* Styling */
-  border-radius: var(--esnet-size-radius-xlarge);
+  border-radius: var(--esnet-size-radius-xxlarge);
   box-shadow: (--esnet-box-shadow-core-medium);
+
+  &.inline {
+    border-radius: 0;
+    border-bottom: 1px solid var(--esnet-color-light-copy-alt, #6e6e70);
+
+    :global(.dark) & {
+      border-bottom: 1px solid var(--esnet-color-dark-copy-alt, #6e6e70);
+    }
+  }
 }
 
 .header {
@@ -23,7 +32,7 @@
     background-color: var(--esnet-color-dark-primary);
   }
 
-  .inline & {
+  .inline > & {
     background-color: transparent;
     color: inherit;
     padding: 0;
@@ -57,7 +66,7 @@
 
   svg {
     flex-shrink: 0;
-    .inline & {
+    .inline > & {
       color: var(--esnet-color-light-secondary);
       :global(.dark) & {
         color: var(--esnet-color-dark-secondary);
@@ -72,7 +81,7 @@
   flex-shrink: 0;
   gap: var(--esnet-size-spacing-xsmall);
 
-  .inline & svg {
+  .inline > & svg {
     color: var(--esnet-color-light-secondary);
     :global(.dark) & {
       color: var(--esnet-color-dark-secondary);
@@ -86,14 +95,25 @@
   box-sizing: border-box;
   padding: 0 var(--esnet-size-spacing-xsmall, 8px);
 
-  background-color: var(--esnet-color-light-surface-1);
+  background-color: color-mix(
+    in srgb,
+    var(--esnet-color-core-white-500) 60%,
+    transparent
+  );
   :global(.dark) & {
-    background-color: var(--esnet-color-dark-surface-1);
+    background-color: color-mix(
+      in srgb,
+      var(--esnet-color-core-slate-1000) 60%,
+      transparent
+    );
   }
 
-  .inline & {
+  .inline > & {
     background-color: transparent;
-    padding: 0;
+    padding: 0 var(--esnet-size-spacing-xsmall, 8px);
+    &:last-child {
+      padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
+    }
   }
 
   padding-top: var(--esnet-size-spacing-xsmall, 8px);
@@ -126,11 +146,13 @@
   color: var(--esnet-color-core-white-100);
   :global(.dark) & {
     background-color: var(--esnet-color-core-slate-700);
+    color: var(--esnet-color-core-white-100);
   }
 
-  .inline & {
+  .inline > & {
     background-color: transparent;
     padding: 0;
+    color: inherit;
   }
 
   font: var(--esnet-typography-copy-1-sans-font);

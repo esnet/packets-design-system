@@ -27,6 +27,7 @@ export function ESAccordion({
   });
   // tools to make smooth transition
   const contentRef = React.useRef<HTMLDivElement>(null);
+  const correctHeight = React.useRef(0);
   const [maxHeight, setMaxHeight] =
     React.useState<CSSProperties["maxHeight"]>("none");
 
@@ -49,6 +50,8 @@ export function ESAccordion({
           aria-controls={`accordion-content-${title}`}
           className={styles.openButton}
           onClick={() => {
+            if (contentRef.current)
+              setMaxHeight(contentRef.current.scrollHeight + 20);
             setOpen(!open);
           }}
         >
@@ -67,6 +70,9 @@ export function ESAccordion({
         ref={contentRef}
         style={{ maxHeight }}
         className={clsx(styles.content, !open && styles.closed)}
+        onTransitionEnd={() => {
+          if (open) setMaxHeight("none");
+        }}
       >
         {children}
       </div>
