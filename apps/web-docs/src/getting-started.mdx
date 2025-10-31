@@ -1,10 +1,21 @@
-![Packets Design System](apps/react-docs/public/imgs/packetslogo.neutral.png "Packets Design System")
+import { Meta } from "@storybook/blocks";
 
-# Packets Design System
+<Meta title="About/Getting Started" />
 
-Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+<img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
 
-# Getting Started
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # About
+
+    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Getting Started
 
     Packets is currently only available to ESnet employees and is not open source. The monorepo can be found [here in our Gitlab instance](https://gitlab.es.net/esnet/packets-design-system).
 
@@ -36,15 +47,6 @@ Packets is a design system created as a cross organizational collaboration at ES
 />
 ```
 
-# Running the system locally
+     </div>
 
-1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
-2. Run `pnpm i` on the root of the project.
-3. Navigate to `packages/design-tokens`, and run `pnpm run build` (production) or `pnpm run dev` (development).
-4. Navigate to `packages/ui`, and run `pnpm run build` (production) or `pnpm run dev` (development).
-5. Navigate back to the root of the project, and run `pnpm run dev` to start the local watch build and storybook.
-6. Access storybook in at [http://localhost:6006/](http://localhost:6006/).
-
-# Development
-
-Components can be created/modified in `packages/ui`, design tokens in `packages/design-tokens`, and stories in `apps/react-docs/src/stories`. To create a new component, create a directory for the component in `packages/ui/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.
+</div>
