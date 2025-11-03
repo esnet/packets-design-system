@@ -35,7 +35,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
-        extract: "style.css",
+        extract: false,
         minimize: true,
         autoModules: true,
         plugins: [postcssImport()],
