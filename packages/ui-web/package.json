@@ -7,8 +7,6 @@
     "rimraf": "./node_modules/rimraf/bin.js",
     "build": "rimraf dist && rollup -c",
     "dev": "rollup -c -w",
-    "test": "jest",
-    "test:updatesnaps": "jest --updateSnapshot",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "prepublishOnly": "npm run build"
