@@ -3,32 +3,26 @@ import { ESInputText } from "../ESInputText";
 import { createIcons, X } from 'lucide'; 
 
 export class ESInputEmail extends ESInputText {
-    static observedAttributes = ['class', 'value', 'placeholder', 'variant', 'disabled', 'error'];
     static tagName = 'es-input-email';
 
-    private XBtn: HTMLDivElement | null = null;
-
-    constructor() {
-        super();
-        this.actionButtons = `<div id="x"><i data-lucide="X"></i></div>`
-    }
+    private _clearBtn!: HTMLDivElement;
 
     connectedCallback(): void {
+        this.actionButtons = `<div id="clearBtn"><i data-lucide="X"></i></div>`
         super.connectedCallback();
-        this.XBtn = this.querySelector('#x');
-        this.attachEventListeners();
+        this._clearBtn = this.querySelector('#clearBtn')!;
+        this._attachAdditionalListener();
     }
 
     disconnectedCallback(): void {
-        this.XBtn?.removeEventListener("click", this.onXClick);
+        this._clearBtn.removeEventListener('click', this._onXClick);
     }
 
-    private attachEventListeners(): void {
-        this.XBtn?.addEventListener("click", this.onXClick);
+    private _attachAdditionalListener(): void {
+        this._clearBtn.addEventListener('click', this._onXClick);
     }
 
-    private onXClick = () => {
-        if (!this.inputEl) return;
+    private _onXClick = () => {
         this.inputEl.value = '';
     }
 
@@ -38,6 +32,5 @@ export class ESInputEmail extends ESInputText {
         createIcons({ icons: { X } });
     }   
 }
-
 
 customElements.define(ESInputEmail.tagName, ESInputEmail);

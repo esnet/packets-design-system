@@ -1,6 +1,2 @@
-import { ESInputEmail as BaseESInputEmail } from "./ESInputEmail";
-import type { ESInputEmailProps } from "./ESInputEmail.types";
+export { ESInputEmail } from "./ESInputEmail";
 
-type ESInputEmailConstructor = typeof BaseESInputEmail & ESInputEmailProps;
-
-export const ESInputEmail = BaseESInputEmail as ESInputEmailConstructor;
