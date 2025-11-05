@@ -1,45 +1,61 @@
 import styles from "./ESInputText.module.css";
+import type { ESInputTextProps } from "./ESInputText.types";
 
-export class ESInputText extends HTMLElement {
-    static observedAttributes = ['class', 'value', 'placeholder', 'variant', 'disabled', 'error'];
+export class ESInputText extends HTMLElement implements ESInputTextProps {
     static tagName = 'es-input-text';
-    public actionButtons: string | null = null; 
+    static get observedAttributes() {
+        return ['class', 'value', 'placeholder', 'variant', 'disabled', 'error', 'action-buttons'];
+    }
 
-    protected inputEl: HTMLInputElement | null = null;
-    protected containerEl: HTMLDivElement | null = null;
+    get value(): string { return this.getAttribute('value') ?? '';}
+    set value(v: string) { this.setAttribute('value', v ?? ''); }
+
+    get placeholder(): string { return this.getAttribute('placeholder') ?? ''; }
+    set placeholder(v: string) { this.setAttribute('placeholder', v ?? ''); }
+
+    get variant(): 'default' | 'branded' { return (this.getAttribute('variant') as any) ?? 'default'; }
+    set variant(v: 'default' | 'branded') { this.setAttribute('variant', v ?? 'default'); }
+
+    get disabled(): boolean { return this.hasAttribute('disabled'); }
+    set disabled(v: boolean) { v ? this.setAttribute('disabled', '') : this.removeAttribute('disabled');}
+
+    get error(): boolean { return this.hasAttribute('error');}
+    set error(v: boolean) { v ? this.setAttribute('error', '') : this.removeAttribute('error');}
+
+    protected inputEl!: HTMLInputElement;
+    protected containerEl!: HTMLDivElement;
+    public actionButtons: string | undefined = undefined;
 
     constructor() {
         super();
     }
 
     connectedCallback(): void {
-        this.renderInitial();
-
-        this.attachListener();
-        this.render(); 
+        this._renderInitial();
+        this._attachEventListener();
+        this.render();
     }
 
     attributeChangedCallback(name: string, oldVal: string | null, newVal: string | null) {
-        if (oldVal !== newVal) this.render(); 
+        if (oldVal !== newVal) this.render();
     }
 
-    private renderInitial(): void {
+    private _renderInitial(): void {
         this.innerHTML = `
-            <div>
+            <div class="${styles.ESInputText}">
                 <input type="text" />
-                ${this.actionButtons || ''}
+                ${this.actionButtons || this.getAttribute('action-buttons') || ''}
             </div>
         `;
-        this.containerEl = this.querySelector('div');
-        this.inputEl = this.querySelector('input');
+
+        this.containerEl = this.querySelector("div")!;
+        this.inputEl = this.querySelector("input")!;
     }
 
-    private attachListener(): void {
-        this.inputEl?.addEventListener('change', (e) => {
-            e.preventDefault();
-            if (!this.inputEl) return;
-            this.setAttribute('value', this.inputEl.value);
-            this.dispatchEvent(new Event('change', { bubbles: true }));
+    private _attachEventListener(): void {
+        this.inputEl?.addEventListener("change", () => {
+            this.value = this.inputEl.value;
+            this.dispatchEvent(new Event("change", { bubbles: true }));
         });
     }
 
@@ -55,8 +71,9 @@ export class ESInputText extends HTMLElement {
             this.getAttribute('class') || ''
         ].filter(Boolean).join(' ');
 
+
         // Pass along non-component attributes to input
-        const excludeAttr = ['variant', 'disabled', 'error'];
+        const excludeAttr = ['class', 'variant', 'disabled', 'error', 'actionButton'];
         Array.from(this.attributes)
         .filter(attr => !excludeAttr.includes(attr.name))
         .forEach(attr => {
@@ -66,4 +83,3 @@ export class ESInputText extends HTMLElement {
 }
 
 customElements.define(ESInputText.tagName, ESInputText);
-

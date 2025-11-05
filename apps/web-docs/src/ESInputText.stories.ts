@@ -19,18 +19,9 @@ const meta: Meta<typeof ESInputText> = {
             control: { type: "boolean" },
         },
     },
-
-    render: (args) => {
-        const input = document.createElement(ESInputText.tagName);
-        ESInputText.observedAttributes.forEach(attr => {
-            if (attr in args) input.setAttribute(attr, String(args[attr as keyof typeof args])); 
-        });   
-        return input;
-    },
 };
 
 export default meta;
-
 type Story = StoryObj<typeof ESInputText>;
 
 export const Default: Story = {
