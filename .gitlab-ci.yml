@@ -46,9 +46,8 @@ include:
 
 test:
   stage: test
-  image: node:latest
+  image: node:20
   before_script:
-    - npm install -g corepack
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
     - pnpm config set store-dir .pnpm-store
