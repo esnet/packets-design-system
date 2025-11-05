@@ -18,7 +18,7 @@ export class ESIcon extends HTMLElement implements ESIconProps {
     get size() { return this.getAttribute('size') ?? '24px'; }
     set size(v: number | string) { this.setAttribute('size', String(v)); }
 
-    get color() { return this.getAttribute('color') ?? 'white'; }
+    get color() { return this.getAttribute('color') ?? ''; }
     set color(v: string) { this.setAttribute('color', v); }
 
     get strokeWidth() { return this.getAttribute('strokeWidth') ?? ''; }
@@ -69,8 +69,8 @@ export class ESIcon extends HTMLElement implements ESIconProps {
             if (svg) {
                 svg.style.width = String(this.size);
                 svg.style.height = String(this.size);
-                svg.style.stroke = this.color;
                 svg.style.strokeWidth = String(this.strokeWidth);
+                if (this.color) svg.style.stroke = this.color;
                 if (this.fill) svg.style.fill = this.fill;
                 if (this.class) svg.classList.add(this.class)
             }
