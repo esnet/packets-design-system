@@ -1,56 +1,49 @@
 import styles from "./ESInputPassword.module.css";
 import { ESInputText } from "../ESInputText";
-import { createIcons, Eye, EyeOff, X } from 'lucide'; 
+import { createIcons, Eye, EyeOff, X } from 'lucide';
 
 export class ESInputPassword extends ESInputText {
-    static observedAttributes = [...ESInputText.observedAttributes];
     static tagName = 'es-input-password';
 
     private _hidden = true;
-    private eyeBtn: HTMLDivElement | null = null;
-    private clearBtn: HTMLDivElement | null = null;
-
-    constructor() {
-        super();
-        this.actionButtons = `
-            <div id='eyeBtn'><i data-lucide='eye'></i></div>
-            <div id='clearBtn'><i data-lucide='X'></i></div>
-        `;
-    }
+    private _eyeBtn!: HTMLDivElement;
+    private _clearBtn!: HTMLDivElement;
 
     connectedCallback(): void {
+        this.actionButtons = `
+            <div>
+                <div id='eyeBtn'><i data-lucide='eye'></i></div>
+                <div id='clearBtn'><i data-lucide='X'></i></div>
+            </div>
+            `;
         super.connectedCallback();
-        this.eyeBtn = this.querySelector('#eyeBtn');
-        this.clearBtn = this.querySelector('#clearBtn');
-        this.attachEventListeners();
+        this._eyeBtn = this.querySelector('#eyeBtn')!;
+        this._clearBtn = this.querySelector('#clearBtn')!;
+        this._attachAdditionalListeners();
     }
 
     disconnectedCallback(): void {
-        this.eyeBtn?.removeEventListener('click', this.toggleVisibility);
-        this.clearBtn?.removeEventListener('click', this.onXClick);
+        this._eyeBtn.removeEventListener('click', this._toggleVisibility);
+        this._clearBtn.removeEventListener('click', this._onXClick);
     }
 
-    private attachEventListeners(): void {
-        this.eyeBtn?.addEventListener('click', this.toggleVisibility);
-        this.clearBtn?.addEventListener('click', this.onXClick);
+    private _attachAdditionalListeners(): void {
+        this._eyeBtn.addEventListener('click', this._toggleVisibility);
+        this._clearBtn.addEventListener('click', this._onXClick);
     }
 
-    private toggleVisibility = (): void => {
+    private _toggleVisibility = (): void => {
         this._hidden = !this._hidden;
-        if (!this.inputEl) return;
-
         this.inputEl.type = this._hidden ? 'password' : 'text';
-        this.updateEyeIcon();
+        this._updateEyeIcon();
     }
 
-    private onXClick = () => {
-        if (!this.inputEl) return;
+    private _onXClick = () => {
         this.inputEl.value = '';
     }
 
-    private updateEyeIcon(): void {
-        if (!this.eyeBtn) return;
-        this.eyeBtn.innerHTML = `<i data-lucide='${this._hidden ? 'eye' : 'eye-off'}'></i>`;
+    private _updateEyeIcon(): void {
+        if (this._eyeBtn) this._eyeBtn.innerHTML = `<i data-lucide='${this._hidden ? 'eye' : 'eye-off'}'></i>`;
         createIcons({ icons: { Eye, EyeOff, X } });
     }
 
@@ -59,8 +52,6 @@ export class ESInputPassword extends ESInputText {
         this.inputEl?.setAttribute('type', `${this._hidden ? 'password' : 'text'}`);
         this.containerEl?.classList.add(styles.ESInputPassword);
         createIcons({ icons: { Eye, EyeOff, X } });
-        
-        this.updateEyeIcon();
     }
 }
 

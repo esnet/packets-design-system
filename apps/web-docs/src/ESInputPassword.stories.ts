@@ -19,13 +19,6 @@ const meta: Meta<typeof ESInputPassword> = {
             control: { type: "boolean" },
         },
     },
-    render: (args) => {
-        const input = document.createElement(ESInputPassword.tagName);
-        ESInputPassword.observedAttributes.forEach(attr => {
-            if (attr in args) input.setAttribute(attr, String(args[attr as keyof typeof args])); 
-        });   
-        return input;
-    },
 };
 
 export default meta;
