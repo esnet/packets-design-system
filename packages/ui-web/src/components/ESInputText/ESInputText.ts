@@ -62,18 +62,17 @@ export class ESInputText extends HTMLElement implements ESInputTextProps {
     protected render(): void {
         if (!this.inputEl || !this.containerEl) return;
 
-        const variant = this.getAttribute('variant') || 'default';
         this.containerEl.className = [
             styles.ESInputText,
-            styles[variant],
-            this.hasAttribute('error') ? styles.error : '',
-            this.hasAttribute('disabled') ? styles.disabled : '',
+            styles[this.variant],
+            this.error ? styles.error : '',
+            this.disabled ? styles.disabled : '',
             this.getAttribute('class') || ''
         ].filter(Boolean).join(' ');
 
 
         // Pass along non-component attributes to input
-        const excludeAttr = ['class', 'variant', 'disabled', 'error', 'actionButton'];
+        const excludeAttr = ['class', 'variant', 'error', 'actionButton'];
         Array.from(this.attributes)
         .filter(attr => !excludeAttr.includes(attr.name))
         .forEach(attr => {
