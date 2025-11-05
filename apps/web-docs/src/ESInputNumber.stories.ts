@@ -6,33 +6,26 @@ const meta: Meta<typeof ESInputNumber> = {
     component: ESInputNumber.tagName,
     tags: ['autodocs'],
     argTypes: {
-        variant: {
-        control: { type: "radio" },
-        options: ["default", "branded"],
-        defaultValue: "default",
+          variant: {
+          control: { type: "radio" },
+          options: ["default", "branded"],
+          defaultValue: "default",
         },
         error: {
-        control: { type: "boolean" },
+          control: { type: "boolean" },
         },
         disabled: {
-        control: { type: "boolean" },
+          control: { type: "boolean" },
         },
         min: {
-        control: "number",
+          control: "number",
         },
         max: {
-        control: "number",
+          control: "number",
         },
         step: {
-        control: "number",
+          control: "number",
         },
-    },
-    render: (args) => {
-        const input = document.createElement(ESInputNumber.tagName);
-        ESInputNumber.observedAttributes.forEach(attr => {
-            if (attr in args) input.setAttribute(attr, String(args[attr as keyof typeof args])); 
-        });   
-        return input;
     },
 };
 
