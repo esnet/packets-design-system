@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { ESButton } from "@esnet/packets-ui-web";
 
-customElements.define(ESButton.tagName, ESButton);
-
 const meta: Meta<typeof ESButton> = {
     title: 'Components/ESButton',
     component: ESButton.tagName,
@@ -33,13 +31,6 @@ const meta: Meta<typeof ESButton> = {
             control: "text",
             if: { arg: "as", eq: "a" },
         },
-    },
-    render: (args) => {
-        const button = document.createElement(ESButton.tagName);
-        ESButton.observedAttributes.forEach(attr => {
-            if (attr in args) button.setAttribute(attr, String(args[attr as keyof typeof args])); 
-        });   
-        return button;
     },
 };
 
