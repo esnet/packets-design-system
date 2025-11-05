@@ -135,6 +135,15 @@
   cursor: default;
 }
 
+.optionLabel {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
 .dropdown {
   position: absolute;
   top: 101%;
@@ -189,14 +198,6 @@
       flex-shrink: 0;
       width: 20px;
       height: 20px;
-    }
-
-    .optionLabel {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: left;
     }
 
     & .checked {

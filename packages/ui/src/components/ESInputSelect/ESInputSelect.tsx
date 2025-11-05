@@ -90,7 +90,7 @@ export function ESInputSelect({
           value={selectedOption}
           defaultValue={defaultValue}
         />
-        <span className={styles.selectedOptionLabel}>
+        <span className={styles.optionLabel}>
           {selectedOption || "Select an option"}
         </span>
         {dropdownOpen ? (
