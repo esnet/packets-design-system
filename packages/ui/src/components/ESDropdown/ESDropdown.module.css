@@ -12,7 +12,6 @@
 .content {
   position: absolute;
   overflow: auto;
-  max-height: 242px;
   height: fit-content;
 
   background: var(--esnet-color-light-surface-1);
@@ -45,15 +44,7 @@
   transform: translateY(calc(var(--carat-size) / -2));
 }
 
-.fade {
-  transition: opacity var(--esnet-time-duration-medium);
-  opacity: 0;
-  visibility: hidden;
+.hidden {
+  display: none;
   pointer-events: none;
-
-  &.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
 }

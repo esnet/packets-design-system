@@ -122,9 +122,7 @@ export function ESDropdown({
     >
       {/* carat hover gap div */}
       {carat && (
-        <div
-          className={clsx(styles.hoverGap, styles.fade, open && styles.open)}
-        />
+        <div className={clsx(styles.hoverGap, !open && styles.hidden)} />
       )}
       {/* anchor component */}
       <div
@@ -136,7 +134,7 @@ export function ESDropdown({
       {/* carat div */}
       {carat && (
         <div
-          className={clsx(styles.carat, styles.fade, open && styles.open)}
+          className={clsx(styles.carat, !open && styles.hidden)}
           style={{
             left: caratPosition.left,
             top: caratPosition.top,
@@ -150,7 +148,7 @@ export function ESDropdown({
         className={clsx(
           styles.content,
           styles.fade,
-          open && styles.open,
+          !open && styles.hidden,
           content.props.className
         )}
         ref={dropdownRef}
