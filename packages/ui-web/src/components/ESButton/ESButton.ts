@@ -1,14 +1,14 @@
 import styles from "./ESButton.module.css";
 import type { ESButtonProps } from "./ESButton.types";
-// import { createIcons } from 'lucide';
-// import { ESIcon } from "../ESIcon";
-// How to incorporate slots / icons / preppend / append etc
 
 export class ESButton extends HTMLElement implements ESButtonProps {
     static tagName = 'es-button';
     static get observedAttributes() {
         return ['class', 'label', 'variant', 'type', 'fill', 'disabled', 'as', 'href'];
     }
+
+    get class() { return this.getAttribute('class') ?? ''; }
+    set class(v: string) { this.setAttribute('class', v); }
 
     get label() { return this.getAttribute('label') ?? ''; }
     set label(v: string) { this.setAttribute('label', v); }
@@ -33,10 +33,19 @@ export class ESButton extends HTMLElement implements ESButtonProps {
 
     get href() { return this.getAttribute('href') ?? ''; }
     set href(v: string) { this.setAttribute('href', v); }
+    
+    get onClick(): ((e: Event) => void) | undefined {
+        return this._onClick;
+    }
+    set onClick(fn: ((e: Event) => void) | undefined) {
+        if (fn && typeof fn === 'function') {
+            this._onClick = fn;
+        } 
+    }
 
     protected buttonEl!: HTMLButtonElement | HTMLAnchorElement;
-    protected childEl!: HTMLSpanElement;
-
+    protected childEl!: HTMLSlotElement;
+    private _onClick?: (e: Event) => void;
 
     constructor() {
         super();
@@ -55,32 +64,14 @@ export class ESButton extends HTMLElement implements ESButtonProps {
         const tag = this.as || "button";
         this.innerHTML = `
             <${tag} type='${this.type}' class="${styles.button}">
-                <span></span>
+                <slot></slot>
             </${tag}>
         `;
         this.buttonEl = this.querySelector(tag)!;
-        this.childEl = this.querySelector('span')!;
+        this.childEl = this.querySelector('slot')!;
     }
 
-    render(): void {
-        if (!this.buttonEl || !this.childEl) return;
-
-        const variant = this.variant;
-        const fill = this.fill ? styles.fill : "";
-        const size = this.size ? styles[this.size] : "";
-        const userClass = this.getAttribute("class") || "";
-
-        this.buttonEl.className = [
-            styles.button,
-            styles[variant],
-            fill,
-            size,
-            userClass,
-            this.disabled ? styles.disabled : "",
-        ].filter(Boolean).join(" ");
-
-        if (this.label) this.childEl.textContent = this.label; // replace label with child?
-
+    protected attachAttributes(): void {
         // tag-specific attributes
         if (this.as === "a") {
             const aEl = this.buttonEl as HTMLAnchorElement;
@@ -98,9 +89,33 @@ export class ESButton extends HTMLElement implements ESButtonProps {
             if (this.disabled) btnEl.disabled = true;
             else btnEl.disabled = false;
         }
+    }
 
+    protected attachClickHandler(): void {
+        if (!this.buttonEl || !this._onClick) return;
+        this.buttonEl.removeEventListener('click', this._onClick);
+        this.buttonEl.addEventListener('click', this._onClick);
+    }
 
-        // ADD icon/child rendering
+    protected render(): void {
+        if (!this.buttonEl || !this.childEl) return;
+
+        const variant = this.variant;
+        const fill = this.fill ? styles.fill : "";
+        const size = this.size ? styles[this.size] : "";
+
+        this.buttonEl.className = [
+            styles.button,
+            styles[variant],
+            fill,
+            size,
+            this.class,
+            this.disabled ? styles.disabled : "",
+        ].filter(Boolean).join(" ");
+
+        if (this.label) this.childEl.textContent = this.label; // replace label with child?
+        this.attachAttributes();
+        this.attachClickHandler()
     }
 }
 
