@@ -1,17 +1,15 @@
 import styles from "./ESInputSearch.module.css";
 import { ESInputText } from "../ESInputText";
-import { createIcons, X, Search } from 'lucide'; 
+import { ESIcon } from "../ESIcon";
 
 export class ESInputSearch extends ESInputText {
     static tagName = 'es-input-search';
 
     private _clearBtn!: HTMLDivElement;
     private _searchBtn!: HTMLDivElement;
-
     public onSearchClick?: () => void;
 
     connectedCallback(): void {
-        this._renderActionButton();
         super.connectedCallback();
         this._attachAdditionalListener();
     }
@@ -40,20 +38,19 @@ export class ESInputSearch extends ESInputText {
         const hasValue = !!this.inputEl?.value?.trim();
 
         if (!hasValue) {
-            this.actionButtons = `<div id="searchBtn"><i data-lucide="search"></i></div>`
+            this.actionButtons = `<div id="searchBtn"><${ESIcon.tagName} name="search"></${ESIcon.tagName} ></div>`
             this._searchBtn = this.querySelector('#searchBtn')!;
         } else {
-            this.actionButtons = `<div id="clearBtn"><i data-lucide="X"></i></div>`
+            this.actionButtons = `<div id="clearBtn"><${ESIcon.tagName} name="X"></${ESIcon.tagName} ></div>`
             this._clearBtn = this.querySelector('#clearBtn')!;
         }
-        createIcons({ icons: { X, Search } });
     }
 
     protected render(): void {
         super.render();
         this.inputEl?.setAttribute('type', 'search');
         this.containerEl?.classList.add(styles.ESInputSearch);
-        createIcons({ icons: { X, Search } });
+        this._renderActionButton()
     }   
 }
 
