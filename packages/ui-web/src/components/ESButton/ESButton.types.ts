@@ -7,6 +7,7 @@ export interface ESButtonProps extends Partial<HTMLButtonElement> {
     disabled?: boolean;
     as?: 'button' | 'a';
     href?: string;
+    onClick?: (e: Event) => void;
 };
 
 //prepend, append, children (aka label)
