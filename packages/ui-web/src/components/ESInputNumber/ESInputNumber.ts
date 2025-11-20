@@ -1,6 +1,6 @@
 import styles from "./ESInputNumber.module.css";
 import { ESInputText } from "../ESInputText";
-import { createIcons, Plus, Minus } from 'lucide'; 
+import { ESIcon } from "../ESIcon";
 
 export class ESInputNumber extends ESInputText {
     static tagName = 'es-input-number';
@@ -28,8 +28,8 @@ export class ESInputNumber extends ESInputText {
     connectedCallback(): void {
         this.actionButtons = `
             <div>
-                <div id="addBtn"><i data-lucide="plus"></i></div>
-                <div id="minusBtn"><i data-lucide="minus"></i></div>
+                <div id="addBtn"><${ESIcon.tagName} name="plus"></${ESIcon.tagName}></div>
+                <div id="minusBtn"><${ESIcon.tagName} name="minus"></${ESIcon.tagName}></div>
             </div>  `
         super.connectedCallback();
         this._addBtn = this.querySelector('#addBtn')!;
@@ -73,7 +73,6 @@ export class ESInputNumber extends ESInputText {
         super.render();
         this.inputEl?.setAttribute('type', 'number');
         this.containerEl?.classList.add(styles.ESInputNumber);
-        createIcons({ icons: { Plus, Minus } });
     }   
 }
 
