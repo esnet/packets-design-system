@@ -1,9 +1,21 @@
 import type { Preview } from '@storybook/web-components';
 import { themes } from "@storybook/theming";
-import "@esnet/packets-ui/style.css";
+import "@esnet/packets-ui-web/style.css";
+
+const PacketsDecorator = (Story: any) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'packets';
+
+  const storyElement = Story();
+  wrapper.appendChild(storyElement);
+
+  return wrapper;
+};
+
 
 const preview: Preview = {
   parameters: {
+    docs: { source: { excludeDecorators: true } },
     options: {
       storySort: {
         order: ["About", "Components"],
@@ -34,6 +46,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [PacketsDecorator],
 };
 
 export default preview;
