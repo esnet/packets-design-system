@@ -72,7 +72,10 @@ export const Secondary: Story = {
         label: 'Secondary ESButton',
         variant: 'secondary',
         disabled: false,
-        fill: true
+        fill: true,
+        onClick: (): void => {
+            alert("Hello from Packets Design System!");
+        },
     },
 };
 
