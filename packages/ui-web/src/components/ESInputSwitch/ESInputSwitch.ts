@@ -1,6 +1,7 @@
 import styles from "./ESInputSwitch.module.css";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
-import { createIcons, X, Check } from "lucide";
+import { ESIcon } from "../ESIcon";
+
 
 export class ESInputSwitch extends HTMLElement implements ESInputSwitchProps {
     static tagName = "es-input-switch";
@@ -89,10 +90,8 @@ export class ESInputSwitch extends HTMLElement implements ESInputSwitchProps {
         ].filter(Boolean).join(' ');
 
         this._switchBtn.innerHTML = !this.hideIcon
-        ? `<i data-lucide="${this.checked ? 'check' : 'X'}"></i>`
+        ? `<${ESIcon.tagName} name="${this.checked ? 'check' : 'X'}"></${ESIcon.tagName}>`
         : '';
-
-        createIcons({ icons: { X, Check } });
     }
 }
 
