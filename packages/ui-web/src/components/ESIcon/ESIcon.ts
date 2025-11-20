@@ -1,7 +1,7 @@
 import styles from "./ESIcon.module.css";
 import type { ESIconProps } from "./ESIcon.types";
 
-import { createIcons, icons } from 'lucide';
+import { createElement, icons } from 'lucide';
 
 export class ESIcon extends HTMLElement implements ESIconProps {
     static tagName = 'es-icon';
@@ -27,24 +27,16 @@ export class ESIcon extends HTMLElement implements ESIconProps {
     get fill() { return this.getAttribute('fill') ?? ''; }
     set fill(v: string) { this.setAttribute('fill', v); }
 
-    private iconEl!: HTMLElement;
-
     constructor() {
         super();
     }
 
     connectedCallback(): void {
-        this._renderInitial();
         this.render();
     }
 
     attributeChangedCallback(name: string, oldVal: string | null, newVal: string | null) {
         if (oldVal !== newVal) this.render();
-    }
-
-    private _renderInitial(): void {
-        this.innerHTML = `<i class=${styles.ESIcon}></i>`;
-        this.iconEl = this.querySelector('.' + styles.ESIcon)!;
     }
 
     private _toPascalCase(str: string) {
@@ -55,26 +47,29 @@ export class ESIcon extends HTMLElement implements ESIconProps {
     }
 
     protected render(): void {
-        if (!this.iconEl) return;
-
         const rawName = this.name;
         const iconName = this._toPascalCase(rawName);
+        const key = iconName as keyof typeof icons;
 
-        if (iconName && iconName in icons) {
-            const key = iconName as keyof typeof icons;
-            this.iconEl.setAttribute('data-lucide', key);
-            createIcons({ icons: { [key]: icons[key] } });
+        const iconNode = icons[key];
+        if (!iconNode) return;
 
-            const svg = this.querySelector('svg');
-            if (svg) {
-                svg.style.width = String(this.size);
-                svg.style.height = String(this.size);
-                svg.style.strokeWidth = String(this.strokeWidth);
-                if (this.color) svg.style.stroke = this.color;
-                if (this.fill) svg.style.fill = this.fill;
-                if (this.class) svg.classList.add(this.class)
-            }
+        const attrs: Record<string, string> = {};
+
+        // Only set attributes if the values exist
+        if (this.class) attrs.class = this.class;
+        if (this.color) attrs.stroke = this.color;
+        if (this.strokeWidth) attrs["stroke-width"] = String(this.strokeWidth);
+        if (this.size) {
+            attrs.width = String(this.size);
+            attrs.height = String(this.size);
         }
+        if (this.fill) attrs.fill = this.fill; 
+
+        // Create the SVG element
+        const svg = createElement(iconNode, attrs);
+        svg.classList.add(styles.ESIcon);
+        this.replaceWith(svg);
     }
 }
 
