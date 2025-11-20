@@ -9,7 +9,6 @@
     },
   "dependencies": {
     "@esnet/esnet-tokens": "workspace:*",
-    "@esnet/packets-ui": "workspace:*",
     "@esnet/packets-ui-web": "workspace:*",
     "@rive-app/react-canvas-lite": "^4.20.1",
     "doc-ui": "workspace:*",
