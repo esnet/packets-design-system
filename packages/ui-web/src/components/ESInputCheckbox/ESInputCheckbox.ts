@@ -1,6 +1,5 @@
 import styles from "./ESInputCheckbox.module.css";
 import { ESInputText } from "../ESInputText";
-import { createIcons, Eye, EyeOff, X } from 'lucide';
 
 export class ESInputCheckbox extends ESInputText {
     static tagName = 'es-input-checkbox';
@@ -27,8 +26,6 @@ export class ESInputCheckbox extends ESInputText {
         this.inputEl?.setAttribute('class', styles.ESInputCheckboxInput);
         if (this.disabled) this.inputEl?.setAttribute('disabled', '');
         if (this.checked) this.inputEl?.setAttribute('checked', '');
-
-        createIcons({ icons: { Eye, EyeOff, X } });
     }
 }
 
