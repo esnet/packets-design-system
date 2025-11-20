@@ -1,6 +1,6 @@
 import styles from "./ESInputPassword.module.css";
 import { ESInputText } from "../ESInputText";
-import { createIcons, Eye, EyeOff, X } from 'lucide';
+import { ESIcon } from "../ESIcon";
 
 export class ESInputPassword extends ESInputText {
     static tagName = 'es-input-password';
@@ -12,8 +12,8 @@ export class ESInputPassword extends ESInputText {
     connectedCallback(): void {
         this.actionButtons = `
             <div>
-                <div id='eyeBtn'><i data-lucide='eye'></i></div>
-                <div id='clearBtn'><i data-lucide='X'></i></div>
+                <div id='eyeBtn'><${ESIcon.tagName} name='eye'></${ESIcon.tagName}></div>
+                <div id='clearBtn'><${ESIcon.tagName} name='X'></${ESIcon.tagName}></div>
             </div>
             `;
         super.connectedCallback();
@@ -43,15 +43,13 @@ export class ESInputPassword extends ESInputText {
     }
 
     private _updateEyeIcon(): void {
-        if (this._eyeBtn) this._eyeBtn.innerHTML = `<i data-lucide='${this._hidden ? 'eye' : 'eye-off'}'></i>`;
-        createIcons({ icons: { Eye, EyeOff, X } });
+        if (this._eyeBtn) this._eyeBtn.innerHTML = `<${ESIcon.tagName} name='${this._hidden ? 'eye' : 'eye-off'}'></${ESIcon.tagName}>`;
     }
 
     protected render(): void {
         super.render();
         this.inputEl?.setAttribute('type', `${this._hidden ? 'password' : 'text'}`);
         this.containerEl?.classList.add(styles.ESInputPassword);
-        createIcons({ icons: { Eye, EyeOff, X } });
     }
 }
 
