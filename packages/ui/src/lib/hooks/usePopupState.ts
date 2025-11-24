@@ -16,13 +16,17 @@ function usePopupState(
 ): [boolean, (next: boolean) => void] {
   const [open, setOpen] = useState<0 | 1 | 2>(defaultOpen ? 2 : 0);
 
-  const openDropdown = (level: typeof open) => {
+  const openDropdown = useCallback((level: 0 | 1 | 2) => {
     setOpen(level);
-  };
+  }, []);
 
-  const closeDropdown = (level: typeof open) => {
-    if (level >= open) setOpen(0);
-  };
+  const closeDropdown = useCallback((level: 0 | 1 | 2) => {
+    setOpen((currentOpen) => {
+      // Use functional update to access current state
+      if (level >= currentOpen) return 0;
+      return currentOpen;
+    });
+  }, []);
 
   // set a bunch of event listeners
   useEffect(() => {
