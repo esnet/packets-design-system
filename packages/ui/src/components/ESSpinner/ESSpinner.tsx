@@ -8,7 +8,7 @@ import styles from "./ESSpinner.module.css";
  * A loading indicator
  *
  * @param {ESSpinnerProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESSpinner: React.FC = () => {
   return (

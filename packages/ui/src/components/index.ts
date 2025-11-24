@@ -10,6 +10,8 @@ export { default as ESBreadcrumbs } from "./ESBreadcrumbs";
 export { default as ESButton } from "./ESButton";
 export { default as ESButtonGroup } from "./ESButtonGroup";
 export { default as ESCheckableList } from "./ESCheckableList";
+export { default as ESChip } from "./ESChip";
+export { default as ESChipGroup } from "./ESChipGroup";
 export { default as ESCommaSeperatedList } from "./ESCommaSeperatedList";
 export { default as ESDataTable } from "./ESDataTable";
 export { default as ESDatum } from "./ESDatum";
