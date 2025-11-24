@@ -21,9 +21,9 @@ export function ESQuotes({
 
   return (
     <div className={clsx(styles.ESQuotes, styles[quoteType], className)}>
-      {showLeftIcon && <ESIcon name="quote" />}
+      {showLeftIcon && <ESIcon name="quote" className={styles.left} />}
       <blockquote>&ldquo;{children}&rdquo;</blockquote>
-      {showRightIcon && <ESIcon name="quote" />}
+      {showRightIcon && <ESIcon name="quote" className={styles.right} />}
     </div>
   );
 }

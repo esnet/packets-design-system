@@ -40,7 +40,6 @@
     }
   }
 
-
   /* Hide right icon if screen sizes is too small */
   svg:last-of-type {
     display: none;
@@ -59,10 +58,10 @@
     width: var(--esnet-size-spacing-xlarge, 40px);
     height: var(--esnet-size-spacing-xlarge, 40px);
 
-    &:first-of-type {
+    &.left {
       transform: scale(-1, 1);
     }
-    &:last-of-type {
+    &.right {
       align-self: flex-end;
     }
   }
