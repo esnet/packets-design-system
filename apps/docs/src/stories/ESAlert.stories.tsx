@@ -8,11 +8,11 @@ const meta: Meta<typeof ESAlert> = {
   tags: ["autodocs"],
   argTypes: {
     title: {
-      control: { type: "text" },
+      control: { variant: "text" },
     },
-    type: {
-      control: { type: "radio" },
-      options: ["error", "warning", "info", "success"],
+    variant: {
+      control: { variant: "radio" },
+      options: ["error", "warning", "info", "success", "branded"],
       defaultValue: "info",
     },
   },
@@ -22,17 +22,11 @@ export default meta;
 
 type Story = StoryObj<typeof ESAlert>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
 export const DefaultAlert: Story = {
-  render: (props) => <ESAlert {...props}>{props.children}</ESAlert>,
   name: "Info Example",
   args: {
     title: "Did you know?",
-    type: "info",
+    variant: "info",
     children: (
       <>
         <p>
@@ -46,11 +40,17 @@ export const DefaultAlert: Story = {
   },
 };
 
+export const ShortAlert: Story = {
+  args: {
+    title: "Info",
+    children: "Information",
+  },
+};
+
 export const SuccessExample: Story = {
-  render: (props) => <ESAlert {...props}>{props.children}</ESAlert>,
   args: {
     title: "Success!",
-    type: "success",
+    variant: "success",
     children: (
       <>
         <p>
@@ -79,14 +79,13 @@ export const SuccessExample: Story = {
 };
 
 export const ExampleWarningAlert: Story = {
-  render: (props) => <ESAlert {...props}>{props.children}</ESAlert>,
   name: "Warning Example",
   args: {
     title: "Warning",
-    type: "warning",
+    variant: "warning",
     children: (
       <>
-        <label>Node nearing capacity</label>
+        <h6>Node nearing capacity</h6>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim diam
@@ -98,25 +97,42 @@ export const ExampleWarningAlert: Story = {
 };
 
 export const ExampleErrorAlert: Story = {
-  render: (props) => <ESAlert {...props}>{props.children}</ESAlert>,
   name: "Error Example",
   args: {
     title: "Error Fetching Data",
-    type: "error",
+    variant: "error",
     children: (
       <>
-        <label>Network Error:</label>
+        <h6>Network Error:</h6>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim diam
           vulputate ut pharetra sit amet aliquam.
         </p>
-        <label>Status Code:</label>
+        <h6>Status Code:</h6>
         <p>404</p>
-        <label>Message:</label>
+        <h6>Message:</h6>
         <p>
           Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim.
           Enim sit amet venenatis urna cursus eget nunc scelerisque.
+        </p>
+      </>
+    ),
+  },
+};
+
+export const ExampleBrandedAlert: Story = {
+  name: "Branded Example",
+  args: {
+    title: "Branded Alert",
+    variant: "branded",
+    children: (
+      <>
+        <p>
+          Bob Kahn and Vint Cerf are the American computer scientists who
+          developed TCP/IP, the set of protocols that governs how data moves
+          through a network. This helped the ARPANET evolve into the internet we
+          use today.
         </p>
       </>
     ),

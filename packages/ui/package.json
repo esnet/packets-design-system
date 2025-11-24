@@ -7,7 +7,7 @@
         "rimraf": "./node_modules/rimraf/bin.js",
         "build": "rimraf dist && rollup -c",
         "dev": "rollup -c -w",
-        "test": "playwright test",
+        "test": "playwright clear-cache && playwright test",
         "test:ui": "playwright clear-cache && playwright test --ui",
         "test:updatesnaps": "playwright clear-cache && playwright test --update-snapshots",
         "lint": "eslint \"**/*.{ts,tsx}\"",
