@@ -22,13 +22,17 @@ export function ESCodeBlock({
   ...props
 }: ESCodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const _onCopy = onClickCopy
-    ? () => onClickCopy(code)
-    : async () => {
+const _onCopy = onClickCopy
+  ? () => onClickCopy(code)
+  : async () => {
+      try {
         await navigator.clipboard.writeText(code);
         setCopied(true);
         setTimeout(() => setCopied(false), 1000);
-      };
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
   return (
     <pre className={clsx(styles.ESCodeBlock, className)} {...props}>
