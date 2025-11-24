@@ -40,9 +40,6 @@
     }
   }
 
-  .hide {
-    display: none !important;
-  }
 
   /* Hide right icon if screen sizes is too small */
   svg:last-of-type {
@@ -55,7 +52,7 @@
   }
 
   &.pull svg {
-    display: none !important;
+    display: none;
   }
 
   svg {

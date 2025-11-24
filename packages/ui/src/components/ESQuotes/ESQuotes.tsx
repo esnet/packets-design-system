@@ -16,28 +16,14 @@ export function ESQuotes({
   children,
   className,
 }: ESQuotesProps) {
+  const showLeftIcon = quoteIcons === "left" || quoteIcons === "both";
+  const showRightIcon = quoteIcons === "right" || quoteIcons === "both";
+
   return (
-    <div
-      className={clsx(
-        styles.ESQuotes,
-        styles[quoteType],
-        styles[quoteIcons],
-        className
-      )}
-    >
-      <ESIcon
-        name="quote"
-        className={
-          quoteIcons === "left" || quoteIcons === "both" ? "" : styles.hide
-        }
-      />
+    <div className={clsx(styles.ESQuotes, styles[quoteType], className)}>
+      {showLeftIcon && <ESIcon name="quote" />}
       <blockquote>&ldquo;{children}&rdquo;</blockquote>
-      <ESIcon
-        name="quote"
-        className={
-          quoteIcons === "right" || quoteIcons === "both" ? "" : styles.hide
-        }
-      />
+      {showRightIcon && <ESIcon name="quote" />}
     </div>
   );
 }
