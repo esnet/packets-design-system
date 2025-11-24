@@ -4,7 +4,7 @@
   padding: 0 var(--esnet-size-spacing-medium, 16px);
 
   @media (min-width: 640px) {
-    padding: 0 var(--esnet-size-spacing-xlarge, 40px);
+    padding: 0 var(--esnet-size-spacing-large, 32px);
   }
 
   &:global(.surface) {
@@ -12,7 +12,7 @@
     padding: var(--esnet-size-spacing-medium, 16px);
 
     @media (min-width: 640px) {
-      padding: var(--esnet-size-spacing-xlarge, 40px);
+      padding: var(--esnet-size-spacing-large, 32px);
     }
   }
 }
