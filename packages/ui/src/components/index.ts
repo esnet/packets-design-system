@@ -34,6 +34,7 @@ export { default as ESInputText } from "./ESInputText";
 export { default as ESInputTextArea } from "./ESInputTextArea";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESModule } from "./ESModule";
+export { default as ESQuotes } from "./ESQuotes";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
 export { default as ESSpacer } from "./ESSpacer";
 export { default as ESSpinner } from "./ESSpinner";
