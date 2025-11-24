@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./ESInputSelect.module.css";
 import { ESInputSelectProps } from "./ESInputSelect.types";
-import useOutsideClick from "../../lib/hooks/useOutsideClick";
 import ESIcon from "../ESIcon";
 import useControllableState from "../../lib/hooks/useControllableState";
 import usePopupState from "../../lib/hooks/usePopupState";
@@ -79,7 +78,7 @@ export function ESInputSelect({
       aria-disabled={disabled}
       aria-haspopup="listbox"
       aria-expanded={dropdownOpen}
-      role="textbox"
+      role="combobox"
       tabIndex={0}
     >
       <div className={`${styles.inputBox}`}>
