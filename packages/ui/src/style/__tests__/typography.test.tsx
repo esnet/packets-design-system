@@ -72,7 +72,7 @@ test.describe("RichText", () => {
               <em className="body2 highlight-pink">Italics text</em>
             </div>
           </div>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -85,7 +85,7 @@ test.describe("RichText", () => {
           <h1 className="display branded">Display Text Branded</h1>
           <h1 className="display2">(Used in ESTitleSection)</h1>
           <h1 className="display2 branded">(Used in ESTitleSection) Branded</h1>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -98,7 +98,7 @@ test.describe("RichText", () => {
             <a href={actionState !== "inactive" ? "/" : undefined}>
               Example Link ({theme})
             </a>
-          </body>
+          </body>,
         );
         const anchor = component.locator("a");
         if (actionState === "hover") await anchor.hover();
@@ -144,7 +144,7 @@ test.describe("RichText", () => {
             <h6 className="accent">Heading 6</h6>
             <h6 className="accent2">Heading 6</h6>
           </div>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -154,7 +154,7 @@ test.describe("RichText", () => {
       const component = await mount(
         <body className={theme}>
           <footer>Footer text. Copyright text.</footer>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -164,7 +164,7 @@ test.describe("RichText", () => {
       const component = await mount(
         <body className={theme}>
           <figcaption>Caption Text. Used in ESFigure.</figcaption>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -176,7 +176,7 @@ test.describe("RichText", () => {
       const component = await mount(
         <body className={theme}>
           <code>{code}</code>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -196,7 +196,7 @@ test.describe("RichText", () => {
             </li>
             <li>Third item in ordered list</li>
           </ol>
-        </body>
+        </body>,
       );
       await expect(component).toHaveScreenshot();
     });

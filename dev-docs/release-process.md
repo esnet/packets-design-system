@@ -4,12 +4,11 @@ This document outlines the processes to reelease a new build of the npm package 
 
 ## Package Registry
 
-The Gitlab Package Registry can be found [here](https://gitlab.es.net/esnet/packets-design-system/-/packages). It contains npm files for both `@esnet/packets-ui` and `@esnet/esnet-tokens`. If you need to debug artifacts, you can click in on a published version and see downloaded published artifacts. 
+The Gitlab Package Registry can be found [here](https://gitlab.es.net/esnet/packets-design-system/-/packages). It contains npm files for both `@esnet/packets-ui` and `@esnet/esnet-tokens`. If you need to debug artifacts, you can click in on a published version and see downloaded published artifacts.
 
 ## Changesets
 
 Packets uses [changesets](https://github.com/changesets/changesets) to manage its version history. All MRs should have an associated changeset `.md` file with them describing what the change is and the verbosity of the changese (major/minor/patch).
-
 
 ## Publishing Process
 
@@ -27,7 +26,6 @@ At this point the .md files in `.changeset` should be gone and your `package.jso
 6. Verify new packages are available at [https://gitlab.es.net/esnet/packets-design-system/-/packages](https://gitlab.es.net/esnet/packets-design-system/-/packages)
 7. Merge release branch into `main` if release is successful.
 
-
 ### Commmon Issues
 
 - The pipeline isn't building
@@ -40,4 +38,4 @@ When you are only updating one package (common example: updates to the react com
 
 ### Deploy to Gitlab
 
-The `publish` action in our `.gitlab-ci.yml` file will deploy the latest artifacts to our Gitlab instance. This action is ONLY triggered when a release branch is pushed to the repo (Example: `release/@esnet-packets-ui-1.0.0`). 
+The `publish` action in our `.gitlab-ci.yml` file will deploy the latest artifacts to our Gitlab instance. This action is ONLY triggered when a release branch is pushed to the repo (Example: `release/@esnet-packets-ui-1.0.0`).

@@ -50,7 +50,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
       }
       onChange?.(updateDate);
     },
-    [onChange, value]
+    [onChange, value],
   );
 
   const timeWheels = React.useMemo(() => {
@@ -63,7 +63,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
               "hour",
               hourSetting.min,
               formatSetting === "12-hour" ? hourSetting.max : 23,
-              hourSetting.step
+              hourSetting.step,
             );
 
       const hourValue = value
@@ -88,7 +88,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
             }
             onChangePart("hour", hour);
           }}
-        />
+        />,
       );
     }
 
@@ -100,7 +100,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
               "hour",
               minuteSetting.min,
               minuteSetting.max,
-              minuteSetting.step
+              minuteSetting.step,
             );
 
       const minuteValue = String(value?.getMinutes() ?? "");
@@ -113,7 +113,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           onChange={(value) => {
             onChangePart("minute", Number(value));
           }}
-        />
+        />,
       );
     }
 
@@ -125,7 +125,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
               "hour",
               secondSetting.min,
               secondSetting.max,
-              secondSetting.step
+              secondSetting.step,
             );
 
       const secondValue = String(value?.getSeconds() ?? "");
@@ -138,7 +138,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
           onChange={(value) => {
             onChangePart("second", Number(value));
           }}
-        />
+        />,
       );
     }
 
@@ -154,11 +154,11 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
               "hour",
               getHoursOnChangeMeridiem(
                 value?.getHours() ?? 0,
-                merValue as Meridiem
-              )
+                merValue as Meridiem,
+              ),
             );
           }}
-        />
+        />,
       );
     }
 

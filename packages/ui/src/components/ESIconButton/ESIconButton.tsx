@@ -27,7 +27,7 @@ const ESIconButton = ({
         styles.ESIconButton,
         styles[variant],
         square && styles.square,
-        className
+        className,
       )}
       type="button"
       disabled={disabled}

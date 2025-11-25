@@ -33,7 +33,7 @@ test.describe("ESInputRadioButton", () => {
       }
       test(`${name}-${theme}`, async ({ mount }) => {
         const component = (await mount(themedComponent)).locator(
-          'input[type="radio"]'
+          'input[type="radio"]',
         );
         await expect(component).toHaveScreenshot();
       });
@@ -42,7 +42,7 @@ test.describe("ESInputRadioButton", () => {
         test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
           // do any locator selection if needed
           const component = (await mount(themedComponent)).locator(
-            'input[type="radio"]'
+            'input[type="radio"]',
           );
           if (state === "focus") await component.focus();
           if (state === "hover" || state === "active") await component.hover();
@@ -59,7 +59,7 @@ test.describe("ESInputRadioButton", () => {
       <div>
         <ESInputRadioButton name="group1" value="option1" />
         <ESInputRadioButton name="group1" value="option2" />
-      </div>
+      </div>,
     );
     const radioButtons = component.locator('input[type="radio"]');
     const b1 = radioButtons.nth(0);

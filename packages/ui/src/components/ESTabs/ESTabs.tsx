@@ -31,7 +31,7 @@ const ESTabs: FC<ESTabsProps> = ({
         styles.ESTabs,
         border && styles.hasBorder,
         !verticalPadding && styles.noPadding,
-        className
+        className,
       )}
     >
       <ul className={styles.tabList}>{tabChildren}</ul>

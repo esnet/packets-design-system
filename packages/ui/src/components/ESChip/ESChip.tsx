@@ -31,7 +31,7 @@ export function ESChip({
         styles[variant],
         prepend && styles.prependStyle,
         (append || onDelete) && styles.appendStyle,
-        className
+        className,
       )}
       type="button"
       onClick={onDelete || props.onClick}

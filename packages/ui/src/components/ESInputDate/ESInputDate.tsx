@@ -40,7 +40,7 @@ export function ESInputDate({
       setFocus(true);
       props.onFocus?.(e);
     },
-    [setFocus, props.onFocus]
+    [setFocus, props.onFocus],
   );
   const containerRef = React.useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setFocus(false));
@@ -52,7 +52,7 @@ export function ESInputDate({
       }
       onChange?.(date);
     },
-    [onChange, setValue, value]
+    [onChange, setValue, value],
   );
 
   return (
@@ -62,7 +62,7 @@ export function ESInputDate({
         styles.ESInputDate,
         focus && styles.focus,
         variant && styles[variant],
-        className
+        className,
       )}
     >
       <ESInputText

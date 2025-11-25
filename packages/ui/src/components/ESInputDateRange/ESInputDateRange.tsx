@@ -41,7 +41,7 @@ export function ESInputDateRange({
         });
       };
     },
-    [onChange, setValue, _value]
+    [onChange, setValue, _value],
   );
 
   // manages whether or not the calendar picker prompt is active or not
@@ -52,7 +52,7 @@ export function ESInputDateRange({
       setFocus(true);
       props.onFocus?.(e);
     },
-    [setFocus, props.onFocus]
+    [setFocus, props.onFocus],
   );
   const containerRef = React.useRef<HTMLDivElement>(null);
   useOutsideClick(containerRef, () => setFocus(false));
@@ -70,7 +70,7 @@ export function ESInputDateRange({
         styles.ESInputDate,
         focus && styles.focus,
         variant && styles[variant],
-        className
+        className,
       )}
     >
       <ESInputText

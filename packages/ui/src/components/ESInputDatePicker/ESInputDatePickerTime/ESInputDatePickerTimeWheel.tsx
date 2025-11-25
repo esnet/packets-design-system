@@ -26,7 +26,7 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
         behavior,
       });
     },
-    [containerRef, wheelButtonRefs]
+    [containerRef, wheelButtonRefs],
   );
 
   const wheelComponents = React.useMemo(() => {
@@ -37,7 +37,7 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
           className={clsx(
             styles.timeWheelButton,
             baseStyles.button,
-            v === value && baseStyles.selected
+            v === value && baseStyles.selected,
           )}
           ref={(el) => (wheelButtonRefs.current[i] = el!)}
           onClick={() => {

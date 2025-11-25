@@ -68,7 +68,7 @@ const ESAvatar: React.FC<ESAvatarProps> = ({
         styles[size],
         error && styles.brokenImage,
         styles[computedBackgroundColor],
-        className
+        className,
       )}
     >
       {hasImageSrc && (

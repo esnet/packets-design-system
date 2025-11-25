@@ -49,7 +49,7 @@ test.describe("ESInputDatePicker", () => {
         const testBox = await mount(
           <div className={theme} style={{ position: "relative" }}>
             <ESInputDatePicker {...props} />
-          </div>
+          </div>,
         );
         const datePickerComponent = testBox.locator("div").first();
         if (props.type === "date") {
@@ -81,7 +81,7 @@ test.describe("ESInputDatePicker", () => {
       const testBox = await mount(
         <div className={theme} style={{ position: "relative" }}>
           <ESInputDatePicker type="date" value={testSelectedDate} />
-        </div>
+        </div>,
       );
       const datePickerComponent = testBox.locator("div").first();
       const monthButton = testBox
@@ -97,7 +97,7 @@ test.describe("ESInputDatePicker", () => {
       const testBox = await mount(
         <div className={theme} style={{ position: "relative" }}>
           <ESInputDatePicker type="date" value={testSelectedDate} />
-        </div>
+        </div>,
       );
       const datePickerComponent = testBox.locator("div").first();
       const yearButton = testBox
@@ -136,7 +136,7 @@ test.describe("ESInputDatePicker", () => {
             }}
             value={testSelectedDate}
           />
-        </div>
+        </div>,
       );
       const datePickerComponent = testBox.locator("div").first();
       await expect(datePickerComponent).toHaveScreenshot();

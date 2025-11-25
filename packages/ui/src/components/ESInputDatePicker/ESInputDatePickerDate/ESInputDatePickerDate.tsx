@@ -29,7 +29,7 @@ const ESInputDatePickerDate = ({
   // the current MONTH and YEAR that is currently being viewed
   // initialized to a copy of the supplied value, or today
   const [viewDate, setViewDate] = React.useState(
-    value ? new Date(value) : new Date()
+    value ? new Date(value) : new Date(),
   );
 
   // DATE RANGE LOGIC ONLY
@@ -38,7 +38,7 @@ const ESInputDatePickerDate = ({
   // when the second date is selected, if it's before the first, swap them, then call onChangeRangeEnd
   // track the last selected date, as it will serve as start or end of the range
   const [firstSelectedDate, setFirstSelectedDate] = React.useState<Date | null>(
-    null
+    null,
   );
 
   const dayMenu = React.useMemo(() => {
@@ -73,7 +73,7 @@ const ESInputDatePickerDate = ({
               ]) ||
               (dateInfo > value &&
                 dateInfo < rangeEndValue &&
-                styles.dateRangeMiddle))
+                styles.dateRangeMiddle)),
         )}
         disabled={
           dateInfo.getMonth() !== viewDate.getMonth() ||
@@ -87,7 +87,7 @@ const ESInputDatePickerDate = ({
             value?.getHours() ?? 0,
             value?.getMinutes() ?? 0,
             value?.getSeconds() ?? 0,
-            value?.getMilliseconds() ?? 0
+            value?.getMilliseconds() ?? 0,
           );
           if (!isDateRange) {
             onChange?.(dateInfo);
@@ -132,7 +132,7 @@ const ESInputDatePickerDate = ({
   const monthMenu = React.useMemo(() => {
     if (view !== "month") return; // no need to compute if not to be rendered
     const onClickMonthFactory = (
-      month: number
+      month: number,
     ): React.MouseEventHandler<HTMLButtonElement> => {
       return () => {
         setViewDate((prev) => new Date(prev.setMonth(month)));
@@ -152,7 +152,7 @@ const ESInputDatePickerDate = ({
             value &&
               monthDate.getMonth() === value.getMonth() &&
               monthDate.getFullYear() === value.getFullYear() &&
-              baseStyles.selected
+              baseStyles.selected,
           )}
           disabled={
             (minSetting && monthDate < minSetting) ||
@@ -169,7 +169,7 @@ const ESInputDatePickerDate = ({
   const yearMenu = React.useMemo(() => {
     if (view !== "year") return; // no need to compute if not to be rendered
     const onClickYearFactory = (
-      year: number
+      year: number,
     ): React.MouseEventHandler<HTMLButtonElement> => {
       return () => {
         setViewDate((prev) => new Date(prev.setFullYear(year)));
@@ -178,7 +178,7 @@ const ESInputDatePickerDate = ({
     };
     return Array.from(
       { length: 20 },
-      (_, i) => viewDate.getFullYear() + i - 10
+      (_, i) => viewDate.getFullYear() + i - 10,
     ).map((year) => {
       const yearDate = new Date(0);
       yearDate.setFullYear(year, 0, 1);
@@ -188,7 +188,7 @@ const ESInputDatePickerDate = ({
           className={clsx(
             styles.yearGridButton,
             baseStyles.button,
-            value && year === value.getFullYear() && baseStyles.selected
+            value && year === value.getFullYear() && baseStyles.selected,
           )}
           disabled={
             (minSetting && yearDate < minSetting) ||
@@ -208,17 +208,18 @@ const ESInputDatePickerDate = ({
       switch (view) {
         case "day":
           setViewDate(
-            (prev) => new Date(prev.setMonth(prev.getMonth() + value))
+            (prev) => new Date(prev.setMonth(prev.getMonth() + value)),
           );
           break;
         case "month":
           setViewDate(
-            (prev) => new Date(prev.setFullYear(prev.getFullYear() + value))
+            (prev) => new Date(prev.setFullYear(prev.getFullYear() + value)),
           );
           break;
         case "year":
           setViewDate(
-            (prev) => new Date(prev.setFullYear(prev.getFullYear() + value * 8))
+            (prev) =>
+              new Date(prev.setFullYear(prev.getFullYear() + value * 8)),
           );
           break;
       }

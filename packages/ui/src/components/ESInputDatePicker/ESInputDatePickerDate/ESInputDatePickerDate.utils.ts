@@ -52,7 +52,7 @@ export function flattenedDateGrid(date: Date): Date[] {
   const daysInCurrentMonth = new Date(
     date.getFullYear(),
     date.getMonth() + 1,
-    0
+    0,
   ).getDate();
 
   // days from previous month
@@ -63,25 +63,25 @@ export function flattenedDateGrid(date: Date): Date[] {
         new Date(
           date.getFullYear(),
           date.getMonth(),
-          -1 * (firstDay.getDay() - i)
-        )
-    )
+          -1 * (firstDay.getDay() - i),
+        ),
+    ),
   );
 
   // days from current month
   dates.push(
     ...Array.from(
       { length: daysInCurrentMonth },
-      (_, i) => new Date(date.getFullYear(), date.getMonth(), i + 1)
-    )
+      (_, i) => new Date(date.getFullYear(), date.getMonth(), i + 1),
+    ),
   );
 
   // dates from next month
   dates.push(
     ...Array.from(
       { length: 42 - dates.length }, // 6 rows x 7 columns = 42 total cells
-      (_, i) => new Date(date.getFullYear(), date.getMonth() + 1, i + 1)
-    )
+      (_, i) => new Date(date.getFullYear(), date.getMonth() + 1, i + 1),
+    ),
   );
 
   return dates;

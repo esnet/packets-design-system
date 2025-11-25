@@ -27,7 +27,7 @@ const ESInputTextArea: React.FC<ESInputTextAreaProps> = ({
     resize && styles[resize],
     error && styles.error,
     disabled && styles.disabled,
-    className
+    className,
   );
 
   return (

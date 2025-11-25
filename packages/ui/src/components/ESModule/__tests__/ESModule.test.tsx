@@ -103,7 +103,7 @@ test.describe("ESModule", () => {
       </ESModule>
     );
     const component = await mount(
-      <ComponentTestBox component={raw} size="small" />
+      <ComponentTestBox component={raw} size="small" />,
     );
     await expect(component).toHaveScreenshot();
   });

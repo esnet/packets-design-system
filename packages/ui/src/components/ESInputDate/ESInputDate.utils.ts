@@ -29,7 +29,7 @@ export function formatTime(date: Date): string {
 
 export function formatValue(
   value: Date | undefined,
-  type: "date" | "time" | "datetime"
+  type: "date" | "time" | "datetime",
 ): string {
   if (!value) return "";
   switch (type) {

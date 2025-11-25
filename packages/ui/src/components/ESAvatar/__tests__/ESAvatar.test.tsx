@@ -57,7 +57,7 @@ test.describe("ESAvatar", () => {
               backgroundColor="berry"
             />
           }
-        />
+        />,
       );
       await expect(component).toHaveScreenshot();
     });

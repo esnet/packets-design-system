@@ -24,7 +24,7 @@ export function ESInputText({
         variant && styles[variant],
         error && styles.error,
         disabled && styles.disabled,
-        className
+        className,
       )}
     >
       <input {...props} className={styles.input} disabled={disabled} />

@@ -31,7 +31,7 @@ const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
         styles[variant],
         fill && styles.fill,
         size && styles[size],
-        className
+        className,
       )}
       type="button"
       disabled={disabled}

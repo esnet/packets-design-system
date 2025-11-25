@@ -29,7 +29,7 @@ const ESListTreeLeafView: FC<ESListTreeLeafViewProps> = ({
       className={clsx(
         styles.ESListTreeLeafView,
         isSublist && styles.isSublist,
-        className
+        className,
       )}
     >
       <section className={styles.contentWrapper}>

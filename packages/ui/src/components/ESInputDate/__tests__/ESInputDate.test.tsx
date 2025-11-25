@@ -33,7 +33,7 @@ test.describe("ESInputDate", () => {
             }}
           >
             <ESInputDate {...props} />
-          </div>
+          </div>,
         );
 
         const input = component.getByRole("textbox").first();
