@@ -5,6 +5,9 @@ import { ESAccordionProps } from "./ESAccordion.types";
 import useControllableState from "../../lib/hooks/useControllableState";
 import ESIcon from "../ESIcon";
 
+// extra buffer to account for margin collapse
+const HEIGHT_BUFFER = 20;
+
 /**
  * ESAccordion Component
  *
@@ -27,7 +30,6 @@ export function ESAccordion({
   });
   // tools to make smooth transition
   const contentRef = React.useRef<HTMLDivElement>(null);
-  const correctHeight = React.useRef(0);
   const [maxHeight, setMaxHeight] =
     React.useState<CSSProperties["maxHeight"]>("none");
 
@@ -36,7 +38,7 @@ export function ESAccordion({
       return;
     }
     if (open) {
-      setMaxHeight(contentRef.current.scrollHeight + 20);
+      setMaxHeight(contentRef.current.scrollHeight + HEIGHT_BUFFER);
     } else {
       setMaxHeight(0);
     }
@@ -51,7 +53,7 @@ export function ESAccordion({
           className={styles.openButton}
           onClick={() => {
             if (contentRef.current)
-              setMaxHeight(contentRef.current.scrollHeight + 20);
+              setMaxHeight(contentRef.current.scrollHeight + HEIGHT_BUFFER);
             setOpen(!open);
           }}
         >

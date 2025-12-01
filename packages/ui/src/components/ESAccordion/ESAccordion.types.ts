@@ -16,5 +16,5 @@ export interface ESAccordionProps {
   variant?: "primary" | "inline";
   /** Icon buttons shown on the right of the header to perform various actions.
    * Use a single ESIcon component with an onClick handler for one, and an array for multiple. */
-  actionButtons?: React.ReactNode;
+  actionButtons?: React.ReactElement | React.ReactElement[];
 }
