@@ -17,23 +17,20 @@ function usePopupState(
   defaultOpen: boolean,
   mode: "hover" | "active" | "both"
 ): [boolean, (next: boolean) => void] {
+  // The wanted behavior is when the popup is clicked, it stays open, even when the user hovers off of it
+  // This state is only managed internally, users of this hook can only set open on click/focus and closed, not the open on hover
   const [open, setOpen] = useState<OpenType>(defaultOpen ? 2 : 0);
-  const elementRef = useRef<HTMLElement | null>(null);
-  const openRef = useRef(open);
-
-  // prevent stale closures from the passed in ref or the open state in the event listener
-  useEffect(() => {
-    elementRef.current = ref.current;
-    openRef.current = open;
-  });
 
   const openDropdown = useCallback((level: OpenType) => {
     setOpen(level);
   }, []);
 
-  const closeDropdown = useCallback((level: OpenType) => {
-    setOpen((current) => (level >= current ? 0 : current));
-  }, []);
+  const closeDropdown = useCallback(
+    (level: OpenType) => {
+      if (level >= open) setOpen(0);
+    },
+    [open]
+  );
 
   useEffect(() => {
     const shouldListenActive = mode === "active" || mode === "both";

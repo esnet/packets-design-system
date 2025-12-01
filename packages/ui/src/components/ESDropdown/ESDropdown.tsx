@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
@@ -21,17 +21,12 @@ export function ESDropdown({
   children,
   carat,
   mode = "both",
+  className,
   ...props
 }: ESDropdownProps) {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const anchorRef = React.useRef<HTMLDivElement>(null);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState<{
-    left?: CSSProperties["left"];
-    right?: CSSProperties["right"];
-    top?: CSSProperties["top"];
-    bottom?: CSSProperties["bottom"];
-  }>({});
+  const [position, setPosition] = React.useState<any>({});
 
   const [open] = usePopupState(wrapperRef, false, mode);
 
@@ -41,14 +36,14 @@ export function ESDropdown({
   }>({});
 
   useLayoutEffect(() => {
-    if (!dropdownRef.current || !anchorRef.current) return;
+    if (!dropdownRef.current) return;
 
     // default setting
-    let next = {
+    let next: any = {
       top: "100%",
-      left: "0",
-      right: "auto",
+      left: "50%",
       bottom: "auto",
+      transform: "translateX(-50%)",
     };
 
     if (!open) {
@@ -57,21 +52,20 @@ export function ESDropdown({
     }
 
     const dropdownRect = dropdownRef.current.getBoundingClientRect();
-    const anchorRect = anchorRef.current.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
-    let xPos: "left" | "right" =
-      dropdownRect.right > viewportWidth ? "right" : "left";
     let yPos: "top" | "bottom" =
       dropdownRect.bottom > viewportHeight ? "top" : "bottom";
 
-    if (xPos === "right") {
+    if (dropdownRect.right > viewportWidth) {
       next.left = "auto";
       next.right = "0";
-    } else {
+      next.transform = "";
+    } else if (dropdownRect.left < 0) {
       next.left = "0";
       next.right = "auto";
+      next.transform = "";
     }
 
     if (yPos === "top") {
@@ -92,11 +86,8 @@ export function ESDropdown({
 
     setPosition(next);
 
-    const anchorCenterX =
-      anchorRect.left + anchorRect.width / 2 - dropdownRect.left;
-
     setCaratPosition({
-      left: `${anchorCenterX}px`,
+      left: `50%`,
       top:
         yPos === "bottom"
           ? `calc(100% + ${CARAT_OFFSET})`
@@ -124,25 +115,26 @@ export function ESDropdown({
   if (!anchor || !content) return null;
 
   return (
-    <div {...props} ref={wrapperRef} className={clsx(styles.ESDropdown)}>
+    <div
+      {...props}
+      ref={wrapperRef}
+      className={clsx(styles.ESDropdown, className)}
+    >
       {/* carat hover gap div */}
       {carat && (
-        <div
-          className={clsx(styles.hoverGap, styles.fade, open && styles.open)}
-        />
+        <div className={clsx(styles.hoverGap, !open && styles.hidden)} />
       )}
       {/* anchor component */}
       <div
         {...anchor.props}
-        className={clsx(anchor.props.className, styles.anchor)}
-        ref={anchorRef}
+        className={clsx(styles.anchor, anchor.props.className)}
         aria-haspopup="true"
         aria-expanded={open}
       />
       {/* carat div */}
       {carat && (
         <div
-          className={clsx(styles.carat, styles.fade, open && styles.open)}
+          className={clsx(styles.carat, !open && styles.hidden)}
           style={{
             left: caratPosition.left,
             top: caratPosition.top,
@@ -154,10 +146,10 @@ export function ESDropdown({
         {...content.props}
         style={{ ...content.props.style, ...position }}
         className={clsx(
-          content.props.className,
           styles.content,
           styles.fade,
-          open && styles.open
+          !open && styles.hidden,
+          content.props.className
         )}
         ref={dropdownRef}
         aria-hidden={!open}
