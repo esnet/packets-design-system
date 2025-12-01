@@ -46,7 +46,6 @@
 //       actionStates.forEach((state) => {
 //         test(`${name}-${theme}-${state}`, async ({ mount }) => {
 //           if (props.disabled) return; // skip if component is disabled
-
 //           const component = await mount(testBox);
 //           if (state === "focus") await component.focus();
 //           if (state === "hover" || state === "active") await component.hover();

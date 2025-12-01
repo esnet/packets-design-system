@@ -1,0 +1,141 @@
+.ESChip {
+  --background-color: var(--esnet-color-core-white-600, #ccc);
+  --color: var(--esnet-color-core-black-600, #454547);
+  --border-color: transparent;
+  --border-radius: var(--esnet-size-radius-xlarge, 0.375rem);
+  --padding-left: 12px;
+  --padding-right: 12px;
+
+  :global(.dark) & {
+    --background-color: var(--esnet-color-core-black-600, #454547);
+    --color: var(--esnet-color-core-white-300, #e6e6e6);
+  }
+
+  &:hover {
+    --background-color: var(--esnet-color-core-white-700, #c2c2c2);
+
+    :global(.dark) & {
+      --background-color: var(--esnet-color-core-black-300, #5e5e5e);
+    }
+  }
+
+  &:focus {
+    --background-color: var(--esnet-color-core-white-800, #b3b3b3);
+
+    :global(.dark) & {
+      --background-color: var(--esnet-color-core-black-200, #656566);
+    }
+  }
+
+  &:disabled {
+    --background-color: var(--esnet-color-core-white-400, #e3e3e3);
+
+    :global(.dark) & {
+      --background-color: var(--esnet-color-core-black-600, #454547);
+    }
+
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:active {
+    --border-color: var(--esnet-color-core-blue-500, #00a0d6);
+    --background-color: var(--esnet-color-core-blue-100, #cff1ff);
+    --color: var(--esnet-color-core-blue-800, #00608c);
+
+    :global(.dark) & {
+      --border-color: var(--esnet-color-core-blue-600, #0088b5);
+      --background-color: var(--esnet-color-core-blue-200, #9ce2ff);
+    }
+  }
+
+  &.outline {
+    --background-color: none;
+    --border-color: var(--esnet-color-core-white-600, #ccc);
+
+    :global(.dark) & {
+      --border-color: var(--esnet-color-core-black-600, #ccc);
+    }
+
+    &:hover {
+      --background-color: var(--esnet-color-core-white-200, #f2f2f2);
+
+      :global(.dark) & {
+        --background-color: var(--esnet-color-core-black-800, #252526);
+      }
+    }
+
+    &:focus {
+      --background-color: var(--esnet-color-core-white-800, #b3b3b3);
+
+      :global(.dark) & {
+        --background-color: var(--esnet-color-core-black-200, #656566);
+      }
+    }
+
+    &:disabled {
+      --background-color: var(--esnet-color-core-white-200, #f2f2f2);
+      --border-color: var(--esnet-color-core-white-300, #e6e6e6);
+
+      :global(.dark) & {
+        --background-color: var(--esnet-color-core-black-800, #252526);
+        --border-color: transparent;
+      }
+    }
+
+    &:active {
+      --border-color: var(--esnet-color-core-blue-500, #00a0d6);
+      --background-color: var(--esnet-color-core-blue-100, #cff1ff);
+      --color: var(--esnet-color-core-blue-800, #00608c);
+
+      :global(.dark) & {
+        --background-color: var(--esnet-color-core-blue-200, #9ce2ff);
+      }
+    }
+  }
+
+  &.rounded {
+    --border-radius: var(--esnet-size-radius-circle, 999px);
+  }
+
+  &.prependStyle {
+    --padding-left: var(--esnet-size-spacing-xsmall, 4px);
+  }
+
+  &.appendStyle {
+    --padding-right: var(--esnet-size-spacing-xsmall, 4px);
+  }
+
+  display: inline-flex;
+  height: 32px;
+  box-sizing: border-box;
+  padding-left: var(--padding-left);
+  padding-right: var(--padding-right);
+  padding-top: var(--esnet-size-spacing-xxsmall, 2px);
+  padding-bottom: var(--esnet-size-spacing-xxsmall, 2px);
+
+  justify-content: center;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xsmall, 8px);
+  flex-shrink: 0;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall);
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  border-radius: var(--border-radius);
+
+  color: var(--color);
+  font: var(--esnet-typography-label-1-sans-font);
+
+  transition:
+    border-color,
+    background-color var(--esnet-time-duration-quick, 250ms) ease;
+}
+
+.delete {
+  width: var(--esnet-size-spacing-medium, 16px);
+  aspect-ratio: 1 / 1;
+}

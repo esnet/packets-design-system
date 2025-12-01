@@ -1,4 +1,8 @@
 .ESInputCheckbox {
+  display: inline-block;
+  /* Layout */
+  box-sizing: border-box;
+  /* Styling */
   width: 24px;
   height: 24px;
 }
@@ -55,7 +59,7 @@
   &:checked::after {
     content: "";
     position: absolute;
-    left: 5.4px;
+    left: 5.8px;
     width: 6px;
     height: 13px;
     border-style: solid;

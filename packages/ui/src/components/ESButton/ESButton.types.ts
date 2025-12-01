@@ -1,17 +1,33 @@
-export const ESButtonDefaultAsType = "button" as const;
-export type ESButtonDefaultAsType = typeof ESButtonDefaultAsType;
+import * as React from "react";
 
-export type ButtonOwnProps<E extends React.ElementType> = {
-  children: React.ReactNode;
-  className?: string;
-  variant: "primary" | "secondary" | "branded" | "tertiary" | "destructive"; // Type of Button
-  size?: "medium" | "xxlarge";
-  prepend?: React.ReactNode;
+type ESButtonVariantType =
+  | "primary"
+  | "secondary"
+  | "branded"
+  | "tertiary"
+  | "destructive";
+
+type ESButtonCustomProps = {
+  /** Variants that affect styling, such as primary, secondary, tertiary, branded, and destructive. */
+  variant?: ESButtonVariantType;
+  /** Appendable ESIcon, ESAvatar, or other React element */
   append?: React.ReactNode;
-  fill?: boolean;
-  disabled?: boolean;
-  as?: E;
+  /** Prependable ESIcon, ESAvatar, or other React element */
+  prepend?: React.ReactNode;
+
+  children: React.ReactNode;
 };
 
-export type ESButtonProps<E extends React.ElementType> = ButtonOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof ButtonOwnProps<E>>;
+type AsButtonProps = {
+  /** ESButton as a button tag (default) */
+  as?: "button";
+} & React.ComponentPropsWithRef<"button">;
+
+type AsAnchorProps = {
+  /** ESButton as an anchor tag */
+  as: "a";
+} & React.ComponentPropsWithRef<"a">;
+
+// this discriminated union will be messy for Storybook autodocs, need to custom set it
+export type ESButtonProps = ESButtonCustomProps &
+  (AsButtonProps | AsAnchorProps);

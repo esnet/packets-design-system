@@ -1,40 +1,32 @@
-import React from "react";
-import clsx from "clsx";
+import * as React from "react";
 import { ESIconButtonProps } from "./ESIconButton.types";
-
 import styles from "./ESIconButton.module.css";
+import ESButton from "../ESButton";
+import ESIcon from "../ESIcon/ESIcon";
+import clsx from "clsx";
 
 /**
- * ES Icon Button
+ * ESIcon Button
  *
- * Generic Icon only button component.
- * Can be a link or a button set with the "As" prop
+ * Generic Icon only button component, built on top of ESButton (and thus can also be
+ * represented as an anchor tag) with special styling. While ESButton expands to fill parent,
+ * ESIconButton is sized to fit the icon with some horizontal padding, or a square ratio.
  *
  * @param {ESIconButtonProps} props
  * @returns {React.FunctionComponent}
  */
-const ESIconButton = ({
-  variant = "secondary",
-  className,
-  children = "",
-  disabled = false,
-  square = false,
-  ...other
-}: ESIconButtonProps): JSX.Element => {
+const ESIconButton: React.FC<ESIconButtonProps> = ({
+  name,
+  square,
+  ...props
+}) => {
   return (
-    <button
-      className={clsx(
-        styles.ESIconButton,
-        styles[variant],
-        square && styles.square,
-        className
-      )}
-      type="button"
-      disabled={disabled}
-      {...other}
+    <ESButton
+      {...props}
+      className={clsx(styles.ESIconButton, square && styles.square)}
     >
-      {children}
-    </button>
+      <ESIcon name={name} />
+    </ESButton>
   );
 };
 
