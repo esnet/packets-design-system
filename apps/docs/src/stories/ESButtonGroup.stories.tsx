@@ -1,13 +1,18 @@
-import React from "react";
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESButtonGroup, ESButton } from "@esnet/packets-ui";
+import {
+  ESButtonGroup,
+  ESButton,
+  ESIconButton,
+  ESIcon,
+} from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESButtonGroup> = {
   title: "Components/ESButtonGroup",
   component: ESButtonGroup,
   tags: ["autodocs"],
   argTypes: {
-    labelCopy: {
+    label: {
       control: { type: "text" },
     },
     direction: {
@@ -27,63 +32,92 @@ type Story = StoryObj<typeof ESButtonGroup>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-export const Defaultbutton: Story = {
-  render: (props) => (
-    <ESButtonGroup direction={props.direction} labelCopy={props.labelCopy}>
-      {props.children}
-    </ESButtonGroup>
-  ),
-  name: "ES Button Group",
-  args: {
-    children: (
-      <>
-        <ESButton variant="primary" size="medium" type="button">
-          Button 1
-        </ESButton>
-        <ESButton variant="secondary" size="medium" type="button">
-          Button 2
-        </ESButton>
-        <ESButton variant="secondary" size="medium" type="button">
-          Button 3
-        </ESButton>
-        <ESButton variant="tertiary" size="medium" type="button">
-          Button 3
-        </ESButton>
-      </>
-    ),
-    labelCopy: "A Collection of Buttons",
-  },
-};
-
-export const VerticalButtonGroup: Story = {
-  render: (props) => (
-    <ESButtonGroup direction={props.direction} labelCopy={props.labelCopy}>
-      {props.children}
-    </ESButtonGroup>
-  ),
-  name: "Vertical ESButton Group",
+export const Default: Story = {
   args: {
     children: (
       <>
         <ESButton variant="primary">Button 1</ESButton>
         <ESButton variant="secondary">Button 2</ESButton>
-        <ESButton variant="secondary">Button 3</ESButton>
         <ESButton variant="tertiary">Button 3</ESButton>
+        <ESButton variant="branded">Button 4</ESButton>
+        <ESButton variant="destructive">Button 5</ESButton>
+      </>
+    ),
+    label: "A Collection of Buttons",
+  },
+};
+
+export const VerticalButtonGroup: Story = {
+  args: {
+    children: (
+      <>
+        <ESButton variant="primary">Button 1</ESButton>
+        <ESButton variant="secondary">Button 2</ESButton>
+        <ESButton variant="tertiary">Button 3</ESButton>
+        <ESButton variant="branded">Button 4</ESButton>
+        <ESButton variant="destructive">Button 5</ESButton>
       </>
     ),
     direction: "vertical",
   },
 };
 
-export const SmallGroup: Story = {
+export const FixedWidthsButtonsInGroup: Story = {
   args: {
     children: (
       <>
         <ESButton variant="primary">Button 1</ESButton>
-        <div style={{ width: "400px" }}>
-          <ESButton variant="secondary">Button 2</ESButton>
-        </div>
+        <ESButton style={{ width: "400px" }} variant="secondary">
+          Button 2
+        </ESButton>
+        <ESButton style={{ width: "120px" }} variant="destructive">
+          Button 3
+        </ESButton>
       </>
     ),
+  },
+};
+
+export const ButtonsAndIconButtons: Story = {
+  args: {
+    children: (
+      <>
+        <ESButton variant="branded" append={<ESIcon name="link" />}>
+          Button 1
+        </ESButton>
+        <ESIconButton variant="branded" name="settings" square />
+        <ESIconButton variant="branded" name="bookmark" square />
+      </>
+    ),
+  },
+};
+
+export const VerticalMixedButtons: Story = {
+  args: {
+    children: (
+      <>
+        <ESButton variant="primary">
+          ESIconButtons have fixed widths and don't expand, which is why they
+          are seen how they are below.
+        </ESButton>
+        <ESIconButton variant="primary" name="settings" />
+        <ESIconButton variant="primary" name="bookmark" />
+      </>
+    ),
+    direction: "vertical",
+  },
+};
+
+export const SomeBrandedButtons: Story = {
+  args: {
+    children: (
+      <>
+        <ESButton variant="branded">Option 1</ESButton>
+        <ESButton variant="branded">Option 2</ESButton>
+        <ESButton variant="branded">Option 3</ESButton>
+        <ESIconButton variant="secondary" name="trash" />
+      </>
+    ),
+    label: "Some Branded Buttons",
   },
 };
