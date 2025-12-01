@@ -1,222 +1,148 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "storybook/test";
-import { ESButton } from "@esnet/packets-ui";
+import { ESButton, ESIcon } from "@esnet/packets-ui";
 
-const meta: Meta<typeof ESButton> = {
+// Typically we would use a type annotation of const meta: Meta<typeof ESButton>,
+// but due to ESButtonProps being a discriminated union type,
+// Storybook autodocs fails to process it correctly, thus we must use satisfies
+const meta: unknown = {
   title: "Components/ESButton",
   component: ESButton,
   tags: ["autodocs"],
   argTypes: {
-    type: {
-      control: { type: "radio" },
-      options: ["button", "submit", "reset"],
-    },
     variant: {
       control: { type: "radio" },
       options: ["primary", "secondary", "branded", "tertiary", "destructive"],
       defaultValue: "secondary",
     },
-    fill: {
-      control: { type: "boolean" },
-    },
-    disabled: {
-      control: { type: "boolean" },
-      defaultValue: false,
-    },
     as: {
       control: { type: "radio" },
       options: ["button", "a"],
       defaultValue: "button",
+      description:
+        "Whether to render as a button or anchor tag, with their respective props.",
     },
-    href: {
-      control: "text",
-      if: { arg: "as", eq: "a" },
+    append: {
+      control: { type: "object" },
+      description: "Appendable ESIcon, ESAvatar, or other React element",
+    },
+    prepend: {
+      control: { type: "object" },
+      description: "Prependable ESIcon, ESAvatar, or other React element",
     },
   },
-  args: { onClick: fn() },
-};
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-369&t=vvvFZvCMEJjFdQf6-4",
+    },
+  },
+} satisfies Meta<typeof ESButton>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const Defaultbutton: Story = {
-  render: (props) => (
-    <ESButton {...props} variant={props.variant}>
-      {props.children}
-    </ESButton>
-  ),
-  name: "ESButton",
+export const DefaultButton: Story = {
   args: {
     children: "ESButton",
-    type: "button",
-    fill: false,
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-350&t=vvvFZvCMEJjFdQf6-4",
-    },
   },
 };
 
-export const Primary: Story = {
-  render: (props) => (
-    <ESButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESButton>
-  ),
-  name: "Primary ESButton",
+export const BrandedButtonAsAnchor: Story = {
   args: {
-    children: "Primary ESButton",
-    type: "button",
-    variant: "primary",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
-    },
-  },
-};
-
-export const ButtonAsLinkTag: Story = {
-  render: (props) => <ESButton {...props}>{props.children}</ESButton>,
-  name: "Button As Link",
-  args: {
-    children: "Go to Google",
-    variant: "primary",
-    disabled: true,
-    href: "http://www.google.com",
     as: "a",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
-    },
-  },
-};
-
-export const DisabledPrimary: Story = {
-  render: (props) => (
-    <ESButton
-      disabled
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESButton>
-  ),
-  name: "Disabled Primary ESButton",
-  args: {
-    children: "Disabled Primary ESButton",
-    type: "button",
-    variant: "primary",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-363&t=vvvFZvCMEJjFdQf6-4",
-    },
-  },
-};
-
-export const Secondary: Story = {
-  render: (props) => (
-    <ESButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESButton>
-  ),
-  name: "Secondary ESButton",
-  args: {
-    children: "Secondary ESButton",
-    type: "button",
-    variant: "secondary",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-369&t=vvvFZvCMEJjFdQf6-4",
-    },
-  },
-};
-
-export const SecondaryDisabled: Story = {
-  render: (props) => (
-    <ESButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESButton>
-  ),
-  name: "Secondary ESButton Disabled",
-  args: {
-    children: "Secondary ESButton Disabled",
-    type: "button",
-    variant: "secondary",
-    disabled: true,
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=4-369&t=vvvFZvCMEJjFdQf6-4",
-    },
-  },
-};
-
-export const Branded: Story = {
-  render: (props) => (
-    <ESButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESButton>
-  ),
-  name: "Branded ESButton",
-  args: {
-    children: "Branded ESButton",
-    type: "button",
+    href: "/",
+    children: "Link to Packets Design System Home",
+    append: <ESIcon name="link-2" />,
     variant: "branded",
   },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/design/cPesLecFaiSRJU83KAhhRH/Design-System-Components?node-id=109-906&t=vvvFZvCMEJjFdQf6-4",
-    },
+};
+
+export const SecondaryButtonAsAnchorForExternalSite: Story = {
+  args: {
+    as: "a",
+    href: "https://www.google.com",
+    children: "Google",
+    append: <ESIcon name="arrow-up-right-from-square" />,
+    variant: "secondary",
   },
+};
+
+export const AllVariants: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(5, 1fr)",
+        gap: "16px",
+      }}
+    >
+      <ESButton variant="primary" onClick={() => alert("Primary")}>
+        Primary
+      </ESButton>
+      <ESButton variant="secondary" onClick={() => alert("Secondary")}>
+        Secondary
+      </ESButton>
+      <ESButton variant="tertiary" onClick={() => alert("Tertiary")}>
+        Tertiary
+      </ESButton>
+      <ESButton variant="branded" onClick={() => alert("Branded")}>
+        Branded
+      </ESButton>
+      <ESButton variant="destructive" onClick={() => alert("Destructive")}>
+        Destructive
+      </ESButton>
+      <ESButton variant="primary" disabled>
+        Primary Disabled
+      </ESButton>
+      <ESButton variant="secondary" disabled>
+        Secondary Disabled
+      </ESButton>
+      <ESButton variant="tertiary" disabled>
+        Tertiary Disabled
+      </ESButton>
+      <ESButton variant="branded" disabled>
+        Branded Disabled
+      </ESButton>
+      <ESButton variant="destructive" disabled>
+        Destructive Disabled
+      </ESButton>
+      <ESButton append={<ESIcon name="link" />} variant="primary">
+        Appended
+      </ESButton>
+      <ESButton
+        append={<ESIcon name="arrow-up-right-from-square" />}
+        variant="secondary"
+      >
+        Appended
+      </ESButton>
+      <ESButton append={<ESIcon name="apple" />} variant="tertiary">
+        Appended
+      </ESButton>
+      <ESButton append={<ESIcon name="globe" />} variant="branded">
+        Appended
+      </ESButton>
+      <ESButton append={<ESIcon name="trash-2" />} variant="destructive">
+        Appended
+      </ESButton>
+      <ESButton prepend={<ESIcon name="link" />} variant="primary">
+        Prepended
+      </ESButton>
+      <ESButton
+        prepend={<ESIcon name="arrow-up-right-from-square" />}
+        variant="secondary"
+      >
+        Prepended
+      </ESButton>
+      <ESButton prepend={<ESIcon name="apple" />} variant="tertiary">
+        Prepended
+      </ESButton>
+      <ESButton prepend={<ESIcon name="globe" />} variant="branded">
+        Prepended
+      </ESButton>
+      <ESButton prepend={<ESIcon name="trash-2" />} variant="destructive">
+        Prepended
+      </ESButton>
+    </div>
+  ),
 };

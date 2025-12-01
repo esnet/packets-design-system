@@ -1,0 +1,242 @@
+.ESInputTypeahead {
+  /* Layout */
+  display: inline-flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  outline: none;
+
+  /* Styling */
+  background-color: var(--esnet-color-core-white-100, #ffffff);
+  color: var(--esnet-color-light-copy, #3d3d3d);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--esnet-color-core-slate-900, #3f424d);
+
+  transition:
+    border-color var(--esnet-time-duration-quick, 250ms) ease,
+    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-surface-1, #19191a);
+    color: var(--esnet-color-dark-copy, #ffffff);
+    border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+  }
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+
+  /* Pseudo-elements */
+  /* Pseudo-events */
+  /* based on a pseudo event of input tag (invalid), thus included here */
+  &.error {
+    border-color: var(--esnet-color-core-red-700, #a6111b);
+    border-width: var(--esnet-size-border-width-small, 0.125rem);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small)
+      color-mix(
+        in srgb,
+        var(--esnet-color-light-error, #a6111b) 26%,
+        transparent
+      );
+  }
+
+  &:hover:not(.disabled),
+  &:focus-within:not(.disabled),
+  &:has(*:active):not(.disabled) {
+    /* border color on focus takes precedence over error border color */
+    border-color: var(--esnet-color-core-slate-1000, #30333b);
+    box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
+      var(--esnet-color-core-blue-400, #00b6f2);
+  }
+
+  /* based on a pseudo event of input tag (disabled), thus included here */
+  &.disabled {
+    border-color: var(--esnet-color-core-slate-300, #9699a8);
+    color: var(--esnet-color-core-slate-300, #9699a8);
+  }
+
+  :global(.dark) &.disabled {
+    border-color: var(--esnet-color-core-slate-500, #787b87);
+    color: var(--esnet-color-core-slate-500, #787b87);
+  }
+
+  /* Variants */
+  &.branded {
+    border-radius: var(--esnet-size-radius-xxlarge, 1.125rem);
+  }
+}
+
+.inputBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+.optionsAndInputWrapper {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esnet-size-spacing-xxsmall, 4px);
+}
+
+.selectedOptionsWrapper {
+  display: flex !important;
+  gap: var(--esnet-size-spacing-xsmall, 0.125rem);
+  padding: var(--esnet-size-spacing-xsmall, 8px)
+    var(--esnet-size-spacing-xsmall, 8px) 0;
+}
+
+.searchInput {
+  all: unset;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+
+  padding: var(--esnet-size-spacing-xsmall, 8px);
+
+  box-sizing: border-box;
+
+  &.noOptionsSelected {
+    padding: var(--esnet-size-spacing-xsmall, 8px);
+  }
+
+  /* Pseudo-elements */
+  &::placeholder {
+    color: var(--esnet-color-light-copy-alt, #6e6e70);
+  }
+
+  :global(.dark) &::placeholder {
+    color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+  }
+
+  /* Pseudo-events */
+  &:disabled {
+    color: var(--esnet-color-core-white-900, #a8a8a8);
+
+    &::placeholder {
+      color: var(--esnet-color-core-white-900, #a8a8a8);
+    }
+  }
+
+  :global(.dark) &:disabled {
+    color: var(--esnet-color-core-white-900, #a8a8a8);
+
+    &::placeholder {
+      color: var(--esnet-color-core-white-900, #a8a8a8);
+    }
+  }
+
+  &.branded {
+    padding-top: var(--esnet-size-spacing-xsmall, 8px);
+    padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
+    padding-left: var(--esnet-size-spacing-medium, 16px);
+  }
+}
+
+.dropdownIcon {
+  cursor: pointer;
+  padding-right: var(--esnet-size-spacing-xsmall, 0.5rem);
+  &.branded {
+    padding-right: var(--esnet-size-spacing-medium, 16px);
+  }
+  .disabled & {
+    cursor: default;
+  }
+  width: 20px;
+  height: 20px;
+}
+
+.disabled {
+  cursor: default;
+}
+
+.dropdown {
+  position: absolute;
+  top: 101%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: var(--esnet-size-spacing-xsmall, 8px);
+  height: fit-content;
+
+  background: var(--esnet-color-light-surface-2);
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-2);
+  }
+
+  box-shadow: var(--esnet-box-shadow-core-medium);
+
+  .resultInfo {
+    padding: var(--esnet-size-spacing-xxsmall, 4px)
+      var(--esnet-size-spacing-xsmall, 8px);
+    font-size: 0.8rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow-y: hidden;
+    height: fit-content;
+  }
+
+  .dropdownOptionsWrapper {
+    max-height: 200px;
+    overflow-x: hidden;
+    padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
+  }
+
+  .dropdownOption {
+    display: flex;
+    padding: var(--esnet-size-spacing-xsmall, 8px);
+    padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+    width: 100%;
+
+    outline: none;
+    align-items: center;
+    gap: var(--esnet-size-spacing-xsmall, 8px);
+    overflow-y: hidden;
+
+    background-color: transparent;
+    color: inherit;
+    border: none;
+
+    font: inherit;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: var(--esnet-color-light-surface-1, #cccccc);
+      :global(.dark) & {
+        background-color: var(--esnet-color-dark-surface-1, #252526);
+      }
+    }
+
+    > svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+    }
+
+    .optionLabel {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+
+    & .checked {
+      color: var(--esnet-color-light-primary, #0088b5);
+
+      :global(.dark) & {
+        color: var(--esnet-color-dark-secondary, #004573);
+      }
+    }
+  }
+}

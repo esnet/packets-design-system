@@ -1,29 +1,29 @@
 import React from "react";
 import { ESTabProps } from "./ESTabs.types";
 
-import styles from "./ESTab.module.css";
+import styles from "./ESTabs.module.css";
+import clsx from "clsx";
 
 /**
- * ESTabs Component
+ * ESTab Component
  *
- * Composable component that manages the layout of a list of tabs.
+ * To be used to compose the ESTabs component.
  *
  * @param {ESTabsProps} props
  * @returns {React.FunctionComponent}
  */
-const ESTab: React.FC<ESTabProps> = ({
-  children,
-  className = "",
-  isActive = false,
-}) => {
+export function ESTab({ children, onTabSelect, active = false }: ESTabProps) {
   return (
-    <li
-      className={`${styles.tab} ${isActive ? styles.isActive : ""} ${className}`}
-    >
-      {children}
+    <li className={styles.tabWrapper}>
+      <button
+        className={clsx(styles.ESTab, active && styles.active)}
+        onClick={onTabSelect}
+      >
+        {children}
+      </button>
     </li>
   );
-};
+}
 
 ESTab.displayName = "ESTab";
 

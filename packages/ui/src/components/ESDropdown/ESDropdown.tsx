@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
@@ -6,7 +6,7 @@ import { ESDropdownAnchor } from "./ESDropdownAnchor";
 import ESDropdownContent from "./ESDropdownContent";
 import usePopupState from "../../lib/hooks/usePopupState";
 
-const CARAT_OFFSET = "8px";
+const CARET_OFFSET = "8px";
 
 /**
  * ESDropdown component.
@@ -19,7 +19,7 @@ const CARAT_OFFSET = "8px";
  */
 export function ESDropdown({
   children,
-  carat,
+  caret,
   mode = "both",
   className,
   ...props
@@ -30,7 +30,7 @@ export function ESDropdown({
 
   const [open] = usePopupState(wrapperRef, false, mode);
 
-  const [caratPosition, setCaratPosition] = React.useState<{
+  const [caretPosition, setCaretPosition] = React.useState<{
     left?: string;
     top?: string;
   }>({});
@@ -76,24 +76,24 @@ export function ESDropdown({
       next.bottom = "auto";
     }
 
-    if (carat) {
+    if (caret) {
       if (yPos === "top") {
-        next.bottom = `calc(100% + ${CARAT_OFFSET})`;
+        next.bottom = `calc(100% + ${CARET_OFFSET})`;
       } else {
-        next.top = `calc(100% + ${CARAT_OFFSET})`;
+        next.top = `calc(100% + ${CARET_OFFSET})`;
       }
     }
 
     setPosition(next);
 
-    setCaratPosition({
+    setCaretPosition({
       left: `50%`,
       top:
         yPos === "bottom"
-          ? `calc(100% + ${CARAT_OFFSET})`
-          : `calc(0px - ${CARAT_OFFSET})`,
+          ? `calc(100% + ${CARET_OFFSET})`
+          : `calc(0px - ${CARET_OFFSET})`,
     });
-  }, [open, carat]);
+  }, [open, caret]);
 
   const anchor = React.useMemo(() => {
     const el = React.Children.toArray(children).find(
@@ -120,11 +120,9 @@ export function ESDropdown({
       ref={wrapperRef}
       className={clsx(styles.ESDropdown, className)}
     >
-      {/* carat hover gap div */}
-      {carat && (
-        <div
-          className={clsx(styles.hoverGap, styles.fade, open && styles.open)}
-        />
+      {/* caret hover gap div */}
+      {caret && (
+        <div className={clsx(styles.hoverGap, !open && styles.hidden)} />
       )}
       {/* anchor component */}
       <div
@@ -133,13 +131,13 @@ export function ESDropdown({
         aria-haspopup="true"
         aria-expanded={open}
       />
-      {/* carat div */}
-      {carat && (
+      {/* caret div */}
+      {caret && (
         <div
-          className={clsx(styles.carat, styles.fade, open && styles.open)}
+          className={clsx(styles.caret, !open && styles.hidden)}
           style={{
-            left: caratPosition.left,
-            top: caratPosition.top,
+            left: caretPosition.left,
+            top: caretPosition.top,
           }}
         />
       )}
@@ -150,7 +148,7 @@ export function ESDropdown({
         className={clsx(
           styles.content,
           styles.fade,
-          open && styles.open,
+          !open && styles.hidden,
           content.props.className
         )}
         ref={dropdownRef}

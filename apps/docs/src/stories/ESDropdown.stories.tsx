@@ -77,9 +77,9 @@ export const Default: Story = {
   },
 };
 
-export const WithCarat: Story = {
+export const WithCaret: Story = {
   args: {
-    carat: true,
+    caret: true,
     children: [
       <ESDropdownAnchor>
         <ESButton variant="primary">
