@@ -36,7 +36,6 @@ export { default as ESInputSearch } from "./ESInputSearch";
 export { default as ESInputText } from "./ESInputText";
 export { default as ESInputTextArea } from "./ESInputTextArea";
 export { default as ESInputTypeahead, OptionType } from "./ESInputTypeahead";
-export { default as ESLabel } from "./ESLabel";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESLogo } from "./ESLogo";
 export { default as ESModule } from "./ESModule";

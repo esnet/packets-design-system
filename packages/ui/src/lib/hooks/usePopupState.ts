@@ -32,6 +32,15 @@ function usePopupState(
     [open]
   );
 
+  // Store ref in mutable ref to avoid stale closures
+  const elementRef = useRef<HTMLElement | null>(null);
+  const openRef = useRef(open);
+
+  useEffect(() => {
+    elementRef.current = ref.current;
+    openRef.current = open;
+  });
+
   useEffect(() => {
     const shouldListenActive = mode === "active" || mode === "both";
     const shouldListenHover = mode === "hover" || mode === "both";

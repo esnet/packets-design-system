@@ -1,7 +1,7 @@
 import React from "react";
-import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
+import { ESBreadcrumbsProps } from "./ESBreadcrumbs.types";
 import styles from "./ESBreadcrumbs.module.css";
-import { DefaultRenderListItem } from "../../lib/utils/ListItem";
+import { defaultRenderLink } from "../../lib/utils/link";
 
 /**
  * ESBreadcrumbs Component
@@ -30,8 +30,8 @@ import { DefaultRenderListItem } from "../../lib/utils/ListItem";
  */
 export function ESBreadcrumbs({
   breadcrumbs = [],
-  renderLink = DefaultRenderListItem,
-}) => {
+  renderLink = defaultRenderLink,
+}: ESBreadcrumbsProps) {
   return (
     <ul className={`${styles.ESBreadCrumbs}`}>
       {breadcrumbs.map((breadcrumb, index) => (
