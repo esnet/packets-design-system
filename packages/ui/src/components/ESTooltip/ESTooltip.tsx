@@ -13,7 +13,7 @@ import ESIcon from "../ESIcon";
  */
 export function ESTooltip({ children, title, text, onClickX }: ESTooltipProps) {
   return (
-    <ESDropdown carat className={styles.ESTooltip} mode="hover">
+    <ESDropdown caret className={styles.ESTooltip} mode="hover">
       <ESDropdownAnchor className={clsx(styles.anchor)}>
         {children}
       </ESDropdownAnchor>
