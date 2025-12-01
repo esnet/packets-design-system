@@ -23,7 +23,7 @@
   box-shadow: var(--esnet-box-shadow-core-medium);
 }
 
-.carat {
+.caret {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -37,11 +37,11 @@
 }
 
 .hoverGap {
-  --carat-size: 20px;
+  --caret-size: 20px;
   position: absolute;
   width: 100%;
-  height: calc(100% + var(--carat-size));
-  transform: translateY(calc(var(--carat-size) / -2));
+  height: calc(100% + var(--caret-size));
+  transform: translateY(calc(var(--caret-size) / -2));
 }
 
 .hidden {
