@@ -1,7 +1,5 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESIconButton } from "@esnet/packets-ui";
-import { SettingsIcon } from "lucide-react";
 
 const meta: Meta<typeof ESIconButton> = {
   title: "Components/ESIconButton",
@@ -13,12 +11,17 @@ const meta: Meta<typeof ESIconButton> = {
       options: ["primary", "secondary", "branded", "tertiary", "destructive"],
       defaultValue: "secondary",
     },
-    disabled: {
-      control: { type: "boolean" },
-    },
     square: {
       control: { type: "boolean" },
+      description: "Whether to make the button a square ratio or not",
     },
+    name: {
+      description: "The name of the Lucide icon to use. Required.",
+    },
+  },
+  args: {
+    variant: "primary",
+    square: false,
   },
 };
 
@@ -26,133 +29,64 @@ export default meta;
 
 type Story = StoryObj<typeof ESIconButton>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const Defaultbutton: Story = {
-  render: (props) => (
-    <ESIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "ESIconButton",
+export const Default: Story = {
   args: {
-    children: <SettingsIcon />,
-    type: "button",
+    name: "settings",
   },
 };
 
-export const Primary: Story = {
-  render: (props) => (
-    <ESIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "Primary ESIconButton",
+export const SquareRatioBranded: Story = {
   args: {
-    children: <SettingsIcon />,
-    type: "button",
-    variant: "primary",
-  },
-};
-
-export const DisabledPrimary: Story = {
-  render: (props) => (
-    <ESIconButton
-      disabled
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "Disabled Primary ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    variant: "primary",
-  },
-};
-
-export const Secondary: Story = {
-  render: (props) => (
-    <ESIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "Secondary ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
-    variant: "secondary",
-  },
-};
-
-export const SecondaryDisabled: Story = {
-  render: (props) => (
-    <ESIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "Secondary ESIconButton Disabled",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
-    variant: "secondary",
-    disabled: true,
-  },
-};
-
-export const Branded: Story = {
-  render: (props) => (
-    <ESIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </ESIconButton>
-  ),
-  name: "Branded ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
+    name: "settings",
     variant: "branded",
+    square: true,
   },
+};
+
+export const AllVariants: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(5, 1fr)",
+        gap: "16px",
+      }}
+    >
+      <ESIconButton
+        name="apple"
+        variant="primary"
+        onClick={() => alert("Primary")}
+      />
+      <ESIconButton
+        name="banana"
+        variant="secondary"
+        onClick={() => alert("Secondary")}
+      />
+      <ESIconButton
+        name="bookmark"
+        variant="tertiary"
+        onClick={() => alert("Tertiary")}
+      />
+      <ESIconButton
+        name="globe"
+        variant="branded"
+        onClick={() => alert("Branded")}
+      />
+      <ESIconButton
+        name="trash-2"
+        variant="destructive"
+        onClick={() => alert("Destructive")}
+      />
+      <ESIconButton name="apple" variant="primary" disabled />
+      <ESIconButton name="banana" variant="secondary" disabled />
+      <ESIconButton name="bookmark" variant="tertiary" disabled />
+      <ESIconButton name="globe" variant="branded" disabled />
+      <ESIconButton name="trash-2" variant="destructive" disabled />
+      <ESIconButton name="apple" variant="primary" square />
+      <ESIconButton name="banana" variant="secondary" square />
+      <ESIconButton name="bookmark" variant="tertiary" square />
+      <ESIconButton name="globe" variant="branded" square />
+      <ESIconButton name="trash-2" variant="destructive" square />
+    </div>
+  ),
 };
