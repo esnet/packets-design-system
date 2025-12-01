@@ -23,9 +23,9 @@ test.describe("ESDropdown", () => {
         },
       },
       {
-        name: "carat",
+        name: "caret",
         props: {
-          carat: true,
+          caret: true,
           children: [
             <ESDropdownAnchor key="a">
               <button data-testid="dropdown-button">open button</button>
