@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESAvatar, ESChip, ESIcon } from "@esnet/packets-ui";
-import { fn } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ESAvatar, ESIcon } from "@esnet/packets-ui";
+import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
 import * as React from "react";
 
 const meta: Meta<typeof ESChip> = {
@@ -43,7 +43,6 @@ export const OutlineVariant: Story = {
 
 export const HasIconPrepended: Story = {
   args: {
-    // prepend: <ESAvatar size="small" label="EC" />,
     children: "Fruits",
     prepend: <ESIcon name="apple" />,
     append: <ESIcon name="banana" />,
@@ -52,19 +51,18 @@ export const HasIconPrepended: Story = {
 
 export const HasAvatarPrepended: Story = {
   args: {
-    // prepend: <ESAvatar size="small" label="EC" />,
     children: "Circuit 124",
     prepend: (
       <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="grape" />
     ),
-    onDelete: () => fn(),
+    onDelete: () => {},
   },
 };
 
 export const Rectangular: Story = {
   args: {
     children: "Filter: Spring 2024 Deadlines",
-    onDelete: () => fn(),
+    onDelete: () => {},
     rounded: false,
   },
 };

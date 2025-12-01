@@ -91,7 +91,6 @@
       :global(.dark) & {
         --background-color: var(--esnet-color-core-blue-200, #9ce2ff);
       }
-
     }
   }
 
