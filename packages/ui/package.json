@@ -76,10 +76,6 @@
             "require": "./dist/cjs/bundle.js",
             "import": "./dist/esm/bundle.js"
         },
-        "./style.css": {
-            "import": "./dist/esm/style.css",
-            "require": "./dist/cjs/style.css"
-        },
         "./src/*": "./src/*"
     }
 }
