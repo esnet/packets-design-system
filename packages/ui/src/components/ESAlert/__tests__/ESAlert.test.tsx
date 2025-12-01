@@ -1,93 +1,78 @@
-// import React from "react";
-// import { render } from "@testing-library/react";
-// import ESAlert from "../ESAlert";
+import * as React from "react";
+import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
+import ESAlert from "../ESAlert";
+import { ESAlertProps } from "../ESAlert.types";
 
-// test("It renders without crashing", () => {
-//   const component = render(
-//     <ESAlert type={"info"} title="Alert Title">
-//       <p>
-//         Bob Kahn and Vint Cerf are the American computer scientists who
-//         developed TCP/IP, the set of protocols that governs how data moves
-//         through a network. This helped the ARPANET evolve into the internet we
-//         use today.
-//       </p>
-//     </ESAlert>,
-//   );
-//   expect(component).toBeTruthy();
-// });
+test.describe("ESAlert", () => {
+  const { testTable, themes }: ComponentTestTableType<ESAlertProps> = {
+    testTable: [
+      {
+        name: "info",
+        props: {
+          title: "Information Alert",
+          children: "hello",
+          variant: "info",
+        },
+      },
+      {
+        name: "branded",
+        props: {
+          title: "Branded Alert",
+          children: "hello",
+          variant: "branded",
+        },
+      },
+      {
+        name: "warning",
+        props: {
+          title: "Warning Alert",
+          children: "hello",
+          variant: "warning",
+        },
+      },
+      {
+        name: "error",
+        props: {
+          title: "Error Alert",
+          children: "hello",
+          variant: "error",
+        },
+      },
+      {
+        name: "success",
+        props: {
+          title: "Success Alert",
+          children: "hello",
+          variant: "success",
+        },
+      },
+    ],
+    themes: ["light", "dark"],
+    actionStates: [],
+  };
+  testTable.forEach(({ name, props }) => {
+    themes.forEach((theme) => {
+      const testBox = (
+        <ComponentTestBox component={<ESAlert {...props} />} theme={theme} />
+      );
+      test(`${name}-${theme}`, async ({ mount }) => {
+        const component = await mount(testBox);
+        await expect(component).toHaveScreenshot();
+      });
+    });
+  });
 
-// it("Info type matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESAlert type={"info"} title="Did you know?">
-//       <p>
-//         Bob Kahn and Vint Cerf are the American computer scientists who
-//         developed TCP/IP, the set of protocols that governs how data moves
-//         through a network. This helped the ARPANET evolve into the internet we
-//         use today.
-//       </p>
-//     </ESAlert>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Warning matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESAlert type={"warning"} title="Warning Title">
-//       <label>Node nearing capacity</label>
-//       <p>
-//         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-//         tempor incididunt ut labore et dolore magna aliqua. Enim diam vulputate
-//         ut pharetra sit amet aliquam.
-//       </p>
-//     </ESAlert>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Success matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESAlert type={"success"} title="Success Title">
-//       <p>
-//         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-//         tempor incididunt ut labore et dolore magna aliqua. Enim diam vulputate
-//         ut pharetra sit amet aliquam. Risus nullam eget felis eget nunc
-//         lobortis. Vel eros donec ac odio tempor orci dapibus ultrices in. Arcu
-//         non sodales neque sodales ut etiam. Eleifend donec pretium vulputate
-//         sapien nec sagittis aliquam malesuada bibendum. Aenean euismod elementum
-//         nisi quis eleifend. Ultrices eros in cursus turpis massa tincidunt.
-//         Donec adipiscing tristique risus nec feugiat. Imperdiet sed euismod nisi
-//         porta lorem mollis. Vel fringilla est ullamcorper eget nulla facilisi
-//         etiam dignissim. Posuere morbi leo urna molestie at. In arcu cursus
-//         euismod quis viverra nibh cras pulvinar mattis. Aliquet nec ullamcorper
-//         sit amet. Aliquet sagittis id consectetur purus ut. Fermentum leo vel
-//         orci porta non pulvinar neque laoreet suspendisse. Sed risus pretium
-//         quam vulputate dignissim suspendisse. Pretium aenean pharetra magna ac
-//         placerat vestibulum lectus mauris ultrices. Volutpat lacus laoreet non
-//         curabitur gravida arcu ac tortor dignissim. Enim sit amet venenatis urna
-//         cursus eget nunc scelerisque.
-//       </p>
-//     </ESAlert>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
-
-// it("Error matches DOM Snapshot", () => {
-//   const domTree = render(
-//     <ESAlert type={"error"} title="Error Fetching Data">
-//       <label>Network Error:</label>
-//       <p>
-//         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-//         tempor incididunt ut labore et dolore magna aliqua. Enim diam vulputate
-//         ut pharetra sit amet aliquam.
-//       </p>
-//       <label>Status Code:</label>
-//       <p>404</p>
-//       <label>Message:</label>
-//       <p>
-//         Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim.
-//         Enim sit amet venenatis urna cursus eget nunc scelerisque.
-//       </p>
-//     </ESAlert>,
-//   );
-//   expect(domTree).toMatchSnapshot();
-// });
+  test("close button functionality", async ({ mount }) => {
+    const props: ESAlertProps = {
+      title: "test button close",
+      children: "n/a",
+      variant: "info",
+      onClickClose: () => console.log("Alert closed"),
+    };
+    const component = await mount(<ESAlert {...props} />);
+    const closeButton = component.locator("button");
+    await closeButton.click(); // test will fail if button is not found and can't be clicked
+  });
+});

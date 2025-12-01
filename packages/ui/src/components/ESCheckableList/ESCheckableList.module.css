@@ -1,0 +1,26 @@
+.ESCheckableList {
+  border: none;
+  padding: 0px;
+  margin: 0;
+
+  font: var(
+    --esnet-typography-label-1-large-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--esnet-size-spacing-small, 0.5rem);
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  border: none;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esnet-size-spacing-xsmall, 8px);
+  padding-left: var(--esnet-size-spacing-xsmall, 0.5rem);
+}

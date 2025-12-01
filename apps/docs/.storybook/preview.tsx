@@ -39,7 +39,6 @@ const preview: Preview = {
   decorators: [
     (Story) => {
       return (
-        // useDarkMode has a slight delay - but storybook-dark-mode will get wiped when bumping to Storybook 9 anyway
         <body className={`packets ${useDarkMode() ? "dark" : "light"}`}>
           <Story />
         </body>

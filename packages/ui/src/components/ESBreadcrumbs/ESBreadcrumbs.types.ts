@@ -1,7 +1,8 @@
-import { LinkType } from "../../lib/types";
+import * as React from "react";
+import { ListItemType } from "../../lib/utils/ListItem";
 
 export interface BreadcrumbsProps {
-  breadcrumbs: LinkType[];
+  breadcrumbs: ListItemType[];
   // eslint-disable-next-line no-unused-vars
-  renderLink?: (breadcrumb: LinkType) => React.ReactNode;
+  renderLink?: (breadcrumb: ListItemType) => React.ReactNode;
 }
