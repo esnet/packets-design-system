@@ -4,6 +4,7 @@ export {
   usePacketsDesignTokens,
 } from "./PacketsDesignTokenProvider";
 
+export { default as ESAccordion } from "./ESAccordion";
 export { default as ESAlert } from "./ESAlert";
 export { default as ESAvatar } from "./ESAvatar";
 export { default as ESBreadcrumbs } from "./ESBreadcrumbs";
