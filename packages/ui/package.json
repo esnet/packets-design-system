@@ -7,9 +7,9 @@
         "rimraf": "./node_modules/rimraf/bin.js",
         "build": "rimraf dist && rollup -c",
         "dev": "rollup -c -w",
-        "test": "playwright test",
-        "test:ui": "playwright test --ui",
-        "test:updatesnaps": "playwright test --update-snapshots",
+        "test": "playwright clear-cache && playwright test",
+        "test:ui": "playwright clear-cache && playwright test --ui",
+        "test:updatesnaps": "playwright clear-cache && playwright test --update-snapshots",
         "lint": "eslint \"**/*.{ts,tsx}\"",
         "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
         "prepublishOnly": "npm run build"
@@ -50,8 +50,8 @@
         "playwright": "^1.54.1",
         "postcss-import": "^16.1.0",
         "prop-types": "^15.8.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
         "rimraf": "^4.4.1",
         "rollup": "^3.29.5",
         "rollup-plugin-dts": "^5.3.1",
@@ -78,6 +78,7 @@
         "./style.css": {
             "import": "./dist/esm/style.css",
             "require": "./dist/cjs/style.css"
-        }
+        },
+        "./src/*": "./src/*"
     }
 }
