@@ -1,33 +1,28 @@
 import React from "react";
 import { ESButtonGroupProps } from "./ESButtonGroup.types";
-
 import styles from "./ESButtonGroup.module.css";
 import clsx from "clsx";
 
 /**
- * ES Button Group
+ * ESButtonGroup
  *
- * A compositional component that takes in one or more buttons and
+ * A compositional component that takes in one or more buttons (use ESButton) and
  * regulates its layout across responsive screens.
  *
  * @param {ESButtonGroupProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactNode}
  */
-const ESButtonGroup = ({
+const ESButtonGroup: React.FC<ESButtonGroupProps> = ({
   children,
-  labelCopy,
-  hideLabel,
+  label,
   direction = "horizontal",
-  ...other
-}: ESButtonGroupProps): JSX.Element => {
+  ...props
+}) => {
   return (
-    <section
-      className={clsx(styles.ESButtonGroup, styles[direction])}
-      {...other}
-    >
-      {labelCopy && !hideLabel && <label>{labelCopy}</label>}
-      <ul className={styles.list}>{children}</ul>
-    </section>
+    <div {...props} className={clsx(styles.ESButtonGroup, styles[direction])}>
+      {label && <span className={styles.label}>{label}</span>}
+      <div className={styles.buttons}>{children}</div>
+    </div>
   );
 };
 
