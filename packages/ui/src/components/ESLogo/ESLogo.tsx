@@ -1,6 +1,4 @@
 import React from "react";
-import clsx from "clsx";
-import styles from "./ESLogo.module.css";
 import { ESLogoProps } from "./ESLogo.types";
 
 import esnetLogoFullnameBlack from "../../assets/logos/esnet.logo.fullname.black.png";
