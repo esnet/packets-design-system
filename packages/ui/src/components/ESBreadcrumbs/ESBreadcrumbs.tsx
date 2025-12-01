@@ -1,9 +1,7 @@
 import React from "react";
 import { BreadcrumbsProps } from "./ESBreadcrumbs.types";
-
-import { defaultRenderLink } from "../../lib/utils/link";
-
 import styles from "./ESBreadcrumbs.module.css";
+import { DefaultRenderListItem } from "../../lib/utils/ListItem";
 
 /**
  * ESBreadcrumbs Component
@@ -16,7 +14,7 @@ import styles from "./ESBreadcrumbs.module.css";
  */
 const ESBreadcrumbs: React.FC<BreadcrumbsProps> = ({
   breadcrumbs = [],
-  renderLink = defaultRenderLink,
+  renderLink = DefaultRenderListItem,
 }) => {
   return (
     <ul className={`${styles.ESBreadCrumbs}`}>

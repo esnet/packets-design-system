@@ -1,10 +1,13 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESTabs, ESTab } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ESTabs } from "@esnet/packets-ui/src/components/ESTabs/ESTabs.tsx";
+import { ESTab } from "@esnet/packets-ui/src/components/ESTabs/ESTab.tsx";
+import { useState } from "react";
+import { ESModule } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESTabs> = {
   title: "Components/ESTabs",
   component: ESTabs,
+  subcomponents: { ESTab },
   tags: ["autodocs"],
 };
 
@@ -12,65 +15,103 @@ export default meta;
 
 type Story = StoryObj<typeof ESTabs>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultTabsExample: Story = {
-  render: (props) => (
-    <>
-      <ESTabs {...props}>
-        <ESTab isActive={true}>
-          <a href="#" target="_self">
-            Link 1
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 2
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 3
-          </a>
-        </ESTab>
-      </ESTabs>
-    </>
-  ),
-  name: "ESTabs Example",
+export const Default: Story = {
   args: {
-    border: true,
-    verticalPadding: true,
+    children: [
+      <ESTab active>Tab 1</ESTab>,
+      <ESTab>Tab 2</ESTab>,
+      <ESTab>Tab 3</ESTab>,
+    ],
   },
 };
 
-export const NoBorderTabsExample: Story = {
-  render: (props) => (
-    <>
-      <ESTabs {...props}>
-        <ESTab isActive={true}>
-          <a href="#" target="_self">
-            Link 1
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 2
-          </a>
-        </ESTab>
-        <ESTab>
-          <a href="#" target="_self">
-            Link 3
-          </a>
-        </ESTab>
-      </ESTabs>
-    </>
-  ),
-  name: "ESTabs No Border",
+export const FullWidthAndBrandedAndNoBorder: Story = {
   args: {
     border: false,
-    verticalPadding: true,
+    fullWidth: true,
+    branded: true,
+    children: [
+      <ESTab>Individuals</ESTab>,
+      <ESTab>Business</ESTab>,
+      <ESTab active>Enterprise</ESTab>,
+    ],
+  },
+};
+
+const code = `const [tabIndex, setTabIndex] = useState(0);
+    return (
+      <div>
+        <ESTabs {...args} style={{ marginBottom: "1rem" }}>
+          <ESTab active={tabIndex === 0} onTabSelect={() => setTabIndex(0)}>
+            Tab 1
+          </ESTab>
+          <ESTab active={tabIndex === 1} onTabSelect={() => setTabIndex(1)}>
+            Tab 2
+          </ESTab>
+          <ESTab active={tabIndex === 2} onTabSelect={() => setTabIndex(2)}>
+            Tab 3
+          </ESTab>
+        </ESTabs>
+
+        {tabIndex === 0 && (
+          <ESModule title="Tab 1" surface>
+            Content for tab 1.
+          </ESModule>
+        )}
+        {tabIndex === 1 && (
+          <ESModule title="Tab 2" surface>
+            Content for tab 2.
+          </ESModule>
+        )}
+        {tabIndex === 2 && (
+          <ESModule title="Tab 3" surface>
+            Content for tab 3.
+          </ESModule>
+        )}
+      </div>
+    );`;
+
+export const WorkingExampleWithTabPanels: Story = {
+  render: (args) => {
+    const [tabIndex, setTabIndex] = useState(0);
+
+    return (
+      <div>
+        <ESTabs {...args} style={{ marginBottom: "1rem" }}>
+          <ESTab active={tabIndex === 0} onTabSelect={() => setTabIndex(0)}>
+            Tab 1
+          </ESTab>
+          <ESTab active={tabIndex === 1} onTabSelect={() => setTabIndex(1)}>
+            Tab 2
+          </ESTab>
+          <ESTab active={tabIndex === 2} onTabSelect={() => setTabIndex(2)}>
+            Tab 3
+          </ESTab>
+        </ESTabs>
+
+        {tabIndex === 0 && (
+          <ESModule title="Tab 1" surface>
+            Content for tab 1.
+          </ESModule>
+        )}
+        {tabIndex === 1 && (
+          <ESModule title="Tab 2" surface>
+            Content for tab 2.
+          </ESModule>
+        )}
+        {tabIndex === 2 && (
+          <ESModule title="Tab 3" surface>
+            Content for tab 3.
+          </ESModule>
+        )}
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code,
+      },
+    },
   },
 };

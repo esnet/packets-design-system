@@ -4,8 +4,6 @@ import { ESFormSectionProps } from "./ESFormSection.types";
 
 import styles from "./ESFormSection.module.css";
 
-import { defaultRenderLink } from "../../lib/utils/link";
-
 /**
  * ESFormSection Component
  *
@@ -20,7 +18,6 @@ const ESFormSection: FC<ESFormSectionProps> = ({
   descriptionSlot = "",
   useColumnLayout = true,
   children,
-  renderTitleLink = defaultRenderLink,
   ...other
 }) => {
   const titleEl = useMemo(() => {
@@ -31,10 +28,11 @@ const ESFormSection: FC<ESFormSectionProps> = ({
 
     // if URL provided, render title with link wrapper
     if (titleURL) {
-      return renderTitleLink({
-        href: titleURL,
-        children: <h6>{title}</h6>,
-      });
+      return (
+        <h6>
+          <a href={titleURL}>{title}</a>
+        </h6>
+      );
     }
 
     // just render title

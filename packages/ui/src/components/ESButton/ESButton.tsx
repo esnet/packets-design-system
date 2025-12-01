@@ -1,45 +1,37 @@
 import React from "react";
 import clsx from "clsx";
-import { ESButtonDefaultAsType, ESButtonProps } from "./ESButton.types";
+import { ESButtonProps } from "./ESButton.types";
 
 import styles from "./ESButton.module.css";
 
 /**
- * Button - An extension of a HTML button that comes with different levels of action/intent.
+ * ESButton - An extension of HTML button (or anchor, styled as a button)
+ * that comes with different levels of action/intent.
  *
  * @param {ESButtonProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
-  variant = "secondary",
-  children = "",
-  fill = true,
-  disabled = false,
-  prepend = null,
-  size = "medium",
-  as,
+const ESButton: React.FC<ESButtonProps> = ({
+  variant = "primary",
+  as = "button",
   className,
-  append = null,
-  ...other
-}: ESButtonProps<E>): JSX.Element => {
-  const Tag = as || ESButtonDefaultAsType;
-
+  prepend,
+  append,
+  children,
+  ref,
+  ...props
+}) => {
+  const Tag = as;
   return (
     <Tag
-      className={clsx(
-        styles.ESButton,
-        styles[variant],
-        fill && styles.fill,
-        size && styles[size],
-        className
-      )}
-      type="button"
-      disabled={disabled}
-      {...other}
+      // @ts-ignore -- ref typing issue with discriminated unions
+      ref={ref}
+      className={clsx(styles.ESButton, styles[variant], className)}
+      {...props}
     >
-      <>{prepend}</>
-      {children}
-      <>{append}</>
+      {prepend}
+      <span className={styles.label}>{children}</span>
+      {append}
     </Tag>
   );
 };
