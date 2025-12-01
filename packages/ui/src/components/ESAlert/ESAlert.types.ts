@@ -1,6 +1,10 @@
-/* eslint-disable no-unused-vars */
+import * as React from "react";
+
 export interface ESAlertProps {
+  /** The title line of the alert */
   title: string;
-  type?: "error" | "warning" | "info" | "success";
+  variant?: "error" | "warning" | "info" | "success" | "branded";
   children: React.ReactNode;
+  /** Callback fired when clicking the X icon on the top right, typically used to make the alert go away. */
+  onClickClose?: () => void;
 }

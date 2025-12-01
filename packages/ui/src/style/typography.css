@@ -219,7 +219,7 @@
   .header4 {
     font: var(
       --esnet-typography-header-4-sans-font,
-      500 245px/140% var(--esnet-font-family-header-sans)
+      500 24px/140% var(--esnet-font-family-header-sans)
     );
   }
 

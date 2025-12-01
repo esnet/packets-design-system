@@ -1,0 +1,50 @@
+.ESDropdown {
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+}
+
+.anchor {
+  position: relative;
+  z-index: 3;
+}
+
+.content {
+  position: absolute;
+  overflow: auto;
+  height: fit-content;
+
+  background: var(--esnet-color-light-surface-1);
+
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-1);
+  }
+
+  box-shadow: var(--esnet-box-shadow-core-medium);
+}
+
+.carat {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--esnet-color-light-surface-1);
+
+  :global(.dark) & {
+    background: var(--esnet-color-dark-surface-1);
+  }
+
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.hoverGap {
+  --carat-size: 20px;
+  position: absolute;
+  width: 100%;
+  height: calc(100% + var(--carat-size));
+  transform: translateY(calc(var(--carat-size) / -2));
+}
+
+.hidden {
+  display: none;
+  pointer-events: none;
+}
