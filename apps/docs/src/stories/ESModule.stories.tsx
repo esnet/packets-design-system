@@ -24,14 +24,7 @@ export default meta;
 
 type Story = StoryObj<typeof ESModule>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
 export const DefaultModuleExample: Story = {
-  render: (props) => <ESModule {...props}>{props.children}</ESModule>,
-  name: "ESModule Example",
   args: {
     title: "A Module Title",
     children: (
@@ -56,11 +49,32 @@ export const DefaultModuleExample: Story = {
   },
 };
 
-export const ModuleWithTitle: Story = {
-  render: (props) => <ESModule {...props}>{props.children}</ESModule>,
-  name: "ESModule No Title",
+export const ModuleWithSurface: Story = {
+  name: "ESModule With Surface",
   args: {
-    title: "",
+    title: "A Module with a Surface",
+    children: (
+      <>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer
+          eget aliquet nibh praesent tristique. Sem et tortor consequat id.
+          Turpis in eu mi bibendum neque.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer
+          eget aliquet nibh praesent tristique. Sem et tortor consequat id.
+          Turpis in eu mi bibendum neque.
+        </p>
+      </>
+    ),
+    surface: true,
+  },
+};
+
+export const ModuleWithNoTitle: Story = {
+  args: {
     children: (
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -72,19 +86,35 @@ export const ModuleWithTitle: Story = {
   },
 };
 
-export const ModuleWithSurface: Story = {
-  render: (props) => <ESModule {...props}>{props.children}</ESModule>,
-  name: "ESModule With Surface",
+export const NestedModules: Story = {
   args: {
-    title: "A Module with a Surface",
+    title: "Modules Nested Inside a Module",
     children: (
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Integer eget aliquet
-        nibh praesent tristique. Sem et tortor consequat id. Turpis in eu mi
-        bibendum neque.
-      </p>
+      <>
+        <ESModule title="Inner Module 1 (No Surface)">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer
+          eget aliquet nibh praesent tristique. Sem et tortor consequat id.
+          Turpis in eu mi bibendum neque. Vel turpis nunc eget lorem dolor sed
+          viverra. Urna condimentum mattis pellentesque id. Quisque id diam vel
+          quam elementum pulvinar etiam. Ullamcorper a lacus vestibulum sed arcu
+          non.
+        </ESModule>
+        <ESModule title="Inner Module 2 (Surface)" surface>
+          Nulla facilisi cras fermentum odio eu. Aenean sed adipiscing diam
+          donec adipiscing tristique risus nec feugiat. Et ultrices neque ornare
+          aenean. Et malesuada fames ac turpis egestas sed tempus. Nam at lectus
+          urna duis convallis convallis tellus id interdum. Commodo elit at
+          imperdiet dui accumsan sit amet nulla facilisi. Tempus imperdiet nulla
+          malesuada pellentesque elit eget gravida. Erat imperdiet sed euismod
+          nisi porta. Pulvinar sapien et ligula ullamcorper malesuada proin
+          libero nunc consequat. At urna condimentum mattis pellentesque id.
+          Lacus viverra vitae congue eu. Purus sit amet luctus venenatis lectus
+          magna.
+        </ESModule>
+      </>
     ),
+    style: { display: "flex", flexDirection: "column", gap: "2rem" },
     surface: true,
   },
 };

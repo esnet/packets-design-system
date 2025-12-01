@@ -1,8 +1,7 @@
+import * as React from "react";
+
 /* eslint-disable no-unused-vars */
-export interface ESCommaSeperatedListType<T> {
-  items: T[];
-  //Render the list items
-  renderItem?: (item: T) => JSX.Element; //Or JSX.Element
+export interface ESCommaSeperatedListProps {
+  items: React.ReactNode[];
   className?: string;
-  listItemClassName?: string;
 }

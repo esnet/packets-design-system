@@ -11,29 +11,17 @@ import ESModule from "../ESModule";
  * the layouts of titles and subtitles.
  *
  * @param {ESTitleSectionProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESTitleSection: React.FC<ESTitleSectionProps> = ({
   children,
-  title = "",
-  titleSlot,
+  title,
   subtitle,
-  subTitleSlot,
 }) => {
   return (
     <ESModule className={styles.titleLayout}>
-      {title && (
-        <h1 className={styles.title}>
-          {title}
-          {titleSlot}
-        </h1>
-      )}
-      {subtitle && (
-        <h4 className={styles.subtitle}>
-          {subtitle}
-          {subTitleSlot}
-        </h4>
-      )}
+      {title && <h1 className={styles.title}>{title}</h1>}
+      {subtitle && <h4 className={styles.subtitle}>{subtitle}</h4>}
       {children}
     </ESModule>
   );

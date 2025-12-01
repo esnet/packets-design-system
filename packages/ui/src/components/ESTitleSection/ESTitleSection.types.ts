@@ -1,7 +1,7 @@
+import * as React from "react";
+
 export type ESTitleSectionProps = {
-  title: string;
-  titleSlot?: React.ReactNode;
-  subtitle?: string;
-  subTitleSlot?: React.ReactNode;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
   children?: React.ReactNode;
 };
