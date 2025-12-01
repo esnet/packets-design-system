@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, RefObject, useState } from "react";
+import { useEffect, RefObject, useState, useCallback } from "react";
 
 /**
  * Custom React hook that adds accessibility handling and open/close behavior to ESDropdown.
@@ -14,15 +14,18 @@ function usePopupState(
   defaultOpen: boolean,
   mode: "hover" | "active" | "both"
 ): [boolean, (next: boolean) => void] {
+  // 0 represents closed state, 1 represents open on hover, and 2 represents open on click and focus
+  // open on click and focus supercedes open on hover.
+  // The wanted behavior is when the popup is clicked, it stays open, even when the user hovers off of it
   const [open, setOpen] = useState<0 | 1 | 2>(defaultOpen ? 2 : 0);
 
-  const openDropdown = (level: typeof open) => {
+  const openDropdown = useCallback((level: typeof open) => {
     setOpen(level);
-  };
+  }, []);
 
-  const closeDropdown = (level: typeof open) => {
+  const closeDropdown = useCallback((level: typeof open) => {
     if (level >= open) setOpen(0);
-  };
+  }, []);
 
   // set a bunch of event listeners
   useEffect(() => {

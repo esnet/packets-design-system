@@ -1,4 +1,4 @@
-import React, { CSSProperties, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
