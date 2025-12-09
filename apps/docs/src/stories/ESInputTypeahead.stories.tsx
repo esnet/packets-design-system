@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESInputTypeahead } from "@esnet/packets-ui/src/components/ESInputTypeahead/ESInputTypeahead.tsx";
 import { useState } from "react";
-import { ESButton, ESLabel, OptionType } from "@esnet/packets-ui";
+import { ESButton, ESInputRow, OptionType } from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESInputTypeahead> = {
   title: "Components/ESInputTypeahead",
@@ -79,7 +79,7 @@ export const ControlledExample: Story = {
           {selectedIds ? selectedIds.join(", ") : "[empty]"}{" "}
           <strong>Live Search Value:</strong> {search ?? "[empty] "}
         </div>
-        <ESLabel label="Typeahead Options">
+        <ESInputRow label="Typeahead Options">
           <ESInputTypeahead
             options={options}
             searchValue={search}
@@ -87,7 +87,7 @@ export const ControlledExample: Story = {
             selectedIdsValue={selectedIds}
             onSelectedOptionsChange={setSelectedIds}
           />
-        </ESLabel>
+        </ESInputRow>
       </div>
     );
   },
@@ -123,9 +123,9 @@ export const UncontrolledExample: Story = {
           </div>
         }
         <form onSubmit={handleSubmit}>
-          <ESLabel htmlFor="typeahead-form-name" label="Typeahead Options">
+          <ESInputRow htmlFor="typeahead-form-name" label="Typeahead Options">
             <ESInputTypeahead name="typeahead-form-name" options={options} />
-          </ESLabel>
+          </ESInputRow>
           <ESButton variant="primary" type="submit">
             Submit
           </ESButton>
@@ -160,14 +160,14 @@ export const LoadingExample: Story = {
     };
 
     return (
-      <ESLabel label="Typeahead Options">
+      <ESInputRow label="Typeahead Options">
         <ESInputTypeahead
           options={options}
           searchValue={search}
           onSearchChange={onSearchChange}
           loading={loading}
         />
-      </ESLabel>
+      </ESInputRow>
     );
   },
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
+import ESChip from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
 import { ESChipGroup } from "@esnet/packets-ui/src/components/ESChipGroup/ESChipGroup.tsx";
 import { ESAvatar, ESIcon } from "@esnet/packets-ui";
 
