@@ -7,6 +7,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcssImport from "postcss-import";
+import resolveId from "postcss-import/lib/resolve-id.js";
 import image from "@rollup/plugin-image";
 
 export default [
@@ -39,7 +40,22 @@ export default [
         extract: false,
         minimize: true,
         autoModules: true,
-        plugins: [postcssImport()],
+        plugins: [
+          postcssImport({
+            // the resolver can't seem to pick up the export mapping in the tokens' package.json
+            // so manually resolve it
+            resolve: (id, basedir, importOptions) => {
+              if (id === "@esnet/esnet-tokens/esnet-tokens.css") {
+                return resolveId(
+                  "@esnet/esnet-tokens/dist/esnet-tokens.css",
+                  basedir,
+                  importOptions
+                );
+              }
+              return resolveId(id, basedir, importOptions);
+            },
+          }),
+        ],
       }),
       terser(),
       image(),

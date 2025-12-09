@@ -13,14 +13,10 @@
     },
     "files": [
         "dist",
-        "dist/*.css"
+        "README.md"
     ],
     "exports": {
         ".": {
-            "types": "./dist/tokens.d.ts",
-            "default": "./dist/tokens.js"
-        },
-        "./tokens.js": {
             "types": "./dist/tokens.d.ts",
             "import": "./dist/esnet-tokens.esm.js",
             "require": "./dist/esnet-tokens.cjs.js",
