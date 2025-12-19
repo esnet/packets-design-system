@@ -37,6 +37,7 @@
   .es-data-table {
     table-layout: auto;
     display: table;
+    overflow: hidden;
   }
 }
 
