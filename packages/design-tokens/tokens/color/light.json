@@ -15,7 +15,7 @@
       },
       "background": {
         "type": "color",
-        "value": "{color.core.white.600.value}"
+        "value": "#D2D3D7"
       },
       "surface-1": {
         "type": "color",
