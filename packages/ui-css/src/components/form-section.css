@@ -1,0 +1,29 @@
+.es-form-section {
+  --section-gap: var(--esnet-size-spacing-xxsmall, 4px);
+
+  padding: var(--esnet-size-spacing-medium);
+  border-radius: var(--esnet-size-spacing-xsmall);
+
+  margin-bottom: var(--esnet-size-spacing-medium);
+  background: var(--esnet-color-light-surface-1, #e3e3e3);
+}
+
+  .dark .es-form-section {
+    background: var(--esnet-color-dark-surface-1, #3d3d3d);
+  }
+
+  .es-form-section .es-form-section__leftCol {
+    margin-bottom: var(--esnet-size-spacing-medium);
+  }
+
+  .es-form-section .es-form-section__leftCol > p {
+      color: var(--esnet-color-copy-alt);
+    }
+
+  .es-form-section .es-form-section__rightCol {
+    margin-bottom: var(--esnet-size-spacing-medium);
+  }
+
+.sheet & .es-form-section {
+    display: block;
+  }

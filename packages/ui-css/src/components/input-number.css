@@ -1,0 +1,21 @@
+/* Pseudo-classes */
+  /* Remove the number spinner that is provided by default */
+  .es-input-number input::-webkit-outer-spin-button,
+  .es-input-number input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .es-input-number input {
+
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+.es-input-number--empty div {
+  cursor: default;
+  color: var(--esnet-color-light-copy-alt, #6e6e70);
+}
+
+.dark .es-input-number--empty div {
+    color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+  }

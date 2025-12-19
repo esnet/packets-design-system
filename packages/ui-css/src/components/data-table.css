@@ -1,0 +1,209 @@
+/* ==============================================================================
+   ES-DATA-TABLE - Semantic Table Component
+   ==============================================================================
+
+   Uses natural table element selectors for clean, semantic markup.
+
+   Usage: <table class="es-data-table">
+            <thead>...</thead>
+            <tbody>...</tbody>
+          </table>
+*/
+
+.es-data-table {
+  --background-color: var(--esnet-color-core-white-100, #fff);
+  --background-dark-color: var(--esnet-color-core-slate-1000, #30333b);
+  --header-background-color: var(--esnet-color-core-blue-900);
+  --header-copy-color: var(--esnet-color-core-white-100);
+  --body-copy-color: var(--esnet-color-light-copy, #1a1a1a);
+
+  --table-row-even-background-color: rgba(0, 0, 0, 0.05);
+  --table-row-hover-background-color: rgba(0, 0, 0, 0.1);
+
+  --label-typography: var(--esnet-typography-header-6-sans-font);
+
+  --corner-radius: var(--esnet-size-radius-large, 6px);
+  --cell-padding: var(--esnet-size-spacing-xsmall, 8px) var(--esnet-size-spacing-medium, 16px);
+
+  table-layout: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--corner-radius);
+  background-color: var(--background-color);
+}
+
+@media (min-width: 640px) {
+  .es-data-table {
+    table-layout: auto;
+    display: table;
+  }
+}
+
+.dark .es-data-table {
+  --table-row-even-background-color: rgba(0, 0, 0, 0.5);
+  --table-row-hover-background-color: rgba(0, 0, 0, 0.6);
+  --background-color: var(--background-dark-color);
+  --body-copy-color: var(--esnet-color-dark-copy, #e6e6e6);
+}
+
+/* Table Header */
+
+.es-data-table thead {
+  background-color: var(--header-background-color);
+  color: var(--header-copy-color);
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .es-data-table thead {
+    display: table-header-group;
+  }
+}
+
+.es-data-table thead th {
+  padding: var(--cell-padding);
+  display: none;
+  vertical-align: top;
+}
+
+.es-data-table thead th:first-of-type {
+  border-top-left-radius: var(--corner-radius);
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .es-data-table thead th:first-of-type {
+    display: table-cell;
+    width: auto;
+  }
+}
+
+.es-data-table thead th:last-of-type {
+  border-top-right-radius: var(--corner-radius);
+}
+
+.es-data-table thead th .labelWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xxsmall);
+  width: 100%;
+  font: var(--label-typography);
+  color: var(--esnet-color-dark-copy, #e6e6e6);
+}
+
+@media (min-width: 640px) {
+  .es-data-table thead th {
+    display: table-cell;
+    max-height: 10px;
+    max-width: 100px;
+  }
+}
+
+/* Table Body */
+
+.es-data-table tbody {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .es-data-table tbody {
+    display: table-row-group;
+  }
+}
+
+.es-data-table tbody tr {
+  display: block;
+  padding: var(--esnet-size-spacing-medium) 0;
+  transition: background ease-in var(--esnet-time-duration-short, 100ms);
+}
+
+.es-data-table tbody tr:hover,
+.es-data-table tbody tr:nth-child(even):hover {
+  background-color: var(--table-row-hover-background-color);
+}
+
+.es-data-table tbody tr:nth-child(even) {
+  background-color: var(--table-row-even-background-color);
+}
+
+@media (min-width: 640px) {
+  .es-data-table tbody tr {
+    display: table-row;
+  }
+}
+
+.es-data-table tbody td {
+  padding: var(--cell-padding);
+  vertical-align: middle;
+  display: block;
+  color: var(--body-copy-color);
+}
+
+.es-data-table tbody td::before {
+  display: block;
+  content: attr(data-label);
+  font: var(--label-typography);
+  color: var(--esnet-color-copy-alt);
+}
+
+@media (min-width: 640px) {
+  .es-data-table tbody td {
+    display: table-cell;
+    width: auto;
+  }
+
+  .es-data-table tbody td::before {
+    display: none;
+    content: "";
+  }
+}
+
+/* Table Footer */
+
+.es-data-table tfoot {
+  background-color: var(--header-background-color);
+  padding: var(--cell-padding);
+  color: var(--header-copy-color);
+  display: block;
+  position: sticky;
+  bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .es-data-table tfoot {
+    display: table-footer-group;
+  }
+}
+
+.es-data-table tfoot tr {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .es-data-table tfoot tr {
+    display: table-row;
+  }
+}
+
+.es-data-table tfoot td {
+  padding: var(--cell-padding);
+  vertical-align: top;
+  display: block;
+  color: var(--header-copy-color);
+}
+
+@media (min-width: 640px) {
+  .es-data-table tfoot td {
+    display: table-cell;
+  }
+}
+
+.es-data-table tfoot td:first-of-type {
+  border-bottom-left-radius: var(--esnet-size-radius-large);
+}
+
+.es-data-table tfoot td:last-of-type {
+  border-bottom-right-radius: var(--esnet-size-radius-large);
+}
