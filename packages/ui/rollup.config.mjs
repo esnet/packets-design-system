@@ -10,6 +10,9 @@ import postcssImport from "postcss-import";
 import resolveId from "postcss-import/lib/resolve-id.js";
 import image from "@rollup/plugin-image";
 
+// eslint-disable-next-line no-undef
+const DEV = process.env.ROLLUP_WATCH === "true";
+
 export default [
   {
     input: "src/index.ts",
@@ -17,12 +20,12 @@ export default [
       {
         file: "dist/cjs/bundle.js",
         format: "cjs",
-        sourcemap: true,
+        sourcemap: DEV,
       },
       {
         file: "dist/esm/bundle.js",
         format: "esm",
-        sourcemap: true,
+        sourcemap: DEV,
       },
       /* {
 				file: 'dist/bundle.min.js',
