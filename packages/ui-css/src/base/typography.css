@@ -2,9 +2,6 @@
 
 .packets {
   color: var(--esnet-color-light-copy, #3d3d3d);
-  .dark & {
-    color: var(--esnet-color-dark-copy, #e6e6e6);
-  }
 
   /* General Typography overrides */
   h1,
@@ -18,12 +15,7 @@
     width: 100%;
     margin: 0;
     padding: 0 0 var(--esnet-size-spacing-xsmall, 0.5rem);
-
     color: var(--esnet-color-light-copy, #3d3d3d);
-
-    .dark & {
-      color: var(--esnet-color-dark-copy, #e6e6e6);
-    }
   }
 
   h1,
@@ -151,12 +143,7 @@
       400 12px/120% var(--esnet-font-family-body-sans)
     );
     letter-spacing: -0.18px;
-
     color: var(--esnet-color-light-copy, #3d3d3d);
-
-    .dark & {
-      color: var(--esnet-color-dark-copy, #e6e6e6);
-    }
 
     &.mono {
       font: var(
@@ -169,15 +156,31 @@
   .label-2 {
     display: inline-block;
     margin: 0;
-
     font: var(
       --esnet-typography-label-2-sans-font,
       600 12px/120% var(--esnet-font-family-body-sans)
     );
-
     color: var(--esnet-color-light-copy, #3d3d3d);
+  }
 
-    .dark & {
+  /* Dark mode styles - when .dark is on .packets element or an ancestor */
+  &.dark,
+  .dark & {
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    td,
+    p {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    .label-1,
+    .label-2 {
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
   }

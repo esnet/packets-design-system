@@ -516,6 +516,124 @@ function generateSkeletonSurfaceExample(componentName, metadata) {
 }
 
 /**
+ * Generate HTML for typography examples
+ */
+function generateTypographyExample() {
+  let html = `<div class="demo-section">\n  <h2>Typography</h2>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Headers</div>\n`;
+  html += `    <h1 class="h1">Header 1 - Sans</h1>\n`;
+  html += `    <h1 class="h1 display">Header 1 - Display</h1>\n`;
+  html += `    <h2 class="h2">Header 2</h2>\n`;
+  html += `    <h3 class="h3">Header 3</h3>\n`;
+  html += `    <h4 class="h4">Header 4 - Sans</h4>\n`;
+  html += `    <h4 class="h4 mono">Header 4 - Mono</h4>\n`;
+  html += `    <h5 class="h5">Header 5 - Sans</h5>\n`;
+  html += `    <h5 class="h5 mono">Header 5 - Mono</h5>\n`;
+  html += `    <h6 class="h6">Header 6 - Sans</h6>\n`;
+  html += `    <h6 class="h6 mono">Header 6 - Mono</h6>\n`;
+  html += `  </div>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Body Copy</div>\n`;
+  html += `    <p class="copy-1">This is body copy text in sans-serif font.</p>\n`;
+  html += `    <p class="copy-1 mono">This is body copy text in monospace font.</p>\n`;
+  html += `  </div>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Labels</div>\n`;
+  html += `    <span class="label-1">Label 1 - Sans</span><br>\n`;
+  html += `    <span class="label-1 mono">Label 1 - Mono</span><br>\n`;
+  html += `    <span class="label-2">Label 2 - Bold</span>\n`;
+  html += `  </div>\n`;
+
+  html += `</div>\n\n`;
+  return html;
+}
+
+/**
+ * Generate HTML for surfaces examples
+ */
+function generateSurfacesExample() {
+  let html = `<div class="demo-section">\n  <h2>Surfaces</h2>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Nested Surfaces (Auto-nesting)</div>\n`;
+  html += `    <div class="surface" style="padding: 20px; margin-bottom: 16px;">\n`;
+  html += `      <p>Surface 1 - Primary surface level</p>\n`;
+  html += `      <div class="surface" style="padding: 20px;">\n`;
+  html += `        <p>Surface 2 - Nested surface level (automatically darker/lighter)</p>\n`;
+  html += `      </div>\n`;
+  html += `    </div>\n`;
+  html += `  </div>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Explicit Surface Levels</div>\n`;
+  html += `    <div class="surface1" style="padding: 20px; margin-bottom: 8px;">\n`;
+  html += `      <p>Surface 1 - Explicit surface level 1</p>\n`;
+  html += `    </div>\n`;
+  html += `    <div class="surface2" style="padding: 20px;">\n`;
+  html += `      <p>Surface 2 - Explicit surface level 2</p>\n`;
+  html += `    </div>\n`;
+  html += `  </div>\n`;
+
+  html += `</div>\n\n`;
+  return html;
+}
+
+/**
+ * Generate HTML for grid system examples
+ */
+function generateGridExample() {
+  let html = `<div class="demo-section">\n  <h2>Grid System</h2>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">12-Column Grid Layout</div>\n`;
+  html += `    <div class="packets-grid">\n`;
+  html += `      <div class="full surface1" style="padding: 16px; margin-bottom: 4px;">Full Width (12 cols)</div>\n`;
+  html += `      <div class="grid-col-6 surface1" style="padding: 16px;">Half (6 cols)</div>\n`;
+  html += `      <div class="grid-col-6 surface1" style="padding: 16px;">Half (6 cols)</div>\n`;
+  html += `      <div class="grid-col-4 surface1" style="padding: 16px;">Third (4 cols)</div>\n`;
+  html += `      <div class="grid-col-4 surface1" style="padding: 16px;">Third (4 cols)</div>\n`;
+  html += `      <div class="grid-col-4 surface1" style="padding: 16px;">Third (4 cols)</div>\n`;
+  html += `      <div class="grid-col-3 surface1" style="padding: 16px;">Quarter (3 cols)</div>\n`;
+  html += `      <div class="grid-col-3 surface1" style="padding: 16px;">Quarter (3 cols)</div>\n`;
+  html += `      <div class="grid-col-3 surface1" style="padding: 16px;">Quarter (3 cols)</div>\n`;
+  html += `      <div class="grid-col-3 surface1" style="padding: 16px;">Quarter (3 cols)</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `      <div class="one-sixth surface1" style="padding: 16px;">1/6</div>\n`;
+  html += `    </div>\n`;
+  html += `  </div>\n`;
+
+  html += `</div>\n\n`;
+  return html;
+}
+
+/**
+ * Generate HTML for module container examples
+ */
+function generateModuleExample(componentName, metadata) {
+  const baseClass = componentNameToBEMClass(componentName);
+  let html = `<div class="demo-section">\n  <h2>${componentName}</h2>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Module Container</div>\n`;
+  html += `    <div class="${baseClass}">\n`;
+  html += `      <h3>Module with padding</h3>\n`;
+  html += `      <p>This demonstrates a module container with responsive horizontal padding.</p>\n`;
+  html += `    </div>\n`;
+  html += `  </div>\n\n`;
+
+  html += `  <div class="demo-item">\n    <div class="demo-label">Module with Surface</div>\n`;
+  html += `    <div class="${baseClass} surface">\n`;
+  html += `      <h3>Module with surface styling</h3>\n`;
+  html += `      <p>This module combines surface background with module padding and border radius.</p>\n`;
+  html += `    </div>\n`;
+  html += `  </div>\n`;
+
+  html += `</div>\n\n`;
+  return html;
+}
+
+/**
  * Generate HTML for a component based on its type
  */
 function generateComponentHTML(componentName, metadata) {
@@ -554,6 +672,8 @@ function generateComponentHTML(componentName, metadata) {
     return generateTitleSectionExample(componentName, metadata);
   } else if (componentName === 'ESSkeletonSurface') {
     return generateSkeletonSurfaceExample(componentName, metadata);
+  } else if (componentName === 'ESModule') {
+    return generateModuleExample(componentName, metadata);
   } else {
     // Generic example for other components
     const baseClass = componentNameToBEMClass(componentName);
@@ -585,6 +705,15 @@ export async function generateTearsheet(registry, templatePath, outputPath) {
   // Generate component sections
   let componentSections = '';
 
+  // Add Typography section (from base styles)
+  componentSections += '<div class="demo-section category-header"><h1>Typography</h1></div>\n\n';
+  componentSections += generateTypographyExample();
+
+  // Add Layout Foundations section (from base styles)
+  componentSections += '<div class="demo-section category-header"><h1>Layout Foundations</h1></div>\n\n';
+  componentSections += generateSurfacesExample();
+  componentSections += generateGridExample();
+
   // Group components by category in logical order
   const buttons = Object.entries(registry).filter(([name]) => name.match(/Button/));
   const inputs = Object.entries(registry).filter(([name]) => name.match(/^ESInput/));
@@ -598,7 +727,7 @@ export async function generateTearsheet(registry, templatePath, outputPath) {
     ['ESDataTable'].includes(name)
   );
   const layout = Object.entries(registry).filter(([name]) =>
-    ['ESTitleSection', 'ESFormSection'].includes(name)
+    ['ESTitleSection', 'ESFormSection', 'ESModule'].includes(name)
   );
   const feedback = Object.entries(registry).filter(([name]) =>
     ['ESSpinner', 'ESSkeletonSurface'].includes(name)

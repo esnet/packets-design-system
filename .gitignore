@@ -41,3 +41,7 @@ public/dist
 storybook-static/
 
 .npmrc
+
+# Emacs
+*~
+\#*

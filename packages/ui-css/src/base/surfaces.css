@@ -20,29 +20,37 @@ body,
   /* Nested Surface Layers using just surface class */
   .surface {
     background-color: var(--esnet-color-light-surface-1, #e3e3e3);
-    .dark & {
-      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
-    }
 
     .surface {
       background-color: var(--esnet-color-light-surface-2, #f2f2f2);
-      .dark & {
-        background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
-      }
     }
   }
 
   /* Bespoke instances of surface layers */
   .surface1 {
     background-color: var(--esnet-color-light-surface-1, #e3e3e3);
-    .dark & {
-      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
-    }
   }
 
   .surface2 {
     background-color: var(--esnet-color-light-surface-2, #f2f2f2);
-    .dark & {
+  }
+
+  /* Dark mode styles - when .dark is on .packets element or an ancestor */
+  &.dark,
+  .dark & {
+    .surface {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+
+      .surface {
+        background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+      }
+    }
+
+    .surface1 {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+    }
+
+    .surface2 {
       background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
     }
   }
