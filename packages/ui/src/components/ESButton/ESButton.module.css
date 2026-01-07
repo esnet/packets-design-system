@@ -147,7 +147,7 @@ a.button {
 
       &:active {
         border-color: var(--esnet-color-core-blue-400, #00b6f2);
-        background-color: var(--background, #19191a);
+        background-color: var(--esnet-color-dark-background, #19191a);
         color: var(--esnet-color-core-blue-200, #9ce2ff);
       }
 
