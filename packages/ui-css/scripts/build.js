@@ -3,7 +3,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { rollup } from 'rollup';
 import { buildComponentRegistry } from './component-registry.js';
-import { generateTearsheet } from './tearsheet-generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -143,11 +142,12 @@ async function build() {
       console.log(`✓ Built ${outputFile} (${formatBytes(stats.size)})`);
     }
 
-    // 6. Generate tearsheet
-    console.log('\n📄 Generating tearsheet...');
-    const templatePath = path.join(SRC_DIR, 'templates', 'tearsheet.html');
-    const tearsheetPath = path.join(DIST_DIR, 'tearsheet.html');
-    await generateTearsheet(registry, templatePath, tearsheetPath);
+    // 6. Copy tearsheet
+    console.log('\n📄 Copying tearsheet...');
+    const tearsheetSrc = path.join(SRC_DIR, 'tearsheet.html');
+    const tearsheetDest = path.join(DIST_DIR, 'tearsheet.html');
+    fs.copyFileSync(tearsheetSrc, tearsheetDest);
+    console.log(`✓ Copied tearsheet to ${tearsheetDest}`);
 
     console.log('\n✅ Build complete!\n');
     console.log('Output files:');
