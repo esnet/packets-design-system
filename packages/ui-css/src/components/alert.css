@@ -1,0 +1,74 @@
+/* ==============================================================================
+   ES-ALERT - Composable Base Class
+   ==============================================================================
+
+   Base styles for alert component. Variants are applied via composable classes:
+   - Semantic variants: .es-error, .es-warning, .es-info, .es-success
+
+   Usage: <div class="es-alert es-error">
+*/
+
+.es-alert {
+  --icon-size: var(--esnet-size-touchtarget-min, 32px);
+  --section-gap: var(--esnet-size-spacing-medium, 16px);
+  --title-label-font: var(
+    --esnet-typography-header-5-sans-font,
+    600 20px/140% var(--esnet-font-family-header-sans)
+  );
+
+  border-radius: var(--esnet-size-radius-xlarge, 8px);
+  padding: var(--esnet-size-spacing-medium, 16px);
+  display: flex;
+  gap: var(--section-gap);
+  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+
+  animation: fadeInSlideUp var(--esnet-time-duration-quick, 250ms) ease-in-out;
+}
+
+@media (prefers-reduced-motion) {
+  .es-alert {
+    animation: none;
+  }
+}
+
+.dark .es-alert {
+  color: var(--esnet-color-dark-copy, #e6e6e6);
+  background-color: var(--esnet-color-dark-surface-2, #f2f2f2);
+}
+
+.dark .es-alert label,
+.dark .es-alert p,
+.dark .es-alert h1,
+.dark .es-alert h2,
+.dark .es-alert h3,
+.dark .es-alert h4,
+.dark .es-alert h5,
+.dark .es-alert h6 {
+  color: var(--esnet-color-dark-copy, #e6e6e6);
+}
+
+.es-alert .es-alert__icon {
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.es-alert .es-alert__title {
+  margin: 0;
+  font: var(--title-label-font);
+  text-decoration: none;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    translate: 0 var(--esnet-size-spacing-medium, 16px);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,18 @@
+.commaSeparatedList {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+  .commaSeparatedList.vertical {
+    flex-direction: column;
+  }
+
+  .commaSeparatedList .commaSeparatedListItem {
+    display: inline;
+  }
+
+  .commaSeparatedList .commaSeparatedListItem:not(:last-child)::after {
+      content: ", ";
+    }
