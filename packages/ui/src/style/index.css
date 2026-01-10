@@ -1,4 +1,3 @@
-
 /* 
 Import all non-component styles as a layer, 
 allowing future utility class layers to override the properties 
@@ -11,9 +10,8 @@ However, it is overriden by Tailwind's utility class.
 If not layered, our typography's h5 style would supercede style classes,
 limiting flexibility and usage.
 */
-@layer packets;
-@import "./tokens.css" layer(packets);
-@import "./typography.css" layer(packets);
-@import "./surfaces.css" layer(packets);
-@import "./grid.css" layer(packets);
-@import "./animations.css" layer(packets);
+@import "./tokens.css" layer(base);
+@import "./typography.css" layer(base);
+@import "./surfaces.css" layer(base);
+@import "./grid.css" layer(base);
+@import "./animations.css" layer(base);
