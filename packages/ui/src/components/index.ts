@@ -39,6 +39,7 @@ export { default as ESInputTypeahead, OptionType } from "./ESInputTypeahead";
 export { default as ESListTreeView } from "./ESListTreeView";
 export { default as ESLogo } from "./ESLogo";
 export { default as ESModule } from "./ESModule";
+export { ESNestedList, ESNestedListItem } from "./ESNestedList";
 export { default as ESQuotes } from "./ESQuotes";
 export { default as ESSkeletonChip } from "./ESSkeletonChip";
 export { default as ESSpacer } from "./ESSpacer";

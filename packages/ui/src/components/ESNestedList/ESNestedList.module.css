@@ -1,0 +1,17 @@
+.ESNestedList {
+  display: flex;
+  flex-direction: column;
+  column-gap: var(--esnet-size-spacing-xsmall);
+
+  > .list {
+    padding-left: var(--esnet-size-spacing-medium, 1rem);
+  }
+}
+
+.ESNestedListItem {
+  /* margin-bottom: var(--esnet-size-spacing-xxsmall, 4px); */
+
+  &.noDisc {
+    list-style: none;
+  }
+}
