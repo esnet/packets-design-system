@@ -9,7 +9,7 @@
 }
 
 .ESNestedListItem {
-  /* margin-bottom: var(--esnet-size-spacing-xxsmall, 4px); */
+  margin-bottom: var(--esnet-size-spacing-xsmall, 8px);
 
   &.noDisc {
     list-style: none;
