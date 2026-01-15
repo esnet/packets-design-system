@@ -21,9 +21,6 @@
     }
 
     box-shadow: var(--esnet-box-shadow-core-medium);
-
-    transition-property: opacity;
-    transition-duration: var(--esnet-time-duration-quick, 250ms);
   }
 
   .caret {
@@ -41,7 +38,6 @@
 
   .hidden {
     display: none;
-    opacity: 0.2;
     pointer-events: none;
     user-select: none;
   }
