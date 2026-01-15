@@ -3,6 +3,7 @@
     "version": "0.8.0",
     "description": "The Packets Design System UI Package",
     "author": "Jason Roeckle",
+    "type": "module",
     "scripts": {
         "rimraf": "./node_modules/rimraf/bin.js",
         "build": "rimraf dist && rollup -c",

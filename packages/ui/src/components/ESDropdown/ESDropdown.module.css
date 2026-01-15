@@ -2,39 +2,52 @@
   position: relative;
   display: inline-block;
   height: fit-content;
-}
 
-.anchor {
-  position: relative;
-  z-index: 3;
-}
-
-.content {
-  position: absolute;
-  overflow: auto;
-  height: fit-content;
-
-  background: var(--esnet-color-light-surface-1);
-
-  :global(.dark) & {
-    background: var(--esnet-color-dark-surface-1);
+  .anchor {
+    position: relative;
+    z-index: 3;
   }
 
-  box-shadow: var(--esnet-box-shadow-core-medium);
-}
+  .content {
+    position: absolute;
+    overflow: auto;
+    height: fit-content;
+    padding: var(--esnet-size-spacing-xsmall, 4px);
 
-.caret {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: var(--esnet-color-light-surface-1);
+    background: var(--esnet-color-light-surface-1);
 
-  :global(.dark) & {
-    background: var(--esnet-color-dark-surface-1);
+    :global(.dark) & {
+      background: var(--esnet-color-dark-surface-1);
+    }
+
+    box-shadow: var(--esnet-box-shadow-core-medium);
+
+    transition-property: opacity;
+    transition-duration: var(--esnet-time-duration-quick, 250ms);
   }
 
-  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  .caret {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--esnet-color-light-surface-1);
+
+    :global(.dark) & {
+      background: var(--esnet-color-dark-surface-1);
+    }
+
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+
+  .hidden {
+    display: none;
+    opacity: 0.2;
+    pointer-events: none;
+    user-select: none;
+  }
 }
+
+/* 
 
 .hoverGap {
   --caret-size: 20px;
@@ -47,4 +60,4 @@
 .hidden {
   display: none;
   pointer-events: none;
-}
+} */
