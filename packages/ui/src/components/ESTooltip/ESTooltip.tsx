@@ -1,8 +1,7 @@
 import React from "react";
-import clsx from "clsx";
 import styles from "./ESTooltip.module.css";
 import { ESTooltipProps } from "./ESTooltip.types";
-import { ESDropdown, ESDropdownAnchor, ESDropdownContent } from "../ESDropdown";
+import { ESDropdown } from "../ESDropdown";
 import ESIcon from "../ESIcon";
 
 /**
@@ -11,21 +10,28 @@ import ESIcon from "../ESIcon";
  * @param {ESTooltipProps} props
  * @returns {React.ReactElement}
  */
-export function ESTooltip({ children, title, text, onClickX }: ESTooltipProps) {
+export function ESTooltip({
+  children,
+  title,
+  anchor,
+  onClickX,
+}: ESTooltipProps) {
   return (
-    <ESDropdown caret className={styles.ESTooltip} mode="hover">
-      <ESDropdownAnchor className={clsx(styles.anchor)}>
-        {children}
-      </ESDropdownAnchor>
-      <ESDropdownContent className={styles.tooltip}>
+    <ESDropdown
+      anchor={<div className={styles.anchor}>{anchor}</div>}
+      caret
+      className={styles.ESTooltip}
+      mode="hover"
+    >
+      <div className={styles.tooltip}>
         <div className={styles.top}>
           {title && <span className={styles.title}>{title}</span>}
           {onClickX && (
             <ESIcon onClick={onClickX} className={styles.x} name="x" />
           )}
         </div>
-        <div className={styles.text}>{text}</div>
-      </ESDropdownContent>
+        <div className={styles.text}>{children}</div>
+      </div>
     </ESDropdown>
   );
 }
