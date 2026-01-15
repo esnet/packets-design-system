@@ -1,20 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { ESAvatar } from "@esnet/packets-ui";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import ESAvatar from "@esnet/packets-ui/src/components/ESAvatar/ESAvatar.tsx";
 
 const meta: Meta<typeof ESAvatar> = {
   title: "Components/ESAvatar",
   component: ESAvatar,
   tags: ["autodocs"],
-  argTypes: {
-    size: {
-      control: { type: "radio" },
-      options: ["small", "medium", "large"],
-    },
-    backgroundColor: {
-      control: { type: "radio" },
-      options: ["grape", "lime", "berry", "orange"],
-    },
-  },
 };
 
 export default meta;
@@ -66,9 +56,15 @@ export const AllColorsAllSizes: Story = {
       style={{
         display: "grid",
         gap: "1rem",
-        gridTemplateColumns: "repeat(5, 1fr)",
+        gridTemplateColumns: "repeat(7, 1fr)",
       }}
     >
+      <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="primary" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="large"
+        backgroundColor="secondary"
+      />
       <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="grape" />
       <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="lime" />
       <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="berry" />
@@ -78,6 +74,12 @@ export const AllColorsAllSizes: Story = {
         size="large"
         src="/imgs/fpo-avatars/large.png"
       />
+      <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="primary" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="medium"
+        backgroundColor="secondary"
+      />
       <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="grape" />
       <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="lime" />
       <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="berry" />
@@ -86,6 +88,12 @@ export const AllColorsAllSizes: Story = {
         alt="Ernest Lawrence"
         size="medium"
         src="/imgs/fpo-avatars/large.png"
+      />
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="primary" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="small"
+        backgroundColor="secondary"
       />
       <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="grape" />
       <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="lime" />

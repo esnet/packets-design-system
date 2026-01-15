@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div>
       <h1 className="test">Test Page for {DesignSystemName}</h1>
-      <ESAlert type={"error"} title={"Hello Alert"}>
+      <ESAlert variant={"error"} title={"Hello Alert"}>
         <p>Some Alert</p>
       </ESAlert>
       <ESBreadcrumbs
@@ -53,7 +53,7 @@ export default function Page() {
       <ESButton variant={"primary"} onClick={() => {}} type="button">
         ESButton
       </ESButton>
-      <ESButtonGroup labelCopy="A Collection of Buttons">
+      <ESButtonGroup label="A Collection of Buttons">
         <ESButton variant="primary">Button 1</ESButton>
         <ESButton variant="secondary">Button 2</ESButton>
         <ESButton variant="secondary">Button 3</ESButton>
@@ -162,13 +162,16 @@ export default function Page() {
           <ESDatum title="Created">August 26, 1931</ESDatum>
         </React.Fragment>
       </ESFormSection>
-      <ESIconButton variant={"primary"} onClick={() => {}} type="button">
-        I
-      </ESIconButton>
+      <ESIconButton
+        variant={"primary"}
+        onClick={() => {}}
+        type="button"
+        name="info"
+      />
       <ESSpacer size={"medium"} type={"hortizontal"} />
       <ESSpinner />
       <ESTableOfContents
-        sections={[
+        links={[
           {
             children: "Colors",
             href: "/?path=/docs/design-tokens-breakpoints--docs",
@@ -206,8 +209,8 @@ export default function Page() {
         </p>
       </ESModule>
       <>
-        <ESTabs border verticalPadding>
-          <ESTab isActive>
+        <ESTabs>
+          <ESTab active>
             <a href="#" target="_self">
               Link 1
             </a>

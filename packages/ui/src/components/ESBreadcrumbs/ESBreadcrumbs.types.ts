@@ -1,8 +1,8 @@
-import * as React from "react";
-import { ListItemType } from "../../lib/utils/ListItem";
+import { LinkType, RenderLink } from "../../lib/utils/link";
 
-export interface BreadcrumbsProps {
-  breadcrumbs: ListItemType[];
-  // eslint-disable-next-line no-unused-vars
-  renderLink?: (breadcrumb: ListItemType) => React.ReactNode;
+export interface ESBreadcrumbsProps {
+  /** Breadcrumbs objects, where an `href` and `children` prop must be provided. */
+  breadcrumbs: LinkType[];
+  /** Custom function to render each individual breadcrumb. Default to simply utilizing an anchor tag. */
+  renderLink?: RenderLink;
 }

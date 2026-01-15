@@ -47,6 +47,20 @@
   &.orange {
     background-color: var(--esnet-color-core-orange-500, #ff8000);
   }
+  &.primary {
+    background-color: var(--esnet-color-light-primary, #0088b5);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-secondary, #00b6f2);
+    }
+  }
+  &.secondary {
+    background-color: var(--esnet-color-dark-primary, #004573);
+
+    :global(.dark) & {
+      background-color: var(--esnet-color-light-secondary, #004573);
+    }
+  }
 
   .image {
     /* If we don't set the width and height to be a little over, a bit of the background color shows on the edges, likely a CSS rounding error */
