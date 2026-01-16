@@ -1,0 +1,20 @@
+.titleLayout {
+  margin-bottom: var(--esnet-size-spacing-large);
+}
+
+  .titleLayout .title {
+    display: flex;
+    align-items: center;
+    gap: var(--esnet-size-spacing-xsmall, 9px);
+
+    font: var(--esnet-typography-header-1-display-font);
+  }
+
+  .titleLayout .subtitle {
+    display: flex;
+    align-items: center;
+    gap: var(--esnet-size-spacing-xsmall, 9px);
+
+    font: var(--esnet-typography-header-4-sans-font);
+    padding: 0;
+  }

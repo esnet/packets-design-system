@@ -21,4 +21,4 @@ FROM nginx:latest
 
 WORKDIR /usr/share/nginx/html
 
-COPY --from=prod /app/apps/docs/storybook-static/ .
+COPY --from=prod /app/apps/react-docs/storybook-static/ .

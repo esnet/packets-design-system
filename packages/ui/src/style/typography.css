@@ -1,12 +1,14 @@
 .packets {
-  /* Remove margins for typography related elements */
-  body,
+  color: var(--esnet-color-light-copy, #3d3d3d);
+
+  /* General Typography overrides */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
+  td,
   p,
   ol,
   ul,
@@ -14,15 +16,8 @@
   li {
     width: 100%;
     margin: 0;
-    margin-top: var(--esnet-size-spacing-xsmall, 0.5rem);
-    margin-bottom: var(--esnet-size-spacing-xsmall, 0.5rem);
-    padding: 0;
-
+    padding: 0 0 var(--esnet-size-spacing-xsmall, 0.5rem);
     color: var(--esnet-color-light-copy, #3d3d3d);
-
-    .dark & {
-      color: var(--esnet-color-dark-copy, #e6e6e6);
-    }
   }
 
   h1 {
@@ -201,7 +196,7 @@
   .header2 {
     font: var(
       --esnet-typography-header-2-sans-font,
-      700 36px/130% var(--esnet-font-family-header-sans)
+      700 39px/130% var(--esnet-font-family-header-sans)
     );
   }
 
@@ -210,7 +205,7 @@
   .header3 {
     font: var(
       --esnet-typography-header-3-sans-font,
-      700 32px/140% var(--esnet-font-family-header-sans)
+      700 31px/140% var(--esnet-font-family-header-sans)
     );
   }
 
@@ -219,8 +214,15 @@
   .header4 {
     font: var(
       --esnet-typography-header-4-sans-font,
-      500 245px/140% var(--esnet-font-family-header-sans)
+      700 25px/140% var(--esnet-font-family-header-sans)
     );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-4-mono-font,
+        500 25px/140% var(--esnet-font-family-header-mono)
+      );
+    }
   }
 
   h5,
@@ -230,6 +232,13 @@
       --esnet-typography-header-5-sans-font,
       600 20px/140% var(--esnet-font-family-header-sans)
     );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-5-mono-font,
+        500 20px/140% var(--esnet-font-family-header-mono)
+      );
+    }
   }
 
   h6,
@@ -239,6 +248,13 @@
       --esnet-typography-header-6-sans-font,
       600 16px/140% var(--esnet-font-family-header-sans)
     );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-6-mono-font,
+        500 16px/140% var(--esnet-font-family-header-mono)
+      );
+    }
   }
 
   h1,
@@ -309,17 +325,33 @@
 
   /* Caption */
   figcaption,
-  .caption {
+  .caption,
+  .label-1 {
+    display: inline-block;
+    margin: 0;
     font: var(
       --esnet-typography-label-1-sans-font,
       400 12px/120% var(--esnet-font-family-body-sans)
     );
-    letter-spacing: var(--esnet-typography-label-1-sans-letterspacing, -0.18px);
+    letter-spacing: -0.18px;
+    color: var(--esnet-color-light-copy, #3d3d3d);
 
-    color: var(--esnet-color-light-copy-alt, #6E6E70);
-    .dark & {
-      color: var(--esnet-color-dark-copy-alt, #C2C2C2);
+    &.mono {
+      font: var(
+        --esnet-typography-label-1-mono-font,
+        400 12px/120% var(--esnet-font-family-body-mono)
+      );
     }
+  }
+
+  .label-2 {
+    display: inline-block;
+    margin: 0;
+    font: var(
+      --esnet-typography-label-2-sans-font,
+      600 12px/120% var(--esnet-font-family-body-sans)
+    );
+    color: var(--esnet-color-light-copy, #3d3d3d);
   }
 
   /* Code (in-line only) */
@@ -330,8 +362,33 @@
     border: var(--size-border-width-xsmall, 1px) solid var(--esnet-color-core-white-600, #ccc);
     background-color: var(--esnet-color-core-white-500, #d9d9d9);
     color: var(--esnet-color-light-primary, #0088b5);
+  }
 
-    .dark & {
+  /* Dark mode styles - when .dark is on .packets element or an ancestor */
+  &.dark,
+  .dark & {
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    td,
+    p {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    figcaption,
+    .caption,
+    .label-1,
+    .label-2 {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    code,
+    .code {
       border: var(--size-border-width-xsmall, 1px) solid var(--esnet-color-core-slate-1000, #ccc);
       background-color: var(--esnet-color-core-black-800, #252526);
       color: var(--esnet-color-dark-secondary, #00b6f2);

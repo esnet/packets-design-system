@@ -1,4 +1,4 @@
-![Packets Design System](apps/docs/public/imgs/packetslogo.neutral.png "Packets Design System")
+![Packets Design System](apps/react-docs/public/imgs/packetslogo.neutral.png "Packets Design System")
 
 # Packets Design System
 
@@ -47,4 +47,4 @@ Packets is a design system created as a cross organizational collaboration at ES
 
 # Development
 
-Components can be created/modified in `packages/ui`, design tokens in `packages/design-tokens`, and stories in `apps/docs/src/stories`. To create a new component, create a directory for the component in `packages/ui/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.
+Components can be created/modified in `packages/ui`, design tokens in `packages/design-tokens`, and stories in `apps/react-docs/src/stories`. To create a new component, create a directory for the component in `packages/ui/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.

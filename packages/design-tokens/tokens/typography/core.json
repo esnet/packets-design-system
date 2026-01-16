@@ -375,6 +375,38 @@
           }
         }
       }
+    },
+    "banner": {
+      "1": {
+        "display": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.display.value}",
+              "fontWeight": "600",
+              "fontSize": "64px",
+              "lineHeight": "110%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "0.5px"
+          }
+        },
+        "sans": {
+          "font": {
+            "value": {
+              "fontFamily": "{font.family.body.sans.value}",
+              "fontWeight": "700",
+              "fontSize": "64px",
+              "lineHeight": "110%"
+            },
+            "type": "typography"
+          },
+          "letterspacing": {
+            "value": "0.5px"
+          }
+        }
+      }
     }
   }
 }

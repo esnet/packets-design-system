@@ -1,0 +1,57 @@
+body,
+.packets-ui {
+  background-color: var(--esnet-color-light-background, #cccccc);
+
+  :global(.dark) & {
+    background-color: var(--esnet-color-dark-background, #19191a);
+  }
+}
+
+.packets {
+  /* dark/light overide classes */
+  &.light {
+    background-color: var(--esnet-color-light-background, #cccccc) !important;
+  }
+
+  &.dark {
+    background-color: var(--esnet-color-dark-background, #19191a) !important;
+  }
+
+  /* Nested Surface Layers using just surface class */
+  .surface {
+    background-color: var(--esnet-color-light-surface-1, #e3e3e3);
+
+    .surface {
+      background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+    }
+  }
+
+  /* Bespoke instances of surface layers */
+  .surface1 {
+    background-color: var(--esnet-color-light-surface-1, #e3e3e3);
+  }
+
+  .surface2 {
+    background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+  }
+
+  /* Dark mode styles - when .dark is on .packets element or an ancestor */
+  &.dark,
+  .dark & {
+    .surface {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+
+      .surface {
+        background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+      }
+    }
+
+    .surface1 {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+    }
+
+    .surface2 {
+      background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+    }
+  }
+}

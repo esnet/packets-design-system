@@ -1,0 +1,184 @@
+/* TODO: New Common Look and Feel Values */
+
+.packets {
+  color: var(--esnet-color-light-copy, #3d3d3d);
+  .dark & {
+    color: var(--esnet-color-dark-copy, #e6e6e6);
+  }
+
+  /* General Typography overrides */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  td,
+  p {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 var(--esnet-size-spacing-xsmall, 0.5rem);
+
+    color: var(--esnet-color-light-copy, #3d3d3d);
+
+    .dark & {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+  }
+
+  h1,
+  .h1,
+  .header1 {
+    font: var(
+      --esnet-typography-header-1-sans-font,
+      600 48px/110% var(--esnet-font-family-header-sans)
+    );
+    letter-spacing: var(--esnet-typography-header-1-sans-letterspacing, 0.49px);
+
+    &.display {
+      font: var(
+        --esnet-typography-header-1-display-font,
+        700 49px/110% var(--esnet-font-family-header-display)
+      );
+
+      letter-spacing: var(
+        --esnet-typography-header-1-display-letterspacing,
+        0.49px
+      );
+    }
+
+    &.sans {
+      font: var(
+        --esnet-typography-header-1-sans-font,
+        700 49px/110% var(--esnet-font-family-header-sans)
+      );
+      letter-spacing: var(
+        --esnet-typography-header-1-sans-letterspacing,
+        0.49px
+      );
+    }
+  }
+
+  h2,
+  .h2,
+  .header2 {
+    font: var(
+      --esnet-typography-header-2-sans-font,
+      700 39px/130% var(--esnet-font-family-header-sans)
+    );
+  }
+
+  h3,
+  .h3,
+  .header3 {
+    font: var(
+      --esnet-typography-header-3-sans-font,
+      700 31px/140% var(--esnet-font-family-header-sans)
+    );
+  }
+
+  h4,
+  .h4,
+  .header4 {
+    font: var(
+      --esnet-typography-header-4-sans-font,
+      700 25px/140% var(--esnet-font-family-header-sans)
+    );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-4-mono-font,
+        500 25px/140% var(--esnet-font-family-header-mono)
+      );
+    }
+  }
+
+  h5,
+  .h5,
+  .header5 {
+    font: var(
+      --esnet-typography-header-5-sans-font,
+      600 20px/140% var(--esnet-font-family-header-sans)
+    );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-5-mono-font,
+        500 20px/140% var(--esnet-font-family-header-mono)
+      );
+    }
+  }
+
+  h6,
+  .h6,
+  .header6 {
+    font: var(
+      --esnet-typography-header-6-sans-font,
+      600 16px/140% var(--esnet-font-family-header-sans)
+    );
+
+    &.mono {
+      font: var(
+        --esnet-typography-header-6-mono-font,
+        500 16px/140% var(--esnet-font-family-header-mono)
+      );
+    }
+  }
+
+  td,
+  p,
+  a,
+  li,
+  .copy-1 {
+    font: var(
+      --esnet-typography-copy-1-sans-font,
+      400 16px/120% var(--esnet-font-family-body-sans)
+    );
+
+    &.mono {
+      font: var(
+        --esnet-typography-copy-1-mono-font,
+        400 16px/120% var(--esnet-font-family-body-mono)
+      );
+    }
+  }
+
+  .label-1 {
+    display: inline-block;
+    margin: 0;
+    font: var(
+      --esnet-typography-label-1-sans-font,
+      400 12px/120% var(--esnet-font-family-body-sans)
+    );
+    letter-spacing: -0.18px;
+
+    color: var(--esnet-color-light-copy, #3d3d3d);
+
+    .dark & {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    &.mono {
+      font: var(
+        --esnet-typography-label-1-mono-font,
+        400 12px/120% var(--esnet-font-family-body-mono)
+      );
+    }
+  }
+
+  .label-2 {
+    display: inline-block;
+    margin: 0;
+
+    font: var(
+      --esnet-typography-label-2-sans-font,
+      600 12px/120% var(--esnet-font-family-body-sans)
+    );
+
+    color: var(--esnet-color-light-copy, #3d3d3d);
+
+    .dark & {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+  }
+}

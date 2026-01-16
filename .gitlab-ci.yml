@@ -46,7 +46,7 @@ include:
 
 test:
   stage: test
-  image: node:latest
+  image: node:20
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate

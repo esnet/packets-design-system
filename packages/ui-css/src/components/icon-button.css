@@ -1,0 +1,64 @@
+/* ==============================================================================
+   ES-ICON-BUTTON - Composable Base Class
+   ==============================================================================
+
+   Base styles for icon button component. Variants are applied via composable classes:
+   - Color variants: .es-primary, .es-secondary, .es-tertiary, .es-destructive, .es-branded
+   - Size variants: .es-medium, .es-xxlarge
+   - Layout variants: .es-fill, .es-nofill, .es-square
+
+   Usage: <button class="es-icon-button es-primary es-medium">
+*/
+
+.es-icon-button {
+  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
+
+  --spacing-height-medium: 40px;
+  --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
+
+  --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
+  --spacing-padding-vertical: var(--esnet-size-spacing-xxsmall, 4px);
+
+  --spacing-border-radius: var(--esnet-size-radius-xxlarge, 18px);
+  --spacing-border-width: var(--esnet-size-radius-small, 2px);
+
+  /* Layout */
+  display: inline-flex;
+  width: auto;
+  min-height: var(--spacing-height-medium);
+  box-sizing: border-box;
+
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-horizontal-layout-gap);
+
+  padding: var(--esnet-size-border-width-medium, 4px)
+    var(--esnet-size-spacing-medium, 16px);
+
+  /* Styling */
+  border-radius: var(--spacing-border-radius);
+  border: var(--spacing-border-width) solid
+    var(--esnet-color-core-blue-900, #004573);
+  box-shadow: var(var(--esnet-box-shadow-core-light));
+  color: var(--esnet-color-core-slate-900, #3f424d);
+
+  transition:
+    background ease-in-out var(--esnet-time-duration-quick, 250ms),
+    border-color ease-in-out var(--esnet-time-duration-quick, 250ms),
+    box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
+}
+
+  /* Pseudo-events */
+
+  .es-icon-button:hover {
+    cursor: pointer;
+    border-width: 3px; /* TODO: Find token solution */
+    box-shadow: var(--esnet-box-shadow-core-medium);
+
+    padding: var(--esnet-size-border-width-medium, 4px)
+      calc(var(--esnet-size-spacing-medium, 16px) - 1px);
+  }
+
+  .es-icon-button:disabled {
+    cursor: not-allowed;
+  }

@@ -1,0 +1,114 @@
+/* ==============================================================================
+   ES-INPUT-TEXT - Composable Base Class
+   ==============================================================================
+
+   Base styles for text input component. Variants are applied via composable classes:
+   - State variants: .es-error, .es-branded
+
+   Usage: <div class="es-input-text"><input type="text"></div>
+*/
+
+.es-input-text {
+  /* Layout */
+  display: inline-flex;
+  width: auto;
+  padding: var(--esnet-size-spacing-xsmall, 8px);
+
+  /* Styling */
+  box-sizing: border-box;
+  background-color: var(--esnet-color-core-white-100, #ffffff);
+  color: var(--esnet-color-light-copy, #3d3d3d);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--esnet-color-core-slate-900, #3f424d);
+
+  transition:
+    border-color var(--esnet-time-duration-quick, 250ms) ease,
+    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+}
+
+.dark .es-input-text {
+  background-color: var(--esnet-color-dark-surface-1, #19191a);
+  color: var(--esnet-color-dark-copy, #ffffff);
+  border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+}
+
+/* Pseudo-events */
+
+.es-input-text:hover:not(.disabled),
+.es-input-text:focus-within:not(.disabled),
+.es-input-text:has(*:active):not(.disabled) {
+  /* border color on focus takes precedence over error border color */
+  border-color: var(--esnet-color-core-slate-1000, #30333b);
+  box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
+    var(--esnet-color-core-blue-400, #00b6f2);
+}
+
+/* Disabled state - component-specific */
+
+.es-input-text--disabled {
+  border-color: var(--esnet-color-core-slate-300, #9699a8);
+  cursor: default;
+}
+
+.dark .es-input-text--disabled {
+  border-color: var(--esnet-color-core-slate-500, #787b87);
+}
+
+/* Input element styles */
+
+.es-input-text input {
+  all: unset;
+  font: inherit;
+}
+
+.es-input-text input::placeholder {
+  color: var(--esnet-color-light-copy-alt, #6e6e70);
+}
+
+.dark .es-input-text input::placeholder {
+  color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+}
+
+.es-input-text input:disabled {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.es-input-text input:disabled::placeholder {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.dark .es-input-text input:disabled {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.dark .es-input-text input:disabled::placeholder {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+/* Icon/action container */
+
+.es-input-text div {
+  cursor: pointer;
+  margin-left: var(--esnet-size-spacing-xxsmall, 4px);
+  display: flex;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xsmall, 8px);
+}
+
+input:disabled + .es-input-text div {
+  cursor: default;
+  pointer-events: none;
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.es-input-text div svg {
+  width: 20px;
+  height: 20px;
+}

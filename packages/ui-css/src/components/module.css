@@ -1,0 +1,20 @@
+.es-module {
+  padding: 0 var(--esnet-size-spacing-medium, 16px);
+}
+
+  @media (min-width: 640px) {.es-module {
+    padding: 0 var(--esnet-size-spacing-xlarge, 40px)
+}
+  }
+
+  .es-module.surface {
+    border-radius: var(--esnet-size-spacing-xsmall);
+    padding: var(--esnet-size-spacing-medium, 16px);
+  }
+
+  @media (min-width: 640px) {
+
+  .es-module.surface {
+      padding: var(--esnet-size-spacing-xlarge, 40px)
+  }
+    }
