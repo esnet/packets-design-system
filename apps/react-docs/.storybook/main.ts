@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-docs"),
-    "@storybook-community/storybook-dark-mode",
+    "storybook-dark-mode",
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),

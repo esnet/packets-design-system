@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <div>
       <h1 className="test">Test Page for {DesignSystemName}</h1>
-      <ESAlert type={"error"} title={"Hello Alert"}>
+      <ESAlert variant={"error"} title={"Hello Alert"}>
         <p>Some Alert</p>
       </ESAlert>
       <ESBreadcrumbs
