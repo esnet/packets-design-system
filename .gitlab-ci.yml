@@ -46,7 +46,7 @@ include:
 
 test:
   stage: test
-  image: node:20
+  image: mcr.microsoft.com/playwright:v1.57.0-jammy
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
@@ -55,6 +55,7 @@ test:
     - pnpm install
     - pnpm build
     - pnpm test
+    - pnpm test:playwright
   cache:
     key:
       files:

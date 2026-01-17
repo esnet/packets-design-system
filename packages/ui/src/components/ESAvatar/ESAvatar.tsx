@@ -49,17 +49,22 @@ const ESAvatar: React.FC<ESAvatarProps> = ({
     props.onError?.(event);
   };
 
-  // Composition
-  const rootStyles = useMemo(() => {
-    return (
-      `${styles.avatar} ` +
-      `${!!styles[size] ? styles[size] : ""} ` +
-      `${error ? styles.brokenImage : ""} ` +
-      `${styles[computedBackgroundColor]} ` +
-      `${isHoverable ? styles.isHoverable : ""} ` +
-      `${className}`
-    );
-  }, [computedBackgroundColor, isHoverable, error, size, styles]);
+  // TODO: This code is commented out because it was causing Playwright test failures.
+  // It references undefined variable `isHoverable` and is never used (the clsx implementation below is what's actually applied).
+  // If this was intended to be used, it needs to be fixed:
+  // 1. Import useMemo from React (or use React.useMemo)
+  // 2. Define isHoverable variable or remove the reference
+  // 3. Replace the clsx implementation below with this one, or delete this entirely
+  // const rootStyles = useMemo(() => {
+  //   return (
+  //     `${styles.avatar} ` +
+  //     `${!!styles[size] ? styles[size] : ""} ` +
+  //     `${error ? styles.brokenImage : ""} ` +
+  //     `${styles[computedBackgroundColor]} ` +
+  //     `${isHoverable ? styles.isHoverable : ""} ` +
+  //     `${className}`
+  //   );
+  // }, [computedBackgroundColor, isHoverable, error, size, styles]);
 
   return (
     <div
