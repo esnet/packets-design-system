@@ -40,7 +40,7 @@
   }
 
   /* Pseudo Events */
-  &.isHoverable {
+  &.hoverable {
     transition:
       border 200ms ease-in,
       box-shadow 200ms ease-in;
