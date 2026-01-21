@@ -7,7 +7,7 @@ test.describe("RichText", () => {
     // typography test: body
     test(`${theme}-body`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <div
             style={{
               display: "grid",
@@ -72,7 +72,7 @@ test.describe("RichText", () => {
               <em className="body2 highlight-pink">Italics text</em>
             </div>
           </div>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -80,12 +80,12 @@ test.describe("RichText", () => {
     // typography test: display
     test(`${theme}-display`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <h1 className="display">Display Text</h1>
           <h1 className="display branded">Display Text Branded</h1>
           <h1 className="display2">(Used in ESTitleSection)</h1>
           <h1 className="display2 branded">(Used in ESTitleSection) Branded</h1>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -110,8 +110,7 @@ test.describe("RichText", () => {
     // typography test: header
     test(`${theme}-header`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
-          {" "}
+        <div className={theme}>
           <div
             style={{
               display: "grid",
@@ -144,7 +143,7 @@ test.describe("RichText", () => {
             <h6 className="accent">Heading 6</h6>
             <h6 className="accent2">Heading 6</h6>
           </div>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -152,9 +151,9 @@ test.describe("RichText", () => {
     // typography test: footer
     test(`${theme}-footer`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <footer>Footer text. Copyright text.</footer>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -162,9 +161,9 @@ test.describe("RichText", () => {
     // typography test: caption
     test(`${theme}-caption`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <figcaption>Caption Text. Used in ESFigure.</figcaption>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -174,9 +173,9 @@ test.describe("RichText", () => {
       const code =
         'console.log("For inline code, use the <code> tag. For blocks, use ESCodeBlock.")';
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <code>{code}</code>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });
@@ -184,7 +183,7 @@ test.describe("RichText", () => {
     // typography test: list
     test(`${theme}-list`, async ({ mount }) => {
       const component = await mount(
-        <body className={theme}>
+        <div className={theme}>
           <ol>
             <li>First item in ordered list</li>
             <li>
@@ -196,7 +195,7 @@ test.describe("RichText", () => {
             </li>
             <li>Third item in ordered list</li>
           </ol>
-        </body>,
+        </div>,
       );
       await expect(component).toHaveScreenshot();
     });

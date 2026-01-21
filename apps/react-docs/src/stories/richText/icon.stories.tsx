@@ -1,10 +1,14 @@
-import { ESIcon } from "@esnet/packets-ui";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Atom, CloudUpload, Computer, Database, Server } from "lucide-react";
 
 /**
- * Packets uses Lucide icons. See Design Tokens / Icons for available icons, and Components / ESIcon on how to use.
+ * Packets uses [Lucide icons](https://lucide.dev/), which supports tree-shaking. Import Lucide icons for React as such: ```npm add lucide-react```.
  *
- * In the event you need an icon for any of these terms, use these rather than looking for a custom one. Avoid using icons that are not a part of the selected icon set.
+ * Packets also supplies global styling to Lucide icons via the `.lucide` class in order to standardize color.
+ *
+ * See Design Tokens / Icons for available icons, and then simply import them from the Lucide library.
+ *
+ * In the event you need an icon for any of these terms, use these specific ones rather than looking for a custom one. Avoid using icons that are not a part of the selected icon set.
  */
 const meta: Meta = {
   title: "RichText/Iconography",
@@ -27,15 +31,15 @@ export const Default: Story = {
       }}
     >
       <span>Server</span>
-      <ESIcon name="server" />
+      <Server />
       <span>Atom / Science</span>
-      <ESIcon name="atom" />
+      <Atom />
       <span>Database</span>
-      <ESIcon name="database" />
+      <Database />
       <span>Cloud (Upload)</span>
-      <ESIcon name="cloud-upload" />
+      <CloudUpload />
       <span>Computer</span>
-      <ESIcon name="computer" />
+      <Computer />
     </div>
   ),
 };

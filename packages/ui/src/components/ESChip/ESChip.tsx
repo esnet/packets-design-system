@@ -2,7 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import styles from "./ESChip.module.css";
 import { ESChipProps } from "./ESChip.types";
-import ESIcon from "../ESIcon";
+import { X } from "lucide-react";
 
 /**
  * ESChip Component, built on top of an HTML button element with hover and focus stylings.
@@ -39,7 +39,7 @@ export function ESChip({
       {prepend}
       <span className={styles.label}>{children}</span>
       {append}
-      {onDelete && <ESIcon name="x" className={styles.delete} />}
+      {onDelete && <X className={styles.delete} />}
     </button>
   );
 }

@@ -1,16 +1,16 @@
 import React from "react";
-import ESIcon from "../ESIcon";
+import { AlertCircle, CircleCheck, Info, TriangleAlert } from "lucide-react";
 
 export const getAlertIconByType = (type: string): React.ReactNode => {
   switch (type) {
     case "error":
-      return <ESIcon name="triangle-alert" />;
+      return <TriangleAlert />;
     case "success":
-      return <ESIcon name="circle-check" />;
+      return <CircleCheck />;
     case "warning":
-      return <ESIcon name="alert-circle" />;
+      return <AlertCircle />;
     case "info":
     default:
-      return <ESIcon name="info" />;
+      return <Info />;
   }
 };

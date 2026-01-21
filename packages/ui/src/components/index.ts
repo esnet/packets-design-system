@@ -16,7 +16,6 @@ export { default as ESDataTable } from "./ESDataTable";
 export { default as ESDatum } from "./ESDatum";
 export { default as ESDivider } from "./ESDivider";
 export { default as ESFormSection } from "./ESFormSection";
-export { default as ESIcon } from "./ESIcon";
 export { default as ESIconButton } from "./ESIconButton";
 export { default as ESInputCheckbox } from "./ESInputCheckbox";
 export { default as ESInputDate } from "./ESInputDate";

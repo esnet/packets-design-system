@@ -2,7 +2,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
 import { ESChipGroup } from "@esnet/packets-ui/src/components/ESChipGroup/ESChipGroup.tsx";
-import { ESAvatar, ESIcon } from "@esnet/packets-ui";
+import { ESAvatar } from "@esnet/packets-ui";
+import {
+  Bookmark,
+  BookmarkCheck,
+  BookmarkMinus,
+  BookmarkPlus,
+  BookmarkX,
+} from "lucide-react";
 
 const meta: Meta<typeof ESChipGroup> = {
   title: "Components/ESChipGroup",
@@ -65,17 +72,17 @@ export const SeveralVariants: Story = {
 export const Example3: Story = {
   args: {
     children: [
-      "bookmark",
-      "bookmark-check",
-      "bookmark-minus",
-      "bookmark-plus",
-      "bookmark-x",
+      <Bookmark />,
+      <BookmarkCheck />,
+      <BookmarkMinus />,
+      <BookmarkPlus />,
+      <BookmarkX />,
     ].map((icon) => [
-      <ESChip prepend={<ESIcon name={icon as any} />} onDelete={() => {}}>
-        {icon}
+      <ESChip prepend={icon} onDelete={() => {}}>
+        Chip Text
       </ESChip>,
-      <ESChip prepend={<ESIcon name={icon as any} />} onDelete={() => {}}>
-        {icon}
+      <ESChip prepend={icon} onDelete={() => {}}>
+        Chip Text
       </ESChip>,
     ]),
   },
