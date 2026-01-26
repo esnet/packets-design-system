@@ -7,6 +7,10 @@ import ESIcon from "../ESIcon";
 /**
  * ESTooltip Component
  *
+ * Renders a popup with title (as prop) and text below (as children prop).
+ *
+ * Popup appears when an anchor, provided as a prop, is hovered.
+ *
  * @param {ESTooltipProps} props
  * @returns {React.ReactElement}
  */

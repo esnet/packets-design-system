@@ -10,23 +10,24 @@ test.describe("ESTooltip", () => {
       {
         name: "default",
         props: {
-          children: <p data-testid="hover">Hover me</p>,
-          text: "This is a tooltip message.",
+          anchor: <p data-testid="hover">Hover me</p>,
+          children: "This is a tooltip message.",
         },
       },
       {
         name: "long",
         props: {
-          children: <p data-testid="hover">Hover me</p>,
+          anchor: <p data-testid="hover">Hover me</p>,
           title: "Long Tooltip",
-          text: "This is a tooltip with a longer piece of text that should wrap around and have a maximum length forcing the text to wrap around. It should also have an X button.",
+          children:
+            "This is a tooltip with a longer piece of text that should wrap around and have a maximum length forcing the text to wrap around. It should also have an X button.",
           onClickX: () => {},
         },
       },
       {
         name: "positioning",
         props: {
-          children: (
+          anchor: (
             <p
               style={{ marginLeft: "auto", marginTop: "auto" }}
               data-testid="hover"
@@ -34,7 +35,7 @@ test.describe("ESTooltip", () => {
               Hover me
             </p>
           ),
-          text: "this tooltip should be above the anchor now.",
+          children: "this tooltip should be above the anchor now.",
         },
       },
     ],
