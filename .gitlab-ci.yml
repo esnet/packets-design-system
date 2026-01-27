@@ -54,7 +54,7 @@ test:
   script:
     - pnpm install
     - pnpm build
-    - pnpm exec playwright install
+    - pnpm --filter @esnet/packets-ui exec playwright install
     - pnpm test
     - pnpm test:playwright
   cache:
