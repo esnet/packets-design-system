@@ -14,7 +14,7 @@
     }
   }
 
-  &.dark, dark {
+  &.dark, .dark {
     .surface {
       background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
 
