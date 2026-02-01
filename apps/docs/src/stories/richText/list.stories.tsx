@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 /**
  * Provide simple styling for ordered and unordered lists.
@@ -17,13 +17,18 @@ export const NestedList: Story = {
     <div>
       <ol>
         <li>First item in ordered list</li>
-        <li>
-          Second item in ordered list
-          <ul>
-            <li>First item in nested ordered list</li>
-            <li>Second item in nested ordered list</li>
-          </ul>
-        </li>
+        <li>Second item in ordered list</li>
+        <ul>
+          <li>First item in single nest</li>
+          <li>Second item in single nest</li>
+          <li>
+            <p>Nested list:</p>
+            <ol>
+              <li>First item in double nest</li>
+              <li>Second item in double nest</li>
+            </ol>
+          </li>
+        </ul>
         <li>Third item in ordered list</li>
       </ol>
     </div>
@@ -46,9 +51,9 @@ export const OrderedList: Story = {
   render: () => (
     <div>
       <ol>
-        <li>First item in unordered list</li>
-        <li>Second item in unordered list</li>
-        <li>Third item in unordered list</li>
+        <li>First item in ordered list</li>
+        <li>Second item in ordered list</li>
+        <li>Third item in ordered list</li>
       </ol>
     </div>
   ),

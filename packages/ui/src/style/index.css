@@ -1,5 +1,17 @@
-@import "./tokens.css";
-@import "./typography.css";
-@import "./surfaces.css";
-@import "./grid.css";
-@import "./animations.css";
+/* 
+Import all non-component styles as a layer, 
+allowing future utility class layers to override the properties 
+
+Example: 
+<h5 className="text-7xl" />
+In typography.css, h5 is styled with a font size of 20px.
+However, it is overriden by Tailwind's utility class.
+
+If not layered, our typography's h5 style would supercede style classes,
+limiting flexibility and usage.
+*/
+@import "./tokens.css" layer(base);
+@import "./typography.css" layer(base);
+@import "./surfaces.css" layer(base);
+@import "./grid.css" layer(base);
+@import "./animations.css" layer(base);

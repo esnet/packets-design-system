@@ -2,6 +2,7 @@ import React from "react";
 import type { Preview, ReactRenderer } from "@storybook/react";
 import { themes } from "storybook/theming";
 import { useDarkMode } from "@storybook-community/storybook-dark-mode";
+import "@esnet/packets-ui";
 
 const preview: Preview = {
   parameters: {
