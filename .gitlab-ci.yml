@@ -47,6 +47,10 @@ include:
 test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.57.0-jammy
+  # This image has PLAYWRIGHT_BROWSERS_PATH=/ms-playwright pre-configured
+  # turbo.json passes it through via globalPassThroughEnv
+  # To run these tests locally with identical environment: make test
+  # To regenerate screenshots: make regenerate-screenshots
   before_script:
     - corepack enable
     - corepack prepare pnpm@latest-9 --activate
@@ -54,9 +58,7 @@ test:
   script:
     - pnpm install
     - pnpm build
-    - cd packages/ui && pnpm exec playwright install
     - pnpm test
-    - pnpm test:playwright
   cache:
     key:
       files:

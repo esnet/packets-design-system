@@ -11,7 +11,6 @@
     "release": "turbo run build --filter=react-docs^... && changeset publish",
     "clean": "turbo run clean && rm -rf node_modules",
     "test": "turbo run test",
-    "test:playwright": "turbo run test:playwright",
     "test:updatesnaps": "turbo run test:updatesnaps",
     "publish-packages": "turbo run build && changeset publish"
   },
