@@ -5,11 +5,12 @@
 
   .anchor {
     position: relative;
-    z-index: 3;
+    z-index: 1;
   }
 
   .content {
     position: absolute;
+    z-index: 2;
     overflow: auto;
     height: fit-content;
     padding: var(--esnet-size-spacing-xsmall, 4px);
@@ -42,18 +43,3 @@
     user-select: none;
   }
 }
-
-/* 
-
-.hoverGap {
-  --caret-size: 20px;
-  position: absolute;
-  width: 100%;
-  height: calc(100% + var(--caret-size));
-  transform: translateY(calc(var(--caret-size) / -2));
-}
-
-.hidden {
-  display: none;
-  pointer-events: none;
-} */

@@ -1,0 +1,38 @@
+.ESTooltip {
+  .anchor {
+    display: contents;
+  }
+
+  .tooltip {
+    padding: var(--esnet-size-spacing-xsmall, 0.5rem);
+    border-radius: var(--esnet-size-radius-large);
+    width: max-content;
+    max-width: 240px;
+
+    .top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .title {
+      display: block;
+      font: var(--esnet-typography-header-6-sans-font);
+      margin-bottom: var(--esnet-size-spacing-xxsmall, 0.25rem);
+    }
+
+    .x {
+      cursor: pointer;
+      width: var(--esnet-size-spacing-medium, 16px);
+      height: var(--esnet-size-spacing-medium, 16px);
+      margin-left: var(--esnet-size-spacing-xsmall, 8px);
+    }
+
+    .text {
+      display: inline-block;
+      width: 100%;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
+}
