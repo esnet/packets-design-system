@@ -19,22 +19,30 @@ export function ESTooltip({
   title,
   anchor,
   onClickX,
+  id,
 }: ESTooltipProps) {
+  const ariaId = "tooltip-" + (id ?? Math.random().toString(16).slice(4));
   return (
     <ESDropdown
-      anchor={<div className={styles.anchor}>{anchor}</div>}
+      anchor={
+        <div className={styles.anchor} aria-describedby={ariaId}>
+          {anchor}
+        </div>
+      }
       caret
       className={styles.ESTooltip}
       mode="hover"
     >
-      <div className={styles.tooltip}>
+      <div className={styles.tooltip} role="tooltip" id={ariaId}>
         <div className={styles.top}>
           {title && <span className={styles.title}>{title}</span>}
           {onClickX && (
             <ESIcon onClick={onClickX} className={styles.x} name="x" />
           )}
         </div>
-        <div className={styles.text}>{children}</div>
+        <div aria-describedby={id + "-tooltip"} className={styles.text}>
+          {children}
+        </div>
       </div>
     </ESDropdown>
   );

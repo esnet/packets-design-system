@@ -24,51 +24,56 @@ test.describe("ESTooltip", () => {
           onClickX: () => {},
         },
       },
-      {
-        name: "positioning",
-        props: {
-          anchor: (
+    ],
+    themes: ["light", "dark"],
+    actionStates: [],
+  };
+
+  const testBoxStyles = { height: 200, width: 300 };
+
+  testTable.forEach(({ name, props }) => {
+    themes.forEach((theme) => {
+      test(`${name}-${theme}`, async ({ mount }) => {
+        // due to the custom nature of the positioning test, utilize a custom testBox
+        const testBox = (
+          <div className={theme} style={testBoxStyles}>
+            <ESTooltip {...props} />
+          </div>
+        );
+        const component = await mount(testBox);
+        await component.getByTestId("hover").hover();
+        await expect(component).toHaveScreenshot();
+      });
+    });
+  });
+
+  test("ESTooltip-positioning", async ({ page, mount }) => {
+    const testBox = (
+      <div
+        style={{
+          ...testBoxStyles,
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+        }}
+      >
+        <ESTooltip
+          anchor={
             <p
               style={{ marginLeft: "auto", marginTop: "auto" }}
               data-testid="hover"
             >
               Hover me
             </p>
-          ),
-          children: "this tooltip should be above the anchor now.",
-        },
-      },
-    ],
-    themes: ["light", "dark"],
-    actionStates: ["hover"],
-  };
-
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      const testBox = (
-        <div className={theme} style={{ height: 200, width: 300 }}>
-          <ESTooltip {...props} />
-        </div>
-      );
-
-      if (name === "positioning") {
-        test.use({
-          viewport: { width: 300, height: 200 },
-        });
-        testBox.props.style = {
-          width: 300,
-          height: 200,
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-        };
-      }
-
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(testBox);
-        await component.getByTestId("hover").hover();
-        await expect(component).toHaveScreenshot();
-      });
-    });
+          }
+        >
+          tooltip should be above anchor as to not clip outside test box
+        </ESTooltip>
+      </div>
+    );
+    await page.setViewportSize({ width: 300, height: 200 });
+    const component = await mount(testBox);
+    await component.getByTestId("hover").hover();
+    await expect(component).toHaveScreenshot();
   });
 });
