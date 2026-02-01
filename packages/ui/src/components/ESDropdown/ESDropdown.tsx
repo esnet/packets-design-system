@@ -1,9 +1,7 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./ESDropdown.module.css";
 import { ESDropdownProps } from "./ESDropdown.types";
-import { ESDropdownAnchor } from "./ESDropdownAnchor";
-import ESDropdownContent from "./ESDropdownContent";
 import usePopupState from "../../lib/hooks/usePopupState";
 
 const CARET_OFFSET = "8px";
@@ -18,19 +16,20 @@ const CARET_OFFSET = "8px";
  * On open, automatically adjusts position based on position on page as to not clip off.
  */
 export function ESDropdown({
+  anchor,
   children,
   caret,
   mode = "both",
   className,
   ...props
 }: ESDropdownProps) {
-  const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState<any>({});
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState<any>({});
 
-  const [open] = usePopupState(wrapperRef, false, mode);
+  const [open] = usePopupState(anchorRef, dropdownRef, false, mode);
 
-  const [caretPosition, setCaretPosition] = React.useState<{
+  const [caretPosition, setCaretPosition] = useState<{
     left?: string;
     top?: string;
   }>({});
@@ -85,7 +84,6 @@ export function ESDropdown({
     }
 
     setPosition(next);
-
     setCaretPosition({
       left: `50%`,
       top:
@@ -95,43 +93,16 @@ export function ESDropdown({
     });
   }, [open, caret]);
 
-  const anchor = React.useMemo(() => {
-    const el = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.type === ESDropdownAnchor
-    ) as React.ReactElement | undefined;
-    if (!el) return null;
-    return el;
-  }, [children]);
-
-  const content = React.useMemo(() => {
-    const el = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.type === ESDropdownContent
-    ) as React.ReactElement | undefined;
-    if (!el) return null;
-    return el;
-  }, [children]);
-
-  // invalid state
-  if (!anchor || !content) return null;
-
   return (
-    <div
-      {...props}
-      ref={wrapperRef}
-      className={clsx(styles.ESDropdown, className)}
-    >
-      {/* caret hover gap div */}
-      {caret && (
-        <div className={clsx(styles.hoverGap, !open && styles.hidden)} />
-      )}
-      {/* anchor component */}
+    <div {...props} className={clsx(styles.ESDropdown, className)}>
       <div
-        {...anchor.props}
-        className={clsx(styles.anchor, anchor.props.className)}
+        ref={anchorRef}
+        className="contents"
         aria-haspopup="true"
         aria-expanded={open}
-      />
-      {/* caret div */}
+      >
+        {anchor}
+      </div>
       {caret && (
         <div
           className={clsx(styles.caret, !open && styles.hidden)}
@@ -141,19 +112,14 @@ export function ESDropdown({
           }}
         />
       )}
-      {/* dropdown content component */}
       <div
-        {...content.props}
-        style={{ ...content.props.style, ...position }}
-        className={clsx(
-          styles.content,
-          styles.fade,
-          !open && styles.hidden,
-          content.props.className
-        )}
+        style={{ ...position }}
+        className={clsx(styles.content, !open && styles.hidden)}
         ref={dropdownRef}
         aria-hidden={!open}
-      />
+      >
+        {children}
+      </div>
     </div>
   );
 }
