@@ -1,4 +1,5 @@
 .ESLabel {
+  width: 100%;
   cursor: auto;
   box-sizing: border-box;
   gap: var(--esnet-size-spacing-xxsmall, 0.25rem);
