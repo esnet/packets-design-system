@@ -1,4 +1,4 @@
-.button {
+.ESIconButton {
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   --spacing-height-medium: 40px;
@@ -15,7 +15,6 @@
   width: auto;
   min-height: var(--spacing-height-medium);
   padding: var(--spacing-padding-vertical) var(--spacing-padding-horizontal);
-  box-sizing: border-box;
 
   justify-content: center;
   align-items: center;

@@ -50,9 +50,9 @@ const ESInputSwitch: FC<ESInputSwitchProps> = ({
         disabled={disabled}
         checked={value}
         onChange={onChange}
-        className={styles.ESInputSwitchInput}
+        className={styles.input}
       />
-      <span className={styles.ESInputSwitchIndicator}>{icon}</span>
+      <span className={styles.switchIndicator}>{icon}</span>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { ESInputCheckboxProps } from "./ESInputCheckbox.types";
  * @returns {React.ReactElement}
  */
 const ESInputCheckbox: React.FC<ESInputCheckboxProps> = ({
-  variant = "default",
+  variant = "primary",
   className,
   ...props
 }) => {

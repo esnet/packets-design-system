@@ -1,81 +1,80 @@
-import React, { FC, useMemo, useState } from "react";
+import * as React from "react";
 import { ESAvatarProps } from "./ESAvatar.types";
 
 import styles from "./ESAvatar.module.css";
+import clsx from "clsx";
+
+const _colorOptions = ["grape", "lime", "berry", "orange"];
 
 /**
  * ESAvatar Component
  *
- * Display message with alert level styling
+ * Wrapper around an image element with preset sizes, styles,
+ * as well as a fallback label (the first two letters of the alt prop) with different background colors in case no src is specified or valid.
  *
  * @param {ESAvatarProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-
-const ESAvatar: FC<ESAvatarProps> = ({
-  label = "avatar",
+const ESAvatar: React.FC<ESAvatarProps> = ({
+  alt = "avatar",
   size = "medium",
   backgroundColor,
-  className = "",
   src,
   srcSet,
-  isHoverable = false,
+  hoverable,
+  className,
   ...props
 }) => {
-  // Hooks
-  const [error, setError] = useState(false);
-  const computedBackgroundColor = useMemo(() => {
+  const [error, setError] = React.useState(false);
+  const computedBackgroundColor = React.useMemo(() => {
     if (backgroundColor) {
       return backgroundColor;
     }
 
-    const _colorOptions = ["grape", "lime", "berry", "orange"];
-
-    return _colorOptions?.[Math.floor(_colorOptions?.length * Math.random())];
+    return _colorOptions[Math.floor(_colorOptions?.length * Math.random())];
   }, [backgroundColor]);
 
   const hasImageSrc = !!src || !!srcSet;
 
-  const fallbackLabel = useMemo(() => {
-    return label.slice(0, 2);
-  }, [label]);
+  const fallbackLabel = React.useMemo(() => {
+    return alt.slice(0, 2);
+  }, [alt]);
 
-  // Events
-  const _onError = (event: any) => {
+  // in the event of an error, render the fallback label
+  const onError = (event: any) => {
     console.error(
       `ESAvatar::${event?.type}`,
       `Image ${src || srcSet} failed to load`,
     );
     setError(true);
+    props.onError?.(event);
   };
 
-  // Composition
-  const rootStyles = useMemo(() => {
-    return (
-      `${styles.avatar} ` +
-      `${!!styles[size] ? styles[size] : ""} ` +
-      `${error ? styles.brokenImage : ""} ` +
-      `${styles[computedBackgroundColor]} ` +
-      `${isHoverable ? styles.isHoverable : ""} ` +
-      `${className}`
-    );
-  }, [computedBackgroundColor, isHoverable, error, size, styles]);
-
   return (
-    <section className={rootStyles} {...props}>
+    <div
+      className={clsx(
+        styles.ESAvatar,
+        styles[size],
+        error && styles.brokenImage,
+        hoverable && styles.hoverable,
+        styles[computedBackgroundColor],
+        className,
+      )}
+    >
       {hasImageSrc && (
         <img
           className={styles.image}
-          alt={label}
+          alt={alt}
           src={src}
           srcSet={srcSet}
-          onError={_onError}
+          onError={onError}
+          {...props}
         />
       )}
       {(!hasImageSrc || !!error) && (
         <span className={styles.label}>{fallbackLabel}</span>
       )}
-    </section>
+    </div>
   );
 };
 

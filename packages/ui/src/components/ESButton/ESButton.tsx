@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { ESButtonDefaultAsType, ESButtonProps } from "./ESButton.types";
 
 import styles from "./ESButton.module.css";
@@ -25,7 +26,13 @@ const ESButton = <E extends React.ElementType = ESButtonDefaultAsType>({
 
   return (
     <Tag
-      className={`${styles.button} ${styles[variant]} ${fill ? styles.fill : ""} ${size ? styles[size] : ""} ${className ? className : ""}`}
+      className={clsx(
+        styles.ESButton,
+        styles[variant],
+        fill && styles.fill,
+        size && styles[size],
+        className,
+      )}
       type="button"
       disabled={disabled}
       {...other}

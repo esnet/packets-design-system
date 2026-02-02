@@ -1,9 +1,9 @@
 import React from "react";
 
-// @ts-ignore
 import styles from "./ESInputTextArea.module.css";
 import { ESInputTextAreaProps } from "./ESInputTextArea.types";
 import { Text } from "lucide-react";
+import clsx from "clsx";
 
 /**
  * ESInputTextArea Component
@@ -14,25 +14,26 @@ import { Text } from "lucide-react";
  * @returns {React.ReactElement}
  */
 const ESInputTextArea: React.FC<ESInputTextAreaProps> = ({
-  variant = "default",
+  variant = "primary",
   error = false,
   resize = "none",
   disabled,
   className,
   ...props
 }) => {
-  const classNames = [
+  const classNames = clsx(
     styles.ESInputTextArea,
-    styles[variant] ?? "",
-    styles[resize] ?? "",
-    error ? styles.error : "",
-    disabled ? styles.disabled : "",
+    variant && styles[variant],
+    resize && styles[resize],
+    error && styles.error,
+    disabled && styles.disabled,
     className,
-  ].join(" ");
+  );
+
   return (
     <div className={classNames}>
-      <textarea {...props} disabled={disabled} />
-      <Text />
+      <textarea className={styles.textArea} {...props} disabled={disabled} />
+      <Text className={styles.textIcon} />
     </div>
   );
 };

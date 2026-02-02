@@ -74,3 +74,16 @@ export const VerticalButtonGroup: Story = {
     direction: "vertical",
   },
 };
+
+export const SmallGroup: Story = {
+  args: {
+    children: (
+      <>
+        <ESButton variant="primary">Button 1</ESButton>
+        <div style={{ width: "400px" }}>
+          <ESButton variant="secondary">Button 2</ESButton>
+        </div>
+      </>
+    ),
+  },
+};

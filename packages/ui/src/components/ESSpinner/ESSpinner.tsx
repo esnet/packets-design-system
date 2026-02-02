@@ -8,11 +8,11 @@ import styles from "./ESSpinner.module.css";
  * A loading indicator
  *
  * @param {ESSpinnerProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
 const ESSpinner: React.FC = () => {
   return (
-    <div role="alert" aria-busy="true" className={styles.spinner}>
+    <div role="alert" aria-busy="true" className={styles.ESSpinner}>
       <span className={styles.dot}></span>
       <span className={styles.dot}></span>
       <span className={styles.dot}></span>

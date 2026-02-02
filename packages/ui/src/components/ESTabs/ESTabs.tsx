@@ -3,6 +3,7 @@ import { ESTabsProps } from "./ESTabs.types";
 
 import styles from "./ESTabs.module.css";
 import ESTab from "./ESTab";
+import clsx from "clsx";
 
 /**
  * ESTabs Component
@@ -14,7 +15,7 @@ import ESTab from "./ESTab";
  */
 const ESTabs: FC<ESTabsProps> = ({
   children,
-  className = "",
+  className,
   border = false,
   verticalPadding = true,
 }) => {
@@ -26,9 +27,12 @@ const ESTabs: FC<ESTabsProps> = ({
 
   return (
     <section
-      className={`${styles.tabs} ${border ? styles.hasBorder : ""} ${
-        verticalPadding ? styles.verticalPadding : ""
-      } ${className}`}
+      className={clsx(
+        styles.ESTabs,
+        border && styles.hasBorder,
+        !verticalPadding && styles.noPadding,
+        className,
+      )}
     >
       <ul className={styles.tabList}>{tabChildren}</ul>
     </section>

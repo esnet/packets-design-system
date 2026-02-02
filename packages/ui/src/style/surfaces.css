@@ -1,20 +1,24 @@
-body,
+/* body,
 .packets-ui {
   background-color: var(--esnet-color-light-background, #cccccc);
 
-  :global(.dark) & {
+  .dark & {
     background-color: var(--esnet-color-dark-background, #19191a);
   }
-}
+} */
 
+/* body, */
 .packets {
   /* dark/light overide classes */
-  &.light {
-    background-color: var(--esnet-color-light-background, #cccccc) !important;
-  }
+  background-color: var(--esnet-color-light-background, #cccccc);
 
-  &.dark {
-    background-color: var(--esnet-color-dark-background, #19191a) !important;
+  /* .dark & {
+    background-color: var(--esnet-color-dark-background, #19191a);
+  } */
+
+  &.dark,
+  .dark {
+    background-color: var(--esnet-color-dark-background, #19191a);
   }
 
   /* Nested Surface Layers using just surface class */

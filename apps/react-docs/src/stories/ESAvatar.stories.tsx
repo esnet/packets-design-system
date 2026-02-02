@@ -1,4 +1,3 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESAvatar } from "@esnet/packets-ui";
 
@@ -30,7 +29,6 @@ const meta: Meta<typeof ESAvatar> = {
     backgroundColor: {
       control: { type: "radio" },
       options: ["grape", "lime", "berry", "orange"],
-      defaultValue: "grape",
     },
   },
 };
@@ -39,20 +37,20 @@ export default meta;
 
 type Story = StoryObj<typeof ESAvatar>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
+export const Default: Story = {
   name: "Basic Example",
   args: {
-    label: "Ernest Lawrence",
-    size: "medium",
+    alt: "Ernest Lawrence",
     src: "/imgs/fpo-avatars/large.png",
-    srcSet:
-      "/imgs/fpo-avatars/large.png, /imgs/fpo-avatars/large@2x.png 2x, /imgs/fpo-avatars/large@3x.png 3x",
+  },
+};
+
+export const Fallback: Story = {
+  name: "Fallback Example",
+  args: {
+    alt: "echennau",
+    src: "invalid image source",
+    backgroundColor: "grape",
   },
 };
 
@@ -70,10 +68,9 @@ export const HoverableAvatar: Story = {
 };
 
 export const SmallAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
   name: "Small Avatar Example",
   args: {
-    label: "Ernest Lawrence",
+    alt: "Ernest Lawrence",
     size: "small",
     src: "/imgs/fpo-avatars/small.png",
     srcSet:
@@ -82,10 +79,9 @@ export const SmallAvatar: Story = {
 };
 
 export const LargeAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
   name: "Large Avatar Example",
   args: {
-    label: "Ernest Lawrence",
+    alt: "Ernest Lawrence",
     size: "large",
     src: "/imgs/fpo-avatars/large.png",
     srcSet:
@@ -93,51 +89,43 @@ export const LargeAvatar: Story = {
   },
 };
 
-export const NoImageAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
-  name: "No Image Example, Randomized Color",
-  args: {
-    label: "Ernest Lawrence",
-    size: "medium",
-  },
-};
-
-export const BerryAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
-  name: "No Image Example, Berry Color",
-  args: {
-    label: "Ernest Lawrence",
-    size: "medium",
-    backgroundColor: "berry",
-  },
-};
-
-export const GrapeAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
-  name: "No Image Example, Grape Color",
-  args: {
-    label: "Ernest Lawrence",
-    size: "medium",
-    backgroundColor: "grape",
-  },
-};
-
-export const LimeAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
-  name: "No Image Example, Lime Color",
-  args: {
-    label: "Ernest Lawrence",
-    size: "medium",
-    backgroundColor: "lime",
-  },
-};
-
-export const OrangeAvatar: Story = {
-  render: (props) => <ESAvatar {...props}>{props.children}</ESAvatar>,
-  name: "No Image Example, Orange Color",
-  args: {
-    label: "Ernest Lawrence",
-    size: "medium",
-    backgroundColor: "orange",
-  },
+export const AllColorsAllSizes: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gap: "1rem",
+        gridTemplateColumns: "repeat(5, 1fr)",
+      }}
+    >
+      <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="grape" />
+      <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="lime" />
+      <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="berry" />
+      <ESAvatar alt="Ernest Lawrence" size="large" backgroundColor="orange" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="large"
+        src="/imgs/fpo-avatars/large.png"
+      />
+      <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="grape" />
+      <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="lime" />
+      <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="berry" />
+      <ESAvatar alt="Ernest Lawrence" size="medium" backgroundColor="orange" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="medium"
+        src="/imgs/fpo-avatars/large.png"
+      />
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="grape" />
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="lime" />
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="berry" />
+      <ESAvatar alt="Ernest Lawrence" size="small" backgroundColor="orange" />
+      <ESAvatar
+        alt="Ernest Lawrence"
+        size="small"
+        src="/imgs/fpo-avatars/large.png"
+      />
+    </div>
+  ),
+  name: "All colors and sizes",
 };
