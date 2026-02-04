@@ -25,11 +25,13 @@ export function ESInputSelect({
   onChange,
   ...props
 }: ESInputSelectProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const optionsRef = React.useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = usePopupState(
-    containerRef,
+    anchorRef,
+    optionsRef,
     false,
-    "active"
+    "active",
   );
 
   const [selectedOption, setSelectedOption] = useControllableState<string>({
@@ -72,16 +74,18 @@ export function ESInputSelect({
         variant && styles[variant],
         error && styles.error,
         disabled && styles.disabled,
-        className
+        className,
       )}
-      ref={containerRef}
       aria-disabled={disabled}
-      aria-haspopup="listbox"
-      aria-expanded={dropdownOpen}
-      role="combobox"
-      tabIndex={0}
     >
-      <div className={`${styles.inputBox}`}>
+      <div
+        ref={anchorRef}
+        aria-haspopup="listbox"
+        aria-expanded={dropdownOpen}
+        role="combobox"
+        tabIndex={0}
+        className={`${styles.inputBox}`}
+      >
         <input
           type="hidden"
           style={{ display: "none" }}
@@ -107,6 +111,7 @@ export function ESInputSelect({
 
       {dropdownOpen && (
         <div
+          ref={optionsRef}
           role="listbox"
           aria-label="Input Select Options"
           className={`${styles.dropdown}`}

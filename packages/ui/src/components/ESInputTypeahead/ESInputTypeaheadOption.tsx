@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import { DropdownOptionProps as ESDropdownOptionProps } from "./ESInputTypeahead.types";
+import { DropdownOptionProps as ESTypeaheadOptionProps } from "./ESInputTypeahead.types";
 
 import styles from "./ESInputTypeahead.module.css";
 import { Check, Square } from "lucide-react";
 
 function matchToken(
   str: string,
-  token: string
+  token: string,
 ): [string, string, string] | null {
   const index = str.toLowerCase().indexOf(token.toLowerCase());
   if (index === -1) return null;
@@ -19,12 +19,12 @@ function matchToken(
   return [before, match, after];
 }
 
-const ESDropdownOption = ({
+const ESTypeaheadOption = ({
   selected,
   token,
   onClick,
   optionData,
-}: ESDropdownOptionProps) => {
+}: ESTypeaheadOptionProps) => {
   const {
     value,
     unselectedIcon = <Check className={styles.checked} />,
@@ -60,4 +60,4 @@ const ESDropdownOption = ({
   );
 };
 
-export default ESDropdownOption;
+export default ESTypeaheadOption;

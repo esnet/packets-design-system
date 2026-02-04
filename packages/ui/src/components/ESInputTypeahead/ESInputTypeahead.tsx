@@ -7,7 +7,7 @@ import {
   OptionId,
 } from "./ESInputTypeahead.types";
 
-import ESDropdownOption from "./ESInputTypeaheadOption";
+import ESTypeaheadOption from "./ESInputTypeaheadOption";
 import clsx from "clsx";
 import useControllableState from "../../lib/hooks/useControllableState";
 import ESChip from "../ESChip";
@@ -77,7 +77,7 @@ export function ESInputTypeahead({
   // transform the options array into a map with keys that are useful when creating a set of selected keys
   const optionsMap = useMemo(
     () => Object.fromEntries(options.map((option) => [option.id, option])),
-    [options]
+    [options],
   );
 
   // 1) state relating to currently selected options
@@ -103,7 +103,7 @@ export function ESInputTypeahead({
       // intentionally focus back on the input search ref for better UX
       inputSearchRef.current?.focus();
     },
-    [setSelectedOptionIds]
+    [setSelectedOptionIds],
   );
 
   const selectedOptionsComponent = useMemo(() => {
@@ -149,8 +149,9 @@ export function ESInputTypeahead({
   };
 
   // 3) dropdown related component to show searched options
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [dropdownOpen] = usePopupState(containerRef, false, "active");
+  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const optionsRef = React.useRef<HTMLDivElement>(null);
+  const [dropdownOpen] = usePopupState(anchorRef, optionsRef, false, "active");
 
   const searchedDropdownOptions = useMemo(() => {
     const token = search.toLowerCase().trim();
@@ -158,7 +159,7 @@ export function ESInputTypeahead({
       return options;
     }
     return options.filter((option) =>
-      option.value.toLowerCase().includes(token)
+      option.value.toLowerCase().includes(token),
     );
   }, [search, options]);
 
@@ -166,11 +167,11 @@ export function ESInputTypeahead({
     const token = search.toLowerCase().trim();
     const dropdownOptions = searchedDropdownOptions.map((option, i) => {
       const selected = selectedOptionIds.some(
-        (optionId) => optionId === option.id
+        (optionId) => optionId === option.id,
       );
       const onOptionClick = toggleOptionFactory(option, selected);
       return (
-        <ESDropdownOption
+        <ESTypeaheadOption
           onClick={onOptionClick}
           selected={selected}
           token={token}
@@ -209,12 +210,17 @@ export function ESInputTypeahead({
         styles.ESInputTypeahead,
         variant && styles[variant],
         error && styles.error,
-        disabled && styles.disabled
+        disabled && styles.disabled,
       )}
-      ref={containerRef}
       aria-disabled={disabled}
     >
-      <div className={`${styles.inputBox}`}>
+      <div
+        ref={anchorRef}
+        aria-haspopup="listbox"
+        aria-expanded={dropdownOpen}
+        role="combobox"
+        className={`${styles.inputBox}`}
+      >
         <div className={clsx(styles.optionsAndInputWrapper)}>
           {selectedOptionsComponent}
 
@@ -240,7 +246,7 @@ export function ESInputTypeahead({
             className={clsx(
               styles.searchInput,
               styles[variant],
-              selectedOptionIds.length === 0 && styles.noOptionsSelected
+              selectedOptionIds.length === 0 && styles.noOptionsSelected,
             )}
             autoComplete="off"
           />
@@ -261,6 +267,7 @@ export function ESInputTypeahead({
 
       {dropdownOpen && (
         <div
+          ref={optionsRef}
           role="listbox"
           aria-label="Typeahead Dropdown Options"
           className={`${styles.dropdown}`}
