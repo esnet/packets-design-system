@@ -109,7 +109,7 @@ export function ESInputSelect({
         )}
       </div>
 
-      {dropdownOpen && (
+      {!disabled && dropdownOpen && (
         <div
           ref={optionsRef}
           role="listbox"

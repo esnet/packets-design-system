@@ -265,7 +265,7 @@ export function ESInputTypeahead({
         )}
       </div>
 
-      {dropdownOpen && (
+      {!disabled && dropdownOpen && (
         <div
           ref={optionsRef}
           role="listbox"
