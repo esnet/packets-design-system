@@ -23,6 +23,16 @@ const meta: Meta<typeof ESInputDate> = {
       control: "text",
     },
   },
+  decorators: [
+    // a larger height to fully view the absolutely positioned calendar prompt
+    (Story) => {
+      const wrapper = document.createElement('div');
+      wrapper.style.minHeight = '280px';
+      const story = Story();
+      wrapper.appendChild(story);
+      return wrapper;
+    },
+  ],
 };
 
 export default meta;
