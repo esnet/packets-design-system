@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/web-components';
 import { themes } from "@storybook/theming";
+import "../../../packages/ui-css/dist/styles.css";
 import "@esnet/packets-ui-web/style.css";
 
 const PacketsDecorator = (Story: any) => {

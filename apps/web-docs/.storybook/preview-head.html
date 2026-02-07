@@ -20,4 +20,15 @@
     background-color: var(--esnet-color-dark-background, #19191a);
   }
 
+  /* Remove any box-shadow or outline from the packets wrapper in stories */
+  .packets {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Ensure dark mode styling is applied correctly */
+  .dark .packets {
+    background-color: transparent !important;
+  }
+
 </style>
