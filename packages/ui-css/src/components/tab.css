@@ -16,6 +16,7 @@
   gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   min-width: var(--esnet-size-spacing-xxlarge, 64px);
+  width: fit-content;
   min-height: var(--esnet-size-spacing-large, 32px);
 
   border-radius: var(--esnet-size-spacing-xsmall);
@@ -48,6 +49,7 @@ li.es-tab {
 
   color: var(--esnet-color-light-copy, #1a1a1a);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .dark .es-tab a {

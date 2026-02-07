@@ -16,12 +16,16 @@ export class ESInputSearch extends ESInputText {
     disconnectedCallback(): void {
         this._searchBtn?.removeEventListener("click", this._onSearchClick);
         this._clearBtn?.removeEventListener("click", this._onXClick);
+        this.inputEl?.removeEventListener('input', this._onInput);
     }
 
     private _attachAdditionalListener(): void {
-        this._searchBtn?.addEventListener("click", this._onSearchClick);
-        this._clearBtn?.addEventListener('click', this._onXClick);
+        this.inputEl?.addEventListener('input', this._onInput);
     }
+
+    private _onInput = (): void => {
+        this._renderActionButton();
+    };
 
     private _onSearchClick = (): void => {
         if (typeof this.onSearchClick === "function") {
@@ -31,17 +35,29 @@ export class ESInputSearch extends ESInputText {
 
     private _onXClick = () => {
         this.inputEl.value = '';
+        this._renderActionButton();
     }
 
     private _renderActionButton(): void {
         const hasValue = !!this.inputEl?.value?.trim();
 
+        // Remove existing action buttons
+        const existingBtn = this.containerEl?.querySelector('#searchBtn, #clearBtn');
+        if (existingBtn) {
+            existingBtn.remove();
+        }
+
+        // Create and append new action button
         if (!hasValue) {
-            this.actionButtons = `<div id="searchBtn"><${ESIcon.tagName} name="search"></${ESIcon.tagName} ></div>`
+            const searchBtnHtml = `<div id="searchBtn"><${ESIcon.tagName} name="search"></${ESIcon.tagName}></div>`;
+            this.containerEl?.insertAdjacentHTML('beforeend', searchBtnHtml);
             this._searchBtn = this.querySelector('#searchBtn')!;
+            this._searchBtn?.addEventListener("click", this._onSearchClick);
         } else {
-            this.actionButtons = `<div id="clearBtn"><${ESIcon.tagName} name="X"></${ESIcon.tagName} ></div>`
+            const clearBtnHtml = `<div id="clearBtn"><${ESIcon.tagName} name="X"></${ESIcon.tagName}></div>`;
+            this.containerEl?.insertAdjacentHTML('beforeend', clearBtnHtml);
             this._clearBtn = this.querySelector('#clearBtn')!;
+            this._clearBtn?.addEventListener('click', this._onXClick);
         }
     }
 
