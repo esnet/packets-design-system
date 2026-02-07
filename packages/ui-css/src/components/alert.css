@@ -55,6 +55,30 @@
   height: var(--icon-size);
 }
 
+/* Close button container */
+.es-alert aside:last-child {
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+.es-alert aside:last-child button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.es-alert aside:last-child button svg {
+  color: var(--esnet-color-light-copy, #000000);
+}
+
+.dark .es-alert aside:last-child button svg {
+  color: var(--esnet-color-dark-copy, #e6e6e6);
+}
+
 /* Title - class-based or semantic */
 .es-alert .title,
 .es-alert h5 {

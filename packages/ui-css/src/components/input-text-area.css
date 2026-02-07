@@ -30,7 +30,7 @@
   .dark textarea,
   .packets.dark textarea,
   .dark .packets textarea {
-    background-color: var(--esnet-color-core-black-1000, #000000);
+    background-color: var(--esnet-color-dark-surface-1, #19191a);
     color: var(--esnet-color-dark-copy, #ffffff);
   }
 
