@@ -1,4 +1,3 @@
-import styles from "./ESInputText.module.css";
 import type { ESInputTextProps } from "./ESInputText.types";
 
 export class ESInputText extends HTMLElement implements ESInputTextProps {
@@ -42,7 +41,7 @@ export class ESInputText extends HTMLElement implements ESInputTextProps {
 
     private _renderInitial(): void {
         this.innerHTML = `
-            <div class="${styles.ESInputText}">
+            <div class="es-input-text">
                 <input type="text" />
                 ${this.actionButtons || this.getAttribute('action-buttons') || ''}
             </div>
@@ -63,10 +62,10 @@ export class ESInputText extends HTMLElement implements ESInputTextProps {
         if (!this.inputEl || !this.containerEl) return;
 
         this.containerEl.className = [
-            styles.ESInputText,
-            styles[this.variant],
-            this.error ? styles.error : '',
-            this.disabled ? styles.disabled : '',
+            'es-input-text',
+            this.variant === 'branded' ? 'es-branded' : '',
+            this.error ? 'es-error' : '',
+            this.disabled ? 'es-disabled' : '',
             this.getAttribute('class') || ''
         ].filter(Boolean).join(' ');
 

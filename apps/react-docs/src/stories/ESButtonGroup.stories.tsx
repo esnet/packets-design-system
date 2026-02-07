@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESButtonGroup, ESButton } from "@esnet/packets-ui";
+import { ESButtonGroup, ESButton } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESButtonGroup> = {
   title: "Components/ESButtonGroup",

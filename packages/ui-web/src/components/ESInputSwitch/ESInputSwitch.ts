@@ -1,4 +1,3 @@
-import styles from "./ESInputSwitch.module.css";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
 import { ESIcon } from "../ESIcon";
 
@@ -22,12 +21,12 @@ export class ESInputSwitch extends HTMLElement implements ESInputSwitchProps {
     set hideIcon(v: boolean) { v ? this.setAttribute('hide-icon', '') : this.removeAttribute('hide-icon');}
 
     get checked(): boolean { return this.hasAttribute('checked'); }
-    set checked(v: boolean) { 
-        v ? this.setAttribute('checked', '') : this.removeAttribute('checked'); 
+    set checked(v: boolean) {
+        v ? this.setAttribute('checked', '') : this.removeAttribute('checked');
         if (this.inputEl) this.inputEl.checked = v;
     }
-    set defaultChecked(v: boolean) { 
-        v ? this.setAttribute('checked', '') : this.removeAttribute('checked'); 
+    set defaultChecked(v: boolean) {
+        v ? this.setAttribute('checked', '') : this.removeAttribute('checked');
         if (this.inputEl) this.inputEl.checked = v;
     }
 
@@ -56,9 +55,9 @@ export class ESInputSwitch extends HTMLElement implements ESInputSwitchProps {
 
     private _renderInitial(): void {
         this.innerHTML = `
-            <div class="${styles.ESInputSwitch}">
-                <input type="checkbox" class=${styles.ESInputSwitchInput} ${this.checked ? 'checked' : ''} ${this.disabled ? 'disabled' : ''}/>
-                <span class="${styles.ESInputSwitchIndicator}"></span>
+            <div class="es-input-switch">
+                <input type="checkbox" ${this.checked ? 'checked' : ''} ${this.disabled ? 'disabled' : ''}/>
+                <span class="indicator"></span>
             </div>
         `;
 
@@ -81,12 +80,10 @@ export class ESInputSwitch extends HTMLElement implements ESInputSwitchProps {
 
         const variant = this.getAttribute("variant") || "primary";
         this.containerEl.className = [
-            styles.ESInputSwitch,
-            styles[variant],
-            this.hasAttribute('error') ? styles.error : '',
-            this.hasAttribute('disabled') ? styles.disabled : '',
+            'es-input-switch',
+            variant === 'secondary' ? 'es-secondary' : '',
+            this.hasAttribute('error') ? 'es-error' : '',
             this.getAttribute('class') || '',
-            this.checked ? styles.checked : '',
         ].filter(Boolean).join(' ');
 
         this._switchBtn.innerHTML = !this.hideIcon

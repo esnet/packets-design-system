@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESDatum } from "@esnet/packets-ui";
+import { ESDatum } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESDatum> = {
   title: "Components/ESDatum",

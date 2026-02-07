@@ -1,7 +1,7 @@
 import React from "react";
 import Rive from "@rive-app/react-canvas-lite";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESSpinner } from "@esnet/packets-ui";
+import { ESSpinner } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESSpinner> = {
   title: "Components/ESSpinner",

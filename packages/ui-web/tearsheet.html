@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packets Web Components Tearsheet</title>
+  <link rel="stylesheet" href="../ui-css/dist/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+  <script type="importmap">
+    {
+      "imports": {
+        "lucide": "https://unpkg.com/lucide@0.563.0/dist/esm/lucide/src/lucide.js"
+      }
+    }
+  </script>
+  <script type="module">
+    // Import the bundle to execute the customElements.define() calls
+    import * as PacketsUI from './dist/esm/bundle.js';
+    console.log('Packets UI Web Components loaded:', PacketsUI.DesignSystemName);
+  </script>
+
+  <style>
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--esnet-color-light-surface-1, #e3e3e3);
+    }
+
+    body.dark {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+    }
+
+    .demo-section {
+      padding: var(--esnet-size-spacing-xlarge, 40px);
+      border-bottom: 2px solid var(--esnet-color-core-slate-300);
+      background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+    }
+
+    body.dark .demo-section {
+      background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+      border-bottom-color: var(--esnet-color-core-slate-700, #555);
+    }
+
+    .demo-section.category-header {
+      background-color: var(--esnet-color-core-blue-700);
+      color: white;
+      padding: var(--esnet-size-spacing-large, 32px) var(--esnet-size-spacing-xlarge, 40px);
+    }
+
+    .demo-section.category-header h1 {
+      color: white;
+      margin: 0;
+    }
+
+    body.dark .demo-section.category-header {
+      background-color: var(--esnet-color-core-blue-900);
+    }
+
+    .demo-section h1,
+    .demo-section h2 {
+      margin-top: 0;
+      color: var(--esnet-color-core-blue-700);
+    }
+
+    body.dark .demo-section h1,
+    body.dark .demo-section h2 {
+      color: var(--esnet-color-core-blue-300);
+    }
+
+    .demo-item {
+      margin-bottom: var(--esnet-size-spacing-large, 32px);
+    }
+
+    .demo-label {
+      font-weight: 600;
+      margin-bottom: var(--esnet-size-spacing-xsmall, 8px);
+      color: var(--esnet-color-core-slate-700);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark .demo-label {
+      color: var(--esnet-color-core-slate-300);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    es-button, button {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    es-input-text, es-input-search, es-input-password, es-input-number, es-input-email, es-input-checkbox, es-input-radio, es-input-switch {
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+
+    es-avatar {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    es-divider {
+      margin: 16px 0;
+    }
+
+    .intro {
+      max-width: 800px;
+    }
+
+    body.dark .intro p {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    .code-example {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    es-card { margin-top:1rem; }
+  </style>
+</head>
+<body class="packets">
+
+  <div class="theme-toggle">
+    <es-button variant="primary" onclick="toggleTheme()">
+      Toggle Dark Mode
+    </es-button>
+  </div>
+
+  <div class="demo-section">
+    <h1>Packets Web Components</h1>
+    <div class="intro">
+      <p>This tearsheet demonstrates all available Web Components from the Packets Design System.</p>
+      <p>Components use custom elements with the <code>es-</code> prefix. For example, buttons use <code>&lt;es-button&gt;</code> with attributes like <code>variant="primary"</code>.</p>
+    </div>
+  </div>
+
+<div class="demo-section category-header"><h1>Buttons</h1></div>
+
+<div class="demo-section">
+  <h2>ESIconButton</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Variants</div>
+    <es-icon-button variant="primary">
+      <es-icon name="star"></es-icon>
+    </es-icon-button>
+    <es-icon-button variant="secondary">
+      <es-icon name="heart"></es-icon>
+    </es-icon-button>
+    <es-icon-button variant="branded">
+      <es-icon name="zap"></es-icon>
+    </es-icon-button>
+    <es-icon-button variant="tertiary">
+      <es-icon name="circle"></es-icon>
+    </es-icon-button>
+    <es-icon-button variant="destructive">
+      <es-icon name="trash-2"></es-icon>
+    </es-icon-button>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><es-icon-button variant="primary"><es-icon name="star"></es-icon></es-icon-button>
+<es-icon-button variant="secondary"><es-icon name="heart"></es-icon></es-icon-button>
+<es-icon-button variant="branded"><es-icon name="zap"></es-icon></es-icon-button>
+<es-icon-button variant="tertiary"><es-icon name="circle"></es-icon></es-icon-button>
+<es-icon-button variant="destructive"><es-icon name="trash-2"></es-icon></es-icon-button></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">States</div>
+    <es-icon-button variant="primary">
+      <es-icon name="star"></es-icon>
+    </es-icon-button>
+    <es-icon-button variant="primary" disabled>
+      <es-icon name="star"></es-icon>
+    </es-icon-button>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-icon-button variant="primary"><es-icon name="star"></es-icon></es-icon-button>
+<es-icon-button variant="primary" disabled><es-icon name="star"></es-icon></es-icon-button></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESButton</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Variants</div>
+    <es-button variant="primary">Primary Button</es-button>
+    <es-button variant="secondary">Secondary Button</es-button>
+    <es-button variant="branded">Branded Button</es-button>
+    <es-button variant="tertiary">Tertiary Button</es-button>
+    <es-button variant="destructive">Destructive Button</es-button>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><es-button variant="primary">Primary Button</es-button>
+<es-button variant="secondary">Secondary Button</es-button>
+<es-button variant="branded">Branded Button</es-button>
+<es-button variant="tertiary">Tertiary Button</es-button>
+<es-button variant="destructive">Destructive Button</es-button></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Sizes</div>
+    <es-button variant="primary" size="medium">Medium</es-button>
+    <es-button variant="primary" size="xxlarge">Xxlarge</es-button>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-button variant="primary" size="medium">Medium</es-button>
+<es-button variant="primary" size="xxlarge">Xxlarge</es-button></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">States</div>
+    <es-button variant="primary">Normal</es-button>
+    <es-button variant="primary" disabled>Disabled</es-button>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-button variant="primary">Normal</es-button>
+<es-button variant="primary" disabled>Disabled</es-button></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESButtonGroup</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Horizontal Button Group</div>
+    <es-button-group label="Actions" direction="horizontal">
+      <li><es-button variant="secondary">Option 1</es-button></li>
+      <li><es-button variant="secondary">Option 2</es-button></li>
+      <li><es-button variant="secondary">Option 3</es-button></li>
+    </es-button-group>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><es-button-group label="Actions" direction="horizontal">
+  <li><es-button variant="secondary">Option 1</es-button></li>
+  <li><es-button variant="secondary">Option 2</es-button></li>
+  <li><es-button variant="secondary">Option 3</es-button></li>
+</es-button-group></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Vertical Button Group</div>
+    <es-button-group direction="vertical">
+      <li><es-button variant="secondary">Option 1</es-button></li>
+      <li><es-button variant="secondary">Option 2</es-button></li>
+      <li><es-button variant="secondary">Option 3</es-button></li>
+    </es-button-group>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><es-button-group direction="vertical">
+  <li><es-button variant="secondary">Option 1</es-button></li>
+  <li><es-button variant="secondary">Option 2</es-button></li>
+  <li><es-button variant="secondary">Option 3</es-button></li>
+</es-button-group></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESChip</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Primary (Default)</div>
+    <es-chip>Chip Label</es-chip>
+    <es-chip>Another Chip</es-chip>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-chip>Chip Label</es-chip></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Outline Variant</div>
+    <es-chip variant="outline">Outline Chip</es-chip>
+    <es-chip variant="outline">Another Outline</es-chip>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-chip variant="outline">Outline Chip</es-chip></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Rounded Variant</div>
+    <es-chip rounded>Rounded Chip</es-chip>
+    <es-chip variant="outline" rounded>Rounded Outline</es-chip>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-chip rounded>Rounded Chip</es-chip>
+<es-chip variant="outline" rounded>Rounded Outline</es-chip></textarea>
+    </es-card>
+  </div>
+
+
+  <div class="demo-item">
+    <div class="demo-label">Disabled State</div>
+    <es-chip disabled>Disabled Chip</es-chip>
+    <es-chip variant="outline" disabled>Disabled Outline</es-chip>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-chip disabled>Disabled Chip</es-chip>
+<es-chip variant="outline" disabled>Disabled Outline</es-chip></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Deletable Chips</div>
+    <es-chip deletable>Deletable Chip</es-chip>
+    <es-chip variant="outline" deletable>Deletable Outline</es-chip>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-chip deletable>Deletable Chip</es-chip>
+<es-chip variant="outline" deletable>Deletable Outline</es-chip></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Form Inputs</h1></div>
+
+<div class="demo-section">
+  <h2>ESInputText</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-text placeholder="Enter text..."></es-input-text>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-text variant="branded" placeholder="Branded variant..."></es-input-text>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-text error placeholder="Error state..."></es-input-text>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-text placeholder="Enter text..."></es-input-text>
+<es-input-text variant="branded" placeholder="Branded variant..."></es-input-text>
+<es-input-text error placeholder="Error state..."></es-input-text></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputSearch</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-search placeholder="Enter search..."></es-input-search>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-search variant="branded" placeholder="Branded variant..."></es-input-search>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-search error placeholder="Error state..."></es-input-search>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-search placeholder="Enter search..."></es-input-search>
+<es-input-search variant="branded" placeholder="Branded variant..."></es-input-search>
+<es-input-search error placeholder="Error state..."></es-input-search></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputPassword</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-password placeholder="Enter password..."></es-input-password>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-password variant="branded" placeholder="Branded variant..."></es-input-password>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-password error placeholder="Error state..."></es-input-password>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-password placeholder="Enter password..."></es-input-password>
+<es-input-password variant="branded" placeholder="Branded variant..."></es-input-password>
+<es-input-password error placeholder="Error state..."></es-input-password></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputNumber</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-number placeholder="Enter number..."></es-input-number>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-number variant="branded" placeholder="Branded variant..."></es-input-number>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-number error placeholder="Error state..."></es-input-number>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-number placeholder="Enter number..."></es-input-number>
+<es-input-number variant="branded" placeholder="Branded variant..."></es-input-number>
+<es-input-number error placeholder="Error state..."></es-input-number></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputEmail</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-email placeholder="Enter email..."></es-input-email>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-email variant="branded" placeholder="Branded variant..."></es-input-email>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-email error placeholder="Error state..."></es-input-email>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-email placeholder="Enter email..."></es-input-email>
+<es-input-email variant="branded" placeholder="Branded variant..."></es-input-email>
+<es-input-email error placeholder="Error state..."></es-input-email></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputCheckbox</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-input-checkbox></es-input-checkbox>
+    <es-input-checkbox checked></es-input-checkbox>
+    <es-input-checkbox disabled></es-input-checkbox>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <es-input-checkbox variant="branded" checked></es-input-checkbox>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><es-input-checkbox></es-input-checkbox>
+<es-input-checkbox checked></es-input-checkbox>
+<es-input-checkbox disabled></es-input-checkbox>
+<es-input-checkbox variant="branded" checked></es-input-checkbox></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputRadio</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Radio Buttons</div>
+    <es-input-radio name="radio1" checked></es-input-radio>
+    <es-input-radio name="radio1"></es-input-radio>
+    <es-input-radio name="radio1" disabled></es-input-radio>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <es-input-radio variant="branded" name="radio2" checked></es-input-radio>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><es-input-radio name="radio1" checked></es-input-radio>
+<es-input-radio name="radio1"></es-input-radio>
+<es-input-radio name="radio1" disabled></es-input-radio>
+<es-input-radio variant="branded" name="radio2" checked></es-input-radio></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputSwitch</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Switches</div>
+    <es-input-switch></es-input-switch>
+    <es-input-switch checked></es-input-switch>
+    <es-input-switch variant="secondary" checked></es-input-switch>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-input-switch></es-input-switch>
+<es-input-switch checked></es-input-switch>
+<es-input-switch variant="secondary" checked></es-input-switch></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESFormSection</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default Form Section</div>
+    <es-form-section title="User Information">
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name" style="width: 100%; padding: 8px; margin-bottom: 16px;">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" style="width: 100%; padding: 8px;">
+      </div>
+    </es-form-section>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><es-form-section title="User Information">
+  <div>
+    <label>Name</label>
+    <input type="text" placeholder="Enter your name">
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email">
+  </div>
+</es-form-section></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Without Column Layout</div>
+    <es-form-section title="Settings" use-column-layout="false">
+      <p>Form content without column layout</p>
+    </es-form-section>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-form-section title="Settings" use-column-layout="false">
+  <p>Form content without column layout</p>
+</es-form-section></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Display Components</h1></div>
+
+<div class="demo-section">
+  <h2>ESDivider</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <es-divider></es-divider>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <es-divider variant="branded"></es-divider>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-divider></es-divider>
+<es-divider variant="branded"></es-divider></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESDatum</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Label/Value Pairs</div>
+    <es-datum label="Label">Value</es-datum>
+    <es-datum label="Name">John Doe</es-datum>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-datum label="Label">Value</es-datum>
+<es-datum label="Name">John Doe</es-datum></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESAvatar</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Sizes</div>
+    <es-avatar size="small" color="grape" label="SM"></es-avatar>
+    <es-avatar size="medium" color="grape" label="ME"></es-avatar>
+    <es-avatar size="large" color="grape" label="LA"></es-avatar>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Colors</div>
+    <es-avatar size="medium" color="grape" label="GR"></es-avatar>
+    <es-avatar size="medium" color="lime" label="LI"></es-avatar>
+    <es-avatar size="medium" color="berry" label="BE"></es-avatar>
+    <es-avatar size="medium" color="orange" label="OR"></es-avatar>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><es-avatar size="small" color="grape" label="SM"></es-avatar>
+<es-avatar size="medium" color="grape" label="ME"></es-avatar>
+<es-avatar size="large" color="grape" label="LA"></es-avatar>
+<es-avatar size="medium" color="grape" label="GR"></es-avatar>
+<es-avatar size="medium" color="lime" label="LI"></es-avatar>
+<es-avatar size="medium" color="berry" label="BE"></es-avatar>
+<es-avatar size="medium" color="orange" label="OR"></es-avatar></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESBadge</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Badges</div>
+    <es-badge>3</es-badge>
+    <es-badge>12</es-badge>
+    <es-badge>99+</es-badge>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-badge>3</es-badge>
+<es-badge>12</es-badge>
+<es-badge>99+</es-badge></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESCard</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Card Component</div>
+    <es-card style="max-width: 400px;">
+      <h3>Card Title</h3>
+      <p>This is a card component with content inside.</p>
+    </es-card>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><es-card>
+  <h3>Card Title</h3>
+  <p>This is a card component with content inside.</p>
+</es-card></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESAlert</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Alert Variants</div>
+    <es-alert variant="error" title="Error" style="margin-bottom: 16px;">
+      <p>This is a error alert message.</p>
+    </es-alert>
+    <es-alert variant="warning" title="Warning" style="margin-bottom: 16px;">
+      <p>This is a warning alert message.</p>
+    </es-alert>
+    <es-alert variant="info" title="Info" style="margin-bottom: 16px;">
+      <p>This is a info alert message.</p>
+    </es-alert>
+    <es-alert variant="success" title="Success" style="margin-bottom: 16px;">
+      <p>This is a success alert message.</p>
+    </es-alert>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="8"><es-alert variant="error" title="Error">
+  <p>This is an error alert message.</p>
+</es-alert>
+<es-alert variant="warning" title="Warning">
+  <p>This is a warning alert message.</p>
+</es-alert>
+<es-alert variant="info" title="Info">
+  <p>This is an info alert message.</p>
+</es-alert></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Navigation Components</h1></div>
+
+<div class="demo-section">
+  <h2>ESTabs</h2>
+
+  <div class="demo-item">
+    <es-tabs>
+      <li class="es-tab es-active">
+        <a href="#">Tab 1</a>
+      </li>
+      <li class="es-tab">
+        <a href="#">Tab 2</a>
+      </li>
+      <li class="es-tab">
+        <a href="#">Tab 3</a>
+      </li>
+    </es-tabs>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="10"><es-tabs>
+  <li class="es-tab es-active">
+    <a href="#">Tab 1</a>
+  </li>
+  <li class="es-tab">
+    <a href="#">Tab 2</a>
+  </li>
+  <li class="es-tab">
+    <a href="#">Tab 3</a>
+  </li>
+</es-tabs></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESBreadcrumbs</h2>
+
+  <div class="demo-item">
+    <es-breadcrumbs>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Category</a></li>
+      <li><a href="#">Subcategory</a></li>
+      <li>Current Page</li>
+    </es-breadcrumbs>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><es-breadcrumbs>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Category</a></li>
+  <li><a href="#">Subcategory</a></li>
+  <li>Current Page</li>
+</es-breadcrumbs></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Data Display</h1></div>
+
+<div class="demo-section">
+  <h2>ESCommaSeperatedList</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Comma Separated List</div>
+    <es-comma-seperated-list>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </es-comma-seperated-list>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><es-comma-seperated-list>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+</es-comma-seperated-list></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Feedback & Loading</h1></div>
+
+<div class="demo-section">
+  <h2>ESSpinner</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Loading Spinner</div>
+    <es-spinner></es-spinner>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-spinner></es-spinner></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Layout Components</h1></div>
+
+<div class="demo-section">
+  <h2>ESModule</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default Module</div>
+    <es-module>
+      <p>This is content inside an ESModule. It provides consistent padding and can optionally add a surface style.</p>
+    </es-module>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-module>
+  <p>Module content here</p>
+</es-module></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Title</div>
+    <es-module title="Section Title">
+      <p>This module has a title displayed as an h6.</p>
+    </es-module>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-module title="Section Title">
+  <p>Module content here</p>
+</es-module></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Surface</div>
+    <es-module surface>
+      <p>This module has the surface style applied, adding background and border-radius.</p>
+    </es-module>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-module surface>
+  <p>Module content here</p>
+</es-module></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESTitleSection</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Title Only</div>
+    <es-title-section title="Page Title">
+      <p>Content goes here below the title.</p>
+    </es-title-section>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-title-section title="Page Title">
+  <p>Content goes here</p>
+</es-title-section></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Title with Subtitle</div>
+    <es-title-section title="Main Title" subtitle="This is a subtitle">
+      <p>Content goes here below the title and subtitle.</p>
+    </es-title-section>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><es-title-section title="Main Title" subtitle="This is a subtitle">
+  <p>Content goes here</p>
+</es-title-section></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Lists</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Unordered Lists</div>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item with nested list:
+        <ul>
+          <li>Nested item 1</li>
+          <li>Nested item 2
+            <ul>
+              <li>Nested item 1</li>
+              <li>Nested item 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item with nested list:
+    <ul>
+      <li>Nested item 1</li>
+    </ul>
+  </li>
+</ul></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Ordered Lists</div>
+    <ol>
+      <li>First step</li>
+      <li>Second step</li>
+      <li>Third step</li>
+    </ol>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><ol>
+  <li>First step</li>
+  <li>Second step</li>
+  <li>Third step</li>
+</ol></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Code & Preformatted Text</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Inline Code</div>
+    <p>Use the <code>code</code> element for inline code snippets like <code>const foo = 'bar';</code></p>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><p>Use the <code>code</code> element for inline code like <code>const foo = 'bar';</code></p></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Code Blocks</div>
+    <pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre>
+
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre></textarea>
+    </es-card>
+  </div>
+</div>
+
+  <div class="demo-section">
+    <h2>About</h2>
+    <p>Built from the Packets Design System Web Components. These components wrap the CSS-first design system with custom element APIs.</p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark');
+
+      // Save preference
+      const isDark = body.classList.contains('dark');
+      localStorage.setItem('packets-theme', isDark ? 'dark' : 'light');
+    }
+
+    // Restore theme preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('packets-theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
+  </script>
+</body>
+</html>

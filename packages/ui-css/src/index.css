@@ -24,6 +24,7 @@
 @import './components/input-text-area.css'; /* ESInputTextArea */
 @import './components/input-switch.css'; /* ESInputSwitch */
 @import './components/input-search.css'; /* ESInputSearch */
+@import './components/input-radio.css'; /* ESInputRadio */
 @import './components/input-password.css'; /* ESInputPassword */
 @import './components/input-number.css'; /* ESInputNumber */
 @import './components/input-email.css'; /* ESInputEmail */
@@ -35,8 +36,11 @@
 @import './components/datum.css'; /* ESDatum */
 @import './components/data-table.css'; /* ESDataTable */
 @import './components/comma-seperated-list.css'; /* ESCommaSeperatedList */
+@import './components/chip.css'; /* ESChip */
+@import './components/card.css'; /* ESCard */
 @import './components/button.css'; /* ESButton */
 @import './components/button-group.css'; /* ESButtonGroup */
 @import './components/breadcrumbs.css'; /* ESBreadcrumbs */
+@import './components/badge.css'; /* ESBadge */
 @import './components/avatar.css'; /* ESAvatar */
 @import './components/alert.css'; /* ESAlert */

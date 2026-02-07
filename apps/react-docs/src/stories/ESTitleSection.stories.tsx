@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESTitleSection } from "@esnet/packets-ui";
+import { ESTitleSection } from "@esnet/packets-ui-react";
 import { MicroscopeIcon, ZapIcon } from "lucide-react";
 
 const meta: Meta<typeof ESTitleSection> = {

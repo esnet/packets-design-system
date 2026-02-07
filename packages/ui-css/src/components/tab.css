@@ -22,6 +22,10 @@
   transition: background ease-in var(--esnet-time-duration-short, 100ms);
 }
 
+li.es-tab {
+  padding: 0;
+}
+
 .es-tab.es-active {
   background-color: var(--esnet-color-light-surface-2, #f2f2f2);
 }

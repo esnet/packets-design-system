@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESAlert } from "@esnet/packets-ui";
+import { ESAlert } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESAlert> = {
   title: "Components/ESAlert",

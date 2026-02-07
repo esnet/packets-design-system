@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ESInputDatePicker } from "@esnet/packets-ui/src/components/ESInputDatePicker/ESInputDatePicker.tsx";
+import { ESInputDatePicker } from "@esnet/packets-ui-react/src/components/ESInputDatePicker/ESInputDatePicker.tsx";
 
 const meta: Meta<typeof ESInputDatePicker> = {
   title: "Components/ESInputDatePicker",

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESCommaSeperatedList, ESModule } from "@esnet/packets-ui";
+import { ESCommaSeperatedList, ESModule } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESCommaSeperatedList> = {
   title: "Components/ESCommaSeperatedList",

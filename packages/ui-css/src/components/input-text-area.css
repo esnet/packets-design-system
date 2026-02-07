@@ -38,7 +38,8 @@
 
   /* based on a pseudo event of input tag (invalid), thus included here */
 
-  .es-input-text-area--error {
+  .es-input-text-area.es-error,
+  .es-input-text-area:invalid {
     border-color: var(--esnet-color-core-red-700, #a6111b);
     border-width: var(--esnet-size-border-width-small, 0.125rem);
     box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb, var(--esnet-color-light-error, #a6111b) 26%, transparent);
@@ -54,35 +55,37 @@
 
   /* based on a pseudo event of input tag (disabled), thus included here */
 
-  .es-input-text-area--disabled {
+  .es-input-text-area.es-disabled,
+  .es-input-text-area:disabled {
     border-color: var(--esnet-color-core-slate-300, #9699a8);
   }
 
-  .dark .es-input-text-area--disabled {
+  .dark .es-input-text-area.es-disabled,
+  .dark .es-input-text-area:disabled {
     border-color: var(--esnet-color-core-slate-500, #787b87);
   }
 
   /* Variants */
 
-  .es-input-text-area--branded {
+  .es-input-text-area.es-branded {
     border-radius: var(--esnet-size-radius-xlarge, 6px);
   }
 
   /* Modifiers */
 
-  .es-input-text-area--vertical {
+  .es-input-text-area.es-vertical {
     resize: vertical;
   }
 
-  .es-input-text-area--horizontal {
+  .es-input-text-area.es-horizontal {
     resize: horizontal;
   }
 
-  .es-input-text-area--both {
+  .es-input-text-area.es-both {
     resize: both;
   }
 
-  .es-input-text-area--none {
+  .es-input-text-area.es-none {
     resize: none;
   }
 

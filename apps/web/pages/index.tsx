@@ -21,7 +21,7 @@ import {
   ESTitleSection,
   usePacketsDesignTokens,
   DesignSystemName,
-} from "@esnet/packets-ui";
+} from "@esnet/packets-ui-react";
 
 export default function Page() {
   const tokens = usePacketsDesignTokens();

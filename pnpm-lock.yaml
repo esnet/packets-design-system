@@ -135,9 +135,12 @@ importers:
       '@esnet/esnet-tokens':
         specifier: workspace:*
         version: link:../../packages/design-tokens
-      '@esnet/packets-ui':
+      '@esnet/packets-ui-css':
         specifier: workspace:*
-        version: link:../../packages/ui
+        version: link:../../packages/ui-css
+      '@esnet/packets-ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       '@rive-app/react-canvas-lite':
         specifier: ^4.20.1
         version: 4.20.1(react@18.3.1)
@@ -235,9 +238,12 @@ importers:
       '@esnet/esnet-tokens':
         specifier: workspace:*
         version: link:../../packages/design-tokens
-      '@esnet/packets-ui':
+      '@esnet/packets-ui-css':
         specifier: workspace:*
-        version: link:../../packages/ui
+        version: link:../../packages/ui-css
+      '@esnet/packets-ui-react':
+        specifier: workspace:*
+        version: link:../../packages/ui-react
       next:
         specifier: ^14.2.18
         version: 14.2.18(react-dom@18.3.1)(react@18.3.1)
@@ -499,8 +505,48 @@ importers:
         specifier: ^4.9.5
         version: 4.9.5
 
-  packages/ui:
+  packages/ui-css:
     dependencies:
+      '@esnet/esnet-tokens':
+        specifier: workspace:^
+        version: link:../design-tokens
+    devDependencies:
+      '@playwright/test':
+        specifier: ^1.57.0
+        version: 1.57.0
+      chokidar:
+        specifier: ^3.5.3
+        version: 3.5.3
+      cssnano:
+        specifier: ^6.0.1
+        version: 6.0.1(postcss@8.4.31)
+      glob:
+        specifier: ^13.0.0
+        version: 13.0.0
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      postcss-import:
+        specifier: ^16.1.0
+        version: 16.1.0(postcss@8.4.31)
+      postcss-nested:
+        specifier: ^6.0.1
+        version: 6.0.1(postcss@8.4.31)
+      postcss-preset-env:
+        specifier: ^9.3.0
+        version: 9.3.0(postcss@8.4.31)
+      rollup:
+        specifier: ^4.53.5
+        version: 4.53.5
+      rollup-plugin-postcss:
+        specifier: ^4.0.2
+        version: 4.0.2(postcss@8.4.31)
+
+  packages/ui-react:
+    dependencies:
+      '@esnet/packets-ui-css':
+        specifier: workspace:^
+        version: link:../ui-css
       antd:
         specifier: ^5.4.0
         version: 5.4.0(react-dom@18.3.1)(react@18.3.1)
@@ -510,16 +556,16 @@ importers:
     devDependencies:
       '@babel/core':
         specifier: ^7.26.0
-        version: 7.26.0
+        version: 7.28.6
       '@babel/preset-env':
         specifier: ^7.26.0
-        version: 7.26.0(@babel/core@7.26.0)
+        version: 7.26.0(@babel/core@7.28.6)
       '@babel/preset-react':
         specifier: ^7.25.9
-        version: 7.25.9(@babel/core@7.26.0)
+        version: 7.25.9(@babel/core@7.28.6)
       '@babel/preset-typescript':
         specifier: ^7.26.0
-        version: 7.26.0(@babel/core@7.26.0)
+        version: 7.26.0(@babel/core@7.28.6)
       '@esnet/esnet-tokens':
         specifier: workspace:^
         version: link:../design-tokens
@@ -608,42 +654,11 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/ui-css:
-    dependencies:
-      '@esnet/esnet-tokens':
-        specifier: workspace:^
-        version: link:../design-tokens
-    devDependencies:
-      chokidar:
-        specifier: ^3.5.3
-        version: 3.5.3
-      cssnano:
-        specifier: ^6.0.1
-        version: 6.0.1(postcss@8.4.31)
-      glob:
-        specifier: ^13.0.0
-        version: 13.0.0
-      postcss:
-        specifier: ^8.4.31
-        version: 8.4.31
-      postcss-import:
-        specifier: ^16.1.0
-        version: 16.1.0(postcss@8.4.31)
-      postcss-nested:
-        specifier: ^6.0.1
-        version: 6.0.1(postcss@8.4.31)
-      postcss-preset-env:
-        specifier: ^9.3.0
-        version: 9.3.0(postcss@8.4.31)
-      rollup:
-        specifier: ^4.53.5
-        version: 4.53.5
-      rollup-plugin-postcss:
-        specifier: ^4.0.2
-        version: 4.0.2(postcss@8.4.31)
-
   packages/ui-web:
     dependencies:
+      '@esnet/packets-ui-css':
+        specifier: workspace:^
+        version: link:../ui-css
       antd:
         specifier: ^5.4.0
         version: 5.4.0(react-dom@18.3.1)(react@18.3.1)
@@ -663,6 +678,9 @@ importers:
       '@esnet/esnet-tokens':
         specifier: workspace:^
         version: link:../design-tokens
+      '@playwright/test':
+        specifier: ^1.57.0
+        version: 1.57.0
       '@repo/eslint-config':
         specifier: workspace:^
         version: link:../config-eslint
@@ -5244,7 +5262,7 @@ packages:
     resolution: {integrity: sha512-ok/BTPFzFKVMwO5eOHRrvnBVHdRy9IrsrW1GpMaQ9MCnilNLXQKmAX8s1YXDFaai9xJpac2ySzV0YeRRECr2Vw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@babel/core': 7.26.0
+      '@babel/core': 7.28.6
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.31
       babel-plugin-istanbul: 6.1.1

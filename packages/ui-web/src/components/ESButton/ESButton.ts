@@ -1,7 +1,7 @@
-import styles from "./ESButton.module.css";
+import { SlottedComponent } from "../../lib/SlottedComponent";
 import type { ESButtonProps } from "./ESButton.types";
 
-export class ESButton extends HTMLElement implements ESButtonProps {
+export class ESButton extends SlottedComponent implements ESButtonProps {
     static tagName = 'es-button';
     static get observedAttributes() {
         return ['class', 'label', 'variant', 'type', 'fill', 'disabled', 'as', 'href'];
@@ -33,14 +33,14 @@ export class ESButton extends HTMLElement implements ESButtonProps {
 
     get href() { return this.getAttribute('href') ?? ''; }
     set href(v: string) { this.setAttribute('href', v); }
-    
+
     get onClick(): ((e: Event) => void) | undefined {
         return this._onClick;
     }
     set onClick(fn: ((e: Event) => void) | undefined) {
         if (fn && typeof fn === 'function') {
             this._onClick = fn;
-        } 
+        }
     }
 
     protected buttonEl!: HTMLButtonElement | HTMLAnchorElement;
@@ -51,19 +51,15 @@ export class ESButton extends HTMLElement implements ESButtonProps {
         super();
     }
 
-    connectedCallback(): void {
-        this._renderInitial();
-        this.render();
-    }
-
     attributeChangedCallback(name: string, oldVal: string | null, newVal: string | null) {
         if (oldVal !== newVal) this.render();
     }
 
-    private _renderInitial(): void {
+    protected _renderInitial(): void {
         const tag = this.as || "button";
+
         this.innerHTML = `
-            <${tag} type='${this.type}' class="${styles.button}">
+            <${tag} type='${this.type}' class="es-button">
                 <slot></slot>
             </${tag}>
         `;
@@ -78,7 +74,6 @@ export class ESButton extends HTMLElement implements ESButtonProps {
             if (this.href) aEl.href = this.href;
             if (this.disabled) {
                 aEl.setAttribute("aria-disabled", "true");
-                aEl.classList.add(styles.disabled);
                 aEl.removeAttribute("href");
             } else {
                 aEl.removeAttribute("aria-disabled");
@@ -98,22 +93,28 @@ export class ESButton extends HTMLElement implements ESButtonProps {
     }
 
     protected render(): void {
-        if (!this.buttonEl || !this.childEl) return;
+        if (!this.buttonEl) return;
 
         const variant = this.variant;
-        const fill = this.fill ? styles.fill : "";
-        const size = this.size ? styles[this.size] : "";
+        const fill = this.fill ? "es-fill" : "es-nofill";
+        const size = this.size ? `es-${this.size}` : "";
 
         this.buttonEl.className = [
-            styles.button,
-            styles[variant],
+            "es-button",
+            `es-${variant}`,
             fill,
             size,
             this.class,
-            this.disabled ? styles.disabled : "",
         ].filter(Boolean).join(" ");
 
-        if (this.label) this.childEl.textContent = this.label; // replace label with child?
+        // If label attribute is set and slot still exists, replace it with text
+        if (this.label && this.buttonEl.querySelector('slot')) {
+            const slot = this.buttonEl.querySelector('slot');
+            if (slot) {
+                slot.replaceWith(document.createTextNode(this.label));
+            }
+        }
+
         this.attachAttributes();
         this.attachClickHandler()
     }

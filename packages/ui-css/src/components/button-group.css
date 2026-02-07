@@ -2,39 +2,37 @@
   --spacing: var(--esnet-size-spacing-xsmall, 8px);
   --label-color: var(--esnet-color-light-copy, #3d3d3d);
   --label-color-dark: var(--esnet-color-dark-copy, #e6e6e6);
+  width: fit-content;
 }
 
-  .dark .es-button-group {
-    --label-color: var(--label-color-dark);
-  }
+.dark .es-button-group {
+  --label-color: var(--label-color-dark);
+}
 
-  .es-button-group label {
-    color: var(--label-color);
-  }
+.es-button-group label {
+  color: var(--label-color);
+}
 
-  /* Variants */
+.es-button-group .list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing);
+  flex-direction: row;
+}
 
-  .es-button-group .es-button-group__list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing);
-    flex-direction: row;
-  }
+.es-button-group.es-vertical .list {
+  flex-direction: column;
+}
 
-  .es-button-group--vertical .es-button-group__list {
+.es-button-group.es-horizontal .list {
+  flex-direction: row;
+}
+
+@media (max-width: 640px) {
+  .es-button-group.es-horizontal .list {
     flex-direction: column;
   }
-
-  .es-button-group--horizontal .es-button-group__list {
-    flex-direction: row;
-  }
-
-  @media (max-width: 640px) {
-
-  .es-button-group--horizontal .es-button-group__list {
-      flex-direction: column
-  }
-    }
+}

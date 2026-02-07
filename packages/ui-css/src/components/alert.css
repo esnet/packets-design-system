@@ -47,13 +47,17 @@
   color: var(--esnet-color-dark-copy, #e6e6e6);
 }
 
-.es-alert .es-alert__icon {
+/* Icon - class-based or semantic */
+.es-alert .icon,
+.es-alert svg {
   display: block;
   width: var(--icon-size);
   height: var(--icon-size);
 }
 
-.es-alert .es-alert__title {
+/* Title - class-based or semantic */
+.es-alert .title,
+.es-alert h5 {
   margin: 0;
   font: var(--title-label-font);
   text-decoration: none;

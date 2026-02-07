@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputSearch } from "@esnet/packets-ui";
+import { ESInputSearch } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESInputSearch> = {
   title: "Components/ESInputSearch",

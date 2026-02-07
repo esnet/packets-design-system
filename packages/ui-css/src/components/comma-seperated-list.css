@@ -1,18 +1,18 @@
-.commaSeparatedList {
+.es-comma-seperated-list {
   display: inline;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-  .commaSeparatedList.vertical {
-    flex-direction: column;
-  }
+.es-comma-seperated-list.vertical {
+  flex-direction: column;
+}
 
-  .commaSeparatedList .commaSeparatedListItem {
-    display: inline;
-  }
+.es-comma-seperated-list .comma-separated-list-item, .es-comma-seperated-list li {
+  display: inline;
+}
 
-  .commaSeparatedList .commaSeparatedListItem:not(:last-child)::after {
-      content: ", ";
-    }
+.es-comma-seperated-list .comma-separated-list-item:not(:last-child)::after, .es-comma-seperated-list li:not(:last-child)::after {
+  content: ", ";
+}

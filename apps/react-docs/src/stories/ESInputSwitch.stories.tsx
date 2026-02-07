@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputSwitch } from "@esnet/packets-ui";
+import { ESInputSwitch } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESInputSwitch> = {
   title: "Components/ESInputSwitch",

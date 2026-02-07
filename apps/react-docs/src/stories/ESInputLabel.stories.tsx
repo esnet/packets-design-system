@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputEmail, ESLabel, ESInputText } from "@esnet/packets-ui";
+import { ESInputEmail, ESLabel, ESInputText } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESLabel> = {
   title: "Components/ESLabel",

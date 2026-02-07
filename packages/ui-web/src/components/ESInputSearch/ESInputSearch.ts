@@ -1,4 +1,3 @@
-import styles from "./ESInputSearch.module.css";
 import { ESInputText } from "../ESInputText";
 import { ESIcon } from "../ESIcon";
 
@@ -49,7 +48,7 @@ export class ESInputSearch extends ESInputText {
     protected render(): void {
         super.render();
         this.inputEl?.setAttribute('type', 'search');
-        this.containerEl?.classList.add(styles.ESInputSearch);
+        this.containerEl?.classList.add('es-input-search');
         this._renderActionButton()
     }   
 }

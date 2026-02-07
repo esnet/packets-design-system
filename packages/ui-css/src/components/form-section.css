@@ -12,15 +12,20 @@
     background: var(--esnet-color-dark-surface-1, #3d3d3d);
   }
 
-  .es-form-section .es-form-section__leftCol {
+  /* Left column - class-based or semantic */
+  .es-form-section .left-col,
+  .es-form-section > div:first-child {
     margin-bottom: var(--esnet-size-spacing-medium);
   }
 
-  .es-form-section .es-form-section__leftCol > p {
+  .es-form-section .left-col > p,
+  .es-form-section > div:first-child > p {
       color: var(--esnet-color-copy-alt);
     }
 
-  .es-form-section .es-form-section__rightCol {
+  /* Right column - class-based or semantic */
+  .es-form-section .right-col,
+  .es-form-section > div:last-child {
     margin-bottom: var(--esnet-size-spacing-medium);
   }
 

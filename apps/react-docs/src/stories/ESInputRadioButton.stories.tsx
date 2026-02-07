@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputRadioButton } from "@esnet/packets-ui";
+import { ESInputRadioButton } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESInputRadioButton> = {
   title: "Components/ESInputRadioButton",

@@ -1,7 +1,5 @@
-import styles from "./ESInputEmail.module.css";
 import { ESInputText } from "../ESInputText";
 import { ESIcon } from "../ESIcon";
-// import { createIcons, X } from 'lucide'; 
 
 export class ESInputEmail extends ESInputText {
     static tagName = 'es-input-email';
@@ -29,9 +27,8 @@ export class ESInputEmail extends ESInputText {
 
     protected render(): void {
         super.render();
-        this.containerEl?.classList.add(styles.ESInputEmail);
-        // createIcons({ icons: { X } });
-    }   
+        this.containerEl?.classList.add('es-input-email');
+    }
 }
 
 customElements.define(ESInputEmail.tagName, ESInputEmail);

@@ -20,9 +20,9 @@ Packets is a design system created as a cross organizational collaboration at ES
 ```
 
     4. Run <br />
-    `npm i @esnet/esnet-tokens @esnet/packets-ui`, <br />
-    `pnpm i @esnet/esnet-tokens @esnet/packets-ui`, or <br />
-    `yarn add @esnet/esnet-tokens @esnet/packets-ui`
+    `npm i @esnet/esnet-tokens @esnet/packets-ui-react`, <br />
+    `pnpm i @esnet/esnet-tokens @esnet/packets-ui-react`, or <br />
+    `yarn add @esnet/esnet-tokens @esnet/packets-ui-react`
     5. Add the `packets-ui` class to the body or root level tag of your project.
     6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
     7. Add the following to your header element to fetch our fonts from Google's CDN
@@ -41,10 +41,10 @@ Packets is a design system created as a cross organizational collaboration at ES
 1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
 2. Run `pnpm i` on the root of the project.
 3. Navigate to `packages/design-tokens`, and run `pnpm run build` (production) or `pnpm run dev` (development).
-4. Navigate to `packages/ui`, and run `pnpm run build` (production) or `pnpm run dev` (development).
+4. Navigate to `packages/ui-react`, and run `pnpm run build` (production) or `pnpm run dev` (development).
 5. Navigate back to the root of the project, and run `pnpm run dev` to start the local watch build and storybook.
 6. Access storybook in at [http://localhost:6006/](http://localhost:6006/).
 
 # Development
 
-Components can be created/modified in `packages/ui`, design tokens in `packages/design-tokens`, and stories in `apps/react-docs/src/stories`. To create a new component, create a directory for the component in `packages/ui/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.
+Components can be created/modified in `packages/ui-react`, design tokens in `packages/design-tokens`, and stories in `apps/react-docs/src/stories`. To create a new component, create a directory for the component in `packages/ui-react/src/components`, using other components as examples, and create a story for it in `apps/src/stories`.

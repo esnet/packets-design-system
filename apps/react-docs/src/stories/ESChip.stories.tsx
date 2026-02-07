@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ESAvatar } from "@esnet/packets-ui";
-import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
+import { ESAvatar } from "@esnet/packets-ui-react";
+import { ESChip } from "@esnet/packets-ui-react/src/components/ESChip/ESChip.tsx";
 import * as React from "react";
 import { Apple, Banana } from "lucide-react";
 

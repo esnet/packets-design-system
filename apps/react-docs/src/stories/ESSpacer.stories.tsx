@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESSpacer } from "@esnet/packets-ui";
+import { ESSpacer } from "@esnet/packets-ui-react";
 import { SpacingDocSquare } from "doc-ui";
 
 const meta: Meta<typeof ESSpacer> = {

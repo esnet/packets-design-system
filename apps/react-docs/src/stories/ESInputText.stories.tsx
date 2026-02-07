@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Apple } from "lucide-react";
-import { ESInputText } from "@esnet/packets-ui/src/components/ESInputText/ESInputText.tsx";
+import { ESInputText } from "@esnet/packets-ui-react/src/components/ESInputText/ESInputText.tsx";
 
 const meta = {
   title: "Components/ESInputText",

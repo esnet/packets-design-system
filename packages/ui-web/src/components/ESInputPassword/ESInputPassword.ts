@@ -1,4 +1,3 @@
-import styles from "./ESInputPassword.module.css";
 import { ESInputText } from "../ESInputText";
 import { ESIcon } from "../ESIcon";
 
@@ -49,7 +48,7 @@ export class ESInputPassword extends ESInputText {
     protected render(): void {
         super.render();
         this.inputEl?.setAttribute('type', `${this._hidden ? 'password' : 'text'}`);
-        this.containerEl?.classList.add(styles.ESInputPassword);
+        this.containerEl?.classList.add('es-input-password');
     }
 }
 

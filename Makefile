@@ -25,7 +25,7 @@ define run_pnpm
 	$(DOCKER_RUN) bash -c "$(PNPM_SETUP) && $(1)"
 endef
 
-.PHONY: pull-image clean-screenshots generate-screenshots regenerate-screenshots test build lint format clean help
+.PHONY: pull-image clean-screenshots generate-screenshots regenerate-screenshots test test-react test-web test-css build lint format clean help
 
 help:
 	@echo "Docker-based Lifecycle Commands"
@@ -43,14 +43,17 @@ help:
 	@echo ""
 	@echo "Main commands:"
 	@echo "  build                  - Build all packages"
-	@echo "  test                   - Run all tests"
+	@echo "  test                   - Run all tests (React, Web, CSS)"
+	@echo "  test-react             - Run React component tests only"
+	@echo "  test-web               - Run Web Component tests only"
+	@echo "  test-css               - Run CSS-only tests only"
 	@echo "  lint                   - Run linting"
 	@echo "  format                 - Format code with prettier"
 	@echo "  clean                  - Clean build artifacts"
 	@echo ""
 	@echo "Playwright Screenshot management:"
-	@echo "  generate-screenshots   - Generate new screenshots"
-	@echo "  regenerate-screenshots - Clean then generate screenshots"
+	@echo "  generate-screenshots   - Generate new screenshots for all packages"
+	@echo "  regenerate-screenshots - Clean then generate screenshots for all packages"
 	@echo "  clean-screenshots      - Delete all screenshot directories"
 	@echo ""
 	@echo "Setup:"
@@ -67,11 +70,13 @@ pull-image:
 	docker pull $(PLAYWRIGHT_IMAGE)
 
 clean-screenshots:
-	@echo "WARNING: This will delete all screenshot directories in packages/ui/src"
+	@echo "WARNING: This will delete all screenshot directories across all packages"
 	@echo "Press Ctrl+C to cancel, or Enter to continue..."
 	@read confirmation
 	@echo "Deleting screenshot directories..."
-	find packages/ui/src -type d -name "__screenshots__" -exec rm -rf {} + 2>/dev/null || true
+	find packages/ui-react/src -type d -name "__screenshots__" -exec rm -rf {} + 2>/dev/null || true
+	find packages/ui-web/tests -type d -name "__screenshots__" -exec rm -rf {} + 2>/dev/null || true
+	find packages/ui-css/tests -type d -name "__screenshots__" -exec rm -rf {} + 2>/dev/null || true
 	@echo "Screenshot directories deleted."
 
 build:
@@ -79,8 +84,20 @@ build:
 	$(call run_pnpm,pnpm build)
 
 test:
-	@echo "Running tests in Docker container..."
-	$(call run_pnpm,pnpm build && pnpm test)
+	@echo "Running all tests (React, Web, CSS) in Docker container..."
+	$(call run_pnpm,pnpm build && cd packages/ui-react && pnpm test && cd ../ui-web && pnpm test && cd ../ui-css && pnpm test)
+
+test-react:
+	@echo "Running React component tests in Docker container..."
+	$(call run_pnpm,pnpm build && cd packages/ui-react && pnpm test)
+
+test-web:
+	@echo "Running Web Component tests in Docker container..."
+	$(call run_pnpm,pnpm build && cd packages/ui-web && pnpm test)
+
+test-css:
+	@echo "Running CSS-only tests in Docker container..."
+	$(call run_pnpm,pnpm build && cd packages/ui-css && pnpm test)
 
 lint:
 	@echo "Running lint in Docker container..."
@@ -95,7 +112,11 @@ clean:
 	$(call run_pnpm,pnpm clean)
 
 generate-screenshots:
-	@echo "Generating screenshots in Docker container..."
-	$(call run_pnpm,pnpm build && pnpm test:updatesnaps && chown -R $(USER_ID):$(GROUP_ID) packages/ui/src 2>/dev/null || true)
+	@echo "Generating screenshots for all packages in Docker container..."
+	$(call run_pnpm,pnpm build && \
+		cd packages/ui-react && pnpm test:updatesnaps && \
+		cd ../ui-web && pnpm test:updatesnaps && \
+		cd ../ui-css && pnpm test:updatesnaps && \
+		cd ../.. && chown -R $(USER_ID):$(GROUP_ID) packages/ui-react/src packages/ui-web/tests packages/ui-css/tests 2>/dev/null || true)
 
 regenerate-screenshots: clean-screenshots generate-screenshots

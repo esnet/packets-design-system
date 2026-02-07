@@ -22,12 +22,6 @@ export default [
         format: "esm",
         sourcemap: true,
       },
-      /* {
-				file: 'dist/bundle.min.js',
-				format: 'iife',
-				name: 'version',
-				plugins: [terser()]
-			} */
     ],
     plugins: [
       peerDepsExternal(),
@@ -44,7 +38,7 @@ export default [
     ],
   },
   {
-    input: "dist/esm/types/index.d.ts",
+    input: "dist/esm/types/src/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.(css|less)$/],

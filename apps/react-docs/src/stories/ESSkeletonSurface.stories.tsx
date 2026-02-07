@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESSkeletonSurface } from "@esnet/packets-ui";
+import { ESSkeletonSurface } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESSkeletonSurface> = {
   title: "Components/ESSkeletonSurface",

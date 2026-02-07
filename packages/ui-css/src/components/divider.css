@@ -11,7 +11,7 @@
 .es-divider {
   /* Layout */
   height: var(--esnet-size-border-width-small, 2px);
-  width: auto;
+  width: 100%;
 
   /* Styling */
   border-radius: var(--esnet-size-radius-circle, 999px);

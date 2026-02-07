@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputCheckbox } from "@esnet/packets-ui";
+import { ESInputCheckbox } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESInputCheckbox> = {
   title: "Components/ESInputCheckbox",

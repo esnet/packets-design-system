@@ -2,7 +2,7 @@ import React from "react";
 import type { Preview, ReactRenderer } from "@storybook/react";
 import { themes } from "@storybook/theming";
 import { useDarkMode } from "storybook-dark-mode";
-import "@esnet/packets-ui/style.css";
+import "@esnet/packets-ui-css/styles.css";
 
 const preview: Preview = {
   parameters: {

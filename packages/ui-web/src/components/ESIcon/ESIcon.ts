@@ -1,4 +1,3 @@
-import styles from "./ESIcon.module.css";
 import type { ESIconProps } from "./ESIcon.types";
 
 import { createElement, icons } from 'lucide';
@@ -68,8 +67,10 @@ export class ESIcon extends HTMLElement implements ESIconProps {
 
         // Create the SVG element
         const svg = createElement(iconNode, attrs);
-        svg.classList.add(styles.ESIcon);
-        this.replaceWith(svg);
+
+        // Clear existing content and append SVG
+        this.innerHTML = '';
+        this.appendChild(svg);
     }
 }
 

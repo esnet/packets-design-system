@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESTabs, ESTab } from "@esnet/packets-ui";
+import { ESTabs, ESTab } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESTabs> = {
   title: "Components/ESTabs",

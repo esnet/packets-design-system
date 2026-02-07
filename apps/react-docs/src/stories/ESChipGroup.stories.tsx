@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ESChip } from "@esnet/packets-ui/src/components/ESChip/ESChip.tsx";
-import { ESChipGroup } from "@esnet/packets-ui/src/components/ESChipGroup/ESChipGroup.tsx";
-import { ESAvatar } from "@esnet/packets-ui";
+import { ESChip } from "@esnet/packets-ui-react/src/components/ESChip/ESChip.tsx";
+import { ESChipGroup } from "@esnet/packets-ui-react/src/components/ESChipGroup/ESChipGroup.tsx";
+import { ESAvatar } from "@esnet/packets-ui-react";
 import {
   Bookmark,
   BookmarkCheck,

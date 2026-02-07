@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESListTreeView } from "@esnet/packets-ui";
+import { ESListTreeView } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESListTreeView> = {
   title: "Components/ESListTreeView",

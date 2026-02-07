@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESModule } from "@esnet/packets-ui";
+import { ESModule } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESModule> = {
   title: "Components/ESModule",

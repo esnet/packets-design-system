@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESAvatar } from "@esnet/packets-ui";
+import { ESAvatar } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESAvatar> = {
   title: "Components/ESAvatar",

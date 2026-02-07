@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESDataTable } from "@esnet/packets-ui";
+import { ESDataTable } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESDataTable> = {
   title: "Components/ESDataTable",

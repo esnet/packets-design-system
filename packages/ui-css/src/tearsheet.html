@@ -118,6 +118,14 @@
     body.dark .intro p {
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
+
+    .code-example {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .es-card { margin-top:1rem; }
+
   </style>
 </head>
 <body class="packets">
@@ -233,12 +241,27 @@
     <button class="es-icon-button es-branded"><i data-lucide="zap"></i></button>
     <button class="es-icon-button es-tertiary"><i data-lucide="circle"></i></button>
     <button class="es-icon-button es-destructive"><i data-lucide="trash-2"></i></button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><button class="es-icon-button es-primary"><i data-lucide="star"></i></button>
+<button class="es-icon-button es-secondary"><i data-lucide="heart"></i></button>
+<button class="es-icon-button es-branded"><i data-lucide="zap"></i></button>
+<button class="es-icon-button es-tertiary"><i data-lucide="circle"></i></button>
+<button class="es-icon-button es-destructive"><i data-lucide="trash-2"></i></button></textarea>
+    </div>
   </div>
 
   <div class="demo-item">
     <div class="demo-label">States</div>
     <button class="es-icon-button es-primary"><i data-lucide="star"></i></button>
     <button class="es-icon-button es-primary" disabled><i data-lucide="star"></i></button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><button class="es-icon-button es-primary"><i data-lucide="star"></i></button>
+<button class="es-icon-button es-primary" disabled><i data-lucide="star"></i></button></textarea>
+    </div>
   </div>
 </div>
 
@@ -252,18 +275,39 @@
     <button class="es-button es-branded">Branded Button</button>
     <button class="es-button es-tertiary">Tertiary Button</button>
     <button class="es-button es-destructive">Destructive Button</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><button class="es-button es-primary">Primary Button</button>
+<button class="es-button es-secondary">Secondary Button</button>
+<button class="es-button es-branded">Branded Button</button>
+<button class="es-button es-tertiary">Tertiary Button</button>
+<button class="es-button es-destructive">Destructive Button</button></textarea>
+    </div>
   </div>
 
   <div class="demo-item">
     <div class="demo-label">Sizes</div>
     <button class="es-button es-primary es-medium">Medium</button>
     <button class="es-button es-primary es-xxlarge">Xxlarge</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><button class="es-button es-primary es-medium">Medium</button>
+<button class="es-button es-primary es-xxlarge">Xxlarge</button></textarea>
+    </div>
   </div>
 
   <div class="demo-item">
     <div class="demo-label">States</div>
     <button class="es-button es-primary">Normal</button>
     <button class="es-button es-primary" disabled>Disabled</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><button class="es-button es-primary">Normal</button>
+<button class="es-button es-primary" disabled>Disabled</button></textarea>
+    </div>
   </div>
 </div>
 
@@ -273,12 +317,95 @@
   <div class="demo-item">
     <div class="demo-label">Horizontal Button Group</div>
     <section class="es-button-group es-horizontal">
-      <ul class="es-button-group__list">
+      <ul class="list">
         <li><button class="es-button es-secondary">Option 1</button></li>
         <li><button class="es-button es-secondary">Option 2</button></li>
         <li><button class="es-button es-secondary">Option 3</button></li>
       </ul>
     </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><section class="es-button-group es-horizontal">
+  <ul class="list">
+    <li><button class="es-button es-secondary">Option 1</button></li>
+    <li><button class="es-button es-secondary">Option 2</button></li>
+    <li><button class="es-button es-secondary">Option 3</button></li>
+  </ul>
+</section></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Vertical Button Group</div>
+    <section class="es-button-group es-vertical">
+      <ul class="list">
+        <li><button class="es-button es-secondary">Option 1</button></li>
+        <li><button class="es-button es-secondary">Option 2</button></li>
+        <li><button class="es-button es-secondary">Option 3</button></li>
+      </ul>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><section class="es-button-group es-vertical">
+  <ul class="list">
+    <li><button class="es-button es-secondary">Option 1</button></li>
+    <li><button class="es-button es-secondary">Option 2</button></li>
+    <li><button class="es-button es-secondary">Option 3</button></li>
+  </ul>
+</section></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESChip</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Primary (Default)</div>
+    <button class="es-chip">Chip Label</button>
+    <button class="es-chip">Another Chip</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><button class="es-chip">Chip Label</button></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Outline Variant</div>
+    <button class="es-chip es-outline">Outline Chip</button>
+    <button class="es-chip es-outline">Another Outline</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><button class="es-chip es-outline">Outline Chip</button></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Rounded Variant</div>
+    <button class="es-chip es-rounded">Rounded Chip</button>
+    <button class="es-chip es-rounded es-outline">Rounded Outline</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><button class="es-chip es-rounded">Rounded Chip</button>
+<button class="es-chip es-rounded es-outline">Rounded Outline</button></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Disabled State</div>
+    <button class="es-chip es-disabled" disabled>Disabled Chip</button>
+    <button class="es-chip es-outline es-disabled" disabled>Disabled Outline</button>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><button class="es-chip es-disabled" disabled>Disabled Chip</button>
+<button class="es-chip es-outline es-disabled" disabled>Disabled Outline</button></textarea>
+    </div>
   </div>
 </div>
 
@@ -306,6 +433,16 @@
     <div class="es-input-text es-error">
       <input type="text" placeholder="Error state...">
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text">
+  <input type="text" placeholder="Enter text...">
+</div>
+<div class="es-input-text es-branded">
+  <input type="text" placeholder="Branded variant...">
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -324,6 +461,16 @@
     <div class="es-input-text-area es-error">
       <textarea placeholder="Error state..."></textarea>
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text-area">
+  <textarea placeholder="Enter textarea..."></textarea>
+</div>
+<div class="es-input-text-area es-error">
+  <textarea placeholder="Error state..."></textarea>
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -333,16 +480,28 @@
   <div class="demo-item">
     <div class="demo-label">Switches</div>
     <div class="es-input-switch">
-      <input type="checkbox" class="es-input-switch__input">
-      <div class="es-input-switch__indicator"></div>
+      <input type="checkbox">
+      <div class="indicator"></div>
     </div>
-    <div class="es-input-switch es-checked">
-      <input type="checkbox" class="es-input-switch__input" checked>
-      <div class="es-input-switch__indicator"></div>
+    <div class="es-input-switch">
+      <input type="checkbox" checked>
+      <div class="indicator"></div>
     </div>
-    <div class="es-input-switch es-secondary es-checked">
-      <input type="checkbox" class="es-input-switch__input" checked>
-      <div class="es-input-switch__indicator"></div>
+    <div class="es-input-switch es-secondary">
+      <input type="checkbox" checked>
+      <div class="indicator"></div>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><div class="es-input-switch">
+  <input type="checkbox">
+  <div class="indicator"></div>
+</div>
+<div class="es-input-switch">
+  <input type="checkbox" checked>
+  <div class="indicator"></div>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -369,6 +528,16 @@
     <div class="es-input-text es-error es-input-search">
       <input type="search" placeholder="Error state...">
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text es-input-search">
+  <input type="search" placeholder="Enter search...">
+</div>
+<div class="es-input-text es-branded es-input-search">
+  <input type="search" placeholder="Branded variant...">
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -393,6 +562,16 @@
     <div class="demo-label">Error State</div>
     <div class="es-input-text es-error es-input-password">
       <input type="password" placeholder="Error state...">
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text es-input-password">
+  <input type="password" placeholder="Enter password...">
+</div>
+<div class="es-input-text es-branded es-input-password">
+  <input type="password" placeholder="Branded variant...">
+</div></textarea>
     </div>
   </div>
 </div>
@@ -419,6 +598,16 @@
     <div class="es-input-text es-error es-input-number">
       <input type="number" placeholder="Error state...">
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text es-input-number">
+  <input type="number" placeholder="Enter number...">
+</div>
+<div class="es-input-text es-branded es-input-number">
+  <input type="number" placeholder="Branded variant...">
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -444,6 +633,16 @@
     <div class="es-input-text es-error es-input-email">
       <input type="email" placeholder="Error state...">
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><div class="es-input-text es-input-email">
+  <input type="email" placeholder="Enter email...">
+</div>
+<div class="es-input-text es-branded es-input-email">
+  <input type="email" placeholder="Branded variant...">
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -468,6 +667,50 @@
     <div class="es-input-checkbox es-branded">
       <input type="checkbox" class="es-input-checkbox__input" checked>
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><div class="es-input-checkbox">
+  <input type="checkbox" class="es-input-checkbox__input">
+</div>
+<div class="es-input-checkbox">
+  <input type="checkbox" class="es-input-checkbox__input" checked>
+</div></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputRadio</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Radio Buttons</div>
+    <div class="es-input-radio">
+      <input type="radio" name="radio1" class="es-input-radio__input" checked>
+    </div>
+    <div class="es-input-radio">
+      <input type="radio" name="radio1" class="es-input-radio__input">
+    </div>
+    <div class="es-input-radio">
+      <input type="radio" name="radio1" class="es-input-radio__input" disabled>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <div class="es-input-radio es-branded">
+      <input type="radio" name="radio2" class="es-input-radio__input" checked>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><div class="es-input-radio">
+  <input type="radio" name="radio1" class="es-input-radio__input" checked>
+</div>
+<div class="es-input-radio">
+  <input type="radio" name="radio1" class="es-input-radio__input">
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -484,6 +727,12 @@
   <div class="demo-item">
     <div class="demo-label">Branded</div>
     <hr class="es-divider es-branded">
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><hr class="es-divider">
+<hr class="es-divider es-branded"></textarea>
+    </div>
   </div>
 </div>
 
@@ -493,12 +742,24 @@
   <div class="demo-item">
     <div class="demo-label">Label/Value Pairs</div>
     <div class="es-datum">
-      <span class="es-datum__label">Label:</span>
-      <span class="es-datum__value">Value</span>
+      <span class="label">Label:</span>
+      <span class="value">Value</span>
     </div>
     <div class="es-datum">
-      <span class="es-datum__label">Name:</span>
-      <span class="es-datum__value">John Doe</span>
+      <span class="label">Name:</span>
+      <span class="value">John Doe</span>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><div class="es-datum">
+  <span class="label">Label:</span>
+  <span class="value">Value</span>
+</div>
+<div class="es-datum">
+  <span class="label">Name:</span>
+  <span class="value">John Doe</span>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -509,29 +770,80 @@
   <div class="demo-item">
     <div class="demo-label">Sizes</div>
     <div class="es-avatar es-small es-grape">
-      <div class="es-avatar__label">SM</div>
+      <span class="label">SM</span>
     </div>
     <div class="es-avatar es-medium es-grape">
-      <div class="es-avatar__label">ME</div>
+      <span class="label">ME</span>
     </div>
     <div class="es-avatar es-large es-grape">
-      <div class="es-avatar__label">LA</div>
+      <span class="label">LA</span>
     </div>
   </div>
 
   <div class="demo-item">
     <div class="demo-label">Colors</div>
     <div class="es-avatar es-medium es-grape">
-      <div class="es-avatar__label">GR</div>
+      <span class="label">GR</span>
     </div>
     <div class="es-avatar es-medium es-lime">
-      <div class="es-avatar__label">LI</div>
+      <span class="label">LI</span>
     </div>
     <div class="es-avatar es-medium es-berry">
-      <div class="es-avatar__label">BE</div>
+      <span class="label">BE</span>
     </div>
     <div class="es-avatar es-medium es-orange">
-      <div class="es-avatar__label">OR</div>
+      <span class="label">OR</span>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="8"><div class="es-avatar es-small es-grape">
+  <span class="label">SM</span>
+</div>
+<div class="es-avatar es-medium es-grape">
+  <span class="label">ME</span>
+</div>
+<div class="es-avatar es-large es-grape">
+  <span class="label">LA</span>
+</div></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESBadge</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Badges</div>
+    <span class="es-badge">3</span>
+    <span class="es-badge">12</span>
+    <span class="es-badge">99+</span>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><span class="es-badge">3</span>
+<span class="es-badge">12</span>
+<span class="es-badge">99+</span></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESCard</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Card Component</div>
+    <div class="es-card" style="max-width: 400px;">
+      <h3>Card Title</h3>
+      <p>This is a card component with content inside.</p>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><div class="es-card">
+  <h3>Card Title</h3>
+  <p>This is a card component with content inside.</p>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -542,28 +854,33 @@
   <div class="demo-item">
     <div class="demo-label">Alert Variants</div>
     <div class="es-alert es-error" style="margin-bottom: 16px;">
-      <div class="es-alert__content">
-        <h5 class="es-alert__title">Error</h5>
-        <p>This is a error alert message.</p>
-      </div>
+      <svg></svg>
+      <h5>Error</h5>
+      <p>This is a error alert message.</p>
     </div>
     <div class="es-alert es-warning" style="margin-bottom: 16px;">
-      <div class="es-alert__content">
-        <h5 class="es-alert__title">Warning</h5>
-        <p>This is a warning alert message.</p>
-      </div>
+      <h5>Warning</h5>
+      <p>This is a warning alert message.</p>
     </div>
     <div class="es-alert es-info" style="margin-bottom: 16px;">
-      <div class="es-alert__content">
-        <h5 class="es-alert__title">Info</h5>
-        <p>This is a info alert message.</p>
-      </div>
+      <h5>Info</h5>
+      <p>This is a info alert message.</p>
     </div>
     <div class="es-alert es-success" style="margin-bottom: 16px;">
-      <div class="es-alert__content">
-        <h5 class="es-alert__title">Success</h5>
-        <p>This is a success alert message.</p>
-      </div>
+      <h5>Success</h5>
+      <p>This is a success alert message.</p>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="9"><div class="es-alert es-error">
+  <h5>Error</h5>
+  <p>This is an error alert message.</p>
+</div>
+<div class="es-alert es-warning">
+  <h5>Warning</h5>
+  <p>This is a warning alert message.</p>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -575,7 +892,7 @@
 
   <div class="demo-item">
     <div class="es-tabs">
-      <ul class="tabList">
+      <ul class="tab-list">
         <li class="es-tab es-active">
           <a href="#">Tab 1</a>
         </li>
@@ -587,6 +904,23 @@
         </li>
       </ul>
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="11"><div class="es-tabs">
+  <ul class="tab-list">
+    <li class="es-tab es-active">
+      <a href="#">Tab 1</a>
+    </li>
+    <li class="es-tab">
+      <a href="#">Tab 2</a>
+    </li>
+    <li class="es-tab">
+      <a href="#">Tab 3</a>
+    </li>
+  </ul>
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -595,13 +929,25 @@
 
   <div class="demo-item">
     <nav class="es-table-of-contents">
-      <ul class="es-table-of-contents__list">
+      <ul>
         <li><a href="#">Introduction</a></li>
         <li><a href="#">Getting Started</a></li>
         <li><a href="#">Components</a></li>
         <li><a href="#">API Reference</a></li>
       </ul>
     </nav>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="8"><nav class="es-table-of-contents">
+  <ul>
+    <li><a href="#">Introduction</a></li>
+    <li><a href="#">Getting Started</a></li>
+    <li><a href="#">Components</a></li>
+    <li><a href="#">API Reference</a></li>
+  </ul>
+</nav></textarea>
+    </div>
   </div>
 </div>
 
@@ -609,24 +955,50 @@
   <h2>ESBreadcrumbs</h2>
 
   <div class="demo-item">
-    <nav class="es-breadcrumbs">
-      <div class="es-breadcrumbs__breadCrumb">
-        <a href="#">Home</a>
-      </div>
-      <div class="es-breadcrumbs__breadCrumb">
-        <a href="#">Category</a>
-      </div>
-      <div class="es-breadcrumbs__breadCrumb">
-        <a href="#">Subcategory</a>
-      </div>
-      <div class="es-breadcrumbs__breadCrumb">
-        <span>Current Page</span>
-      </div>
-    </nav>
+    <ul class="es-breadcrumbs">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Category</a></li>
+      <li><a href="#">Subcategory</a></li>
+      <li>Current Page</li>
+    </ul>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><ul class="es-breadcrumbs">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Category</a></li>
+  <li><a href="#">Subcategory</a></li>
+  <li>Current Page</li>
+</ul></textarea>
+    </div>
   </div>
 </div>
 
 <div class="demo-section category-header"><h1>Data Display</h1></div>
+
+<div class="demo-section">
+  <h2>ESCommaSeperatedList</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Comma Separated List</div>
+    <ul class="es-comma-seperated-list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><ul class="es-comma-seperated-list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+</ul></textarea>
+    </div>
+  </div>
+</div>
 
 <div class="demo-section">
   <h2>ESDataTable</h2>
@@ -676,13 +1048,25 @@
   <h2>ESTitleSection</h2>
 
   <div class="demo-item">
-    <div class="es-title-section">
-      <div class="es-title-section__title">
+    <div class="titleLayout">
+      <div class="title">
         <h1>Page Title</h1>
       </div>
-      <div class="es-title-section__subtitle">
+      <div class="subtitle">
         <h4>This is a subtitle or description</h4>
       </div>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="8"><div class="titleLayout">
+  <div class="title">
+    <h1>Page Title</h1>
+  </div>
+  <div class="subtitle">
+    <h4>This is a subtitle or description</h4>
+  </div>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -704,6 +1088,18 @@
       <h3>Module with surface styling</h3>
       <p>This module combines surface background with module padding and border radius.</p>
     </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><div class="es-module">
+  <h3>Module with padding</h3>
+  <p>This demonstrates a module container with responsive horizontal padding.</p>
+</div>
+<div class="es-module surface">
+  <h3>Module with surface styling</h3>
+  <p>This module combines surface background with module padding and border radius.</p>
+</div></textarea>
+    </div>
   </div>
 </div>
 
@@ -712,11 +1108,11 @@
 
   <div class="demo-item">
     <div class="es-form-section">
-      <div class="es-form-section__left">
+      <div class="left-col">
         <h4>Section Title</h4>
         <p>Description of this form section</p>
       </div>
-      <div class="es-form-section__right">
+      <div class="right-col">
         <div class="es-input-text" style="margin-bottom: 16px;">
           <input type="text" placeholder="Field 1">
         </div>
@@ -724,6 +1120,24 @@
           <input type="text" placeholder="Field 2">
         </div>
       </div>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="13"><div class="es-form-section">
+  <div class="left-col">
+    <h4>Section Title</h4>
+    <p>Description of this form section</p>
+  </div>
+  <div class="right-col">
+    <div class="es-input-text">
+      <input type="text" placeholder="Field 1">
+    </div>
+    <div class="es-input-text">
+      <input type="text" placeholder="Field 2">
+    </div>
+  </div>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -736,11 +1150,22 @@
   <div class="demo-item">
     <div class="demo-label">Loading Spinner</div>
     <div class="es-spinner">
-      <div class="es-spinner__dot"></div>
-      <div class="es-spinner__dot"></div>
-      <div class="es-spinner__dot"></div>
-      <div class="es-spinner__dot"></div>
-      <span class="es-spinner__noMotionMessage">Loading...</span>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <span class="no-motion-message">Loading...</span>
+    </div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><div class="es-spinner">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <span class="no-motion-message">Loading...</span>
+</div></textarea>
     </div>
   </div>
 </div>
@@ -752,10 +1177,186 @@
     <div class="demo-label">Loading Placeholders</div>
     <div class="es-skeleton-surface" style="width: 300px; height: 40px; margin-bottom: 8px;"></div>
     <div class="es-skeleton-surface es-rounded" style="width: 200px; height: 60px;"></div>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><div class="es-skeleton-surface" style="width: 300px; height: 40px;"></div>
+<div class="es-skeleton-surface es-rounded" style="width: 200px; height: 60px;"></div></textarea>
+    </div>
+  </div>
+</div><div class="demo-section category-header"><h1>Layout Components</h1></div>
+
+<div class="demo-section">
+  <h2>ESModule</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default Module</div>
+    <section class="es-module">
+      <p>This is content inside an ESModule. It provides consistent padding and can optionally add a surface style.</p>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><section class="es-module">
+  <p>Module content here</p>
+</section></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Title</div>
+    <section class="es-module">
+      <h6 class="title">Section Title</h6>
+      <p>This module has a title displayed as an h6.</p>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><section class="es-module">
+  <h6 class="title">Section Title</h6>
+  <p>Module content here</p>
+</section></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Surface</div>
+    <section class="es-module surface">
+      <p>This module has the surface style applied, adding background and border-radius.</p>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><section class="es-module surface">
+  <p>Module content here</p>
+</section></textarea>
+    </div>
   </div>
 </div>
 
+<div class="demo-section">
+  <h2>ESTitleSection</h2>
 
+  <div class="demo-item">
+    <div class="demo-label">Title Only</div>
+    <section class="es-module titleLayout">
+      <h1 class="title">Page Title</h1>
+      <p>Content goes here below the title.</p>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><section class="es-module titleLayout">
+  <h1 class="title">Page Title</h1>
+  <p>Content goes here</p>
+</section></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Title with Subtitle</div>
+    <section class="es-module titleLayout">
+      <h1 class="title">Main Title</h1>
+      <h4 class="subtitle">This is a subtitle</h4>
+      <p>Content goes here below the title and subtitle.</p>
+    </section>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><section class="es-module titleLayout">
+  <h1 class="title">Main Title</h1>
+  <h4 class="subtitle">This is a subtitle</h4>
+  <p>Content goes here</p>
+</section></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Lists</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Unordered Lists</div>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item with nested list:
+        <ul>
+          <li>Nested item 1</li>
+          <li>Nested item 2
+            <ul>
+              <li>Nested item 1</li>
+              <li>Nested item 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item with nested list:
+    <ul>
+      <li>Nested item 1</li>
+    </ul>
+  </li>
+</ul></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Ordered Lists</div>
+    <ol>
+      <li>First step</li>
+      <li>Second step</li>
+      <li>Third step</li>
+    </ol>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><ol>
+  <li>First step</li>
+  <li>Second step</li>
+  <li>Third step</li>
+</ol></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Code & Preformatted Text</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Inline Code</div>
+    <p>Use the <code>code</code> element for inline code snippets like <code>const foo = 'bar';</code></p>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><p>Use the <code>code</code> element for inline code like <code>const foo = 'bar';</code></p></textarea>
+    </div>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Code Blocks</div>
+    <pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre>
+
+    <div class="es-card">
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre></textarea>
+    </div>
+  </div>
+</div>
 
   <div class="demo-section">
     <h2>About</h2>

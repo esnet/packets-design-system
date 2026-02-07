@@ -1,4 +1,3 @@
-import styles from "./ESInputNumber.module.css";
 import { ESInputText } from "../ESInputText";
 import { ESIcon } from "../ESIcon";
 
@@ -72,7 +71,7 @@ export class ESInputNumber extends ESInputText {
     protected render(): void {
         super.render();
         this.inputEl?.setAttribute('type', 'number');
-        this.containerEl?.classList.add(styles.ESInputNumber);
+        this.containerEl?.classList.add('es-input-number');
     }   
 }
 

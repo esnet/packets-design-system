@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESInputTextArea } from "@esnet/packets-ui";
+import { ESInputTextArea } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESInputTextArea> = {
   title: "Components/ESInputTextArea",

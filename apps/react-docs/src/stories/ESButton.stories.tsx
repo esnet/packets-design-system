@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { ESButton } from "@esnet/packets-ui";
+import { ESButton } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESButton> = {
   title: "Components/ESButton",

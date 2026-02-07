@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESDivider } from "@esnet/packets-ui";
+import { ESDivider } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESDivider> = {
   title: "Components/ESDivider",

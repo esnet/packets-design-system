@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESIconButton } from "@esnet/packets-ui";
+import { ESIconButton } from "@esnet/packets-ui-react";
 import { SettingsIcon } from "lucide-react";
 
 const meta: Meta<typeof ESIconButton> = {

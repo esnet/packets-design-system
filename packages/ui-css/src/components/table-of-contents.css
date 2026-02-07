@@ -2,7 +2,8 @@
   margin: 0 var(--esnet-size-spacing-large) var(--esnet-size-spacing-medium);
 }
 
-  .es-table-of-contents .es-table-of-contents__list {
+  /* List - already using semantic selector */
+  .es-table-of-contents ul {
     list-style: none;
     margin: var(--esnet-size-spacing-xsmall, 12px) 0 0;
     padding: 0px var(--esnet-size-spacing-medium, 16px);
@@ -23,7 +24,7 @@
     color: var(--esnet-color-dark-copy, #e6e6e6);
   }
 
-  .es-table-of-contents--isSticky {
+  .es-table-of-contents.es-sticky {
     position: sticky;
     top: var(--esnet-size-spacing-xxlarge, 72px);
   }

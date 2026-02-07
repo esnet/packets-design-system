@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ESFormSection, ESDatum } from "@esnet/packets-ui";
+import { ESFormSection, ESDatum } from "@esnet/packets-ui-react";
 
 const meta: Meta<typeof ESFormSection> = {
   title: "Components/ESFormSection",
