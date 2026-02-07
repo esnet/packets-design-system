@@ -7,11 +7,9 @@
    - State: .es-error, .es-disabled
 
    Usage: <div class="es-input-text"><input type="text"></div>
-   OR: <input type="text"> (within .packets context)
 */
 
-.es-input-text,
-.packets input[type='text'] {
+.es-input-text {
   /* Layout */
   display: inline-flex;
   width: 100%;

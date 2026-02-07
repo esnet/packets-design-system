@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { ESDataTableRowProps } from "./ESDataTable.types";
 
-import styles from "./ESDataTable.module.css";
-
 /**
- * Data Table Head Component
+ * Data Table Row Component
  *
  * Generic composable data table row component
  *
@@ -17,10 +15,7 @@ const ESDataTableRow: FC<ESDataTableRowProps> = ({
   ...other
 }) => {
   return (
-    <tr
-      className={`${styles.tableRow} ${className ? className : ""}`}
-      {...other}
-    >
+    <tr className={className || ""} {...other}>
       {children}
     </tr>
   );

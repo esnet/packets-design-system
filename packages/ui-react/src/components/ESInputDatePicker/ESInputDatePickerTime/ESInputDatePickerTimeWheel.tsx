@@ -1,7 +1,5 @@
 import * as React from "react";
 import { ESInputDatePickerTimeWheelProps } from "./ESInputDatePickerTime.types";
-import styles from "./ESInputDatePickerTime.module.css";
-import baseStyles from "../ESInputDatePicker.module.css";
 import clsx from "clsx";
 
 const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
@@ -35,9 +33,8 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
         <button
           key={i}
           className={clsx(
-            styles.timeWheelButton,
-            baseStyles.button,
-            v === value && baseStyles.selected,
+            "time-wheel-button",
+            v === value && "selected",
           )}
           ref={(el) => (wheelButtonRefs.current[i] = el!)}
           onClick={() => {
@@ -60,12 +57,12 @@ const ESInputDatePickerTimeWheel: React.FC<ESInputDatePickerTimeWheelProps> = ({
   }, []);
 
   return (
-    <div className={styles.timeWheel}>
-      <div className={styles.label}>{label}</div>
-      <div className={styles.timeWheelButtonGroup} ref={containerRef}>
-        <div className={styles.padding}></div>
+    <div className="time-wheel">
+      <div className="label">{label}</div>
+      <div className="time-wheel-button-group" ref={containerRef}>
+        <div className="padding"></div>
         {wheelComponents}
-        <div className={styles.padding}></div>
+        <div className="padding"></div>
       </div>
     </div>
   );

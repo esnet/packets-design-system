@@ -2,9 +2,6 @@ import React, { CSSProperties, FC } from "react";
 
 import { ESSkeletonSurfaceProps } from "./ESSkeletonSurfaceProps";
 
-// @ts-ignore
-import styles from "./ESSkeletonSurface.module.css";
-
 /**
  * ESSkeletonSurface Component
  *
@@ -30,7 +27,7 @@ const ESSkeletonSurface: FC<ESSkeletonSurfaceProps> = ({
     <div
       role="alert"
       aria-busy="true"
-      className={`${styles.skeletonSurface} ${isSquare ? "" : styles.rounded} ${className}`}
+      className={`es-skeleton-surface ${isSquare ? "" : "es-rounded"} ${className}`}
       style={inlineStyles}
     ></div>
   );

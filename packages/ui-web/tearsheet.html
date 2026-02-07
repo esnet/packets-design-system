@@ -553,9 +553,13 @@
     <es-form-section title="User Information">
       <div>
         <label>Name</label>
-        <input type="text" placeholder="Enter your name" style="width: 100%; padding: 8px; margin-bottom: 16px;">
+        <div class="es-input-text" style="margin-bottom: 16px;">
+          <input type="text" placeholder="Enter your name">
+        </div>
         <label>Email</label>
-        <input type="email" placeholder="Enter your email" style="width: 100%; padding: 8px;">
+        <div class="es-input-text" style="margin-bottom: 16px;">
+          <input type="email" placeholder="Enter your email">
+        </div>
       </div>
     </es-form-section>
 
@@ -583,6 +587,97 @@
       <textarea class="mono code-example" readonly rows="3"><es-form-section title="Settings" use-column-layout="false">
   <p>Form content without column layout</p>
 </es-form-section></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputDate</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Date Only</div>
+    <es-input-date type="date"></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="date"></es-input-date></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Time Only</div>
+    <es-input-date type="time"></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="time"></es-input-date></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Date and Time</div>
+    <es-input-date type="datetime"></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="datetime"></es-input-date></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-date type="date" variant="branded"></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="date" variant="branded"></es-input-date></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <es-input-date type="date" error></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="date" error></es-input-date></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Disabled State</div>
+    <es-input-date type="date" disabled value="2025-09-15T00:00:00.000Z"></es-input-date>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date type="date" disabled value="2025-09-15T00:00:00.000Z"></es-input-date></textarea>
+    </es-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>ESInputDateRange</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Date Range Selector</div>
+    <es-input-date-range></es-input-date-range>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date-range></es-input-date-range></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">With Initial Values</div>
+    <es-input-date-range value-start="2025-09-10T00:00:00.000Z" value-end="2025-09-20T00:00:00.000Z"></es-input-date-range>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><es-input-date-range
+  value-start="2025-09-10T00:00:00.000Z"
+  value-end="2025-09-20T00:00:00.000Z"></es-input-date-range></textarea>
+    </es-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <es-input-date-range variant="branded"></es-input-date-range>
+    <es-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><es-input-date-range variant="branded"></es-input-date-range></textarea>
     </es-card>
   </div>
 </div>
@@ -991,6 +1086,43 @@
     </es-card>
   </div>
 </div>
+
+  <div class="demo-section">
+    <h2>Data Table</h2>
+    <div class="demo-item">
+      <div class="demo-label">Default Table</div>
+      <es-data-table
+        columns='[{"key":"name","label":"Name","width":"40%"},{"key":"value","label":"Value","width":"30%"},{"key":"createdAt","label":"Created At","width":"30%"}]'
+        data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+      </es-data-table>
+
+      <es-card>
+        <h5>Code</h5>
+        <textarea class="mono code-example" readonly rows="4"><es-data-table
+  columns='[{"key":"name","label":"Name","width":"40%"},{"key":"value","label":"Value","width":"30%"},{"key":"createdAt","label":"Created At","width":"30%"}]'
+  data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+</es-data-table></textarea>
+      </es-card>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Sortable Table</div>
+      <es-data-table
+        sortable
+        columns='[{"key":"name","label":"Name","width":"40%","sortable":true},{"key":"value","label":"Value","width":"30%","sortable":true},{"key":"createdAt","label":"Created At","width":"30%","sortable":true}]'
+        data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+      </es-data-table>
+
+      <es-card>
+        <h5>Code</h5>
+        <textarea class="mono code-example" readonly rows="5"><es-data-table
+  sortable
+  columns='[{"key":"name","label":"Name","width":"40%","sortable":true},{"key":"value","label":"Value","width":"30%","sortable":true},{"key":"createdAt","label":"Created At","width":"30%","sortable":true}]'
+  data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+</es-data-table></textarea>
+      </es-card>
+    </div>
+  </div>
 
   <div class="demo-section">
     <h2>About</h2>

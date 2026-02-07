@@ -3,12 +3,10 @@ import { ESDataTableHeaderCellProps } from "./ESDataTable.types";
 
 import ESDataTableSortIcon from "./ESDataTableSortIcon";
 
-import styles from "./ESDataTable.module.css";
-
 /**
- * Data Table Head Component
+ * Data Table Header Cell Component
  *
- * Generic composable data table head component
+ * Generic composable data table header cell component
  *
  * @param {ESDataTableHeaderCellProps} props - React props
  * @returns {FC<ESDataTableHeaderCellProps>}
@@ -33,16 +31,12 @@ const ESDataTableHeaderCell: FC<ESDataTableHeaderCellProps> = ({
   }
 
   return (
-    <td
-      className={`${styles.tableHeadCell} ${className ? className : ""}`}
-      style={style}
-      {...other}
-    >
-      <div onClick={labelClick} className={styles.labelWrapper}>
+    <th className={className || ""} style={style} {...other}>
+      <div onClick={labelClick} className="labelWrapper">
         {children}
         {sort && <ESDataTableSortIcon sortDirection={sort} />}
       </div>
-    </td>
+    </th>
   );
 };
 

@@ -23,7 +23,8 @@
   --label-typography: var(--esnet-typography-header-6-sans-font);
 
   --corner-radius: var(--esnet-size-radius-large, 6px);
-  --cell-padding: var(--esnet-size-spacing-xsmall, 8px) var(--esnet-size-spacing-medium, 16px);
+  --cell-padding: var(--esnet-size-spacing-xsmall, 8px)
+    var(--esnet-size-spacing-medium, 16px);
 
   table-layout: auto;
   display: block;
@@ -92,6 +93,7 @@
   width: 100%;
   font: var(--label-typography);
   color: var(--esnet-color-dark-copy, #e6e6e6);
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {
@@ -118,6 +120,7 @@
   display: block;
   padding: var(--esnet-size-spacing-medium) 0;
   transition: background ease-in var(--esnet-time-duration-short, 100ms);
+  color: var(--body-copy-color);
 }
 
 .es-data-table tbody tr:hover,
@@ -139,12 +142,11 @@
   padding: var(--cell-padding);
   vertical-align: middle;
   display: block;
-  color: var(--body-copy-color);
 }
 
 .es-data-table tbody td::before {
   display: block;
-  content: attr(data-label);
+  content: attr(data-parent);
   font: var(--label-typography);
   color: var(--esnet-color-copy-alt);
 }
@@ -207,4 +209,11 @@
 
 .es-data-table tfoot td:last-of-type {
   border-bottom-right-radius: var(--esnet-size-radius-large);
+}
+
+/* Sort Icon */
+
+.es-data-table-sort-icon {
+  display: inline-block;
+  width: var(--esnet-size-spacing-medium);
 }

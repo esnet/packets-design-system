@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { useMemo } from "react";
 import { ESDataTableSortIconProps } from "./ESDataTable.types";
 
-import styles from "./ESDataTableSortIcon.module.css";
 import { getSortIcon } from "./ESDataTableUtils";
 
 /**
@@ -25,7 +24,7 @@ const ESDataTableSortIcon: FC<ESDataTableSortIconProps> = ({
     return getSortIcon(sortDirection);
   }, [sortDirection]);
 
-  return <span className={styles.sortIcon}>{icon}</span>;
+  return <span className="es-data-table-sort-icon">{icon}</span>;
 };
 
 ESDataTableSortIcon.displayName = "ESDataTableSortIcon";

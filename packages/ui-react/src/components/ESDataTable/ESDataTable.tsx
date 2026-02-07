@@ -10,8 +10,6 @@ import ESDataTableCell from "./ESDataTableCell";
 import ESDataTableFooter from "./ESDataTableFooter";
 import ESDataTableSkeletonLoading from "./ESDataTableSkeletonLoading";
 
-import styles from "./ESDataTable.module.css";
-
 /**
  * ESDataTable Component
  *
@@ -31,7 +29,7 @@ const ESDataTable: FC<ESDataTableProps> & {
   ESDataTableSkeletonLoading: typeof ESDataTableSkeletonLoading;
 } = ({ children, className, ...other }) => {
   return (
-    <table className={`${styles.dataTableRoot} ${className || ""}`} {...other}>
+    <table className={`es-data-table ${className || ""}`} {...other}>
       {children}
     </table>
   );

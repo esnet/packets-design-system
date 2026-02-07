@@ -1,0 +1,376 @@
+/* ==============================================================================
+   ES-INPUT-DATE-PICKER - Date/Time Picker Components
+   ==============================================================================
+
+   Styles for the date and time picker popup components.
+   Used by ESInputDate and ESInputDateRange.
+
+   Components:
+   - .es-input-date-picker - Main picker container (absolutely positioned popup)
+   - .es-input-date-picker-date - Calendar grid for date selection
+   - .es-input-date-picker-time - Time wheel picker
+*/
+
+/* Main Picker Container */
+
+.es-input-date-picker {
+  /* Layout */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+
+  /* Sizing */
+  width: fit-content;
+  height: fit-content;
+  min-height: 272px;
+
+  /* Styling */
+  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+  color: var(--esnet-color-light-copy, #3d3d3d);
+  box-shadow: var(--esnet-box-shadow-core-medium);
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+}
+
+.dark .es-input-date-picker {
+  background-color: var(--esnet-color-dark-surface-2, #000000);
+  color: var(--esnet-color-dark-copy, #ffffff);
+}
+
+.es-input-date-picker.es-branded {
+  border-radius: var(--esnet-size-radius-medium, 0.25rem);
+}
+
+/* Shared Button Styles */
+/* Used by both date and time picker buttons */
+
+.es-input-date-picker button {
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: var(--esnet-size-radius-medium, 0.5rem);
+  border-width: var(--esnet-size-border-width-small, 0.125rem);
+  border-style: solid;
+  border-color: transparent;
+  background: transparent;
+  color: var(--esnet-color-light-copy, #3d3d3d);
+}
+
+.dark .es-input-date-picker button {
+  color: var(--esnet-color-dark-copy, #ffffff);
+}
+
+.es-input-date-picker button:hover:not(:disabled) {
+  text-decoration: underline;
+  background-color: var(--esnet-color-core-blue-300, #64d2ff);
+  color: var(--esnet-color-light-copy, #3d3d3d);
+}
+
+.dark .es-input-date-picker button:hover:not(:disabled) {
+  background-color: var(--esnet-color-core-blue-400, #00b6f2);
+  color: var(--esnet-color-dark-copy, #ffffff);
+}
+
+.es-input-date-picker button:focus:not(:disabled) {
+  text-decoration: underline;
+  border-color: var(--esnet-color-core-blue-300, #64d2ff);
+}
+
+.es-input-date-picker button:active:not(:disabled),
+.es-input-date-picker button.selected {
+  text-decoration: underline;
+  background-color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--esnet-color-light-surface-2);
+  border-color: transparent !important;
+}
+
+.dark .es-input-date-picker button:active:not(:disabled),
+.dark .es-input-date-picker button.selected {
+  background-color: var(--esnet-color-core-blue-500, #00a0d6);
+  color: var(--esnet-color-dark-copy, #ffffff);
+}
+
+.es-input-date-picker button:disabled {
+  border-color: transparent;
+  cursor: default;
+  color: var(--esnet-color-core-white-600, #cccccc);
+}
+
+.dark .es-input-date-picker button:disabled {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+/* Date Picker Styles */
+
+.es-input-date-picker-date {
+  display: flex;
+  flex-direction: column;
+  padding: var(--esnet-size-spacing-xsmall, 0.5rem);
+}
+
+/* Navigation */
+
+.es-input-date-picker-date .nav {
+  display: flex;
+  gap: var(--esnet-size-spacing-xsmall, 0.5rem);
+  justify-content: space-between;
+  align-items: center;
+  min-height: var(--esnet-size-spacing-large, 2rem);
+  width: 100%;
+}
+
+.es-input-date-picker-date .nav-info {
+  display: flex;
+  gap: var(--esnet-size-spacing-medium, 1rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.es-input-date-picker-date .nav-info button {
+  outline: none;
+  background: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.es-input-date-picker-date .nav-info button svg {
+  cursor: pointer;
+  width: var(--esnet-size-spacing-medium, 1rem);
+  height: var(--esnet-size-spacing-medium, 1rem);
+}
+
+.es-input-date-picker-date .nav-button {
+  background: inherit;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Day Grid */
+
+.es-input-date-picker-date .day-grid {
+  display: grid;
+  height: 100%;
+  width: fit-content;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+}
+
+.es-input-date-picker-date .day-grid-header {
+  aspect-ratio: 1 / 1;
+  width: var(--esnet-size-spacing-large, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.es-input-date-picker-date .day-grid-button {
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  aspect-ratio: 1 / 1;
+  width: var(--esnet-size-spacing-large, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.es-input-date-picker-date .day-grid-button.today {
+  border-radius: var(--esnet-size-radius-circle, 999px);
+  border-color: var(--esnet-color-light-primary, #0088b5);
+}
+
+.dark .es-input-date-picker-date .day-grid-button.today {
+  border-color: var(--esnet-color-dark-secondary, #00b6f2);
+}
+
+/* Date Range Specific Styles */
+
+.es-input-date-picker-date .day-grid-button.date-range-start {
+  border-radius: var(--esnet-size-radius-medium, 0.5rem)
+    var(--esnet-size-radius-none, 0px) var(--esnet-size-radius-none, 0px)
+    var(--esnet-size-radius-medium, 0.5rem) !important;
+}
+
+.es-input-date-picker-date .day-grid-button.date-range-end {
+  border-radius: var(--esnet-size-radius-none, 0px)
+    var(--esnet-size-radius-medium, 0.5rem)
+    var(--esnet-size-radius-medium, 0.5rem) var(--esnet-size-radius-none, 0px) !important;
+}
+
+.es-input-date-picker-date .day-grid-button.date-range-edge {
+  background-color: var(--esnet-color-light-primary, #0088b5) !important;
+  color: var(--esnet-color-light-surface-2, #f2f2f2) !important;
+}
+
+.dark .es-input-date-picker-date .day-grid-button.date-range-edge {
+  background-color: var(--esnet-color-core-blue-500, #00a0d6) !important;
+  color: var(--esnet-color-dark-copy, #ffffff) !important;
+}
+
+.es-input-date-picker-date .day-grid-button.date-range-middle {
+  background-color: var(--esnet-color-core-blue-300, #64d2ff) !important;
+  color: var(--esnet-color-light-copy, #3d3d3d) !important;
+  border-radius: var(--esnet-size-radius-none, 0px) !important;
+  border: none !important;
+}
+
+.dark .es-input-date-picker-date .day-grid-button.date-range-middle {
+  background-color: var(--esnet-color-core-blue-400, #00b6f2) !important;
+  color: var(--esnet-color-dark-copy, #ffffff) !important;
+}
+
+/* Month Grid */
+
+.es-input-date-picker-date .month-grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esnet-size-spacing-small, 0.75rem);
+  place-items: center;
+  min-width: 224px;
+}
+
+.es-input-date-picker-date .month-grid-button {
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Year Grid */
+
+.es-input-date-picker-date .year-grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--esnet-size-spacing-xxsmall, 0.25rem);
+  place-items: center;
+  min-width: 224px;
+}
+
+.es-input-date-picker-date .year-grid-button {
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  border-style: solid;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Time Picker Styles */
+
+.es-input-date-picker-time {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: var(--esnet-size-spacing-xsmall, 0.5rem);
+}
+
+.es-input-date-picker-time .time-wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: var(--esnet-size-spacing-large, 2rem);
+}
+
+.es-input-date-picker-time .time-wheel .label {
+  min-height: var(--esnet-size-spacing-large, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.es-input-date-picker-time .time-wheel-button-group {
+  flex: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: 32px;
+  place-items: center;
+  width: var(--esnet-size-spacing-large, 2rem);
+  max-height: calc(var(--esnet-size-spacing-large, 2rem) * 7);
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  --fade-from-color: var(--esnet-color-light-surface-2, #f2f2f2);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--fade-from-color) 20%,
+    var(--fade-from-color) 80%,
+    transparent 100%
+  );
+}
+
+.dark .es-input-date-picker-time .time-wheel-button-group {
+  --fade-from-color: var(--esnet-color-dark-surface-2, #000000);
+}
+
+.es-input-date-picker-time {
+  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+}
+
+.dark .es-input-date-picker-time {
+  background-color: var(--esnet-color-dark-surface-2, #000000);
+}
+
+.es-input-date-picker-time .time-wheel-button-group::-webkit-scrollbar {
+  display: none;
+}
+
+.es-input-date-picker-time .time-wheel-button {
+  background: inherit;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+  width: var(--esnet-size-spacing-large, 2rem);
+  border: none;
+  margin: 0;
+}
+
+.es-input-date-picker-time .padding {
+  width: 100%;
+  grid-row: span 3;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Input Date/DateRange Container Styles */
+
+.es-input-date,
+.es-input-date-range {
+  /* Layout */
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+}

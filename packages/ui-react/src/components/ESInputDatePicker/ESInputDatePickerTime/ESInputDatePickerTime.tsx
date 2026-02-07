@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./ESInputDatePickerTime.module.css";
 import {
   ESInputDatePickerTimeProps,
   Meridiem,
@@ -165,7 +164,7 @@ const ESInputDatePickerTime: React.FC<ESInputDatePickerTimeProps> = ({
     return wheels;
   }, [value, hourSetting, minuteSetting, secondSetting, onChangePart]);
 
-  return <div className={styles.ESInputDatePickerTime}>{timeWheels}</div>;
+  return <div className="es-input-date-picker-time">{timeWheels}</div>;
 };
 
 export default ESInputDatePickerTime;

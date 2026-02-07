@@ -28,6 +28,7 @@
 @import './components/input-password.css'; /* ESInputPassword */
 @import './components/input-number.css'; /* ESInputNumber */
 @import './components/input-email.css'; /* ESInputEmail */
+@import './components/input-date-picker.css'; /* ESInputDatePicker */
 @import './components/input-checkbox.css'; /* ESInputCheckbox */
 @import './components/icon.css'; /* ESIcon */
 @import './components/icon-button.css'; /* ESIconButton */

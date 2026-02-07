@@ -1,6 +1,5 @@
 import * as React from "react";
 import clsx from "clsx";
-import styles from "../ESInputDate/ESInputDate.module.css";
 import { DateRange, ESInputDateRangeProps } from "./ESInputDateRange.types";
 import ESInputText from "../ESInputText";
 import { Calendar } from "lucide-react";
@@ -67,9 +66,9 @@ export function ESInputDateRange({
     <div
       ref={containerRef}
       className={clsx(
-        styles.ESInputDate,
-        focus && styles.focus,
-        variant && styles[variant],
+        "es-input-date-range",
+        focus && "focus",
+        variant,
         className,
       )}
     >

@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import { ESDataTableHeadProps } from "./ESDataTable.types";
 
-import styles from "./ESDataTable.module.css";
-
 /**
  * Data Table Head Component
  *
@@ -17,10 +15,7 @@ const ESDataTableHead: FC<ESDataTableHeadProps> = ({
   ...other
 }) => {
   return (
-    <thead
-      className={`${styles.tableHead} ${className ? className : ""}`}
-      {...other}
-    >
+    <thead className={className || ""} {...other}>
       <tr>{children}</tr>
     </thead>
   );

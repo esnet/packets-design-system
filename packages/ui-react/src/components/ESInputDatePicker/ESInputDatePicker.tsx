@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./ESInputDatePicker.module.css";
 import { ESInputDatePickerProps } from "./ESInputDatePicker.types";
 import ESInputDatePickerDate from "./ESInputDatePickerDate/ESInputDatePickerDate";
 import ESInputDatePickerTime from "./ESInputDatePickerTime/ESInputDatePickerTime";
@@ -102,7 +101,7 @@ export function ESInputDatePicker({
     }
   }, [type, value, onChange, rangeEndValue, onChangeRangeEnd]);
 
-  return <div className={styles.ESInputDatePicker}>{inputTypeMenus}</div>;
+  return <div className="es-input-date-picker">{inputTypeMenus}</div>;
 }
 
 ESInputDatePicker.displayName = "ESInputDatePicker";

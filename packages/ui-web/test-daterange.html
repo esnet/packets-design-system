@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../ui-css/dist/styles.css">
+  <script type="module" src="./dist/esm/bundle.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "lucide": "https://unpkg.com/lucide@0.563.0/dist/esm/lucide/src/lucide.js"
+      }
+    }
+  </script>
+</head>
+<body class="packets" style="padding: 40px;">
+  <h3>Date Range Test</h3>
+  <es-input-date-range></es-input-date-range>
+  
+  <script type="module">
+    // Debug logging
+    setTimeout(() => {
+      const range = document.querySelector('es-input-date-range');
+      
+      console.log('Range component:', range);
+      
+      // Click the input to open
+      range.querySelector('input')?.click();
+      
+      setTimeout(() => {
+        const picker = range.querySelector('es-input-date-picker');
+        const datePicker = picker?.querySelector('es-input-date-picker-date');
+        console.log('Picker component:', picker);
+        console.log('Date picker component:', datePicker);
+        console.log('isDateRange attribute:', datePicker?.getAttribute('is-date-range'));
+        console.log('isDateRange property:', datePicker?.isDateRange);
+        console.log('firstSelectedDate:', datePicker?.firstSelectedDate);
+      }, 500);
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,6 +1,4 @@
 import * as React from "react";
-import styles from "./ESInputDatePickerDate.module.css";
-import baseStyles from "../ESInputDatePicker.module.css";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   flattenedDateGrid,
@@ -44,7 +42,7 @@ const ESInputDatePickerDate = ({
   const dayMenu = React.useMemo(() => {
     if (view !== "day") return; // no need to compute if not to be rendered
     const weekdayHeaders = Array.from(weekdayNames).map((day) => (
-      <div key={day} className={styles.dayGridHeader}>
+      <div key={day} className="day-grid-header">
         {day}
       </div>
     ));
@@ -54,26 +52,25 @@ const ESInputDatePickerDate = ({
       <button
         key={dateInfo.toString()}
         className={clsx(
-          styles.dayGridButton,
-          baseStyles.button,
+          "day-grid-button",
           value &&
             dateInfo.toDateString() === value.toDateString() &&
-            baseStyles.selected,
-          dateInfo.toDateString() === new Date().toDateString() && styles.today,
+            "selected",
+          dateInfo.toDateString() === new Date().toDateString() && "today",
           isDateRange &&
             value &&
             rangeEndValue &&
             ((dateInfo.toDateString() === value.toDateString() && [
-              styles.dateRangeStart,
-              styles.dateRangeEdge,
+              "date-range-start",
+              "date-range-edge",
             ]) ||
               (dateInfo.toDateString() === rangeEndValue.toDateString() && [
-                styles.dateRangeEnd,
-                styles.dateRangeEdge,
+                "date-range-end",
+                "date-range-edge",
               ]) ||
               (dateInfo > value &&
                 dateInfo < rangeEndValue &&
-                styles.dateRangeMiddle)),
+                "date-range-middle")),
         )}
         disabled={
           dateInfo.getMonth() !== viewDate.getMonth() ||
@@ -147,12 +144,11 @@ const ESInputDatePickerDate = ({
         <button
           key={monthName}
           className={clsx(
-            styles.monthGridButton,
-            baseStyles.button,
+            "month-grid-button",
             value &&
               monthDate.getMonth() === value.getMonth() &&
               monthDate.getFullYear() === value.getFullYear() &&
-              baseStyles.selected,
+              "selected",
           )}
           disabled={
             (minSetting && monthDate < minSetting) ||
@@ -186,9 +182,8 @@ const ESInputDatePickerDate = ({
         <button
           key={year}
           className={clsx(
-            styles.yearGridButton,
-            baseStyles.button,
-            value && year === value.getFullYear() && baseStyles.selected,
+            "year-grid-button",
+            value && year === value.getFullYear() && "selected",
           )}
           disabled={
             (minSetting && yearDate < minSetting) ||
@@ -243,23 +238,23 @@ const ESInputDatePickerDate = ({
     }
 
     return (
-      <div className={styles.nav}>
+      <div className="nav">
         <button
-          className={clsx(styles.navButton, baseStyles.button)}
+          className="nav-button"
           onClick={() => onClickNav("left")}
         >
           <ChevronLeft />
         </button>
-        <div className={styles.navInfo}>
-          <button className={baseStyles.button} onClick={onClickMonth}>
+        <div className="nav-info">
+          <button onClick={onClickMonth}>
             {getMonthName(viewDate)} <ChevronDown />
           </button>
-          <button className={baseStyles.button} onClick={onClickYear}>
+          <button onClick={onClickYear}>
             {viewDate.getFullYear()} <ChevronDown />
           </button>
         </div>
         <button
-          className={clsx(styles.navButton, baseStyles.button)}
+          className="nav-button"
           onClick={() => onClickNav("right")}
         >
           <ChevronRight />
@@ -271,16 +266,16 @@ const ESInputDatePickerDate = ({
   const menuComponent = React.useMemo(() => {
     switch (view) {
       case "day":
-        return <div className={styles.dayGrid}>{dayMenu}</div>;
+        return <div className="day-grid">{dayMenu}</div>;
       case "month":
-        return <div className={styles.monthGrid}>{monthMenu}</div>;
+        return <div className="month-grid">{monthMenu}</div>;
       case "year":
-        return <div className={styles.yearGrid}>{yearMenu}</div>;
+        return <div className="year-grid">{yearMenu}</div>;
     }
   }, [view, dayMenu, monthMenu, yearMenu]);
 
   return (
-    <div className={styles.ESInputDatePickerDate}>
+    <div className="es-input-date-picker-date">
       {navComponent}
       {menuComponent}
     </div>

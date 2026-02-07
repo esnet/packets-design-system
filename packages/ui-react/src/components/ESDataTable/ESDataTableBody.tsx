@@ -1,12 +1,10 @@
 import React, { FC } from "react";
 import { ESDataTableBodyProps } from "./ESDataTable.types";
 
-import styles from "./ESDataTable.module.css";
-
 /**
- * Data Table Head Component
+ * Data Table Body Component
  *
- * Generic composable data table head component
+ * Generic composable data table body component
  *
  * @param {ESDataTableBodyProps} props - React props
  * @returns {FC<ESDataTableBodyProps>}
@@ -17,10 +15,7 @@ const ESDataTableBody: FC<ESDataTableBodyProps> = ({
   ...other
 }) => {
   return (
-    <tbody
-      className={`${styles.tableBody} ${className ? className : ""}`}
-      {...other}
-    >
+    <tbody className={className || ""} {...other}>
       {children}
     </tbody>
   );

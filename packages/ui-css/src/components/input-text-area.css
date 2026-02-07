@@ -27,6 +27,13 @@
     border-color: var(--esnet-color-core-slate-100, #c3c7d9);
   }
 
+  .dark textarea,
+  .packets.dark textarea,
+  .dark .packets textarea {
+    background-color: var(--esnet-color-core-black-1000, #000000);
+    color: var(--esnet-color-dark-copy, #ffffff);
+  }
+
   .es-input-text-area {
   font: var(--esnet-typography-copy-1-sans-font,
     400 16px/120% var(--esnet-font-family-body-sans));

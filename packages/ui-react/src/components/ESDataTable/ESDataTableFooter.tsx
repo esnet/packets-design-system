@@ -1,12 +1,10 @@
 import React, { FC } from "react";
 import { ESDataTableFooterProps } from "./ESDataTable.types";
 
-import styles from "./ESDataTable.module.css";
-
 /**
- * Data Table Head Component
+ * Data Table Footer Component
  *
- * Generic composable data table head component
+ * Generic composable data table footer component
  *
  * @param {ESDataTableFooterProps} props - React props
  * @returns {FC<ESDataTableFooterProps>}
@@ -17,10 +15,7 @@ const ESDataTableFooter: FC<ESDataTableFooterProps> = ({
   ...other
 }) => {
   return (
-    <tfoot
-      className={`${styles.tableFooter} ${className ? className : ""}`}
-      {...other}
-    >
+    <tfoot className={className || ""} {...other}>
       {children}
     </tfoot>
   );
