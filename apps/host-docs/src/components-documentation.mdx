@@ -6,9 +6,261 @@ import { Meta } from "@storybook/blocks";
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # About
+    # Component Systems
 
-    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+    Packets Design System provides **three different ways** to use components in your projects:
+
+    1. **CSS Components** - Pure HTML/CSS with no JavaScript dependencies
+    2. **Web Components** - Standards-based custom elements that work with any framework
+    3. **React Components** - TypeScript React components for React applications
+
+    Each system offers the same visual design and functionality, but differs in how you integrate them into your project. Use the comparison table below to choose the right approach for your needs.
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Quick Comparison
+
+    <table style={{width: '100%', borderCollapse: 'collapse', marginTop: '20px'}}>
+      <thead>
+        <tr style={{borderBottom: '2px solid #ddd'}}>
+          <th style={{textAlign: 'left', padding: '12px'}}>Feature</th>
+          <th style={{textAlign: 'left', padding: '12px'}}>CSS Components</th>
+          <th style={{textAlign: 'left', padding: '12px'}}>Web Components</th>
+          <th style={{textAlign: 'left', padding: '12px'}}>React Components</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Framework</strong></td>
+          <td style={{padding: '12px'}}>None required</td>
+          <td style={{padding: '12px'}}>Framework-agnostic</td>
+          <td style={{padding: '12px'}}>React only</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>JavaScript</strong></td>
+          <td style={{padding: '12px'}}>Optional</td>
+          <td style={{padding: '12px'}}>Included</td>
+          <td style={{padding: '12px'}}>Required</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Bundle Size</strong></td>
+          <td style={{padding: '12px'}}>Smallest (CSS only)</td>
+          <td style={{padding: '12px'}}>Medium (JS + CSS)</td>
+          <td style={{padding: '12px'}}>Largest (React + components)</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>TypeScript</strong></td>
+          <td style={{padding: '12px'}}>N/A</td>
+          <td style={{padding: '12px'}}>Full type definitions</td>
+          <td style={{padding: '12px'}}>Full type definitions</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Browser Support</strong></td>
+          <td style={{padding: '12px'}}>All browsers</td>
+          <td style={{padding: '12px'}}>Modern browsers</td>
+          <td style={{padding: '12px'}}>All browsers (with React)</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Learning Curve</strong></td>
+          <td style={{padding: '12px'}}>Easiest</td>
+          <td style={{padding: '12px'}}>Medium</td>
+          <td style={{padding: '12px'}}>Medium</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Interactivity</strong></td>
+          <td style={{padding: '12px'}}>Bring your own JS</td>
+          <td style={{padding: '12px'}}>Built-in</td>
+          <td style={{padding: '12px'}}>Built-in with React patterns</td>
+        </tr>
+        <tr style={{borderBottom: '1px solid #eee'}}>
+          <td style={{padding: '12px'}}><strong>Best For</strong></td>
+          <td style={{padding: '12px'}}>Static sites, server-rendered apps</td>
+          <td style={{padding: '12px'}}>Framework-agnostic apps</td>
+          <td style={{padding: '12px'}}>React applications</td>
+        </tr>
+        <tr>
+          <td style={{padding: '12px'}}><strong>Documentation</strong></td>
+          <td style={{padding: '12px'}}><a href="http://localhost:6009" target="_blank">View CSS Docs →</a></td>
+          <td style={{padding: '12px'}}><a href="http://localhost:6007" target="_blank">View Web Components Docs →</a></td>
+          <td style={{padding: '12px'}}><a href="http://localhost:6006" target="_blank">View React Docs →</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Which Should I Choose?
+
+    **Choose CSS Components if:**
+    - You don't use a JavaScript framework
+    - You're building a static or server-rendered site
+    - You want the smallest possible bundle size
+    - You need maximum compatibility
+
+    **Choose Web Components if:**
+    - You use multiple frameworks or might switch frameworks
+    - You want framework-agnostic components
+    - You're using vanilla JavaScript
+    - You need true encapsulation via Shadow DOM
+
+    **Choose React Components if:**
+    - You're building a React application
+    - You want TypeScript support and type safety
+    - You need deep integration with React patterns
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # CSS Components
+
+    **Pure HTML/CSS implementation with no JavaScript dependencies**
+
+    [View CSS Components Documentation →](http://localhost:6009)
+
+    ## What are they?
+
+    CSS components are pure HTML elements with CSS classes applied. They have no JavaScript framework dependencies and can be used in any project.
+
+    ## When to use CSS Components
+
+    - **Static websites** - Blogs, marketing sites, documentation sites
+    - **Server-rendered applications** - Traditional server-side frameworks (PHP, Rails, Django, etc.)
+    - **No build system** - Projects that don't use npm, webpack, or other bundlers
+    - **Maximum compatibility** - Need to work with any framework or no framework at all
+    - **Minimal bundle size** - Only CSS is loaded, no JavaScript overhead
+    - **Progressive enhancement** - Starting with semantic HTML and adding interactivity separately
+
+    ## Example Usage
+
+```html
+<div class="packets">
+  <button class="es-button es-primary">Click Me</button>
+  <div class="es-input-text">
+    <input type="text" placeholder="Enter text...">
+  </div>
+</div>
+```
+
+    ## Installation
+
+**Via CDN:**
+```html
+<link rel="stylesheet" href="https://unpkg.com/@esnet/packets-ui-css@latest/dist/styles.css" />
+```
+
+**Via NPM:**
+```bash
+npm install @esnet/packets-ui-css
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Web Components
+
+    **Standards-based custom elements that work with any framework**
+
+    [View Web Components Documentation →](http://localhost:6007)
+
+    ## What are they?
+
+    Web Components are browser-native custom HTML elements built with the Web Components standard. They encapsulate their own styling and behavior and work with any JavaScript framework or vanilla JavaScript.
+
+    ## When to use Web Components
+
+    - **Framework-agnostic projects** - Need to work across React, Vue, Angular, etc.
+    - **Micro-frontends** - Different parts of your app use different frameworks
+    - **Vanilla JavaScript** - Building with plain JavaScript without a framework
+    - **TypeScript projects** - Full TypeScript support with type definitions included
+    - **Future-proof** - Using web standards that will work in any future framework
+    - **Legacy integration** - Adding modern components to existing applications
+    - **Encapsulation** - Need true style and DOM encapsulation via Shadow DOM
+
+    ## Example Usage
+
+```html
+<div class="packets">
+  <es-button variant="primary">Click Me</es-button>
+  <es-input-text placeholder="Enter text..."></es-input-text>
+</div>
+
+<script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
+```
+
+    ## Installation
+
+**Via CDN:**
+```html
+<script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
+```
+
+**Via NPM:**
+```bash
+npm install @esnet/packets-ui-web
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # React Components
+
+    **TypeScript React components with full type safety and React integration**
+
+    [View React Components Documentation →](http://localhost:6006)
+
+    ## What are they?
+
+    React components are TypeScript-first components designed specifically for React applications. They provide full type safety, React hooks integration, and idiomatic React patterns.
+
+    ## When to use React Components
+
+    - **React applications** - Your project is built with React
+    - **TypeScript projects** - Want full IntelliSense and type checking
+    - **React ecosystem** - Need integration with React Router, Redux, etc.
+    - **React patterns** - Using hooks, context, and other React features
+    - **Create React App, Next.js, Vite** - Modern React build tools
+
+    ## Example Usage
+
+```tsx
+import { ESButton, ESInputText } from '@esnet/packets-ui-react';
+
+function MyComponent() {
+  const [value, setValue] = useState('');
+
+  return (
+    <div className="packets">
+      <ESButton variant="primary" onClick={() => alert('Clicked!')}>
+        Click Me
+      </ESButton>
+      <ESInputText
+        placeholder="Enter text..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </div>
+  );
+}
+```
+
+    ## Installation
+
+**Via NPM:**
+```bash
+npm install @esnet/packets-ui-react
+```
 
   </div>
 </div>

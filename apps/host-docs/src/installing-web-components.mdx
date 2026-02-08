@@ -1,0 +1,149 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="About/Installing Web Components" />
+
+<img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installing Web Components
+
+    Standards-based custom elements that work with any framework or vanilla JavaScript. Framework-agnostic components with built-in interactivity and full TypeScript support.
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installation
+
+    ## Via NPM/PNPM/Yarn
+
+    Install the package:
+
+```bash
+npm install @esnet/packets-ui-web
+```
+
+    Import in your JavaScript/TypeScript:
+
+```javascript
+import '@esnet/packets-ui-web';
+```
+
+    ## Via CDN (No Build System)
+
+    For projects without a build system, you can use unpkg CDN:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+</head>
+<body class="packets">
+  <!-- Your Web Components here -->
+  <es-button variant="primary">Click Me</es-button>
+  <es-input-text placeholder="Enter text..."></es-input-text>
+
+  <!-- Load Web Components from unpkg -->
+  <script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
+</body>
+</html>
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Usage
+
+    Web Components work with any framework or vanilla HTML:
+
+```html
+<div class="packets">
+  <es-button variant="primary">Click Me</es-button>
+  <es-input-text placeholder="Enter text..."></es-input-text>
+  <es-alert variant="info" title="Info Alert">
+    This is an informational message.
+  </es-alert>
+</div>
+```
+
+    ## With React
+
+```tsx
+function MyComponent() {
+  return (
+    <div className="packets">
+      <es-button variant="primary">Click Me</es-button>
+      <es-input-text placeholder="Enter text..."></es-input-text>
+    </div>
+  );
+}
+```
+
+    ## With Vue
+
+```vue
+<template>
+  <div class="packets">
+    <es-button variant="primary">Click Me</es-button>
+    <es-input-text placeholder="Enter text..."></es-input-text>
+  </div>
+</template>
+```
+
+    ## With Vanilla JavaScript
+
+```javascript
+const button = document.createElement('es-button');
+button.setAttribute('variant', 'primary');
+button.textContent = 'Click Me';
+document.body.appendChild(button);
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # TypeScript Support
+
+    Web Components include full TypeScript type definitions. When using TypeScript, you'll get full IntelliSense and type checking:
+
+```typescript
+import '@esnet/packets-ui-web';
+
+// TypeScript knows about all custom element properties and methods
+const button = document.querySelector('es-button');
+if (button) {
+  button.variant = 'primary'; // Fully typed
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Next Steps
+
+    Now that you've installed the Web Components, view the full component documentation:
+
+    **[View Web Components Documentation →](?path=/docs/components-web-components--docs)**
+
+    Or explore the interactive Web Components Storybook at [http://localhost:6007](http://localhost:6007) _(Running locally on port 6007)_
+
+    The Web Components documentation includes:
+    - Interactive examples of all components
+    - Component properties and events
+    - Framework integration examples
+    - TypeScript type definitions
+
+  </div>
+</div>

@@ -1,0 +1,162 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="About/Installing React Components" />
+
+<img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installing React Components
+
+    TypeScript-first React components designed specifically for React applications. Full type safety, React hooks integration, and idiomatic React patterns.
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installation
+
+    ## Via NPM/PNPM/Yarn
+
+    Install the package:
+
+```bash
+npm install @esnet/packets-ui-react
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Usage
+
+    Import components and use them in your React application:
+
+```tsx
+import { ESButton, ESInputText, ESAlert } from '@esnet/packets-ui-react';
+
+function MyComponent() {
+  const [value, setValue] = useState('');
+
+  return (
+    <div className="packets">
+      <ESButton variant="primary" onClick={() => alert('Clicked!')}>
+        Click Me
+      </ESButton>
+
+      <ESInputText
+        placeholder="Enter text..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+
+      <ESAlert variant="info" title="Info Alert">
+        This is an informational message.
+      </ESAlert>
+    </div>
+  );
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # TypeScript Support
+
+    All React components are written in TypeScript and provide full type definitions. You'll get complete IntelliSense and type checking:
+
+```tsx
+import { ESButton } from '@esnet/packets-ui-react';
+import type { ESButtonProps } from '@esnet/packets-ui-react';
+
+// Fully typed component props
+const MyButton: React.FC = () => {
+  return (
+    <ESButton
+      variant="primary"  // TypeScript will autocomplete: "primary" | "secondary" | "tertiary"
+      size="medium"      // TypeScript will autocomplete: "small" | "medium" | "large"
+      onClick={(e) => {
+        // e is fully typed as React.MouseEvent
+        console.log(e.currentTarget);
+      }}
+    >
+      Click Me
+    </ESButton>
+  );
+};
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Framework Compatibility
+
+    React components work with all modern React setups:
+
+    - **Create React App**
+    - **Next.js** (App Router and Pages Router)
+    - **Vite**
+    - **Remix**
+    - **Gatsby**
+    - Any other React 18+ environment
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Theme Setup
+
+    Wrap your application with the `packets` class to enable Packets styling:
+
+```tsx
+function App() {
+  return (
+    <div className="packets">
+      {/* Your application components */}
+    </div>
+  );
+}
+```
+
+    For dark mode, add the `dark` class:
+
+```tsx
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <div className={`packets ${darkMode ? 'dark' : 'light'}`}>
+      {/* Your application components */}
+    </div>
+  );
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Next Steps
+
+    Now that you've installed the React components, view the full component documentation:
+
+    **[View React Components Documentation →](?path=/docs/components-react-components--docs)**
+
+    Or explore the interactive React Components Storybook at [http://localhost:6006](http://localhost:6006) _(Running locally on port 6006)_
+
+    The React documentation includes:
+    - Interactive examples of all components
+    - Component props and TypeScript types
+    - Usage examples with hooks and state management
+    - Accessibility guidelines
+
+  </div>
+</div>
