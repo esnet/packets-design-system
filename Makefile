@@ -25,7 +25,7 @@ define run_pnpm
 	$(DOCKER_RUN) bash -c "$(PNPM_SETUP) && $(1)"
 endef
 
-.PHONY: pull-image clean-screenshots generate-screenshots regenerate-screenshots test test-react test-web test-css build lint format clean help
+.PHONY: pull-image clean-screenshots generate-screenshots regenerate-screenshots test test-react test-web test-css build lint format clean docs-build docs-run docs-stop help
 
 help:
 	@echo "Docker-based Lifecycle Commands"
@@ -51,6 +51,11 @@ help:
 	@echo "  format                 - Format code with prettier"
 	@echo "  clean                  - Clean build artifacts"
 	@echo ""
+	@echo "Documentation:"
+	@echo "  docs-build             - Build Docker image with all 4 Storybooks"
+	@echo "  docs-run               - Run documentation container on port 9888"
+	@echo "  docs-stop              - Stop running documentation container"
+	@echo ""
 	@echo "Playwright Screenshot management:"
 	@echo "  generate-screenshots   - Generate new screenshots for all packages"
 	@echo "  regenerate-screenshots - Clean then generate screenshots for all packages"
@@ -64,6 +69,11 @@ help:
 	@echo "  2. make build                    # Build packages"
 	@echo "  3. make test                     # Run tests"
 	@echo "  4. make regenerate-screenshots   # Update screenshots if needed"
+	@echo ""
+	@echo "Documentation workflow:"
+	@echo "  1. make docs-build               # Build documentation container"
+	@echo "  2. make docs-run                 # Run at http://localhost:9888"
+	@echo "  3. make docs-stop                # Stop when done"
 
 pull-image:
 	@echo "Pulling Playwright Docker image..."
@@ -120,3 +130,27 @@ generate-screenshots:
 		cd ../.. && chown -R $(USER_ID):$(GROUP_ID) packages/ui-react/src packages/ui-web/tests packages/ui-css/tests 2>/dev/null || true)
 
 regenerate-screenshots: clean-screenshots generate-screenshots
+
+# Documentation Docker commands
+docs-build:
+	@echo "Building documentation Docker image with all 4 Storybooks..."
+	docker build -t packets-docs .
+
+docs-run:
+	@echo "Starting documentation container on http://localhost:9888..."
+	@echo "Documentation will be available at:"
+	@echo "  / (root)    - Host documentation (main hub)"
+	@echo "  /react      - React Components Storybook"
+	@echo "  /web        - Web Components Storybook"
+	@echo "  /css        - CSS Components Storybook"
+	@echo ""
+	@echo "Press Ctrl+C to stop the container"
+	@echo ""
+	@docker stop packets-docs 2>/dev/null || true
+	@docker rm packets-docs 2>/dev/null || true
+	docker run --rm --name packets-docs -p 9888:80 packets-docs
+
+docs-stop:
+	@echo "Stopping documentation container..."
+	docker stop packets-docs || true
+	docker rm packets-docs || true
