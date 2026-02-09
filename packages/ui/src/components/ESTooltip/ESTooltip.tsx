@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./ESTooltip.module.css";
 import { ESTooltipProps } from "./ESTooltip.types";
-import { ESDropdown } from "../ESDropdown";
 import ESIcon from "../ESIcon";
-
+import ESDropdown from "../ESDropdown";
 /**
  * ESTooltip Component
  *
