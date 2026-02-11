@@ -1,39 +1,24 @@
 import * as React from "react";
 import { test, expect } from "@playwright/experimental-ct-react";
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
-import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import { ESDropdownProps } from "../ESDropdown.types";
 import ESDropdown from "../ESDropdown";
-import ESDropdownAnchor from "../ESDropdownAnchor";
-import ESDropdownContent from "../ESDropdownContent";
 test.describe("ESDropdown", () => {
   const { testTable, themes }: ComponentTestTableType<ESDropdownProps> = {
     testTable: [
       {
         name: "default",
         props: {
-          children: [
-            <ESDropdownAnchor key="a">
-              <button data-testid="dropdown-button">open button</button>
-            </ESDropdownAnchor>,
-            <ESDropdownContent key="b" style={{ padding: 16 }}>
-              dropdown content
-            </ESDropdownContent>,
-          ],
+          anchor: <button data-testid="dropdown-button">open button</button>,
+          children: <div>dropdown content</div>,
         },
       },
       {
         name: "caret",
         props: {
+          anchor: <button data-testid="dropdown-button">open button</button>,
           caret: true,
-          children: [
-            <ESDropdownAnchor key="a">
-              <button data-testid="dropdown-button">open button</button>
-            </ESDropdownAnchor>,
-            <ESDropdownContent key="b" style={{ padding: 16 }}>
-              dropdown content
-            </ESDropdownContent>,
-          ],
+          children: <div>dropdown content</div>,
         },
       },
     ],
