@@ -1,29 +1,36 @@
-import React from "react";
+import React, { useMemo } from "react";
 import clsx from "clsx";
 import styles from "./ESInputSelect.module.css";
 import { ESInputSelectProps } from "./ESInputSelect.types";
-import ESIcon from "../ESIcon";
 import useControllableState from "../../lib/hooks/useControllableState";
 import usePopupState from "../../lib/hooks/usePopupState";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 /**
  * ESInputSelect Component
  *
- * If there is no value or default value provided, the rendered text will default to "Select an option".
+ * This component mimics HTML select single select, and can be controlled or uncontrolled.
+ * For multi-select, see `ESInputTypeahead`.
+ *
+ * Underneath the hood, no select tag or option tags are used, but rather a div with a popup containing buttons,
+ * utilizing a synthetic select change event that is passed to the `onChange` handler.
+ * The synthetic event ONLY includes the target (the equivalent of the select element),
+ * which includes the `selectedOptions` attribute, and the event type ("change").
  *
  * @param {ESInputSelectProps} props
  * @returns {React.ReactElement}
  */
 export function ESInputSelect({
+  variant = "primary",
   className,
   disabled,
-  variant = "primary",
   error,
-  options,
+  placeholder = "Select an option",
+  name,
   value,
   defaultValue = "",
   onChange,
-  ...props
+  children,
 }: ESInputSelectProps) {
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const optionsRef = React.useRef<HTMLDivElement>(null);
@@ -34,38 +41,68 @@ export function ESInputSelect({
     "active",
   );
 
-  const [selectedOption, setSelectedOption] = useControllableState<string>({
+  // maintain a option value to option text (children) in order to render the correct text on the label
+  const valueToText = useMemo(() => {
+    const map: { [k: string]: string } = {};
+    React.Children.forEach(children, (child) => {
+      if (!React.isValidElement(child)) return;
+      const value: string = child.props.value ?? child.props.children;
+      map[value] = child.props.children;
+    });
+    return map;
+  }, [children]);
+
+  // the underlying value that is tracked
+  const [selectedValue, setSelectedValue] = useControllableState<string>({
     value,
     defaultValue,
-    onChange,
   });
+  // the label shown inside the input box, may be different from the value
+  const label = React.useMemo(
+    () => (selectedValue ? valueToText[selectedValue] : placeholder),
+    [selectedValue, valueToText, placeholder],
+  );
 
-  const dropdownOptions = React.useMemo(() => {
-    return options.map((option, i) => {
-      const selected = selectedOption === option;
-      return (
-        <button
-          className={styles.dropdownOption}
-          key={"select-option-" + i}
-          type="button"
-          role="option"
-          aria-selected={selected}
-          onClick={(e) => {
-            setSelectedOption(option);
+  // map the children to add properties to it
+  const options = React.useMemo(
+    () =>
+      React.Children.map(children, (child) => {
+        if (
+          !React.isValidElement(child) ||
+          // @ts-ignore
+          child.type?.displayName !== "ESInputOption"
+        )
+          return;
+
+        const value = child.props.value ?? child.props.children;
+        return React.cloneElement(child as React.ReactElement<any>, {
+          selected: selectedValue === value,
+          value: value,
+          onClick: () => {
+            setSelectedValue(value);
             setDropdownOpen(false);
-            e.stopPropagation();
-          }}
-        >
-          {selected ? (
-            <ESIcon name="check" className={styles.checked} />
-          ) : (
-            <ESIcon name="square" />
-          )}
-          <span className={clsx(styles.optionLabel)}>{option}</span>
-        </button>
-      );
-    });
-  }, [options, selectedOption]);
+
+            if (!optionsRef?.current) return;
+            // create a synthetic event to point to our options, and pass it to the onChange
+            // so ESInputSelect can mimic select's onChange behavior
+            const target = Object.create(optionsRef.current);
+            target.value = value;
+            target.name = name;
+            target.selectedOptions = {
+              value,
+              selected: true,
+              textContent: child.props.children,
+            };
+            const syntheticEvent = {
+              target: target,
+              type: "change",
+            } as React.ChangeEvent<HTMLSelectElement>;
+            onChange?.(syntheticEvent);
+          },
+        });
+      }) ?? [],
+    [children, selectedValue, onChange, name],
+  );
 
   return (
     <div
@@ -85,29 +122,23 @@ export function ESInputSelect({
         role="combobox"
         tabIndex={0}
         className={`${styles.inputBox}`}
+        onClick={(e) => e.preventDefault()}
       >
-        <input
-          type="hidden"
-          style={{ display: "none" }}
-          name={props.name}
-          value={selectedOption}
-          defaultValue={defaultValue}
-        />
-        <span className={styles.optionLabel}>
-          {selectedOption || "Select an option"}
-        </span>
+        <span className={styles.optionLabel}>{label}</span>
         {dropdownOpen ? (
-          <ESIcon
-            name="chevron-up"
-            className={clsx(styles.dropdownIcon, styles[variant])}
-          />
+          <ChevronUp className={clsx(styles.dropdownIcon, styles[variant])} />
         ) : (
-          <ESIcon
-            name="chevron-down"
-            className={clsx(styles.dropdownIcon, styles[variant])}
-          />
+          <ChevronDown className={clsx(styles.dropdownIcon, styles[variant])} />
         )}
       </div>
+      {/* Hidden input for storing the value, making it accessible to FormData. */}
+      <input
+        key={`select-input-hidden-${value}`}
+        type="hidden"
+        style={{ display: "none" }}
+        name={name}
+        value={value}
+      />
 
       {!disabled && dropdownOpen && (
         <div
@@ -119,7 +150,7 @@ export function ESInputSelect({
           {options.length === 0 && (
             <span className={styles.noOptionsLabel}>No options provided.</span>
           )}
-          {dropdownOptions}
+          {options}
         </div>
       )}
     </div>

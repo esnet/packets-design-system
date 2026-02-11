@@ -1,21 +1,26 @@
 /* eslint-disable no-unused-vars */
-import { ComponentPropsWithoutRef } from "react";
+import { ChangeEventHandler, ReactNode } from "react";
 
-export interface ESInputSelectProps
-  extends Omit<
-    ComponentPropsWithoutRef<"input">,
-    "value" | "defaultValue" | "onChange"
-  > {
-  /** Whether to display error styling. */
-  error?: boolean;
-  /** Primary or branded variant. */
+export interface ESInputSelectProps {
   variant?: "primary" | "branded";
-  /** String array of options to be shown.*/
-  options: string[];
-  /** Current set value. */
+  /** Whether to render error styling. */
+  error?: boolean;
+  /** Whether to make element inoperable and render disabled styling. */
+  disabled?: boolean;
+  /** Additional utility class names. */
+  className?: string;
+  /** Text to render inside input component for suggesting. Defaults to "Select an option". */
+  placeholder?: string;
+  /** Form name, so it can be found and referenced in `FormData` if needed. */
+  name?: string;
+  /** Controllable array of selected values. */
   value?: string;
-  /** The starting string value to be shown, does not have to be a member of the options. */
+  /** Default array of selected option values. */
   defaultValue?: string;
-  /** Callback to handle when a new option is selected. */
-  onChange?: (next: string) => void;
+  /** Callback for when the selected values change. Mimics a synthesized HTML select change event. */
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
+  /** Whether to render a loading state. Defaults to false. */
+  loading?: boolean;
+  /** List of `ESInputOption` options to show. Any children that are not of `ESInputOption` are filtered out. */
+  children?: ReactNode;
 }
