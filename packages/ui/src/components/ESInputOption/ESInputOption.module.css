@@ -1,0 +1,62 @@
+.ESInputOption {
+  display: flex;
+  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+  width: 100%;
+  min-height: fit-content;
+
+  outline: none;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xsmall, 8px);
+  overflow-y: hidden;
+
+  background-color: transparent;
+  color: inherit;
+  border: none;
+
+  font: inherit;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: var(--esnet-color-light-surface-1, #cccccc);
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-surface-1, #252526);
+    }
+  }
+
+  .label {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  &.selected {
+    background-color: var(--esnet-color-light-surface-1, #cccccc);
+    :global(.dark) & {
+      background-color: var(--esnet-color-dark-surface-1, #252526);
+    }
+  }
+
+  > svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    .selected & {
+      color: var(--esnet-color-light-primary, #0088b5);
+
+      :global(.dark) & {
+        color: var(--esnet-color-dark-secondary, #004573);
+      }
+    }
+  }
+}
