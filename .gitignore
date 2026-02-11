@@ -49,6 +49,7 @@ storybook-static/
 
 # playwright
 playwright-report/
+test-results/
 
 .npmrc
 
