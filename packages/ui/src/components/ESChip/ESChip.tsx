@@ -24,7 +24,7 @@ const ESChip: React.FC<ESChipProps> = ({
 }) => {
   const _onClick = React.useMemo(
     () => onDelete || props.onClick || undefined,
-    [onDelete, props.onClick]
+    [onDelete, props.onClick],
   );
   return (
     <button
@@ -35,8 +35,9 @@ const ESChip: React.FC<ESChipProps> = ({
         styles[variant],
         prepend && styles.prependStyle,
         (append || onDelete) && styles.appendStyle,
-        className
+        className,
       )}
+      type="button"
       onClick={_onClick}
     >
       {prepend}
