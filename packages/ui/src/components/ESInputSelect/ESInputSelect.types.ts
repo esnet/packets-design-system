@@ -13,14 +13,12 @@ export interface ESInputSelectProps {
   placeholder?: string;
   /** Form name, so it can be found and referenced in `FormData` if needed. */
   name?: string;
-  /** Controllable array of selected values. */
+  /** Controllable currently selected value. */
   value?: string;
-  /** Default array of selected option values. */
+  /** Default selected value. */
   defaultValue?: string;
-  /** Callback for when the selected values change. Mimics a synthesized HTML select change event. */
+  /** Callback for when the selected value changes. Mimics a synthesized HTML select change event. */
   onChange?: ChangeEventHandler<HTMLSelectElement>;
-  /** Whether to render a loading state. Defaults to false. */
-  loading?: boolean;
   /** List of `ESInputOption` options to show. Any children that are not of `ESInputOption` are filtered out. */
   children?: ReactNode;
 }

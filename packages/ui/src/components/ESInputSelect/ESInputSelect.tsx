@@ -57,11 +57,6 @@ export function ESInputSelect({
     value,
     defaultValue,
   });
-  // the label shown inside the input box, may be different from the value
-  const label = React.useMemo(
-    () => (selectedValue ? valueToText[selectedValue] : placeholder),
-    [selectedValue, valueToText, placeholder],
-  );
 
   // map the children to add properties to it
   const options = React.useMemo(
@@ -124,7 +119,15 @@ export function ESInputSelect({
         className={`${styles.inputBox}`}
         onClick={(e) => e.preventDefault()}
       >
-        <span className={styles.optionLabel}>{label}</span>
+        {selectedValue ? (
+          <span className={styles.optionLabel}>
+            {valueToText[selectedValue] ?? placeholder}
+          </span>
+        ) : (
+          <span className={clsx(styles.optionLabel, "footer")}>
+            {placeholder}
+          </span>
+        )}
         {dropdownOpen ? (
           <ChevronUp className={clsx(styles.dropdownIcon, styles[variant])} />
         ) : (

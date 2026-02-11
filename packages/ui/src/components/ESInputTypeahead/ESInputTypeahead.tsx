@@ -41,7 +41,7 @@ export function ESInputTypeahead({
   error = false,
   disabled = false,
   className,
-  placeholder,
+  placeholder = "Select an option",
   multi = true,
   name,
   value,
@@ -222,7 +222,12 @@ export function ESInputTypeahead({
           {/* Input for the typeahead search */}
           <input
             disabled={disabled}
-            placeholder={placeholder}
+            placeholder={
+              dropdownOpen
+                ? "Type to search for an option"
+                : (placeholder ??
+                  (multi ? "Select options" : "Select an option"))
+            }
             type="text"
             onChange={(e) => {
               setSearch(e.target.value);
