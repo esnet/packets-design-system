@@ -7,19 +7,19 @@ test.describe("CSS InputRadio Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-light" />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-light" checked />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-light-disabled" disabled />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-light-disabled" disabled checked />
         </div>
       </div>
@@ -37,19 +37,19 @@ test.describe("CSS InputRadio Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-dark" />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-dark" checked />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-dark-disabled" disabled />
         </div>
 
-        <div class="es-input-radio">
+        <div class="pkts-input-radio">
           <input type="radio" name="radio-dark-disabled" disabled checked />
         </div>
       </div>

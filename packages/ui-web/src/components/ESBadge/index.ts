@@ -1,1 +1,0 @@
-export { ESBadge } from "./ESBadge";

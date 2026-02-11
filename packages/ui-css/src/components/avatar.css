@@ -1,15 +1,15 @@
 /* ==============================================================================
-   ES-AVATAR - Composable Base Class
+   PKTS-AVATAR - Composable Base Class
    ==============================================================================
 
    Base styles for avatar component. Variants are applied via composable classes:
-   - Size variants: .es-small, .es-medium, .es-large
-   - Color variants: .es-grape, .es-lime, .es-berry, .es-orange
+   - Size variants: .pkts-small, .pkts-medium, .pkts-large
+   - Color variants: .pkts-grape, .pkts-lime, .pkts-berry, .pkts-orange
 
-   Usage: <div class="es-avatar es-medium es-grape">
+   Usage: <div class="pkts-avatar es-medium es-grape">
 */
 
-.es-avatar {
+.pkts-avatar {
   --shadow: var(
     --esnet-box-shadow-core-medium,
     0px 2px 3px -1px rgba(0, 0, 0, 0.1),
@@ -42,8 +42,8 @@
 
 /* Label element */
 
-.es-avatar span,
-.es-avatar .label {
+.pkts-avatar span,
+.pkts-avatar .label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,9 +63,9 @@
 
 /* Image and SVG elements */
 
-.es-avatar img,
-.es-avatar svg,
-.es-avatar .image {
+.pkts-avatar img,
+.pkts-avatar svg,
+.pkts-avatar .image {
   /* If we don't set the width and height to be a little over, a bit of the background color shows on the edges, likely a CSS rounding error */
   max-width: 110%;
   max-height: 110%;
@@ -73,21 +73,21 @@
   color: var(--esnet-color-core-white-100, #fff);
 }
 
-.es-avatar.broken-image img,
-.es-avatar.broken-image svg,
-.es-avatar.broken-image .image {
+.pkts-avatar.broken-image img,
+.pkts-avatar.broken-image svg,
+.pkts-avatar.broken-image .image {
   display: none;
 }
 
 /* Hoverable state */
 
-.es-avatar.hoverable {
+.pkts-avatar.hoverable {
   transition:
     border 200ms ease-in,
     box-shadow 200ms ease-in;
 }
 
-.es-avatar.hoverable:hover {
+.pkts-avatar.hoverable:hover {
   cursor: pointer;
   border-color: var(--border-hover-color);
   box-shadow:
@@ -97,7 +97,7 @@
 
 /* Size Variants */
 
-.es-avatar.es-small {
+.pkts-avatar.pkts-small {
   --size: 24px;
   --label-font: var(
     --esnet-typography-label-1-sans-font,
@@ -106,7 +106,7 @@
   --border-radius: 10px;
 }
 
-.es-avatar.es-medium {
+.pkts-avatar.pkts-medium {
   --size: var(--esnet-size-spacing-xlarge, 40px);
   --label-font: var(
     --esnet-typography-header-5-sans-font,
@@ -116,7 +116,7 @@
   --border-radius: 14px;
 }
 
-.es-avatar.es-large {
+.pkts-avatar.pkts-large {
   --size: 48px;
   --label-font: var(
     --esnet-typography-header-4-sans-font,
@@ -127,18 +127,18 @@
 
 /* Color Variants */
 
-.es-avatar.es-grape {
+.pkts-avatar.pkts-grape {
   background-color: var(--esnet-color-core-purple-500, #a350ff);
 }
 
-.es-avatar.es-lime {
+.pkts-avatar.pkts-lime {
   background-color: var(--esnet-color-core-green-500, #11ad2b);
 }
 
-.es-avatar.es-berry {
+.pkts-avatar.pkts-berry {
   background-color: var(--esnet-color-core-berry-500, #ff2377);
 }
 
-.es-avatar.es-orange {
+.pkts-avatar.pkts-orange {
   background-color: var(--esnet-color-core-orange-500, #ff8000);
 }

@@ -7,19 +7,19 @@ test.describe("CSS InputEmail Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-email">
+        <div class="pkts-input-text pkts-input-email">
           <input type="email" placeholder="Default email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-branded">
+        <div class="pkts-input-text pkts-input-email pkts-branded">
           <input type="email" placeholder="Branded email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-error">
+        <div class="pkts-input-text pkts-input-email pkts-error">
           <input type="email" placeholder="Error email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-disabled">
+        <div class="pkts-input-text pkts-input-email pkts-disabled">
           <input type="email" placeholder="Disabled email input" disabled />
         </div>
       </div>
@@ -37,19 +37,19 @@ test.describe("CSS InputEmail Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-email">
+        <div class="pkts-input-text pkts-input-email">
           <input type="email" placeholder="Default email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-branded">
+        <div class="pkts-input-text pkts-input-email pkts-branded">
           <input type="email" placeholder="Branded email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-error">
+        <div class="pkts-input-text pkts-input-email pkts-error">
           <input type="email" placeholder="Error email input" />
         </div>
 
-        <div class="es-input-text es-input-email es-disabled">
+        <div class="pkts-input-text pkts-input-email pkts-disabled">
           <input type="email" placeholder="Disabled email input" disabled />
         </div>
       </div>

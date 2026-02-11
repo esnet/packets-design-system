@@ -1,18 +1,18 @@
-.es-comma-seperated-list {
+.pkts-comma-seperated-list {
   display: inline;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.es-comma-seperated-list.vertical {
+.pkts-comma-seperated-list.vertical {
   flex-direction: column;
 }
 
-.es-comma-seperated-list .comma-separated-list-item, .es-comma-seperated-list li {
+.pkts-comma-seperated-list .comma-separated-list-item, .pkts-comma-seperated-list li {
   display: inline;
 }
 
-.es-comma-seperated-list .comma-separated-list-item:not(:last-child)::after, .es-comma-seperated-list li:not(:last-child)::after {
+.pkts-comma-seperated-list .comma-separated-list-item:not(:last-child)::after, .pkts-comma-seperated-list li:not(:last-child)::after {
   content: ", ";
 }

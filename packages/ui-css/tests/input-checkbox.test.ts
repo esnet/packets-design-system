@@ -7,27 +7,27 @@ test.describe("CSS InputCheckbox Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" checked />
         </div>
 
-        <div class="es-input-checkbox es-branded">
+        <div class="pkts-input-checkbox pkts-branded">
           <input type="checkbox" />
         </div>
 
-        <div class="es-input-checkbox es-branded">
+        <div class="pkts-input-checkbox pkts-branded">
           <input type="checkbox" checked />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" disabled />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" disabled checked />
         </div>
       </div>
@@ -45,27 +45,27 @@ test.describe("CSS InputCheckbox Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" checked />
         </div>
 
-        <div class="es-input-checkbox es-branded">
+        <div class="pkts-input-checkbox pkts-branded">
           <input type="checkbox" />
         </div>
 
-        <div class="es-input-checkbox es-branded">
+        <div class="pkts-input-checkbox pkts-branded">
           <input type="checkbox" checked />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" disabled />
         </div>
 
-        <div class="es-input-checkbox">
+        <div class="pkts-input-checkbox">
           <input type="checkbox" disabled checked />
         </div>
       </div>

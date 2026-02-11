@@ -1,14 +1,14 @@
 /* ==============================================================================
-   ES-SKELETON-SURFACE - Composable Base Class
+   PKTS-SKELETON-SURFACE - Composable Base Class
    ==============================================================================
 
    Base styles for skeleton surface component. Variants are composable:
-   - Shape variants: .es-rounded
+   - Shape variants: .pkts-rounded
 
-   Usage: <div class="es-skeleton-surface es-rounded">
+   Usage: <div class="pkts-skeleton-surface es-rounded">
 */
 
-.es-skeleton-surface {
+.pkts-skeleton-surface {
   --stroke-size: var(--esnet-size-border-width-medium, 3px);
   --stroke-radius: var(--esnet-size-spacing-large, 2rem);
   --height: var(--esnet-size-touchtarget-min, 2rem);
@@ -24,13 +24,13 @@
   background-color: var(--esnet-color-core-white-500, #d9d9d9);
 }
 
-.dark .es-skeleton-surface {
+.dark .pkts-skeleton-surface {
   background-color: var(--esnet-color-core-black-500, #4d4d4f);
 }
 
 /* Shimmer Overlay */
 
-.es-skeleton-surface::before {
+.pkts-skeleton-surface::before {
   content: "";
   position: absolute;
   z-index: -2;
@@ -51,7 +51,7 @@
 
 /* Internal */
 
-.es-skeleton-surface::after {
+.pkts-skeleton-surface::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -62,17 +62,17 @@
   background: var(--esnet-color-core-white-700, #c2c2c2);
 }
 
-.dark .es-skeleton-surface::after {
+.dark .pkts-skeleton-surface::after {
   background-color: var(--esnet-color-core-black-900, #19191a) !important;
 }
 
 /* Rounded variant */
 
-.es-skeleton-surface.es-rounded {
+.pkts-skeleton-surface.pkts-rounded {
   border-radius: var(--stroke-radius);
 }
 
-.es-skeleton-surface.es-rounded::after {
+.pkts-skeleton-surface.pkts-rounded::after {
   border-radius: var(--stroke-radius);
 }
 

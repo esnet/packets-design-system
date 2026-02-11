@@ -1,9 +1,9 @@
-.es-table-of-contents {
+.pkts-table-of-contents {
   margin: 0 var(--esnet-size-spacing-large) var(--esnet-size-spacing-medium);
 }
 
   /* List - already using semantic selector */
-  .es-table-of-contents ul {
+  .pkts-table-of-contents ul {
     list-style: none;
     margin: var(--esnet-size-spacing-xsmall, 12px) 0 0;
     padding: 0px var(--esnet-size-spacing-medium, 16px);
@@ -15,16 +15,16 @@
     gap: var(--esnet-size-spacing-xxsmall, 4px);
   }
 
-  .es-table-of-contents a {
+  .pkts-table-of-contents a {
     color: var(--esnet-color-light-copy, #1a1a1a);
     text-decoration: underline;
   }
 
-  .dark .es-table-of-contents a {
+  .dark .pkts-table-of-contents a {
     color: var(--esnet-color-dark-copy, #e6e6e6);
   }
 
-  .es-table-of-contents.es-sticky {
+  .pkts-table-of-contents.pkts-sticky {
     position: sticky;
     top: var(--esnet-size-spacing-xxlarge, 72px);
   }

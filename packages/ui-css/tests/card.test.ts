@@ -7,7 +7,7 @@ test.describe("CSS Card Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; width: 400px;">
-        <div class="es-card">
+        <div class="pkts-card">
           <h3>Card Title</h3>
           <p>This is the card content with some text.</p>
         </div>
@@ -26,7 +26,7 @@ test.describe("CSS Card Component", () => {
       "dark",
       `
       <div id="container" style="padding: 16px; width: 400px;">
-        <div class="es-card">
+        <div class="pkts-card">
           <h3>Card Title</h3>
           <p>This is the card content with some text.</p>
         </div>

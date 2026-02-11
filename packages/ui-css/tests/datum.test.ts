@@ -7,11 +7,11 @@ test.describe("CSS Datum Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
-        <div class="es-datum">
+        <div class="pkts-datum">
           <label>Label</label>
           <span>Value</span>
         </div>
-        <div class="es-datum">
+        <div class="pkts-datum">
           <label>Status</label>
           <span>This is a longer value to test text wrapping</span>
         </div>
@@ -29,11 +29,11 @@ test.describe("CSS Datum Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
-        <div class="es-datum">
+        <div class="pkts-datum">
           <label>Label</label>
           <span>Value</span>
         </div>
-        <div class="es-datum">
+        <div class="pkts-datum">
           <label>Status</label>
           <span>This is a longer value to test text wrapping</span>
         </div>

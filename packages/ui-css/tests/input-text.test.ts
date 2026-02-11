@@ -7,23 +7,23 @@ test.describe("CSS InputText Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Default input" />
         </div>
 
-        <div class="es-input-text es-branded">
+        <div class="pkts-input-text pkts-branded">
           <input type="text" placeholder="Branded input" />
         </div>
 
-        <div class="es-input-text es-error">
+        <div class="pkts-input-text pkts-error">
           <input type="text" placeholder="Error input" />
         </div>
 
-        <div class="es-input-text es-disabled">
+        <div class="pkts-input-text pkts-disabled">
           <input type="text" placeholder="Disabled input" disabled />
         </div>
 
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" value="Input with value" />
         </div>
       </div>
@@ -41,23 +41,23 @@ test.describe("CSS InputText Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Default input" />
         </div>
 
-        <div class="es-input-text es-branded">
+        <div class="pkts-input-text pkts-branded">
           <input type="text" placeholder="Branded input" />
         </div>
 
-        <div class="es-input-text es-error">
+        <div class="pkts-input-text pkts-error">
           <input type="text" placeholder="Error input" />
         </div>
 
-        <div class="es-input-text es-disabled">
+        <div class="pkts-input-text pkts-disabled">
           <input type="text" placeholder="Disabled input" disabled />
         </div>
 
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" value="Input with value" />
         </div>
       </div>
@@ -75,15 +75,15 @@ test.describe("CSS InputText Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Normal state" />
         </div>
 
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Focus this input" id="focus-input" />
         </div>
 
-        <div class="es-input-text es-error">
+        <div class="pkts-input-text pkts-error">
           <input type="text" placeholder="Error state" />
         </div>
       </div>
@@ -104,15 +104,15 @@ test.describe("CSS InputText Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Normal state" />
         </div>
 
-        <div class="es-input-text">
+        <div class="pkts-input-text">
           <input type="text" placeholder="Focus this input" id="focus-input" />
         </div>
 
-        <div class="es-input-text es-error">
+        <div class="pkts-input-text pkts-error">
           <input type="text" placeholder="Error state" />
         </div>
       </div>

@@ -7,19 +7,19 @@ test.describe("CSS InputSearch Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-search">
+        <div class="pkts-input-text pkts-input-search">
           <input type="search" placeholder="Default search" />
         </div>
 
-        <div class="es-input-text es-input-search es-branded">
+        <div class="pkts-input-text pkts-input-search pkts-branded">
           <input type="search" placeholder="Branded search" />
         </div>
 
-        <div class="es-input-text es-input-search es-error">
+        <div class="pkts-input-text pkts-input-search pkts-error">
           <input type="search" placeholder="Error search" />
         </div>
 
-        <div class="es-input-text es-input-search es-disabled">
+        <div class="pkts-input-text pkts-input-search pkts-disabled">
           <input type="search" placeholder="Disabled search" disabled />
         </div>
       </div>
@@ -37,19 +37,19 @@ test.describe("CSS InputSearch Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-search">
+        <div class="pkts-input-text pkts-input-search">
           <input type="search" placeholder="Default search" />
         </div>
 
-        <div class="es-input-text es-input-search es-branded">
+        <div class="pkts-input-text pkts-input-search pkts-branded">
           <input type="search" placeholder="Branded search" />
         </div>
 
-        <div class="es-input-text es-input-search es-error">
+        <div class="pkts-input-text pkts-input-search pkts-error">
           <input type="search" placeholder="Error search" />
         </div>
 
-        <div class="es-input-text es-input-search es-disabled">
+        <div class="pkts-input-text pkts-input-search pkts-disabled">
           <input type="search" placeholder="Disabled search" disabled />
         </div>
       </div>

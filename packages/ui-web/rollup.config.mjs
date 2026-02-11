@@ -9,23 +9,39 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcssImport from "postcss-import";
 
 export default [
+  // NPM package CJS bundle (lucide as external peer dependency)
   {
     input: "src/index.ts",
-    output: [
-      {
-        file: "dist/cjs/bundle.js",
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: "dist/esm/bundle.js",
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
+    output: {
+      file: "dist/cjs/bundle.js",
+      format: "cjs",
+      sourcemap: true,
+    },
     plugins: [
       peerDepsExternal(),
       resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      postcss({
+        extract: "style.css",
+        minimize: true,
+        autoModules: true,
+        plugins: [postcssImport()],
+      }),
+      terser(),
+    ],
+  },
+  // Browser ESM bundle (lucide bundled in for standalone use)
+  {
+    input: "src/index.ts",
+    output: {
+      file: "dist/esm/bundle.js",
+      format: "esm",
+      sourcemap: true,
+    },
+    plugins: [
+      // No peerDepsExternal() - bundle everything including lucide
+      resolve({ browser: true }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({

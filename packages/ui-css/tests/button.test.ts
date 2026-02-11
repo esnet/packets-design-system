@@ -7,11 +7,11 @@ test.describe("CSS Button Component", () => {
   // Test all button variants in light theme
   test("button-variants-light", async ({ page }) => {
     const html = createVariantGrid("light", [
-      '<button class="es-button es-primary es-medium">Primary</button>',
-      '<button class="es-button es-secondary es-medium">Secondary</button>',
-      '<button class="es-button es-branded es-medium">Branded</button>',
-      '<button class="es-button es-tertiary es-medium">Tertiary</button>',
-      '<button class="es-button es-destructive es-medium">Destructive</button>',
+      '<button class="pkts-button pkts-primary pkts-medium">Primary</button>',
+      '<button class="pkts-button pkts-secondary pkts-medium">Secondary</button>',
+      '<button class="pkts-button pkts-branded pkts-medium">Branded</button>',
+      '<button class="pkts-button pkts-tertiary pkts-medium">Tertiary</button>',
+      '<button class="pkts-button pkts-destructive pkts-medium">Destructive</button>',
     ]);
 
     await page.setContent(html);
@@ -21,11 +21,11 @@ test.describe("CSS Button Component", () => {
   // Test all button variants in dark theme
   test("button-variants-dark", async ({ page }) => {
     const html = createVariantGrid("dark", [
-      '<button class="es-button es-primary es-medium">Primary</button>',
-      '<button class="es-button es-secondary es-medium">Secondary</button>',
-      '<button class="es-button es-branded es-medium">Branded</button>',
-      '<button class="es-button es-tertiary es-medium">Tertiary</button>',
-      '<button class="es-button es-destructive es-medium">Destructive</button>',
+      '<button class="pkts-button pkts-primary pkts-medium">Primary</button>',
+      '<button class="pkts-button pkts-secondary pkts-medium">Secondary</button>',
+      '<button class="pkts-button pkts-branded pkts-medium">Branded</button>',
+      '<button class="pkts-button pkts-tertiary pkts-medium">Tertiary</button>',
+      '<button class="pkts-button pkts-destructive pkts-medium">Destructive</button>',
     ]);
 
     await page.setContent(html);
@@ -35,8 +35,8 @@ test.describe("CSS Button Component", () => {
   // Test button sizes
   test("button-sizes-light", async ({ page }) => {
     const html = createStateStack("light", [
-      '<button class="es-button es-primary es-medium">Medium Size</button>',
-      '<button class="es-button es-primary es-xxlarge">XX-Large Size</button>',
+      '<button class="pkts-button pkts-primary pkts-medium">Medium Size</button>',
+      '<button class="pkts-button pkts-primary pkts-xxlarge">XX-Large Size</button>',
     ]);
 
     await page.setContent(html);
@@ -46,8 +46,8 @@ test.describe("CSS Button Component", () => {
   // Test button states (disabled)
   test("button-states-light", async ({ page }) => {
     const html = createStateStack("light", [
-      '<button class="es-button es-primary es-medium">Normal</button>',
-      '<button class="es-button es-primary es-medium" disabled>Disabled</button>',
+      '<button class="pkts-button pkts-primary pkts-medium">Normal</button>',
+      '<button class="pkts-button pkts-primary pkts-medium" disabled>Disabled</button>',
     ]);
 
     await page.setContent(html);
@@ -61,10 +61,10 @@ test.describe("CSS Button Component", () => {
       `
         <div style="width: 300px;">
           <div style="margin-bottom: 16px;">
-            <button class="es-button es-primary es-medium es-fill">Fill Button</button>
+            <button class="pkts-button pkts-primary pkts-medium pkts-fill">Fill Button</button>
           </div>
           <div>
-            <button class="es-button es-primary es-medium es-nofill">No Fill Button</button>
+            <button class="pkts-button pkts-primary pkts-medium pkts-nofill">No Fill Button</button>
           </div>
         </div>
       `
@@ -77,8 +77,8 @@ test.describe("CSS Button Component", () => {
   // Test button as link
   test("button-as-link-light", async ({ page }) => {
     const html = createStateStack("light", [
-      '<button class="es-button es-primary es-medium">Button Element</button>',
-      '<a href="#" class="es-button es-primary es-medium">Link Element</a>',
+      '<button class="pkts-button pkts-primary pkts-medium">Button Element</button>',
+      '<a href="#" class="pkts-button pkts-primary pkts-medium">Link Element</a>',
     ]);
 
     await page.setContent(html);
@@ -89,7 +89,7 @@ test.describe("CSS Button Component", () => {
   test("button-hover-light", async ({ page }) => {
     const html = createCSSTestHTML(
       "light",
-      '<button class="es-button es-primary es-medium">Hover Me</button>'
+      '<button class="pkts-button pkts-primary pkts-medium">Hover Me</button>'
     );
 
     await page.setContent(html);
@@ -106,7 +106,7 @@ test.describe("CSS Button Component", () => {
       test(`button-${variant}-${theme}`, async ({ page }) => {
         const html = createCSSTestHTML(
           theme,
-          `<button class="es-button es-${variant} es-medium">${variant.charAt(0).toUpperCase() + variant.slice(1)} Button</button>`
+          `<button class="pkts-button pkts-${variant} pkts-medium">${variant.charAt(0).toUpperCase() + variant.slice(1)} Button</button>`
         );
 
         await page.setContent(html);

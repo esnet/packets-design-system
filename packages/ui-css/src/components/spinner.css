@@ -1,4 +1,4 @@
-.es-spinner {
+.pkts-spinner {
   display: inline-block;
   position: relative;
   width: 82px;
@@ -6,16 +6,16 @@
 }
 
   @media (prefers-reduced-motion) {
-    .es-spinner .dot {
+    .pkts-spinner .dot {
       display: none;
     }
 
-    .es-spinner .no-motion-message {
+    .pkts-spinner .no-motion-message {
       display: inline !important;
     }
   }
 
-  .es-spinner .no-motion-message {
+  .pkts-spinner .no-motion-message {
     display: none;
     text-align: center;
     font: var(
@@ -26,11 +26,11 @@
     color: var(--esnet-color-light-copy-alt, #a8a8a8);
   }
 
-  .dark .es-spinner .no-motion-message {
+  .dark .pkts-spinner .no-motion-message {
       color: var(--esnet-color-dark-copy-alt, #a8a8a8);
     }
 
-  .es-spinner .dot {
+  .pkts-spinner .dot {
     position: absolute;
     top: 0;
     width: var(--esnet-size-spacing-medium);
@@ -40,26 +40,26 @@
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 
-  .dark .es-spinner .dot {
+  .dark .pkts-spinner .dot {
       background: var(--esnet-color-dark-copy, #e6e6e6);
     }
 
-  .es-spinner .dot:nth-child(1) {
+  .pkts-spinner .dot:nth-child(1) {
       left: var(--esnet-size-spacing-xsmall);
       animation: dot1Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
-  .es-spinner .dot:nth-child(2) {
+  .pkts-spinner .dot:nth-child(2) {
       left: var(--esnet-size-spacing-xsmall);
       animation: dot2Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
-  .es-spinner .dot:nth-child(3) {
+  .pkts-spinner .dot:nth-child(3) {
       left: 32px;
       animation: dot2Animation var(--esnet-time-duration-long, 600ms) infinite;
     }
 
-  .es-spinner .dot:nth-child(4) {
+  .pkts-spinner .dot:nth-child(4) {
       left: 56px;
       animation: dot3Animation var(--esnet-time-duration-long, 600ms) infinite;
     }

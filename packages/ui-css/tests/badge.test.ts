@@ -7,9 +7,9 @@ test.describe("CSS Badge Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; display: flex; gap: 8px;">
-        <span class="es-badge">3</span>
-        <span class="es-badge">12</span>
-        <span class="es-badge">99+</span>
+        <span class="pkts-badge">3</span>
+        <span class="pkts-badge">12</span>
+        <span class="pkts-badge">99+</span>
       </div>
     `,
     );
@@ -25,9 +25,9 @@ test.describe("CSS Badge Component", () => {
       "dark",
       `
       <div id="container" style="padding: 16px; display: flex; gap: 8px;">
-        <span class="es-badge">3</span>
-        <span class="es-badge">12</span>
-        <span class="es-badge">99+</span>
+        <span class="pkts-badge">3</span>
+        <span class="pkts-badge">12</span>
+        <span class="pkts-badge">99+</span>
       </div>
     `,
     );

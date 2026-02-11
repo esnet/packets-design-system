@@ -35,26 +35,26 @@ npm install @esnet/packets-ui-react
     Import components and use them in your React application:
 
 ```tsx
-import { ESButton, ESInputText, ESAlert } from '@esnet/packets-ui-react';
+import { PktsButton, PktsInputText, PktsAlert } from '@esnet/packets-ui-react';
 
 function MyComponent() {
   const [value, setValue] = useState('');
 
   return (
     <div className="packets">
-      <ESButton variant="primary" onClick={() => alert('Clicked!')}>
+      <PktsButton variant="primary" onClick={() => alert('Clicked!')}>
         Click Me
-      </ESButton>
+      </PktsButton>
 
-      <ESInputText
+      <PktsInputText
         placeholder="Enter text..."
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
 
-      <ESAlert variant="info" title="Info Alert">
+      <PktsAlert variant="info" title="Info Alert">
         This is an informational message.
-      </ESAlert>
+      </PktsAlert>
     </div>
   );
 }
@@ -70,13 +70,13 @@ function MyComponent() {
     All React components are written in TypeScript and provide full type definitions. You'll get complete IntelliSense and type checking:
 
 ```tsx
-import { ESButton } from '@esnet/packets-ui-react';
-import type { ESButtonProps } from '@esnet/packets-ui-react';
+import { PktsButton } from '@esnet/packets-ui-react';
+import type { PktsButtonProps } from '@esnet/packets-ui-react';
 
 // Fully typed component props
 const MyButton: React.FC = () => {
   return (
-    <ESButton
+    <PktsButton
       variant="primary"  // TypeScript will autocomplete: "primary" | "secondary" | "tertiary"
       size="medium"      // TypeScript will autocomplete: "small" | "medium" | "large"
       onClick={(e) => {
@@ -85,7 +85,7 @@ const MyButton: React.FC = () => {
       }}
     >
       Click Me
-    </ESButton>
+    </PktsButton>
   );
 };
 ```

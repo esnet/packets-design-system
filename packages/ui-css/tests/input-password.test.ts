@@ -7,19 +7,19 @@ test.describe("CSS InputPassword Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-password">
+        <div class="pkts-input-text pkts-input-password">
           <input type="password" placeholder="Default password" />
         </div>
 
-        <div class="es-input-text es-input-password es-branded">
+        <div class="pkts-input-text pkts-input-password pkts-branded">
           <input type="password" placeholder="Branded password" />
         </div>
 
-        <div class="es-input-text es-input-password es-error">
+        <div class="pkts-input-text pkts-input-password pkts-error">
           <input type="password" placeholder="Error password" />
         </div>
 
-        <div class="es-input-text es-input-password es-disabled">
+        <div class="pkts-input-text pkts-input-password pkts-disabled">
           <input type="password" placeholder="Disabled password" disabled />
         </div>
       </div>
@@ -37,19 +37,19 @@ test.describe("CSS InputPassword Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-password">
+        <div class="pkts-input-text pkts-input-password">
           <input type="password" placeholder="Default password" />
         </div>
 
-        <div class="es-input-text es-input-password es-branded">
+        <div class="pkts-input-text pkts-input-password pkts-branded">
           <input type="password" placeholder="Branded password" />
         </div>
 
-        <div class="es-input-text es-input-password es-error">
+        <div class="pkts-input-text pkts-input-password pkts-error">
           <input type="password" placeholder="Error password" />
         </div>
 
-        <div class="es-input-text es-input-password es-disabled">
+        <div class="pkts-input-text pkts-input-password pkts-disabled">
           <input type="password" placeholder="Disabled password" disabled />
         </div>
       </div>

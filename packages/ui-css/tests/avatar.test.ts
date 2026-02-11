@@ -15,16 +15,16 @@ test.describe("CSS Avatar Component", () => {
       "light",
       `
       <div id="container" style="display: flex; gap: 16px; align-items: center; padding: 16px;">
-        <div class="es-avatar es-medium es-grape">
+        <div class="pkts-avatar pkts-medium pkts-grape">
           <img src="${imagePath}" alt="Test">
         </div>
-        <div class="es-avatar es-medium es-lime">
+        <div class="pkts-avatar pkts-medium pkts-lime">
           <span>TU</span>
         </div>
-        <div class="es-avatar es-small es-berry">
+        <div class="pkts-avatar pkts-small pkts-berry">
           <span>SM</span>
         </div>
-        <div class="es-avatar es-large es-orange">
+        <div class="pkts-avatar pkts-large pkts-orange">
           <span>LG</span>
         </div>
       </div>
@@ -55,16 +55,16 @@ test.describe("CSS Avatar Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; gap: 16px; align-items: center; padding: 16px;">
-        <div class="es-avatar es-medium es-grape">
+        <div class="pkts-avatar pkts-medium pkts-grape">
           <img src="${imagePath}" alt="Test">
         </div>
-        <div class="es-avatar es-medium es-lime">
+        <div class="pkts-avatar pkts-medium pkts-lime">
           <span>TU</span>
         </div>
-        <div class="es-avatar es-small es-berry">
+        <div class="pkts-avatar pkts-small pkts-berry">
           <span>SM</span>
         </div>
-        <div class="es-avatar es-large es-orange">
+        <div class="pkts-avatar pkts-large pkts-orange">
           <span>LG</span>
         </div>
       </div>

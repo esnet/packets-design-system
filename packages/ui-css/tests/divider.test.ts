@@ -7,8 +7,8 @@ test.describe("CSS Divider Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
-        <hr class="es-divider">
-        <hr class="es-divider es-branded">
+        <hr class="pkts-divider">
+        <hr class="pkts-divider pkts-branded">
       </div>
     `,
     );
@@ -24,8 +24,8 @@ test.describe("CSS Divider Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
-        <hr class="es-divider">
-        <hr class="es-divider es-branded">
+        <hr class="pkts-divider">
+        <hr class="pkts-divider pkts-branded">
       </div>
     `,
     );

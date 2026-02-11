@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const CSS_PATH = path.resolve(__dirname, "../../ui-css/dist/styles.css");
 const JS_PATH = path.resolve(__dirname, "../dist/esm/bundle.js");
+const LUCIDE_UMD_PATH = path.resolve(__dirname, "../node_modules/lucide/dist/umd/lucide.min.js");
 
 /**
  * Creates a complete HTML document for testing Web Components
@@ -24,14 +25,27 @@ export function createTestHTML(
 ): string {
   const cssContent = fs.readFileSync(CSS_PATH, "utf-8");
   const jsContent = fs.readFileSync(JS_PATH, "utf-8");
+  const lucideUMD = fs.readFileSync(LUCIDE_UMD_PATH, "utf-8");
 
-  // Simple mock for lucide - just provide empty objects
-  const mockLucide = 'const t = {}, e = () => document.createElement("span");';
-
-  // Replace the lucide import line with the mock
+  // Replace the ESM import with a shim that uses the UMD global
+  // Match: import{icons as t,createElement as e}from"lucide";
   const fixedJS = jsContent.replace(
-    /import\s*\{[^}]+\}\s*from\s*["']lucide["']\s*;?/,
-    mockLucide
+    /import\s*\{([^}]+)\}\s*from\s*["']lucide["'];?/g,
+    (match, imports) => {
+      // Handle imports with or without aliases: "icons as t, createElement as e" or "icons, createElement"
+      const importList = imports.split(',').map((imp: string) => imp.trim());
+      const mappings = importList.map((imp: string) => {
+        // Check if this import has an alias (e.g., "icons as t")
+        const aliasMatch = imp.match(/^(.+?)\s+as\s+(.+)$/);
+        if (aliasMatch) {
+          const [, original, alias] = aliasMatch;
+          return `const ${alias.trim()}=window.lucide.${original.trim()};`;
+        } else {
+          return `const ${imp}=window.lucide.${imp};`;
+        }
+      }).join('');
+      return mappings;
+    }
   );
 
   return `
@@ -41,6 +55,9 @@ export function createTestHTML(
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>${cssContent}</style>
+      <script>
+        ${lucideUMD}
+      </script>
       <script type="module">
         ${fixedJS}
       </script>

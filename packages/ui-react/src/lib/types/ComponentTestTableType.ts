@@ -14,7 +14,7 @@
 // import { test, expect } from "@playwright/experimental-ct-react";
 // import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 // import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
-// import { ESComponentProps } from "../ESComponent.types";
+// import { ESComponentProps } from "../PktsComponent.types";
 // import ESComponent from "../ESComponent";
 // test.describe("ESComponent", () => {
 //   const { testTable, themes, actionStates }: ComponentTestTableType<ESComponentProps> = {

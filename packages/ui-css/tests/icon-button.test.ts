@@ -7,11 +7,11 @@ test.describe("CSS IconButton Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="es-icon-button es-primary">Primary</button>
-        <button class="es-icon-button es-secondary">Secondary</button>
-        <button class="es-icon-button es-branded">Branded</button>
-        <button class="es-icon-button es-tertiary">Tertiary</button>
-        <button class="es-icon-button es-destructive">Destructive</button>
+        <button class="pkts-icon-button pkts-primary">Primary</button>
+        <button class="pkts-icon-button pkts-secondary">Secondary</button>
+        <button class="pkts-icon-button pkts-branded">Branded</button>
+        <button class="pkts-icon-button pkts-tertiary">Tertiary</button>
+        <button class="pkts-icon-button pkts-destructive">Destructive</button>
       </div>
     `,
     );
@@ -27,19 +27,19 @@ test.describe("CSS IconButton Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="es-icon-button es-primary">
+        <button class="pkts-icon-button pkts-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-secondary">
+        <button class="pkts-icon-button pkts-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-branded">
+        <button class="pkts-icon-button pkts-branded">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-tertiary">
+        <button class="pkts-icon-button pkts-tertiary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-destructive">
+        <button class="pkts-icon-button pkts-destructive">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
       </div>
@@ -57,13 +57,13 @@ test.describe("CSS IconButton Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="es-icon-button es-primary">
+        <button class="pkts-icon-button pkts-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-primary" disabled>
+        <button class="pkts-icon-button pkts-primary" disabled>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
-        <button class="es-icon-button es-primary es-square">
+        <button class="pkts-icon-button pkts-primary pkts-square">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
         </button>
       </div>

@@ -46,8 +46,8 @@ import '@esnet/packets-ui-web';
 </head>
 <body class="packets">
   <!-- Your Web Components here -->
-  <es-button variant="primary">Click Me</es-button>
-  <es-input-text placeholder="Enter text..."></es-input-text>
+  <pkts-button variant="primary">Click Me</pkts-button>
+  <pkts-input-text placeholder="Enter text..."></pkts-input-text>
 
   <!-- Load Web Components from unpkg -->
   <script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
@@ -66,11 +66,11 @@ import '@esnet/packets-ui-web';
 
 ```html
 <div class="packets">
-  <es-button variant="primary">Click Me</es-button>
-  <es-input-text placeholder="Enter text..."></es-input-text>
-  <es-alert variant="info" title="Info Alert">
+  <pkts-button variant="primary">Click Me</pkts-button>
+  <pkts-input-text placeholder="Enter text..."></pkts-input-text>
+  <pkts-alert variant="info" title="Info Alert">
     This is an informational message.
-  </es-alert>
+  </pkts-alert>
 </div>
 ```
 
@@ -80,8 +80,8 @@ import '@esnet/packets-ui-web';
 function MyComponent() {
   return (
     <div className="packets">
-      <es-button variant="primary">Click Me</es-button>
-      <es-input-text placeholder="Enter text..."></es-input-text>
+      <pkts-button variant="primary">Click Me</pkts-button>
+      <pkts-input-text placeholder="Enter text..."></pkts-input-text>
     </div>
   );
 }
@@ -92,8 +92,8 @@ function MyComponent() {
 ```vue
 <template>
   <div class="packets">
-    <es-button variant="primary">Click Me</es-button>
-    <es-input-text placeholder="Enter text..."></es-input-text>
+    <pkts-button variant="primary">Click Me</pkts-button>
+    <pkts-input-text placeholder="Enter text..."></pkts-input-text>
   </div>
 </template>
 ```
@@ -101,7 +101,7 @@ function MyComponent() {
     ## With Vanilla JavaScript
 
 ```javascript
-const button = document.createElement('es-button');
+const button = document.createElement('pkts-button');
 button.setAttribute('variant', 'primary');
 button.textContent = 'Click Me';
 document.body.appendChild(button);
@@ -120,7 +120,7 @@ document.body.appendChild(button);
 import '@esnet/packets-ui-web';
 
 // TypeScript knows about all custom element properties and methods
-const button = document.querySelector('es-button');
+const button = document.querySelector('pkts-button');
 if (button) {
   button.variant = 'primary'; // Fully typed
 }

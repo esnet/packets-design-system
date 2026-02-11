@@ -7,7 +7,7 @@ test.describe("CSS Breadcrumbs Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; width: 600px;">
-        <ul class="es-breadcrumbs">
+        <ul class="pkts-breadcrumbs">
           <li><a href="#">Home</a></li>
           <li><a href="#">Products</a></li>
           <li><a href="#">Category</a></li>
@@ -28,7 +28,7 @@ test.describe("CSS Breadcrumbs Component", () => {
       "dark",
       `
       <div id="container" style="padding: 16px; width: 600px;">
-        <ul class="es-breadcrumbs">
+        <ul class="pkts-breadcrumbs">
           <li><a href="#">Home</a></li>
           <li><a href="#">Products</a></li>
           <li>Current Page</li>

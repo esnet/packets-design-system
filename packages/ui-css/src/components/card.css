@@ -1,4 +1,4 @@
-.es-card {
+.pkts-card {
   display: block;
   padding: var(--esnet-size-spacing-medium, 16px);
   border-radius: var(--esnet-size-radius-large, 8px);
@@ -7,7 +7,7 @@
   box-shadow: var(--esnet-box-shadow-core-light);
 }
 
-.dark .es-card {
+.dark .pkts-card {
   border-color: var(--esnet-color-dark-shadow, #5c5f6b);
   background-color: var(--esnet-color-dark-surface-1, #19191a);
 }

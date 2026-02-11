@@ -1,9 +1,9 @@
-.es-input-radio {
+.pkts-input-radio {
   width: var(--esnet-size-spacing-medium, 1rem);
   height: var(--esnet-size-spacing-medium, 1rem);
 }
 
-.es-input-radio input {
+.pkts-input-radio input {
   margin: 0;
   box-sizing: border-box;
   appearance: none;
@@ -22,25 +22,25 @@
   cursor: pointer;
 }
 
-.dark .es-input-radio input {
+.dark .pkts-input-radio input {
   border-color: var(--esnet-color-dark-copy, #ffffff);
   background-color: var(--esnet-color-dark-copy, #ffffff);
 }
 
-.es-input-radio input:checked:not(:disabled),
-.es-input-radio input:focus:not(:disabled),
-.es-input-radio input:hover:not(:disabled) {
+.pkts-input-radio input:checked:not(:disabled),
+.pkts-input-radio input:focus:not(:disabled),
+.pkts-input-radio input:hover:not(:disabled) {
   border-color: var(--esnet-color-light-primary, #0088b5);
 }
 
-.dark .es-input-radio input:checked:not(:disabled),
-.dark .es-input-radio input:focus:not(:disabled),
-.dark .es-input-radio input:hover:not(:disabled) {
+.dark .pkts-input-radio input:checked:not(:disabled),
+.dark .pkts-input-radio input:focus:not(:disabled),
+.dark .pkts-input-radio input:hover:not(:disabled) {
   border-color: var(--esnet-color-dark-secondary, #00b6f2);
 }
 
-.es-input-radio input:focus:not(:disabled),
-.es-input-radio input:hover:not(:disabled) {
+.pkts-input-radio input:focus:not(:disabled),
+.pkts-input-radio input:hover:not(:disabled) {
   box-shadow: var(
     --esnet-box-shadow-core-medium,
     0px 2px 3px -1px rgba(0, 0, 0, 0.1),
@@ -48,14 +48,14 @@
   );
 }
 
-.es-input-radio input:disabled {
+.pkts-input-radio input:disabled {
   pointer-events: none;
   cursor: default;
   background-color: var(--esnet-color-light-copy-alt, #4d515e);
   border-color: var(--esnet-color-light-copy-alt, #4d515e);
 }
 
-.dark .es-input-radio input:disabled {
+.dark .pkts-input-radio input:disabled {
   border-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
   background-color: var(--esnet-color-dark-copy-alt, #c2c2c2);
 }

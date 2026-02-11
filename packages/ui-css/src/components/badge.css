@@ -1,4 +1,4 @@
-.es-badge {
+.pkts-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +14,6 @@
   color: var(--esnet-color-core-white-100, #ffffff);
 }
 
-.dark .es-badge {
+.dark .pkts-badge {
   background-color: var(--esnet-color-dark-primary, #004573);
 }

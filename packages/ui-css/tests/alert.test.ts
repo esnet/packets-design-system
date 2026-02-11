@@ -7,7 +7,7 @@ test.describe("CSS Alert Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 600px;">
-        <div class="es-alert es-info">
+        <div class="pkts-alert pkts-info">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </aside>
@@ -17,7 +17,7 @@ test.describe("CSS Alert Component", () => {
           </div>
         </div>
 
-        <div class="es-alert es-success">
+        <div class="pkts-alert pkts-success">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           </aside>
@@ -27,7 +27,7 @@ test.describe("CSS Alert Component", () => {
           </div>
         </div>
 
-        <div class="es-alert es-warning">
+        <div class="pkts-alert pkts-warning">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
           </aside>
@@ -37,7 +37,7 @@ test.describe("CSS Alert Component", () => {
           </div>
         </div>
 
-        <div class="es-alert es-error">
+        <div class="pkts-alert pkts-error">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
           </aside>
@@ -47,7 +47,7 @@ test.describe("CSS Alert Component", () => {
           </div>
         </div>
 
-        <div class="es-alert es-branded">
+        <div class="pkts-alert pkts-branded">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
           </aside>
@@ -71,7 +71,7 @@ test.describe("CSS Alert Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 600px;">
-        <div class="es-alert es-info">
+        <div class="pkts-alert pkts-info">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </aside>
@@ -81,7 +81,7 @@ test.describe("CSS Alert Component", () => {
           </div>
         </div>
 
-        <div class="es-alert es-success">
+        <div class="pkts-alert pkts-success">
           <aside class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
           </aside>

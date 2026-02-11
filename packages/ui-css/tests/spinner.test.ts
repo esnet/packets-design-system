@@ -7,7 +7,7 @@ test.describe("CSS Spinner Component", () => {
       "light",
       `
       <div id="container" style="display: flex; align-items: center; padding: 16px;">
-        <div role="alert" aria-busy="true" class="es-spinner">
+        <div role="alert" aria-busy="true" class="pkts-spinner">
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
@@ -28,7 +28,7 @@ test.describe("CSS Spinner Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; align-items: center; padding: 16px;">
-        <div role="alert" aria-busy="true" class="es-spinner">
+        <div role="alert" aria-busy="true" class="pkts-spinner">
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>

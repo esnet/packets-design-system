@@ -7,32 +7,32 @@ test.describe("CSS InputSwitch Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-switch">
+        <div class="pkts-input-switch">
           <input type="checkbox" />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-checked">
+        <div class="pkts-input-switch pkts-checked">
           <input type="checkbox" checked />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-secondary">
+        <div class="pkts-input-switch pkts-secondary">
           <input type="checkbox" />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-secondary es-checked">
+        <div class="pkts-input-switch pkts-secondary pkts-checked">
           <input type="checkbox" checked />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-disabled">
+        <div class="pkts-input-switch pkts-disabled">
           <input type="checkbox" disabled />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-disabled es-checked">
+        <div class="pkts-input-switch pkts-disabled pkts-checked">
           <input type="checkbox" disabled checked />
           <span class="indicator"></span>
         </div>
@@ -51,32 +51,32 @@ test.describe("CSS InputSwitch Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-switch">
+        <div class="pkts-input-switch">
           <input type="checkbox" />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-checked">
+        <div class="pkts-input-switch pkts-checked">
           <input type="checkbox" checked />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-secondary">
+        <div class="pkts-input-switch pkts-secondary">
           <input type="checkbox" />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-secondary es-checked">
+        <div class="pkts-input-switch pkts-secondary pkts-checked">
           <input type="checkbox" checked />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-disabled">
+        <div class="pkts-input-switch pkts-disabled">
           <input type="checkbox" disabled />
           <span class="indicator"></span>
         </div>
 
-        <div class="es-input-switch es-disabled es-checked">
+        <div class="pkts-input-switch pkts-disabled pkts-checked">
           <input type="checkbox" disabled checked />
           <span class="indicator"></span>
         </div>

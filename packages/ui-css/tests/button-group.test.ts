@@ -7,11 +7,11 @@ test.describe("CSS ButtonGroup Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; width: 600px;">
-        <section class="es-button-group es-horizontal">
+        <section class="pkts-button-group pkts-horizontal">
           <ul class="list">
-            <li><button class="es-button">Button 1</button></li>
-            <li><button class="es-button">Button 2</button></li>
-            <li><button class="es-button">Button 3</button></li>
+            <li><button class="pkts-button">Button 1</button></li>
+            <li><button class="pkts-button">Button 2</button></li>
+            <li><button class="pkts-button">Button 3</button></li>
           </ul>
         </section>
       </div>
@@ -29,11 +29,11 @@ test.describe("CSS ButtonGroup Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; width: 400px;">
-        <section class="es-button-group es-vertical">
+        <section class="pkts-button-group pkts-vertical">
           <ul class="list">
-            <li><button class="es-button">Button 1</button></li>
-            <li><button class="es-button">Button 2</button></li>
-            <li><button class="es-button">Button 3</button></li>
+            <li><button class="pkts-button">Button 1</button></li>
+            <li><button class="pkts-button">Button 2</button></li>
+            <li><button class="pkts-button">Button 3</button></li>
           </ul>
         </section>
       </div>

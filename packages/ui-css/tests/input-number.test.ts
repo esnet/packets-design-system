@@ -7,19 +7,19 @@ test.describe("CSS InputNumber Component", () => {
       "light",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-number">
+        <div class="pkts-input-text pkts-input-number">
           <input type="number" placeholder="Default number" />
         </div>
 
-        <div class="es-input-text es-input-number es-branded">
+        <div class="pkts-input-text pkts-input-number pkts-branded">
           <input type="number" placeholder="Branded number" />
         </div>
 
-        <div class="es-input-text es-input-number es-error">
+        <div class="pkts-input-text pkts-input-number pkts-error">
           <input type="number" placeholder="Error number" />
         </div>
 
-        <div class="es-input-text es-input-number es-disabled">
+        <div class="pkts-input-text pkts-input-number pkts-disabled">
           <input type="number" placeholder="Disabled number" disabled />
         </div>
       </div>
@@ -37,19 +37,19 @@ test.describe("CSS InputNumber Component", () => {
       "dark",
       `
       <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="es-input-text es-input-number">
+        <div class="pkts-input-text pkts-input-number">
           <input type="number" placeholder="Default number" />
         </div>
 
-        <div class="es-input-text es-input-number es-branded">
+        <div class="pkts-input-text pkts-input-number pkts-branded">
           <input type="number" placeholder="Branded number" />
         </div>
 
-        <div class="es-input-text es-input-number es-error">
+        <div class="pkts-input-text pkts-input-number pkts-error">
           <input type="number" placeholder="Error number" />
         </div>
 
-        <div class="es-input-text es-input-number es-disabled">
+        <div class="pkts-input-text pkts-input-number pkts-disabled">
           <input type="number" placeholder="Disabled number" disabled />
         </div>
       </div>

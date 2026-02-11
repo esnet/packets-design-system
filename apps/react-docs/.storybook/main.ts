@@ -22,7 +22,7 @@ const config: StorybookConfig = {
      * In order for react-docgen-typescript to work with this monorepo project setup,
      * components need to be named function exports, not arrow functions or anonymous functions.
      * Stories must also import the component from the exact path it is from, not from the package root or even a barrel export.
-     * See ESInputText component and stories for an example of this.
+     * See PktsInputText component and stories for an example of this.
      *
      * TODO: See if the current export setup affects Intellisense/prop detection in consuming projects, and if avoiding default exports is better.
      */

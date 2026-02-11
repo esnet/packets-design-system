@@ -142,8 +142,8 @@ import { Meta } from "@storybook/blocks";
 
 ```html
 <div class="packets">
-  <button class="es-button es-primary">Click Me</button>
-  <div class="es-input-text">
+  <button class="pkts-button pkts-primary">Click Me</button>
+  <div class="pkts-input-text">
     <input type="text" placeholder="Enter text...">
   </div>
 </div>
@@ -190,8 +190,8 @@ npm install @esnet/packets-ui-css
 
 ```html
 <div class="packets">
-  <es-button variant="primary">Click Me</es-button>
-  <es-input-text placeholder="Enter text..."></es-input-text>
+  <pkts-button variant="primary">Click Me</pkts-button>
+  <pkts-input-text placeholder="Enter text..."></pkts-input-text>
 </div>
 
 <script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
@@ -235,17 +235,17 @@ npm install @esnet/packets-ui-web
     ## Example Usage
 
 ```tsx
-import { ESButton, ESInputText } from '@esnet/packets-ui-react';
+import { PktsButton, PktsInputText } from '@esnet/packets-ui-react';
 
 function MyComponent() {
   const [value, setValue] = useState('');
 
   return (
     <div className="packets">
-      <ESButton variant="primary" onClick={() => alert('Clicked!')}>
+      <PktsButton variant="primary" onClick={() => alert('Clicked!')}>
         Click Me
-      </ESButton>
-      <ESInputText
+      </PktsButton>
+      <PktsInputText
         placeholder="Enter text..."
         value={value}
         onChange={(e) => setValue(e.target.value)}

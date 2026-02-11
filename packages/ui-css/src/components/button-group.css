@@ -1,19 +1,19 @@
-.es-button-group {
+.pkts-button-group {
   --spacing: var(--esnet-size-spacing-xsmall, 8px);
   --label-color: var(--esnet-color-light-copy, #3d3d3d);
   --label-color-dark: var(--esnet-color-dark-copy, #e6e6e6);
   width: fit-content;
 }
 
-.dark .es-button-group {
+.dark .pkts-button-group {
   --label-color: var(--label-color-dark);
 }
 
-.es-button-group label {
+.pkts-button-group label {
   color: var(--label-color);
 }
 
-.es-button-group .list {
+.pkts-button-group .list {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -23,16 +23,16 @@
   flex-direction: row;
 }
 
-.es-button-group.es-vertical .list {
+.pkts-button-group.pkts-vertical .list {
   flex-direction: column;
 }
 
-.es-button-group.es-horizontal .list {
+.pkts-button-group.pkts-horizontal .list {
   flex-direction: row;
 }
 
 @media (max-width: 640px) {
-  .es-button-group.es-horizontal .list {
+  .pkts-button-group.pkts-horizontal .list {
     flex-direction: column;
   }
 }

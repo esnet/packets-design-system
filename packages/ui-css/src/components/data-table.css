@@ -1,16 +1,16 @@
 /* ==============================================================================
-   ES-DATA-TABLE - Semantic Table Component
+   PKTS-DATA-TABLE - Semantic Table Component
    ==============================================================================
 
    Uses natural table element selectors for clean, semantic markup.
 
-   Usage: <table class="es-data-table">
+   Usage: <table class="pkts-data-table">
             <thead>...</thead>
             <tbody>...</tbody>
           </table>
 */
 
-.es-data-table {
+.pkts-data-table {
   --background-color: var(--esnet-color-core-white-100, #fff);
   --background-dark-color: var(--esnet-color-core-slate-1000, #30333b);
   --header-background-color: var(--esnet-color-core-blue-900);
@@ -35,14 +35,14 @@
 }
 
 @media (min-width: 640px) {
-  .es-data-table {
+  .pkts-data-table {
     table-layout: auto;
     display: table;
     overflow: hidden;
   }
 }
 
-.dark .es-data-table {
+.dark .pkts-data-table {
   --table-row-even-background-color: rgba(0, 0, 0, 0.5);
   --table-row-hover-background-color: rgba(0, 0, 0, 0.6);
   --background-color: var(--background-dark-color);
@@ -51,42 +51,42 @@
 
 /* Table Header */
 
-.es-data-table thead {
+.pkts-data-table thead {
   background-color: var(--header-background-color);
   color: var(--header-copy-color);
   display: block;
 }
 
 @media (min-width: 640px) {
-  .es-data-table thead {
+  .pkts-data-table thead {
     display: table-header-group;
   }
 }
 
-.es-data-table thead th {
+.pkts-data-table thead th {
   padding: var(--cell-padding);
   display: none;
   vertical-align: top;
 }
 
-.es-data-table thead th:first-of-type {
+.pkts-data-table thead th:first-of-type {
   border-top-left-radius: var(--corner-radius);
   display: block;
   width: 100%;
 }
 
 @media (min-width: 640px) {
-  .es-data-table thead th:first-of-type {
+  .pkts-data-table thead th:first-of-type {
     display: table-cell;
     width: auto;
   }
 }
 
-.es-data-table thead th:last-of-type {
+.pkts-data-table thead th:last-of-type {
   border-top-right-radius: var(--corner-radius);
 }
 
-.es-data-table thead th .labelWrapper {
+.pkts-data-table thead th .labelWrapper {
   display: flex;
   align-items: center;
   gap: var(--esnet-size-spacing-xxsmall);
@@ -97,7 +97,7 @@
 }
 
 @media (min-width: 640px) {
-  .es-data-table thead th {
+  .pkts-data-table thead th {
     display: table-cell;
     max-height: 10px;
     max-width: 100px;
@@ -106,45 +106,45 @@
 
 /* Table Body */
 
-.es-data-table tbody {
+.pkts-data-table tbody {
   display: block;
 }
 
 @media (min-width: 640px) {
-  .es-data-table tbody {
+  .pkts-data-table tbody {
     display: table-row-group;
   }
 }
 
-.es-data-table tbody tr {
+.pkts-data-table tbody tr {
   display: block;
   padding: var(--esnet-size-spacing-medium) 0;
   transition: background ease-in var(--esnet-time-duration-short, 100ms);
   color: var(--body-copy-color);
 }
 
-.es-data-table tbody tr:hover,
-.es-data-table tbody tr:nth-child(even):hover {
+.pkts-data-table tbody tr:hover,
+.pkts-data-table tbody tr:nth-child(even):hover {
   background-color: var(--table-row-hover-background-color);
 }
 
-.es-data-table tbody tr:nth-child(even) {
+.pkts-data-table tbody tr:nth-child(even) {
   background-color: var(--table-row-even-background-color);
 }
 
 @media (min-width: 640px) {
-  .es-data-table tbody tr {
+  .pkts-data-table tbody tr {
     display: table-row;
   }
 }
 
-.es-data-table tbody td {
+.pkts-data-table tbody td {
   padding: var(--cell-padding);
   vertical-align: middle;
   display: block;
 }
 
-.es-data-table tbody td::before {
+.pkts-data-table tbody td::before {
   display: block;
   content: attr(data-parent);
   font: var(--label-typography);
@@ -152,12 +152,12 @@
 }
 
 @media (min-width: 640px) {
-  .es-data-table tbody td {
+  .pkts-data-table tbody td {
     display: table-cell;
     width: auto;
   }
 
-  .es-data-table tbody td::before {
+  .pkts-data-table tbody td::before {
     display: none;
     content: "";
   }
@@ -165,7 +165,7 @@
 
 /* Table Footer */
 
-.es-data-table tfoot {
+.pkts-data-table tfoot {
   background-color: var(--header-background-color);
   padding: var(--cell-padding);
   color: var(--header-copy-color);
@@ -175,22 +175,22 @@
 }
 
 @media (min-width: 640px) {
-  .es-data-table tfoot {
+  .pkts-data-table tfoot {
     display: table-footer-group;
   }
 }
 
-.es-data-table tfoot tr {
+.pkts-data-table tfoot tr {
   display: block;
 }
 
 @media (min-width: 640px) {
-  .es-data-table tfoot tr {
+  .pkts-data-table tfoot tr {
     display: table-row;
   }
 }
 
-.es-data-table tfoot td {
+.pkts-data-table tfoot td {
   padding: var(--cell-padding);
   vertical-align: top;
   display: block;
@@ -198,22 +198,22 @@
 }
 
 @media (min-width: 640px) {
-  .es-data-table tfoot td {
+  .pkts-data-table tfoot td {
     display: table-cell;
   }
 }
 
-.es-data-table tfoot td:first-of-type {
+.pkts-data-table tfoot td:first-of-type {
   border-bottom-left-radius: var(--esnet-size-radius-large);
 }
 
-.es-data-table tfoot td:last-of-type {
+.pkts-data-table tfoot td:last-of-type {
   border-bottom-right-radius: var(--esnet-size-radius-large);
 }
 
 /* Sort Icon */
 
-.es-data-table-sort-icon {
+.pkts-data-table-sort-icon {
   display: inline-block;
   width: var(--esnet-size-spacing-medium);
 }

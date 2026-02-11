@@ -1,11 +1,11 @@
 /* Pseudo-classes */
   /* Remove the number spinner that is provided by default */
-  .es-input-number input::-webkit-outer-spin-button,
-  .es-input-number input::-webkit-inner-spin-button {
+  .pkts-input-number input::-webkit-outer-spin-button,
+  .pkts-input-number input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  .es-input-number input {
+  .pkts-input-number input {
 
   -moz-appearance: textfield;
   appearance: none;

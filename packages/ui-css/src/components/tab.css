@@ -1,14 +1,14 @@
 /* ==============================================================================
-   ES-TAB - Composable Base Class
+   PKTS-TAB - Composable Base Class
    ==============================================================================
 
    Base styles for tab component. State classes are composable:
-   - State: .es-active
+   - State: .pkts-active
 
-   Usage: <li class="es-tab es-active">
+   Usage: <li class="pkts-tab pkts-active">
 */
 
-.es-tab {
+.pkts-tab {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,27 +23,27 @@
   transition: background ease-in var(--esnet-time-duration-short, 100ms);
 }
 
-li.es-tab {
+li.pkts-tab {
   padding: 0;
 }
 
-.es-tab.es-active {
+.pkts-tab.pkts-active {
   background-color: var(--esnet-color-light-surface-2, #f2f2f2);
 }
 
-.dark .es-tab.es-active {
+.dark .pkts-tab.pkts-active {
   background-color: var(--esnet-color-dark-primary, #004573);
 }
 
-.es-tab:hover {
+.pkts-tab:hover {
   background-color: rgba(256, 256, 256, 0.4);
 }
 
-.es-tab:hover a {
+.pkts-tab:hover a {
   text-decoration: underline;
 }
 
-.es-tab a {
+.pkts-tab a {
   padding: var(--esnet-size-spacing-xsmall, 8px)
     var(--esnet-size-spacing-medium, 16px);
 
@@ -52,6 +52,6 @@ li.es-tab {
   white-space: nowrap;
 }
 
-.dark .es-tab a {
+.dark .pkts-tab a {
   color: var(--esnet-color-dark-copy, #e6e6e6);
 }

@@ -7,7 +7,7 @@ test.describe("CSS CommaSeperatedList Component", () => {
       "light",
       `
       <div id="container" style="padding: 16px; width: 400px;">
-        <ul class="es-comma-seperated-list">
+        <ul class="pkts-comma-seperated-list">
           <li class="comma-separated-list-item">Item 1</li>
           <li class="comma-separated-list-item">Item 2</li>
           <li class="comma-separated-list-item">Item 3</li>

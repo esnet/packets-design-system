@@ -1,4 +1,4 @@
-.es-chip {
+.pkts-chip {
   /* Layout */
   display: inline-flex;
   height: var(--esnet-size-spacing-large, 32px);
@@ -27,126 +27,126 @@
   transition: border-color, background-color var(--esnet-time-duration-quick, 250ms) ease;
 }
 
-.dark .es-chip {
+.dark .pkts-chip {
   background-color: var(--esnet-color-core-black-600, #454547);
   color: var(--esnet-color-core-white-300, #e6e6e6);
 }
 
 /* Hover state */
 
-.es-chip:hover:not(.es-disabled) {
+.pkts-chip:hover:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-white-700, #C2C2C2);
 }
 
-.dark .es-chip:hover:not(.es-disabled) {
+.dark .pkts-chip:hover:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-black-300, #5E5E5E);
 }
 
 /* Focus state */
 
-.es-chip:focus:not(.es-disabled) {
+.pkts-chip:focus:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-white-800, #B3B3B3);
 }
 
-.dark .es-chip:focus:not(.es-disabled) {
+.dark .pkts-chip:focus:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-black-200, #656566);
 }
 
 /* Active state */
 
-.es-chip:active:not(.es-disabled) {
+.pkts-chip:active:not(.pkts-disabled) {
   border-color: var(--esnet-color-core-blue-500, #00a0d6);
   background-color: var(--esnet-color-core-blue-100, #cff1ff);
   color: var(--esnet-color-core-blue-800, #00608c);
 }
 
-.dark .es-chip:active:not(.es-disabled) {
+.dark .pkts-chip:active:not(.pkts-disabled) {
   border-color: var(--esnet-color-core-blue-600, #0088B5);
   background-color: var(--esnet-color-core-blue-200, #9CE2FF);
 }
 
 /* Disabled state */
 
-.es-chip.es-disabled,
-.es-chip:disabled {
+.pkts-chip.pkts-disabled,
+.pkts-chip:disabled {
   background-color: var(--esnet-color-core-white-400, #E3E3E3);
   cursor: default;
   pointer-events: none;
 }
 
-.dark .es-chip.es-disabled,
-.dark .es-chip:disabled {
+.dark .pkts-chip.pkts-disabled,
+.dark .pkts-chip:disabled {
   background-color: var(--esnet-color-core-black-600, #454547);
 }
 
 /* Outline variant */
 
-.es-chip.es-outline {
+.pkts-chip.pkts-outline {
   background-color: transparent;
   border-color: var(--esnet-color-core-white-600, #CCC);
 }
 
-.dark .es-chip.es-outline {
+.dark .pkts-chip.pkts-outline {
   border-color: var(--esnet-color-core-black-600, #CCC);
 }
 
-.es-chip.es-outline:hover:not(.es-disabled) {
+.pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-white-200, #F2F2F2);
 }
 
-.dark .es-chip.es-outline:hover:not(.es-disabled) {
+.dark .pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-black-800, #252526);
 }
 
-.es-chip.es-outline:focus:not(.es-disabled) {
+.pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-white-800, #B3B3B3);
 }
 
-.dark .es-chip.es-outline:focus:not(.es-disabled) {
+.dark .pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-black-200, #656566);
 }
 
-.es-chip.es-outline:active:not(.es-disabled) {
+.pkts-chip.pkts-outline:active:not(.pkts-disabled) {
   border-color: var(--esnet-color-core-blue-500, #00A0D6);
   background-color: var(--esnet-color-core-blue-100, #CFF1FF);
   color: var(--esnet-color-core-blue-800, #00608c);
 }
 
-.dark .es-chip.es-outline:active:not(.es-disabled) {
+.dark .pkts-chip.pkts-outline:active:not(.pkts-disabled) {
   background-color: var(--esnet-color-core-blue-200, #9ce2ff);
 }
 
-.es-chip.es-outline.es-disabled,
-.es-chip.es-outline:disabled {
+.pkts-chip.pkts-outline.pkts-disabled,
+.pkts-chip.pkts-outline:disabled {
   background-color: var(--esnet-color-core-white-200, #f2f2f2);
   border-color: var(--esnet-color-core-white-300, #E6E6E6);
 }
 
-.dark .es-chip.es-outline.es-disabled,
-.dark .es-chip.es-outline:disabled {
+.dark .pkts-chip.pkts-outline.pkts-disabled,
+.dark .pkts-chip.pkts-outline:disabled {
   background-color: var(--esnet-color-core-black-800, #252526);
   border-color: transparent;
 }
 
 /* Rounded variant */
 
-.es-chip.es-rounded {
+.pkts-chip.pkts-rounded {
   border-radius: var(--esnet-size-radius-circle, 999px);
 }
 
 /* Prepend/append modifiers for reduced padding */
 
-.es-chip.es-prepend {
+.pkts-chip.pkts-prepend {
   padding-left: var(--esnet-size-spacing-xsmall, 4px);
 }
 
-.es-chip.es-append {
+.pkts-chip.pkts-append {
   padding-right: var(--esnet-size-spacing-xsmall, 4px);
 }
 
 /* Delete icon */
 
-.es-chip .delete-icon {
+.pkts-chip .delete-icon {
   width: var(--esnet-size-spacing-medium, 16px);
   aspect-ratio: 1 / 1;
 }
