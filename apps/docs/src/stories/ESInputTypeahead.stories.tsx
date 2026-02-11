@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESInputTypeahead } from "@esnet/packets-ui/src/components/ESInputTypeahead/ESInputTypeahead.tsx";
 import { useState } from "react";
-import { ESButton, ESInputRow, OptionType } from "@esnet/packets-ui";
+import { ESButton, ESInputRow } from "@esnet/packets-ui";
+import ESInputOption from "@esnet/packets-ui/src/components/ESInputOption/ESInputOption.js";
 
 const meta: Meta<typeof ESInputTypeahead> = {
   title: "Components/ESInputTypeahead",
   component: ESInputTypeahead,
+  subcomponents: { ESInputOption },
   tags: ["autodocs"],
   argTypes: {},
   args: {},
@@ -32,71 +34,57 @@ export default meta;
 type Story = StoryObj<typeof ESInputTypeahead>;
 
 const options = [
-  {
-    id: "option-1",
-    value: "Lorem ipsum dolor sit amet",
-  },
-  {
-    id: "option-2",
-    value:
-      "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "option-3",
-    value: "Ut enim ad minim veniam",
-  },
-  {
-    id: "option-4",
-    value:
-      "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-  },
-  {
-    id: "option-5",
-    value:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-];
+  "Lorem ipsum dolor sit amet",
+  "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  "Ut enim ad minim veniam",
+  "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+].map((value) => <ESInputOption>{value}</ESInputOption>);
 
 export const Default: Story = {
   args: {
-    options,
+    children: options,
   },
 };
 
 /**
  * Using a controlled input state is recommended by React for various reasons.
- * You can control both values, the search value and the selected options value, or control only one.
  */
 export const ControlledExample: Story = {
   render: () => {
-    const [search, setSearch] = useState<string>("");
-    const [selectedIds, setSelectedIds] = useState<string[]>([]);
+    const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
     return (
       <div>
         <div>
-          <strong>Live Value:</strong>{" "}
-          {selectedIds ? selectedIds.join(", ") : "[empty]"}{" "}
-          <strong>Live Search Value:</strong> {search ?? "[empty] "}
+          <strong>Live Value:</strong> {selectedValues.join(", ")}
         </div>
-        <ESInputRow label="Typeahead Options">
-          <ESInputTypeahead
-            options={options}
-            searchValue={search}
-            onSearchChange={setSearch}
-            selectedIdsValue={selectedIds}
-            onSelectedOptionsChange={setSelectedIds}
-          />
-        </ESInputRow>
+        <form>
+          <ESInputRow label="Typeahead Options">
+            <ESInputTypeahead
+              value={selectedValues}
+              onChange={(e) => {
+                setSelectedValues(
+                  Array.from(
+                    e.target.selectedOptions,
+                    (option) => option.value,
+                  ),
+                );
+              }}
+            >
+              {options}
+            </ESInputTypeahead>
+          </ESInputRow>
+        </form>
       </div>
     );
   },
 };
 
 /**
- * For forms intentionally made simple with ref only access, this component can be uncontrolled too.
- * If a name is passed in, the search value input has name `${props.name}-typeahead-search`,
- * and the selected options are stored in a hidden input with name `${name}`.
+ * Uncontrolled works great for larger forms where you don't want to manage the state of inputs.
+ * You can reference the value by using `FormData.getAll("typeahead-name")`, but you must pass in the name prop.
+ * Under the hood, each selected option is a hidden input with the same name as the given name prop.
  */
 export const UncontrolledExample: Story = {
   render: () => {
@@ -107,24 +95,23 @@ export const UncontrolledExample: Story = {
 
       const form = e.currentTarget;
       const formData = new FormData(form);
-      const value = formData.get("typeahead-form-name") ?? "ERROR: NOT FOUND";
-      const searchValue =
-        formData.get("typeahead-form-name-typeahead-search") ??
-        "ERROR: NOT FOUND";
+      const value = formData.getAll("typeahead-form-name");
 
-      setSubmittedValue(`option Ids: ${value}, search value: ${searchValue}`);
+      setSubmittedValue(`Option values: ${value}`);
     };
     return (
       <div>
         {
           <div>
             <strong>Submitted Value:</strong>{" "}
-            {submittedValue ? submittedValue : "[empty]"}
+            {submittedValue ? submittedValue : "Not Yet Submitted"}
           </div>
         }
         <form onSubmit={handleSubmit}>
           <ESInputRow htmlFor="typeahead-form-name" label="Typeahead Options">
-            <ESInputTypeahead name="typeahead-form-name" options={options} />
+            <ESInputTypeahead name="typeahead-form-name">
+              {options}
+            </ESInputTypeahead>
           </ESInputRow>
           <ESButton variant="primary" type="submit">
             Submit
@@ -142,43 +129,49 @@ export const UncontrolledExample: Story = {
  */
 export const LoadingExample: Story = {
   render: () => {
-    const [options, setOptions] = useState<OptionType[]>([]);
-    const [search, setSearch] = useState<string>("");
+    const [opts, setOpts] = useState([
+      <ESInputOption>Initial Singular Option</ESInputOption>,
+    ]);
     const [loading, setLoading] = useState(false);
-    const onSearchChange = (next: string) => {
-      setSearch(next);
+    const onSearchChange = (e: any) => {
+      if (loading) return;
       setLoading(true);
 
       setTimeout(() => {
         setLoading(false);
-        setOptions((prev) => [
-          ...prev,
-          { id: next, value: next + "-1" },
-          { id: next, value: next + "-2" },
-        ]);
+        const value = e.target.value;
+        setOpts((prev) =>
+          value !== ""
+            ? [
+                ...prev,
+                <ESInputOption>{`'${value}' related options`}</ESInputOption>,
+              ]
+            : [...prev],
+        );
       }, 500);
     };
 
     return (
       <ESInputRow label="Typeahead Options">
         <ESInputTypeahead
-          options={options}
-          searchValue={search}
-          onSearchChange={onSearchChange}
+          placeholder="Type to view options related"
           loading={loading}
-        />
+          onSearchChange={onSearchChange}
+        >
+          {opts}
+        </ESInputTypeahead>
       </ESInputRow>
     );
   },
 };
 
-export const BrandedAndErrorAndDisabled: Story = {
-  args: {
-    variant: "branded",
-    error: true,
-    disabled: true,
-    options: options,
-    selectedIdsValue: ["option-1", "option-2"],
-    searchValue: "disabled search",
-  },
-};
+// export const BrandedAndErrorAndDisabled: Story = {
+//   args: {
+//     variant: "branded",
+//     error: true,
+//     disabled: true,
+//     options: options,
+//     selectedIdsValue: ["option-1", "option-2"],
+//     searchValue: "disabled search",
+//   },
+// };
