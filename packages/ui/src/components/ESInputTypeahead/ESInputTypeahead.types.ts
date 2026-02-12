@@ -11,7 +11,8 @@ export interface ESInputTypeaheadProps {
   className?: string;
   /** Text to render inside input component for suggesting. */
   placeholder?: string;
-  /** Whether or not the user can select multiple options. Defaults to true, for single select, you can set this to false, or use ESInputSelect. */
+  /** Whether or not the user can select multiple options. Defaults to true, for single select, you can set this to false, or use ESInputSelect.
+   * It's important to note that even when using multi as false, value and defaultValue are still expected to be arrays. */
   multi?: boolean;
   /** Form name, so it can be found and referenced in `FormData` if needed. */
   name?: string;

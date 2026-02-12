@@ -11,15 +11,6 @@ import { ESInputTypeaheadProps } from "./ESInputTypeahead.types";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 /**
- * TODO:
- * - fix issue with typeahead controlled example, removing options
- * - go over tests and add more if needed
- * - git commit it and move onto terranova
- *
- *
- */
-
-/**
  * ESInputTypeahead Component
  *
  * This component mimics HTML select with multi-select capability, and can be controlled or uncontrolled.

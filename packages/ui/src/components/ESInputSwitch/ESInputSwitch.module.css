@@ -9,15 +9,12 @@
     --interaction-shadow: var(--esnet-color-core-orange-300);
   }
 
-  --knob-size: calc(
-    var(--switch-height) - (var(--esnet-size-border-width-small, 0.125rem) * 2)
-  );
-
   /* Base Styles */
   position: relative;
   display: inline-block;
   width: 52px;
   height: 26px;
+  box-sizing: content-box;
   border-radius: var(--esnet-size-radius-circle, 999px);
   border: var(--esnet-size-border-width-small, 0.125rem) solid
     var(--esnet-color-core-white-700, #c2c2c2);
