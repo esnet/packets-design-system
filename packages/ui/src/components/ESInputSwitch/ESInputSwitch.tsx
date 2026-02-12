@@ -1,9 +1,9 @@
-import React, { FC, ChangeEvent, useState, useMemo } from "react";
+import React, { ChangeEvent } from "react";
 import { ESInputSwitchProps } from "./ESInputSwitch.types";
-
 import styles from "./ESInputSwitch.module.css";
 import { getIconByCheckedState } from "./ESInputSwitchUtils";
 import clsx from "clsx";
+import useControllableState from "../../lib/hooks/useControllableState";
 
 /**
  * ESInputSwitch Component
@@ -11,48 +11,37 @@ import clsx from "clsx";
  * @param {ESInputSwitchProps} props
  * @returns {React.FunctionComponent}
  */
-const ESInputSwitch: FC<ESInputSwitchProps> = ({
+const ESInputSwitch: React.FC<ESInputSwitchProps> = ({
   variant = "primary",
-  hideIcons = false,
+  noIcon = false,
   className = "",
-  defaultChecked,
-  disabled,
+  checked,
+  defaultChecked = false,
+  onChange,
   ...props
 }) => {
-  const [value, setValue] = useState(defaultChecked);
+  const [_checked, setChecked] = useControllableState<boolean>({
+    value: checked,
+    defaultValue: defaultChecked,
+  });
 
-  const icon = useMemo(() => {
-    if (hideIcons === true) {
-      return <></>;
-    }
-
-    return getIconByCheckedState(value);
-  }, [value]);
-
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.checked);
-    props?.onChange?.(event);
+  const _onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e);
+    setChecked(e.target.checked);
   };
 
   return (
-    <div
-      className={clsx(
-        styles.ESInputSwitch,
-        styles[variant],
-        value && styles.checked,
-        disabled && styles.disabled,
-        className
-      )}
-    >
+    <div className={clsx(styles.ESInputSwitch, styles[variant], className)}>
       <input
         {...props}
         type="checkbox"
-        disabled={disabled}
-        checked={value}
-        onChange={onChange}
+        checked={_checked ?? false}
+        onChange={_onChange}
         className={styles.input}
       />
-      <span className={styles.switchIndicator}>{icon}</span>
+      <span className={styles.switchIndicator}>
+        {noIcon ? null : getIconByCheckedState(_checked)}
+      </span>
     </div>
   );
 };
