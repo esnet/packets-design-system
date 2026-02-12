@@ -56,7 +56,7 @@ help:
 	@echo "Documentation:"
 	@echo "  docs-build             - Build Docker image with all 4 Storybooks"
 	@echo "  docs-run               - Run documentation container on port 9888"
-	@echo "  docs-stop              - Stop running documentation container"
+	@echo "  docs-clean             - Delete documentation docker container image"
 	@echo ""
 	@echo "Playwright Screenshot management:"
 	@echo "  screenshots-generate   - Generate new screenshots for all packages"
@@ -75,7 +75,6 @@ help:
 	@echo "Documentation workflow:"
 	@echo "  1. make docs-build               # Build documentation container"
 	@echo "  2. make docs-run                 # Run at http://localhost:9888"
-	@echo "  3. make docs-stop                # Stop when done"
 
 pull-image:
 	@echo "Pulling Playwright Docker image..."
@@ -148,7 +147,6 @@ docs-run:
 	@docker rm packets-docs 2>/dev/null || true
 	docker run --rm --name packets-docs -p 9888:80 packets-docs
 
-docs-stop:
-	@echo "Stopping documentation container..."
-	docker stop packets-docs || true
+docs-clean:
+	@echo "Removing documentation container..."
 	docker rm packets-docs || true
