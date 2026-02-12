@@ -6,27 +6,36 @@ Packets is a design system created as a cross organizational collaboration at ES
 
 # Getting Started
 
-    Packets is officially open source as of version 2.0.0! The monorepo can be found [here in our GitHub instance](https://github.com/esnet/packets-design-system).
+Packets is officially open source as of version 2.0.0! The monorepo can be found [here in our GitHub instance](https://github.com/esnet/packets-design-system).
 
-# Adding the NPM packages to your project.
+# Adding the NPM Packages to Your Project
 
 
-    4. Run <br />
-    `npm i @esnet/esnet-tokens @esnet/packets-ui-react`, <br />
-    `pnpm i @esnet/esnet-tokens @esnet/packets-ui-react`, or <br />
-    `yarn add @esnet/esnet-tokens @esnet/packets-ui-react`
-    5. Add the `packets-ui` class to the body or root level tag of your project.
-    6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
-    7. Add the following to your header element to fetch our fonts from Google's CDN
+1. Decide on the approach you'd like to use. Here's a quick reference table:
 
-```
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-  rel="stylesheet"
-/>
-```
+| Feature         | CSS Components                     | Web Components              | React Components              |
+|-----------------|------------------------------------|-----------------------------|-------------------------------|
+| Framework       | None required                      | Framework-agnostic          | React only                    |
+| JavaScript      | Optional                           | Included                    | Required                      |
+| Bundle Size     | Smallest (CSS only)                | Medium (JS + CSS)           | Largest (React + components)  |
+| TypeScript      | N/A (CSS only)                     | Full type definitions       | Full type definitions         |
+| Learning Curve  | Easiest                            | Medium                      | Medium                        |
+| Interactivity   | Basic, HTML Built-in               | Full interactivity          | Full interactivity  |
+| Best For        | Static sites, server-rendered apps | Vanilla/Framework-agnostic apps     | React applications            |
+| Installation    | `npm install @esnet/packets-ui-css`        | `npm install @esnet/packets-ui-css @esnet/packets-ui-web` | `npm install @esnet-packets-ui-css @esnet/packets-ui-react` |
+
+
+3. Add the `packets` class to the `<body>` or root level tag of your project.
+4. (Optional) Add `dark` or `light` classes to the tag you chose, e.g. `<body class="packets dark">`.
+5. Add the following to your `<head>` element to fetch our fonts from Google's CDN:
+    ```
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    ```
 
 
 # Running the system locally
@@ -48,11 +57,6 @@ Packets is a design system created as a cross organizational collaboration at ES
 
 
 ### Make commands:
-`make screenshots-build` - Build all packages
-`make screenshots-test` - Run all tests (React, Web, CSS)
-`make screenshots-test-react` - Run React component tests only
-`make screenshots-test-web` - Run Web Component tests only
-`make screenshots-test-css` - Run CSS-only tests only
 `make lint` - Run linting
 `make format` - Format code with prettier
 `make clean` - Clean build artifacts
@@ -61,23 +65,36 @@ Packets is a design system created as a cross organizational collaboration at ES
 `make docs-stop`              - Stop running documentation container
 
 ### Playwright Screenshot management:
+Packets uses Playwright to execute visual regression tests to ensure that components stay styled predictably and correctly from commit to commit. Because screenshots are executed in a docker container in our CI process, they must also be generated in the same docker container to ensure tests pass. These Makefile commands should help ease the burden of managing the screenshots in a docker container. 
+
+
+#### Setup:
+`make pull-image `            - Pull the Playwright Docker image
+
+#### Image Build
+`make screenshots-build` - Build docker image and all packages
+
+#### Screenshotting
 `make screenshots-generate`   - Generate new screenshots for all packages
 `make screenshots-regenerate` - Clean then generate screenshots for all packages
 `make screenshots-clean`      - Delete all screenshot directories
 
-### Setup:
-`make pull-image `            - Pull the Playwright Docker image
+#### Screenshot comparison (testing)
+`make screenshots-test` - Run all tests (React, Web, CSS)
+`make screenshots-test-react` - Run React component tests only
+`make screenshots-test-web` - Run Web Component tests only
+`make screenshots-test-css` - Run CSS-only tests only
 
 
 # Development
 
 To add a new component:
-1. build the css-only component and create Storybook documentation.
-2. build the component in ui-web and create Storybook documentation.
-2. build the component in ui-react and create Storybook documentation.
+1. Build the **CSS-only component** (`packages/ui-css/src/components`) and create Storybook documentation (`apps/css-docs/src`)
+2. Build the **Web component** (`packages/ui-web/src/components`) and create Storybook documentation (`apps/web-docs/src`)
+3. Build the **React component** (`packages/ui-react/src/components`) and create Storybook documentation (`apps/web-docs/src`)
 
 ### Before submitting a PR:
 1. make pull-image               # First time only
 2. make screenshots-build                    # Build packages
-4. make screenshots-regenerate   # Update screenshots if needed
-3. make screenshots-test                     # Run tests
+3. make screenshots-regenerate   # Update screenshots if needed
+4. make screenshots-test                     # Run tests
