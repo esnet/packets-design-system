@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from "./ESAccordion.module.css";
 import { ESAccordionProps } from "./ESAccordion.types";
 import useControllableState from "../../lib/hooks/useControllableState";
-import ESIcon from "../ESIcon";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 // extra buffer to account for margin collapse
 const HEIGHT_BUFFER = 20;
@@ -15,13 +15,15 @@ const HEIGHT_BUFFER = 20;
  * @returns {React.ReactElement}
  */
 export function ESAccordion({
-  title,
+  header,
   footer,
   variant = "primary",
   actionButtons,
   open: _open,
   onChange: _onOpenChange,
+  className,
   children,
+  ...props
 }: ESAccordionProps) {
   const [open, setOpen] = useControllableState({
     value: _open,
@@ -45,11 +47,18 @@ export function ESAccordion({
   }, [open]);
 
   return (
-    <div className={clsx(styles.ESAccordion, variant && styles[variant])}>
+    <div
+      className={clsx(
+        styles.ESAccordion,
+        variant && styles[variant],
+        className,
+      )}
+      {...props}
+    >
       <div className={styles.header}>
         <button
           aria-expanded={open}
-          aria-controls={`accordion-content-${title}`}
+          aria-controls={`accordion-content-${header}`}
           className={styles.openButton}
           onClick={() => {
             if (contentRef.current)
@@ -57,15 +66,15 @@ export function ESAccordion({
             setOpen(!open);
           }}
         >
-          <ESIcon name={open ? "chevron-down" : "chevron-right"} />
-          <span>{title}</span>
+          {open ? <ChevronDown /> : <ChevronRight />}
+          <span>{header}</span>
         </button>
         {actionButtons && (
           <div className={styles.actionIconButtons}>{actionButtons}</div>
         )}
       </div>
       <div
-        aria-labelledby={`accordion-header-${title}`}
+        aria-labelledby={`accordion-header-${header}`}
         aria-hidden={!open}
         // @ts-expect-error
         inert={!open}
