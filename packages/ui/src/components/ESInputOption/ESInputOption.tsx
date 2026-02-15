@@ -8,6 +8,7 @@ import { Check, Square } from "lucide-react";
  * ESInputOption Component
  *
  * Meant for use as a subcomponent of ESInputSelect and ESInputTypeahead, with undefined behavior outside of them.
+ * ESInputOption's child MUST be a string.
  *
  *
  * ESInputOption mimics the impossible to style `<option>` tag, utilizing `button` under the hood,

@@ -6,6 +6,8 @@
   width: 100%;
   height: fit-content;
   outline: none;
+  anchor-scope: --input-typeahead;
+  anchor-name: --input-typeahead;
 
   /* Styling */
   background-color: var(--esnet-color-core-white-100, #ffffff);
@@ -159,14 +161,16 @@
 }
 
 .dropdown {
-  position: absolute;
-  top: 101%;
-  width: 100%;
+  position: fixed;
+  position-anchor: --input-typeahead;
+  top: anchor(bottom);
+  width: anchor-size(width);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   padding-top: var(--esnet-size-spacing-xsmall, 8px);
   height: fit-content;
+  z-index: 100;
 
   background: var(--esnet-color-light-surface-2);
   :global(.dark) & {
@@ -201,7 +205,9 @@
     outline: none;
     align-items: center;
     gap: var(--esnet-size-spacing-xsmall, 8px);
-    overflow-y: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow: hidden;
 
     background-color: transparent;
     color: inherit;

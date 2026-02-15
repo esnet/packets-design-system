@@ -10,7 +10,7 @@
 
   .content {
     position: absolute;
-    z-index: 2;
+    z-index: 100;
     overflow: auto;
     height: fit-content;
     padding: var(--esnet-size-spacing-xsmall, 4px);

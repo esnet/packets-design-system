@@ -72,7 +72,9 @@ export function ESInputTypeahead({
     (value: string) => (e: React.MouseEvent) => {
       e.preventDefault();
       // intentionally focus back on the input search ref for better UX
-      inputSearchRef.current?.focus();
+      if (multi) inputSearchRef.current?.focus();
+      // if single select, close the dropdown
+      else setDropdownOpen(false);
 
       // maintain information about the next state
       // attempt to filter out the value from selected values
@@ -140,7 +142,12 @@ export function ESInputTypeahead({
   // 3) dropdown related component to show searched options
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const optionsRef = React.useRef<HTMLDivElement>(null);
-  const [dropdownOpen] = usePopupState(anchorRef, optionsRef, false, "active");
+  const [dropdownOpen, setDropdownOpen] = usePopupState(
+    anchorRef,
+    optionsRef,
+    false,
+    "active",
+  );
 
   const options = React.useMemo(
     () =>
@@ -171,7 +178,7 @@ export function ESInputTypeahead({
     // no search query - show all
     if (!token) return options;
 
-    return options.filter((option: any) => {
+    return options.filter((option) => {
       return option.props.value.toLowerCase().includes(token);
     });
   }, [search, options]);
@@ -224,6 +231,7 @@ export function ESInputTypeahead({
               setSearch(e.target.value);
               onSearchChange?.(e);
             }}
+            name={`${name}-search`}
             ref={inputSearchRef}
             value={search}
             onKeyDown={onSearchKeyDown}

@@ -34,6 +34,7 @@ export function ESDropdown({
     top?: string;
   }>({});
 
+  // TODO: refactor to utilize CSS anchor() instead of calculating
   useLayoutEffect(() => {
     if (!dropdownRef.current) return;
 
