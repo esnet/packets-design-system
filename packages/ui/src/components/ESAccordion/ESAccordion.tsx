@@ -87,8 +87,8 @@ export function ESAccordion({
       >
         {children}
       </div>
-      {footer && (
-        <div className={styles.footer}>
+      {footer && variant !== "inline" && (
+        <div className={clsx(styles.footer, !open && styles.closed)}>
           <span>{footer}</span>
         </div>
       )}

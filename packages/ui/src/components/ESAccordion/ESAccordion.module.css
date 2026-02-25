@@ -1,17 +1,20 @@
 .ESAccordion {
   /* Layout */
   width: 100%;
+  height: fit-content;
+  min-height: fit-content;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 
   /* Styling */
   border-radius: var(--esnet-size-radius-xxlarge);
-  box-shadow: (--esnet-box-shadow-core-medium);
+  box-shadow: var(--esnet-box-shadow-core-medium);
 
   &.inline {
     border-radius: 0;
     border-bottom: 1px solid var(--esnet-color-light-copy-alt, #6e6e70);
+    box-shadow: none;
 
     :global(.dark) & {
       border-bottom: 1px solid var(--esnet-color-dark-copy-alt, #6e6e70);
@@ -94,6 +97,7 @@
   overflow: hidden;
   box-sizing: border-box;
   padding: 0 var(--esnet-size-spacing-xsmall, 8px);
+  font: var(--esnet-typography-copy-1-sans-font);
 
   background-color: color-mix(
     in srgb,
@@ -121,9 +125,11 @@
   &.closed {
     padding-top: 0;
     padding-bottom: 0;
-  }
 
-  font: var(--esnet-typography-copy-1-sans-font);
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 
   transition: all var(--esnet-time-duration-short) ease-in-out;
   @media (prefers-reduced-motion) {
@@ -136,6 +142,8 @@
   padding: 0 var(--esnet-size-spacing-xsmall, 8px);
   display: flex;
   align-items: center;
+  font: var(--esnet-typography-copy-1-sans-font);
+
   span {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -154,6 +162,4 @@
     padding: 0;
     color: inherit;
   }
-
-  font: var(--esnet-typography-copy-1-sans-font);
 }

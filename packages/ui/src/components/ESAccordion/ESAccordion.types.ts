@@ -13,7 +13,7 @@ export interface ESAccordionProps
   footer?: string | boolean;
   /** Content to be shown in accordion when open */
   children?: React.ReactNode;
-  /** Variant. Inline variant has no background color, no padding, and can be should be used in text. */
+  /** Variant. Inline variant has no background color, no padding, , disables footer, and should be used in text. */
   variant?: "primary" | "inline";
   /** Icon buttons shown on the right of the header to perform various actions.
    * Use a single ESIcon component with an onClick handler for one, and an array for multiple. */

@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ESAccordion } from "@esnet/packets-ui/src/components/ESAccordion/ESAccordion.tsx";
-import { ESIcon, ESInputOption, ESInputTypeahead } from "@esnet/packets-ui";
+import {
+  ESButton,
+  ESDivider,
+  ESIcon,
+  ESInputOption,
+  ESInputRow,
+  ESInputText,
+  ESInputTypeahead,
+} from "@esnet/packets-ui";
 
 const meta: Meta<typeof ESAccordion> = {
   title: "Components/ESAccordion",
@@ -18,16 +26,42 @@ export default meta;
 
 type Story = StoryObj<typeof ESAccordion>;
 
-export const Default: Story = {
+export const HeaderAndFooterExample: Story = {
   args: {
     header: "Title",
-    children: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    ],
-    footer: "Footer text",
+    children: (
+      <>
+        <form style={{ display: "flex", flexDirection: "column" }}>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESInputRow label="hi">
+            <ESInputText />
+          </ESInputRow>
+          <ESDivider />
+          <ESButton>hi</ESButton>
+        </form>
+      </>
+    ),
+    // footer: "Footer text",
   },
 };
 
+/**
+ * Inline accordions have no footer.
+ */
 export const InlineNoFooter: Story = {
   args: {
     header: "Title",
