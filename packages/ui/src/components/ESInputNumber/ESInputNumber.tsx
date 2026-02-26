@@ -4,7 +4,12 @@ import styles from "./ESInputNumber.module.css";
 import { ESInputNumberProps } from "./ESInputNumber.types";
 import ESInputText from "../ESInputText";
 import { Minus, Plus } from "lucide-react";
-import { boundNumber, parseNumber } from "./utils";
+import {
+  boundNumber,
+  getPrecision,
+  parseNumber,
+  roundToPrecision,
+} from "./utils";
 import { clsx } from "clsx";
 
 /**
@@ -36,6 +41,12 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
   const [value, setValue] = useState<string>(defaultValue as string);
   const [_error, setError] = useState<boolean>(error);
 
+  const precision = Math.max(
+    getPrecision(step ?? 0),
+    getPrecision(max ?? 0),
+    getPrecision(min ?? 0),
+  );
+
   const addValue = useCallback(
     (amount: number) => {
       const numValue = parseNumber(value);
@@ -44,10 +55,14 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
         setError(true);
         return;
       }
-      const newValue = boundNumber(numValue + amount, minValue, maxValue);
+      const newValue = roundToPrecision(
+        boundNumber(numValue + amount, minValue, maxValue),
+        precision,
+      );
+      console.log(newValue);
       setValue(String(newValue));
     },
-    [value, minValue, maxValue]
+    [value, minValue, maxValue],
   );
 
   const onChange = useCallback(
@@ -60,7 +75,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
         props.onChange(event);
       }
     },
-    [props.onChange]
+    [props.onChange],
   );
 
   const increment = useCallback(() => {
@@ -78,7 +93,7 @@ const ESInputNumber: React.FC<ESInputNumberProps> = ({
       <Plus key="increment" onClick={increment} />,
       <Minus key="decrement" onClick={decrement} />,
     ],
-    [stepValue, addValue]
+    [stepValue, addValue],
   );
 
   const classNames = clsx(styles.ESInputNumber, className);

@@ -14,4 +14,15 @@ const boundNumber = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
 
-export { parseNumber, boundNumber };
+const getPrecision = (value: any) => {
+  const str = String(value);
+  if (!str.includes(".")) return 0;
+  return str.split(".")[1].length;
+};
+
+const roundToPrecision = (num: number, precision: number) => {
+  const factor = Math.pow(10, precision);
+  return Math.round(num * factor) / factor;
+};
+
+export { parseNumber, boundNumber, getPrecision, roundToPrecision };
