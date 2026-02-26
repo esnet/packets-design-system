@@ -18,12 +18,13 @@ import clsx from "clsx";
 const ESIconButton: React.FC<ESIconButtonProps> = ({
   name,
   square,
+  className,
   ...props
 }) => {
   return (
     <ESButton
       {...props}
-      className={clsx(styles.ESIconButton, square && styles.square)}
+      className={clsx(styles.ESIconButton, square && styles.square, className)}
     >
       <ESIcon name={name} />
     </ESButton>
