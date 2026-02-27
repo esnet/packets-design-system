@@ -8,44 +8,54 @@ import { Meta } from "@storybook/blocks";
   <div className='sb-section-title'>
     # About
 
-    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and provides artifacts for React, Web Components, and pure HTML/CSS implementations.
 
   </div>
 </div>
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # Getting Started
+    # Component Systems
 
-    Packets is currently only available to ESnet employees and is not open source. The monorepo can be found [here in our Gitlab instance](https://gitlab.es.net/esnet/packets-design-system).
+    Packets Design System provides **three different ways** to use components in your projects:
 
-    # Adding the NPM packages to your project.
+    1. **CSS Components** - Pure HTML/CSS with no JavaScript dependencies
+    2. **Web Components** - Standards-based custom elements that work with any framework
+    3. **React Components** - TypeScript React components for React applications
 
-    1. Setup or get a Gitlab token so you can access our private Gitlab NPM registry. At the time of this writing you can use a personal token.
-    2. Add a `.npmrc` file to the root of your project.
-    3. Add the following code:
+    Each system offers the same visual design and functionality, but differs in how you integrate them into your project. Use the comparison table below to choose the right approach for your needs.
 
-```
-@esnet:registry=https://gitlab.es.net/api/v4/projects/898/packages/npm/
-//gitlab.es.net/api/v4/projects/898/packages/npm/:_authToken=YOUR_TOKEN_HERE
-```
+  </div>
+</div>
 
-    4. Run <br />
-    `npm i @esnet/esnet-tokens @esnet/packets-ui`, <br />
-    `pnpm i @esnet/esnet-tokens @esnet/packets-ui`, or <br />
-    `yarn add @esnet/esnet-tokens @esnet/packets-ui`
-    5. Add the `packets-ui` class to the body or root level tag of your project.
-    6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
-    7. Add the following to your header element to fetch our fonts from Google's CDN
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Quick Comparison
 
-```
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-  rel="stylesheet"
-/>
-```
+| Feature         | CSS Components                     | Web Components              | React Components              |
+|-----------------|------------------------------------|-----------------------------|-------------------------------|
+| Framework       | None required                      | Framework-agnostic          | React only                    |
+| JavaScript      | Optional                           | Included                    | Required                      |
+| Bundle Size     | Smallest (CSS only)                | Medium (JS + CSS)           | Largest (React + components)  |
+| TypeScript      | N/A                                | Full type definitions       | Full type definitions         |
+| Learning Curve  | Easiest                            | Medium                      | Medium                        |
+| Interactivity   | Bring your own JS                  | Built-in                    | Built-in with React patterns  |
+| Best For        | Static sites, server-rendered apps | Framework-agnostic apps     | React applications            |
+| Installation    | Installing CSS Components →        | Installing Web Components → | Installing React Components → |
+
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installation
+
+    Choose your component system and follow the installation guide:
+
+    - **[Installing CSS Components →](?path=/docs/about-installing-css-components--docs)** - For static sites and no-build projects
+    - **[Installing Web Components →](?path=/docs/about-installing-web-components--docs)** - For framework-agnostic applications
+    - **[Installing React Components →](?path=/docs/about-installing-react-components--docs)** - For React applications
 
      </div>
 

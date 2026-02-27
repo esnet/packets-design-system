@@ -1,17 +1,17 @@
 /* ==============================================================================
-   ES-DIVIDER - Composable Base Class
+   PKTS-DIVIDER - Composable Base Class
    ==============================================================================
 
    Base styles for divider component. Variants are composable:
-   - Color variants: .es-branded
+   - Color variants: .pkts-branded
 
-   Usage: <hr class="es-divider es-branded">
+   Usage: <hr class="pkts-divider es-branded">
 */
 
-.es-divider {
+.pkts-divider {
   /* Layout */
   height: var(--esnet-size-border-width-small, 2px);
-  width: auto;
+  width: 100%;
 
   /* Styling */
   border-radius: var(--esnet-size-radius-circle, 999px);
@@ -22,16 +22,16 @@
 }
 
 /* Dark Mode */
-.dark .es-divider {
+.dark .pkts-divider {
   background-color: var(--esnet-color-dark-copy-alt, #C2C2C2);
 }
 
 /* Branded variant */
-.es-divider.es-branded {
+.pkts-divider.pkts-branded {
   background-color: var(--esnet-color-light-primary, #0088B5);
 }
 
 /* Dark Mode */
-.dark .es-divider.es-branded {
+.dark .pkts-divider.pkts-branded {
   background-color: var(--esnet-color-dark-primary, #004573);
 }

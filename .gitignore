@@ -47,6 +47,10 @@ server/dist
 public/dist
 storybook-static/
 
+# playwright
+playwright-report/
+test-results/
+
 .npmrc
 
 # Emacs

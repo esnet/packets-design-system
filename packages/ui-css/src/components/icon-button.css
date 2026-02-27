@@ -1,16 +1,16 @@
 /* ==============================================================================
-   ES-ICON-BUTTON - Composable Base Class
+   PKTS-ICON-BUTTON - Composable Base Class
    ==============================================================================
 
    Base styles for icon button component. Variants are applied via composable classes:
-   - Color variants: .es-primary, .es-secondary, .es-tertiary, .es-destructive, .es-branded
-   - Size variants: .es-medium, .es-xxlarge
-   - Layout variants: .es-fill, .es-nofill, .es-square
+   - Color variants: .pkts-primary, .pkts-secondary, .pkts-tertiary, .pkts-destructive, .pkts-branded
+   - Size variants: .pkts-medium, .pkts-xxlarge
+   - Layout variants: .pkts-fill, .pkts-nofill, .pkts-square
 
-   Usage: <button class="es-icon-button es-primary es-medium">
+   Usage: <button class="pkts-icon-button es-primary es-medium">
 */
 
-.es-icon-button {
+.pkts-icon-button {
   --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
 
   --spacing-height-medium: 40px;
@@ -50,7 +50,7 @@
 
   /* Pseudo-events */
 
-  .es-icon-button:hover {
+  .pkts-icon-button:hover {
     cursor: pointer;
     border-width: 3px; /* TODO: Find token solution */
     box-shadow: var(--esnet-box-shadow-core-medium);
@@ -59,6 +59,6 @@
       calc(var(--esnet-size-spacing-medium, 16px) - 1px);
   }
 
-  .es-icon-button:disabled {
+  .pkts-icon-button:disabled {
     cursor: not-allowed;
   }

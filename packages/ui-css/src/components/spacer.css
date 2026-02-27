@@ -1,18 +1,5 @@
-.es-spacer {
+.pkts-spacer {
   --size: var(--esnet-size-spacing-none);
 
   border: none;
 }
-
-  .es-spacer--vertical {
-    height: var(--size);
-  }
-
-  .es-spacer--horizontal {
-    width: var(--size);
-  }
-
-  .es-spacer--square {
-    aspect-ratio: 1/1;
-    width: var(--size);
-  }

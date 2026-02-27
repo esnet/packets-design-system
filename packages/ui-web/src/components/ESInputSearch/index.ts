@@ -1,2 +1,0 @@
-export { ESInputSearch } from "./ESInputSearch";
-

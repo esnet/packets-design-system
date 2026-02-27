@@ -1,52 +1,28 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="CSS/Css" />
+<Meta title="Components/CSS Components" />
 
 <img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # About
+    # CSS Components
 
-    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+    The Packets Design System provides pure HTML/CSS implementations of all components. These are perfect for projects that don't use a JavaScript framework or prefer vanilla HTML/CSS.
+
+    ## Component Documentation
+
+    **View the full CSS component documentation at: <a href="/css/" target="_top">CSS Components Storybook</a>**
+
+    The CSS documentation includes:
+    - Interactive examples of all components
+    - HTML markup you can copy and paste
+    - Usage guidelines for each component
+    - Dark mode support
+
+    ## Installation
+
+    For installation instructions, see **[Installing CSS Components →](/?path=/docs/about-installing-css-components--docs)**
 
   </div>
-</div>
-
-<div className="sb-container">
-  <div className='sb-section-title'>
-    # Getting Started
-
-    Packets is currently only available to ESnet employees and is not open source. The monorepo can be found [here in our Gitlab instance](https://gitlab.es.net/esnet/packets-design-system).
-
-    # Adding the NPM packages to your project.
-
-    1. Setup or get a Gitlab token so you can access our private Gitlab NPM registry. At the time of this writing you can use a personal token.
-    2. Add a `.npmrc` file to the root of your project.
-    3. Add the following code:
-
-```
-@esnet:registry=https://gitlab.es.net/api/v4/projects/898/packages/npm/
-//gitlab.es.net/api/v4/projects/898/packages/npm/:_authToken=YOUR_TOKEN_HERE
-```
-
-    4. Run <br />
-    `npm i @esnet/esnet-tokens @esnet/packets-ui`, <br />
-    `pnpm i @esnet/esnet-tokens @esnet/packets-ui`, or <br />
-    `yarn add @esnet/esnet-tokens @esnet/packets-ui`
-    5. Add the `packets-ui` class to the body or root level tag of your project.
-    6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
-    7. Add the following to your header element to fetch our fonts from Google's CDN
-
-```
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-  rel="stylesheet"
-/>
-```
-
-     </div>
-
 </div>

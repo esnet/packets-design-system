@@ -1,4 +1,4 @@
-.es-input-text-area {
+.pkts-input-text-area {
   /* Layout */
   display: inline-flex;
   flex-direction: column;
@@ -21,13 +21,20 @@
     box-shadow var(--esnet-time-duration-quick, 250ms) ease;
 }
 
-  .dark .es-input-text-area {
+  .dark .pkts-input-text-area {
     background-color: var(--esnet-color-dark-surface-1, #19191a);
     color: var(--esnet-color-dark-copy, #ffffff);
     border-color: var(--esnet-color-core-slate-100, #c3c7d9);
   }
 
-  .es-input-text-area {
+  .dark textarea,
+  .packets.dark textarea,
+  .dark .packets textarea {
+    background-color: var(--esnet-color-dark-surface-1, #19191a);
+    color: var(--esnet-color-dark-copy, #ffffff);
+  }
+
+  .pkts-input-text-area {
   font: var(--esnet-typography-copy-1-sans-font,
     400 16px/120% var(--esnet-font-family-body-sans));
 }
@@ -38,15 +45,16 @@
 
   /* based on a pseudo event of input tag (invalid), thus included here */
 
-  .es-input-text-area--error {
+  .pkts-input-text-area.pkts-error,
+  .pkts-input-text-area:invalid {
     border-color: var(--esnet-color-core-red-700, #a6111b);
     border-width: var(--esnet-size-border-width-small, 0.125rem);
     box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb, var(--esnet-color-light-error, #a6111b) 26%, transparent);
   }
 
-  .es-input-text-area:hover:not(.disabled),
-  .es-input-text-area:focus-within:not(.disabled),
-  .es-input-text-area:has(*:active):not(.disabled) {
+  .pkts-input-text-area:hover:not(.disabled),
+  .pkts-input-text-area:focus-within:not(.disabled),
+  .pkts-input-text-area:has(*:active):not(.disabled) {
     /* border color on focus takes precedence over error border color */
     border-color: var(--esnet-color-core-slate-1000, #30333b);
     box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-blue-400, #00b6f2);
@@ -54,39 +62,41 @@
 
   /* based on a pseudo event of input tag (disabled), thus included here */
 
-  .es-input-text-area--disabled {
+  .pkts-input-text-area.pkts-disabled,
+  .pkts-input-text-area:disabled {
     border-color: var(--esnet-color-core-slate-300, #9699a8);
   }
 
-  .dark .es-input-text-area--disabled {
+  .dark .pkts-input-text-area.pkts-disabled,
+  .dark .pkts-input-text-area:disabled {
     border-color: var(--esnet-color-core-slate-500, #787b87);
   }
 
   /* Variants */
 
-  .es-input-text-area--branded {
+  .pkts-input-text-area.pkts-branded {
     border-radius: var(--esnet-size-radius-xlarge, 6px);
   }
 
   /* Modifiers */
 
-  .es-input-text-area--vertical {
+  .pkts-input-text-area.pkts-vertical {
     resize: vertical;
   }
 
-  .es-input-text-area--horizontal {
+  .pkts-input-text-area.pkts-horizontal {
     resize: horizontal;
   }
 
-  .es-input-text-area--both {
+  .pkts-input-text-area.pkts-both {
     resize: both;
   }
 
-  .es-input-text-area--none {
+  .pkts-input-text-area.pkts-none {
     resize: none;
   }
 
-.es-input-text-area textarea {
+.pkts-input-text-area textarea {
   all: unset;
   font: inherit;
   word-break: break-all;
@@ -97,43 +107,43 @@
 
 /* Pseudo-elements */
 
-.es-input-text-area textarea::-webkit-resizer {
-    padding: var(-esnet-size-spacing-xxsmall, 4px);
+.pkts-input-text-area textarea::-webkit-resizer {
+    padding: var(--esnet-size-spacing-xxsmall, 4px);
     background-color: transparent;
     background-image: none;
   }
 
-.es-input-text-area textarea::-webkit-scrollbar {
+.pkts-input-text-area textarea::-webkit-scrollbar {
     display: none;
   }
 
-.es-input-text-area textarea::placeholder {
+.pkts-input-text-area textarea::placeholder {
     color: var(--esnet-color-light-copy-alt, #6e6e70);
   }
 
-.dark .es-input-text-area textarea::placeholder {
+.dark .pkts-input-text-area textarea::placeholder {
     color: var(--esnet-color-dark-copy-alt, #c2c2c2);
   }
 
 /* Pseudo-events */
 
-.es-input-text-area textarea:disabled {
+.pkts-input-text-area textarea:disabled {
     color: var(--esnet-color-core-white-900, #a8a8a8);
   }
 
-.es-input-text-area textarea:disabled::placeholder {
+.pkts-input-text-area textarea:disabled::placeholder {
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
 
-.dark .es-input-text-area textarea:disabled {
+.dark .pkts-input-text-area textarea:disabled {
     color: var(--esnet-color-core-white-900, #a8a8a8);
   }
 
-.dark .es-input-text-area textarea:disabled::placeholder {
+.dark .pkts-input-text-area textarea:disabled::placeholder {
       color: var(--esnet-color-core-white-900, #a8a8a8);
     }
 
-.es-input-text-area svg {
+.pkts-input-text-area svg {
   align-self: flex-end;
   color: inherit;
   transform: scaleX(-1);

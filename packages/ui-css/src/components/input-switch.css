@@ -1,15 +1,15 @@
 /* ==============================================================================
-   ES-INPUT-SWITCH - Composable Base Class
+   PKTS-INPUT-SWITCH - Composable Base Class
    ==============================================================================
 
    Base styles for input switch component. Variants are composable:
-   - Color variants: .es-secondary
-   - State variants: .es-checked
+   - Color variants: .pkts-secondary
+   - State is automatically detected from checkbox state
 
-   Usage: <div class="es-input-switch es-checked">
+   Usage: <div class="pkts-input-switch">
 */
 
-.es-input-switch {
+.pkts-input-switch {
   --interaction-color: var(--esnet-color-core-blue-600);
   --interaction-border: var(--esnet-color-core-blue-700);
   --interaction-shadow: var(--esnet-color-core-blue-300);
@@ -33,43 +33,44 @@
 }
 
 /* Secondary color variant */
-.es-input-switch.es-secondary {
+.pkts-input-switch.pkts-secondary {
   --interaction-color: var(--esnet-color-core-orange-600);
   --interaction-border: var(--esnet-color-core-orange-700);
   --interaction-shadow: var(--esnet-color-core-orange-300);
 }
 
-/* Checked state */
-.es-input-switch.es-checked {
+/* Checked state - automatic detection */
+.pkts-input-switch:has(input:checked) {
   background-color: var(--interaction-color);
   border-color: var(--interaction-border);
 }
 
-.es-input-switch:hover:not(.disabled),
-.es-input-switch:focus-within:not(.disabled) {
+.pkts-input-switch:hover:not(:has(input:disabled)),
+.pkts-input-switch:focus-within:not(:has(input:disabled)) {
   box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
     var(--esnet-color-core-white-400);
 }
 
-.es-input-switch:hover:not(.disabled).es-checked,
-.es-input-switch:focus-within:not(.disabled).es-checked {
+.pkts-input-switch:hover:not(:has(input:disabled)):has(input:checked),
+.pkts-input-switch:focus-within:not(:has(input:disabled)):has(input:checked) {
   box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
     var(--interaction-shadow);
 }
 
-.es-input-switch.es-checked:has(*:active):not(.disabled),
-.es-input-switch:has(*:active):not(.disabled) {
+.pkts-input-switch:has(input:checked):has(input:active):not(:has(input:disabled)),
+.pkts-input-switch:has(input:active):not(:has(input:disabled)) {
   box-shadow: none;
 }
 
-.es-input-switch.es-disabled {
+/* Disabled state - automatic detection */
+.pkts-input-switch:has(input:disabled) {
   cursor: default;
   border-color: var(--esnet-color-core-white-500, #d9d9d9);
   box-shadow: none;
   background-color: var(--esnet-color-core-white-500, #d9d9d9);
 }
 
-.es-input-switch.es-disabled.es-checked {
+.pkts-input-switch:has(input:disabled:checked) {
   border-color: color-mix(
     in srgb,
     var(--interaction-color),
@@ -83,7 +84,7 @@
 }
 
 /* Actual input element, invisible but spans entire component for functionality */
-.es-input-switch__input {
+.pkts-input-switch input {
   all: unset;
   position: absolute;
   width: 100%;
@@ -93,7 +94,11 @@
   cursor: pointer;
 }
 
-.es-input-switch__indicator {
+.pkts-input-switch:has(input:disabled) input {
+  cursor: default;
+}
+
+.pkts-input-switch .indicator {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -112,19 +117,19 @@
   color: var(--esnet-color-core-white-600, #cccccc);
 }
 
-:checked ~ .es-input-switch__indicator {
+/* Move indicator to right when checked */
+.pkts-input-switch:has(input:checked) .indicator {
   right: 0;
   left: auto;
+  color: var(--interaction-color);
 }
 
-.es-checked > .es-input-switch__indicator {
-  color: var(--esnet-color-core-blue-600);
-}
-
-:active:checked ~ :not(.disabled > .es-input-switch__indicator) {
+/* Active state for checked indicator */
+.pkts-input-switch:has(input:checked:active):not(:has(input:disabled)) .indicator {
   background-color: var(--esnet-color-core-blue-100, #cff1ff);
 }
 
-.disabled > .es-input-switch__indicator {
+/* Disabled indicator */
+.pkts-input-switch:has(input:disabled) .indicator {
   background-color: var(--esnet-color-core-white-400, #d9d9d9);
 }

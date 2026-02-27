@@ -376,7 +376,11 @@
     h5,
     h6,
     td,
-    p {
+    p,
+    ol,
+    ul,
+    dl,
+    li {
       color: var(--esnet-color-dark-copy, #e6e6e6);
     }
 
@@ -405,5 +409,10 @@
 
   ul {
     list-style-type: disc;
+  }
+
+  /* add padding for a list in a list */
+  li ol, li ul {
+    padding-top: var(--esnet-size-spacing-xsmall, 0.5rem);
   }
 }

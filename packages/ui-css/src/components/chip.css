@@ -1,0 +1,152 @@
+.pkts-chip {
+  /* Layout */
+  display: inline-flex;
+  height: var(--esnet-size-spacing-large, 32px);
+  box-sizing: border-box;
+  padding: var(--esnet-size-spacing-xxsmall, 2px) 12px 1px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--esnet-size-spacing-xsmall, 8px);
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* Styling */
+  background-color: var(--esnet-color-core-white-600, #CCC);
+  color: var(--esnet-color-core-black-600, #454547);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
+  border-color: transparent;
+  border-radius: var(--esnet-size-radius-xlarge, 0.375rem);
+
+  /* Typography */
+  font: var(--esnet-typography-label-1-sans-font, 400 12px/120% var(--esnet-font-family-body-sans));
+
+  /* Interaction */
+  cursor: pointer;
+  outline: none;
+  transition: border-color, background-color var(--esnet-time-duration-quick, 250ms) ease;
+}
+
+.dark .pkts-chip {
+  background-color: var(--esnet-color-core-black-600, #454547);
+  color: var(--esnet-color-core-white-300, #e6e6e6);
+}
+
+/* Hover state */
+
+.pkts-chip:hover:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-white-700, #C2C2C2);
+}
+
+.dark .pkts-chip:hover:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-black-300, #5E5E5E);
+}
+
+/* Focus state */
+
+.pkts-chip:focus:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-white-800, #B3B3B3);
+}
+
+.dark .pkts-chip:focus:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-black-200, #656566);
+}
+
+/* Active state */
+
+.pkts-chip:active:not(.pkts-disabled) {
+  border-color: var(--esnet-color-core-blue-500, #00a0d6);
+  background-color: var(--esnet-color-core-blue-100, #cff1ff);
+  color: var(--esnet-color-core-blue-800, #00608c);
+}
+
+.dark .pkts-chip:active:not(.pkts-disabled) {
+  border-color: var(--esnet-color-core-blue-600, #0088B5);
+  background-color: var(--esnet-color-core-blue-200, #9CE2FF);
+}
+
+/* Disabled state */
+
+.pkts-chip.pkts-disabled,
+.pkts-chip:disabled {
+  background-color: var(--esnet-color-core-white-400, #E3E3E3);
+  cursor: default;
+  pointer-events: none;
+}
+
+.dark .pkts-chip.pkts-disabled,
+.dark .pkts-chip:disabled {
+  background-color: var(--esnet-color-core-black-600, #454547);
+}
+
+/* Outline variant */
+
+.pkts-chip.pkts-outline {
+  background-color: transparent;
+  border-color: var(--esnet-color-core-white-600, #CCC);
+}
+
+.dark .pkts-chip.pkts-outline {
+  border-color: var(--esnet-color-core-black-600, #CCC);
+}
+
+.pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-white-200, #F2F2F2);
+}
+
+.dark .pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-black-800, #252526);
+}
+
+.pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-white-800, #B3B3B3);
+}
+
+.dark .pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-black-200, #656566);
+}
+
+.pkts-chip.pkts-outline:active:not(.pkts-disabled) {
+  border-color: var(--esnet-color-core-blue-500, #00A0D6);
+  background-color: var(--esnet-color-core-blue-100, #CFF1FF);
+  color: var(--esnet-color-core-blue-800, #00608c);
+}
+
+.dark .pkts-chip.pkts-outline:active:not(.pkts-disabled) {
+  background-color: var(--esnet-color-core-blue-200, #9ce2ff);
+}
+
+.pkts-chip.pkts-outline.pkts-disabled,
+.pkts-chip.pkts-outline:disabled {
+  background-color: var(--esnet-color-core-white-200, #f2f2f2);
+  border-color: var(--esnet-color-core-white-300, #E6E6E6);
+}
+
+.dark .pkts-chip.pkts-outline.pkts-disabled,
+.dark .pkts-chip.pkts-outline:disabled {
+  background-color: var(--esnet-color-core-black-800, #252526);
+  border-color: transparent;
+}
+
+/* Rounded variant */
+
+.pkts-chip.pkts-rounded {
+  border-radius: var(--esnet-size-radius-circle, 999px);
+}
+
+/* Prepend/append modifiers for reduced padding */
+
+.pkts-chip.pkts-prepend {
+  padding-left: var(--esnet-size-spacing-xsmall, 4px);
+}
+
+.pkts-chip.pkts-append {
+  padding-right: var(--esnet-size-spacing-xsmall, 4px);
+}
+
+/* Delete icon */
+
+.pkts-chip .delete-icon {
+  width: var(--esnet-size-spacing-medium, 16px);
+  aspect-ratio: 1 / 1;
+}

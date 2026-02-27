@@ -7,6 +7,18 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "@esnet/packets-ui-css#build": {
+      "dependsOn": ["@esnet/esnet-tokens#build"],
+      "outputs": ["dist/**"]
+    },
+    "@esnet/packets-ui-react#build": {
+      "dependsOn": ["@esnet/packets-ui-css#build", "^build"],
+      "outputs": ["dist/**"]
+    },
+    "@esnet/packets-ui-web#build": {
+      "dependsOn": ["@esnet/packets-ui-css#build", "^build"],
+      "outputs": ["dist/**"]
+    },
     "build": {
       "dependsOn": ["@esnet/esnet-tokens#build", "^build"],
       "outputs": ["dist/**"]
