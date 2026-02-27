@@ -3,15 +3,19 @@
     "dark": {
       "primary": {
         "type": "color",
-        "value": "{color.core.blue.900.value}"
+        "value": "{color.core.white.1000.value}"
       },
       "secondary": {
         "type": "color",
-        "value": "{color.core.blue.400.value}"
+        "value": "{color.core.white.300.value}"
+      },
+      "tertiary": {
+        "type": "color",
+        "value": "{color.core.black.600.value}"
       },
       "accent": {
         "type": "color",
-        "value": "{color.core.orange.500.value}"
+        "value": "{color.core.black.300.value}"
       },
       "background": {
         "value": "{color.core.black.800.value}"
