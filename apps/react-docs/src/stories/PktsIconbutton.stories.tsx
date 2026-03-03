@@ -26,13 +26,12 @@ export default meta;
 
 type Story = StoryObj<typeof PktsIconButton>;
 
-
 export const DefaultButton: Story = {
   args: {
-    onClick={() => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-    }}
+    onClick: () => {
+      // eslint-disable-next-line no-alert -- alert for demo
+      alert("Hello from Packets Design System!");
+    },
     children: <SettingsIcon />,
     type: "button",
   },

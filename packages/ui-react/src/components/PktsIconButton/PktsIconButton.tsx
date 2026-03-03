@@ -19,7 +19,7 @@ const PktsIconButton = ({
   children = "",
   square = false,
   ...props
-}: PktsIconButtonProps) {
+}: PktsIconButtonProps) => {
   return (
     <button
       className={clsx(

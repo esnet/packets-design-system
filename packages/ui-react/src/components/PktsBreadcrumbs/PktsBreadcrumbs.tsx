@@ -1,5 +1,5 @@
 import React from "react";
-import { BreadcrumbsProps } from "./PktsBreadcrumbs.types";
+import { PktsBreadcrumbsProps } from "./PktsBreadcrumbs.types";
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
 
 // TODO: Make ESBreadcrumbs composable by relying on an ESBreadcrumb subcomponent instead of props
@@ -12,7 +12,7 @@ import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
  * @param {BreadcrumbsProps} props
  * @returns {React.FunctionComponent}
  */
-const PktsBreadcrumbs: React.FC<BreadcrumbsProps> = ({
+const PktsBreadcrumbs: React.FC<PktsBreadcrumbsProps> = ({
   breadcrumbs = [],
   renderLink = defaultRenderLink,
 }) => {
@@ -20,9 +20,7 @@ const PktsBreadcrumbs: React.FC<BreadcrumbsProps> = ({
     <ul className="pkts-breadcrumbs">
       {breadcrumbs.map((breadcrumb, index) => {
         return (
-          <li key={`breadcrumb-list-${index}`}>
-            {renderLink(breadcrumb)}
-          </li>
+          <li key={`breadcrumb-list-${index}`}>{renderLink(breadcrumb)}</li>
         );
       })}
     </ul>

@@ -12,8 +12,8 @@ import clsx from "clsx";
  */
 const PktsInputSwitch: FC<PktsInputSwitchProps> = ({
   variant = "primary",
-  hideIcons = false,
   className = "",
+  noIcon,
   defaultChecked,
   disabled,
   ...props
@@ -21,7 +21,7 @@ const PktsInputSwitch: FC<PktsInputSwitchProps> = ({
   const [value, setValue] = useState(defaultChecked);
 
   const icon = useMemo(() => {
-    if (hideIcons === true) {
+    if (noIcon === true) {
       return <></>;
     }
 

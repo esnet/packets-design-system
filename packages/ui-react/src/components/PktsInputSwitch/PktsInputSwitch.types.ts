@@ -2,6 +2,6 @@ import { ComponentPropsWithRef } from "react";
 
 export interface PktsInputSwitchProps extends ComponentPropsWithRef<"input"> {
   variant?: "primary" | "secondary";
-  hideIcons?: boolean;
+  /** Whether to render icon on top of switch indicator. */
+  noIcon?: boolean;
 }
-// TODO: rename hideIcons to indicator or something

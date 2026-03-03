@@ -575,6 +575,9 @@ importers:
       '@rollup/plugin-commonjs':
         specifier: ^24.1.0
         version: 24.1.0(rollup@3.30.0)
+      '@rollup/plugin-image':
+        specifier: ^3.0.3
+        version: 3.0.3(rollup@3.30.0)
       '@rollup/plugin-node-resolve':
         specifier: ^15.3.0
         version: 15.3.1(rollup@3.30.0)
@@ -4853,6 +4856,20 @@ packages:
       rollup: 4.59.0
     dev: true
 
+  /@rollup/plugin-image@3.0.3(rollup@3.30.0):
+    resolution: {integrity: sha512-qXWQwsXpvD4trSb8PeFPFajp8JLpRtqqOeNYRUKnEQNHm7e5UP7fuSRcbjQAJ7wDZBbnJvSdY5ujNBQd9B1iFg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@3.30.0)
+      mini-svg-data-uri: 1.4.4
+      rollup: 3.30.0
+    dev: true
+
   /@rollup/plugin-node-resolve@11.2.1(rollup@2.80.0):
     resolution: {integrity: sha512-yc2n43jcqVyGE2sqV5/YCmocy9ArjVAP/BeXyTtADTBBX6V0e5UMqwO8CdQ0kzjb6zu5P1qMzsScCMRvE9OlVg==}
     engines: {node: '>= 10.0.0'}
@@ -6606,7 +6623,7 @@ packages:
         optional: true
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@5.4.21)
-      '@rollup/pluginutils': 5.3.0(rollup@3.30.0)
+      '@rollup/pluginutils': 5.3.0(rollup@4.59.0)
       '@storybook/builder-vite': 8.6.17(storybook@8.6.17)(vite@5.4.21)
       '@storybook/react': 8.6.17(@storybook/test@8.6.15)(react-dom@18.3.1)(react@18.3.1)(storybook@8.6.17)(typescript@5.9.3)
       '@storybook/test': 8.6.15(storybook@8.6.17)
@@ -16636,6 +16653,11 @@ packages:
   /min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
     dev: true
 
   /minimalistic-assert@1.0.1:

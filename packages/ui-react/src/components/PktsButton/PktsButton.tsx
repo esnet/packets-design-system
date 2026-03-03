@@ -9,7 +9,9 @@ import { PktsButtonDefaultAsType, PktsButtonProps } from "./PktsButton.types";
  * @param {PktsButtonProps} props
  * @returns {React.FunctionComponent}
  */
-const PktsButton = <E extends React.ElementType = PktsButtonDefaultAsType>({
+const PktsButton = <
+  E extends React.ElementType = typeof PktsButtonDefaultAsType,
+>({
   variant = "secondary",
   children = "",
   fill = true,
