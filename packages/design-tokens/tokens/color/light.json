@@ -3,19 +3,23 @@
     "light": {
       "primary": {
         "type": "color",
-        "value": "{color.core.blue.600.value}"
+        "value": "{color.core.black.500.value}"
       },
       "secondary": {
         "type": "color",
-        "value": "{color.core.blue.900.value}"
+        "value": "{color.core.black.800.value}"
+      },
+      "tertiary": {
+        "type": "color",
+        "value": "{color.core.white.1000.value}"
       },
       "accent": {
         "type": "color",
-        "value": "{color.core.orange.600.value}"
+        "value": "{color.core.black.100.value}"
       },
       "background": {
         "type": "color",
-        "value": "{color.core.white.600.value}"
+        "value": "#D2D3D7"
       },
       "surface-1": {
         "type": "color",

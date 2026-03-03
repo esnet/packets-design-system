@@ -1,0 +1,20 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import { ShadowDocBlock } from "doc-ui";
+
+<Meta title="Design Tokens/Elevation and Shadows" />
+
+#### Design Tokens
+
+# Elevation and Shadows
+
+<br />
+
+## Box Shadow
+
+### Tokens
+{
+    Object.keys(tokens.default["box-shadow"].core).map(shadowTokenKey => {
+        return(<ShadowDocBlock name={`--esnet-box-shadow-core-${shadowTokenKey}`} value={tokens.default["box-shadow"].core[shadowTokenKey].value || 0} />)
+    })
+}

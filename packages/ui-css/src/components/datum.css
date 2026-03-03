@@ -1,0 +1,40 @@
+.pkts-datum {
+  width: 100%;
+  --label-font: var(
+    --esnet-typography-label-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans)
+  );
+  --label-letterspace: var(
+    --esnet-typography-label-2-sans-letterspacing,
+    -0.18px
+  );
+}
+
+  .pkts-datum label,
+  .pkts-datum .label {
+    display: block;
+    color: var(--esnet-color-light-copy-alt, #a8a8a8);
+
+    font: var(--label-font);
+    letter-spacing: var(--label-letterspace);
+  }
+
+  .dark .pkts-datum label,
+  .dark .pkts-datum .label {
+      color: var(--esnet-color-dark-copy-alt, #a8a8a8);
+    }
+
+  .pkts-datum span,
+  .pkts-datum .value {
+    font: var(
+      --esnet-typography-copy-1-sans-font,
+      400 16px/120% var(--esnet-font-family-body-sans)
+    );
+
+    color: var(--esnet-color-light-copy, #3d3d3d);
+  }
+
+  .dark .pkts-datum span,
+  .dark .pkts-datum .value {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }

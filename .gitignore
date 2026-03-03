@@ -5,6 +5,13 @@ node_modules
 .pnp
 .pnp.js
 
+# random JS BS
+.pnpm-store
+.npm
+.corepack
+.local
+.config
+
 # testing
 coverage
 
@@ -40,4 +47,12 @@ server/dist
 public/dist
 storybook-static/
 
+# playwright
+playwright-report/
+test-results/
+
 .npmrc
+
+# Emacs
+*~
+\#*

@@ -1,0 +1,41 @@
+{
+  "name": "@esnet/packets-ui-css",
+  "version": "0.1.0",
+  "description": "The Packets Design System CSS-Only Components",
+  "author": "ESnet",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:rollup": "rollup -c",
+    "dev": "rollup -c --watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "prepublishOnly": "npm run build",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:updatesnaps": "playwright test --update-snapshots"
+  },
+  "dependencies": {
+    "@esnet/esnet-tokens": "workspace:^"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "chokidar": "^3.5.3",
+    "cssnano": "^6.0.1",
+    "glob": "^13.0.0",
+    "postcss": "^8.4.31",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^9.3.0",
+    "rollup": "^4.53.5",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "main": "dist/styles.css",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./styles.css": "./dist/styles.css",
+    "./styles.min.css": "./dist/styles.min.css",
+    "./tearsheet.html": "./dist/tearsheet.html"
+  }
+}

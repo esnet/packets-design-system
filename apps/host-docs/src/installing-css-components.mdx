@@ -1,0 +1,120 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="About/Installing CSS Components" />
+
+<img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installing CSS Components
+
+    Pure HTML/CSS components with no JavaScript dependencies. Perfect for static sites, server-rendered applications, and projects without a build system.
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installation
+
+    ## Via NPM/PNPM/Yarn
+
+    Install the package:
+
+```bash
+npm install @esnet/packets-ui-css
+```
+
+    Import the CSS in your project:
+
+```css
+@import "@esnet/packets-ui-css/dist/styles.css";
+```
+
+    ## Via CDN (No Build System)
+
+    For projects without a build system, you can use unpkg CDN:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Packets CSS via unpkg -->
+  <link rel="stylesheet" href="https://unpkg.com/@esnet/packets-ui-css@latest/dist/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+</head>
+<body class="packets">
+  <!-- Your HTML with Packets CSS classes -->
+  <button class="pkts-button pkts-primary">Click Me</button>
+</body>
+</html>
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Usage
+
+    1. Add the `packets` class to your root container:
+
+```html
+<div class="packets">
+  <!-- Your components here -->
+</div>
+```
+
+    2. Use component classes as shown in the examples:
+
+```html
+<div class="packets">
+  <button class="pkts-button pkts-primary">Primary Button</button>
+
+  <div class="pkts-input-text">
+    <input type="text" placeholder="Enter text...">
+  </div>
+
+  <div class="pkts-alert pkts-info">
+    <aside class="icon">
+      <!-- Icon SVG here -->
+    </aside>
+    <div class="content">
+      <strong>Info Alert</strong>
+      <p>This is an informational message.</p>
+    </div>
+  </div>
+</div>
+```
+
+    3. Optionally, add `dark` or `light` classes to force a specific theme:
+
+```html
+<div class="packets dark">
+  <!-- Dark mode components -->
+</div>
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Next Steps
+
+    Now that you've installed the CSS components, view the full component documentation:
+
+    <strong>Next, explore the interactive <a href="/css/" target="_top">CSS Components Storybook →</a></strong>
+
+    The CSS documentation includes:
+    - Interactive examples of all components
+    - HTML markup you can copy and paste
+    - Usage guidelines for each component
+    - Dark mode support
+
+  </div>
+</div>

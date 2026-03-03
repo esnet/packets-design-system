@@ -1,0 +1,212 @@
+.pkts-list-tree-view {
+  --icon-size: var(--esnet-size-spacing-medium, 1rem);
+  --row-gap-size: var(--esnet-size-spacing-xxsmall, 4px);
+
+  margin: 0;
+  width: 100%;
+}
+
+  /* Section row - class-based */
+  .pkts-list-tree-view .section-row {
+    display: flex;
+    padding: 2px;
+    gap: var(--row-gap-size);
+    border-radius: var(--esnet-size-radius-large, 6px);
+    transition: background var(--esnet-time-duration-short, 100ms) ease-in-out;
+  }
+
+  .pkts-list-tree-view .section-row:has(+ .list) {
+      border-radius: var(--esnet-size-radius-large, 6px)
+        var(--esnet-size-radius-large, 6px) 0 0;
+    }
+
+  .pkts-list-tree-view .section-row:hover {
+      background-color: var(--esnet-color-core-white-400, #e3e3e3);
+    }
+
+  .dark .pkts-list-tree-view .section-row:hover {
+        background-color: var(--esnet-color-core-blue-900, #004573);
+      }
+
+  .pkts-list-tree-view .section-row:hover + .list {
+        border-radius: 0 0 var(--esnet-size-radius-large, 6px)
+          var(--esnet-size-radius-large, 6px);
+        background-color: var(--esnet-color-core-white-400, #e3e3e3);
+      }
+
+  .dark .pkts-list-tree-view .section-row:hover + .list {
+          background-color: var(--esnet-color-core-blue-900, #004573);
+        }
+
+  /* Icon - class-based or semantic */
+  .pkts-list-tree-view .icon,
+  .pkts-list-tree-view svg {
+    display: inline-block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    aspect-ratio: 1/1;
+  }
+
+  .pkts-list-tree-view .icon > svg {
+      display: block;
+      display: inline-block;
+      width: var(--icon-size);
+      height: var(--icon-size);
+      aspect-ratio: 1/1;
+    }
+
+  .pkts-list-tree-view .icon.selectedIcon,
+  .pkts-list-tree-view svg.selectedIcon {
+      color: var(--esnet-color-core-blue-600);
+    }
+
+  .pkts-list-tree-view .icon.selectedIcon,
+  .pkts-list-tree-view svg.selectedIcon  {
+        animation: scaleBounceIn var(--esnet-time-duration-quick, 250ms) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+  @media (prefers-reduced-motion) {
+
+  .pkts-list-tree-view .icon.selectedIcon,
+  .pkts-list-tree-view svg.selectedIcon  {
+          animation: none
+      }
+        }
+
+  .pkts-list-tree-view .icon.selectedIcon:hover,
+  .pkts-list-tree-view svg.selectedIcon:hover {
+        cursor: pointer;
+      }
+
+  .dark .pkts-list-tree-view .icon.selectedIcon,
+  .dark .pkts-list-tree-view svg.selectedIcon {
+        color: var(--esnet-color-core-white-100);
+      }
+
+  .pkts-list-tree-view .icon.groupIcon,
+  .pkts-list-tree-view svg.groupIcon {
+      color: var(--esnet-color-core-blue-600);
+    }
+
+  .dark .pkts-list-tree-view .icon.groupIcon,
+  .dark .pkts-list-tree-view svg.groupIcon {
+        color: var(--esnet-color-core-white-700);
+      }
+
+  /* Accordion indicator - class-based */
+  .pkts-list-tree-view .accordion-indicator {
+    transition: transform var(--esnet-time-duration-short) ease-in-out;
+
+    color: var(--esnet-color-core-black-100);
+  }
+
+  .pkts-list-tree-view .accordion-indicator:hover {
+      cursor: pointer;
+    }
+
+  .pkts-list-tree-view .accordion-indicator:not(.isOpen) {
+      transform: rotate(-90deg);
+    }
+
+  .dark .pkts-list-tree-view .accordion-indicator {
+      color: var(--esnet-color-core-slate-400);
+    }
+
+  /* List - class-based */
+  .pkts-list-tree-view .list {
+    list-style: none;
+    padding: 0 var(--esnet-size-spacing-medium, 16px) 0;
+    margin: 0;
+    transition: background var(--esnet-time-duration-short, 100ms) ease-in-out;
+  }
+
+  .pkts-list-tree-view .list > * {
+      padding: 0 var(--row-gap-size);
+    }
+
+  /* Add global scope for accessing animation name globally */
+
+  .pkts-list-tree-view .list > * {
+        animation: ESFadeInUp var(--esnet-time-duration-medium) ease-in-out;
+      }
+
+  @media (prefers-reduced-motion) {
+
+  .pkts-list-tree-view .list > * {
+          animation: none
+      }
+        }
+
+/* ==============================================================================
+   PKTS-LIST-TREE-LEAF-VIEW
+   ============================================================================== */
+
+.pkts-list-tree-leaf-view {
+  width: 100%;
+}
+
+  .pkts-list-tree-leaf-view .content {
+    display: block;
+  }
+
+  .pkts-list-tree-leaf-view > .content-wrapper {
+    display: flex;
+    padding: 2px 0;
+    gap: var(--row-gap-size);
+    border-radius: var(--esnet-size-radius-large, 6px);
+  }
+
+  .pkts-list-tree-leaf-view .icon {
+    display: flex;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    aspect-ratio: 1/1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pkts-list-tree-leaf-view .icon.selectedIcon {
+    color: var(--esnet-color-core-blue-600);
+    animation: scaleBounceIn var(--esnet-time-duration-short, 100ms)
+      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @media (prefers-reduced-motion) {
+    .pkts-list-tree-leaf-view .icon.selectedIcon {
+      animation: none;
+    }
+  }
+
+  .pkts-list-tree-leaf-view .icon.selectedIcon:hover {
+    cursor: pointer;
+  }
+
+  .dark .pkts-list-tree-leaf-view .icon.selectedIcon {
+    color: var(--esnet-color-core-white-100);
+  }
+
+  .pkts-list-tree-leaf-view .icon.leafIcon {
+    color: var(--esnet-color-core-blue-600);
+  }
+
+  .dark .pkts-list-tree-leaf-view .icon.leafIcon {
+    color: var(--esnet-color-core-white-700);
+  }
+
+  /* States */
+
+  .pkts-list-tree-leaf-view.isSublist > .icon {
+    display: none;
+  }
+
+  .pkts-list-tree-leaf-view.isSublist > .content-wrapper > .content {
+    width: 100%;
+  }
+
+  .pkts-list-tree-leaf-view:not(.isSublist) > .content-wrapper:hover {
+    background-color: var(--esnet-color-core-white-400, #e3e3e3);
+  }
+
+  .dark .pkts-list-tree-leaf-view:not(.isSublist) > .content-wrapper:hover {
+    background-color: var(--esnet-color-core-blue-900, #004573);
+  }

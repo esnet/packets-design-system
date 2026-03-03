@@ -1,0 +1,9 @@
+.pkts-input-email input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    display: none;
+  }
+  .pkts-input-email input::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }

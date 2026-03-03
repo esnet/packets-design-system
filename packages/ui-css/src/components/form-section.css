@@ -1,0 +1,34 @@
+.pkts-form-section {
+  --section-gap: var(--esnet-size-spacing-xxsmall, 4px);
+
+  padding: var(--esnet-size-spacing-medium);
+  border-radius: var(--esnet-size-spacing-xsmall);
+
+  margin-bottom: var(--esnet-size-spacing-medium);
+  background: var(--esnet-color-light-surface-1, #e3e3e3);
+}
+
+  .dark .pkts-form-section {
+    background: var(--esnet-color-dark-surface-1, #3d3d3d);
+  }
+
+  /* Left column - class-based or semantic */
+  .pkts-form-section .left-col,
+  .pkts-form-section > div:first-child {
+    margin-bottom: var(--esnet-size-spacing-medium);
+  }
+
+  .pkts-form-section .left-col > p,
+  .pkts-form-section > div:first-child > p {
+      color: var(--esnet-color-copy-alt);
+    }
+
+  /* Right column - class-based or semantic */
+  .pkts-form-section .right-col,
+  .pkts-form-section > div:last-child {
+    margin-bottom: var(--esnet-size-spacing-medium);
+  }
+
+.sheet & .pkts-form-section {
+    display: block;
+  }

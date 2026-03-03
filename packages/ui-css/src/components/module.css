@@ -1,0 +1,20 @@
+.pkts-module {
+  padding: 0 var(--esnet-size-spacing-medium, 16px);
+}
+
+  @media (min-width: 640px) {.pkts-module {
+    padding: 0 var(--esnet-size-spacing-xlarge, 40px)
+}
+  }
+
+  .pkts-module.surface {
+    border-radius: var(--esnet-size-spacing-xsmall);
+    padding: var(--esnet-size-spacing-medium, 16px);
+  }
+
+  @media (min-width: 640px) {
+
+  .pkts-module.surface {
+      padding: var(--esnet-size-spacing-xlarge, 40px)
+  }
+    }

@@ -1,0 +1,15 @@
+/* Pseudo-classes */
+  /* Remove the search button that is provided by default */
+  .pkts-input-search input::-webkit-search-decoration,
+  .pkts-input-search input::-webkit-search-cancel-button,
+  .pkts-input-search input::-webkit-search-results-button,
+  .pkts-input-search input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    display: none;
+  }
+  .pkts-input-search input::-ms-clear,
+  .pkts-input-search input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }

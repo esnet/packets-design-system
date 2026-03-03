@@ -1,0 +1,150 @@
+/* ==============================================================================
+   PKTS-INPUT-TEXT - Composable Base Class
+   ==============================================================================
+
+   Base styles for text input component. Variants are applied via composable classes:
+   - Variant: .pkts-branded
+   - State: .pkts-error, .pkts-disabled
+
+   Usage: <div class="pkts-input-text"><input type="text"></div>
+*/
+
+.pkts-input-text {
+  /* Layout */
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Styling */
+  background-color: var(--esnet-color-core-white-100, #ffffff);
+  color: var(--esnet-color-light-copy, #3d3d3d);
+  border-style: solid;
+  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--esnet-color-core-slate-900, #3f424d);
+
+  transition:
+    border-color var(--esnet-time-duration-quick, 250ms) ease,
+    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+
+  /* Typography */
+  font: var(
+    --esnet-typography-copy-1-sans-font,
+    400 16px/120% var(--esnet-font-family-body-sans)
+  );
+}
+
+.dark .pkts-input-text {
+  background-color: var(--esnet-color-dark-surface-1, #19191a);
+  color: var(--esnet-color-dark-copy, #ffffff);
+  border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+}
+
+/* Error state */
+
+.pkts-input-text.pkts-error {
+  border-color: var(--esnet-color-core-red-700, #a6111b);
+  border-width: var(--esnet-size-border-width-small, 0.125rem);
+  box-shadow: 0 0 0 var(--esnet-size-border-width-small)
+    color-mix(
+      in srgb,
+      var(--esnet-color-light-error, #a6111b) 26%,
+      transparent
+    );
+}
+
+/* Hover, focus, and active states */
+
+.pkts-input-text:hover:not(.pkts-disabled),
+.pkts-input-text:focus-within:not(.pkts-disabled),
+.pkts-input-text:has(*:active):not(.pkts-disabled) {
+  /* border color on focus takes precedence over error border color */
+  border-color: var(--esnet-color-core-slate-1000, #30333b);
+  box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem)
+    var(--esnet-color-core-blue-400, #00b6f2);
+}
+
+/* Disabled state */
+
+.pkts-input-text.pkts-disabled {
+  border-color: var(--esnet-color-core-slate-300, #9699a8);
+  cursor: default;
+}
+
+.dark .pkts-input-text.pkts-disabled {
+  border-color: var(--esnet-color-core-slate-500, #787b87);
+}
+
+/* Branded variant */
+
+.pkts-input-text.pkts-branded {
+  border-radius: var(--esnet-size-radius-circle, 999px);
+}
+
+/* Input element styles */
+
+.pkts-input-text input {
+  all: unset;
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: var(--esnet-size-spacing-xsmall, 8px);
+}
+
+.pkts-input-text input::placeholder {
+  color: var(--esnet-color-light-copy-alt, #6e6e70);
+}
+
+.dark .pkts-input-text input::placeholder {
+  color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+}
+
+.pkts-input-text input:disabled {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.pkts-input-text input:disabled::placeholder {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.dark .pkts-input-text input:disabled {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.dark .pkts-input-text input:disabled::placeholder {
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+/* Branded variant - input padding adjustment */
+
+.pkts-input-text.pkts-branded input {
+  padding: var(--esnet-size-spacing-xsmall, 0.0625rem)
+    var(--esnet-size-spacing-medium, 0.25rem);
+}
+
+/* Action buttons container */
+
+.pkts-input-text .action-buttons,
+.pkts-input-text div {
+  cursor: pointer;
+  padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+  display: flex;
+  align-items: center;
+}
+
+.pkts-input-text.pkts-branded .action-buttons:last-child,
+.pkts-input-text.pkts-branded div:last-child {
+  padding-right: var(--esnet-size-spacing-xsmall, 8px);
+}
+
+.pkts-input-text input:disabled + .action-buttons,
+.pkts-input-text input:disabled + div {
+  cursor: default;
+  pointer-events: none;
+  color: var(--esnet-color-core-white-900, #a8a8a8);
+}
+
+.pkts-input-text .action-buttons svg,
+.pkts-input-text div svg {
+  width: 20px;
+  height: 20px;
+}

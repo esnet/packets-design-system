@@ -1,8 +1,22 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "//": "XXX: the line below is EXTREMELY IMPORTANT. This does most of the work of binding playwright to the browser list from the docker container. THIS SHOULD NOT BE REMOVED as it affects docker builds and CI.",
+  "globalPassThroughEnv": ["PLAYWRIGHT_BROWSERS_PATH"],
   "tasks": {
     "@esnet/esnet-tokens#build": {
       "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "@esnet/packets-ui-css#build": {
+      "dependsOn": ["@esnet/esnet-tokens#build"],
+      "outputs": ["dist/**"]
+    },
+    "@esnet/packets-ui-react#build": {
+      "dependsOn": ["@esnet/packets-ui-css#build", "^build"],
+      "outputs": ["dist/**"]
+    },
+    "@esnet/packets-ui-web#build": {
+      "dependsOn": ["@esnet/packets-ui-css#build", "^build"],
       "outputs": ["dist/**"]
     },
     "build": {

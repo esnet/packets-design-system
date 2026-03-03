@@ -1,0 +1,17 @@
+/* Make pkts-icon custom element behave as inline-flex for proper centering */
+pkts-icon {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+pkts-icon svg {
+    display: block;
+}
+
+.pkts-icon {
+    color: var(--esnet-color-light-surface-2);
+}
+
+    .dark .pkts-icon {
+        color: var(--esnet-color-dark-surface-2);
+    }

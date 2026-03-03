@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packets Web Components Tearsheet</title>
+  <link rel="stylesheet" href="../ui-css/dist/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+  <script type="module">
+    // Import the browser bundle (lucide bundled in)
+    import * as PacketsUI from './dist/esm/bundle.js';
+    console.log('Packets UI Web Components loaded:', PacketsUI.DesignSystemName);
+  </script>
+
+  <style>
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--esnet-color-light-surface-1, #e3e3e3);
+    }
+
+    body.dark {
+      background-color: var(--esnet-color-dark-surface-1, #3d3d3d);
+    }
+
+    .demo-section {
+      padding: var(--esnet-size-spacing-xlarge, 40px);
+      border-bottom: 2px solid var(--esnet-color-core-slate-300);
+      background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+    }
+
+    body.dark .demo-section {
+      background-color: var(--esnet-color-dark-surface-2, #4d4d4f);
+      border-bottom-color: var(--esnet-color-core-slate-700, #555);
+    }
+
+    .demo-section.category-header {
+      background-color: var(--esnet-color-core-blue-700);
+      color: white;
+      padding: var(--esnet-size-spacing-large, 32px) var(--esnet-size-spacing-xlarge, 40px);
+    }
+
+    .demo-section.category-header h1 {
+      color: white;
+      margin: 0;
+    }
+
+    body.dark .demo-section.category-header {
+      background-color: var(--esnet-color-core-blue-900);
+    }
+
+    .demo-section h1,
+    .demo-section h2 {
+      margin-top: 0;
+      color: var(--esnet-color-core-blue-700);
+    }
+
+    body.dark .demo-section h1,
+    body.dark .demo-section h2 {
+      color: var(--esnet-color-core-blue-300);
+    }
+
+    .demo-item {
+      margin-bottom: var(--esnet-size-spacing-large, 32px);
+    }
+
+    .demo-label {
+      font-weight: 600;
+      margin-bottom: var(--esnet-size-spacing-xsmall, 8px);
+      color: var(--esnet-color-core-slate-700);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark .demo-label {
+      color: var(--esnet-color-core-slate-300);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    pkts-button, button {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    pkts-input-text, pkts-input-search, pkts-input-password, pkts-input-number, pkts-input-email, pkts-input-checkbox, pkts-input-radio, pkts-input-switch {
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+
+    pkts-avatar {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    pkts-divider {
+      margin: 16px 0;
+    }
+
+    .intro {
+      max-width: 800px;
+    }
+
+    body.dark .intro p {
+      color: var(--esnet-color-dark-copy, #e6e6e6);
+    }
+
+    .code-example {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .pkts-card { margin-top:1rem; }
+
+    pkts-card { margin-top:1rem; }
+  </style>
+</head>
+<body class="packets">
+
+  <div class="theme-toggle">
+    <pkts-button variant="primary" onclick="toggleTheme()">
+      Toggle Dark Mode
+    </pkts-button>
+  </div>
+
+  <div class="demo-section">
+    <h1>Packets Web Components</h1>
+    <div class="intro">
+      <p>This tearsheet demonstrates all available Web Components from the Packets Design System.</p>
+      <p>Components use custom elements with the <code>pkts-</code> prefix. For example, buttons use <code>&lt;pkts-button&gt;</code> with attributes like <code>variant="primary"</code>.</p>
+    </div>
+  </div>
+
+<div class="demo-section category-header"><h1>Buttons</h1></div>
+
+<div class="demo-section">
+  <h2>PktsIconButton</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Variants</div>
+    <pkts-icon-button variant="primary">
+      <pkts-icon name="star"></pkts-icon>
+    </pkts-icon-button>
+    <pkts-icon-button variant="secondary">
+      <pkts-icon name="heart"></pkts-icon>
+    </pkts-icon-button>
+    <pkts-icon-button variant="branded">
+      <pkts-icon name="zap"></pkts-icon>
+    </pkts-icon-button>
+    <pkts-icon-button variant="tertiary">
+      <pkts-icon name="circle"></pkts-icon>
+    </pkts-icon-button>
+    <pkts-icon-button variant="destructive">
+      <pkts-icon name="trash-2"></pkts-icon>
+    </pkts-icon-button>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pkts-icon-button variant="primary"><pkts-icon name="star"></pkts-icon></pkts-icon-button>
+<pkts-icon-button variant="secondary"><pkts-icon name="heart"></pkts-icon></pkts-icon-button>
+<pkts-icon-button variant="branded"><pkts-icon name="zap"></pkts-icon></pkts-icon-button>
+<pkts-icon-button variant="tertiary"><pkts-icon name="circle"></pkts-icon></pkts-icon-button>
+<pkts-icon-button variant="destructive"><pkts-icon name="trash-2"></pkts-icon></pkts-icon-button></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">States</div>
+    <pkts-icon-button variant="primary">
+      <pkts-icon name="star"></pkts-icon>
+    </pkts-icon-button>
+    <pkts-icon-button variant="primary" disabled>
+      <pkts-icon name="star"></pkts-icon>
+    </pkts-icon-button>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-icon-button variant="primary"><pkts-icon name="star"></pkts-icon></pkts-icon-button>
+<pkts-icon-button variant="primary" disabled><pkts-icon name="star"></pkts-icon></pkts-icon-button></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsButton</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Variants</div>
+    <pkts-button variant="primary">Primary Button</pkts-button>
+    <pkts-button variant="secondary">Secondary Button</pkts-button>
+    <pkts-button variant="branded">Branded Button</pkts-button>
+    <pkts-button variant="tertiary">Tertiary Button</pkts-button>
+    <pkts-button variant="destructive">Destructive Button</pkts-button>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pkts-button variant="primary">Primary Button</pkts-button>
+<pkts-button variant="secondary">Secondary Button</pkts-button>
+<pkts-button variant="branded">Branded Button</pkts-button>
+<pkts-button variant="tertiary">Tertiary Button</pkts-button>
+<pkts-button variant="destructive">Destructive Button</pkts-button></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Sizes</div>
+    <pkts-button variant="primary" size="medium">Medium</pkts-button>
+    <pkts-button variant="primary" size="xxlarge">Xxlarge</pkts-button>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-button variant="primary" size="medium">Medium</pkts-button>
+<pkts-button variant="primary" size="xxlarge">Xxlarge</pkts-button></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">States</div>
+    <pkts-button variant="primary">Normal</pkts-button>
+    <pkts-button variant="primary" disabled>Disabled</pkts-button>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-button variant="primary">Normal</pkts-button>
+<pkts-button variant="primary" disabled>Disabled</pkts-button></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsButtonGroup</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Horizontal Button Group</div>
+    <pkts-button-group label="Actions" direction="horizontal">
+      <li><pkts-button variant="secondary">Option 1</pkts-button></li>
+      <li><pkts-button variant="secondary">Option 2</pkts-button></li>
+      <li><pkts-button variant="secondary">Option 3</pkts-button></li>
+    </pkts-button-group>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pkts-button-group label="Actions" direction="horizontal">
+  <li><pkts-button variant="secondary">Option 1</pkts-button></li>
+  <li><pkts-button variant="secondary">Option 2</pkts-button></li>
+  <li><pkts-button variant="secondary">Option 3</pkts-button></li>
+</pkts-button-group></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Vertical Button Group</div>
+    <pkts-button-group direction="vertical">
+      <li><pkts-button variant="secondary">Option 1</pkts-button></li>
+      <li><pkts-button variant="secondary">Option 2</pkts-button></li>
+      <li><pkts-button variant="secondary">Option 3</pkts-button></li>
+    </pkts-button-group>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pkts-button-group direction="vertical">
+  <li><pkts-button variant="secondary">Option 1</pkts-button></li>
+  <li><pkts-button variant="secondary">Option 2</pkts-button></li>
+  <li><pkts-button variant="secondary">Option 3</pkts-button></li>
+</pkts-button-group></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsChip</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Primary (Default)</div>
+    <pkts-chip>Chip Label</pkts-chip>
+    <pkts-chip>Another Chip</pkts-chip>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-chip>Chip Label</pkts-chip></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Outline Variant</div>
+    <pkts-chip variant="outline">Outline Chip</pkts-chip>
+    <pkts-chip variant="outline">Another Outline</pkts-chip>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-chip variant="outline">Outline Chip</pkts-chip></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Rounded Variant</div>
+    <pkts-chip rounded>Rounded Chip</pkts-chip>
+    <pkts-chip variant="outline" rounded>Rounded Outline</pkts-chip>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-chip rounded>Rounded Chip</pkts-chip>
+<pkts-chip variant="outline" rounded>Rounded Outline</pkts-chip></textarea>
+    </pkts-card>
+  </div>
+
+
+  <div class="demo-item">
+    <div class="demo-label">Disabled State</div>
+    <pkts-chip disabled>Disabled Chip</pkts-chip>
+    <pkts-chip variant="outline" disabled>Disabled Outline</pkts-chip>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-chip disabled>Disabled Chip</pkts-chip>
+<pkts-chip variant="outline" disabled>Disabled Outline</pkts-chip></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Deletable Chips</div>
+    <pkts-chip deletable>Deletable Chip</pkts-chip>
+    <pkts-chip variant="outline" deletable>Deletable Outline</pkts-chip>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-chip deletable>Deletable Chip</pkts-chip>
+<pkts-chip variant="outline" deletable>Deletable Outline</pkts-chip></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Form Inputs</h1></div>
+
+<div class="demo-section">
+  <h2>PktsInputText</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-text placeholder="Enter text..."></pkts-input-text>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-text variant="branded" placeholder="Branded variant..."></pkts-input-text>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-text error placeholder="Error state..."></pkts-input-text>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-text placeholder="Enter text..."></pkts-input-text>
+<pkts-input-text variant="branded" placeholder="Branded variant..."></pkts-input-text>
+<pkts-input-text error placeholder="Error state..."></pkts-input-text></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputSearch</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-search placeholder="Enter search..."></pkts-input-search>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-search variant="branded" placeholder="Branded variant..."></pkts-input-search>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-search error placeholder="Error state..."></pkts-input-search>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-search placeholder="Enter search..."></pkts-input-search>
+<pkts-input-search variant="branded" placeholder="Branded variant..."></pkts-input-search>
+<pkts-input-search error placeholder="Error state..."></pkts-input-search></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputPassword</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-password placeholder="Enter password..."></pkts-input-password>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-password variant="branded" placeholder="Branded variant..."></pkts-input-password>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-password error placeholder="Error state..."></pkts-input-password>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-password placeholder="Enter password..."></pkts-input-password>
+<pkts-input-password variant="branded" placeholder="Branded variant..."></pkts-input-password>
+<pkts-input-password error placeholder="Error state..."></pkts-input-password></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputNumber</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-number placeholder="Enter number..."></pkts-input-number>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-number variant="branded" placeholder="Branded variant..."></pkts-input-number>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-number error placeholder="Error state..."></pkts-input-number>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-number placeholder="Enter number..."></pkts-input-number>
+<pkts-input-number variant="branded" placeholder="Branded variant..."></pkts-input-number>
+<pkts-input-number error placeholder="Error state..."></pkts-input-number></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputEmail</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-email placeholder="Enter email..."></pkts-input-email>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-email variant="branded" placeholder="Branded variant..."></pkts-input-email>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-email error placeholder="Error state..."></pkts-input-email>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-email placeholder="Enter email..."></pkts-input-email>
+<pkts-input-email variant="branded" placeholder="Branded variant..."></pkts-input-email>
+<pkts-input-email error placeholder="Error state..."></pkts-input-email></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputCheckbox</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-input-checkbox></pkts-input-checkbox>
+    <pkts-input-checkbox checked></pkts-input-checkbox>
+    <pkts-input-checkbox disabled></pkts-input-checkbox>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <pkts-input-checkbox variant="branded" checked></pkts-input-checkbox>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><pkts-input-checkbox></pkts-input-checkbox>
+<pkts-input-checkbox checked></pkts-input-checkbox>
+<pkts-input-checkbox disabled></pkts-input-checkbox>
+<pkts-input-checkbox variant="branded" checked></pkts-input-checkbox></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputRadio</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Radio Buttons</div>
+    <pkts-input-radio name="radio1" checked></pkts-input-radio>
+    <pkts-input-radio name="radio1"></pkts-input-radio>
+    <pkts-input-radio name="radio1" disabled></pkts-input-radio>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <pkts-input-radio variant="branded" name="radio2" checked></pkts-input-radio>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><pkts-input-radio name="radio1" checked></pkts-input-radio>
+<pkts-input-radio name="radio1"></pkts-input-radio>
+<pkts-input-radio name="radio1" disabled></pkts-input-radio>
+<pkts-input-radio variant="branded" name="radio2" checked></pkts-input-radio></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputSwitch</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Switches</div>
+    <pkts-input-switch></pkts-input-switch>
+    <pkts-input-switch checked></pkts-input-switch>
+    <pkts-input-switch variant="secondary" checked></pkts-input-switch>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-input-switch></pkts-input-switch>
+<pkts-input-switch checked></pkts-input-switch>
+<pkts-input-switch variant="secondary" checked></pkts-input-switch></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsFormSection</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default Form Section</div>
+    <pkts-form-section title="User Information">
+      <div>
+        <label>Name</label>
+        <div class="pkts-input-text" style="margin-bottom: 16px;">
+          <input type="text" placeholder="Enter your name">
+        </div>
+        <label>Email</label>
+        <div class="pkts-input-text" style="margin-bottom: 16px;">
+          <input type="email" placeholder="Enter your email">
+        </div>
+      </div>
+    </pkts-form-section>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><pkts-form-section title="User Information">
+  <div>
+    <label>Name</label>
+    <input type="text" placeholder="Enter your name">
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email">
+  </div>
+</pkts-form-section></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Without Column Layout</div>
+    <pkts-form-section title="Settings" use-column-layout="false">
+      <p>Form content without column layout</p>
+    </pkts-form-section>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-form-section title="Settings" use-column-layout="false">
+  <p>Form content without column layout</p>
+</pkts-form-section></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputDate</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Date Only</div>
+    <pkts-input-date type="date"></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="date"></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Time Only</div>
+    <pkts-input-date type="time"></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="time"></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Date and Time</div>
+    <pkts-input-date type="datetime"></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="datetime"></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-date type="date" variant="branded"></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="date" variant="branded"></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Error State</div>
+    <pkts-input-date type="date" error></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="date" error></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Disabled State</div>
+    <pkts-input-date type="date" disabled value="2025-09-15T00:00:00.000Z"></pkts-input-date>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date type="date" disabled value="2025-09-15T00:00:00.000Z"></pkts-input-date></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsInputDateRange</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Date Range Selector</div>
+    <pkts-input-date-range></pkts-input-date-range>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date-range></pkts-input-date-range></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">With Initial Values</div>
+    <pkts-input-date-range value-start="2025-09-10T00:00:00.000Z" value-end="2025-09-20T00:00:00.000Z"></pkts-input-date-range>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-input-date-range
+  value-start="2025-09-10T00:00:00.000Z"
+  value-end="2025-09-20T00:00:00.000Z"></pkts-input-date-range></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded Variant</div>
+    <pkts-input-date-range variant="branded"></pkts-input-date-range>
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-input-date-range variant="branded"></pkts-input-date-range></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Display Components</h1></div>
+
+<div class="demo-section">
+  <h2>PktsDivider</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default</div>
+    <pkts-divider></pkts-divider>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Branded</div>
+    <pkts-divider variant="branded"></pkts-divider>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-divider></pkts-divider>
+<pkts-divider variant="branded"></pkts-divider></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsDatum</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Label/Value Pairs</div>
+    <pkts-datum label="Label">Value</pkts-datum>
+    <pkts-datum label="Name">John Doe</pkts-datum>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="2"><pkts-datum label="Label">Value</pkts-datum>
+<pkts-datum label="Name">John Doe</pkts-datum></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsAvatar</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Sizes</div>
+    <pkts-avatar size="small" color="grape" label="SM"></pkts-avatar>
+    <pkts-avatar size="medium" color="grape" label="ME"></pkts-avatar>
+    <pkts-avatar size="large" color="grape" label="LA"></pkts-avatar>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Colors</div>
+    <pkts-avatar size="medium" color="grape" label="GR"></pkts-avatar>
+    <pkts-avatar size="medium" color="lime" label="LI"></pkts-avatar>
+    <pkts-avatar size="medium" color="berry" label="BE"></pkts-avatar>
+    <pkts-avatar size="medium" color="orange" label="OR"></pkts-avatar>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><pkts-avatar size="small" color="grape" label="SM"></pkts-avatar>
+<pkts-avatar size="medium" color="grape" label="ME"></pkts-avatar>
+<pkts-avatar size="large" color="grape" label="LA"></pkts-avatar>
+<pkts-avatar size="medium" color="grape" label="GR"></pkts-avatar>
+<pkts-avatar size="medium" color="lime" label="LI"></pkts-avatar>
+<pkts-avatar size="medium" color="berry" label="BE"></pkts-avatar>
+<pkts-avatar size="medium" color="orange" label="OR"></pkts-avatar></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsBadge</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Badges</div>
+    <pkts-badge>3</pkts-badge>
+    <pkts-badge>12</pkts-badge>
+    <pkts-badge>99+</pkts-badge>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-badge>3</pkts-badge>
+<pkts-badge>12</pkts-badge>
+<pkts-badge>99+</pkts-badge></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsCard</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Card Component</div>
+    <pkts-card style="max-width: 400px;">
+      <h3>Card Title</h3>
+      <p>This is a card component with content inside.</p>
+    </pkts-card>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="4"><pkts-card>
+  <h3>Card Title</h3>
+  <p>This is a card component with content inside.</p>
+</pkts-card></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsAlert</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Alert Variants</div>
+    <pkts-alert variant="error" title="Error" style="margin-bottom: 16px;">
+      <p>This is a error alert message.</p>
+    </pkts-alert>
+    <pkts-alert variant="warning" title="Warning" style="margin-bottom: 16px;">
+      <p>This is a warning alert message.</p>
+    </pkts-alert>
+    <pkts-alert variant="info" title="Info" style="margin-bottom: 16px;">
+      <p>This is a info alert message.</p>
+    </pkts-alert>
+    <pkts-alert variant="success" title="Success" style="margin-bottom: 16px;">
+      <p>This is a success alert message.</p>
+    </pkts-alert>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="8"><pkts-alert variant="error" title="Error">
+  <p>This is an error alert message.</p>
+</pkts-alert>
+<pkts-alert variant="warning" title="Warning">
+  <p>This is a warning alert message.</p>
+</pkts-alert>
+<pkts-alert variant="info" title="Info">
+  <p>This is an info alert message.</p>
+</pkts-alert></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Navigation Components</h1></div>
+
+<div class="demo-section">
+  <h2>PktsTabs</h2>
+
+  <div class="demo-item">
+    <pkts-tabs>
+      <li class="pkts-tab pkts-active">
+        <a href="#">Tab 1</a>
+      </li>
+      <li class="pkts-tab">
+        <a href="#">Tab 2</a>
+      </li>
+      <li class="pkts-tab">
+        <a href="#">Tab 3</a>
+      </li>
+    </pkts-tabs>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="10"><pkts-tabs>
+  <li class="pkts-tab pkts-active">
+    <a href="#">Tab 1</a>
+  </li>
+  <li class="pkts-tab">
+    <a href="#">Tab 2</a>
+  </li>
+  <li class="pkts-tab">
+    <a href="#">Tab 3</a>
+  </li>
+</pkts-tabs></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsBreadcrumbs</h2>
+
+  <div class="demo-item">
+    <pkts-breadcrumbs>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Category</a></li>
+      <li><a href="#">Subcategory</a></li>
+      <li>Current Page</li>
+    </pkts-breadcrumbs>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><pkts-breadcrumbs>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Category</a></li>
+  <li><a href="#">Subcategory</a></li>
+  <li>Current Page</li>
+</pkts-breadcrumbs></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Data Display</h1></div>
+
+<div class="demo-section">
+  <h2>PktsCommaSeperatedList</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Comma Separated List</div>
+    <pkts-comma-seperated-list>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </pkts-comma-seperated-list>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="6"><pkts-comma-seperated-list>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+</pkts-comma-seperated-list></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Feedback & Loading</h1></div>
+
+<div class="demo-section">
+  <h2>PktsSpinner</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Loading Spinner</div>
+    <pkts-spinner></pkts-spinner>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><pkts-spinner></pkts-spinner></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section category-header"><h1>Layout Components</h1></div>
+
+<div class="demo-section">
+  <h2>PktsModule</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Default Module</div>
+    <pkts-module>
+      <p>This is content inside an PktsModule. It provides consistent padding and can optionally add a surface style.</p>
+    </pkts-module>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-module>
+  <p>Module content here</p>
+</pkts-module></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Title</div>
+    <pkts-module title="Section Title">
+      <p>This module has a title displayed as an h6.</p>
+    </pkts-module>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-module title="Section Title">
+  <p>Module content here</p>
+</pkts-module></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Module with Surface</div>
+    <pkts-module surface>
+      <p>This module has the surface style applied, adding background and border-radius.</p>
+    </pkts-module>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-module surface>
+  <p>Module content here</p>
+</pkts-module></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>PktsTitleSection</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Title Only</div>
+    <pkts-title-section title="Page Title">
+      <p>Content goes here below the title.</p>
+    </pkts-title-section>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-title-section title="Page Title">
+  <p>Content goes here</p>
+</pkts-title-section></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Title with Subtitle</div>
+    <pkts-title-section title="Main Title" subtitle="This is a subtitle">
+      <p>Content goes here below the title and subtitle.</p>
+    </pkts-title-section>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="3"><pkts-title-section title="Main Title" subtitle="This is a subtitle">
+  <p>Content goes here</p>
+</pkts-title-section></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Lists</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Unordered Lists</div>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item with nested list:
+        <ul>
+          <li>Nested item 1</li>
+          <li>Nested item 2
+            <ul>
+              <li>Nested item 1</li>
+              <li>Nested item 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="7"><ul>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item with nested list:
+    <ul>
+      <li>Nested item 1</li>
+    </ul>
+  </li>
+</ul></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Ordered Lists</div>
+    <ol>
+      <li>First step</li>
+      <li>Second step</li>
+      <li>Third step</li>
+    </ol>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><ol>
+  <li>First step</li>
+  <li>Second step</li>
+  <li>Third step</li>
+</ol></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h2>Code & Preformatted Text</h2>
+
+  <div class="demo-item">
+    <div class="demo-label">Inline Code</div>
+    <p>Use the <code>code</code> element for inline code snippets like <code>const foo = 'bar';</code></p>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="1"><p>Use the <code>code</code> element for inline code like <code>const foo = 'bar';</code></p></textarea>
+    </pkts-card>
+  </div>
+
+  <div class="demo-item">
+    <div class="demo-label">Code Blocks</div>
+    <pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre>
+
+    <pkts-card>
+      <h5>Code</h5>
+      <textarea class="mono code-example" readonly rows="5"><pre class="mono"><code>function example() {
+  const message = 'Hello, World!';
+  console.log(message);
+  return message;
+}</code></pre></textarea>
+    </pkts-card>
+  </div>
+</div>
+
+  <div class="demo-section">
+    <h2>Data Table</h2>
+    <div class="demo-item">
+      <div class="demo-label">Default Table</div>
+      <pkts-data-table
+        columns='[{"key":"name","label":"Name","width":"40%"},{"key":"value","label":"Value","width":"30%"},{"key":"createdAt","label":"Created At","width":"30%"}]'
+        data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+      </pkts-data-table>
+
+      <pkts-card>
+        <h5>Code</h5>
+        <textarea class="mono code-example" readonly rows="4"><pkts-data-table
+  columns='[{"key":"name","label":"Name","width":"40%"},{"key":"value","label":"Value","width":"30%"},{"key":"createdAt","label":"Created At","width":"30%"}]'
+  data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+</pkts-data-table></textarea>
+      </pkts-card>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Sortable Table</div>
+      <pkts-data-table
+        sortable
+        columns='[{"key":"name","label":"Name","width":"40%","sortable":true},{"key":"value","label":"Value","width":"30%","sortable":true},{"key":"createdAt","label":"Created At","width":"30%","sortable":true}]'
+        data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+      </pkts-data-table>
+
+      <pkts-card>
+        <h5>Code</h5>
+        <textarea class="mono code-example" readonly rows="5"><pkts-data-table
+  sortable
+  columns='[{"key":"name","label":"Name","width":"40%","sortable":true},{"key":"value","label":"Value","width":"30%","sortable":true},{"key":"createdAt","label":"Created At","width":"30%","sortable":true}]'
+  data='[{"name":"Jane Doe","value":"@janedoe","createdAt":"August 26, 1900"},{"name":"John Doe","value":"@johndoe","createdAt":"August 26, 1931"},{"name":"Alice Smith","value":"@asmith","createdAt":"March 15, 1945"},{"name":"Bob Johnson","value":"@bjohnson","createdAt":"July 4, 1976"}]'>
+</pkts-data-table></textarea>
+      </pkts-card>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>About</h2>
+    <p>Built from the Packets Design System Web Components. These components wrap the CSS-first design system with custom element APIs.</p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark');
+
+      // Save preference
+      const isDark = body.classList.contains('dark');
+      localStorage.setItem('packets-theme', isDark ? 'dark' : 'light');
+    }
+
+    // Restore theme preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('packets-theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
+  </script>
+</body>
+</html>

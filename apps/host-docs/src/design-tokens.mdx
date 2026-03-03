@@ -1,0 +1,100 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Design Tokens" />
+
+<img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Design Tokens
+
+    **Advanced Integration**
+
+    Design tokens are the foundational design decisions of the Packets Design System, represented as data. They include colors, spacing, typography, motion, and more.
+
+    ## When to Use Design Tokens
+
+    Design tokens are for **advanced integrations** where you need to:
+
+    - **Integrate with existing design systems** - You already have a design system (like Tailwind CSS, Material UI, etc.) and want to adopt Packets design values
+    - **Build custom components** - Create your own components that match Packets design language
+    - **Use a different framework or technology** - You're not using React, Web Components, or pure CSS components, but want to use Packets design values
+    - **Customize or extend the design system** - You need to modify or extend Packets for your specific needs
+    - **Integrate with design tools** - Use Packets tokens in Figma, Sketch, or other design tools
+
+    ## Example Use Cases
+
+    ### Integrating with Tailwind CSS
+
+    If you have an existing project using Tailwind CSS, you can import Packets design tokens to customize your Tailwind configuration:
+
+```javascript
+// tailwind.config.js
+import tokens from '@esnet/esnet-tokens/tokens.json';
+
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: tokens.color.primary.base.value,
+        secondary: tokens.color.secondary.base.value,
+        // ... more token mappings
+      },
+      spacing: {
+        // Map Packets spacing tokens to Tailwind spacing
+        xs: tokens.spacing.xs.value,
+        sm: tokens.spacing.sm.value,
+        // ... more spacing tokens
+      },
+    },
+  },
+};
+```
+
+    ### Building Custom Components
+
+    Use design tokens directly in your custom components:
+
+```typescript
+import tokens from '@esnet/esnet-tokens/tokens.json';
+
+const CustomButton = styled.button`
+  background-color: ${tokens.color.primary.base.value};
+  padding: ${tokens.spacing.md.value} ${tokens.spacing.lg.value};
+  border-radius: ${tokens.radius.md.value};
+  transition: all ${tokens.motion.duration.fast.value} ${tokens.motion.easing.ease.value};
+`;
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # For Most Projects
+
+    If you're starting a new project or simply want to use Packets components, you **don't need design tokens**. Instead, use one of the component systems:
+
+    - **[Installing CSS Components →](/?path=/docs/about-installing-css-components--docs)** - For static sites and no-build projects
+    - **[Installing Web Components →](/?path=/docs/about-installing-web-components--docs)** - For framework-agnostic applications
+    - **[Installing React Components →](/?path=/docs/about-installing-react-components--docs)** - For React applications
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Available Token Categories
+
+    Browse the design tokens by category:
+
+    - **[Colors](/?path=/docs/design-tokens-colors--docs)** - Color ramps and semantic color tokens
+    - **[Spacing](/?path=/docs/design-tokens-spacing--docs)** - Margin, padding, and gap values
+    - **[Motion](/?path=/docs/design-tokens-motion--docs)** - Animation durations and easing functions
+    - **[Breakpoints](/?path=/docs/design-tokens-breakpoints--docs)** - Responsive breakpoint values
+    - **[Radius & Borders](/?path=/docs/design-tokens-radius-and-borders--docs)** - Border radius and border width values
+    - **[Elevation & Shadows](/?path=/docs/design-tokens-elevation-and-shadows--docs)** - Box shadow and elevation tokens
+    - **[Icons](/?path=/docs/design-tokens-icons--docs)** - Icon size and styling tokens
+
+  </div>
+</div>

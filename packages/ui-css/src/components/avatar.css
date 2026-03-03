@@ -1,0 +1,144 @@
+/* ==============================================================================
+   PKTS-AVATAR - Composable Base Class
+   ==============================================================================
+
+   Base styles for avatar component. Variants are applied via composable classes:
+   - Size variants: .pkts-small, .pkts-medium, .pkts-large
+   - Color variants: .pkts-grape, .pkts-lime, .pkts-berry, .pkts-orange
+
+   Usage: <div class="pkts-avatar es-medium es-grape">
+*/
+
+.pkts-avatar {
+  --shadow: var(
+    --esnet-box-shadow-core-medium,
+    0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    0px 4px 5px -1px rgba(0, 0, 0, 0.1)
+  );
+  --border: var(--esnet-size-border-width-small, 2px) solid
+    var(--esnet-color-core-white-100, #fff);
+  --border-radius: var(--esnet-size-radius-xxlarge, 18px);
+  --border-hover-color: var(--esnet-color-core-blue-600, #0088b5);
+
+  --size: var(--esnet-size-spacing-xlarge, 40px);
+  --label-font: var(
+    --esnet-typography-header-5-sans-font,
+    600 20px/140% var(--esnet-font-family-header-sans)
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  aspect-ratio: 1/1;
+
+  border: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Label element */
+
+.pkts-avatar span,
+.pkts-avatar .label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  height: var(--size);
+  line-height: var(--size);
+
+  font: var(--label-font);
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--esnet-color-core-white-100, #fff);
+
+  /* Shift baseline down slightly for better visual centering */
+  transform: translateY(1px);
+}
+
+/* Image and SVG elements */
+
+.pkts-avatar img,
+.pkts-avatar svg,
+.pkts-avatar .image {
+  /* If we don't set the width and height to be a little over, a bit of the background color shows on the edges, likely a CSS rounding error */
+  max-width: 110%;
+  max-height: 110%;
+  /* Ensure alt text is white when image fails to load */
+  color: var(--esnet-color-core-white-100, #fff);
+}
+
+.pkts-avatar.broken-image img,
+.pkts-avatar.broken-image svg,
+.pkts-avatar.broken-image .image {
+  display: none;
+}
+
+/* Hoverable state */
+
+.pkts-avatar.hoverable {
+  transition:
+    border 200ms ease-in,
+    box-shadow 200ms ease-in;
+}
+
+.pkts-avatar.hoverable:hover {
+  cursor: pointer;
+  border-color: var(--border-hover-color);
+  box-shadow:
+    0px 2px 3px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Size Variants */
+
+.pkts-avatar.pkts-small {
+  --size: 24px;
+  --label-font: var(
+    --esnet-typography-label-1-sans-font,
+    400 12px/120% var(--esnet-font-family-body-sans)
+  );
+  --border-radius: 10px;
+}
+
+.pkts-avatar.pkts-medium {
+  --size: var(--esnet-size-spacing-xlarge, 40px);
+  --label-font: var(
+    --esnet-typography-header-5-sans-font,
+    600 20px/140% var(--esnet-font-family-header-sans)
+  );
+  /* There isn't a token for border radius of 14px (or even 12px/0.75rem) that matches the Figma specification */
+  --border-radius: 14px;
+}
+
+.pkts-avatar.pkts-large {
+  --size: 48px;
+  --label-font: var(
+    --esnet-typography-header-4-sans-font,
+    500 24px/140% var(--esnet-font-family-header-sans)
+  );
+  --border-radius: var(--esnet-size-radius-xxlarge, 18px);
+}
+
+/* Color Variants */
+
+.pkts-avatar.pkts-grape {
+  background-color: var(--esnet-color-core-purple-500, #a350ff);
+}
+
+.pkts-avatar.pkts-lime {
+  background-color: var(--esnet-color-core-green-500, #11ad2b);
+}
+
+.pkts-avatar.pkts-berry {
+  background-color: var(--esnet-color-core-berry-500, #ff2377);
+}
+
+.pkts-avatar.pkts-orange {
+  background-color: var(--esnet-color-core-orange-500, #ff8000);
+}
