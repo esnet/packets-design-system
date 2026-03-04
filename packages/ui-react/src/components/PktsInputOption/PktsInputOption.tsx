@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "./PktsnputOption.module.css";
+import styles from "./PktsInputOption.module.css";
 import { PktsInputOptionProps } from "./PktsInputOption.types";
 import { Check, Square } from "lucide-react";
 
