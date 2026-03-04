@@ -27,6 +27,7 @@ export { default as PktsInputDateRange } from "./PktsInputDateRange";
 export { default as PktsInputEmail } from "./PktsInputEmail";
 export { default as PktsLabel } from "./PktsLabel";
 export { default as PktsInputNumber } from "./PktsInputNumber";
+export { default as PktsInputOption } from "./PktsInputOption";
 export { default as PktsInputPassword } from "./PktsInputPassword";
 export { default as PktsInputRadioButton } from "./PktsInputRadioButton";
 export { default as PktsInputSwitch } from "./PktsInputSwitch";
