@@ -46,7 +46,6 @@ test.describe("PktsAccordion", () => {
       let testBox = (
         <ComponentTestBox
           component={<PktsAccordion {...props} />}
-          padded
           theme={theme}
           size="medium"
         />
