@@ -4,6 +4,7 @@ export {
   usePacketsDesignTokens,
 } from "./PacketsDesignTokenProvider";
 
+export { default as PktsAccordion } from "./PktsAccordion";
 export { default as PktsAlert } from "./PktsAlert";
 export { default as PktsAvatar } from "./PktsAvatar";
 export { default as PktsBreadcrumbs } from "./PktsBreadcrumbs";
