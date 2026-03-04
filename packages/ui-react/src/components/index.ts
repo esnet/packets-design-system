@@ -17,6 +17,7 @@ export { default as PktsCommaSeperatedList } from "./PktsCommaSeperatedList";
 export { default as PktsDataTable } from "./PktsDataTable";
 export { default as PktsDatum } from "./PktsDatum";
 export { default as PktsDivider } from "./PktsDivider";
+export { default as PktsDropdown } from "./PktsDropdown";
 export { default as PktsFormSection } from "./PktsFormSection";
 export { default as PktsIconButton } from "./PktsIconButton";
 export { default as PktsInputCheckbox } from "./PktsInputCheckbox";
