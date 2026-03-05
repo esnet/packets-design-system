@@ -30,6 +30,7 @@ export { default as PktsInputNumber } from "./PktsInputNumber";
 export { default as PktsInputOption } from "./PktsInputOption";
 export { default as PktsInputPassword } from "./PktsInputPassword";
 export { default as PktsInputRadioButton } from "./PktsInputRadioButton";
+export { default as PktsInputRow } from "./PktsInputRow";
 export { default as PktsInputSelect } from "./PktsInputSelect";
 export { default as PktsInputSwitch } from "./PktsInputSwitch";
 export { default as PktsInputSearch } from "./PktsInputSearch";

@@ -1,8 +1,5 @@
-import {
-  PktsDropdown,
-  PktsButton,
-  PktsButtonGroup,
-} from "@esnet/packets-ui-react";
+import { PktsButton, PktsButtonGroup } from "@esnet/packets-ui-react";
+import { PktsDropdown } from "@esnet/packets-ui-react/src/index.js";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof PktsDropdown> = {

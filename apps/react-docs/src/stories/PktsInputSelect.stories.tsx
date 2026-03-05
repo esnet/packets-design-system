@@ -1,4 +1,4 @@
-import { PktsButton } from "@esnet/packets-ui-react";
+import { PktsButton, PktsInputRow } from "@esnet/packets-ui-react";
 import {
   PktsInputSelect,
   PktsInputOption,
@@ -10,8 +10,6 @@ const meta: Meta<typeof PktsInputSelect> = {
   component: PktsInputSelect,
   subcomponents: { PktsInputOption },
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
   parameters: {
     design: {
       type: "figma",

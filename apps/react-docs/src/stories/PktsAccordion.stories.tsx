@@ -1,5 +1,5 @@
+import { PktsAccordion } from "@esnet/packets-ui-react/src/index.js";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PktsAccordion } from "@esnet/packets-ui-react";
 import { Eye, Trash } from "lucide-react";
 
 const meta: Meta<typeof PktsAccordion> = {
