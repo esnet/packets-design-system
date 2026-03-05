@@ -1,0 +1,110 @@
+import * as React from "react";
+import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
+import PktsInputOption from "../../PktsInputOption";
+import PktsInputTypeahead from "../PktsInputTypeahead";
+
+const options = [
+  "foo (test)",
+  "bar (test)",
+  "baz (test)",
+  "fizz",
+  "buzz",
+  "any other extremely long text that may demonstrate text overflow into ellipses",
+].map((value) => <PktsInputOption key={value}>{value}</PktsInputOption>);
+
+test.describe("PktsInputTypeahead", () => {
+  ["light", "dark"].forEach((theme) => {
+    test(`default-${theme}`, async ({ mount }) => {
+      const testBox = (
+        <ComponentTestBox
+          theme={theme as any}
+          size="small"
+          style={{ height: 242 }}
+          component={<PktsInputTypeahead>{options}</PktsInputTypeahead>}
+        />
+      );
+      const component = await mount(testBox);
+      const input = component.getByRole("textbox");
+      await input.fill("test");
+      await expect(input).toBeVisible();
+      await input.click();
+      await expect(
+        component.getByRole("listbox", {
+          name: "Typeahead Dropdown Options",
+        }),
+      ).toBeVisible();
+      await component.getByRole("option").nth(0).click();
+      await component.getByRole("option").nth(1).focus();
+      await component.getByRole("option").nth(2).hover();
+      await expect(component).toHaveScreenshot();
+    });
+  });
+
+  test(`no-result`, async ({ mount }) => {
+    const component = await mount(
+      <PktsInputTypeahead>{options}</PktsInputTypeahead>,
+    );
+    const input = component.getByRole("textbox");
+    await expect(input).toBeVisible();
+    await input.click();
+    await input.fill("impossible to succeed search value");
+    await expect(
+      component.getByRole("listbox", {
+        name: "Typeahead Dropdown Options",
+      }),
+    ).toHaveText('0 results for "impossible to succeed search value"');
+  });
+
+  test(`empty`, async ({ mount }) => {
+    const component = await mount(
+      <PktsInputTypeahead>{[]}</PktsInputTypeahead>,
+    );
+    const input = component.getByRole("textbox");
+    await expect(input).toBeVisible();
+    await input.click();
+    await expect(
+      component.getByRole("listbox", {
+        name: "Typeahead Dropdown Options",
+      }),
+    ).toHaveText(/No results*/);
+  });
+
+  test(`loading`, async ({ mount }) => {
+    const component = await mount(
+      <PktsInputTypeahead loading>{options}</PktsInputTypeahead>,
+    );
+    const input = component.getByRole("textbox");
+    await expect(input).toBeVisible();
+    await input.click();
+    await input.fill("loading value");
+    await expect(
+      component.getByRole("listbox", {
+        name: "Typeahead Dropdown Options",
+      }),
+    ).toHaveText(/Loading*/);
+  });
+
+  test(`add-and-remove`, async ({ mount }) => {
+    // click two options, ensure they are there
+    // then click the chip and the option and ensure they are gone
+    const component = await mount(
+      <PktsInputTypeahead>{options}</PktsInputTypeahead>,
+    );
+    await component.getByRole("textbox").click();
+    await component.getByRole("option", { name: "foo" }).click();
+    await component.getByRole("option", { name: "bar" }).click();
+    // expect they are there
+    await expect(component.getByRole("button", { name: "foo" })).toBeVisible();
+    await expect(component.getByRole("button", { name: "bar" })).toBeVisible();
+    await component.getByRole("button", { name: "foo" }).click();
+    await component.getByRole("option", { name: "bar" }).click();
+    // expect they are gone
+    await expect(
+      component.getByRole("button", { name: "foo" }),
+    ).not.toBeVisible();
+    await expect(
+      component.getByRole("button", { name: "bar" }),
+    ).not.toBeVisible();
+  });
+});

@@ -35,6 +35,7 @@ export { default as PktsInputSelect } from "./PktsInputSelect";
 export { default as PktsInputSwitch } from "./PktsInputSwitch";
 export { default as PktsInputSearch } from "./PktsInputSearch";
 export { default as PktsInputText } from "./PktsInputText";
+export { default as PktsInputTypeahead } from "./PktsInputTypeahead";
 export { default as PktsListTreeView } from "./PktsListTreeView";
 export { default as PktsModule } from "./PktsModule";
 export { default as PktsSkeletonSurface } from "./PktsSkeletonSurface";

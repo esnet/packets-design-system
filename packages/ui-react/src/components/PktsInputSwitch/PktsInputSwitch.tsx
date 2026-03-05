@@ -5,7 +5,9 @@ import { getIconByCheckedState } from "./PktsInputSwitchUtils";
 import clsx from "clsx";
 
 /**
- * ESInputSwitch Component
+ * Input switch component, essentially a restyled input checkbox.
+ *
+ * TODO: fix issue to allow passing in checked/value prop - useControllableState.
  *
  * @param {ESInputSwitchProps} props
  * @returns {React.FunctionComponent}
