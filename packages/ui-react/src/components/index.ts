@@ -45,3 +45,4 @@ export { default as PktsTableOfContents } from "./PktsTableOfContents";
 export { default as PktsTitleSection } from "./PktsTitleSection";
 export { default as PktsInputTextArea } from "./PktsInputTextArea";
 export { PktsTab, PktsTabs } from "./PktsTabs";
+export { default as PktsTooltip } from "./PktsTooltip";
