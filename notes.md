@@ -1,0 +1,1 @@
+cloudflare-devel is a branch designed to be compatible specifically with cloudflare workers. As a result, it needs two additional artifacts in the form of `wrangler.toml` and `worker.js`. This may be needed if static page deployment design is no longer sufficient for packets.
