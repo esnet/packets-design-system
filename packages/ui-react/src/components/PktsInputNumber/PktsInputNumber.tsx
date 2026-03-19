@@ -59,7 +59,6 @@ const PktsInputNumber: React.FC<PktsInputNumberProps> = ({
         boundNumber(numValue + amount, minValue, maxValue),
         precision,
       );
-      console.log(newValue);
       setValue(String(newValue));
     },
     [value, minValue, maxValue],
