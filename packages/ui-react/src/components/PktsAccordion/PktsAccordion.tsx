@@ -76,8 +76,6 @@ export function PktsAccordion({
       <div
         aria-labelledby={`accordion-header-${header}`}
         aria-hidden={!open}
-        // @ts-expect-error
-        inert={!open}
         ref={contentRef}
         style={{ maxHeight }}
         className={clsx(styles.content, !open && styles.closed)}
