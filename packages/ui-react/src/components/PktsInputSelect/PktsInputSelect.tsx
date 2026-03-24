@@ -119,7 +119,7 @@ export function PktsInputSelect({
         className={`${styles.inputBox}`}
         onClick={(e) => e.preventDefault()}
       >
-        {selectedValue ? (
+        {selectedValue !== undefined && selectedValue !== null ? (
           <span className={styles.optionLabel}>
             {valueToText[selectedValue] ?? placeholder}
           </span>
