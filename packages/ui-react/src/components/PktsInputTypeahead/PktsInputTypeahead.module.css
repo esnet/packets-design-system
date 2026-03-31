@@ -146,9 +146,9 @@
 
 .dropdownIcon {
   cursor: pointer;
-  padding-right: var(--esnet-size-spacing-xsmall, 0.5rem);
+  margin-right: var(--esnet-size-spacing-xsmall, 0.5rem);
   &.branded {
-    padding-right: var(--esnet-size-spacing-medium, 16px);
+    margin-right: var(--esnet-size-spacing-medium, 16px);
   }
   .disabled & {
     cursor: default;
