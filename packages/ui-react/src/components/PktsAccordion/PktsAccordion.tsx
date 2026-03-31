@@ -47,15 +47,13 @@ export function PktsAccordion({
         )}
       </div>
 
-      {open && (
-        <div
-          id={`accordion-content-${header}`}
-          aria-labelledby={`accordion-header-${header}`}
-          className={styles.content}
-        >
-          {children}
-        </div>
-      )}
+      <div
+        id={`accordion-content-${header}`}
+        aria-labelledby={`accordion-header-${header}`}
+        className={clsx(styles.content, !open && styles.hidden)}
+      >
+        {children}
+      </div>
 
       {footer && variant !== "inline" && (
         <div className={styles.footer}>
