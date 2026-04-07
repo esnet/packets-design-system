@@ -2,13 +2,16 @@ import React from "react";
 import clsx from "clsx";
 import { PktsButtonDefaultAsType, PktsButtonProps } from "./PktsButton.types";
 
+// TODO: ensure this still works
 /**
  * Button - An extension of a HTML button that comes with different levels of action/intent.
  *
  * @param {PktsButtonProps} props
  * @returns {React.FunctionComponent}
  */
-const PktsButton = <E extends React.ElementType = PktsButtonDefaultAsType>({
+const PktsButton = <
+  E extends React.ElementType = typeof PktsButtonDefaultAsType,
+>({
   variant = "secondary",
   children = "",
   fill = true,
@@ -45,3 +48,6 @@ const PktsButton = <E extends React.ElementType = PktsButtonDefaultAsType>({
 PktsButton.displayName = "PktsButton";
 
 export default PktsButton;
+
+// TODO: convert this to use discriminated union and React.FC
+// see previous commits

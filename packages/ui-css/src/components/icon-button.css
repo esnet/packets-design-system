@@ -48,17 +48,13 @@
     box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
 }
 
-  /* Pseudo-events */
+/* Pseudo-events */
 
-  .pkts-icon-button:hover {
-    cursor: pointer;
-    border-width: 3px; /* TODO: Find token solution */
-    box-shadow: var(--esnet-box-shadow-core-medium);
+.pkts-icon-button:hover {
+  cursor: pointer;
+  box-shadow: var(--esnet-box-shadow-core-light);
+}
 
-    padding: var(--esnet-size-border-width-medium, 4px)
-      calc(var(--esnet-size-spacing-medium, 16px) - 1px);
-  }
-
-  .pkts-icon-button:disabled {
-    cursor: not-allowed;
-  }
+.pkts-icon-button:disabled {
+  cursor: not-allowed;
+}

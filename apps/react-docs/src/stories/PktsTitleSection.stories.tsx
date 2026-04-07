@@ -19,34 +19,26 @@ export default meta;
 
 type Story = StoryObj<typeof PktsTitleSection>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.🔬
- */
-export const DefaultESTitleSectionExample: Story = {
-  render: (props) => <PktsTitleSection {...props} />,
-  name: "PktsTitleSection Example",
+export const Default: Story = {
+  name: "ESTitleSection Example",
   args: {
     title: "Lawrence Berkeley National Laboratory",
     subtitle: "Department of Energy Laboratory",
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
   },
 };
 
-export const DefaultESTitleSectionWithSlotsExample: Story = {
-  render: (props) => <PktsTitleSection {...props} />,
-  name: "PktsTitleSection with Slots",
+export const WithIcons: Story = {
   args: {
-    title: "ESnet",
-    titleSlot: (
+    title: (
       <>
-        <ZapIcon size={24} />
+        ESNet <ZapIcon size={24} />
       </>
     ),
-    subtitle: "Powering Science",
-    subTitleSlot: (
+    subtitle: (
       <>
-        <MicroscopeIcon size={16} />
+        Powering Science <MicroscopeIcon size={16} />
       </>
     ),
   },

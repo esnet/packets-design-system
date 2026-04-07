@@ -28,3 +28,14 @@
     position: sticky;
     top: var(--esnet-size-spacing-xxlarge, 72px);
   }
+
+/* TODO: ensure vertical line still exists */
+/*
+  .verticalLine {
+    width: var(--esnet-size-border-width-medium, 4px);
+    align-self: stretch;
+
+    border-radius: var(--esnet-size-radius-large);
+    background: var(--esnet-color-light-copy-alt, #6e6e70);
+  }
+*/

@@ -1,18 +1,18 @@
 import * as React from "react";
 
-type ComponentTestBoxProps = {
-  component: React.ReactNode;
-  theme?: "light" | "dark";
-  size?: "fit" | "full" | "small" | "medium" | "large";
-  padded?: boolean;
-};
-
 const sizeMap = {
   fit: "fit-content",
   full: "100%",
   small: "320px",
   medium: "640px",
   large: "1024px",
+};
+
+type ComponentTestBoxProps = {
+  component: React.ReactNode;
+  theme?: "light" | "dark";
+  size?: keyof typeof sizeMap;
+  style?: React.CSSProperties;
 };
 
 /**
@@ -22,11 +22,16 @@ export const ComponentTestBox: React.FC<ComponentTestBoxProps> = ({
   component,
   theme = "light",
   size = "fit",
-  padded = false,
+  style,
 }) => {
   return (
     <div
-      style={{ padding: padded ? "8px" : "0", width: sizeMap[size] }}
+      style={{
+        boxSizing: "border-box",
+        padding: "8px",
+        width: sizeMap[size],
+        ...style,
+      }}
       className={`packets ${theme}`}
     >
       {component}

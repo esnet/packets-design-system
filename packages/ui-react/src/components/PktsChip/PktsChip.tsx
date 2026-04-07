@@ -4,9 +4,10 @@ import { PktsChipProps } from "./PktsChip.types";
 import { X } from "lucide-react";
 
 /**
- * ESChip Component, built on top of an HTML button element with hover and focus stylings.
- * ESChip can have an optional onClick handler, but is not required to be interactive.
- * If an onDelete handler is provided, an X icon will be appended to the right of the label text, and the onDelete handler will be used as the click handler for the chip as a whole.
+ * Chip component, built on top of an HTML button element with hover and focus stylings.
+ * The chip can have an optional onClick handler, but is not required to be interactive.
+ * If an onDelete prop handler is provided, an X icon will be appended to the right of the label text, 
+ * and onClick will trigger the onDelete callback.
  *
  * @param {PktsChipProps} props
  * @returns {React.ReactElement}

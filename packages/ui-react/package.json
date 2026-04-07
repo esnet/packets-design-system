@@ -33,6 +33,7 @@
     "@playwright/test": "^1.57.0",
     "@repo/eslint-config": "workspace:^",
     "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",

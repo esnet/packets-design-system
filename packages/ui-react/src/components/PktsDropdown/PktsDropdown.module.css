@@ -1,0 +1,46 @@
+/* TODO: Move to ui-css */
+.PktsDropdown {
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+
+  .anchor {
+    position: relative;
+    z-index: 1;
+  }
+
+  .content {
+    position: absolute;
+    z-index: 10000;
+    overflow: auto;
+    height: fit-content;
+    padding: var(--esnet-size-spacing-xsmall, 4px);
+
+    background: var(--esnet-color-light-surface-1);
+
+    :global(.dark) & {
+      background: var(--esnet-color-dark-surface-1);
+    }
+
+    box-shadow: var(--esnet-box-shadow-core-medium);
+  }
+
+  .caret {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--esnet-color-light-surface-1);
+
+    :global(.dark) & {
+      background: var(--esnet-color-dark-surface-1);
+    }
+
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+
+  .hidden {
+    display: none;
+    pointer-events: none;
+    user-select: none;
+  }
+}

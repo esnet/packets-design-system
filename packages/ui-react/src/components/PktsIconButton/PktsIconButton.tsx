@@ -3,10 +3,12 @@ import clsx from "clsx";
 import { PktsIconButtonProps } from "./PktsIconButton.types";
 
 /**
- * ES Icon Button
+ * Packets Icon Button
  *
  * Generic Icon only button component.
- * Can be a link or a button set with the "As" prop
+ * Can be a link or a button set with the "As" prop.
+ *
+ * Child should be a lucide-icon, nothing else.
  *
  * @param {PktsIconButtonProps} props
  * @returns {React.FunctionComponent}
@@ -15,10 +17,9 @@ const PktsIconButton = ({
   variant = "secondary",
   className,
   children = "",
-  disabled = false,
   square = false,
-  ...other
-}: PktsIconButtonProps): JSX.Element => {
+  ...props
+}: PktsIconButtonProps) => {
   return (
     <button
       className={clsx(
@@ -28,8 +29,7 @@ const PktsIconButton = ({
         className,
       )}
       type="button"
-      disabled={disabled}
-      {...other}
+      {...props}
     >
       {children}
     </button>
@@ -39,3 +39,5 @@ const PktsIconButton = ({
 PktsIconButton.displayName = "PktsIconButton";
 
 export default PktsIconButton;
+
+// TODO: ensure As prop works... ensure whole thing works
