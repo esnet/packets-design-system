@@ -4,8 +4,6 @@
 
    Base styles for button component. Variants are applied via composable classes:
    - Color variants: .pkts-primary, .pkts-secondary, .pkts-tertiary, .pkts-destructive, .pkts-branded
-   - Size variants: .pkts-medium, .pkts-xxlarge
-   - Layout variants: .pkts-fill, .pkts-nofill
 
    Usage: <button class="pkts-button es-primary es-medium">
 */
@@ -61,16 +59,18 @@ a.pkts-button {
     box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
 }
 
-  /* Pseudo-events */
+/* Pseudo-events */
 
-  .pkts-button:hover, a.pkts-button:hover {
-    cursor: pointer;
-    box-shadow: var(--esnet-box-shadow-core-medium);
+.pkts-button:hover,
+a.pkts-button:hover {
+  cursor: pointer;
+  box-shadow: var(--esnet-box-shadow-core-medium);
 
-    padding: var(--esnet-size-border-width-medium, 4px)
-      var(--esnet-size-spacing-medium, 16px);
-  }
+  padding: var(--esnet-size-border-width-medium, 4px)
+    var(--esnet-size-spacing-medium, 16px);
+}
 
-  .pkts-button:disabled, a.pkts-button:disabled {
-    cursor: not-allowed;
-  }
+.pkts-button:disabled,
+a.pkts-button:disabled {
+  cursor: not-allowed;
+}

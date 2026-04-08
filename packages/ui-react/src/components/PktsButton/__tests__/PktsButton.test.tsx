@@ -10,7 +10,7 @@ test.describe("ESButton", () => {
     testTable,
     themes,
     actionStates,
-  }: ComponentTestTableType<PktsButtonProps<"button">> = {
+  }: ComponentTestTableType<PktsButtonProps> = {
     testTable: [
       {
         name: "primary",
@@ -48,30 +48,6 @@ test.describe("ESButton", () => {
         },
       },
       {
-        name: "primary-xxlarge",
-        props: {
-          children: "XXLarge",
-          variant: "primary",
-          size: "xxlarge",
-        },
-      },
-      {
-        name: "secondary-medium",
-        props: {
-          children: "Medium",
-          variant: "secondary",
-          size: "medium",
-        },
-      },
-      {
-        name: "primary-nofill",
-        props: {
-          children: "No Fill",
-          variant: "primary",
-          fill: false,
-        },
-      },
-      {
         name: "primary-disabled",
         props: {
           children: "Disabled",
@@ -95,7 +71,7 @@ test.describe("ESButton", () => {
       });
       actionStates.forEach((state) => {
         test(`${name}-${theme}-${state}`, async ({ mount }) => {
-          if (props.disabled) return; // skip if component is disabled
+          if ("disabled" in props && props.disabled) return; // skip if component is disabled
 
           const component = await mount(testBox);
           if (state === "hover") await component.hover();
