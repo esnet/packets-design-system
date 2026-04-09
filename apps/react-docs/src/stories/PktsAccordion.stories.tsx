@@ -1,4 +1,4 @@
-import { PktsAccordion } from "@esnet/packets-ui-react/src/index.js";
+import { PktsAccordion } from "@esnet/packets-ui-react/src/components/PktsAccordion/PktsAccordion.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Eye, Trash } from "lucide-react";
 
