@@ -1,4 +1,4 @@
-.PktsSkeletonChip {
+.pkts-skeleton-chip {
   --shimmerBGSize: 50rem;
 
   display: block;
@@ -11,8 +11,7 @@
   animation-iteration-count: infinite;
   animation-name: shimmer;
   animation-timing-function: linear;
-  border: var(--esnet-size-border-width-xsmall) solid
-    var(--esnet-color-core-white-500);
+  border: var(--esnet-size-border-width-xsmall) solid var(--esnet-color-core-white-500);
   background: var(--esnet-color-core-white-400);
   background: linear-gradient(
     to right,
@@ -20,20 +19,18 @@
     var(--esnet-color-core-white-100) 18%,
     var(--esnet-color-core-white-600) 33%
   );
-
   background-size: var(--shimmerBGSize) 100%;
+}
 
-  :global(.dark) & {
-    border: var(--esnet-size-border-width-xsmall) solid
-      var(--esnet-color-core-black-500);
-    background: var(--esnet-color-core-white-500);
-    background: linear-gradient(
-      to right,
-      var(--esnet-color-core-black-900) 8%,
-      var(--esnet-color-core-black-600) 18%,
-      var(--esnet-color-core-black-900) 33%
-    );
-  }
+.dark .pkts-skeleton-chip {
+  border: var(--esnet-size-border-width-xsmall) solid var(--esnet-color-core-black-500);
+  background: var(--esnet-color-core-white-500);
+  background: linear-gradient(
+    to right,
+    var(--esnet-color-core-black-900) 8%,
+    var(--esnet-color-core-black-600) 18%,
+    var(--esnet-color-core-black-900) 33%
+  );
 }
 
 @keyframes shimmer {
