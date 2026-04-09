@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./PktsInputRow.module.css";
 import clsx from "clsx";
 import { PktsInputRowProps } from "./PktsInputRow.types";
 import { CircleQuestionMark } from "lucide-react";
@@ -29,14 +28,14 @@ export function PktsInputRow({
     if (error) {
       const errorText = typeof error === "boolean" ? "Error" : error;
       return (
-        <span className={clsx(styles.caption, styles.error)}>{errorText}</span>
+        <span className="pkts-input-row-caption pkts-error">{errorText}</span>
       );
     }
 
     if (success) {
       const successText = typeof success === "boolean" ? "Success" : success;
       return (
-        <span className={clsx(styles.caption, styles.success)}>
+        <span className="pkts-input-row-caption pkts-success">
           {successText}
         </span>
       );
@@ -46,22 +45,23 @@ export function PktsInputRow({
   return (
     <label
       {...props}
-      className={clsx(styles.PktsInputRow, {
-        [styles.labelPlacementTop]: labelPlacement === "top",
-        [styles.labelPlacementLeft]: labelPlacement === "left",
-        [styles.labelPlacementRight]: labelPlacement === "right",
-        [styles.labelPlacementBottom]: labelPlacement === "bottom",
-      })}
+      className={clsx(
+        "pkts-input-row",
+        labelPlacement === "top" && "pkts-label-top",
+        labelPlacement === "left" && "pkts-label-left",
+        labelPlacement === "right" && "pkts-label-right",
+        labelPlacement === "bottom" && "pkts-label-bottom",
+      )}
     >
       <span
-        className={clsx(styles.label, disabled && styles.disabled)}
+        className={clsx("pkts-input-row-label", disabled && "pkts-disabled")}
         title={tooltip}
       >
         {label}
-        {required && <span className={styles.requiredAsterisk}>*</span>}
+        {required && <span className="pkts-input-row-required">*</span>}
         {tooltip && (
           // TODO: Replace with actual PktsTooltip when created
-          <CircleQuestionMark className={styles.tooltipIcon} />
+          <CircleQuestionMark className="pkts-input-row-tooltip-icon" />
         )}
       </span>
       {children}
