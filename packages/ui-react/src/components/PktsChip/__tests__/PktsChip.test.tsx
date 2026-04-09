@@ -4,7 +4,7 @@ import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableTyp
 import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import { PktsChipProps } from "../PktsChip.types";
 import PktsChip from "../PktsChip";
-test.describe("ESChip", () => {
+test.describe("PktsChip", () => {
   const {
     testTable,
     themes,

@@ -3,7 +3,7 @@
   display: inline-flex;
   height: var(--esnet-size-spacing-large, 32px);
   box-sizing: border-box;
-  padding: var(--esnet-size-spacing-xxsmall, 2px) 12px 1px;
+  padding: var(--esnet-size-spacing-xxsmall, 4px) 12px;
   justify-content: center;
   align-items: center;
   gap: var(--esnet-size-spacing-xsmall, 8px);
