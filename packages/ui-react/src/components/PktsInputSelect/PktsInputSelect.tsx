@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import clsx from "clsx";
-import styles from "./PktsInputSelect.module.css";
 import { PktsInputSelectProps } from "./PktsInputSelect.types";
 import useControllableState from "../../lib/hooks/useControllableState";
 import usePopupState from "../../lib/hooks/usePopupState";
@@ -102,10 +101,10 @@ export function PktsInputSelect({
   return (
     <div
       className={clsx(
-        styles.PktsInputSelect,
-        variant && styles[variant],
-        error && styles.error,
-        disabled && styles.disabled,
+        "pkts-input-select",
+        variant && `pkts-${variant}`,
+        error && "pkts-error",
+        disabled && "pkts-disabled",
         className,
       )}
       aria-disabled={disabled}
@@ -116,22 +115,22 @@ export function PktsInputSelect({
         aria-expanded={dropdownOpen}
         role="combobox"
         tabIndex={0}
-        className={`${styles.inputBox}`}
+        className="pkts-input-select-input-box"
         onClick={(e) => e.preventDefault()}
       >
         {selectedValue !== undefined && selectedValue !== null ? (
-          <span className={styles.optionLabel}>
+          <span className="pkts-input-select-option-label">
             {valueToText[selectedValue] ?? placeholder}
           </span>
         ) : (
-          <span className={clsx(styles.optionLabel, "footer")}>
+          <span className="pkts-input-select-option-label footer">
             {placeholder}
           </span>
         )}
         {dropdownOpen ? (
-          <ChevronUp className={clsx(styles.dropdownIcon, styles[variant])} />
+          <ChevronUp className="pkts-input-select-dropdown-icon" />
         ) : (
-          <ChevronDown className={clsx(styles.dropdownIcon, styles[variant])} />
+          <ChevronDown className="pkts-input-select-dropdown-icon" />
         )}
       </div>
       {/* Hidden input for storing the value, making it accessible to FormData. */}
@@ -148,10 +147,10 @@ export function PktsInputSelect({
           ref={optionsRef}
           role="listbox"
           aria-label="Input Select Options"
-          className={`${styles.dropdown}`}
+          className="pkts-input-select-dropdown"
         >
           {options.length === 0 && (
-            <span className={styles.noOptionsLabel}>No options provided.</span>
+            <span className="pkts-input-select-no-options">No options provided.</span>
           )}
           {options}
         </div>
