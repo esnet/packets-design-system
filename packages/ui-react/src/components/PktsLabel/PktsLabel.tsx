@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./PktsLabel.module.css";
 import clsx from "clsx";
 import { PktsLabelProps } from "./PktsLabel.types";
 
@@ -26,13 +25,13 @@ const PktsLabel: React.FC<PktsLabelProps> = ({
   }, [error]);
 
   return (
-    <label {...props} aria-disabled={disabled} className={styles.PktsLabel}>
-      <span className={clsx(styles.text, disabled && styles.disabled)}>
+    <label {...props} aria-disabled={disabled} className="pkts-label">
+      <span className={clsx("pkts-label-text", disabled && "pkts-disabled")}>
         {label}
-        {required && <span className={styles.requiredAsterisk}>*</span>}
+        {required && <span className="pkts-label-required">*</span>}
       </span>
       {children}
-      {error && errorText && <span className={styles.error}>{errorText}</span>}
+      {error && errorText && <span className="pkts-label-error">{errorText}</span>}
     </label>
   );
 };
