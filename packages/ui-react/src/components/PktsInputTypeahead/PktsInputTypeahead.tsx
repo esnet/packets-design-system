@@ -1,6 +1,5 @@
 import React, { KeyboardEventHandler, useMemo } from "react";
 
-import styles from "./PktsInputTypeahead.module.css";
 import { boldTokenInString } from "./utils";
 import clsx from "clsx";
 import useControllableState from "../../lib/hooks/useControllableState";
@@ -119,7 +118,7 @@ export function PktsInputTypeahead({
       </PktsChip>
     ));
     return (
-      <PktsChipGroup className={styles.selectedOptionsWrapper}>
+      <PktsChipGroup className="pkts-input-typeahead-selected-wrapper">
         {chips}
       </PktsChipGroup>
     );
@@ -201,10 +200,10 @@ export function PktsInputTypeahead({
   return (
     <div
       className={clsx(
-        styles.PktsInputTypeahead,
-        variant && styles[variant],
-        error && styles.error,
-        disabled && styles.disabled,
+        "pkts-input-typeahead",
+        variant && `pkts-${variant}`,
+        error && "pkts-error",
+        disabled && "pkts-disabled",
         className,
       )}
       aria-disabled={disabled}
@@ -214,9 +213,9 @@ export function PktsInputTypeahead({
         aria-haspopup="listbox"
         aria-expanded={dropdownOpen}
         role="combobox"
-        className={`${styles.inputBox}`}
+        className="pkts-input-typeahead-input-box"
       >
-        <div className={clsx(styles.optionsAndInputWrapper)}>
+        <div className="pkts-input-typeahead-options-wrapper">
           {/* Input for the typeahead search */}
           <input
             disabled={disabled}
@@ -236,9 +235,9 @@ export function PktsInputTypeahead({
             value={search}
             onKeyDown={onSearchKeyDown}
             className={clsx(
-              styles.searchInput,
-              styles[variant],
-              selectedValues.length === 0 && styles.noOptionsSelected,
+              "pkts-input-typeahead-search",
+              variant && `pkts-${variant}`,
+              selectedValues.length === 0 && "pkts-no-options",
             )}
             autoComplete="off"
           />
@@ -258,9 +257,9 @@ export function PktsInputTypeahead({
         </div>
 
         {dropdownOpen ? (
-          <ChevronUp className={clsx(styles.dropdownIcon, styles[variant])} />
+          <ChevronUp className={clsx("pkts-input-typeahead-dropdown-icon", variant && `pkts-${variant}`)} />
         ) : (
-          <ChevronDown className={clsx(styles.dropdownIcon, styles[variant])} />
+          <ChevronDown className={clsx("pkts-input-typeahead-dropdown-icon", variant && `pkts-${variant}`)} />
         )}
       </div>
 
@@ -269,11 +268,11 @@ export function PktsInputTypeahead({
           ref={optionsRef}
           role="listbox"
           aria-label="Typeahead Dropdown Options"
-          className={`${styles.dropdown}`}
+          className="pkts-input-typeahead-dropdown"
         >
-          <span className={styles.resultInfo}>{resultsInfo}</span>
+          <span className="pkts-input-typeahead-result-info">{resultsInfo}</span>
           {loading ? null : (
-            <div className={styles.dropdownOptionsWrapper}>
+            <div className="pkts-input-typeahead-dropdown-options">
               {searchedDropdownOptions}
             </div>
           )}
