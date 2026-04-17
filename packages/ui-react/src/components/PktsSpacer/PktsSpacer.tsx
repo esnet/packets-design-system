@@ -2,8 +2,6 @@ import React, { FC, useMemo } from "react";
 import clsx from "clsx";
 import { PktsSpacerProps, getESSpacerSizesCSS } from "./PktsSpacer.types";
 
-import styles from "./PktsSpacer.module.css";
-
 /**
  * ESSpacer Component
  *
@@ -24,7 +22,7 @@ const PktsSpacer: FC<PktsSpacerProps> = ({
 
   return (
     <div
-      className={clsx(styles.PktsSpacer, styles[type], className)}
+      className={clsx("pkts-spacer", `pkts-${type}`, className)}
       style={
         {
           "--size": sizeCSS,

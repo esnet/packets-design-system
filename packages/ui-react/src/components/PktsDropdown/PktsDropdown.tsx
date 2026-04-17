@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import styles from "./PktsDropdown.module.css";
 import { PktsDropdownProps } from "./PktsDropdown.types";
 import usePopupState from "../../lib/hooks/usePopupState";
 
@@ -95,7 +94,7 @@ export function PktsDropdown({
   }, [open, caret]);
 
   return (
-    <div {...props} className={clsx(styles.PktsDropdown, className)}>
+    <div {...props} className={clsx("pkts-dropdown", className)}>
       <div
         ref={anchorRef}
         className="contents"
@@ -106,7 +105,7 @@ export function PktsDropdown({
       </div>
       {caret && (
         <div
-          className={clsx(styles.caret, !open && styles.hidden)}
+          className={clsx("pkts-dropdown-caret", !open && "pkts-hidden")}
           style={{
             left: caretPosition.left,
             top: caretPosition.top,
@@ -115,7 +114,7 @@ export function PktsDropdown({
       )}
       <div
         style={{ ...position }}
-        className={clsx(styles.content, !open && styles.hidden)}
+        className={clsx("pkts-dropdown-content", !open && "pkts-hidden")}
         ref={dropdownRef}
         aria-hidden={!open}
       >

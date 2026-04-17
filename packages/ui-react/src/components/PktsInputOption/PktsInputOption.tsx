@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "./PktsInputOption.module.css";
 import { PktsInputOptionProps } from "./PktsInputOption.types";
 import { Check, Square } from "lucide-react";
 
@@ -29,9 +28,9 @@ export function PktsInputOption({
   return (
     <button
       className={clsx(
-        styles.PktsInputOption,
-        disabled && styles.disabled,
-        selected && styles.selected,
+        "pkts-input-option",
+        disabled && "pkts-disabled",
+        selected && "pkts-selected",
         className,
       )}
       type="button"
@@ -44,7 +43,7 @@ export function PktsInputOption({
       }}
     >
       {selected ? <Check /> : <Square />}
-      <span className={styles.label}>{children}</span>
+      <span className="pkts-input-option-label">{children}</span>
     </button>
   );
 }

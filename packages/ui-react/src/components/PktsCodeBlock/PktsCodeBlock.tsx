@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import styles from "./PktsCodeBlock.module.css";
 import { Check, Copy } from "lucide-react";
 import type { PktsCodeBlockProps } from "./PktsCodeBlock.types";
 
@@ -31,14 +30,14 @@ export function PktsCodeBlock({
       };
 
   return (
-    <pre className={clsx(styles.PktsCodeBlock, className)} {...props}>
-      <div className={styles.top}>
-        <span className={styles.chip}>{language}</span>
-        <button className={styles.copyIconButton} onClick={() => _onCopy()}>
+    <pre className={clsx("pkts-code-block", className)} {...props}>
+      <div className="pkts-code-block-top">
+        <span className="pkts-code-block-lang-chip">{language}</span>
+        <button onClick={() => _onCopy()}>
           {copied ? <Check /> : <Copy />}
         </button>
       </div>
-      <code className={styles.code}>{children}</code>
+      <code>{children}</code>
     </pre>
   );
 }
