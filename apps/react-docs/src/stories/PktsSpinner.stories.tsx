@@ -31,7 +31,7 @@ export const BrandedESSpinnerRive: Story = {
         height: size,
       }}
     >
-      <Rive src="/riv/esnetspinner.riv" />
+      <Rive src="/riv/pkts-spinner.riv" />
     </div>
   ),
   name: "PktsSpinner Branded RIVE",
@@ -48,7 +48,7 @@ export const BrandedESSpinnerRiveEasing: Story = {
         height: size,
       }}
     >
-      <Rive src="/riv/esnetspinner_easing.riv" />
+      <Rive src="/riv/pkts-spinner-easing.riv" />
     </div>
   ),
   name: "PktsSpinner Branded RIVE with Easing",
