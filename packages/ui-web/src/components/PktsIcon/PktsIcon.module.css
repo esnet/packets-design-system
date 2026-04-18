@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     
-    color: var(--esnet-color-light-surface-2) currentColor;
+    color: var(--pkts-color-light-surface-2) currentColor;
 
     :global(.dark) & {
-        color: var(--esnet-color-dark-surface-2) currentColor;
+        color: var(--pkts-color-dark-surface-2) currentColor;
     }
 }
