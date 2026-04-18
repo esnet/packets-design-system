@@ -1,21 +1,21 @@
 .titleLayout {
-  margin-bottom: var(--esnet-size-spacing-large);
+  margin-bottom: var(--pkts-size-spacing-large);
 }
 
   .titleLayout .title {
     display: flex;
     align-items: center;
-    gap: var(--esnet-size-spacing-xsmall, 9px);
+    gap: var(--pkts-size-spacing-xsmall, 9px);
 
-    font: var(--esnet-typography-header-1-display-font);
+    font: var(--pkts-typography-header-1-display-font);
   }
 
   .titleLayout .subtitle {
     display: flex;
     align-items: center;
-    gap: var(--esnet-size-spacing-xsmall, 9px);
+    gap: var(--pkts-size-spacing-xsmall, 9px);
 
-    font: var(--esnet-typography-header-4-sans-font);
+    font: var(--pkts-typography-header-4-sans-font);
     padding: 0;
   }
 

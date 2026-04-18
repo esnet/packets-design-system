@@ -1,5 +1,5 @@
 .pkts-spacer {
-  --size: var(--esnet-size-spacing-none);
+  --size: var(--pkts-size-spacing-none);
 
   border: none;
 }

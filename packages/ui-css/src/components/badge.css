@@ -5,15 +5,15 @@
   min-width: 12px;
   height: 20px;
   padding: 2px 6px;
-  border-radius: var(--esnet-size-radius-circle, 100px);
+  border-radius: var(--pkts-size-radius-circle, 100px);
   font: var(
-    --esnet-typography-label-2-sans-font,
-    700 12px/120% var(--esnet-font-family-body-sans)
+    --pkts-typography-label-2-sans-font,
+    700 12px/120% var(--pkts-font-family-body-sans)
   );
-  background-color: var(--esnet-color-light-primary, #0088b5);
-  color: var(--esnet-color-core-white-100, #ffffff);
+  background-color: var(--pkts-color-light-primary, #0088b5);
+  color: var(--pkts-color-core-white-100, #ffffff);
 }
 
 .dark .pkts-badge {
-  background-color: var(--esnet-color-dark-primary, #004573);
+  background-color: var(--pkts-color-dark-primary, #004573);
 }

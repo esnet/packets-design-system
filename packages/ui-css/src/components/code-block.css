@@ -2,24 +2,24 @@
   /* Layout */
   display: flex;
   position: relative;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
   flex-direction: column;
-  gap: var(--esnet-size-spacing-xsmall, 8px);
+  gap: var(--pkts-size-spacing-xsmall, 8px);
 
   /* Styling */
-  border-radius: var(--esnet-size-radius-large);
+  border-radius: var(--pkts-size-radius-large);
   background: var(--color-core-white-500, #d9d9d9);
-  color: var(--esnet-color-light-copy, #3d3d3d);
+  color: var(--pkts-color-light-copy, #3d3d3d);
 
   /* Typography */
-  font: var(--esnet-typography-copy-1-mono-font, 400 16px/120% var(--esnet-font-family-body-mono));
+  font: var(--pkts-typography-copy-1-mono-font, 400 16px/120% var(--pkts-font-family-body-mono));
   white-space: pre;
   overflow: auto;
 }
 
 .dark .pkts-code-block {
-  background: var(--esnet-color-core-black-800, #252526);
-  color: var(--esnet-color-dark-copy, #fff);
+  background: var(--pkts-color-core-black-800, #252526);
+  color: var(--pkts-color-dark-copy, #fff);
 }
 
 .pkts-code-block .pkts-code-block-top {
@@ -33,16 +33,16 @@
 
 .pkts-code-block .pkts-code-block-lang-chip {
   height: 16px;
-  padding: 0 var(--esnet-size-spacing-xxsmall, 4px);
-  border-radius: var(--esnet-size-radius-large, 0.375rem);
-  background-color: var(--esnet-color-light-surface-1, #e3e3e3);
-  color: var(--esnet-color-light-copy-alt, #6e6e70);
-  font: var(--esnet-typography-label-1-mono-font, 400 12px/120% var(--esnet-font-family-body-mono));
+  padding: 0 var(--pkts-size-spacing-xxsmall, 4px);
+  border-radius: var(--pkts-size-radius-large, 0.375rem);
+  background-color: var(--pkts-color-light-surface-1, #e3e3e3);
+  color: var(--pkts-color-light-copy-alt, #6e6e70);
+  font: var(--pkts-typography-label-1-mono-font, 400 12px/120% var(--pkts-font-family-body-mono));
 }
 
 .dark .pkts-code-block .pkts-code-block-lang-chip {
-  background-color: var(--esnet-color-dark-surface-1, #19191a);
-  color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+  background-color: var(--pkts-color-dark-surface-1, #19191a);
+  color: var(--pkts-color-dark-copy-alt, #c2c2c2);
 }
 
 .pkts-code-block button {
@@ -53,11 +53,11 @@
   font: inherit;
   width: 16px;
   height: 16px;
-  color: var(--esnet-color-light-copy-alt, #6e6e70);
+  color: var(--pkts-color-light-copy-alt, #6e6e70);
 }
 
 .dark .pkts-code-block button {
-  color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+  color: var(--pkts-color-dark-copy-alt, #c2c2c2);
 }
 
 .pkts-code-block button svg {
@@ -70,11 +70,11 @@
 }
 
 .pkts-code-block button:focus {
-  border-bottom: 1px solid var(--esnet-color-light-copy-alt, #6e6e70);
+  border-bottom: 1px solid var(--pkts-color-light-copy-alt, #6e6e70);
 }
 
 .dark .pkts-code-block button:focus {
-  border-bottom: 1px solid var(--esnet-color-dark-copy-alt, #c2c2c2);
+  border-bottom: 1px solid var(--pkts-color-dark-copy-alt, #c2c2c2);
 }
 
 .pkts-code-block code {

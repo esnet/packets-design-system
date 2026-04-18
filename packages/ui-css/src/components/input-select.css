@@ -9,51 +9,51 @@
   anchor-name: --input-select;
 
   /* Styling */
-  background-color: var(--esnet-color-core-white-100, #ffffff);
-  color: var(--esnet-color-light-copy, #3d3d3d);
+  background-color: var(--pkts-color-core-white-100, #ffffff);
+  color: var(--pkts-color-light-copy, #3d3d3d);
   border-style: solid;
-  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
-  border-color: var(--esnet-color-core-slate-900, #3f424d);
+  border-width: var(--pkts-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--pkts-color-core-slate-900, #3f424d);
 
   /* Typography */
-  font: var(--esnet-typography-copy-1-sans-font, 400 16px/120% var(--esnet-font-family-body-sans));
+  font: var(--pkts-typography-copy-1-sans-font, 400 16px/120% var(--pkts-font-family-body-sans));
 
   transition:
-    border-color var(--esnet-time-duration-quick, 250ms) ease,
-    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+    border-color var(--pkts-time-duration-quick, 250ms) ease,
+    box-shadow var(--pkts-time-duration-quick, 250ms) ease;
 }
 
 .dark .pkts-input-select {
-  background-color: var(--esnet-color-dark-surface-1, #19191a);
-  color: var(--esnet-color-dark-copy, #ffffff);
-  border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+  background-color: var(--pkts-color-dark-surface-1, #19191a);
+  color: var(--pkts-color-dark-copy, #ffffff);
+  border-color: var(--pkts-color-core-slate-100, #c3c7d9);
 }
 
 .pkts-input-select.pkts-error {
-  border-color: var(--esnet-color-core-red-700, #a6111b);
-  border-width: var(--esnet-size-border-width-small, 0.125rem);
-  box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb, var(--esnet-color-light-error, #a6111b) 26%, transparent);
+  border-color: var(--pkts-color-core-red-700, #a6111b);
+  border-width: var(--pkts-size-border-width-small, 0.125rem);
+  box-shadow: 0 0 0 var(--pkts-size-border-width-small) color-mix(in srgb, var(--pkts-color-light-error, #a6111b) 26%, transparent);
 }
 
 .pkts-input-select:hover:not(.pkts-disabled),
 .pkts-input-select:focus-within:not(.pkts-disabled),
 .pkts-input-select:has(*:active):not(.pkts-disabled) {
-  border-color: var(--esnet-color-core-slate-1000, #30333b);
-  box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-blue-400, #00b6f2);
+  border-color: var(--pkts-color-core-slate-1000, #30333b);
+  box-shadow: 0 0 0 var(--pkts-size-border-width-small, 0.125rem) var(--pkts-color-core-blue-400, #00b6f2);
 }
 
 .pkts-input-select.pkts-disabled {
-  border-color: var(--esnet-color-core-slate-300, #9699a8);
-  color: var(--esnet-color-core-slate-300, #9699a8);
+  border-color: var(--pkts-color-core-slate-300, #9699a8);
+  color: var(--pkts-color-core-slate-300, #9699a8);
 }
 
 .dark .pkts-input-select.pkts-disabled {
-  border-color: var(--esnet-color-core-slate-500, #787b87);
-  color: var(--esnet-color-core-slate-500, #787b87);
+  border-color: var(--pkts-color-core-slate-500, #787b87);
+  color: var(--pkts-color-core-slate-500, #787b87);
 }
 
 .pkts-input-select.pkts-branded {
-  border-radius: var(--esnet-size-radius-xxlarge, 1.125rem);
+  border-radius: var(--pkts-size-radius-xxlarge, 1.125rem);
 }
 
 /* Input box */
@@ -68,11 +68,11 @@
   overflow: hidden;
   border: none;
   align-items: center;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
 }
 
 .pkts-input-select.pkts-branded .pkts-input-select-input-box {
-  padding: var(--esnet-size-spacing-xsmall, 8px) var(--esnet-size-spacing-medium, 16px);
+  padding: var(--pkts-size-spacing-xsmall, 8px) var(--pkts-size-spacing-medium, 16px);
 }
 
 /* Dropdown icon */
@@ -105,32 +105,32 @@
 
   display: flex;
   flex-direction: column;
-  padding-top: var(--esnet-size-spacing-xsmall, 8px);
+  padding-top: var(--pkts-size-spacing-xsmall, 8px);
   height: fit-content;
   max-height: 242px;
   overflow-y: auto;
-  padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
+  padding-bottom: var(--pkts-size-spacing-xsmall, 8px);
 
-  background: var(--esnet-color-light-surface-2);
-  box-shadow: var(--esnet-box-shadow-core-medium);
+  background: var(--pkts-color-light-surface-2);
+  box-shadow: var(--pkts-box-shadow-core-medium);
 }
 
 .dark .pkts-input-select .pkts-input-select-dropdown {
-  background: var(--esnet-color-dark-surface-2);
+  background: var(--pkts-color-dark-surface-2);
 }
 
 /* Dropdown option */
 
 .pkts-input-select .pkts-input-select-dropdown-option {
   display: flex;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
-  padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
+  padding-right: var(--pkts-size-spacing-xxsmall, 4px);
   width: 100%;
   min-height: fit-content;
 
   outline: none;
   align-items: center;
-  gap: var(--esnet-size-spacing-xsmall, 8px);
+  gap: var(--pkts-size-spacing-xsmall, 8px);
   overflow-y: hidden;
 
   background-color: transparent;
@@ -143,12 +143,12 @@
 .pkts-input-select .pkts-input-select-dropdown-option:hover,
 .pkts-input-select .pkts-input-select-dropdown-option:focus {
   cursor: pointer;
-  background-color: var(--esnet-color-light-surface-1, #cccccc);
+  background-color: var(--pkts-color-light-surface-1, #cccccc);
 }
 
 .dark .pkts-input-select .pkts-input-select-dropdown-option:hover,
 .dark .pkts-input-select .pkts-input-select-dropdown-option:focus {
-  background-color: var(--esnet-color-dark-surface-1, #252526);
+  background-color: var(--pkts-color-dark-surface-1, #252526);
 }
 
 .pkts-input-select .pkts-input-select-dropdown-option > svg {
@@ -158,17 +158,17 @@
 }
 
 .pkts-input-select .pkts-input-select-dropdown-option .pkts-checked {
-  color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--pkts-color-light-primary, #0088b5);
 }
 
 .dark .pkts-input-select .pkts-input-select-dropdown-option .pkts-checked {
-  color: var(--esnet-color-dark-secondary, #004573);
+  color: var(--pkts-color-dark-secondary, #004573);
 }
 
 /* No options label */
 
 .pkts-input-select .pkts-input-select-no-options {
-  padding: 0 var(--esnet-size-spacing-xsmall, 8px);
+  padding: 0 var(--pkts-size-spacing-xsmall, 8px);
   font-size: 0.8rem;
   overflow-x: hidden;
   text-overflow: ellipsis;

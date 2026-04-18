@@ -1,13 +1,13 @@
 .pkts-input-option {
   display: flex;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
-  padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
+  padding-right: var(--pkts-size-spacing-xxsmall, 4px);
   width: 100%;
   min-height: fit-content;
 
   outline: none;
   align-items: center;
-  gap: var(--esnet-size-spacing-xsmall, 8px);
+  gap: var(--pkts-size-spacing-xsmall, 8px);
   overflow-y: hidden;
 
   background-color: transparent;
@@ -20,12 +20,12 @@
 .pkts-input-option:hover,
 .pkts-input-option:focus {
   cursor: pointer;
-  background-color: var(--esnet-color-light-surface-1, #cccccc);
+  background-color: var(--pkts-color-light-surface-1, #cccccc);
 }
 
 .dark .pkts-input-option:hover,
 .dark .pkts-input-option:focus {
-  background-color: var(--esnet-color-dark-surface-1, #252526);
+  background-color: var(--pkts-color-dark-surface-1, #252526);
 }
 
 .pkts-input-option .pkts-input-option-label {
@@ -44,11 +44,11 @@
 }
 
 .pkts-input-option.pkts-selected {
-  background-color: var(--esnet-color-light-surface-1, #cccccc);
+  background-color: var(--pkts-color-light-surface-1, #cccccc);
 }
 
 .dark .pkts-input-option.pkts-selected {
-  background-color: var(--esnet-color-dark-surface-1, #252526);
+  background-color: var(--pkts-color-dark-surface-1, #252526);
 }
 
 .pkts-input-option > svg {
@@ -58,9 +58,9 @@
 }
 
 .pkts-input-option.pkts-selected > svg {
-  color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--pkts-color-light-primary, #0088b5);
 }
 
 .dark .pkts-input-option.pkts-selected > svg {
-  color: var(--esnet-color-dark-secondary, #004573);
+  color: var(--pkts-color-dark-secondary, #004573);
 }

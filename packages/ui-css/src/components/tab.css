@@ -13,14 +13,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: var(--esnet-size-spacing-xxsmall, 4px);
+  gap: var(--pkts-size-spacing-xxsmall, 4px);
 
-  min-width: var(--esnet-size-spacing-xxlarge, 64px);
+  min-width: var(--pkts-size-spacing-xxlarge, 64px);
   width: fit-content;
-  min-height: var(--esnet-size-spacing-large, 32px);
+  min-height: var(--pkts-size-spacing-large, 32px);
 
-  border-radius: var(--esnet-size-spacing-xsmall);
-  transition: background ease-in var(--esnet-time-duration-short, 100ms);
+  border-radius: var(--pkts-size-spacing-xsmall);
+  transition: background ease-in var(--pkts-time-duration-short, 100ms);
 }
 
 li.pkts-tab {
@@ -28,11 +28,11 @@ li.pkts-tab {
 }
 
 .pkts-tab.pkts-active {
-  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+  background-color: var(--pkts-color-light-surface-2, #f2f2f2);
 }
 
 .dark .pkts-tab.pkts-active {
-  background-color: var(--esnet-color-dark-primary, #004573);
+  background-color: var(--pkts-color-dark-primary, #004573);
 }
 
 .pkts-tab:hover {
@@ -44,14 +44,14 @@ li.pkts-tab {
 }
 
 .pkts-tab a {
-  padding: var(--esnet-size-spacing-xsmall, 8px)
-    var(--esnet-size-spacing-medium, 16px);
+  padding: var(--pkts-size-spacing-xsmall, 8px)
+    var(--pkts-size-spacing-medium, 16px);
 
-  color: var(--esnet-color-light-copy, #1a1a1a);
+  color: var(--pkts-color-light-copy, #1a1a1a);
   text-decoration: none;
   white-space: nowrap;
 }
 
 .dark .pkts-tab a {
-  color: var(--esnet-color-dark-copy, #e6e6e6);
+  color: var(--pkts-color-dark-copy, #e6e6e6);
 }

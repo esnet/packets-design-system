@@ -3,33 +3,33 @@
 
   display: block;
   width: 100%;
-  height: var(--esnet-size-touchtarget-min);
-  border-radius: var(--esnet-size-spacing-xxxlarge);
+  height: var(--pkts-size-touchtarget-min);
+  border-radius: var(--pkts-size-spacing-xxxlarge);
 
   animation-duration: 3200ms;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-name: shimmer;
   animation-timing-function: linear;
-  border: var(--esnet-size-border-width-xsmall) solid var(--esnet-color-core-white-500);
-  background: var(--esnet-color-core-white-400);
+  border: var(--pkts-size-border-width-xsmall) solid var(--pkts-color-core-white-500);
+  background: var(--pkts-color-core-white-400);
   background: linear-gradient(
     to right,
-    var(--esnet-color-core-white-600) 8%,
-    var(--esnet-color-core-white-100) 18%,
-    var(--esnet-color-core-white-600) 33%
+    var(--pkts-color-core-white-600) 8%,
+    var(--pkts-color-core-white-100) 18%,
+    var(--pkts-color-core-white-600) 33%
   );
   background-size: var(--shimmerBGSize) 100%;
 }
 
 .dark .pkts-skeleton-chip {
-  border: var(--esnet-size-border-width-xsmall) solid var(--esnet-color-core-black-500);
-  background: var(--esnet-color-core-white-500);
+  border: var(--pkts-size-border-width-xsmall) solid var(--pkts-color-core-black-500);
+  background: var(--pkts-color-core-white-500);
   background: linear-gradient(
     to right,
-    var(--esnet-color-core-black-900) 8%,
-    var(--esnet-color-core-black-600) 18%,
-    var(--esnet-color-core-black-900) 33%
+    var(--pkts-color-core-black-900) 8%,
+    var(--pkts-color-core-black-600) 18%,
+    var(--pkts-color-core-black-900) 33%
   );
 }
 
