@@ -63,7 +63,7 @@ importers:
 
   apps/host-docs:
     dependencies:
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:*
         version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
@@ -169,15 +169,15 @@ importers:
 
   apps/react-docs:
     dependencies:
-      '@esnet/esnet-tokens':
-        specifier: workspace:*
-        version: link:../../packages/design-tokens
       '@esnet/packets-ui-css':
         specifier: workspace:*
         version: link:../../packages/ui-css
       '@esnet/packets-ui-react':
         specifier: workspace:*
         version: link:../../packages/ui-react
+      '@esnet/pkts-tokens':
+        specifier: workspace:*
+        version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
         specifier: ^4.20.1
         version: 4.27.0(react@18.3.1)
@@ -272,12 +272,12 @@ importers:
 
   apps/web-docs:
     dependencies:
-      '@esnet/esnet-tokens':
-        specifier: workspace:*
-        version: link:../../packages/design-tokens
       '@esnet/packets-ui-web':
         specifier: workspace:*
         version: link:../../packages/ui-web
+      '@esnet/pkts-tokens':
+        specifier: workspace:*
+        version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
         specifier: ^4.20.1
         version: 4.27.0(react@18.3.1)
@@ -501,7 +501,7 @@ importers:
 
   packages/ui-css:
     dependencies:
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
     devDependencies:
@@ -560,7 +560,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.26.0
         version: 7.28.5(@babel/core@7.29.0)
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
       '@playwright/experimental-ct-react':
@@ -669,7 +669,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.26.0
         version: 7.28.5(@babel/core@7.29.0)
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
       '@playwright/test':
@@ -6623,7 +6623,7 @@ packages:
         optional: true
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@5.4.21)
-      '@rollup/pluginutils': 5.3.0(rollup@4.59.0)
+      '@rollup/pluginutils': 5.3.0(rollup@3.30.0)
       '@storybook/builder-vite': 8.6.17(storybook@8.6.17)(vite@5.4.21)
       '@storybook/react': 8.6.17(@storybook/test@8.6.15)(react-dom@18.3.1)(react@18.3.1)(storybook@8.6.17)(typescript@5.9.3)
       '@storybook/test': 8.6.15(storybook@8.6.17)

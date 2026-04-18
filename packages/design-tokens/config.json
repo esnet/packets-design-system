@@ -10,13 +10,13 @@
         "typography/shorthand",
         "duration/units"
       ],
-      "prefix": "esnet",
+      "prefix": "pkts",
       "transformGroup": "css",
       "buildPath": "dist/",
       "files": [
         {
           "format": "css/variables",
-          "destination": "esnet-tokens.css",
+          "destination": "pkts-tokens.css",
           "options": {
             "outputReferences": true
           }
@@ -32,12 +32,12 @@
         "typography/shorthand",
         "duration/units"
       ],
-      "prefix": "esnet",
+      "prefix": "pkts",
       "transformGroup": "scss",
       "buildPath": "dist/",
       "files": [
         {
-          "destination": "esnet-tokens.scss",
+          "destination": "pkts-tokens.scss",
           "format": "scss/variables",
           "options": {
             "outputReferences": true
@@ -45,7 +45,7 @@
         },
         {
           "format": "css/variables",
-          "destination": "_esnet-tokens-css-variables.scss",
+          "destination": "_pkts-tokens-css-variables.scss",
           "options": {
             "outputReferences": true
           }
@@ -60,7 +60,7 @@
         "size/pxToRem",
         "duration/units"
       ],
-      "prefix": "esnet",
+      "prefix": "pkts",
       "transformGroup": "js",
       "buildPath": "dist/",
       "files": [
@@ -82,7 +82,7 @@
         "size/pxToRem",
         "duration/units"
       ],
-      "prefix": "esnet",
+      "prefix": "pkts",
       "transformGroup": "js",
       "buildPath": "dist/",
       "files": [
