@@ -6,4 +6,5 @@ export interface PktsLabelProps extends ComponentPropsWithoutRef<"label"> {
   label: React.ReactNode;
   disabled?: boolean;
   required?: boolean;
+  children: React.ReactNode;
 }

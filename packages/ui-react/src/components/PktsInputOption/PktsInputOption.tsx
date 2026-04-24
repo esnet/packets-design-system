@@ -12,7 +12,7 @@ import { Check, Square } from "lucide-react";
  *
  * PktsInputOption mimics the impossible to style `<option>` tag, utilizing `button` under the hood,
  * but functions as an `<option>` otherwise.
- * As such, view the attributes for `<option>` (here)[https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option].
+ * As such, view the attributes for `<option>` [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option).
  *
  * @param {PktsInputOptionProps} props
  * @returns {React.ReactElement}
