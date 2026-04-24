@@ -109,17 +109,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const componentName = args?.component_name as string;
         const pkgArg = (args?.package as PackageType) ?? "react";
 
-        const components = getAllComponents(pkgArg);
-        const match = components.find(
-            c => c.name.toLowerCase() === componentName.toLowerCase()
-        );
+        const all = getAllComponents();
+        const nameLower = componentName.toLowerCase();
+        const match = all.find(c => c.name.toLowerCase() === nameLower && c.package === pkgArg);
 
         if (!match) {
-            // fall back to searching all packages
-            const all = getAllComponents();
-            const fallback = all.find(
-                c => c.name.toLowerCase() === componentName.toLowerCase()
-            );
+            const fallback = all.find(c => c.name.toLowerCase() === nameLower);
             if (fallback) {
                 return {
                     content: [

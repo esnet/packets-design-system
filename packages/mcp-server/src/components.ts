@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, existsSync } from "fs";
+import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 
 export type PackageType = "react" | "web" | "css";
@@ -11,33 +11,19 @@ export interface ComponentEntry {
 
 const ROOT = process.cwd();
 
-function getReactComponents(): ComponentEntry[] {
-    const dir = join(ROOT, "packages/ui-react/src/components");
+function readTyped(pkg: PackageType, basePath: string): ComponentEntry[] {
+    const dir = join(ROOT, basePath);
     return readdirSync(dir, { withFileTypes: true })
         .filter(d => d.isDirectory())
         .map(d => {
             const name = d.name;
-            const typesPath = join(dir, name, `${name}.types.ts`);
-            return {
-                name,
-                package: "react" as const,
-                types: existsSync(typesPath) ? readFileSync(typesPath, "utf-8") : undefined,
-            };
-        });
-}
-
-function getWebComponents(): ComponentEntry[] {
-    const dir = join(ROOT, "packages/ui-web/src/components");
-    return readdirSync(dir, { withFileTypes: true })
-        .filter(d => d.isDirectory())
-        .map(d => {
-            const name = d.name;
-            const typesPath = join(dir, name, `${name}.types.ts`);
-            return {
-                name,
-                package: "web" as const,
-                types: existsSync(typesPath) ? readFileSync(typesPath, "utf-8") : undefined,
-            };
+            let types: string | undefined;
+            try {
+                types = readFileSync(join(dir, name, `${name}.types.ts`), "utf-8");
+            } catch {
+                types = undefined;
+            }
+            return { name, package: pkg, types };
         });
 }
 
@@ -46,29 +32,33 @@ function kebabToPkts(name: string): string {
 }
 
 function getCSSComponents(): ComponentEntry[] {
-    const storiesDir = join(ROOT, "apps/css-docs/src");
-    const fromStories = new Set(
-        existsSync(storiesDir)
-            ? readdirSync(storiesDir)
-                .filter(f => f.endsWith(".stories.ts"))
-                .map(f => f.replace(".stories.ts", ""))
-            : []
-    );
+    const storyNames = new Set<string>();
+    try {
+        readdirSync(join(ROOT, "apps/css-docs/src"))
+            .filter(f => f.endsWith(".stories.ts"))
+            .forEach(f => storyNames.add(f.replace(".stories.ts", "")));
+    } catch { /* dir missing */ }
 
-    const cssDir = join(ROOT, "packages/ui-css/src/components");
-    const fromCss = existsSync(cssDir)
-        ? readdirSync(cssDir)
+    const cssNames = new Set<string>();
+    try {
+        readdirSync(join(ROOT, "packages/ui-css/src/components"))
             .filter(f => f.endsWith(".css"))
-            .map(f => kebabToPkts(f.replace(".css", "")))
-        : [];
+            .forEach(f => cssNames.add(kebabToPkts(f.replace(".css", ""))));
+    } catch { /* dir missing */ }
 
-    const all = new Set([...fromStories, ...fromCss]);
-    return [...all].sort().map(name => ({ name, package: "css" as const }));
+    return [...new Set([...storyNames, ...cssNames])].sort()
+        .map(name => ({ name, package: "css" }));
 }
 
+let cache: ComponentEntry[] | null = null;
+
 export function getAllComponents(pkg?: PackageType): ComponentEntry[] {
-    const react = !pkg || pkg === "react" ? getReactComponents() : [];
-    const web = !pkg || pkg === "web" ? getWebComponents() : [];
-    const css = !pkg || pkg === "css" ? getCSSComponents() : [];
-    return [...react, ...web, ...css];
+    if (!cache) {
+        cache = [
+            ...readTyped("react", "packages/ui-react/src/components"),
+            ...readTyped("web", "packages/ui-web/src/components"),
+            ...getCSSComponents(),
+        ];
+    }
+    return pkg ? cache.filter(c => c.package === pkg) : cache;
 }
