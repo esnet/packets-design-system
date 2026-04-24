@@ -42,7 +42,7 @@ a.pkts-button {
   border-radius: var(--spacing-border-radius);
   border: var(--spacing-border-width) solid
     var(--pkts-color-core-blue-900, #004573);
-  box-shadow: var(var(--pkts-box-shadow-core-light));
+  box-shadow: var(--pkts-box-shadow-core-light);
 
   /* Typography */
   color: var(--pkts-color-core-slate-900, #3f424d);
