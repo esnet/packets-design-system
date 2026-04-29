@@ -16,12 +16,12 @@
 
 .pkts-accordion.pkts-inline {
   border-radius: 0;
-  border-bottom: 1px solid var(--pkts-color-light-copy-alt, #6e6e70);
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-light-copy-alt, #6e6e70);
   box-shadow: none;
 }
 
 .dark .pkts-accordion.pkts-inline {
-  border-bottom: 1px solid var(--pkts-color-dark-copy-alt, #6e6e70);
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-dark-copy-alt, #6e6e70);
 }
 
 .pkts-accordion.pkts-inline .pkts-accordion-header {

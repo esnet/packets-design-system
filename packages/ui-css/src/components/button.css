@@ -12,14 +12,14 @@
 a.pkts-button {
   --spacing-horizontal-layout-gap: var(--pkts-size-spacing-xxsmall, 4px);
 
-  --spacing-height-medium: 40px;
+  --spacing-height-medium: var(--pkts-size-spacing-xlarge, 2.5rem);
   --spacing-height-xxlarge: var(--pkts-size-spacing-xxlarge, 64px);
 
   --spacing-padding-horizontal: var(--pkts-size-spacing-large, 32px);
   --spacing-padding-vertical: var(--pkts-size-spacing-xxsmall, 4px);
 
   --spacing-border-radius: var(--pkts-size-radius-xxlarge, 18px);
-  --spacing-border-width: var(--pkts-size-radius-small, 2px);
+  --spacing-border-width: var(--pkts-size-border-width-small, 0.125rem);
 
   --typography-font: var(
     --pkts-typography-button-1-sans-font,
@@ -29,7 +29,7 @@ a.pkts-button {
   /* Layout */
   display: inline-flex;
   width: auto;
-  padding: var(--pkts-size-border-width-medium, 4px)
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
     var(--pkts-size-spacing-medium, 16px);
   box-sizing: border-box;
 
@@ -66,7 +66,7 @@ a.pkts-button:hover {
   cursor: pointer;
   box-shadow: var(--pkts-box-shadow-core-medium);
 
-  padding: var(--pkts-size-border-width-medium, 4px)
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
     var(--pkts-size-spacing-medium, 16px);
 }
 

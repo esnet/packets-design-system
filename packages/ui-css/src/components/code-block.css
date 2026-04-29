@@ -70,11 +70,11 @@
 }
 
 .pkts-code-block button:focus {
-  border-bottom: 1px solid var(--pkts-color-light-copy-alt, #6e6e70);
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-light-copy-alt, #6e6e70);
 }
 
 .dark .pkts-code-block button:focus {
-  border-bottom: 1px solid var(--pkts-color-dark-copy-alt, #c2c2c2);
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-dark-copy-alt, #c2c2c2);
 }
 
 .pkts-code-block code {
