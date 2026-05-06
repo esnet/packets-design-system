@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-designs"),
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-essentials"),
     "storybook-dark-mode",
   ],
   framework: {
