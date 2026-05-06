@@ -6,7 +6,7 @@
   .pkts-table-of-contents ul {
     list-style: none;
     margin: var(--pkts-size-spacing-xsmall, 12px) 0 0;
-    padding: 0px var(--pkts-size-spacing-medium, 16px);
+    padding: var(--pkts-size-spacing-none, 0) var(--pkts-size-spacing-medium, 16px);
     border-left: var(--pkts-size-border-width-medium) solid
       var(--pkts-color-core-white-1000, #9e9e9e);
 

@@ -55,7 +55,7 @@
     }
 
   .pkts-spinner .dot:nth-child(3) {
-      left: 32px;
+      left: var(--pkts-size-spacing-large, 2rem);
       animation: dot2Animation var(--pkts-time-duration-long, 600ms) infinite;
     }
 
