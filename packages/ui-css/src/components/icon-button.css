@@ -4,8 +4,7 @@
 
    Base styles for icon button component. Variants are applied via composable classes:
    - Color variants: .pkts-primary, .pkts-secondary, .pkts-tertiary, .pkts-destructive, .pkts-branded
-   - Size variants: .pkts-medium, .pkts-xxlarge
-   - Layout variants: .pkts-fill, .pkts-nofill, .pkts-square
+   - Layout variants: .pkts-square
 
    Usage: <button class="pkts-icon-button es-primary es-medium">
 */
@@ -57,4 +56,11 @@
 
 .pkts-icon-button:disabled {
   cursor: not-allowed;
+}
+
+/* Square variant — equal width and height, no horizontal padding, circular border-radius */
+.pkts-icon-button.pkts-square {
+  border-radius: var(--esnet-size-radius-circle, 999px);
+  width: var(--spacing-height-medium);
+  padding: 0;
 }

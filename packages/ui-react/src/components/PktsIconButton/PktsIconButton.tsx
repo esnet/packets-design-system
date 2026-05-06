@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import clsx from "clsx";
 import { PktsIconButtonProps } from "./PktsIconButton.types";
 
@@ -6,22 +6,24 @@ import { PktsIconButtonProps } from "./PktsIconButton.types";
  * Packets Icon Button
  *
  * Generic Icon only button component.
- * Can be a link or a button set with the "As" prop.
+ * Can be a link or a button set with the "as" prop.
  *
  * Child should be a lucide-icon, nothing else.
  *
  * @param {PktsIconButtonProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-const PktsIconButton = ({
+const PktsIconButton: React.FC<PktsIconButtonProps> = ({
   variant = "secondary",
+  as = "button",
   className,
-  children = "",
+  children,
   square = false,
   ...props
-}: PktsIconButtonProps) => {
+}) => {
+  const Tag = as as React.ElementType;
   return (
-    <button
+    <Tag
       className={clsx(
         "pkts-icon-button",
         `pkts-${variant}`,
@@ -32,12 +34,10 @@ const PktsIconButton = ({
       {...props}
     >
       {children}
-    </button>
+    </Tag>
   );
 };
 
 PktsIconButton.displayName = "PktsIconButton";
 
 export default PktsIconButton;
-
-// TODO: ensure As prop works... ensure whole thing works
