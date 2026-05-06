@@ -12,7 +12,7 @@ import { Meta } from "@storybook/blocks";
 
     ## Component Documentation
 
-    **View the full CSS component documentation at: <a href="/css/" target="_top">CSS Components Storybook</a>**
+    **View the full CSS component documentation at: <a href={import.meta.env.PROD ? "/css/" : "http://localhost:6009"} target="_top">CSS Components Storybook</a>**
 
     The CSS documentation includes:
     - Interactive examples of all components

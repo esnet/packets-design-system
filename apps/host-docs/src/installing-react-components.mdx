@@ -148,7 +148,7 @@ function App() {
 
     Now that you've installed the React components, view the full component documentation:
 
-    <strong>Next, explore the interactive <a href="/react/" target="_top">React Components Storybook →</a></strong>
+    <strong>Next, explore the interactive <a href={import.meta.env.PROD ? "/react/" : "http://localhost:6006"} target="_top">React Components Storybook →</a></strong>
 
     The React documentation includes:
     - Interactive examples of all components

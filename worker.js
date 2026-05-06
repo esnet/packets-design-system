@@ -3,7 +3,7 @@ export default {
     const url = new URL(request.url);
 
     // Only keep trailing slash fixes for subpaths
-    const roots = ["/css", "/web", "/host"];
+    const roots = ["/css", "/web", "/host", "/react"];
     if (roots.includes(url.pathname)) {
       url.pathname = `${url.pathname}/`;
       return Response.redirect(url.toString(), 308);

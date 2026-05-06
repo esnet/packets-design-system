@@ -12,7 +12,8 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "test": "turbo run test",
     "test:updatesnaps": "turbo run test:updatesnaps",
-    "publish-packages": "turbo run build && changeset publish"
+    "publish-packages": "turbo run build && changeset publish",
+    "build:storybooks": "node scripts/build-storybooks.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "node ../../scripts/assemble-cloudflare.mjs",
+    "build:storybook": "storybook build",
     "lint": "eslint ./src/stories/**/*.stories.tsx --max-warnings 0",
     "preview": "serve storybook-static"
   },

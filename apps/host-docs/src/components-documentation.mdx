@@ -83,9 +83,9 @@ import { Meta } from "@storybook/blocks";
         </tr>
         <tr>
           <td style={{padding: '12px'}}><strong>Documentation</strong></td>
-          <td style={{padding: '12px'}}><a href="/css/" target="_top">View CSS Docs →</a></td>
-          <td style={{padding: '12px'}}><a href="/web/" target="_top">View Web Components Docs →</a></td>
-          <td style={{padding: '12px'}}><a href="/react/" target="_top">View React Docs →</a></td>
+          <td style={{padding: '12px'}}><a href={import.meta.env.PROD ? "/css/" : "http://localhost:6009"} target="_top">View CSS Docs →</a></td>
+          <td style={{padding: '12px'}}><a href={import.meta.env.PROD ? "/web/" : "http://localhost:6007"} target="_top">View Web Components Docs →</a></td>
+          <td style={{padding: '12px'}}><a href={import.meta.env.PROD ? "/react/" : "http://localhost:6006"} target="_top">View React Docs →</a></td>
         </tr>
       </tbody>
     </table>
@@ -123,7 +123,7 @@ import { Meta } from "@storybook/blocks";
 
     **Pure HTML/CSS implementation with no JavaScript dependencies**
 
-    <a href="/css/" target="_top">View CSS Components Documentation →</a>
+    <a href={import.meta.env.PROD ? "/css/" : "http://localhost:6009"} target="_top">View CSS Components Documentation →</a>
 
     ## What are they?
 
@@ -170,7 +170,7 @@ npm install @esnet/packets-ui-css
 
     **Standards-based custom elements that work with any framework**
 
-    <a href="/web/" target="_top">View Web Components Documentation →</a>
+    <a href={import.meta.env.PROD ? "/web/" : "http://localhost:6007"} target="_top">View Web Components Documentation →</a>
 
     ## What are they?
 
@@ -218,7 +218,7 @@ npm install @esnet/packets-ui-web
 
     **TypeScript React components with full type safety and React integration**
 
-    <a href="/react/" target="_top">View React Components Documentation →</a>
+    <a href={import.meta.env.PROD ? "/react/" : "http://localhost:6006"} target="_top">View React Components Documentation →</a>
 
     ## What are they?
 

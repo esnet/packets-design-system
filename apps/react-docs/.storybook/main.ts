@@ -17,6 +17,12 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+  async viteFinal(config, { configType }) {
+    if (configType === "PRODUCTION") {
+      return { ...config, base: "/react/" };
+    }
+    return config;
+  },
   typescript: {
     /**
      * In order for react-docgen-typescript to work with this monorepo project setup,

@@ -12,7 +12,7 @@ import { Meta } from "@storybook/blocks";
 
     ## Component Documentation
 
-    **View the full Web Components documentation at: <a href="/web/" target="_top">Web Components Storybook</a>**
+    **View the full Web Components documentation at: <a href={import.meta.env.PROD ? "/web/" : "http://localhost:6007"} target="_top">Web Components Storybook</a>**
 
     The Web Components documentation includes:
     - Interactive examples of all components
