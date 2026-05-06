@@ -1,71 +1,110 @@
 import * as React from "react";
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import PktsInputSwitch from "../PktsInputSwitch";
-import { PktsInputSwitchProps } from "../PktsInputSwitch.types";
 import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 
-test.describe("ESInputSwitch", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsInputSwitchProps> = {
-    testTable: [
-      {
-        name: "unchecked",
-        props: { variant: "primary" },
-      },
-      {
-        name: "primary-checked",
-        props: { variant: "primary", defaultChecked: true },
-      },
-      {
-        name: "secondary-checked",
-        props: { variant: "secondary", defaultChecked: true },
-      },
-      {
-        name: "hideIcons",
-        props: { hideIcons: true },
-      },
-      {
-        name: "disabled",
-        props: { hideIcons: true },
-      },
-      // Add more test cases as needed
-    ],
-    themes: ["light"],
-    actionStates: [],
-  };
+test.describe("PktsInputSwitch", () => {
+  ["light", "dark"].forEach((theme: any) => {
+    const testBox = (
+      <ComponentTestBox
+        theme={theme}
+        component={
+          <table
+            style={{
+              borderCollapse: "collapse",
+              borderSpacing: 0,
+              margin: 0,
+              padding: 0,
+              lineHeight: 0,
+            }}
+          >
+            <tbody>
+              {/* --- Default --- */}
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" />
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" defaultChecked />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" defaultChecked />
+                </td>
+              </tr>
 
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      let themedComponent = (
-        <div style={{ padding: "8px" }}>
-          <PktsInputSwitch {...props} />
-        </div>
-      );
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
-        await expect(component.locator("input")).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        if (props.disabled) return;
-        test(`${name}-${theme}-${state}`, async ({ mount }) => {
-          // do any locator selection if needed
-          const component = await mount(themedComponent);
-          if (state === "focus") await component.focus();
-          if (state === "hover" || state === "active") await component.hover();
-          if (state === "active") await component.click();
-          await expect(component.locator("input")).toHaveScreenshot();
-        });
-      });
+              {/* --- Disabled --- */}
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" disabled />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" disabled />
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" disabled defaultChecked />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" disabled defaultChecked />
+                </td>
+              </tr>
+
+              {/* --- NoIcon --- */}
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" noIcon />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" noIcon />
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="primary" defaultChecked noIcon />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch variant="secondary" defaultChecked noIcon />
+                </td>
+              </tr>
+
+              {/* --- Interactions (Hover & Focus) --- */}
+              <tr>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch
+                    defaultChecked
+                    variant="primary"
+                    data-testid="test-hover"
+                  />
+                </td>
+                <td style={{ padding: "8px", border: "none" }}>
+                  <PktsInputSwitch
+                    defaultChecked
+                    variant="secondary"
+                    data-testid="test-focus"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        }
+      />
+    );
+    test(`switches-${theme}`, async ({ mount }) => {
+      const component = await mount(testBox);
+
+      await component.getByTestId("test-hover").hover();
+      await component.getByTestId("test-focus").focus();
+
+      await expect(component).toHaveScreenshot();
     });
   });
 
-  // test that radio buttons with same name are grouped together
   test("functions", async ({ mount }) => {
     const component = (await mount(<PktsInputSwitch />)).locator("input");
     await component.click();
@@ -74,3 +113,4 @@ test.describe("ESInputSwitch", () => {
     await expect(component).not.toBeChecked();
   });
 });
+// TODO: rerun test screenshots for this test

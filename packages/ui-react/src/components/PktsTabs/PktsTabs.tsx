@@ -1,11 +1,10 @@
 import React, { FC, useMemo } from "react";
 import { PktsTabsProps } from "./PktsTabs.types";
-
 import PktsTab from "./PktsTab";
 import clsx from "clsx";
 
 /**
- * ESTabs Component
+ * Packets Tab Component
  *
  * Composable component that manages the layout of a list of tabs.
  *
@@ -25,7 +24,7 @@ const PktsTabs: FC<PktsTabsProps> = ({
   }, [children]);
 
   return (
-    <section
+    <div
       className={clsx(
         "pkts-tabs",
         border && "pkts-has-border",
@@ -34,10 +33,11 @@ const PktsTabs: FC<PktsTabsProps> = ({
       )}
     >
       <ul className="tab-list">{tabChildren}</ul>
-    </section>
+    </div>
   );
 };
 
 PktsTabs.displayName = "PktsTabs";
 
 export default PktsTabs;
+// TODO: ensure prop naming harmony

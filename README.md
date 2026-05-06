@@ -23,6 +23,9 @@ Packets is officially open source as of version 2.0.0! The monorepo can be found
 
 # Adding the NPM Packages to Your Project
 
+    1. Setup or get a Gitlab token so you can access our private Gitlab NPM registry. At the time of this writing you can use a personal token.
+    2. Add a `.npmrc` file to the root of your project.
+    3. Add the following code:
 
 1. Decide on the approach you'd like to use. Here's a quick reference table:
 

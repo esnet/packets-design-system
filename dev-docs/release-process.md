@@ -4,7 +4,7 @@ This document outlines the processes to reelease a new build of the npm package 
 
 ## Package Registry
 
-The Gitlab Package Registry can be found [here](https://gitlab.es.net/esnet/packets-design-system/-/packages). It contains npm files for both `@esnet/packets-ui` and `@esnet/esnet-tokens`. If you need to debug artifacts, you can click in on a published version and see downloaded published artifacts.
+The Gitlab Package Registry can be found [here](https://gitlab.es.net/esnet/packets-design-system/-/packages). It contains npm files for both `@esnet/packets-ui` and `@esnet/pkts-tokens`. If you need to debug artifacts, you can click in on a published version and see downloaded published artifacts.
 
 ## Changesets
 

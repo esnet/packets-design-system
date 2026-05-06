@@ -1,66 +1,118 @@
 import * as React from "react";
 import { test, expect } from "@playwright/experimental-ct-react";
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
-import { PktsChipProps } from "../PktsChip.types";
 import PktsChip from "../PktsChip";
-test.describe("ESChip", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsChipProps> = {
-    testTable: [
-      {
-        name: "primary",
-        props: {
-          children: "Primary Label",
-        },
-      },
-      {
-        name: "outline",
-        props: {
-          children: "Outline Label",
-          variant: "outline",
-        },
-      },
-      {
-        name: "not-rounded",
-        props: {
-          children: "Not Rounded Label",
-          rounded: false,
-        },
-      },
-      {
-        name: "delete",
-        props: {
-          children: "Delete Label",
-          onDelete: () => {},
-        },
-      },
-    ],
-    themes: ["light", "dark"],
-    actionStates: ["hover"],
-  };
+import PktsAvatar from "../../PktsAvatar/PktsAvatar";
 
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      const testBox = (
-        <ComponentTestBox component={<PktsChip {...props} />} theme={theme} />
-      );
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(testBox);
-        await expect(component).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        test(`${name}-${theme}-${state}`, async ({ mount }) => {
-          if (props.disabled) return; // skip if component is disabled
+const row: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+};
 
-          const component = await mount(testBox);
-          if (state === "hover") await component.hover();
-          await expect(component).toHaveScreenshot();
-        });
-      });
+const cell: React.CSSProperties = {
+  padding: "8px",
+  whiteSpace: "nowrap",
+};
+
+test.describe("PktsChip", () => {
+  (["light", "dark"] as const).forEach((theme) => {
+    const grid = (
+      <ComponentTestBox
+        theme={theme}
+        component={
+          <div style={{ display: "inline-flex", flexDirection: "column" }}>
+            {/* --- Variants, rounded --- */}
+            <div style={row}>
+              <div style={cell}>
+                <PktsChip>Primary</PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip variant="outline">Outline</PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip onDelete={() => {}}>Delete</PktsChip>
+              </div>
+            </div>
+
+            {/* --- Variants, not rounded --- */}
+            <div style={row}>
+              <div style={cell}>
+                <PktsChip rounded={false}>Primary</PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip variant="outline" rounded={false}>
+                  Outline
+                </PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip rounded={false} onDelete={() => {}}>
+                  Delete
+                </PktsChip>
+              </div>
+            </div>
+
+            {/* --- Avatar prepend (small size, not rounded per recommendation) --- */}
+            <div style={row}>
+              <div style={cell}>
+                <PktsChip
+                  rounded={false}
+                  prepend={
+                    <PktsAvatar size="small" alt="AB" backgroundColor="grape" />
+                  }
+                >
+                  Avatar
+                </PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip
+                  variant="outline"
+                  rounded={false}
+                  prepend={
+                    <PktsAvatar size="small" alt="CD" backgroundColor="lime" />
+                  }
+                >
+                  Avatar
+                </PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip
+                  rounded={false}
+                  prepend={
+                    <PktsAvatar size="small" alt="EF" backgroundColor="berry" />
+                  }
+                  onDelete={() => {}}
+                >
+                  Avatar
+                </PktsChip>
+              </div>
+            </div>
+
+            {/* --- Interactions (hover & focus) --- */}
+            <div style={row}>
+              <div style={cell}>
+                <PktsChip data-testid="test-hover">Hovered</PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip variant="outline" data-testid="test-focus">
+                  Focused
+                </PktsChip>
+              </div>
+              <div style={cell}>
+                <PktsChip onDelete={() => {}}>Delete Hover</PktsChip>
+              </div>
+            </div>
+          </div>
+        }
+      />
+    );
+
+    test(`chips-${theme}`, async ({ mount }) => {
+      const component = await mount(grid);
+
+      await component.getByTestId("test-hover").hover();
+      await component.getByTestId("test-focus").focus();
+
+      await expect(component).toHaveScreenshot();
     });
   });
 });

@@ -1,14 +1,14 @@
 .shadowDocBlock {
   --box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   display: block;
-  padding: var(--esnet-size-spacing-xsmall);
+  padding: var(--pkts-size-spacing-xsmall);
 
   .previewblock {
     display: block;
     aspect-ratio: 1/1;
     width: 32px;
-    background-color: var(--esnet-color-core-white-500);
-    border: var(--esnet-size-border-xsmall) solid var(--esnet-color-light-primary);
+    background-color: var(--pkts-color-core-white-500);
+    border: var(--pkts-size-border-xsmall) solid var(--pkts-color-light-primary);
     box-shadow: var(--box-shadow);
   }
 }

@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import * as tokens from "@esnet/pkts-tokens/tokens.json";
 import { DurationDocBlock } from "doc-ui";
 
 <Meta title="Design Tokens/Motion" />
@@ -18,6 +18,6 @@ Our design tokens provide a set of semantic speeds for motion.
 
 {
 Object.keys(tokens.time.duration).map(durationKey => {
-return(<DurationDocBlock name={`--esnet-time-duration-${durationKey}`} duration={tokens.time.duration[durationKey].value || 0} />)
+return(<DurationDocBlock name={`--pkts-time-duration-${durationKey}`} duration={tokens.time.duration[durationKey].value || 0} />)
 })
 }

@@ -1,16 +1,26 @@
-export const PktsButtonDefaultAsType = "button" as const;
+import * as React from "react";
 
-export type ButtonOwnProps<E extends React.ElementType> = {
-  children: React.ReactNode;
-  className?: string;
-  variant: "primary" | "secondary" | "branded" | "tertiary" | "destructive"; // Type of Button
-  size?: "medium" | "xxlarge";
-  prepend?: React.ReactNode;
+type PktsButtonVariantType = "primary" | "secondary" | "branded" | "tertiary" | "destructive";
+
+type PktsButtonCustomProps = {
+  /** Variant that affects color styling. */
+  variant?: PktsButtonVariantType;
+  /** Element to render before the button label. Typically an icon or avatar. */
   append?: React.ReactNode;
-  fill?: boolean;
-  disabled?: boolean;
-  as?: E;
+  /** Element to render after the button label. Typically an icon or avatar. */
+  prepend?: React.ReactNode;
+  /** Button label content. */
+  children: React.ReactNode;
 };
 
-export type PktsButtonProps<E extends React.ElementType> = ButtonOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof ButtonOwnProps<E>>;
+type AsButtonProps = {
+  /** Render as a native button element (default). */
+  as?: "button";
+} & React.ComponentPropsWithoutRef<"button">;
+
+type AsAnchorProps = {
+  /** Render as an anchor element, styled as a button. */
+  as: "a";
+} & React.ComponentPropsWithoutRef<"a">;
+
+export type PktsButtonProps = PktsButtonCustomProps & (AsButtonProps | AsAnchorProps);

@@ -9,20 +9,20 @@
 */
 
 .pkts-alert {
-  --icon-size: var(--esnet-size-touchtarget-min, 32px);
-  --section-gap: var(--esnet-size-spacing-medium, 16px);
+  --icon-size: var(--pkts-size-touchtarget-min, 32px);
+  --section-gap: var(--pkts-size-spacing-medium, 16px);
   --title-label-font: var(
-    --esnet-typography-header-5-sans-font,
-    600 20px/140% var(--esnet-font-family-header-sans)
+    --pkts-typography-header-5-sans-font,
+    600 20px/140% var(--pkts-font-family-header-sans)
   );
 
-  border-radius: var(--esnet-size-radius-xlarge, 8px);
-  padding: var(--esnet-size-spacing-medium, 16px);
+  border-radius: var(--pkts-size-radius-xlarge, 8px);
+  padding: var(--pkts-size-spacing-medium, 16px);
   display: flex;
   gap: var(--section-gap);
-  background-color: var(--esnet-color-light-surface-2, #f2f2f2);
+  background-color: var(--pkts-color-light-surface-2, #f2f2f2);
 
-  animation: fadeInSlideUp var(--esnet-time-duration-quick, 250ms) ease-in-out;
+  animation: fadeInSlideUp var(--pkts-time-duration-quick, 250ms) ease-in-out;
 }
 
 @media (prefers-reduced-motion) {
@@ -32,8 +32,8 @@
 }
 
 .dark .pkts-alert {
-  color: var(--esnet-color-dark-copy, #e6e6e6);
-  background-color: var(--esnet-color-dark-surface-2, #f2f2f2);
+  color: var(--pkts-color-dark-copy, #e6e6e6);
+  background-color: var(--pkts-color-dark-surface-2, #f2f2f2);
 }
 
 .dark .pkts-alert label,
@@ -44,7 +44,7 @@
 .dark .pkts-alert h4,
 .dark .pkts-alert h5,
 .dark .pkts-alert h6 {
-  color: var(--esnet-color-dark-copy, #e6e6e6);
+  color: var(--pkts-color-dark-copy, #e6e6e6);
 }
 
 /* Icon - class-based or semantic */
@@ -72,11 +72,11 @@
 }
 
 .pkts-alert aside:last-child button svg {
-  color: var(--esnet-color-light-copy, #000000);
+  color: var(--pkts-color-light-copy, #000000);
 }
 
 .dark .pkts-alert aside:last-child button svg {
-  color: var(--esnet-color-dark-copy, #e6e6e6);
+  color: var(--pkts-color-dark-copy, #e6e6e6);
 }
 
 /* Title - class-based or semantic */
@@ -89,7 +89,7 @@
 
 @keyframes fadeInSlideUp {
   from {
-    translate: 0 var(--esnet-size-spacing-medium, 16px);
+    translate: 0 var(--pkts-size-spacing-medium, 16px);
     opacity: 0;
     transform: scale(0.95);
   }

@@ -18,14 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof PktsBreadcrumbs>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultBreadcrumbs: Story = {
-  render: (props) => <PktsBreadcrumbs breadcrumbs={props.breadcrumbs} />,
-  name: "Breadcrumb Example",
+export const Default: Story = {
   args: {
     breadcrumbs: [
       {
@@ -45,7 +38,6 @@ export const DefaultBreadcrumbs: Story = {
 };
 
 export const ExternalLinksBreadcrumbs: Story = {
-  render: (props) => <PktsBreadcrumbs breadcrumbs={props.breadcrumbs} />,
   name: "External Links Example",
   args: {
     breadcrumbs: [
@@ -60,5 +52,58 @@ export const ExternalLinksBreadcrumbs: Story = {
         children: "Faster Data",
       },
     ],
+  },
+};
+
+const code = `<PktsBreadcrumbs
+  breadcrumbs={[
+    {
+      href: "/",
+      children: "Home",
+    },
+    {
+      href: "/circuits",
+      children: "Circuits",
+    },
+    {
+      href: "/circuits/THX-1138",
+      children: "THX-1138",
+    },
+  ]}
+  renderLink={(linkProps) => (
+    <h5>
+      <a href={linkProps.href}>Custom Text - {linkProps.children}</a>
+    </h5>
+  )}
+/>;`;
+
+export const CustomRenderLink: Story = {
+  args: {
+    breadcrumbs: [
+      {
+        href: "/",
+        children: "Home",
+      },
+      {
+        href: "/circuits",
+        children: "Circuits",
+      },
+      {
+        href: "/circuits/THX-1138",
+        children: "THX-1138",
+      },
+    ],
+    renderLink: (linkProps) => (
+      <h5>
+        <a href={linkProps.href}>Custom Text - {linkProps.children}</a>
+      </h5>
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code,
+      },
+    },
   },
 };

@@ -13,25 +13,13 @@ import PktsModule from "../PktsModule";
  */
 const PktsTitleSection: React.FC<PktsTitleSectionProps> = ({
   children,
-  title = "",
-  titleSlot,
+  title,
   subtitle,
-  subTitleSlot,
 }) => {
   return (
     <PktsModule className="titleLayout">
-      {title && (
-        <h1 className="title">
-          {title}
-          {titleSlot}
-        </h1>
-      )}
-      {subtitle && (
-        <h4 className="subtitle">
-          {subtitle}
-          {subTitleSlot}
-        </h4>
-      )}
+      {title && <h1 className="title">{title}</h1>}
+      {subtitle && <h4 className="subtitle">{subtitle}</h4>}
       {children}
     </PktsModule>
   );
@@ -40,3 +28,4 @@ const PktsTitleSection: React.FC<PktsTitleSectionProps> = ({
 PktsTitleSection.displayName = "PktsTitleSection";
 
 export default PktsTitleSection;
+// TODO: ensure this works

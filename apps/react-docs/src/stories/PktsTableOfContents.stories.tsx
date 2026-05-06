@@ -18,17 +18,10 @@ export default meta;
 
 type Story = StoryObj<typeof PktsTableOfContents>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const DefaultTableOfContentsExample: Story = {
-  render: (props) => <PktsTableOfContents {...props} />,
-  name: "PktsTableOfContents Example",
+export const Default: Story = {
   args: {
     title: "Design Tokens",
-    sections: [
+    links: [
       {
         href: "/?path=/docs/design-tokens-breakpoints--docs",
         children: "Colors",
@@ -42,5 +35,42 @@ export const DefaultTableOfContentsExample: Story = {
         children: "Icons",
       },
     ],
+  },
+};
+
+export const FooterTableOfContents: Story = {
+  render: () => {
+    return (
+      <footer style={{ display: "flex" }}>
+        <PktsTableOfContents
+          title="About"
+          links={[
+            { href: "#", children: "Core Mission" },
+            { href: "#", children: "News" },
+            { href: "#", children: "Team" },
+            { href: "#", children: "Blog" },
+            { href: "#", children: "Careers" },
+          ]}
+        />
+        <PktsTableOfContents
+          title="Contact"
+          links={[
+            { href: "#", children: "Contact" },
+            { href: "#", children: "Support" },
+            { href: "#", children: "Social Media" },
+          ]}
+        />
+        <PktsTableOfContents
+          title="Legal"
+          links={[
+            { href: "#", children: "Privacy" },
+            { href: "#", children: "Terms of Use" },
+            { href: "#", children: "Legal" },
+            { href: "#", children: "Cookie Notice" },
+            { href: "#", children: "Feedback" },
+          ]}
+        />
+      </footer>
+    );
   },
 };

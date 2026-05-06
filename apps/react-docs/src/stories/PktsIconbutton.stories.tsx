@@ -26,133 +26,71 @@ export default meta;
 
 type Story = StoryObj<typeof PktsIconButton>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
-export const Defaultbutton: Story = {
-  render: (props) => (
-    <PktsIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "PktsIconButton",
+export const DefaultButton: Story = {
   args: {
+    onClick: () => {
+      // eslint-disable-next-line no-alert -- alert for demo
+      alert("Hello from Packets Design System!");
+    },
     children: <SettingsIcon />,
     type: "button",
   },
 };
 
-export const Primary: Story = {
-  render: (props) => (
-    <PktsIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "Primary ESIconButton",
+export const SquareRatioBranded: Story = {
   args: {
     children: <SettingsIcon />,
-    type: "button",
-    variant: "primary",
-  },
-};
-
-export const DisabledPrimary: Story = {
-  render: (props) => (
-    <PktsIconButton
-      disabled
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "Disabled Primary ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    variant: "primary",
-  },
-};
-
-export const Secondary: Story = {
-  render: (props) => (
-    <PktsIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "Secondary ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
-    variant: "secondary",
-  },
-};
-
-export const SecondaryDisabled: Story = {
-  render: (props) => (
-    <PktsIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "Secondary ESIconButton Disabled",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
-    variant: "secondary",
-    disabled: true,
-  },
-};
-
-export const Branded: Story = {
-  render: (props) => (
-    <PktsIconButton
-      {...props}
-      onClick={(): void => {
-        // eslint-disable-next-line no-alert -- alert for demo
-        alert("Hello from Packets Design System!");
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </PktsIconButton>
-  ),
-  name: "Branded ESIconButton",
-  args: {
-    children: <SettingsIcon />,
-    type: "button",
     variant: "branded",
+    square: true,
   },
 };
+
+// TODO: Fix this story to use latest version of IconButton
+/*
+export const AllVariants: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(5, 1fr)",
+        gap: "16px",
+      }}
+    >
+      <PktsIconButton
+        name="apple"
+        variant="primary"
+        onClick={() => alert("Primary")}
+      />
+      <PktsIconButton
+        name="banana"
+        variant="secondary"
+        onClick={() => alert("Secondary")}
+      />
+      <PktsIconButton
+        name="bookmark"
+        variant="tertiary"
+        onClick={() => alert("Tertiary")}
+      />
+      <PktsIconButton
+        name="globe"
+        variant="branded"
+        onClick={() => alert("Branded")}
+      />
+      <PktsIconButton
+        name="trash-2"
+        variant="destructive"
+        onClick={() => alert("Destructive")}
+      />
+      <PktsIconButton name="apple" variant="primary" disabled />
+      <PktsIconButton name="banana" variant="secondary" disabled />
+      <PktsIconButton name="bookmark" variant="tertiary" disabled />
+      <PktsIconButton name="globe" variant="branded" disabled />
+      <PktsIconButton name="trash-2" variant="destructive" disabled />
+      <PktsIconButton name="apple" variant="primary" square />
+      <PktsIconButton name="banana" variant="secondary" square />
+      <PktsIconButton name="bookmark" variant="tertiary" square />
+      <PktsIconButton name="globe" variant="branded" square />
+      <PktsIconButton name="trash-2" variant="destructive" square />
+    </div>
+  ),
+};*/

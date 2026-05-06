@@ -1,0 +1,163 @@
+.pkts-accordion {
+  /* Layout */
+  width: 100%;
+  height: fit-content;
+  min-height: fit-content;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* Styling */
+  border-radius: var(--pkts-size-radius-xxlarge);
+  box-shadow: var(--pkts-box-shadow-core-medium);
+}
+
+/* Inline variant */
+
+.pkts-accordion.pkts-inline {
+  border-radius: 0;
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-light-copy-alt, #6e6e70);
+  box-shadow: none;
+}
+
+.dark .pkts-accordion.pkts-inline {
+  border-bottom: var(--pkts-size-border-width-xsmall, 0.0625rem) solid var(--pkts-color-dark-copy-alt, #6e6e70);
+}
+
+.pkts-accordion.pkts-inline .pkts-accordion-header {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.pkts-accordion.pkts-inline .pkts-accordion-open-btn svg,
+.pkts-accordion.pkts-inline .pkts-accordion-action-btns svg {
+  color: var(--pkts-color-light-secondary);
+}
+
+.dark .pkts-accordion.pkts-inline .pkts-accordion-open-btn svg,
+.dark .pkts-accordion.pkts-inline .pkts-accordion-action-btns svg {
+  color: var(--pkts-color-dark-secondary);
+}
+
+.pkts-accordion.pkts-inline .pkts-accordion-content {
+  background-color: transparent;
+  padding: 0 var(--pkts-size-spacing-xsmall, 8px);
+}
+
+.pkts-accordion.pkts-inline .pkts-accordion-content:last-child {
+  padding-bottom: var(--pkts-size-spacing-xsmall, 8px);
+}
+
+.pkts-accordion.pkts-inline .pkts-accordion-footer {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Header */
+
+.pkts-accordion .pkts-accordion-header {
+  height: var(--pkts-size-spacing-xlarge, 40px);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--pkts-size-spacing-small, 12px);
+  padding: 0 var(--pkts-size-spacing-xsmall, 8px);
+  background-color: var(--pkts-color-light-primary);
+  color: var(--pkts-color-core-white-100);
+  font: var(--pkts-typography-header-5-sans-font);
+}
+
+.dark .pkts-accordion .pkts-accordion-header {
+  background-color: var(--pkts-color-dark-primary);
+}
+
+.dark .pkts-accordion.pkts-inline .pkts-accordion-header {
+  background-color: transparent;
+}
+
+.pkts-accordion .pkts-accordion-header span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Open button */
+
+.pkts-accordion .pkts-accordion-open-btn {
+  flex: 1;
+  outline: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--pkts-size-spacing-xsmall);
+  color: inherit;
+  font: inherit;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pkts-accordion .pkts-accordion-open-btn:focus {
+  text-decoration: underline;
+}
+
+.pkts-accordion .pkts-accordion-open-btn svg {
+  flex-shrink: 0;
+}
+
+/* Action icon buttons */
+
+.pkts-accordion .pkts-accordion-action-btns {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--pkts-size-spacing-xsmall);
+}
+
+/* Content */
+
+.pkts-accordion .pkts-accordion-content {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: var(--pkts-size-spacing-xsmall, 8px);
+  font: var(--pkts-typography-copy-1-sans-font);
+  background-color: var(--pkts-color-light-surface-1);
+}
+
+.dark .pkts-accordion .pkts-accordion-content {
+  background-color: var(--pkts-color-dark-surface-1);
+}
+
+.dark .pkts-accordion.pkts-inline .pkts-accordion-content {
+  background-color: transparent;
+}
+
+.pkts-accordion .pkts-accordion-content.pkts-hidden {
+  display: none;
+}
+
+/* Footer */
+
+.pkts-accordion .pkts-accordion-footer {
+  height: var(--pkts-size-spacing-xlarge, 40px);
+  padding: 0 var(--pkts-size-spacing-xsmall, 8px);
+  display: flex;
+  align-items: center;
+  font: var(--pkts-typography-copy-1-sans-font);
+  background-color: var(--pkts-color-core-slate-600);
+  color: var(--pkts-color-core-white-100);
+}
+
+.dark .pkts-accordion .pkts-accordion-footer {
+  background-color: var(--pkts-color-core-slate-700);
+  color: var(--pkts-color-core-white-100);
+}
+
+.pkts-accordion .pkts-accordion-footer span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

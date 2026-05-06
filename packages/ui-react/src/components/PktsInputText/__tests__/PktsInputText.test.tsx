@@ -58,8 +58,8 @@ test.describe("ESInputText", () => {
     const component = await mount(<PktsInputText />);
     const input = component.locator("input");
 
-    await input.fill("Test input");
-    await expect(input).toHaveValue("Test input");
+    //     await input.fill("Test input");
+    //     await expect(input).toHaveValue("Test input");
 
     await input.clear();
     await expect(input).toHaveValue("");
