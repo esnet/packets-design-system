@@ -30,7 +30,7 @@ import { Meta } from "@storybook/blocks";
 
 ```javascript
 // tailwind.config.js
-import tokens from '@esnet/esnet-tokens/tokens.json';
+import tokens from '@esnet/pkts-tokens/tokens.json';
 
 export default {
   theme: {
@@ -56,7 +56,7 @@ export default {
     Use design tokens directly in your custom components:
 
 ```typescript
-import tokens from '@esnet/esnet-tokens/tokens.json';
+import tokens from '@esnet/pkts-tokens/tokens.json';
 
 const CustomButton = styled.button`
   background-color: ${tokens.color.primary.base.value};

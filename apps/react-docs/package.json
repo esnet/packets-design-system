@@ -10,7 +10,7 @@
     "preview": "serve storybook-static"
   },
   "dependencies": {
-    "@esnet/esnet-tokens": "workspace:*",
+    "@esnet/pkts-tokens": "workspace:*",
     "@esnet/packets-ui-css": "workspace:*",
     "@esnet/packets-ui-react": "workspace:*",
     "@rive-app/react-canvas-lite": "^4.20.1",

@@ -4,50 +4,50 @@
   width: stretch;
   display: flex;
   flex-direction: column;
-  gap: var(--esnet-size-spacing-xxsmall, 0.25rem);
+  gap: var(--pkts-size-spacing-xxsmall, 0.25rem);
 }
 
 .pkts-label .pkts-label-text {
-  transition: color var(--esnet-time-duration-quick, 250ms) ease;
-  font: var(--esnet-typography-label-1-large-font, 400 16px/120% var(--esnet-font-family-body-sans));
+  transition: color var(--pkts-time-duration-quick, 250ms) ease;
+  font: var(--pkts-typography-label-1-large-font, 400 16px/120% var(--pkts-font-family-body-sans));
 }
 
 .dark .pkts-label .pkts-label-text {
-  color: var(--esnet-color-core-slate-200, #acb0bf);
+  color: var(--pkts-color-core-slate-200, #acb0bf);
 }
 
 .pkts-label .pkts-label-text:has(~ *:hover),
 .pkts-label .pkts-label-text:has(~ *:focus) {
-  color: var(--esnet-color-core-blue-700, #0075a2);
+  color: var(--pkts-color-core-blue-700, #0075a2);
 }
 
 .dark .pkts-label .pkts-label-text:has(~ *:hover),
 .dark .pkts-label .pkts-label-text:has(~ *:focus) {
-  color: var(--esnet-color-core-blue-300, #64d2ff);
+  color: var(--pkts-color-core-blue-300, #64d2ff);
 }
 
 .pkts-label .pkts-label-text.pkts-disabled {
-  color: var(--esnet-color-core-slate-200, #acb0bf);
+  color: var(--pkts-color-core-slate-200, #acb0bf);
 }
 
 .dark .pkts-label .pkts-label-text.pkts-disabled {
-  color: var(--esnet-color-core-black-100, #6e6e70);
+  color: var(--pkts-color-core-black-100, #6e6e70);
 }
 
 .pkts-label .pkts-label-required {
   margin-left: 2px;
-  color: var(--esnet-color-core-red-600, #d61200);
+  color: var(--pkts-color-core-red-600, #d61200);
 }
 
 .pkts-label .pkts-label-text.pkts-disabled .pkts-label-required {
-  color: var(--esnet-color-core-red-800, #8a0416);
+  color: var(--pkts-color-core-red-800, #8a0416);
 }
 
 .pkts-label .pkts-label-error {
-  color: var(--esnet-color-core-red-600, #a6611b);
-  font: var(--esnet-typography-label-1-large-font, 400 16px/120% var(--esnet-font-family-body-sans));
+  color: var(--pkts-color-core-red-600, #a6611b);
+  font: var(--pkts-typography-label-1-large-font, 400 16px/120% var(--pkts-font-family-body-sans));
 }
 
 .dark .pkts-label .pkts-label-error {
-  color: var(--esnet-color-core-red-400, #ff404e);
+  color: var(--pkts-color-core-red-400, #ff404e);
 }

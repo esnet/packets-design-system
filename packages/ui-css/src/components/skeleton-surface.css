@@ -9,23 +9,23 @@
 */
 
 .pkts-skeleton-surface {
-  --stroke-size: var(--esnet-size-border-width-medium, 3px);
-  --stroke-radius: var(--esnet-size-spacing-large, 2rem);
-  --height: var(--esnet-size-touchtarget-min, 2rem);
+  --stroke-size: var(--pkts-size-border-width-medium, 3px);
+  --stroke-radius: var(--pkts-size-spacing-large, 2rem);
+  --height: var(--pkts-size-touchtarget-min, 2rem);
 
   display: block;
   width: 100%;
-  min-width: var(--esnet-size-spacing-large);
+  min-width: var(--pkts-size-spacing-large);
   height: var(--height);
 
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-color: var(--esnet-color-core-white-500, #d9d9d9);
+  background-color: var(--pkts-color-core-white-500, #d9d9d9);
 }
 
 .dark .pkts-skeleton-surface {
-  background-color: var(--esnet-color-core-black-500, #4d4d4f);
+  background-color: var(--pkts-color-core-black-500, #4d4d4f);
 }
 
 /* Shimmer Overlay */
@@ -59,11 +59,11 @@
   top: var(--stroke-size);
   width: calc(100% - calc(var(--stroke-size) * 2));
   height: calc(100% - calc(var(--stroke-size) * 2));
-  background: var(--esnet-color-core-white-700, #c2c2c2);
+  background: var(--pkts-color-core-white-700, #c2c2c2);
 }
 
 .dark .pkts-skeleton-surface::after {
-  background-color: var(--esnet-color-core-black-900, #19191a) !important;
+  background-color: var(--pkts-color-core-black-900, #19191a) !important;
 }
 
 /* Rounded variant */

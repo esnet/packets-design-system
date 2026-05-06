@@ -1,6 +1,6 @@
 .packets-grid {
-  --grid-gap: var(--esnet-size-spacing-xsmall, 8px);
-  --bottom-margin: var(--esnet-size-spacing-xsmall, 8px);
+  --grid-gap: var(--pkts-size-spacing-xsmall, 8px);
+  --bottom-margin: var(--pkts-size-spacing-xsmall, 8px);
 
   display: grid;
   grid-gap: var(--grid-gap);

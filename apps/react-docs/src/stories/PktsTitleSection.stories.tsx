@@ -33,7 +33,7 @@ export const WithIcons: Story = {
   args: {
     title: (
       <>
-        ESNet <ZapIcon size={24} />
+        Accelerating Science <ZapIcon size={24} />
       </>
     ),
     subtitle: (

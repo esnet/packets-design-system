@@ -3,7 +3,11 @@ import clsx from "clsx";
 import { PktsLabelProps } from "./PktsLabel.types";
 
 /**
- * ESLabel Component
+ * PktsLabel Component
+ *
+ * For a simple label and error text to wrap around a PktsInput* component.
+ *
+ * For more advanced options configurations, look at PktsInputRow, where you can customize the label positioning, add tooltip, and have a success message.
  *
  * @param {PktsLabelProps} props
  * @returns {React.ReactElement}
@@ -31,7 +35,9 @@ const PktsLabel: React.FC<PktsLabelProps> = ({
         {required && <span className="pkts-label-required">*</span>}
       </span>
       {children}
-      {error && errorText && <span className="pkts-label-error">{errorText}</span>}
+      {error && errorText && (
+        <span className="pkts-label-error">{errorText}</span>
+      )}
     </label>
   );
 };

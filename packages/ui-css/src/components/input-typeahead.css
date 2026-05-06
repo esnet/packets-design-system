@@ -10,52 +10,52 @@
   anchor-name: --input-typeahead;
 
   /* Styling */
-  background-color: var(--esnet-color-core-white-100, #ffffff);
-  color: var(--esnet-color-light-copy, #3d3d3d);
+  background-color: var(--pkts-color-core-white-100, #ffffff);
+  color: var(--pkts-color-light-copy, #3d3d3d);
   border-style: solid;
-  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
-  border-color: var(--esnet-color-core-slate-900, #3f424d);
+  border-width: var(--pkts-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--pkts-color-core-slate-900, #3f424d);
 
   /* Typography */
-  font: var(--esnet-typography-copy-1-sans-font, 400 16px/120% var(--esnet-font-family-body-sans));
+  font: var(--pkts-typography-copy-1-sans-font, 400 16px/120% var(--pkts-font-family-body-sans));
 
   transition:
-    border-color var(--esnet-time-duration-quick, 250ms) ease,
-    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+    border-color var(--pkts-time-duration-quick, 250ms) ease,
+    box-shadow var(--pkts-time-duration-quick, 250ms) ease;
 }
 
 .dark .pkts-input-typeahead {
-  background-color: var(--esnet-color-dark-surface-1, #19191a);
-  color: var(--esnet-color-dark-copy, #ffffff);
-  border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+  background-color: var(--pkts-color-dark-surface-1, #19191a);
+  color: var(--pkts-color-dark-copy, #ffffff);
+  border-color: var(--pkts-color-core-slate-100, #c3c7d9);
 }
 
 .pkts-input-typeahead.pkts-error {
-  border-color: var(--esnet-color-core-red-700, #a6111b);
-  border-width: var(--esnet-size-border-width-small, 0.125rem);
-  box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb, var(--esnet-color-light-error, #a6111b) 26%, transparent);
+  border-color: var(--pkts-color-core-red-700, #a6111b);
+  border-width: var(--pkts-size-border-width-small, 0.125rem);
+  box-shadow: 0 0 0 var(--pkts-size-border-width-small) color-mix(in srgb, var(--pkts-color-light-error, #a6111b) 26%, transparent);
 }
 
 .pkts-input-typeahead:hover:not(.pkts-disabled),
 .pkts-input-typeahead:focus-within:not(.pkts-disabled),
 .pkts-input-typeahead:has(*:active):not(.pkts-disabled) {
-  border-color: var(--esnet-color-core-slate-1000, #30333b);
-  box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-blue-400, #00b6f2);
+  border-color: var(--pkts-color-core-slate-1000, #30333b);
+  box-shadow: 0 0 0 var(--pkts-size-border-width-small, 0.125rem) var(--pkts-color-core-blue-400, #00b6f2);
 }
 
 .pkts-input-typeahead.pkts-disabled {
-  border-color: var(--esnet-color-core-slate-300, #9699a8);
-  color: var(--esnet-color-core-slate-300, #9699a8);
+  border-color: var(--pkts-color-core-slate-300, #9699a8);
+  color: var(--pkts-color-core-slate-300, #9699a8);
   cursor: default;
 }
 
 .dark .pkts-input-typeahead.pkts-disabled {
-  border-color: var(--esnet-color-core-slate-500, #787b87);
-  color: var(--esnet-color-core-slate-500, #787b87);
+  border-color: var(--pkts-color-core-slate-500, #787b87);
+  color: var(--pkts-color-core-slate-500, #787b87);
 }
 
 .pkts-input-typeahead.pkts-branded {
-  border-radius: var(--esnet-size-radius-xxlarge, 1.125rem);
+  border-radius: var(--pkts-size-radius-xxlarge, 1.125rem);
 }
 
 /* Input box */
@@ -76,15 +76,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--esnet-size-spacing-xxsmall, 4px);
+  gap: var(--pkts-size-spacing-xxsmall, 4px);
 }
 
 /* Selected options wrapper */
 
 .pkts-input-typeahead .pkts-input-typeahead-selected-wrapper {
   display: flex !important;
-  gap: var(--esnet-size-spacing-xsmall, 0.125rem);
-  padding: var(--esnet-size-spacing-xsmall, 8px) var(--esnet-size-spacing-xsmall, 8px) 0;
+  gap: var(--pkts-size-spacing-xsmall, 0.125rem);
+  padding: var(--pkts-size-spacing-xsmall, 8px) var(--pkts-size-spacing-xsmall, 8px) 0;
 }
 
 /* Search input */
@@ -94,55 +94,55 @@
   font: inherit;
   color: inherit;
   width: 100%;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
   box-sizing: border-box;
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-search.pkts-no-options {
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-search::placeholder {
-  color: var(--esnet-color-light-copy-alt, #6e6e70);
+  color: var(--pkts-color-light-copy-alt, #6e6e70);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-search::placeholder {
-  color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+  color: var(--pkts-color-dark-copy-alt, #c2c2c2);
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-search:disabled {
-  color: var(--esnet-color-core-white-900, #a8a8a8);
+  color: var(--pkts-color-core-white-900, #a8a8a8);
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-search:disabled::placeholder {
-  color: var(--esnet-color-core-white-900, #a8a8a8);
+  color: var(--pkts-color-core-white-900, #a8a8a8);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-search:disabled {
-  color: var(--esnet-color-core-white-900, #a8a8a8);
+  color: var(--pkts-color-core-white-900, #a8a8a8);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-search:disabled::placeholder {
-  color: var(--esnet-color-core-white-900, #a8a8a8);
+  color: var(--pkts-color-core-white-900, #a8a8a8);
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-search.pkts-branded {
-  padding-top: var(--esnet-size-spacing-xsmall, 8px);
-  padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
-  padding-left: var(--esnet-size-spacing-medium, 16px);
+  padding-top: var(--pkts-size-spacing-xsmall, 8px);
+  padding-bottom: var(--pkts-size-spacing-xsmall, 8px);
+  padding-left: var(--pkts-size-spacing-medium, 16px);
 }
 
 /* Dropdown icon */
 
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-icon {
   cursor: pointer;
-  margin-right: var(--esnet-size-spacing-xsmall, 0.5rem);
+  margin-right: var(--pkts-size-spacing-xsmall, 0.5rem);
   width: 20px;
   height: 20px;
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-icon.pkts-branded {
-  margin-right: var(--esnet-size-spacing-medium, 16px);
+  margin-right: var(--pkts-size-spacing-medium, 16px);
 }
 
 .pkts-input-typeahead.pkts-disabled .pkts-input-typeahead-dropdown-icon {
@@ -159,22 +159,22 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-top: var(--esnet-size-spacing-xsmall, 8px);
+  padding-top: var(--pkts-size-spacing-xsmall, 8px);
   height: fit-content;
   z-index: 100;
 
-  background: var(--esnet-color-light-surface-2);
-  box-shadow: var(--esnet-box-shadow-core-medium);
+  background: var(--pkts-color-light-surface-2);
+  box-shadow: var(--pkts-box-shadow-core-medium);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-dropdown {
-  background: var(--esnet-color-dark-surface-2);
+  background: var(--pkts-color-dark-surface-2);
 }
 
 /* Result info */
 
 .pkts-input-typeahead .pkts-input-typeahead-result-info {
-  padding: var(--esnet-size-spacing-xxsmall, 4px) var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xxsmall, 4px) var(--pkts-size-spacing-xsmall, 8px);
   font-size: 0.8rem;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -188,20 +188,20 @@
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-options {
   max-height: 200px;
   overflow-x: hidden;
-  padding-bottom: var(--esnet-size-spacing-xsmall, 8px);
+  padding-bottom: var(--pkts-size-spacing-xsmall, 8px);
 }
 
 /* Dropdown option */
 
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-option {
   display: flex;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
-  padding-right: var(--esnet-size-spacing-xxsmall, 4px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
+  padding-right: var(--pkts-size-spacing-xxsmall, 4px);
   width: 100%;
 
   outline: none;
   align-items: center;
-  gap: var(--esnet-size-spacing-xsmall, 8px);
+  gap: var(--pkts-size-spacing-xsmall, 8px);
   text-overflow: ellipsis;
   word-break: break-all;
   overflow: hidden;
@@ -216,12 +216,12 @@
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-option:hover,
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-option:focus {
   cursor: pointer;
-  background-color: var(--esnet-color-light-surface-1, #cccccc);
+  background-color: var(--pkts-color-light-surface-1, #cccccc);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-dropdown-option:hover,
 .dark .pkts-input-typeahead .pkts-input-typeahead-dropdown-option:focus {
-  background-color: var(--esnet-color-dark-surface-1, #252526);
+  background-color: var(--pkts-color-dark-surface-1, #252526);
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-option > svg {
@@ -239,9 +239,9 @@
 }
 
 .pkts-input-typeahead .pkts-input-typeahead-dropdown-option .pkts-checked {
-  color: var(--esnet-color-light-primary, #0088b5);
+  color: var(--pkts-color-light-primary, #0088b5);
 }
 
 .dark .pkts-input-typeahead .pkts-input-typeahead-dropdown-option .pkts-checked {
-  color: var(--esnet-color-dark-secondary, #004573);
+  color: var(--pkts-color-dark-secondary, #004573);
 }

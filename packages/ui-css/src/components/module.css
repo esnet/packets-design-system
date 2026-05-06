@@ -1,20 +1,20 @@
 .pkts-module {
-  padding: 0 var(--esnet-size-spacing-medium, 16px);
+  padding: 0 var(--pkts-size-spacing-medium, 16px);
 }
 
   @media (min-width: 640px) {.pkts-module {
-    padding: 0 var(--esnet-size-spacing-xlarge, 40px)
+    padding: 0 var(--pkts-size-spacing-xlarge, 40px)
 }
   }
 
   .pkts-module.surface {
-    border-radius: var(--esnet-size-spacing-xsmall);
-    padding: var(--esnet-size-spacing-medium, 16px);
+    border-radius: var(--pkts-size-spacing-xsmall);
+    padding: var(--pkts-size-spacing-medium, 16px);
   }
 
   @media (min-width: 640px) {
 
   .pkts-module.surface {
-      padding: var(--esnet-size-spacing-xlarge, 40px)
+      padding: var(--pkts-size-spacing-xlarge, 40px)
   }
     }

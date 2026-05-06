@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-export const getESSpacerSizesCSS = (size: string) => {
-  return `var(--esnet-size-spacing-${size})`;
+export const getPktsSpacerSizesCSS = (size: string) => {
+  return `var(--pkts-size-spacing-${size})`;
 };
 
 export type PktsSpacerProps = {
