@@ -1,8 +1,8 @@
-## ESNet UI Design Tokens
+## Packets UI Design Tokens
 
 #### Exports
 
-ESNet's code repository of tokens, available in the following formats:
+Packets' code repository of tokens, available in the following formats:
 
 - JavaScript constants, including ESM, CJS, and UMD definitions, along with TypeScript declarations
 - Tailwind configuration object (soon to support Tailwind v4 configuration)
@@ -11,11 +11,11 @@ ESNet's code repository of tokens, available in the following formats:
 
 The default export is the JavaScript constants with the TypeScript type declaration.
 
-If you wish to consume any other files, you can conveniently import them as such: `import "@esnet/design-tokens/filename"`, as defined in the package.json's `exports` field.
+If you wish to consume any other files, you can conveniently import them as such: `import "@esnet/pkts-tokens/filename"`, as defined in the package.json's `exports` field.
 
 ##### Caveats
 
-When importing token files in CSS using PostCSS (or likely any CSS compiler), it struggles to resolve the path names exported by package.json's `exports` field. Import them like this instead: `@import "@esnet/esnet-tokens/dist/esnet-tokens.css";`.
+When importing token files in CSS using PostCSS (or likely any CSS compiler), it struggles to resolve the path names exported by package.json's `exports` field. Import them like this instead: `@import "@esnet/pkts-tokens/dist/pkts-tokens.css";`.
 
 #### Build process
 

@@ -3,13 +3,13 @@
 
   .label {
     display: block;
-    font: var(--esnet-typography-label);
+    font: var(--pkts-typography-label);
     color: black;
     font-weight: 700;
   }
 
   .value {
-    font: var(--esnet-typography-copy);
+    font: var(--pkts-typography-copy);
     color: black;
   }
 }

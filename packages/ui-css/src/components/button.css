@@ -10,27 +10,27 @@
 
 .pkts-button,
 a.pkts-button {
-  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
+  --spacing-horizontal-layout-gap: var(--pkts-size-spacing-xxsmall, 4px);
 
-  --spacing-height-medium: 40px;
-  --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
+  --spacing-height-medium: var(--pkts-size-spacing-xlarge, 2.5rem);
+  --spacing-height-xxlarge: var(--pkts-size-spacing-xxlarge, 64px);
 
-  --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
-  --spacing-padding-vertical: var(--esnet-size-spacing-xxsmall, 4px);
+  --spacing-padding-horizontal: var(--pkts-size-spacing-large, 32px);
+  --spacing-padding-vertical: var(--pkts-size-spacing-xxsmall, 4px);
 
-  --spacing-border-radius: var(--esnet-size-radius-xxlarge, 18px);
-  --spacing-border-width: var(--esnet-size-radius-small, 2px);
+  --spacing-border-radius: var(--pkts-size-radius-xxlarge, 18px);
+  --spacing-border-width: var(--pkts-size-border-width-small, 0.125rem);
 
   --typography-font: var(
-    --esnet-typography-button-1-sans-font,
-    700 16px/120% var(--esnet-font-family-body-sans)
+    --pkts-typography-button-1-sans-font,
+    700 16px/120% var(--pkts-font-family-body-sans)
   );
 
   /* Layout */
   display: inline-flex;
   width: auto;
-  padding: var(--esnet-size-border-width-medium, 4px)
-    var(--esnet-size-spacing-medium, 16px);
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
   box-sizing: border-box;
 
   justify-content: center;
@@ -41,11 +41,11 @@ a.pkts-button {
   /* Styling */
   border-radius: var(--spacing-border-radius);
   border: var(--spacing-border-width) solid
-    var(--esnet-color-core-blue-900, #004573);
-  box-shadow: var(var(--esnet-box-shadow-core-light));
+    var(--pkts-color-core-blue-900, #004573);
+  box-shadow: var(--pkts-box-shadow-core-light);
 
   /* Typography */
-  color: var(--esnet-color-core-slate-900, #3f424d);
+  color: var(--pkts-color-core-slate-900, #3f424d);
   text-align: center;
 
   font: var(--typography-font);
@@ -54,9 +54,9 @@ a.pkts-button {
   text-decoration: none;
 
   transition:
-    background ease-in-out var(--esnet-time-duration-quick, 250ms),
-    border-color ease-in-out var(--esnet-time-duration-quick, 250ms),
-    box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
+    background ease-in-out var(--pkts-time-duration-quick, 250ms),
+    border-color ease-in-out var(--pkts-time-duration-quick, 250ms),
+    box-shadow ease-in-out var(--pkts-time-duration-quick, 250ms);
 }
 
 /* Pseudo-events */
@@ -64,10 +64,10 @@ a.pkts-button {
 .pkts-button:hover,
 a.pkts-button:hover {
   cursor: pointer;
-  box-shadow: var(--esnet-box-shadow-core-medium);
+  box-shadow: var(--pkts-box-shadow-core-medium);
 
-  padding: var(--esnet-size-border-width-medium, 4px)
-    var(--esnet-size-spacing-medium, 16px);
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
 }
 
 .pkts-button:disabled,

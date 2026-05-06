@@ -4,39 +4,39 @@
   flex-direction: column;
   justify-content: space-between;
   width: auto;
-  padding: var(--esnet-size-spacing-xsmall, 8px);
+  padding: var(--pkts-size-spacing-xsmall, 8px);
   overflow: auto;
-  min-height: var(--esnet-size-spacing-xxxlarge, 5.5rem);
-  min-width: var(--esnet-size-spacing-xxxlarge, 5.5rem);
+  min-height: var(--pkts-size-spacing-xxxlarge, 5.5rem);
+  min-width: var(--pkts-size-spacing-xxxlarge, 5.5rem);
 
   /* Styling */
   box-sizing: border-box;
-  background-color: var(--esnet-color-core-white-100, #ffffff);
-  color: var(--esnet-color-light-copy, #3d3d3d);
+  background-color: var(--pkts-color-core-white-100, #ffffff);
+  color: var(--pkts-color-light-copy, #3d3d3d);
   border-style: solid;
-  border-width: var(--esnet-size-border-width-xsmall, 0.0625rem);
-  border-color: var(--esnet-color-core-slate-900, #3f424d);
+  border-width: var(--pkts-size-border-width-xsmall, 0.0625rem);
+  border-color: var(--pkts-color-core-slate-900, #3f424d);
 
-  transition: border-color var(--esnet-time-duration-quick, 250ms) ease,
-    box-shadow var(--esnet-time-duration-quick, 250ms) ease;
+  transition: border-color var(--pkts-time-duration-quick, 250ms) ease,
+    box-shadow var(--pkts-time-duration-quick, 250ms) ease;
 }
 
   .dark .pkts-input-text-area {
-    background-color: var(--esnet-color-dark-surface-1, #19191a);
-    color: var(--esnet-color-dark-copy, #ffffff);
-    border-color: var(--esnet-color-core-slate-100, #c3c7d9);
+    background-color: var(--pkts-color-dark-surface-1, #19191a);
+    color: var(--pkts-color-dark-copy, #ffffff);
+    border-color: var(--pkts-color-core-slate-100, #c3c7d9);
   }
 
   .dark textarea,
   .packets.dark textarea,
   .dark .packets textarea {
-    background-color: var(--esnet-color-dark-surface-1, #19191a);
-    color: var(--esnet-color-dark-copy, #ffffff);
+    background-color: var(--pkts-color-dark-surface-1, #19191a);
+    color: var(--pkts-color-dark-copy, #ffffff);
   }
 
   .pkts-input-text-area {
-  font: var(--esnet-typography-copy-1-sans-font,
-    400 16px/120% var(--esnet-font-family-body-sans));
+  font: var(--pkts-typography-copy-1-sans-font,
+    400 16px/120% var(--pkts-font-family-body-sans));
 }
 
   /* Typography */
@@ -47,35 +47,35 @@
 
   .pkts-input-text-area.pkts-error,
   .pkts-input-text-area:invalid {
-    border-color: var(--esnet-color-core-red-700, #a6111b);
-    border-width: var(--esnet-size-border-width-small, 0.125rem);
-    box-shadow: 0 0 0 var(--esnet-size-border-width-small) color-mix(in srgb, var(--esnet-color-light-error, #a6111b) 26%, transparent);
+    border-color: var(--pkts-color-core-red-700, #a6111b);
+    border-width: var(--pkts-size-border-width-small, 0.125rem);
+    box-shadow: 0 0 0 var(--pkts-size-border-width-small) color-mix(in srgb, var(--pkts-color-light-error, #a6111b) 26%, transparent);
   }
 
   .pkts-input-text-area:hover:not(.disabled),
   .pkts-input-text-area:focus-within:not(.disabled),
   .pkts-input-text-area:has(*:active):not(.disabled) {
     /* border color on focus takes precedence over error border color */
-    border-color: var(--esnet-color-core-slate-1000, #30333b);
-    box-shadow: 0 0 0 var(--esnet-size-border-width-small, 0.125rem) var(--esnet-color-core-blue-400, #00b6f2);
+    border-color: var(--pkts-color-core-slate-1000, #30333b);
+    box-shadow: 0 0 0 var(--pkts-size-border-width-small, 0.125rem) var(--pkts-color-core-blue-400, #00b6f2);
   }
 
   /* based on a pseudo event of input tag (disabled), thus included here */
 
   .pkts-input-text-area.pkts-disabled,
   .pkts-input-text-area:disabled {
-    border-color: var(--esnet-color-core-slate-300, #9699a8);
+    border-color: var(--pkts-color-core-slate-300, #9699a8);
   }
 
   .dark .pkts-input-text-area.pkts-disabled,
   .dark .pkts-input-text-area:disabled {
-    border-color: var(--esnet-color-core-slate-500, #787b87);
+    border-color: var(--pkts-color-core-slate-500, #787b87);
   }
 
   /* Variants */
 
   .pkts-input-text-area.pkts-branded {
-    border-radius: var(--esnet-size-radius-xlarge, 6px);
+    border-radius: var(--pkts-size-radius-xlarge, 6px);
   }
 
   /* Modifiers */
@@ -108,7 +108,7 @@
 /* Pseudo-elements */
 
 .pkts-input-text-area textarea::-webkit-resizer {
-    padding: var(--esnet-size-spacing-xxsmall, 4px);
+    padding: var(--pkts-size-spacing-xxsmall, 4px);
     background-color: transparent;
     background-image: none;
   }
@@ -118,35 +118,35 @@
   }
 
 .pkts-input-text-area textarea::placeholder {
-    color: var(--esnet-color-light-copy-alt, #6e6e70);
+    color: var(--pkts-color-light-copy-alt, #6e6e70);
   }
 
 .dark .pkts-input-text-area textarea::placeholder {
-    color: var(--esnet-color-dark-copy-alt, #c2c2c2);
+    color: var(--pkts-color-dark-copy-alt, #c2c2c2);
   }
 
 /* Pseudo-events */
 
 .pkts-input-text-area textarea:disabled {
-    color: var(--esnet-color-core-white-900, #a8a8a8);
+    color: var(--pkts-color-core-white-900, #a8a8a8);
   }
 
 .pkts-input-text-area textarea:disabled::placeholder {
-      color: var(--esnet-color-core-white-900, #a8a8a8);
+      color: var(--pkts-color-core-white-900, #a8a8a8);
     }
 
 .dark .pkts-input-text-area textarea:disabled {
-    color: var(--esnet-color-core-white-900, #a8a8a8);
+    color: var(--pkts-color-core-white-900, #a8a8a8);
   }
 
 .dark .pkts-input-text-area textarea:disabled::placeholder {
-      color: var(--esnet-color-core-white-900, #a8a8a8);
+      color: var(--pkts-color-core-white-900, #a8a8a8);
     }
 
 .pkts-input-text-area svg {
   align-self: flex-end;
   color: inherit;
   transform: scaleX(-1);
-  width: var(--esnet-size-spacing-medium, 8px);
-  height: var(--esnet-size-spacing-medium, 8px);
+  width: var(--pkts-size-spacing-medium, 8px);
+  height: var(--pkts-size-spacing-medium, 8px);
 }

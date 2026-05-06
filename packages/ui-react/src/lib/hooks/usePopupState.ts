@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, RefObject, useState, useRef, useCallback } from "react";
-import { ESNET_TIME_DURATION_MEDIUM } from "@esnet/esnet-tokens";
+import { PKTS_TIME_DURATION_MEDIUM } from "@esnet/pkts-tokens";
 
 // 0 represents not opened, 1 represents opened due to hover/focus, 2 represents open due to click, which supercedes hovering
 type OpenType = 0 | 1 | 2;
 
 // the amount of time the popup stays open for after hovering
-const persistDuration = parseInt(ESNET_TIME_DURATION_MEDIUM);
+const persistDuration = parseInt(PKTS_TIME_DURATION_MEDIUM);
 
 /**
  * Custom React hook that adds accessibility handling and open/close behavior to components with an anchor and popup.

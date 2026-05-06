@@ -10,16 +10,16 @@
 */
 
 .pkts-icon-button {
-  --spacing-horizontal-layout-gap: var(--esnet-size-spacing-xxsmall, 4px);
+  --spacing-horizontal-layout-gap: var(--pkts-size-spacing-xxsmall, 4px);
 
-  --spacing-height-medium: 40px;
-  --spacing-height-xxlarge: var(--esnet-size-spacing-xxlarge, 64px);
+  --spacing-height-medium: var(--pkts-size-spacing-xlarge, 2.5rem);
+  --spacing-height-xxlarge: var(--pkts-size-spacing-xxlarge, 64px);
 
-  --spacing-padding-horizontal: var(--esnet-size-spacing-large, 32px);
-  --spacing-padding-vertical: var(--esnet-size-spacing-xxsmall, 4px);
+  --spacing-padding-horizontal: var(--pkts-size-spacing-large, 32px);
+  --spacing-padding-vertical: var(--pkts-size-spacing-xxsmall, 4px);
 
-  --spacing-border-radius: var(--esnet-size-radius-xxlarge, 18px);
-  --spacing-border-width: var(--esnet-size-radius-small, 2px);
+  --spacing-border-radius: var(--pkts-size-radius-xxlarge, 18px);
+  --spacing-border-width: var(--pkts-size-border-width-small, 0.125rem);
 
   /* Layout */
   display: inline-flex;
@@ -31,27 +31,27 @@
   align-items: center;
   gap: var(--spacing-horizontal-layout-gap);
 
-  padding: var(--esnet-size-border-width-medium, 4px)
-    var(--esnet-size-spacing-medium, 16px);
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
 
   /* Styling */
   border-radius: var(--spacing-border-radius);
   border: var(--spacing-border-width) solid
-    var(--esnet-color-core-blue-900, #004573);
-  box-shadow: var(var(--esnet-box-shadow-core-light));
-  color: var(--esnet-color-core-slate-900, #3f424d);
+    var(--pkts-color-core-blue-900, #004573);
+  box-shadow: var(--pkts-box-shadow-core-light);
+  color: var(--pkts-color-core-slate-900, #3f424d);
 
   transition:
-    background ease-in-out var(--esnet-time-duration-quick, 250ms),
-    border-color ease-in-out var(--esnet-time-duration-quick, 250ms),
-    box-shadow ease-in-out var(--esnet-time-duration-quick, 250ms);
+    background ease-in-out var(--pkts-time-duration-quick, 250ms),
+    border-color ease-in-out var(--pkts-time-duration-quick, 250ms),
+    box-shadow ease-in-out var(--pkts-time-duration-quick, 250ms);
 }
 
 /* Pseudo-events */
 
 .pkts-icon-button:hover {
   cursor: pointer;
-  box-shadow: var(--esnet-box-shadow-core-light);
+  box-shadow: var(--pkts-box-shadow-core-light);
 }
 
 .pkts-icon-button:disabled {
@@ -60,7 +60,7 @@
 
 /* Square variant — equal width and height, no horizontal padding, circular border-radius */
 .pkts-icon-button.pkts-square {
-  border-radius: var(--esnet-size-radius-circle, 999px);
+  border-radius: var(--pkts-size-radius-circle, 999px);
   width: var(--spacing-height-medium);
   padding: 0;
 }

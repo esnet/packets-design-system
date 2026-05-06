@@ -28,7 +28,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@esnet/esnet-tokens": "workspace:^",
+    "@esnet/pkts-tokens": "workspace:^",
     "@playwright/experimental-ct-react": "^1.57.0",
     "@playwright/test": "^1.57.0",
     "@repo/eslint-config": "workspace:^",

@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import * as tokens from "@esnet/pkts-tokens/tokens.json";
 import { BorderDocBlock, RadiusDocBlock } from "doc-ui";
 
 <Meta title="Design Tokens/Radiuses and Borders" />
@@ -17,7 +17,7 @@ They can also be used to create circles with a 1/1 aspect ratio.
 
 {
     Object.keys(tokens.size.radius).map(raidusTokenKey => {
-        return(<RadiusDocBlock name={`--esnet-size-radius-${raidusTokenKey}`} value={tokens.size.radius[raidusTokenKey].value || 0} />)
+        return(<RadiusDocBlock name={`--pkts-size-radius-${raidusTokenKey}`} value={tokens.size.radius[raidusTokenKey].value || 0} />)
     })
 }
 
@@ -29,6 +29,6 @@ Borders are the layer just inside the margin layer in the box model.
 
 {
     Object.keys(tokens.size["border-width"]).map(borderTokenKey => {
-        return(<BorderDocBlock name={`--esnet-size-border-width-${borderTokenKey}`} value={tokens.size["border-width"][borderTokenKey].value || 0} />)
+        return(<BorderDocBlock name={`--pkts-size-border-width-${borderTokenKey}`} value={tokens.size["border-width"][borderTokenKey].value || 0} />)
     })
 }

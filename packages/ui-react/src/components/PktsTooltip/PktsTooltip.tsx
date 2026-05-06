@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./PktsTooltip.module.css";
 import { PktsTooltipProps } from "./PktsTooltip.types";
 import PktsDropdown from "../PktsDropdown";
 import { X } from "lucide-react";
@@ -25,20 +24,20 @@ export function PktsTooltip({
   return (
     <PktsDropdown
       anchor={
-        <div className={styles.anchor} aria-describedby={ariaId}>
+        <div className="pkts-tooltip-anchor" aria-describedby={ariaId}>
           {anchor}
         </div>
       }
       caret
-      className={styles.PktsTooltip}
+      className="pkts-tooltip"
       mode="hover"
     >
-      <div className={styles.tooltip} role="tooltip" id={ariaId}>
-        <div className={styles.top}>
-          {title && <span className={styles.title}>{title}</span>}
-          {onClickX && <X onClick={onClickX} className={styles.x} />}
+      <div className="pkts-tooltip-popup" role="tooltip" id={ariaId}>
+        <div className="pkts-tooltip-top">
+          {title && <span className="pkts-tooltip-title">{title}</span>}
+          {onClickX && <X onClick={onClickX} className="pkts-tooltip-close" />}
         </div>
-        <div aria-describedby={id + "-tooltip"} className={styles.text}>
+        <div aria-describedby={id + "-tooltip"} className="pkts-tooltip-text">
           {children}
         </div>
       </div>

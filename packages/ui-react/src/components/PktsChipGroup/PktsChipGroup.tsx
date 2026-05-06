@@ -1,6 +1,5 @@
 import * as React from "react";
 import clsx from "clsx";
-import styles from "./PktsChipGroup.module.css";
 import { PktsChipGroupProps } from "./PktsChipGroup.types";
 import PktsChip from "../PktsChip/PktsChip";
 
@@ -20,7 +19,7 @@ export function PktsChipGroup({ className, children }: PktsChipGroupProps) {
     );
   }, [children]);
   return (
-    <div className={clsx(styles.PktsChipGroup, className)}>{chipChildren}</div>
+    <div className={clsx("pkts-chip-group", className)}>{chipChildren}</div>
   );
 }
 
