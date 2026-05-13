@@ -8,7 +8,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=react-docs^... && changeset publish",
     "clean": "turbo run clean && rm -rf node_modules",
     "test": "turbo run test",
     "test:updatesnaps": "turbo run test:updatesnaps",

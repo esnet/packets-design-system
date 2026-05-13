@@ -1,41 +1,114 @@
 # Packets Release Process
 
-This document outlines the processes to reelease a new build of the npm package to our private Gitlab npm instance.
+This document outlines the process to release a new build of the npm packages to the public npm registry (npmjs.com).
 
 ## Package Registry
 
-The Gitlab Package Registry can be found [here](https://gitlab.es.net/esnet/packets-design-system/-/packages). It contains npm files for both `@esnet/packets-ui` and `@esnet/esnet-tokens`. If you need to debug artifacts, you can click in on a published version and see downloaded published artifacts.
+Packages are published publicly to [npmjs.com](https://www.npmjs.com/) under the `@esnet` scope:
+
+- `@esnet/packets-ui-react`
+- `@esnet/packets-ui-web`
+- `@esnet/packets-ui-css`
+- `@esnet/esnet-tokens`
+
+## Branch Strategy
+
+### Long-lived branches
+
+- `main` — production; reflects what is currently published to npm
+- `develop` — integration branch; all feature and fix branches merge here first
+
+### Short-lived branches
+
+- `feat/ESDS-<ticket>-<short-name>` — one branch per feature or component (e.g. `feat/ESDS-134-tabs`)
+- `fix/ESDS-<ticket>-<short-name>` — bug fixes
+- `release/<version>` — cut from `develop` when ready to ship (e.g. `release/@esnet-packets-ui-1.0.0`); triggers CI/CD publish
+
+### Flow
+
+```
+feat/* or fix/*  →  develop  →  release/<version>  →  main
+```
+
+### Changeset discipline
+
+Every feature or fix branch must include a changeset file before merging into `develop`. Run `pnpm changeset` on your branch and commit the generated `.md` file in `.changeset/`. This ensures `pnpm run version-packages` has everything it needs when the release branch is cut and avoids backfilling changesets at release time.
 
 ## Changesets
 
-Packets uses [changesets](https://github.com/changesets/changesets) to manage its version history. All MRs should have an associated changeset `.md` file with them describing what the change is and the verbosity of the changese (major/minor/patch).
+Packets uses [changesets](https://github.com/changesets/changesets) to manage its version history. All PRs should have an associated changeset `.md` file describing what changed and the bump type (major/minor/patch).
 
-## Publishing Process
+To create a changeset:
 
-1. Locally create a release branch (Example: `release/@esnet-packets-ui-1.0.0`)
+```bash
+pnpm changeset
+```
 
-This branch name can be anything but it needs to start with `release/`
+## Stable Release Process
 
-2. Ensure there are tracked changes in the `.changeset` directory.
-3. Run `pnpm run version-packages`. To update all app/packages version numbers automatically
+1. Cut a release branch from `develop`:
+   ```bash
+   git checkout develop && git pull
+   git checkout -b release/1.2.0
+   ```
+2. Ensure there are changeset files in the `.changeset` directory (one per merged feature/fix branch).
+3. Run `pnpm run version-packages` to bump all package versions and update `CHANGELOG.md`. The `.md` files in `.changeset` will be removed automatically.
+4. Commit the version bump and push to GitHub:
+   ```bash
+   git add . && git commit -m "chore: release 1.2.0"
+   git push origin release/1.2.0
+   ```
+5. GitHub Actions triggers the `release` workflow and runs `pnpm run publish-packages`, publishing under the `latest` dist-tag on npmjs.com.
+6. Verify the packages are available at [https://www.npmjs.com/org/esnet](https://www.npmjs.com/org/esnet).
+7. Merge the release branch into `main`.
 
-At this point the .md files in `.changeset` should be gone and your `package.json` and `CHANGELOG.md` updated.
+## Beta Release Process
 
-4. Push to gitlab
-5. Gitlab CI/CD should run `npm run publish-packages`
-6. Verify new packages are available at [https://gitlab.es.net/esnet/packets-design-system/-/packages](https://gitlab.es.net/esnet/packets-design-system/-/packages)
-7. Merge release branch into `main` if release is successful.
+Use changesets' built-in prerelease mode — no additional long-lived branches needed.
 
-### Commmon Issues
+1. Cut a release branch from `develop`:
+   ```bash
+   git checkout develop && git pull
+   git checkout -b release/1.2.0-beta.0
+   ```
+2. Enter prerelease mode:
+   ```bash
+   pnpm changeset pre enter beta
+   ```
+   This creates a `.changeset/pre.json` file — commit it.
+3. Run `pnpm run version-packages`. Versions will be bumped as `1.2.0-beta.0`, `1.2.0-beta.1`, etc.
+4. Commit and push:
+   ```bash
+   git add . && git commit -m "chore: release 1.2.0-beta.0"
+   git push origin release/1.2.0-beta.0
+   ```
+5. GitHub Actions publishes under the `beta` dist-tag. Consumers opt in explicitly:
+   ```bash
+   npm install @esnet/packets-ui-react@beta
+   ```
+6. For subsequent beta iterations, stay on the same branch, keep adding changesets, and repeat steps 3-5. The version will increment (`beta.1`, `beta.2`, etc.).
 
-- The pipeline isn't building
+### Graduating a beta to stable
 
-Run `pnpm run test` and `pnpm run lint` and verify fixes
+When the beta is ready for a stable release:
 
-- It complains about not being able to publish 1 or more packages
+1. Exit prerelease mode:
+   ```bash
+   pnpm changeset pre exit
+   ```
+2. Run `pnpm run version-packages` — this produces the final stable version (e.g. `1.2.0`).
+3. Follow the stable release steps 4-7 above.
 
-When you are only updating one package (common example: updates to the react component library but no updates to the design tokens), Gitlab will complain that it is unable to publish the package with no changes. You can ignore this warning if you have verified the other packages are present in [https://gitlab.es.net/esnet/packets-design-system/-/packages](https://gitlab.es.net/esnet/packets-design-system/-/packages)
+## CI Authentication
 
-### Deploy to Gitlab
+The GitHub Actions `release` workflow authenticates to npmjs.com using the `NPM_TOKEN` secret stored in the GitHub repository settings. This token must belong to an account with publish access to the `@esnet` npm organization.
 
-The `publish` action in our `.gitlab-ci.yml` file will deploy the latest artifacts to our Gitlab instance. This action is ONLY triggered when a release branch is pushed to the repo (Example: `release/@esnet-packets-ui-1.0.0`).
+## Common Issues
+
+- **The pipeline isn't building** — run `pnpm run test` and `pnpm run lint` locally and fix any errors before pushing.
+
+- **CI complains it cannot publish one or more packages** — this happens when only some packages have changes (e.g. react components updated but design tokens unchanged). This is expected — verify the updated packages appear on [npmjs.com](https://www.npmjs.com/org/esnet).
+
+## GitHub Actions Trigger
+
+The `release` workflow in `.github/workflows/release.yml` publishes to npmjs.com. It is ONLY triggered when a branch prefixed with `release/` is pushed (e.g. `release/1.2.0`, `release/1.2.0-beta.0`).

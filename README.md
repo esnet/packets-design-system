@@ -53,13 +53,25 @@ Packets is officially open source as of version 2.0.0! The monorepo can be found
 
 # Running the system locally
 
-1. git clone git@github.com:esnet/packets-design-system.git
-2. Run `pnpm install` on the root of the project.
-3. Run `pnpm run build` also in the root of the project.
-4. Run `make docs-build` to build the documentation Docker container
-5. Run `make docs-run` and open http://localhost:9888 to access the Storybook
-6. To stop, **Ctrl-C**
-7. Run `make docs-clean` to clean up the Docker container.
+1. `git clone git@github.com:esnet/packets-design-system.git`
+2. `pnpm install` — install dependencies at the repo root
+3. `pnpm run build` — build all packages (required before running docs)
+
+**Option A — All Storybooks via Docker (recommended for a full preview):**
+
+4. `make docs-build` — build the documentation Docker image
+5. `make docs-run` — start the container; open http://localhost:9888
+6. `Ctrl-C` to stop
+7. `make docs-clean` — remove the Docker container when done
+
+**Option B — All Storybooks locally with hot reload (recommended for development):**
+
+4. `pnpm run dev` — starts all four Storybooks concurrently via Turbo
+   - React docs: http://localhost:6006
+   - Web Component docs: http://localhost:6007
+   - Host docs: http://localhost:6008
+   - CSS docs: http://localhost:6009
+5. `Ctrl-C` to stop all
 
 <!-- 1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
 2. Run `pnpm i` on the root of the project.

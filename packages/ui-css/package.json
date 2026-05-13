@@ -29,9 +29,26 @@
     "rollup": "^4.53.5",
     "rollup-plugin-postcss": "^4.0.2"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esnet/packets-design-system"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "components",
+    "ui",
+    "esnet",
+    "packets"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/styles.css",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "exports": {
     "./styles.css": "./dist/styles.css",

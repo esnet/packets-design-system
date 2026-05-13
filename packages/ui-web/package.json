@@ -54,14 +54,30 @@
     "tslib": "^2.8.1",
     "typescript": "^5.6.3"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esnet/packets-design-system"
+  },
+  "keywords": [
+    "design-system",
+    "web-components",
+    "components",
+    "ui",
+    "esnet",
+    "packets",
+    "typescript",
+    "framework-agnostic"
+  ],
   "publishConfig": {
-    "@esnet:registry": "https://gitlab.es.net/api/v4/projects/898/packages/npm/"
+    "access": "public"
   },
   "main": "dist/cjs/bundle.js",
   "module": "dist/esm/bundle.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "exports": {
     ".": {
