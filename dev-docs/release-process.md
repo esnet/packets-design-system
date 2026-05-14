@@ -60,7 +60,18 @@ pnpm changeset
    ```
 5. GitHub Actions triggers the `release` workflow and runs `pnpm run publish-packages`, publishing under the `latest` dist-tag on npmjs.com.
 6. Verify the packages are available at [https://www.npmjs.com/org/esnet](https://www.npmjs.com/org/esnet).
-7. Merge the release branch into `main`.
+7. Merge the release branch into both `develop` and `main`, then delete it:
+   ```bash
+   git checkout develop
+   git merge release/1.2.0
+   git checkout main
+   git merge release/1.2.0
+   git push origin develop
+   git push origin main
+   git branch -d release/1.2.0
+   git push origin --delete release/1.2.0
+   ```
+   Merging into `develop` brings the version bumps back into the integration branch. Merging into `main` keeps it in sync with what is published on npm. `main` is only ever updated via release branches, so there will be no conflicts on future releases.
 
 ## Beta Release Process
 
