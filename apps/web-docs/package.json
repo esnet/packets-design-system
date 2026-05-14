@@ -1,12 +1,12 @@
 {
-    "name": "web-docs",
-    "version": "1.0.0",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "storybook dev -p 6007",
-        "build": "storybook build"
-    },
+  "name": "web-docs",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6007",
+    "build": "storybook build"
+  },
   "dependencies": {
     "@esnet/esnet-tokens": "workspace:*",
     "@esnet/packets-ui-web": "workspace:*",
