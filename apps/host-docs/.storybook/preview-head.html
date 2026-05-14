@@ -1,13 +1,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 <style>
+  /* ─── Story canvas backgrounds ─────────────────────────────────────── */
   .docs-story {
     background-color: var(--esnet-color-light-background, #cccccc);
-
-    :global(.dark) & {
-      background-color: var(--esnet-color-dark-background, #19191a);
-    }
   }
 
   .light,
@@ -20,4 +17,95 @@
     background-color: var(--esnet-color-dark-background, #19191a);
   }
 
+  /* ─── Muted text ────────────────────────────────────────────────────── */
+  .pkts-doc-hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0;
+    color: #6b7280;
+  }
+
+  .pkts-doc-muted {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 16px;
+  }
+
+  .pkts-doc-list {
+    margin: 0 0 20px;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4b5563;
+  }
+
+  .pkts-doc-decision-list {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #4b5563;
+  }
+
+  /* ─── Link colors ───────────────────────────────────────────────────── */
+  body a.pkts-link-blue   { color: #3B82F6 !important; text-decoration: none !important; font-size: 14px; font-weight: 600; }
+  body a.pkts-link-purple { color: #8B5CF6 !important; text-decoration: none !important; font-size: 14px; font-weight: 600; }
+  body a.pkts-link-cyan   { color: #06B6D4 !important; text-decoration: none !important; font-size: 14px; font-weight: 600; }
+
+  /* ─── Doc page cards ────────────────────────────────────────────────── */
+  .pkts-doc-card {
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .pkts-doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .pkts-doc-code {
+    display: block;
+    background: rgba(128, 128, 128, 0.08);
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Source Code Pro', monospace;
+    letter-spacing: 0.02em;
+    word-break: break-all;
+  }
+
+  /* ─── Comparison table ──────────────────────────────────────────────── */
+  .pkts-doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+
+  .pkts-doc-table th {
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pkts-doc-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+    vertical-align: top;
+  }
+
+  .pkts-doc-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .pkts-doc-table tbody tr:hover td {
+    background: rgba(128, 128, 128, 0.04);
+  }
 </style>

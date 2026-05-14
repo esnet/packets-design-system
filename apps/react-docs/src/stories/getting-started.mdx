@@ -1,17 +1,171 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="About/React Components Documentation" />
+<Meta title="About/Getting Started" />
 
 <img src="/imgs/packetslogo.light.lrg.png" alt="Packets Design System" />
 
 <div className="sb-container">
   <div className='sb-section-title'>
     # About
-    
-    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
 
-    # HOW TO USE REACT COMPONENETS!
+    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and provides TypeScript-first React components designed specifically for React applications.
 
-  Place holder for react componenet specific documentation
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Installation
+
+    ## Via NPM/PNPM/Yarn
+
+    Install the packages:
+
+```bash
+npm install @esnet/packets-ui-css @esnet/packets-ui-react
+```
+
+    Import the CSS in your project entry point:
+
+```css
+@import "@esnet/packets-ui-css/dist/styles.css";
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Fonts
+
+    Add the following to your `<head>` element to load the Packets fonts from Google's CDN:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Usage
+
+    Import components and use them in your React application:
+
+```tsx
+import { PktsButton, PktsInputText, PktsAlert } from '@esnet/packets-ui-react';
+
+function MyComponent() {
+  const [value, setValue] = useState('');
+
+  return (
+    <div className="packets">
+      <PktsButton variant="primary" onClick={() => alert('Clicked!')}>
+        Click Me
+      </PktsButton>
+
+      <PktsInputText
+        placeholder="Enter text..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+
+      <PktsAlert variant="info" title="Info Alert">
+        This is an informational message.
+      </PktsAlert>
+    </div>
+  );
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Theme
+
+    Wrap your application with the `packets` class to enable Packets styling:
+
+```tsx
+function App() {
+  return (
+    <div className="packets">
+      {/* Your application components */}
+    </div>
+  );
+}
+```
+
+    For dark mode, add the `dark` class:
+
+```tsx
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <div className={`packets ${darkMode ? 'dark' : 'light'}`}>
+      {/* Your application components */}
+    </div>
+  );
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # TypeScript Support
+
+    All React components are written in TypeScript and provide full type definitions. You'll get complete IntelliSense and type checking:
+
+```tsx
+import { PktsButton } from '@esnet/packets-ui-react';
+import type { PktsButtonProps } from '@esnet/packets-ui-react';
+
+const MyButton: React.FC = () => {
+  return (
+    <PktsButton
+      variant="primary"  // TypeScript autocompletes: "primary" | "secondary" | "tertiary"
+      size="medium"      // TypeScript autocompletes: "small" | "medium" | "large"
+      onClick={(e) => {
+        console.log(e.currentTarget);
+      }}
+    >
+      Click Me
+    </PktsButton>
+  );
+};
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Framework Compatibility
+
+    React components work with all modern React setups:
+
+    - **Create React App**
+    - **Next.js** (App Router and Pages Router)
+    - **Vite**
+    - **Remix**
+    - **Gatsby**
+    - Any other React 18+ environment
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Browse Components
+
+    Use the sidebar to browse interactive examples of all React components. Each story includes component props, TypeScript types, and usage examples.
+
   </div>
 </div>

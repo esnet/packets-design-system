@@ -8,45 +8,155 @@ import { Meta } from "@storybook/blocks";
   <div className='sb-section-title'>
     # About
 
-    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and currently provides artifacts for React GUIs with the intent of adding support for other GUI solutions moving forward.
+    Packets is a design system created as a cross organizational collaboration at ESnet. It is intended to be a source of truth for common UI/UX patterns. It leverages a design tokens powered system and provides standards-based Web Components that work with any framework or vanilla JavaScript.
 
   </div>
 </div>
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # Getting Started
+    # Installation
 
-    Packets is currently only available to ESnet employees and is not open source. The monorepo can be found [here in our Gitlab instance](https://gitlab.es.net/esnet/packets-design-system).
+    ## Via NPM/PNPM/Yarn
 
-    # Adding the NPM packages to your project.
+    Install the packages:
 
-    1. Setup or get a Gitlab token so you can access our private Gitlab NPM registry. At the time of this writing you can use a personal token.
-    2. Add a `.npmrc` file to the root of your project.
-    3. Add the following code:
-
-```
-@esnet:registry=https://gitlab.es.net/api/v4/projects/898/packages/npm/
-//gitlab.es.net/api/v4/projects/898/packages/npm/:_authToken=YOUR_TOKEN_HERE
+```bash
+npm install @esnet/packets-ui-css @esnet/packets-ui-web
 ```
 
-    4. Run <br />
-    `npm i @esnet/esnet-tokens @esnet/packets-ui-react`, <br />
-    `pnpm i @esnet/esnet-tokens @esnet/packets-ui-react`, or <br />
-    `yarn add @esnet/esnet-tokens @esnet/packets-ui-react`
-    5. Add the `packets-ui` class to the body or root level tag of your project.
-    6. (Optional) Add `dark` or `light` classes to the `packets-ui` node to force light or dark mode only.
-    7. Add the following to your header element to fetch our fonts from Google's CDN
+    Import in your JavaScript/TypeScript entry point:
 
+```javascript
+import '@esnet/packets-ui-web';
 ```
+
+    Import the CSS:
+
+```css
+@import "@esnet/packets-ui-css/dist/styles.css";
+```
+
+    ## Via CDN (No Build System)
+
+    For projects without a build system, load from unpkg:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Packets CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/@esnet/packets-ui-css@latest/dist/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+</head>
+<body class="packets">
+  <pkts-button variant="primary">Click Me</pkts-button>
+
+  <!-- Load Web Components -->
+  <script type="module" src="https://unpkg.com/@esnet/packets-ui-web@latest/dist/index.js"></script>
+</body>
+</html>
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Fonts
+
+    Add the following to your `<head>` element to load the Packets fonts from Google's CDN:
+
+```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-  rel="stylesheet"
-/>
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
 ```
 
-     </div>
+  </div>
+</div>
 
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Usage
+
+    Web Components work with any framework or vanilla HTML. Add the `packets` class to your root container:
+
+```html
+<div class="packets">
+  <pkts-button variant="primary">Click Me</pkts-button>
+  <pkts-input-text placeholder="Enter text..."></pkts-input-text>
+  <pkts-alert variant="info" title="Info Alert">
+    This is an informational message.
+  </pkts-alert>
+</div>
+```
+
+    ## With Vue
+
+```vue
+<template>
+  <div class="packets">
+    <pkts-button variant="primary">Click Me</pkts-button>
+    <pkts-input-text placeholder="Enter text..."></pkts-input-text>
+  </div>
+</template>
+```
+
+    ## With Vanilla JavaScript
+
+```javascript
+const button = document.createElement('pkts-button');
+button.setAttribute('variant', 'primary');
+button.textContent = 'Click Me';
+document.body.appendChild(button);
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Theme
+
+    Add the `packets` class to your root container to enable Packets styling. Optionally, add `dark` or `light` to force a specific theme:
+
+```html
+<body class="packets dark">
+  <!-- Dark mode -->
+</body>
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # TypeScript Support
+
+    Web Components include full TypeScript type definitions. Import the package and TypeScript will provide IntelliSense for all custom element properties and events:
+
+```typescript
+import '@esnet/packets-ui-web';
+
+const button = document.querySelector('pkts-button');
+if (button) {
+  button.variant = 'primary'; // Fully typed
+}
+```
+
+  </div>
+</div>
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Browse Components
+
+    Use the sidebar to browse interactive examples of all Web Components. Each story includes component properties, events, and usage examples.
+
+  </div>
 </div>
