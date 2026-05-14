@@ -1,6 +1,6 @@
 {
   "name": "@esnet/packets-ui-react",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "The Packets Design System React Package",
   "author": "Jason Roeckle",
   "scripts": {
