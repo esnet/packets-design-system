@@ -23,25 +23,27 @@ Packets is officially open source as of version 2.0.0! The monorepo can be found
 
 # Adding the NPM Packages to Your Project
 
+1. Decide on the approach you would like to use. Here is a quick reference table:
 
-1. Decide on the approach you'd like to use. Here's a quick reference table:
+| Feature         | CSS Components                     | Web Components                      | React Components                                            |
+|-----------------|------------------------------------|------------------------------------- |-------------------------------------------------------------|
+| Framework       | None required                      | Framework-agnostic                  | React only                                                  |
+| JavaScript      | Optional                           | Included                            | Required                                                    |
+| Bundle Size     | Smallest (CSS only)                | Medium (JS + CSS)                   | Largest (React + components)                                |
+| TypeScript      | N/A (CSS only)                     | Full type definitions               | Full type definitions                                       |
+| Learning Curve  | Easiest                            | Medium                              | Medium                                                      |
+| Interactivity   | Basic, HTML Built-in               | Full interactivity                  | Full interactivity                                          |
+| Best For        | Static sites, server-rendered apps | Vanilla/Framework-agnostic apps     | React applications                                          |
+| Installation    | `npm install @esnet/packets-ui-css` | `npm install @esnet/packets-ui-css @esnet/packets-ui-web` | `npm install @esnet/packets-ui-css @esnet/packets-ui-react` |
 
-| Feature         | CSS Components                     | Web Components              | React Components              |
-|-----------------|------------------------------------|-----------------------------|-------------------------------|
-| Framework       | None required                      | Framework-agnostic          | React only                    |
-| JavaScript      | Optional                           | Included                    | Required                      |
-| Bundle Size     | Smallest (CSS only)                | Medium (JS + CSS)           | Largest (React + components)  |
-| TypeScript      | N/A (CSS only)                     | Full type definitions       | Full type definitions         |
-| Learning Curve  | Easiest                            | Medium                      | Medium                        |
-| Interactivity   | Basic, HTML Built-in               | Full interactivity          | Full interactivity  |
-| Best For        | Static sites, server-rendered apps | Vanilla/Framework-agnostic apps     | React applications            |
-| Installation    | `npm install @esnet/packets-ui-css`        | `npm install @esnet/packets-ui-css @esnet/packets-ui-web` | `npm install @esnet-packets-ui-css @esnet/packets-ui-react` |
-
+2. Install the package(s) for your chosen approach using the command in the table above.
 
 3. Add the `packets` class to the `<body>` or root level tag of your project.
+
 4. (Optional) Add `dark` or `light` classes to the tag you chose, e.g. `<body class="packets dark">`.
+
 5. Add the following to your `<head>` element to fetch our fonts from Google's CDN:
-    ```
+    ```html
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -54,55 +56,48 @@ Packets is officially open source as of version 2.0.0! The monorepo can be found
 # Running the system locally
 
 1. `git clone git@github.com:esnet/packets-design-system.git`
-2. `pnpm install` — install dependencies at the repo root
-3. `pnpm run build` — build all packages (required before running docs)
+2. `pnpm install` - install dependencies at the repo root
+3. `pnpm run build` - build all packages (required before running docs)
 
-**Option A — All Storybooks via Docker (recommended for a full preview):**
+**Option A - All Storybooks via Docker (recommended for a full preview):**
 
-4. `make docs-build` — build the documentation Docker image
-5. `make docs-run` — start the container; open http://localhost:9888
+4. `make docs-build` - build the documentation Docker image
+5. `make docs-run` - start the container; open http://localhost:9888
 6. `Ctrl-C` to stop
-7. `make docs-clean` — remove the Docker container when done
+7. `make docs-clean` - remove the Docker container when done
 
-**Option B — All Storybooks locally with hot reload (recommended for development):**
+**Option B - All Storybooks locally with hot reload (recommended for development):**
 
-4. `pnpm run dev` — starts all four Storybooks concurrently via Turbo
+4. `pnpm run dev` - starts all four Storybooks concurrently via Turbo
    - React docs: http://localhost:6006
    - Web Component docs: http://localhost:6007
    - Host docs: http://localhost:6008
    - CSS docs: http://localhost:6009
 5. `Ctrl-C` to stop all
 
-<!-- 1. `git clone git@gitlab.es.net:esnet/packets-design-system.git`
-2. Run `pnpm i` on the root of the project.
-3. Navigate to `packages/design-tokens`, and run `pnpm run build` (production) or `pnpm run dev` (development).
-4. Navigate to `packages/ui-react`, and run `pnpm run build` (production) or `pnpm run dev` (development).
-5. Navigate back to the root of the project, and run `pnpm run dev` to start the local watch build and storybook.
-6. Access storybook in at [http://localhost:6006/](http://localhost:6006/). -->
-
 
 ### Make commands:
 `make lint` - Run linting
 `make format` - Format code with prettier
 `make clean` - Clean build artifacts
-`make docs-build`             - Build Docker image with all 4 Storybooks
-`make docs-run`              - Run documentation container on port 9888
-`make docs-stop`              - Stop running documentation container
+`make docs-build` - Build Docker image with all 4 Storybooks
+`make docs-run` - Run documentation container on port 9888
+`make docs-stop` - Stop running documentation container
 
 ### Playwright Screenshot management:
-Packets uses Playwright to execute visual regression tests to ensure that components stay styled predictably and correctly from commit to commit. Because screenshots are executed in a docker container in our CI process, they must also be generated in the same docker container to ensure tests pass. These Makefile commands should help ease the burden of managing the screenshots in a docker container. 
+Packets uses Playwright to execute visual regression tests to ensure that components stay styled predictably and correctly from commit to commit. Because screenshots are executed in a docker container in our CI process, they must also be generated in the same docker container to ensure tests pass. These Makefile commands should help ease the burden of managing the screenshots in a docker container.
 
 
 #### Setup:
-`make pull-image `            - Pull the Playwright Docker image
+`make pull-image` - Pull the Playwright Docker image
 
 #### Image Build
 `make screenshots-build` - Build docker image and all packages
 
 #### Screenshotting
-`make screenshots-generate`   - Generate new screenshots for all packages
+`make screenshots-generate` - Generate new screenshots for all packages
 `make screenshots-regenerate` - Clean then generate screenshots for all packages
-`make screenshots-clean`      - Delete all screenshot directories
+`make screenshots-clean` - Delete all screenshot directories
 
 #### Screenshot comparison (testing)
 `make screenshots-test` - Run all tests (React, Web, CSS)
@@ -116,11 +111,12 @@ Packets uses Playwright to execute visual regression tests to ensure that compon
 To add a new component:
 1. Build the **CSS-only component** (`packages/ui-css/src/components`) and create Storybook documentation (`apps/css-docs/src`)
 2. Build the **Web component** (`packages/ui-web/src/components`) and create Storybook documentation (`apps/web-docs/src`)
-3. Build the **React component** (`packages/ui-react/src/components`) and create Storybook documentation (`apps/web-docs/src`)
+3. Build the **React component** (`packages/ui-react/src/components`) and create Storybook documentation (`apps/react-docs/src`)
 
 ### Before submitting a PR:
-1. make pull-image               # First time only
-2. make screenshots-build                    # Build packages
-3. make screenshots-regenerate   # Update screenshots if needed
-4. make screenshots-test                     # Run tests
+1. `make pull-image` - First time only
+2. `make screenshots-build` - Build packages
+3. `make screenshots-regenerate` - Update screenshots if needed
+4. `make screenshots-test` - Run tests
 
+For full contribution guidelines see [dev-docs/contributing.md](dev-docs/contributing.md).
