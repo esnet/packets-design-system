@@ -56,10 +56,10 @@ dev-docs/          Internal documentation for contributors
 
 Branches are always cut from `develop`.
 
-| Type | Format | Example |
-|---|---|---|
-| Feature | `feat/ESDS-<ticket>-<short-name>` | `feat/ESDS-134-tabs` |
-| Bug fix | `fix/ESDS-<ticket>-<short-name>` | `fix/ESDS-210-button-focus` |
+| Type | Format (ESnet) | Format (external) | Example |
+|---|---|---|---|
+| Feature | `feat/PKTS-<ticket>-<short-name>` | `feat/<short-name>` | `feat/PKTS-134-tabs` |
+| Bug fix | `fix/PKTS-<ticket>-<short-name>` | `fix/<short-name>` | `fix/PKTS-210-button-focus` |
 
 Keep the short name brief (2 to 4 words). Avoid long branch names as they can cause CI issues.
 
@@ -116,12 +116,29 @@ make screenshots-test-web
 make screenshots-test-css
 ```
 
+## Jira Integration (ESnet contributors only)
+
+Packets is open source and welcomes external contributions. The Jira integration described here is only relevant for ESnet team members since the project board is private.
+
+ESnet contributors: Packets uses the [GitHub for Jira](https://marketplace.atlassian.com/apps/1219592/github-for-jira) integration to automatically link development activity to Jira tickets. This is not a hard requirement but is strongly encouraged.
+
+When your branch name, commit messages, or PR title contain a `PKTS-XXX` ticket key, Jira will automatically:
+
+- Link the branch to the ticket
+- Show commit history on the ticket
+- Link the PR and its status to the ticket
+
+No extra steps are needed beyond following the branch naming convention. The Jira board is at [esnet.atlassian.net/jira/software/c/projects/PKTS/boards/332](https://esnet.atlassian.net/jira/software/c/projects/PKTS/boards/332) (ESnet access required).
+
+External contributors: feel free to omit the ticket key from your branch name. The format `feat/<short-name>` or `fix/<short-name>` works fine.
+
 ## Submitting a PR
 
 1. Push your branch and open a PR into `develop`.
-2. Make sure the PR includes a changeset if the change affects a published package.
-3. Regenerate and commit screenshots if component styles changed.
-4. All tests must pass before merging.
+2. Include the Jira ticket key (`PKTS-XXX`) in the PR title so it links automatically.
+3. Make sure the PR includes a changeset if the change affects a published package.
+4. Regenerate and commit screenshots if component styles changed.
+5. All tests must pass before merging.
 
 ## Infrastructure
 

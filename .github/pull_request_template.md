@@ -10,9 +10,10 @@
 - [ ] Chore (build config, tooling, CI)
 - [ ] Refactor
 
-## Related ticket
+## Related Jira ticket
 
-<!-- e.g. ESDS-134 -->
+<!-- Add the ticket key so Jira links this PR automatically. e.g. PKTS-134 -->
+<!-- https://esnet.atlassian.net/browse/PKTS-XXX -->
 
 ## Checklist
 

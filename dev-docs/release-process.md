@@ -29,8 +29,8 @@ Published packages are available publicly on [npmjs.com](https://www.npmjs.com/)
 
 ### Short-lived branches
 
-- `feat/ESDS-<ticket>-<short-name>`: one branch per feature or component (e.g. `feat/ESDS-134-tabs`)
-- `fix/ESDS-<ticket>-<short-name>`: bug fixes
+- `feat/PKTS-<ticket>-<short-name>`: one branch per feature or component (e.g. `feat/PKTS-134-tabs`)
+- `fix/PKTS-<ticket>-<short-name>`: bug fixes
 - `release/<version>`: cut from `develop` when ready to publish to npm (e.g. `release/1.2.0`); triggers the CI publish workflow
 
 ---
@@ -70,7 +70,7 @@ feat/* or fix/*  →  develop  →  PR into main
 1. Branch from `develop`:
    ```bash
    git checkout develop && git pull
-   git checkout -b fix/ESDS-123-fix-storybook-config
+   git checkout -b fix/PKTS-123-fix-storybook-config
    ```
 2. Make your changes. No changeset needed.
 3. Open a PR into `develop`. Once merged, staging Cloudflare picks it up automatically.
