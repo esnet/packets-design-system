@@ -11,6 +11,7 @@ Input: a component name like `PktsIconButton` or `PktsInputText`.
 ## Name Conversion
 
 `PktsIconButton` → `icon-button` for CSS/story filenames (strip `Pkts`, camelCase → kebab-case).
+`PktsIconButton` → `Icon Button` for display name (strip `Pkts`, camelCase → space-separated words).
 
 ## File Locations
 
@@ -24,103 +25,153 @@ Input: a component name like `PktsIconButton` or `PktsInputText`.
 
 ## Research Before Writing
 
-1. **Design Tokens** — extract and sort alphabetically:
+Steps are ordered to match the document sections they fill.
+
+1. **Overview** — read JSDoc `/**` block at top of `<Name>.tsx`. If no JSDoc exists, derive from the component's display name and render output.
+2. **States/Variants** — read CSS file for class selectors (`.pkts-branded`, `.pkts-error`, `.pkts-disabled`, etc.) and the `variant` prop in `<Name>.types.ts` to enumerate variants. Themes are always light/dark.
+3. **Best Practices** — draw 2-4 bullets each for Do/Don't from JSDoc, component usage patterns in stories, and component intent.
+4. **Availability versions** — read `version` field from `packages/ui-react/package.json`, `packages/ui-web/package.json`, `packages/ui-css/package.json`.
+5. **Design Tokens** — extract and sort alphabetically:
    ```
    grep -oP "var\(--pkts-[a-z0-9\-]+" packages/ui-css/src/components/<kebab>.css | sort -u
    ```
-2. **States/Themes** — read CSS file for class selectors (`.dark`, `.pkts-branded`, `.pkts-error`, `.pkts-disabled`, variant classes). Read story named exports for state names.
-3. **Parameters** — read `<Name>.types.ts` in both ui-react and ui-web.
-4. **Overview** — read JSDoc `/**` block at top of `<Name>.tsx`.
-5. **Anatomy** — read the render method in `.tsx` (or `connectedCallback`/`_renderInitial` in WC `.ts`).
-6. **Availability versions** — read `version` field from `packages/ui-react/package.json`, `packages/ui-web/package.json`, `packages/ui-css/package.json`.
-7. **Tests** — check whether `packages/ui-react/src/components/<Name>/__tests__/` exists.
+   Note: multi-line `var(` calls won't be captured — visually scan the CSS for any missed tokens.
 
 ## Output
 
-Write the completed documentation to `<ComponentName>.md` in the repo root (e.g. `PktsInputText.md`). This file is gitignored - it is a temporary draft. The user will copy its contents into Google Drive.
+Write the completed documentation to `apps/host-docs/src/<kebab>.mdx` (e.g. `apps/host-docs/src/input-text.mdx`).
 
-Begin the file with this exact warning line, followed by a blank line:
+The file must be clean MDX: a `<Meta>` import + tag at the top, then pure markdown at zero indentation. Do NOT wrap content in `<div>` blocks — 4-space indentation inside JSX breaks GFM list and heading parsing.
 
-```
-> **DRAFT - do not commit.** Copy contents to Google Drive. This file is gitignored.
-```
-
-Then the documentation content below it:
+Tables MUST use JSX `<table>` syntax, not markdown pipe tables. The Storybook MDX pipeline does not enable GFM table parsing.
 
 ## Output Template
 
 Fill `[...]` with researched content. Leave **TODO** markers as-is — do not invent URLs.
 
-```
-## [section number] [Component Display Name]
+Only include States that actually exist for the component. If there are no interaction states beyond default, omit the States line entirely.
 
-### Design
+```mdx
+import { Meta } from "@storybook/blocks";
 
-#### **Overview**
+<Meta title="Component Documentation/[Component Display Name]" />
+
+# [Component Display Name]
+
+### Overview
+
 [One paragraph: purpose, key states, and when to prefer a more specific component instead. Source: JSDoc block.]
 
-#### **Availability & resources**
-- Figma
-- Github
-- Storybook
+### States and Behaviours
 
-#### **Dependent Design Tokens**
-[Each --pkts-* token as a bullet point, sorted first by colors then rest of tokens, then within each sorted alphabetically.]
+**Variants**: [Comma separated list of variants from the variant prop, e.g. primary, branded.]
 
-#### **States and Behaviours**
-- Themes:
-  [List variants/themes found in CSS selectors and stories]
+**Themes**: Light (default), Dark
 
-Each theme above comes with the following states:
-- Default
-- Hover/Focus/On Click/Press
-[Include Invalid, Disabled only if .pkts-error / .pkts-disabled CSS selectors exist]
+**States**: Default, Hover, Focus, Active
 
-#### **Best Practices**
+### Best Practices
+
 - When to use this component
   - [condition 1]
   - [condition 2]
 - How to use this component
   - Do:
     - [do 1]
-    - [do 2]
   - Don't:
     - [don't 1]
-    - [don't 2]
 
-#### **Anatomy**
-- What are the atomic elements of this component?
-  [List HTML elements from render output, e.g. wrapper div, input, label, helper text span. Focus only on things that are true for both React and WC]
+### Accessibility Scoring
 
-#### **Accessibility Scoring**
-[If __tests__ dir exists: "Playwright tests exist for this component." Note if a11y assertions are present.]
-[If no __tests__ dir: "Not yet tested."]
+**TODO**
 
-### Code
+---
 
-#### **Parameters**
+## Code
 
-**React (`packages/ui-react`)**
-[For each prop: `- \`propName\` (type): description. Default: value`]
+### Sandbox or Storybook
 
-**Web Component (`packages/ui-web`)**
-[For each attribute/property: same format. Note tag name: `<pkts-<kebab>>`]
+**TODO:** Embed Storybook iframe
 
-#### **Sandbox or Storybook**
-- **TODO:** Embed Storybook iframe
+### Resources
 
-#### **Availability**
-| Platform | Package | Version |
-| -------- | ------- | ------- |
-| CSS | `@esnet/packets-ui-css` | [from packages/ui-css/package.json] |
-| React | `@esnet/packets-ui-react` | [from packages/ui-react/package.json] |
-| Web Component | `@esnet/packets-ui-web` | [from packages/ui-web/package.json] |
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>[version]</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>[version]</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>[version]</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+[All --pkts-* tokens as a single flat bullet list, sorted alphabetically.]
 ```
 
 ## Rules
 
-- Tokens: always alphabetically sorted; always use `--pkts-*` prefix.
-- Do not invent Figma or Storybook URLs - leave the **TODO** markers.
-- Any portions that seem to be inconsistent or are unsure (such as section number) - leave **TODO** markers.
-- If a component exists in React but not WC (or vice versa), note "Not available" in the Parameters section.
+- Tokens: single flat list, sorted alphabetically; always use `--pkts-*` prefix.
+- Do not invent Figma, GitHub, or Storybook URLs - leave the **TODO** markers.
+- Only include facts true across all three implementations (CSS, Web Component, React). Do not mention implementation-specific class names, prop names, or attributes.
+- If a component exists in React but not WC (or vice versa), note "Not available" in the relevant row.
 - Read `package.json` for versions at generation time - do not hard-code version numbers.

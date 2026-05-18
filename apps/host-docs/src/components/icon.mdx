@@ -1,0 +1,109 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Icon" />
+
+# Icon
+
+### Overview
+
+The Icon component renders a Lucide icon as an inline SVG, identified by name. It supports customization of size, stroke color, stroke width, and fill. The component adapts its default color between light and dark themes using design tokens, and is intended for use wherever a scalable, accessible icon glyph is needed. For interactive icon-only actions, prefer the Icon Button component instead.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - When a non-interactive icon is needed to reinforce meaning alongside text labels
+  - When a Lucide icon is needed as a standalone decorative or informational element
+- How to use this component
+  - Do:
+    - Always pair standalone icons with a visible text label or accessible `aria-label` on the surrounding element
+    - Use the `size` prop to match the surrounding text size for visual harmony
+  - Don't:
+    - Use this component for interactive actions - use Icon Button instead
+    - Rely on icon color alone to convey meaning without a text or `aria` fallback
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-dark-surface-2`
+- `--pkts-color-light-surface-2`

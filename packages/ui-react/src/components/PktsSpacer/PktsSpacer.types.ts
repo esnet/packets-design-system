@@ -4,7 +4,7 @@ export const getPktsSpacerSizesCSS = (size: string) => {
 };
 
 export type PktsSpacerProps = {
-  type: "vertical" | "hortizontal" | "square";
+  type: "vertical" | "horizontal" | "square";
   size:
     | "none"
     | "xxsmall"

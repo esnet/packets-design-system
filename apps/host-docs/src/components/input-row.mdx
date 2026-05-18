@@ -1,0 +1,127 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Row" />
+
+# Input Row
+
+### Overview
+
+InputRow is a composable label wrapper that links a text label directly to any input element, with built-in support for error and success captions, a required asterisk, a tooltip icon, and flexible label placement. It is the recommended way to wrap all `PktsInput*` components, ensuring consistent spacing, accessible labeling, and validation feedback without needing custom layout code. For a simpler use case without tooltip, required marker, or success state support, consider `PktsLabel` instead.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - Use InputRow to wrap every text input, email input, number input, password input, or text area in a form
+  - Use InputRow when you need to show a validation message (error or success) below the input
+  - Use InputRow when a label needs a tooltip for additional context
+- How to use this component
+  - Do:
+    - Always give the wrapped input a `name` attribute so labels and form data stay linked correctly
+    - Pass `disabled` to both InputRow and the child input so the label and the input are styled consistently
+    - Use `labelPlacement="left"` or `"right"` only for compact inline inputs like switches and checkboxes
+  - Don't:
+    - Don't nest more than one input element inside a single InputRow
+    - Don't place `labelPlacement="bottom"` in normal forms - use it only in rare layout-driven scenarios
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-black-100`
+- `--pkts-color-core-red-400`
+- `--pkts-color-core-red-600`
+- `--pkts-color-core-white-1000`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-success`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-success`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-label-1-large-font`
+- `--pkts-typography-label-1-sans-font`

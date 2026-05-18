@@ -1,0 +1,126 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Data Table" />
+
+# Data Table
+
+### Overview
+
+DataTable is a composable, responsive data table with a styled header, body, footer, sortable column headers, skeleton loading state, and alternating row backgrounds. On narrow viewports it collapses to a block layout and shows column labels inline before each cell value. The React implementation exposes sub-components (`PktsDataTableHead`, `PktsDataTableHeaderCell`, `PktsDataTableBody`, `PktsDataTableRow`, `PktsDataTableCell`, `PktsDataTableFooter`, `PktsDataTableSkeletonLoading`) for full compositional control. The Web Component accepts `columns` and `data` as JSON attributes and handles rendering and sorting internally.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover
+
+### Best Practices
+
+- When to use this component
+  - Displaying structured tabular datasets where sorting or pagination is needed
+  - Showing network, metrics, or event data in an admin or monitoring interface
+- How to use this component
+  - Do:
+    - Use `PktsDataTableSkeletonLoading` while data is being fetched to prevent layout shift
+    - Set `sort` on `PktsDataTableHeaderCell` (`"ASC"`, `"DESC"`, or `"NONE"`) and manage sort state externally in React for full control
+    - Use the `columnLabel` prop on `PktsDataTableCell` so the responsive mobile view can display the correct column heading
+  - Don't:
+    - Embed full DataTable components inside a DataTable cell - use simpler inline components for nested data
+    - Rely on the table to manage pagination state; implement pagination controls separately
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-copy-alt`
+- `--pkts-color-core-blue-900`
+- `--pkts-color-core-slate-1000`
+- `--pkts-color-core-white-100`
+- `--pkts-color-dark-copy`
+- `--pkts-color-light-copy`
+- `--pkts-size-radius-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-short`
+- `--pkts-typography-header-6-sans-font`

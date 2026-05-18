@@ -1,0 +1,119 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Table Of Contents" />
+
+# Table Of Contents
+
+### Overview
+
+PktsTableOfContents renders a navigational list of anchor links representing the sections of a page. It supports an optional sticky positioning mode that keeps the component fixed at the top of the viewport as the user scrolls. Pass a list of link objects and an optional custom render function to control how each section link is displayed.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - Use alongside long-form content pages where readers benefit from quick in-page navigation
+  - Use when the page has three or more distinct sections that warrant direct links
+- How to use this component
+  - Do:
+    - Enable `isSticky` when placing the component in a sidebar column so it follows the user as they scroll
+    - Provide meaningful, concise section labels so links remain scannable
+  - Don't:
+    - Don't use on short pages with only one or two sections where a full table of contents adds unnecessary noise
+    - Don't place inside a scrollable container if `isSticky` is enabled, as sticky positioning requires a scrolling ancestor
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-white-1000`
+- `--pkts-color-dark-copy`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-copy-alt`
+- `--pkts-size-border-width-medium`
+- `--pkts-size-radius-large`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-none`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxlarge`
+- `--pkts-size-spacing-xxsmall`
