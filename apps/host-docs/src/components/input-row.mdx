@@ -6,7 +6,7 @@ import { Meta } from "@storybook/blocks";
 
 ### Overview
 
-InputRow is a composable label wrapper that links a text label directly to any input element, with built-in support for error and success captions, a required asterisk, a tooltip icon, and flexible label placement. It is the recommended way to wrap all `PktsInput*` components, ensuring consistent spacing, accessible labeling, and validation feedback without needing custom layout code. For a simpler use case without tooltip, required marker, or success state support, consider `PktsLabel` instead.
+InputRow is a composable label wrapper that links a text label directly to any input element, just like the label tag. Additional built-in support for error and success captions, a required asterisk, a tooltip icon, and flexible label placement. It is the recommended way to wrap all `PktsInput*` components, ensuring consistent spacing, accessible labeling, and validation feedback without needing custom layout code. For a simpler use case without tooltip, required marker, or success state support, consider `PktsLabel` instead.
 
 ### States and Behaviours
 
@@ -19,7 +19,6 @@ InputRow is a composable label wrapper that links a text label directly to any i
 - When to use this component
   - Use InputRow to wrap every text input, email input, number input, password input, or text area in a form
   - Use InputRow when you need to show a validation message (error or success) below the input
-  - Use InputRow when a label needs a tooltip for additional context
 - How to use this component
   - Do:
     - Always give the wrapped input a `name` attribute so labels and form data stay linked correctly

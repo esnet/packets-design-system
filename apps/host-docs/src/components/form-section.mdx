@@ -6,7 +6,7 @@ import { Meta } from "@storybook/blocks";
 
 ### Overview
 
-The Form Section component is a layout wrapper for groups of related form inputs. It organizes content into a two-column grid: a narrow left column for a section title and optional description, and a wider right column for the form controls. The column layout can be disabled for contexts where a stacked single-column arrangement is preferred. Use this component to provide consistent structure and visual grouping within larger forms.
+The Form Section component is a layout wrapper for groups of related form inputs. It organizes content into a two-column grid: a narrow left column for a section title and optional description, and a wider right column for the form controls.
 
 ### States and Behaviours
 
@@ -16,11 +16,9 @@ The Form Section component is a layout wrapper for groups of related form inputs
 
 - When to use this component
   - When a form contains multiple logical groups of inputs that benefit from a descriptive label column
-  - When consistent padding and background treatment is needed to visually differentiate form sections
 - How to use this component
   - Do:
     - Provide a meaningful `title` to help users understand the purpose of the grouped inputs
-    - Use `descriptionSlot` (React) or a slotted description element to give additional context beneath the title
   - Don't:
     - Nest Form Sections inside one another - keep groupings flat for clarity
     - Use this component for non-form content where a simpler layout utility would suffice

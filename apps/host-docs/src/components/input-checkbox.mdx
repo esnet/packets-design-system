@@ -6,7 +6,7 @@ import { Meta } from "@storybook/blocks";
 
 ### Overview
 
-The Input Checkbox component renders a styled checkbox input. It replaces the browser default appearance with a custom design that includes hover and focus ring states, a visible checked indicator, and a disabled state. A branded variant applies the primary brand color to the checked background. Use this component wherever a binary on/off or multi-select choice is needed in a form.
+The Input Checkbox component renders a styled checkbox input. A branded variant applies the primary brand color to the checked background.
 
 ### States and Behaviours
 
@@ -19,15 +19,14 @@ The Input Checkbox component renders a styled checkbox input. It replaces the br
 ### Best Practices
 
 - When to use this component
-  - For binary true/false selections within a form, such as accepting terms or enabling an option
+  - For binary true/false selections within a form for a list of options
   - When multiple independent options can each be toggled individually within a list
 - How to use this component
   - Do:
     - Always associate a visible text label with the checkbox using a `<label>` element for accessibility
     - Use the branded variant when the checkbox is a primary action or needs to stand out within a form
   - Don't:
-    - Use checkboxes for mutually exclusive choices - use radio buttons instead
-    - Rely on the checked state color alone to communicate meaning to users
+    - Use checkboxes for mutually exclusive choices, use radio buttons instead
 
 ### Accessibility Scoring
 
