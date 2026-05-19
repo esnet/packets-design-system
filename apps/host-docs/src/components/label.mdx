@@ -6,7 +6,7 @@ import { Meta } from "@storybook/blocks";
 
 ### Overview
 
-Label is a lightweight wrapper around a native `<label>` element that renders a label text, an optional required asterisk, and an optional error message below the wrapped input. It is intended for simple labeling needs where tooltip support and success messaging are not required. For those advanced use cases, use `PktsInputRow` instead.
+Label is a lightweight wrapper around a native `<label>` element that renders a label text, an optional required asterisk, and an optional error message below the wrapped input.
 
 ### States and Behaviours
 
@@ -25,7 +25,7 @@ Label is a lightweight wrapper around a native `<label>` element that renders a 
     - Pass `required` to display the red asterisk when the field must be filled before submission
     - Pass `disabled` to apply the muted label color consistently with the disabled input
   - Don't:
-    - Don't use Label when you need a success caption, a tooltip, or a non-top label placement - use `PktsInputRow` instead
+    - Don't use Label when you need a success caption, a tooltip, or a non-top label placement, prefer `PktsInputRow`
     - Don't nest more than one input child inside a single Label
 
 ### Accessibility Scoring

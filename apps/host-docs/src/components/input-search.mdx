@@ -6,7 +6,7 @@ import { Meta } from "@storybook/blocks";
 
 ### Overview
 
-InputSearch is a specialized text input for search interactions. It renders a search icon when the field is empty and automatically replaces it with a clear (X) icon once the user begins typing, allowing one-click clearing of the query. It is built on top of InputText and accepts the same props. Use this component when you need a search field; for general single-line text entry use `PktsInputText` instead.
+InputSearch is a specialized text input for search interactions. It renders a search icon when the field is empty and automatically replaces it with a clear (X) icon once the user begins typing, allowing one-click clearing of the query. It is built on top of InputText and accepts the same props.
 
 ### States and Behaviours
 
@@ -23,12 +23,10 @@ InputSearch is a specialized text input for search interactions. It renders a se
   - Use it in page headers, toolbars, or sidebars where a search affordance is expected
 - How to use this component
   - Do:
-    - Wrap InputSearch in an `InputRow` to provide an accessible label and error messaging
-    - Use the `onSearchClick` and `onXClick` callbacks to trigger search and clear logic
+    - Wrap InputSearch in an `InputRow` or label to provide an accessible label and error messaging
     - Provide a meaningful `placeholder` that describes what users can search for
   - Don't:
-    - Don't use InputSearch for non-search inputs - use InputText for free-form text entry
-    - Don't omit the label wrapper; always pair with InputRow or PktsLabel for accessibility
+    - Don't use InputSearch for non-search inputs, use InputText for free-form text entry
 
 ### Accessibility Scoring
 
