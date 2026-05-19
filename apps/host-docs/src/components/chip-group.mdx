@@ -1,0 +1,107 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Chip Group" />
+
+# Chip Group
+
+### Overview
+
+ChipGroup is a composable container that arranges a collection of `Chip` components in an inline, wrapping flex layout with consistent spacing. Use this component whenever you need to display multiple chips together, such as a set of applied filters.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - Displaying a collection of filter chips or tag selections as a cohesive group
+  - Allowing the group layout to wrap naturally when chips exceed the available width
+- How to use this component
+  - Do:
+    - Only inlcude `PktsChip` elements as children, other elements will be filtered out
+    - Let the group wrap naturally rather than constraining it to a fixed single row
+  - Don't:
+    - Use ChipGroup for a single chip - render a standalone `Chip` instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-size-spacing-xsmall`

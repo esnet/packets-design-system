@@ -1,0 +1,115 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Title Section" />
+
+# Title Section
+
+### Overview
+
+PktsTitleSection is a composable layout component that standardises the presentation of a page title and optional subtitle at the top of a content area. It renders an H1 for the primary title and an H4 for the subtitle, both of which are omitted when not provided. Additional content can be passed as children and will appear below the title and subtitle.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - Use at the top of a primary content area to establish a clear page heading hierarchy
+  - Use when a page needs both a main title and a supporting subtitle displayed together with consistent spacing
+- How to use this component
+  - Do:
+    - Always provide a `title` — the component is designed around anchoring content with a primary heading
+    - Use `subtitle` for secondary context such as a description or section label
+  - Don't:
+    - Don't use this component for section headings mid-page — it is intended for top-level page introductions only
+    - Don't pass H1 or H4 elements as children expecting them to be styled as title or subtitle — use the dedicated props instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-typography-header-1-display-font`
+- `--pkts-typography-header-4-sans-font`

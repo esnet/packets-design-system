@@ -1,0 +1,131 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Switch" />
+
+# Input Switch
+
+### Overview
+
+InputSwitch is a toggle control styled as a pill-shaped switch, built on top of a native `<input type="checkbox">`. It automatically reflects checked and disabled states through CSS `:has()` selectors, so no extra class toggling is required. A check or X icon appears inside the indicator by default; pass `noIcon` to suppress it. The secondary variant uses an orange accent color in place of the default blue. Prefer InputSwitch over a plain checkbox when a binary on/off control is needed and the "switch" metaphor matches the user's mental model.
+
+### States and Behaviours
+
+**Variants**: primary, secondary
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Active, Disabled
+
+### Best Practices
+
+- When to use this component
+  - Use InputSwitch for immediate-effect settings such as enabling or disabling a feature
+  - Use it when the interaction is binary and takes effect without requiring a form submit
+- How to use this component
+  - Do:
+    - Wrap in `InputRow` with `labelPlacement="left"` or `"right"` so the label sits inline with the switch
+    - Use the `secondary` variant when the context calls for a visually distinct accent (e.g. a warning-level toggle)
+    - Pass `disabled` to prevent interaction when the option is not currently applicable
+  - Don't:
+    - Don't use InputSwitch inside a form where a submit action is required - use a checkbox instead
+    - Don't suppress the icon with `noIcon` unless the compact space requirement is strong; the icon reinforces the checked state
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-blue-100`
+- `--pkts-color-core-blue-300`
+- `--pkts-color-core-blue-600`
+- `--pkts-color-core-blue-700`
+- `--pkts-color-core-orange-300`
+- `--pkts-color-core-orange-600`
+- `--pkts-color-core-orange-700`
+- `--pkts-color-core-white-100`
+- `--pkts-color-core-white-400`
+- `--pkts-color-core-white-500`
+- `--pkts-color-core-white-600`
+- `--pkts-color-core-white-700`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-circle`
+- `--pkts-time-duration-quick`

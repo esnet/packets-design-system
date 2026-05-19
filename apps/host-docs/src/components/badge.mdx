@@ -1,0 +1,113 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Badge" />
+
+# Badge
+
+### Overview
+
+A small circle or pill shaped label for displaying a short count or status indicator alongside another element. It uses the primary brand color by default and is designed to contain minimal content such as a number or a very short string. Because the badge has no interactive states of its own, it should always be paired with a parent element that conveys the context it annotates (e.g. a navigation item or an icon button).
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - When showing a numeric count alongside a navigation item, icon, or list entry (e.g. unread message count)
+  - When a short, non-interactive status label is needed and a full chip is too visually heavy
+- How to use this component
+  - Do:
+    - Keep the badge content to a small number
+    - Position the badge to be adjacent (ideally top-right) of the element it annotates
+  - Don't:
+    - Use a badge for actionable or selectable labels - use a chip instead
+    - Place lengthy text inside a badge
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-white-100`
+- `--pkts-color-dark-primary`
+- `--pkts-color-light-primary`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-radius-circle`
+- `--pkts-typography-label-2-sans-font`

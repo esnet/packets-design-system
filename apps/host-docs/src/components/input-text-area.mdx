@@ -1,0 +1,137 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Text Area" />
+
+# Input Text Area
+
+### Overview
+
+InputTextArea is a styled wrapper around the native `<textarea>` element, providing consistent border, background, typography, and state colors aligned with the Packets design system. It supports error styling, a branded rounded variant, and configurable resize behavior.
+
+### States and Behaviours
+
+**Variants**: primary, branded
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - Use InputTextArea for comment fields, description inputs, or any other context where multiple lines of text are expected
+  - Use it when the user may need to review or edit longer passages of text
+- How to use this component
+  - Do:
+    - Wrap in `InputRow` to attach a visible label and display validation messages
+    - Set `resize="vertical"` when only vertical resizing makes layout sense; set `resize="none"` in fixed-height layouts
+    - Pass `error` as a boolean or string to trigger the error border and shadow
+  - Don't:
+    - Don't use InputTextArea for single-line inputs - use `PktsInputText` for that purpose
+    - Don't rely on the resize handle as the only way to indicate to users that the field can hold more text - use a visible row count or `min-height`
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-blue-400`
+- `--pkts-color-core-red-700`
+- `--pkts-color-core-slate-100`
+- `--pkts-color-core-slate-1000`
+- `--pkts-color-core-slate-300`
+- `--pkts-color-core-slate-500`
+- `--pkts-color-core-slate-900`
+- `--pkts-color-core-white-100`
+- `--pkts-color-core-white-900`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-copy-alt`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-copy-alt`
+- `--pkts-color-light-error`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-border-width-xsmall`
+- `--pkts-size-radius-xlarge`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-size-spacing-xxxlarge`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-copy-1-sans-font`

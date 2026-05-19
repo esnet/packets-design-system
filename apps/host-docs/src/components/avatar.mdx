@@ -1,0 +1,131 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Avatar" />
+
+# Avatar
+
+### Overview
+
+A square with rounded corners rendering an image avatar, with preset sizes and an automatic fallback label when the image is not available. The fallback displays the first two characters of the `alt` text on a colored background chosen randomly from a palette of four options (grape, lime, berry, orange) or set explicitly via the `backgroundColor` prop. An optional `hoverable` state adds a visual focus ring and shadow on pointer interaction, useful for profile setting dropdown menus.
+
+Can also be used in the small variant with chips.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover
+
+### Best Practices
+
+- When to use this component
+  - When representing a user or entity with a profile image in navigation bars, comment threads, or user lists
+  - When a fallback initial-based label is acceptable if the image is unavailable
+- How to use this component
+  - Do:
+    - Always provide a meaningful `alt` string - it doubles as the fallback label text
+    - Set `hoverable` only when the avatar is interactive (e.g. opens a profile popover)
+    - Specify `backgroundColor` explicitly when a consistent color is required per user rather than relying on random assignment
+  - Don't:
+    - Use the avatar for decorative icons that are not associated with a person or entity
+    - Rely on the random background color in contexts where color consistency across renders matters
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-light`
+- `--pkts-color-core-berry-500`
+- `--pkts-color-core-blue-600`
+- `--pkts-color-core-green-500`
+- `--pkts-color-core-orange-500`
+- `--pkts-color-core-purple-500`
+- `--pkts-color-core-white-100`
+- `--pkts-font-family-body-sans`
+- `--pkts-font-family-header-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-xxlarge`
+- `--pkts-size-spacing-xlarge`
+- `--pkts-typography-header-4-sans-font`
+- `--pkts-typography-header-5-sans-font`
+- `--pkts-typography-label-1-sans-font`

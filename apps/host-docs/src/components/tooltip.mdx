@@ -1,0 +1,112 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Tooltip" />
+
+# Tooltip
+
+### Overview
+
+PktsTooltip renders a hover-triggered popup positioned next to an anchor element. The popup displays an optional bolded title and arbitrary content passed as children. An optional close button can be shown by providing an `onClickX` callback. The component is built on top of PktsDropdown using hover mode, and the anchor element receives the appropriate `aria-describedby` attribute for accessibility.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - Use to surface supplementary information about a UI element without cluttering the main layout
+  - Use when inline help text or context for an icon, label, or action would benefit the user on hover
+- How to use this component
+  - Do:
+    - Provide an `id` prop when using multiple tooltips on the same page to ensure correct `aria-describedby` associations
+    - Keep tooltip content concise — a short title and one to two lines of body text
+  - Don't:
+    - Don't place interactive elements like buttons or links inside tooltip content, as tooltips are triggered by hover and are not keyboard-navigable by default
+    - Don't use a tooltip as the sole means of conveying critical information — ensure important content is also accessible without hover
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-size-radius-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-typography-header-6-sans-font`

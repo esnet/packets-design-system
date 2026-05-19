@@ -1,0 +1,117 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Number" />
+
+# Input Number
+
+### Overview
+
+A numeric text input built on top of `InputText` that replaces the browser's default spinner with explicit increment (+) and decrement (-) action buttons. It validates the current value on each keystroke, sets an error state when the entry is not a valid number, and respects `min`, `max`, and `step` constraints when the increment/decrement buttons are used. For plain text entry use `InputText`; for currency or other formatted numeric patterns a custom wrapper may be more appropriate.
+
+### States and Behaviours
+
+**Variants**: primary (default), branded
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Active, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When collecting a numeric value from a user, especially one with defined bounds or a fixed step size
+  - When the stepper buttons help users understand the valid increment without free-typing
+- How to use this component
+  - Do:
+    - Set `min`, `max`, and `step` to guide users toward valid values and prevent out-of-range entries
+    - Pair with a visible label describing the numeric unit (e.g. "Timeout (seconds)")
+    - Use the `error` prop or let the built-in NaN detection signal invalid input
+  - Don't:
+    - Use this component for non-numeric input - use `InputText` instead
+    - Leave `min`/`max` undefined when the domain has a natural boundary - unbounded number fields can cause confusion
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+This component delegates all visual styling to `InputText`. See [Input Text](/input-text) for the full token list.

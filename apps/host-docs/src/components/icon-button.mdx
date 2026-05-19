@@ -1,0 +1,126 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Icon Button" />
+
+# Icon Button
+
+### Overview
+
+The Icon Button is a generic icon-only button component. It renders a button (or optionally an anchor) containing a single Lucide icon, and supports multiple color variants to convey different action intents. A square modifier removes horizontal padding and applies a circular border radius for a compact, symmetrical appearance. Use this component when an action needs to be represented by an icon without accompanying text.
+
+### States and Behaviours
+
+**Variants**: primary, secondary, branded, tertiary, destructive
+
+**Themes**: Light
+
+**States**: Default, Hover, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When an interactive action can be clearly represented by a recognized icon glyph in a space-constrained context
+  - When a compact circular or pill-shaped button is needed alongside other elements such as in toolbars or card headers
+- How to use this component
+  - Do:
+    - Always provide an `aria-label` attribute so screen readers can announce the button's purpose
+    - Choose the variant that reflects the action's intent - use destructive for delete actions, branded for primary brand-colored actions
+  - Don't:
+    - Place more than one icon or text inside the button
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-light`
+- `--pkts-color-core-blue-900`
+- `--pkts-color-core-slate-900`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-circle`
+- `--pkts-size-radius-xxlarge`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xlarge`
+- `--pkts-size-spacing-xxlarge`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`

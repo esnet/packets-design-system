@@ -1,0 +1,124 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Alert" />
+
+# Alert
+
+### Overview
+
+A banner-style notification component for communicating system feedback or status to the user. It supports five semantic variants - `info`, `success`, `warning`, `error`, and `branded` - each with a matching icon automatically selected based on the variant. An optional close button can be shown to let users dismiss the alert. The component animates in on mount unless the user has reduced-motion preferences enabled.
+
+### States and Behaviours
+
+**Variants**: info (default), success, warning, error, branded
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - When providing immediate feedback after a user action (e.g. form submission success or validation failure)
+  - When surfacing a system-level status message that requires the user's attention
+- How to use this component
+  - Do:
+    - Always supply a concise, descriptive `title` that summarises the message at a glance
+    - Use `onClickClose` (React) or the `closeable` attribute (Web Component) only when the user should be able to dismiss the alert
+    - Choose the variant that matches the message severity - avoid using `branded` for error or warning messages
+  - Don't:
+    - Use the alert for persistent inline field validation - use form-level error states instead
+    - Place multiple alerts of the same variant on screen simultaneously without a clear hierarchy
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-surface-2`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-surface-2`
+- `--pkts-font-family-header-sans`
+- `--pkts-size-radius-xlarge`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-touchtarget-min`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-header-5-sans-font`

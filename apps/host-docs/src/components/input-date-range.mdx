@@ -1,0 +1,117 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Date Range" />
+
+# Input Date Range
+
+### Overview
+
+A text input that opens an inline calendar picker for selecting a start and end date. The internal value is stored as a `DateRange` object with `start` and `end` `Date` properties, which are formatted into a human-readable string displayed in the text box. Because the value is not stored as a plain string, the component must be controlled to access the selected dates - a `ref` will only yield the formatted string.
+
+### States and Behaviours
+
+**Variants**: primary (default), branded
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Active, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When a user needs to select a contiguous range of dates with a clear start and end
+  - When the date range will be used to filter or scope data (e.g. a reporting window)
+- How to use this component
+  - Do:
+    - Use the `onChange` callback to receive the `DateRange` object rather than reading the input's string value
+    - Supply `dateSettings.min` and `dateSettings.max` to constrain selectable dates to a valid range
+    - Provide a visible label describing what the date range represents
+  - Don't:
+    - Rely on a `ref` to read the selected dates - use the controlled `onChange` prop instead
+    - Use this component when only a single date is needed - use `InputDate` instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+See [Input Date Picker](/input-date-picker) for the full token list - this component delegates its picker styles to that component.
