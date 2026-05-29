@@ -6,7 +6,7 @@ import { PktsModuleProps } from "../PktsModule.types";
 import PktsModule from "../PktsModule";
 import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 
-test.describe("ESModule", () => {
+test.describe("PktsModule", () => {
   const { testTable, themes }: ComponentTestTableType<PktsModuleProps> = {
     testTable: [
       {

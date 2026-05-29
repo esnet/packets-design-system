@@ -25,6 +25,7 @@
 
 li.pkts-tab {
   padding: 0;
+  margin: 0;
 }
 
 .pkts-tab.pkts-active {

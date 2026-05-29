@@ -5,103 +5,72 @@ import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 
 test.describe("PktsInputSwitch", () => {
   ["light", "dark"].forEach((theme: any) => {
-    const testBox = (
-      <ComponentTestBox
-        theme={theme}
-        component={
-          <table
-            style={{
-              borderCollapse: "collapse",
-              borderSpacing: 0,
-              margin: 0,
-              padding: 0,
-              lineHeight: 0,
-            }}
-          >
-            <tbody>
-              {/* --- Default --- */}
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
+    test(`PktsInputSwitch-variants-${theme}`, async ({ mount }) => {
+      const component = await mount(
+        <ComponentTestBox
+          theme={theme}
+          component={
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+            >
+              {/* primary unchecked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" />
+                <div id="hover-primary">
                   <PktsInputSwitch variant="primary" />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" />
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="primary" defaultChecked />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" defaultChecked />
-                </td>
-              </tr>
-
-              {/* --- Disabled --- */}
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="primary" disabled />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" disabled />
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="primary" disabled defaultChecked />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" disabled defaultChecked />
-                </td>
-              </tr>
-
-              {/* --- NoIcon --- */}
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="primary" noIcon />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" noIcon />
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="primary" defaultChecked noIcon />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch variant="secondary" defaultChecked noIcon />
-                </td>
-              </tr>
-
-              {/* --- Interactions (Hover & Focus) --- */}
-              <tr>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch
-                    defaultChecked
-                    variant="primary"
-                    data-testid="test-hover"
-                  />
-                </td>
-                <td style={{ padding: "8px", border: "none" }}>
-                  <PktsInputSwitch
-                    defaultChecked
-                    variant="secondary"
-                    data-testid="test-focus"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        }
-      />
-    );
-    test(`switches-${theme}`, async ({ mount }) => {
-      const component = await mount(testBox);
-
-      await component.getByTestId("test-hover").hover();
-      await component.getByTestId("test-focus").focus();
-
-      await expect(component).toHaveScreenshot();
+                </div>
+                <div id="focus-primary">
+                  <PktsInputSwitch variant="primary" />
+                </div>
+                <PktsInputSwitch variant="primary" disabled />
+              </div>
+              {/* primary checked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked disabled />
+              </div>
+              {/* secondary unchecked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" disabled />
+              </div>
+              {/* secondary checked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked disabled />
+              </div>
+              {/* noIcon variants */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" noIcon />
+                <PktsInputSwitch variant="primary" noIcon />
+                <PktsInputSwitch variant="primary" noIcon defaultChecked />
+                <PktsInputSwitch variant="primary" noIcon disabled />
+              </div>
+            </div>
+          }
+        />,
+      );
+      await component.locator("#focus-primary input").focus();
+      await component.locator("#hover-primary input").hover();
+      await expect(component).toHaveScreenshot(
+        `PktsInputSwitch-variants-${theme}.png`,
+      );
     });
   });
 
@@ -113,4 +82,3 @@ test.describe("PktsInputSwitch", () => {
     await expect(component).not.toBeChecked();
   });
 });
-// TODO: rerun test screenshots for this test

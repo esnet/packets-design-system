@@ -97,7 +97,7 @@ test.describe("PktsInputTypeahead", () => {
     // expect they are there
     await expect(component.getByRole("button", { name: "foo" })).toBeVisible();
     await expect(component.getByRole("button", { name: "bar" })).toBeVisible();
-    await component.getByRole("button", { name: "foo" }).click();
+    await component.getByRole("option", { name: "foo" }).click();
     await component.getByRole("option", { name: "bar" }).click();
     // expect they are gone
     await expect(

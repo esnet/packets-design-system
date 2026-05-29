@@ -36,7 +36,7 @@ test.describe("PktsInputSelect", () => {
             height: "300px",
             width: "500px",
           }}
-          className={theme}
+          className={`packets ${theme}`}
         >
           <PktsInputSelect {...props} />
         </div>

@@ -11,9 +11,10 @@
   height: 100%;
   border-radius: var(--pkts-size-radius-circle, 999px);
   border-style: solid;
-  border-width: var(--pkts-size-spacing-xxsmall, 0.25rem);
+  border-width: var(--pkts-size-border-width-small, 0.125rem);
   border-color: var(--pkts-color-light-copy, #3d3d3d);
-  background-color: var(--pkts-color-light-copy, #3d3d3d);
+  background-color: var(--pkts-color-light-surface-2, #f2f2f2);
+  background-image: none;
 
   transition:
     border-color var(--pkts-time-duration-quick, 250ms) ease,
@@ -24,19 +25,40 @@
 
 .dark .pkts-input-radio input {
   border-color: var(--pkts-color-dark-copy, #ffffff);
-  background-color: var(--pkts-color-dark-copy, #ffffff);
+  background-color: var(--pkts-color-dark-surface-2, #4d4d4f);
+}
+
+/* checked: hollow circle with inner dot via radial-gradient */
+.pkts-input-radio input:checked:not(:disabled) {
+  border-color: var(--pkts-color-light-primary, #4d4d4f);
+  background-image: radial-gradient(
+    circle,
+    var(--pkts-color-light-primary, #4d4d4f) 0%,
+    var(--pkts-color-light-primary, #4d4d4f) 25%,
+    transparent 25%
+  );
+}
+
+.dark .pkts-input-radio input:checked:not(:disabled) {
+  border-color: var(--pkts-color-dark-secondary, #e6e6e6);
+  background-image: radial-gradient(
+    circle,
+    var(--pkts-color-dark-secondary, #e6e6e6) 0%,
+    var(--pkts-color-dark-secondary, #e6e6e6) 25%,
+    transparent 25%
+  );
 }
 
 .pkts-input-radio input:checked:not(:disabled),
 .pkts-input-radio input:focus:not(:disabled),
 .pkts-input-radio input:hover:not(:disabled) {
-  border-color: var(--pkts-color-light-primary, #0088b5);
+  border-color: var(--pkts-color-light-primary, #4d4d4f);
 }
 
 .dark .pkts-input-radio input:checked:not(:disabled),
 .dark .pkts-input-radio input:focus:not(:disabled),
 .dark .pkts-input-radio input:hover:not(:disabled) {
-  border-color: var(--pkts-color-dark-secondary, #00b6f2);
+  border-color: var(--pkts-color-dark-secondary, #e6e6e6);
 }
 
 .pkts-input-radio input:focus:not(:disabled),
@@ -51,11 +73,31 @@
 .pkts-input-radio input:disabled {
   pointer-events: none;
   cursor: default;
-  background-color: var(--pkts-color-light-copy-alt, #4d515e);
-  border-color: var(--pkts-color-light-copy-alt, #4d515e);
+  background-color: var(--pkts-color-light-surface-2, #f2f2f2);
+  border-color: var(--pkts-color-light-copy-alt, #6e6e70);
+  background-image: none;
 }
 
 .dark .pkts-input-radio input:disabled {
   border-color: var(--pkts-color-dark-copy-alt, #c2c2c2);
-  background-color: var(--pkts-color-dark-copy-alt, #c2c2c2);
+  background-color: var(--pkts-color-dark-surface-2, #4d4d4f);
+}
+
+/* disabled+checked: show dot in muted colors */
+.pkts-input-radio input:checked:disabled {
+  background-image: radial-gradient(
+    circle,
+    var(--pkts-color-light-copy-alt, #6e6e70) 0%,
+    var(--pkts-color-light-copy-alt, #6e6e70) 25%,
+    transparent 25%
+  );
+}
+
+.dark .pkts-input-radio input:checked:disabled {
+  background-image: radial-gradient(
+    circle,
+    var(--pkts-color-dark-copy-alt, #c2c2c2) 0%,
+    var(--pkts-color-dark-copy-alt, #c2c2c2) 25%,
+    transparent 25%
+  );
 }

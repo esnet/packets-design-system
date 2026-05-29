@@ -1,59 +1,54 @@
 import * as React from "react";
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
-import PktsInputRadioButton from "../PktsInputRadioButton";
-import { PktsInputRadioButtonProps } from "../PktsInputRadioButton.types";
 import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
+import PktsInputRadioButton from "../PktsInputRadioButton";
 
-test.describe("ESInputRadioButton", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsInputRadioButtonProps> = {
-    testTable: [
-      {
-        name: "primary",
-        props: { defaultChecked: false },
-      },
-      // Add more test cases as needed
-    ],
-    themes: ["light", "dark"],
-    actionStates: ["active"],
-  };
-
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      let themedComponent = (
-        <div style={{ padding: "8px" }}>
-          <PktsInputRadioButton {...props} />
-        </div>
+test.describe("PktsInputRadioButton", () => {
+  ["light", "dark"].forEach((theme: any) => {
+    test(`PktsInputRadioButton-variants-${theme}`, async ({ mount }) => {
+      const component = await mount(
+        <ComponentTestBox
+          theme={theme}
+          component={
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+            >
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputRadioButton name="unselected-default" />
+                <div id="hover-unselected">
+                  <PktsInputRadioButton name="unselected-hover" />
+                </div>
+                <div id="focus-unselected">
+                  <PktsInputRadioButton name="unselected-focus" />
+                </div>
+                <PktsInputRadioButton name="unselected-disabled" disabled />
+              </div>
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputRadioButton name="selected-default" defaultChecked />
+                <PktsInputRadioButton name="selected-hover" defaultChecked />
+                <PktsInputRadioButton name="selected-focus" defaultChecked />
+                <PktsInputRadioButton
+                  name="selected-disabled"
+                  defaultChecked
+                  disabled
+                />
+              </div>
+            </div>
+          }
+        />,
       );
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = (await mount(themedComponent)).locator(
-          'input[type="radio"]',
-        );
-        await expect(component).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        if (props.disabled) return;
-        test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
-          // do any locator selection if needed
-          const component = (await mount(themedComponent)).locator(
-            'input[type="radio"]',
-          );
-          if (state === "focus") await component.focus();
-          if (state === "hover" || state === "active") await component.hover();
-          if (state === "active") await page.mouse.down();
-          await expect(component).toHaveScreenshot();
-        });
-      });
+      await component.locator("#focus-unselected input[type='radio']").focus();
+      await component.locator("#hover-unselected input[type='radio']").hover();
+      await expect(component).toHaveScreenshot(
+        `PktsInputRadioButton-variants-${theme}.png`,
+      );
     });
   });
 
-  // test that radio buttons with same name are grouped together
   test("grouped radio buttons", async ({ mount }) => {
     const component = await mount(
       <div>

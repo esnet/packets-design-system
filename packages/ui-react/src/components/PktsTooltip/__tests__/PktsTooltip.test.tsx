@@ -29,7 +29,7 @@ test.describe("PktsTooltip", () => {
       test(`${name}-${theme}`, async ({ mount }) => {
         // due to the custom nature of the positioning test, utilize a custom testBox
         const testBox = (
-          <div className={theme} style={testBoxStyles}>
+          <div className={`packets ${theme}`} style={testBoxStyles}>
             <PktsTooltip {...props} />
           </div>
         );
