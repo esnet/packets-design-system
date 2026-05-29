@@ -1,6 +1,9 @@
 name: Test UI CSS
 
 on:
+  # TEMP!!!! TODO: remove
+  push:
+    branches: [test/PKTS-222-ci-testing]
   pull_request:
     branches: [main, develop]
   workflow_dispatch:
