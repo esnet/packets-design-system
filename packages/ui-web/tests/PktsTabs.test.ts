@@ -1,18 +1,29 @@
 import { test, expect } from "@playwright/test";
 import { createTestHTML } from "./test-utils";
 
-test.describe("PktsTabs Web Component", () => {
-  test("basic-tabs", async ({ page }) => {
-    const html = createTestHTML("light", `
+type Theme = "light" | "dark";
+
+function buildTabsContent(): string {
+    return `
+    <div id="container" style="display: inline-flex; flex-direction: column; gap: 12px; padding: 8px;">
       <pkts-tabs>
-        <li><a href="#tab1">Tab 1</a></li>
-        <li><a href="#tab2">Tab 2</a></li>
-        <li><a href="#tab3">Tab 3</a></li>
+        <li class="pkts-tab pkts-active"><a href="#">Tab 1</a></li>
+        <li id="hover-tab" class="pkts-tab"><a href="#">Tab 2</a></li>
+        <li class="pkts-tab"><a href="#">Tab 3</a></li>
       </pkts-tabs>
-    `);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-tabs");
-    const tabs = page.locator("pkts-tabs > div").first();
-    await expect(tabs).toHaveScreenshot("PktsTabs-basic.png");
-  });
+    </div>
+  `;
+}
+
+test.describe("Pkts Tabs Web Component", () => {
+    (["light", "dark"] as Theme[]).forEach((theme) => {
+        test(`PktsTabs-${theme}`, async ({ page }) => {
+            const html = createTestHTML(theme, buildTabsContent());
+            await page.setContent(html);
+            await page.waitForSelector("pkts-tabs");
+            await page.waitForTimeout(200);
+            await page.locator("#hover-tab").hover();
+            await expect(page.locator("#container")).toHaveScreenshot(`PktsTabs-${theme}.png`);
+        });
+    });
 });

@@ -1,136 +1,38 @@
 import { test, expect } from "@playwright/test";
 import { createTestHTML } from "./test-utils";
 
-test.describe("PktsInputText Web Component", () => {
-  test("default-light", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text placeholder="Enter text"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
+type Theme = "light" | "dark";
 
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-default-light.png");
-  });
+const VARIANTS = [
+    { key: "default", variant: null, error: false },
+    { key: "branded", variant: "branded", error: false },
+    { key: "error", variant: null, error: true },
+] as const;
 
-  test("default-dark", async ({ page }) => {
-    const html = createTestHTML(
-      "dark",
-      `<pkts-input-text placeholder="Enter text"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
+function buildInputRow(variant: string | null, error: boolean, key: string): string {
+    const variantAttr = variant ? `variant="${variant}"` : "";
+    const errorAttr = error ? "error" : "";
+    return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <pkts-input-text style="width: 240px;" ${variantAttr} ${errorAttr} placeholder="${key}"></pkts-input-text>
+      <div id="hover-input" style="width: 240px;"><pkts-input-text style="width: 100%;" ${variantAttr} ${errorAttr} value="${key}"></pkts-input-text></div>
+      <div id="focus-input" style="width: 240px;"><pkts-input-text style="width: 100%;" ${variantAttr} ${errorAttr} value="${key}"></pkts-input-text></div>
+      <pkts-input-text style="width: 240px;" ${variantAttr} ${errorAttr} placeholder="${key}" disabled></pkts-input-text>
+    </div>
+  `;
+}
 
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-default-dark.png");
-  });
-
-  test("branded-light", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text variant="branded" placeholder="Search..."></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-branded-light.png");
-  });
-
-  test("branded-dark", async ({ page }) => {
-    const html = createTestHTML(
-      "dark",
-      `<pkts-input-text variant="branded" placeholder="Search..."></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-branded-dark.png");
-  });
-
-  test("error-light", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text error placeholder="Invalid input"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-error-light.png");
-  });
-
-  test("error-dark", async ({ page }) => {
-    const html = createTestHTML(
-      "dark",
-      `<pkts-input-text error placeholder="Invalid input"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-error-dark.png");
-  });
-
-  test("disabled-light", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text disabled placeholder="Disabled input"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-disabled-light.png");
-  });
-
-  test("disabled-dark", async ({ page }) => {
-    const html = createTestHTML(
-      "dark",
-      `<pkts-input-text disabled placeholder="Disabled input"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-disabled-dark.png");
-  });
-
-  test("with-value", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text value="Hello World"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-    await page.waitForTimeout(100);
-
-    const input = page.locator("pkts-input-text div");
-    await expect(input).toHaveScreenshot("PktsInputText-with-value.png");
-  });
-
-  test("hover-state", async ({ page }) => {
-    const html = createTestHTML(
-      "light",
-      `<pkts-input-text placeholder="Hover over me"></pkts-input-text>`,
-    );
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-text");
-
-    const input = page.locator("pkts-input-text div");
-    await input.hover();
-    await page.waitForTimeout(100);
-
-    await expect(input).toHaveScreenshot("PktsInputText-hover-state.png");
-  });
+test.describe("Pkts InputText Web Component", () => {
+    (["light", "dark"] as Theme[]).forEach((theme) => {
+        VARIANTS.forEach(({ key, variant, error }) => {
+            test(`PktsInputText-${key}-${theme}`, async ({ page }) => {
+                const html = createTestHTML(theme, buildInputRow(variant, error, key));
+                await page.setContent(html);
+                await page.waitForTimeout(200);
+                await page.locator("#focus-input input").focus();
+                await page.locator("#hover-input").hover();
+                await expect(page.locator("#container")).toHaveScreenshot(`PktsInputText-${key}-${theme}.png`);
+            });
+        });
+    });
 });

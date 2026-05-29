@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
     "@esnet/pkts-tokens": "workspace:^",
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "1.57.0",
     "@repo/eslint-config": "workspace:^",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.3.0",
