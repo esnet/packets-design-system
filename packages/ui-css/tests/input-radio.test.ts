@@ -1,64 +1,36 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS InputRadio Component", () => {
-  test("input-radio-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-light" />
-        </div>
+type Theme = "light" | "dark";
 
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-light" checked />
-        </div>
+const VARIANTS = [
+  { key: "unselected", checked: false },
+  { key: "selected", checked: true },
+] as const;
 
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-light-disabled" disabled />
-        </div>
+function buildRadioRow(checked: boolean, rowIndex: number): string {
+  const checkedAttr = checked ? "checked" : "";
+  const name = `radio-group-${rowIndex}`;
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <div class="pkts-input-radio"><input type="radio" name="${name}-default" ${checkedAttr} /></div>
+      <div id="hover-radio" class="pkts-input-radio"><input type="radio" name="${name}-hover" ${checkedAttr} /></div>
+      <div id="focus-radio" class="pkts-input-radio"><input type="radio" name="${name}-focus" ${checkedAttr} /></div>
+      <div class="pkts-input-radio"><input type="radio" name="${name}-disabled" ${checkedAttr} disabled /></div>
+    </div>
+  `;
+}
 
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-light-disabled" disabled checked />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-radio-variants-light.png");
-  });
-
-  test("input-radio-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-dark" />
-        </div>
-
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-dark" checked />
-        </div>
-
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-dark-disabled" disabled />
-        </div>
-
-        <div class="pkts-input-radio">
-          <input type="radio" name="radio-dark-disabled" disabled checked />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-radio-variants-dark.png");
+test.describe("Pkts InputRadio Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach(({ key, checked }, rowIndex) => {
+      test(`input-radio-${key}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildRadioRow(checked, rowIndex));
+        await page.setContent(html);
+        await page.locator("#focus-radio input[type='radio']").focus();
+        await page.locator("#hover-radio input[type='radio']").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`input-radio-${key}-${theme}.png`);
+      });
+    });
   });
 });

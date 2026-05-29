@@ -1,12 +1,12 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS Datum Component", () => {
+test.describe("Pkts Datum Component", () => {
   test("datum-variants-light", async ({ page }) => {
     const html = createCSSTestHTML(
       "light",
       `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
+      <div id="container" style="display: inline-flex; flex-direction: column; gap: 16px; padding: 8px; width: 120px;">
         <div class="pkts-datum">
           <label>Label</label>
           <span>Value</span>
@@ -28,7 +28,7 @@ test.describe("CSS Datum Component", () => {
     const html = createCSSTestHTML(
       "dark",
       `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; width: 300px;">
+      <div id="container" style="display: inline-flex; flex-direction: column; gap: 16px; padding: 8px; width: 120px;">
         <div class="pkts-datum">
           <label>Label</label>
           <span>Value</span>

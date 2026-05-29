@@ -94,7 +94,7 @@ export function getComponentCSSFiles(registry) {
  */
 function toPascalCase(str) {
   const pascalCase = str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
-  return 'ES' + pascalCase;  // Add ES prefix to match tearsheet filters
+  return 'Pkts' + pascalCase;  // Add ES prefix to match tearsheet filters
 }
 
 // For testing/debugging

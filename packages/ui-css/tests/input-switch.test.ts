@@ -1,92 +1,51 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS InputSwitch Component", () => {
-  test("input-switch-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-switch">
-          <input type="checkbox" />
-          <span class="indicator"></span>
-        </div>
+type Theme = "light" | "dark";
 
-        <div class="pkts-input-switch pkts-checked">
-          <input type="checkbox" checked />
-          <span class="indicator"></span>
-        </div>
+const VARIANTS = [
+  { key: "unchecked", checked: false, secondary: false },
+  { key: "checked", checked: true, secondary: false },
+  { key: "unchecked-secondary", checked: false, secondary: true },
+  { key: "checked-secondary", checked: true, secondary: true },
+] as const;
 
-        <div class="pkts-input-switch pkts-secondary">
-          <input type="checkbox" />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-secondary pkts-checked">
-          <input type="checkbox" checked />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-disabled">
-          <input type="checkbox" disabled />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-disabled pkts-checked">
-          <input type="checkbox" disabled checked />
-          <span class="indicator"></span>
-        </div>
+function buildSwitchRow(checked: boolean, secondary: boolean): string {
+  const checkedAttr = checked ? "checked" : "";
+  const secondaryClass = secondary ? " pkts-secondary" : "";
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <div class="pkts-input-switch${secondaryClass}">
+        <input type="checkbox" ${checkedAttr} />
+        <span class="indicator"></span>
       </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-switch-variants-light.png");
-  });
-
-  test("input-switch-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-switch">
-          <input type="checkbox" />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-checked">
-          <input type="checkbox" checked />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-secondary">
-          <input type="checkbox" />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-secondary pkts-checked">
-          <input type="checkbox" checked />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-disabled">
-          <input type="checkbox" disabled />
-          <span class="indicator"></span>
-        </div>
-
-        <div class="pkts-input-switch pkts-disabled pkts-checked">
-          <input type="checkbox" disabled checked />
-          <span class="indicator"></span>
-        </div>
+      <div id="hover-switch" class="pkts-input-switch${secondaryClass}">
+        <input type="checkbox" ${checkedAttr} />
+        <span class="indicator"></span>
       </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
+      <div id="focus-switch" class="pkts-input-switch${secondaryClass}">
+        <input type="checkbox" ${checkedAttr} />
+        <span class="indicator"></span>
+      </div>
+      <div class="pkts-input-switch${secondaryClass} pkts-disabled">
+        <input type="checkbox" ${checkedAttr} disabled />
+        <span class="indicator"></span>
+      </div>
+    </div>
+  `;
+}
 
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-switch-variants-dark.png");
+test.describe("Pkts InputSwitch Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach(({ key, checked, secondary }) => {
+      test(`input-switch-${key}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildSwitchRow(checked, secondary));
+        await page.setContent(html);
+        await page.waitForTimeout(100);
+        await page.locator("#focus-switch input").focus();
+        await page.locator("#hover-switch").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`input-switch-${key}-${theme}.png`);
+      });
+    });
   });
 });

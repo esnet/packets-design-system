@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS Alert Component", () => {
+test.describe("Pkts Alert Component", () => {
   test("alert-variants-light", async ({ page }) => {
     const html = createCSSTestHTML(
       "light",

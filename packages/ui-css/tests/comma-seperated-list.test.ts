@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS CommaSeperatedList Component", () => {
+test.describe("Pkts CommaSeperatedList Component", () => {
   test("comma-seperated-list-light", async ({ page }) => {
     const html = createCSSTestHTML(
       "light",
