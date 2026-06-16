@@ -3,51 +3,53 @@ import { test, expect } from "@playwright/experimental-ct-react";
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import { PktsInputDatePickerProps } from "../PktsInputDatePicker.types";
 import PktsInputDatePicker from "../PktsInputDatePicker";
-test.describe("ESInputDatePicker", () => {
+test.describe("PktsInputDatePicker", () => {
   const testTodayDate = new Date(2025, 7, 6);
   const testSelectedDate = new Date(2025, 7, 13, 6, 30, 30, 30);
-  const { testTable, themes }: ComponentTestTableType<PktsInputDatePickerProps> =
-    {
-      testTable: [
-        {
-          name: "date",
-          props: {
-            type: "date",
-            value: testSelectedDate,
-          },
+  const {
+    testTable,
+    themes,
+  }: ComponentTestTableType<PktsInputDatePickerProps> = {
+    testTable: [
+      {
+        name: "date",
+        props: {
+          type: "date",
+          value: testSelectedDate,
         },
-        {
-          name: "time",
-          props: {
-            type: "time",
-            value: testSelectedDate,
-          },
+      },
+      {
+        name: "time",
+        props: {
+          type: "time",
+          value: testSelectedDate,
         },
-        {
-          name: "datetime",
-          props: {
-            type: "datetime",
-            value: testSelectedDate,
-          },
+      },
+      {
+        name: "datetime",
+        props: {
+          type: "datetime",
+          value: testSelectedDate,
         },
-        {
-          name: "daterange",
-          props: {
-            type: "daterange",
-            value: new Date(2025, 8, 8),
-            rangeEndValue: new Date(2025, 8, 24),
-          },
+      },
+      {
+        name: "daterange",
+        props: {
+          type: "daterange",
+          value: new Date(2025, 8, 8),
+          rangeEndValue: new Date(2025, 8, 24),
         },
-      ],
-      themes: ["light", "dark"],
-      actionStates: [],
-    };
+      },
+    ],
+    themes: ["light", "dark"],
+    actionStates: [],
+  };
   testTable.forEach(({ name, props }) => {
     themes.forEach((theme) => {
       test(`${name}-${theme}`, async ({ page, mount }) => {
         await page.clock.setFixedTime(testTodayDate);
         const testBox = await mount(
-          <div className={theme} style={{ position: "relative" }}>
+          <div className={`packets ${theme}`} style={{ position: "relative" }}>
             <PktsInputDatePicker {...props} />
           </div>,
         );
@@ -79,7 +81,7 @@ test.describe("ESInputDatePicker", () => {
     test(`month-select-${theme}`, async ({ page, mount }) => {
       await page.clock.setFixedTime(testTodayDate);
       const testBox = await mount(
-        <div className={theme} style={{ position: "relative" }}>
+        <div className={`packets ${theme}`} style={{ position: "relative" }}>
           <PktsInputDatePicker type="date" value={testSelectedDate} />
         </div>,
       );
@@ -95,7 +97,7 @@ test.describe("ESInputDatePicker", () => {
     test(`year-select-${theme}`, async ({ page, mount }) => {
       await page.clock.setFixedTime(testTodayDate);
       const testBox = await mount(
-        <div className={theme} style={{ position: "relative" }}>
+        <div className={`packets ${theme}`} style={{ position: "relative" }}>
           <PktsInputDatePicker type="date" value={testSelectedDate} />
         </div>,
       );
@@ -113,7 +115,7 @@ test.describe("ESInputDatePicker", () => {
     test(`settings-applied-${theme}`, async ({ page, mount }) => {
       await page.clock.setFixedTime(testTodayDate);
       const testBox = await mount(
-        <div className={theme} style={{ position: "relative" }}>
+        <div className={`packets ${theme}`} style={{ position: "relative" }}>
           <PktsInputDatePicker
             type="datetime"
             dateSettings={{

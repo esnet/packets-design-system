@@ -1,59 +1,33 @@
 import { test, expect } from "@playwright/test";
 import { createTestHTML } from "./test-utils";
 
-test.describe("PktsIconButton Web Component", () => {
-  // Test all variants
-  const variants = ['primary', 'secondary', 'branded', 'tertiary', 'destructive'];
+type Theme = "light" | "dark";
 
-  for (const variant of variants) {
-    test(`${variant}-light`, async ({ page }) => {
-      const html = createTestHTML("light", `
-        <pkts-icon-button variant="${variant}">
-          <pkts-icon name="Settings"></pkts-icon>
-        </pkts-icon-button>
-      `);
-      await page.setContent(html);
-      await page.waitForSelector("pkts-icon-button");
-      const button = page.locator("pkts-icon-button > button").first();
-      await expect(button).toHaveScreenshot(`PktsIconButton-${variant}-light.png`);
+const VARIANTS = ["primary", "secondary", "branded", "tertiary", "destructive"] as const;
+
+function buildIconButtonRow(variant: string): string {
+    return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <pkts-icon-button variant="${variant}"><pkts-icon name="ArrowUp"></pkts-icon></pkts-icon-button>
+      <div id="hover-btn"><pkts-icon-button variant="${variant}"><pkts-icon name="ArrowUp"></pkts-icon></pkts-icon-button></div>
+      <div id="focus-btn"><pkts-icon-button variant="${variant}"><pkts-icon name="ArrowUp"></pkts-icon></pkts-icon-button></div>
+      <pkts-icon-button variant="${variant}" disabled><pkts-icon name="ArrowUp"></pkts-icon></pkts-icon-button>
+    </div>
+  `;
+}
+
+test.describe("Pkts IconButton Web Component", () => {
+    (["light", "dark"] as Theme[]).forEach((theme) => {
+        VARIANTS.forEach((variant) => {
+            test(`PktsIconButton-${variant}-${theme}`, async ({ page }) => {
+                const html = createTestHTML(theme, buildIconButtonRow(variant));
+                await page.setContent(html);
+                await page.waitForSelector("pkts-icon-button");
+                await page.waitForTimeout(200);
+                await page.locator("#focus-btn .pkts-icon-button").focus();
+                await page.locator("#hover-btn").hover();
+                await expect(page.locator("#container")).toHaveScreenshot(`PktsIconButton-${variant}-${theme}.png`);
+            });
+        });
     });
-
-    test(`${variant}-dark`, async ({ page }) => {
-      const html = createTestHTML("dark", `
-        <pkts-icon-button variant="${variant}">
-          <pkts-icon name="Settings"></pkts-icon>
-        </pkts-icon-button>
-      `);
-      await page.setContent(html);
-      await page.waitForSelector("pkts-icon-button");
-      const button = page.locator("pkts-icon-button > button").first();
-      await expect(button).toHaveScreenshot(`PktsIconButton-${variant}-dark.png`);
-    });
-  }
-
-  // Test disabled state
-  test("disabled-light", async ({ page }) => {
-    const html = createTestHTML("light", `
-      <pkts-icon-button disabled>
-        <pkts-icon name="Settings"></pkts-icon>
-      </pkts-icon-button>
-    `);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-icon-button");
-    const button = page.locator("pkts-icon-button > button").first();
-    await expect(button).toHaveScreenshot("PktsIconButton-disabled-light.png");
-  });
-
-  // Test square variant
-  test("square-light", async ({ page }) => {
-    const html = createTestHTML("light", `
-      <pkts-icon-button square>
-        <pkts-icon name="Settings"></pkts-icon>
-      </pkts-icon-button>
-    `);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-icon-button");
-    const button = page.locator("pkts-icon-button > button").first();
-    await expect(button).toHaveScreenshot("PktsIconButton-square-light.png");
-  });
 });

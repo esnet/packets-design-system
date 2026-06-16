@@ -1,26 +1,32 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS Tabs Component", () => {
-  test("tabs-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="padding: 16px; width: 600px;">
-        <section class="pkts-tabs">
-          <ul class="tab-list">
-            <li class="pkts-tab pkts-active"><a href="#tab1">Tab 1</a></li>
-            <li class="pkts-tab"><a href="#tab2">Tab 2</a></li>
-            <li class="pkts-tab"><a href="#tab3">Tab 3</a></li>
-          </ul>
-        </section>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
+type Theme = "light" | "dark";
 
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("tabs-light.png");
+function buildTabsContent(): string {
+  return `
+    <div id="container" style="display: inline-flex; padding: 8px;">
+      <section class="pkts-tabs">
+        <ul class="tab-list">
+          <li class="pkts-tab pkts-active"><a href="#">Tab 1</a></li>
+          <li id="hover-tab" class="pkts-tab"><a href="#">Tab 2</a></li>
+          <li class="pkts-tab"><a href="#">Tab 3</a></li>
+        </ul>
+      </section>
+    </div>
+  `;
+}
+
+test.describe("Pkts Tabs Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    test(`tabs-${theme}`, async ({ page }) => {
+      const html = createCSSTestHTML(theme, buildTabsContent());
+      await page.setContent(html);
+      await page.waitForTimeout(100);
+      await page.locator("#hover-tab").hover();
+
+      const container = page.locator("#container");
+      await expect(container).toHaveScreenshot(`tabs-${theme}.png`);
+    });
   });
 });

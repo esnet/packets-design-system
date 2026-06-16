@@ -23,7 +23,7 @@
     margin: 0 0 var(--pkts-size-spacing-medium, 2rem);
   }
 
-  /* Body */
+  /* Body text */
   &,
   body {
     color: var(--pkts-color-light-copy, #3d3d3d);
@@ -309,7 +309,8 @@
 
   /* Small/Footer */
   small,
-  .small footer,
+  footer,
+  .small,
   .footer {
     font: var(
       --pkts-typography-copy-1-sans-font,

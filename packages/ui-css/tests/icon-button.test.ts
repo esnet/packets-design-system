@@ -1,78 +1,33 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS IconButton Component", () => {
-  test("icon-button-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="pkts-icon-button pkts-primary">Primary</button>
-        <button class="pkts-icon-button pkts-secondary">Secondary</button>
-        <button class="pkts-icon-button pkts-branded">Branded</button>
-        <button class="pkts-icon-button pkts-tertiary">Tertiary</button>
-        <button class="pkts-icon-button pkts-destructive">Destructive</button>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
+type Theme = "light" | "dark";
 
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("icon-button-variants-light.png");
-  });
+const ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>`;
 
-  test("icon-button-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="pkts-icon-button pkts-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-branded">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-tertiary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-destructive">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
+const VARIANTS = ["primary", "secondary", "branded", "tertiary", "destructive"] as const;
 
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("icon-button-variants-dark.png");
-  });
+function buildIconButtonRow(variant: string): string {
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <button class="pkts-icon-button pkts-${variant}">${ICON_SVG}</button>
+      <button id="hover-btn" class="pkts-icon-button pkts-${variant}">${ICON_SVG}</button>
+      <button id="focus-btn" class="pkts-icon-button pkts-${variant}">${ICON_SVG}</button>
+      <button class="pkts-icon-button pkts-${variant}" disabled>${ICON_SVG}</button>
+    </div>
+  `;
+}
 
-  test("icon-button-states", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <button class="pkts-icon-button pkts-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-primary" disabled>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-        <button class="pkts-icon-button pkts-primary pkts-square">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
-        </button>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("icon-button-states.png");
+test.describe("Pkts IconButton Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach((variant) => {
+      test(`icon-button-${variant}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildIconButtonRow(variant));
+        await page.setContent(html);
+        await page.locator("#focus-btn").focus();
+        await page.locator("#hover-btn").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`icon-button-${variant}-${theme}.png`);
+      });
+    });
   });
 });

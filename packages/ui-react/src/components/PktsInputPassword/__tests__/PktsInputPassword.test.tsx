@@ -1,83 +1,63 @@
 import * as React from "react";
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
-import PktsInputPassword from "../PktsInputPassword";
-import { PktsInputPasswordProps } from "../PktsInputPassword.types";
 import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
+import PktsInputPassword from "../PktsInputPassword";
 
-test.describe("ESInputPassword", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsInputPasswordProps> = {
-    testTable: [
-      { name: "default", props: { placeholder: "Enter password" } },
-      {
-        name: "primary",
-        props: { variant: "primary", placeholder: "Primary variant" },
-      },
-      {
-        name: "disabled",
-        props: { disabled: true, placeholder: "Disabled" },
-      },
-      // Add more test cases as needed
-    ],
-    themes: ["light", "dark"],
-    actionStates: ["hover"],
-  };
-
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      let themedComponent = (
-        <div style={{ padding: "8px" }}>
-          <PktsInputPassword {...props} />
-        </div>
-      );
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
-        await expect(component).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        if (props.disabled) return;
-        test(`${name}-${theme}-${state}`, async ({ page, mount }) => {
-          // do any locator selection if needed
-          const component = await mount(themedComponent);
-          if (state === "focus") await component.focus();
-          if (state === "hover" || state === "active") await component.hover();
-          if (state === "active") await page.mouse.down();
-          await expect(component).toHaveScreenshot();
+test.describe("PktsInputPassword", () => {
+    ["light", "dark"].forEach((theme: any) => {
+        test(`PktsInputPassword-variants-${theme}`, async ({ mount }) => {
+            const component = await mount(
+                <ComponentTestBox theme={theme} component={
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                            <div style={{ width: "160px" }}><PktsInputPassword placeholder="password" /></div>
+                            <div id="hover-default" style={{ width: "160px" }}><PktsInputPassword defaultValue="password" /></div>
+                            <div id="focus-default" style={{ width: "160px" }}><PktsInputPassword defaultValue="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword placeholder="password" disabled /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                            <div style={{ width: "160px" }}><PktsInputPassword variant="branded" placeholder="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword variant="branded" defaultValue="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword variant="branded" defaultValue="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword variant="branded" placeholder="password" disabled /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                            <div style={{ width: "160px" }}><PktsInputPassword error placeholder="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword error defaultValue="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword error defaultValue="password" /></div>
+                            <div style={{ width: "160px" }}><PktsInputPassword error placeholder="password" disabled /></div>
+                        </div>
+                    </div>
+                } />,
+            );
+            await component.locator("#focus-default input").focus();
+            await component.locator("#hover-default .pkts-input-text").hover();
+            await expect(component).toHaveScreenshot(`PktsInputPassword-variants-${theme}.png`);
         });
-      });
     });
-  });
-  // add test for typing into the input
-  test("typing into input", async ({ mount }) => {
-    const component = await mount(<PktsInputPassword />);
-    const input = component.locator("input");
-    await input.fill("Test input");
-    await expect(input).toHaveValue("Test input");
-  });
 
-  // there are two svg buttons in the component, the first one is visibility toggle and the second one is clear button
-  test("click visibility toggle button", async ({ mount }) => {
-    const component = await mount(<PktsInputPassword />);
-    const input = component.locator("input");
-    expect(await input.getAttribute("type")).toBe("password");
-    const toggleButton = component.locator("svg").first();
-    await toggleButton.click();
-    expect(await input.getAttribute("type")).toBe("text");
-  });
+    test("typing into input", async ({ mount }) => {
+        const component = await mount(<PktsInputPassword />);
+        const input = component.locator("input");
+        await input.fill("Test input");
+        await expect(input).toHaveValue("Test input");
+    });
 
-  test("click clear button", async ({ mount }) => {
-    const component = await mount(<PktsInputPassword />);
-    const input = component.locator("input");
-    const clearButton = component.locator("svg").last();
-    await input.fill("Text to clear");
-    await clearButton.click();
-    const inputValue = await input.inputValue();
-    expect(inputValue).toBe(""); // Input should be empty after clicking clear button
-  });
+    test("click visibility toggle button", async ({ mount }) => {
+        const component = await mount(<PktsInputPassword />);
+        const input = component.locator("input");
+        expect(await input.getAttribute("type")).toBe("password");
+        const toggleButton = component.locator("svg").first();
+        await toggleButton.click();
+        expect(await input.getAttribute("type")).toBe("text");
+    });
+
+    test("click clear button", async ({ mount }) => {
+        const component = await mount(<PktsInputPassword />);
+        const input = component.locator("input");
+        const clearButton = component.locator("svg").last();
+        await input.fill("Text to clear");
+        await clearButton.click();
+        expect(await input.inputValue()).toBe("");
+    });
 });

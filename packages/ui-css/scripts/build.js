@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..');
 const SRC_DIR = path.join(ROOT_DIR, 'src');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
-const UI_DIR = path.join(ROOT_DIR, '../ui');
+const UI_DIR = path.join(ROOT_DIR, '../ui-css');
 
 /**
  * Clean and create directories

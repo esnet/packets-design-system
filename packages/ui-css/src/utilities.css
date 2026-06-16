@@ -342,10 +342,10 @@ a.pkts-button.pkts-branded,
 a.pkts-icon-button.pkts-branded {
   font: var(
     --pkts-typography-button-1-display-font,
-    700 16px/100% var(--pkts-font-family-body-display)
+    600 16px/120% var(--pkts-font-family-body-display)
   );
 
-  line-height: 100%;
+  line-height: normal;
 
   --bg-gradient-1: var(--pkts-color-core-blue-400, #00b6f2);
   --bg-gradient-2: var(--pkts-color-core-blue-600, #0088b5);

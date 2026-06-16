@@ -1,27 +1,24 @@
 import { test, expect } from "@playwright/test";
 import { createTestHTML } from "./test-utils";
 
-test.describe("PktsDivider Web Component", () => {
-  const variants = ["primary", "branded"] as const;
-  const themes = ["light", "dark"] as const;
+type Theme = "light" | "dark";
 
-  for (const theme of themes) {
-    for (const variant of variants) {
-      test(`${variant}-${theme}`, async ({ page }) => {
-        const html = createTestHTML(
-          theme,
-          `<pkts-divider variant="${variant}"></pkts-divider>`,
-        );
-        await page.setContent(html);
-        await page.waitForSelector("pkts-divider");
-        await page.waitForTimeout(100);
+function buildDividerContent(): string {
+    return `
+    <div id="container" style="display: inline-flex; flex-direction: column; gap: 12px; padding: 8px; width: 320px;">
+      <pkts-divider></pkts-divider>
+      <pkts-divider variant="branded"></pkts-divider>
+    </div>
+  `;
+}
 
-        // Screenshot the inner <hr> element which has the actual styling
-        const divider = page.locator("pkts-divider hr");
-        await expect(divider).toHaveScreenshot(
-          `PktsDivider-${variant}-${theme}.png`,
-        );
-      });
-    }
-  }
+test.describe("Pkts Divider Web Component", () => {
+    (["light", "dark"] as Theme[]).forEach((theme) => {
+        test(`PktsDivider-variants-${theme}`, async ({ page }) => {
+            const html = createTestHTML(theme, buildDividerContent());
+            await page.setContent(html);
+            await page.waitForTimeout(200);
+            await expect(page.locator("#container")).toHaveScreenshot(`PktsDivider-variants-${theme}.png`);
+        });
+    });
 });

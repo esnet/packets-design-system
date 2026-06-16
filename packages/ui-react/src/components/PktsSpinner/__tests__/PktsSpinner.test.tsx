@@ -4,7 +4,7 @@ import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableTyp
 import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import PktsSpinner from "../PktsSpinner";
 
-test.describe("ESSpinner", () => {
+test.describe("PktsSpinner", () => {
   const { testTable, themes }: ComponentTestTableType<{}> = {
     testTable: [
       {

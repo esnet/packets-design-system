@@ -1,36 +1,38 @@
 import { test, expect } from "@playwright/test";
 import { createTestHTML } from "./test-utils";
 
-test.describe("PktsInputEmail Web Component", () => {
-  test("default-light", async ({ page }) => {
-    const html = createTestHTML("light", `<pkts-input-email placeholder="Enter email"></pkts-input-email>`);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-email");
-    const input = page.locator("pkts-input-email > div").first();
-    await expect(input).toHaveScreenshot("PktsInputEmail-default-light.png");
-  });
+type Theme = "light" | "dark";
 
-  test("branded-light", async ({ page }) => {
-    const html = createTestHTML("light", `<pkts-input-email variant="branded" placeholder="email@example.com"></pkts-input-email>`);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-email");
-    const input = page.locator("pkts-input-email > div").first();
-    await expect(input).toHaveScreenshot("PktsInputEmail-branded-light.png");
-  });
+const VARIANTS = [
+    { key: "default", variant: null, error: false },
+    { key: "branded", variant: "branded", error: false },
+    { key: "error", variant: null, error: true },
+] as const;
 
-  test("error-light", async ({ page }) => {
-    const html = createTestHTML("light", `<pkts-input-email error placeholder="Invalid email"></pkts-input-email>`);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-email");
-    const input = page.locator("pkts-input-email > div").first();
-    await expect(input).toHaveScreenshot("PktsInputEmail-error-light.png");
-  });
+function buildInputRow(variant: string | null, error: boolean): string {
+    const variantAttr = variant ? `variant="${variant}"` : "";
+    const errorAttr = error ? "error" : "";
+    return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <pkts-input-email style="width: 240px;" ${variantAttr} ${errorAttr} placeholder="test@email.com"></pkts-input-email>
+      <div id="hover-input" style="width: 240px;"><pkts-input-email style="width: 100%;" ${variantAttr} ${errorAttr} value="test@email.com"></pkts-input-email></div>
+      <div id="focus-input" style="width: 240px;"><pkts-input-email style="width: 100%;" ${variantAttr} ${errorAttr} value="test@email.com"></pkts-input-email></div>
+      <pkts-input-email style="width: 240px;" ${variantAttr} ${errorAttr} placeholder="test@email.com" disabled></pkts-input-email>
+    </div>
+  `;
+}
 
-  test("disabled-light", async ({ page }) => {
-    const html = createTestHTML("light", `<pkts-input-email disabled placeholder="Disabled"></pkts-input-email>`);
-    await page.setContent(html);
-    await page.waitForSelector("pkts-input-email");
-    const input = page.locator("pkts-input-email > div").first();
-    await expect(input).toHaveScreenshot("PktsInputEmail-disabled-light.png");
-  });
+test.describe("Pkts InputEmail Web Component", () => {
+    (["light", "dark"] as Theme[]).forEach((theme) => {
+        VARIANTS.forEach(({ key, variant, error }) => {
+            test(`PktsInputEmail-${key}-${theme}`, async ({ page }) => {
+                const html = createTestHTML(theme, buildInputRow(variant, error));
+                await page.setContent(html);
+                await page.waitForTimeout(200);
+                await page.locator("#focus-input input").focus();
+                await page.locator("#hover-input").hover();
+                await expect(page.locator("#container")).toHaveScreenshot(`PktsInputEmail-${key}-${theme}.png`);
+            });
+        });
+    });
 });
