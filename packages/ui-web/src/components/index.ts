@@ -21,6 +21,7 @@ export { PktsInputRadioButton } from "./PktsInputRadioButton";
 export { PktsIconButton } from "./PktsIconButton";
 export { PktsButtonGroup } from "./PktsButtonGroup";
 export { PktsChip } from "./PktsChip";
+export { PktsChipGroup } from "./PktsChipGroup";
 export { PktsAlert } from "./PktsAlert";
 export { PktsBreadcrumbs } from "./PktsBreadcrumbs";
 export { PktsTabs } from "./PktsTabs";
