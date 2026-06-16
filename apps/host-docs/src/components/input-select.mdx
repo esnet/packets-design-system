@@ -1,0 +1,139 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Select" />
+
+# Input Select
+
+### Overview
+
+InputSelect is a fully custom single-selection dropdown that mimics the behavior of an HTML `<select>` element without using native select or option tags. It accepts `PktsInputOption` children, supports controlled and uncontrolled usage via `value`/`defaultValue`, and fires a synthesized change event compatible with the native `HTMLSelectElement` interface. For multi-selection with search-as-you-type filtering, use `PktsInputTypeahead` instead.
+
+### States and Behaviours
+
+**Variants**: primary, branded
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - Use InputSelect when a user needs to choose exactly one option from a pre-defined list
+  - Use it inside a form where a `name` prop is needed so the value is accessible via `FormData`
+- How to use this component
+  - Do:
+    - Provide a descriptive `placeholder` so users know what the field is for before selecting
+    - Wrap in `InputRow` to display a label and any error messaging
+    - Pass only `PktsInputOption` elements as children - other child types are filtered out
+  - Don't:
+    - Don't use InputSelect for multi-selection; use `PktsInputTypeahead` instead
+    - Don't omit `name` when using inside an HTML form that depends on `FormData`
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-core-blue-400`
+- `--pkts-color-core-red-700`
+- `--pkts-color-core-slate-100`
+- `--pkts-color-core-slate-1000`
+- `--pkts-color-core-slate-300`
+- `--pkts-color-core-slate-500`
+- `--pkts-color-core-slate-900`
+- `--pkts-color-core-white-100`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-dark-surface-2`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-error`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-surface-1`
+- `--pkts-color-light-surface-2`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-border-width-xsmall`
+- `--pkts-size-radius-xxlarge`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-copy-1-sans-font`

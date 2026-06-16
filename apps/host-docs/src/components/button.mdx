@@ -1,0 +1,132 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Button" />
+
+# Button
+
+### Overview
+
+An extension of the HTML `<button>` element (or an `<a>` tag styled as a button) that communicates action intent through five color variants. Optional `prepend` and `append` slots allow icons or avatars to be placed before or after the label. The `as` prop lets the button render as an anchor for navigation actions while retaining button styling and accessibility attributes.
+
+### States and Behaviours
+
+**Variants**: primary, secondary (default), branded, tertiary, destructive
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When triggering an action or submitting a form
+  - When navigating to another page or URL, but should appear as a button
+- How to use this component
+  - Do:
+    - Use `primary` for the single most important action on a view
+    - Use `secondary` for secondary or supporting actions alongside a primary button
+    - Use `destructive` for irreversible actions such as delete or remove
+    - Use `as="a"` with an `href` for navigation - this ensures correct semantics and keyboard behavior
+    - Add icons via `prepend` or `append` only when they aid comprehension, not for decoration
+  - Don't:
+    - Use buttons with no click handler (make disabled if so)
+    - Use a button when a plain text link is sufficient for low-emphasis navigation
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-light`
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-core-blue-900`
+- `--pkts-color-core-slate-900`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-xxlarge`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xlarge`
+- `--pkts-size-spacing-xxlarge`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-button-1-sans-font`

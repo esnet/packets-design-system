@@ -1,0 +1,131 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Accordion" />
+
+# Accordion
+
+### Overview
+
+A collapsible container with a header, optional footer, and a toggleable content region. Use it to progressively disclose information that does not need to be visible at all times. Two variants are available: `primary` renders a styled card with a colored header and footer, while `inline` renders a lightweight version without a background or padding that can live inside body copy. Action buttons can be placed in the header for context-specific controls.
+
+### States and Behaviours
+
+**Variants**: primary (default), inline
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Focus
+
+### Best Practices
+
+- When to use this component
+  - When a section of content is secondary and can be hidden by default to reduce visual noise
+  - When grouping related content inside a larger page layout (e.g. a side panel or detail view)
+- How to use this component
+  - Do:
+    - Provide a descriptive `header` string so users know what content they are revealing
+    - Use the `inline` variant when embedding the accordion inside prose or a form layout
+    - Use `actionButtons` for operations scoped to the accordion (e.g. edit, refresh) rather than page-level actions
+  - Don't:
+    - Nest accordions deeply - prefer alternative layouts if more than one level of nesting is needed
+    - Use the `footer` prop with the `inline` variant - the footer is suppressed automatically
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-core-slate-600`
+- `--pkts-color-core-slate-700`
+- `--pkts-color-core-white-100`
+- `--pkts-color-dark-copy-alt`
+- `--pkts-color-dark-primary`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-light-copy-alt`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-secondary`
+- `--pkts-color-light-surface-1`
+- `--pkts-size-border-width-xsmall`
+- `--pkts-size-radius-xxlarge`
+- `--pkts-size-spacing-small`
+- `--pkts-size-spacing-xlarge`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-typography-copy-1-sans-font`
+- `--pkts-typography-header-5-sans-font`

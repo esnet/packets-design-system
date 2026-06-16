@@ -1,0 +1,109 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Spacer" />
+
+# Spacer
+
+### Overview
+
+A utility component that inserts a blank gap along a given axis using a design token-driven spacing value. The `type` prop controls whether the spacer expands vertically, horizontally, or as a square, while `size` maps to the spacing token scale. Use this component to add consistent whitespace between layout elements without resorting to ad-hoc margin or padding overrides.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - When a consistent, token-aligned gap is needed between two sibling elements
+  - When margin or padding on adjacent components cannot be modified directly (e.g. third-party components)
+- How to use this component
+  - Do:
+    - Use the `size` prop to pick from the spacing token scale rather than overriding with inline styles
+    - Choose `type="vertical"` for row-direction gaps and `type="horizontal"` for column-direction gaps
+    - Use `type="square"` when equal spacing in both dimensions is required (e.g. a square inset)
+  - Don't:
+    - Use this component as a replacement for layout primitives like flexbox `gap` or grid `gap`
+    - Stack multiple spacers to approximate a size not in the token scale - request a new token instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-size-spacing-none`

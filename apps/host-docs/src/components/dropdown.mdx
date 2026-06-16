@@ -1,0 +1,113 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Dropdown" />
+
+# Dropdown
+
+### Overview
+
+The Dropdown component is a flexible container that reveals hidden content when its anchor element is interacted with. It supports uncontrolled behavior (automatically opening on click or focus of any descendant) as well as controlled behavior where the open state is managed externally. On open, the dropdown automatically repositions itself to avoid clipping at viewport edges. An optional caret indicator can be shown to visually connect the content panel back to the anchor.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus
+
+### Best Practices
+
+- When to use this component
+  - When an action or selection requires revealing additional options without navigating away
+  - When screen space is limited and content should be shown on demand
+- How to use this component
+  - Do:
+    - Provide a clearly labeled anchor element (e.g. a button) so users understand the dropdown is interactive
+    - Use the `mode` prop to control whether the dropdown opens on hover, click, or both, based on the context
+  - Don't:
+    - Place large amounts of primary content inside a dropdown - reserve it for supplemental options or menus
+    - Nest dropdowns deeply, as this creates complex focus and navigation challenges
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-light-surface-1`
+- `--pkts-size-spacing-xsmall`

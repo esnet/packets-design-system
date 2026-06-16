@@ -1,0 +1,125 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Radio Button" />
+
+# Input Radio Button
+
+### Overview
+
+A styled radio button that wraps a native `<input type="radio">` element. Group multiple `InputRadioButton` components under the same `name` attribute to create a mutually exclusive option set.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Checked, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When a user must select exactly one option from a small, fixed set of mutually exclusive choices
+  - When all options should be visible at once without requiring a dropdown
+- How to use this component
+  - Do:
+    - Group related radio buttons under the same `name` attribute so only one can be checked at a time
+    - Always pair each radio button with a visible text label so users understand what they are selecting
+    - Use `defaultChecked` or `checked` to set an initial selection when a default makes sense
+  - Don't:
+    - Use a single isolated radio button - use a checkbox instead when toggling a single on/off state
+    - Use radio buttons when more than one option can be chosen simultaneously - use checkboxes instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-copy-alt`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-copy-alt`
+- `--pkts-color-light-primary`
+- `--pkts-size-radius-circle`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`

@@ -1,0 +1,116 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Option" />
+
+# Input Option
+
+### Overview
+
+A styled, selectable option item intended to mirror the HTML `<option>` element. It is designed exclusively as a sub-component of `InputSelect` and `InputTypeahead`; using it outside of those containers produces undefined behaviour. Renders as a `<button role="option">` under the hood to work around the styling limitations of a native `<option>` tag, and displays a checkmark icon when selected. Children must be a plain string.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Disabled, Selected
+
+### Best Practices
+
+- When to use this component
+  - As the direct child of `InputSelect` or `InputTypeahead` to represent individual selectable items
+  - When you need consistent option styling across both select and typeahead dropdowns
+- How to use this component
+  - Do:
+    - Pass a plain string as the child - the component requires string children to function correctly
+    - Use the `value` prop when the option's submitted value should differ from its display label
+    - Use the `disabled` prop to prevent selection of options that are temporarily unavailable
+  - Don't:
+    - Use this component outside of `InputSelect` or `InputTypeahead`
+    - Pass non-string children (e.g. JSX elements) - this will break value resolution
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-surface-1`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`

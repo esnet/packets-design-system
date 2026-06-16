@@ -1,0 +1,141 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Chip" />
+
+# Chip
+
+### Overview
+
+Chip is a compact, interactive label built on an HTML button element. It supports hover, focus, active, and disabled states, and can optionally render a delete (X) icon to trigger a callback. Chips come in two visual variants (`primary` and `outline`) and can be fully rounded or use standard large corner radius. Use `ChipGroup` when you need to display a collection of chips in a consistent wrapping layout.
+
+### States and Behaviours
+
+**Variants**: primary, outline
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Active, Disabled
+
+### Best Practices
+
+- When to use this component
+  - Displaying filterable tags, categories, or metadata labels that a user can interact with
+  - Showing removable selections (e.g. applied filters) via the delete variant
+- How to use this component
+  - Do:
+    - Prefer the `outline` variant when chips appear on a colored or busy background
+    - Provide meaningful, concise label text as `children`
+  - Don't:
+    - Use the rounded variant when pairing with avatar component
+    - Place multiple click actions on a chip. Use `onDelete` for deletion and `onClick` for navigation, not both simultaneously
+    - Use chips as primary navigation. Use a Button component or a link instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-black-200`
+- `--pkts-color-core-black-300`
+- `--pkts-color-core-black-600`
+- `--pkts-color-core-black-800`
+- `--pkts-color-core-blue-100`
+- `--pkts-color-core-blue-200`
+- `--pkts-color-core-blue-500`
+- `--pkts-color-core-blue-600`
+- `--pkts-color-core-blue-800`
+- `--pkts-color-core-white-200`
+- `--pkts-color-core-white-300`
+- `--pkts-color-core-white-400`
+- `--pkts-color-core-white-600`
+- `--pkts-color-core-white-700`
+- `--pkts-color-core-white-800`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-xsmall`
+- `--pkts-size-radius-circle`
+- `--pkts-size-radius-xlarge`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-quick`
+- `--pkts-typography-label-1-sans-font`

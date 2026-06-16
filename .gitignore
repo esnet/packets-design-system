@@ -56,3 +56,6 @@ test-results/
 # Emacs
 *~
 \#*
+
+# temporary component doc drafts (copy contents to Google Drive, do not commit)
+Pkts*.md
