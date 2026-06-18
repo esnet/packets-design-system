@@ -10,12 +10,18 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-designs"),
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-essentials"),
     "storybook-dark-mode",
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
+  },
+  async viteFinal(config, { configType }) {
+    if (configType === "PRODUCTION") {
+      return { ...config, base: "/react/" };
+    }
+    return config;
   },
   typescript: {
     /**

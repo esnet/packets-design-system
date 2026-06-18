@@ -24,9 +24,7 @@
     "./*": "./dist/*"
   },
   "license": "MIT",
-  "publishConfig": {
-    "@esnet:registry": "https://gitlab.es.net/api/v4/projects/898/packages/npm/"
-  },
+  "private": true,
   "dependencies": {
     "sd-tailwindcss-transformer": "^1.4.6"
   },

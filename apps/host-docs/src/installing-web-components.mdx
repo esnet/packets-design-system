@@ -135,7 +135,7 @@ if (button) {
 
     Now that you've installed the Web Components, view the full component documentation:
 
-    <strong>Next, explore the interactive <a href="/web/" target="_top">Web Components Storybook →</a></strong>
+    <strong>Next, explore the interactive <a href={import.meta.env.PROD ? "/web/" : "http://localhost:6007"} target="_top">Web Components Storybook →</a></strong>
 
     The Web Components documentation includes:
     - Interactive examples of all components

@@ -108,7 +108,7 @@ npm install @esnet/packets-ui-css
 
     Now that you've installed the CSS components, view the full component documentation:
 
-    <strong>Next, explore the interactive <a href="/css/" target="_top">CSS Components Storybook →</a></strong>
+    <strong>Next, explore the interactive <a href={import.meta.env.PROD ? "/css/" : "http://localhost:6009"} target="_top">CSS Components Storybook →</a></strong>
 
     The CSS documentation includes:
     - Interactive examples of all components
