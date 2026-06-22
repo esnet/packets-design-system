@@ -22,7 +22,8 @@ const preview: Preview = {
     docs: { source: { excludeDecorators: true } },
     options: {
       storySort: {
-        order: ["About", "Design Tokens", "RichText", "Components"],
+        order: ["About", "RichText", "Components"],
+        method: "alphabetical",
       },
     },
     backgrounds: { disable: true },

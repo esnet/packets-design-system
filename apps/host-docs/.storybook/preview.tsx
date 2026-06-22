@@ -6,6 +6,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: ["About", "Components", "Design Tokens"],
+        method: "alphabetical",
       },
     },
     backgrounds: { disable: true },
