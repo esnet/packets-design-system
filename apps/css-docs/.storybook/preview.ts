@@ -22,7 +22,7 @@ const preview: Preview = {
     docs: { source: { excludeDecorators: true } },
     options: {
       storySort: {
-        order: ["About", "Components"],
+        order: ["About", "Design Tokens", "RichText", "Components"],
       },
     },
     backgrounds: { disable: true },
