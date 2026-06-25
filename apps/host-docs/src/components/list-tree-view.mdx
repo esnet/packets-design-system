@@ -1,0 +1,123 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/List Tree View" />
+
+# List Tree View
+
+### Overview
+
+A collapsible tree structure for displaying hierarchical name-value data. Each node renders a row with an accordion indicator, an optional group icon, content, and an optional selection checkmark. Nodes can be initially open or locked open via `alwaysOpen`. Child leaf nodes are rendered via the companion `PktsListTreeLeafView` sub-component. Prefer a simpler list component when the data is flat and does not require nesting.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover
+
+### Best Practices
+
+- When to use this component
+  - When visualizing hierarchical or tree-structured data (e.g. file systems, nested configs)
+  - When users need to expand or collapse groups of related items
+- How to use this component
+  - Do:
+    - Use `PktsListTreeView.PktsListTreeLeafView` for leaf nodes to ensure consistent styling
+    - Set `alwaysOpen` when the tree must always be visible and should not allow collapsing
+    - Provide a meaningful `content` value so the row label is readable at all levels
+  - Don't:
+    - Nest tree views more than two or three levels deep without considering alternative layouts
+    - Use this component for flat lists - use a simpler list component instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-black-100`
+- `--pkts-color-core-blue-600`
+- `--pkts-color-core-blue-900`
+- `--pkts-color-core-slate-400`
+- `--pkts-color-core-white-100`
+- `--pkts-color-core-white-400`
+- `--pkts-color-core-white-700`
+- `--pkts-size-radius-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-time-duration-medium`
+- `--pkts-time-duration-quick`
+- `--pkts-time-duration-short`

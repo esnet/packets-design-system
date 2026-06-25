@@ -1,14 +1,14 @@
 .radiusDocBlock {
   --border-radius-preview: 16px;
   display: block;
-  padding: var(--esnet-size-spacing-xsmall);
+  padding: var(--pkts-size-spacing-xsmall);
 
   .previewblock {
     display: block;
     aspect-ratio: 1/1;
     width: 32px;
-    background-color: var(--esnet-color-core-white-500);
-    border: 1px solid var(--esnet-color-light-primary);
+    background-color: var(--pkts-color-core-white-500);
+    border: 1px solid var(--pkts-color-light-primary);
     border-radius: var(--border-radius-preview);
   }
 }

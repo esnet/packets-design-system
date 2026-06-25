@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import * as tokens from "@esnet/pkts-tokens/tokens.json";
 import { SpacingDocBlock } from "doc-ui";
 
 <Meta title="Design Tokens/Spacing" />
@@ -14,6 +14,6 @@ Spacing tokens can be used to represent the values inbetween elements (padding, 
 
 {
     Object.keys(tokens.size.spacing).map(spacingTokenKey => {
-        return(<SpacingDocBlock name={`--esnet-size-spacing-${spacingTokenKey}`} value={tokens.size.spacing[spacingTokenKey].value || 0} />)
+        return(<SpacingDocBlock name={`--pkts-size-spacing-${spacingTokenKey}`} value={tokens.size.spacing[spacingTokenKey].value || 0} />)
     })
 }

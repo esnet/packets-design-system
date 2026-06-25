@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/experimental-ct-react";
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import { PktsInputDateRangeProps } from "../PktsInputDateRange.types";
 import PktsInputDateRange from "../PktsInputDateRange";
-test.describe("ESInputDateRange", () => {
+test.describe("PktsInputDateRange", () => {
   const testTodayDate = new Date(2025, 8, 15);
   const { testTable, themes }: ComponentTestTableType<PktsInputDateRangeProps> = {
     testTable: [
@@ -21,7 +21,7 @@ test.describe("ESInputDateRange", () => {
         await page.clock.setFixedTime(testTodayDate);
         const component = await mount(
           <div
-            className={theme}
+            className={`packets ${theme}`}
             style={{
               position: "relative",
               width: "400px",

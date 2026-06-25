@@ -1,11 +1,11 @@
 .pkts-breadcrumbs {
-  --divider-color: var(--esnet-color-core-black-500, #4d4d4f);
-  --link-color: var(--esnet-color-light-copy, #3d3d3d);
+  --divider-color: var(--pkts-color-core-black-500, #4d4d4f);
+  --link-color: var(--pkts-color-light-copy, #3d3d3d);
 
   display: flex;
-  gap: var(--esnet-size-spacing-xsmall);
+  gap: var(--pkts-size-spacing-xsmall);
   flex-wrap: wrap;
-  margin-bottom: var(--esnet-size-spacing-medium);
+  margin-bottom: var(--pkts-size-spacing-medium);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -13,14 +13,14 @@
 }
 
 .dark .pkts-breadcrumbs {
-  --divider-color: var(--esnet-color-core-white-800, #b3b3b3);
-  --link-color: var(--esnet-color-dark-copy, #e6e6e6);
+  --divider-color: var(--pkts-color-core-white-800, #b3b3b3);
+  --link-color: var(--pkts-color-dark-copy, #e6e6e6);
 }
 
 .pkts-breadcrumbs li {
   display: flex;
   align-items: center;
-  gap: var(--esnet-size-spacing-xsmall);
+  gap: var(--pkts-size-spacing-xsmall);
   width: auto;
   color: var(--link-color);
 }
@@ -39,8 +39,8 @@
   display: inline-block;
   color: var(--divider-color);
   font: var(
-    --esnet-typography-label-2-sans-font,
-    700 12px/120% var(--esnet-font-family-body-sans)
+    --pkts-typography-label-2-sans-font,
+    700 12px/120% var(--pkts-font-family-body-sans)
   );
 }
 

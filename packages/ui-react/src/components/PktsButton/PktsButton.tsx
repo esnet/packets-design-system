@@ -1,43 +1,37 @@
-import React from "react";
+import * as React from "react";
 import clsx from "clsx";
-import { PktsButtonDefaultAsType, PktsButtonProps } from "./PktsButton.types";
+import { PktsButtonProps } from "./PktsButton.types";
 
 /**
- * Button - An extension of a HTML button that comes with different levels of action/intent.
+ * Button - An extension of a HTML button (or anchor, styled as a button)
+ * that comes with different levels of action/intent.
  *
  * @param {PktsButtonProps} props
- * @returns {React.FunctionComponent}
+ * @returns {React.ReactElement}
  */
-const PktsButton = <E extends React.ElementType = PktsButtonDefaultAsType>({
+const PktsButton: React.FC<PktsButtonProps> = ({
   variant = "secondary",
-  children = "",
-  fill = true,
-  disabled = false,
-  prepend = null,
-  size = "medium",
-  as,
+  as = "button",
   className,
-  append = null,
-  ...other
-}: PktsButtonProps<E>): JSX.Element => {
-  const Tag = as || PktsButtonDefaultAsType;
-
+  prepend,
+  append,
+  children,
+  ...props
+}) => {
+  const Tag = as as React.ElementType;
   return (
     <Tag
       className={clsx(
         "pkts-button",
         `pkts-${variant}`,
-        fill ? "pkts-fill" : "pkts-nofill",
-        size && `pkts-${size}`,
         className,
       )}
-      type="button"
-      disabled={disabled}
-      {...other}
+      {...(as === "button" && { type: "button" })}
+      {...props}
     >
-      <>{prepend}</>
+      {prepend}
       {children}
-      <>{append}</>
+      {append}
     </Tag>
   );
 };

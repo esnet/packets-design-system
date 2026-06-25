@@ -1,13 +1,13 @@
 .pkts-card {
   display: block;
-  padding: var(--esnet-size-spacing-medium, 16px);
-  border-radius: var(--esnet-size-radius-large, 8px);
+  padding: var(--pkts-size-spacing-medium, 16px);
+  border-radius: var(--pkts-size-radius-large, 8px);
   border: 1px solid transparent; /* no border in light mode, but leave placeholder. */ 
-  background-color: var(--esnet-color-core-white-100, #ffffff);
-  box-shadow: var(--esnet-box-shadow-core-light);
+  background-color: var(--pkts-color-core-white-100, #ffffff);
+  box-shadow: var(--pkts-box-shadow-core-light);
 }
 
 .dark .pkts-card {
-  border-color: var(--esnet-color-dark-shadow, #5c5f6b);
-  background-color: var(--esnet-color-dark-surface-1, #19191a);
+  border-color: var(--pkts-color-dark-shadow, #5c5f6b);
+  background-color: var(--pkts-color-dark-surface-1, #19191a);
 }

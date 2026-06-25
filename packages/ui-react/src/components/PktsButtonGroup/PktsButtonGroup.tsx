@@ -1,10 +1,9 @@
 import React from "react";
 import { PktsButtonGroupProps } from "./PktsButtonGroup.types";
-
 import clsx from "clsx";
 
 /**
- * ES Button Group
+ * Button Group
  *
  * A compositional component that takes in one or more buttons and
  * regulates its layout across responsive screens.
@@ -14,22 +13,20 @@ import clsx from "clsx";
  */
 const PktsButtonGroup = ({
   children,
-  labelCopy,
-  hideLabel,
+  label,
   direction = "horizontal",
   ...other
 }: PktsButtonGroupProps): JSX.Element => {
   return (
-    <section
-      className={clsx("pkts-button-group", `pkts-${direction}`)}
-      {...other}
-    >
-      {labelCopy && !hideLabel && <label>{labelCopy}</label>}
+    <div className={clsx("pkts-button-group", `pkts-${direction}`)} {...other}>
+      {label}
       <ul className="list">{children}</ul>
-    </section>
+    </div>
   );
 };
 
 PktsButtonGroup.displayName = "PktsButtonGroup";
 
 export default PktsButtonGroup;
+
+// TODO: check if this works

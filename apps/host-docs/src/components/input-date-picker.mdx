@@ -1,0 +1,139 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Date Picker" />
+
+# Input Date Picker
+
+### Overview
+
+A popup calendar and time-wheel picker that supports single-date, time-only, datetime, and date-range selection modes. This component is a subcomponent of `InputDate` and `InputDateRange`, prefer to use those instead. 
+
+This component is specifically the date picker popup, unattached to any anchor or input.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover, Focus, Active, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When you need to embed a calendar or time picker inline and are building a higher-level input wrapper
+  - When none of the higher-level date input components (`InputDate`, `InputDateRange`) suit your layout
+- How to use this component
+  - Do:
+    - Use `InputDate` or `InputDateRange` in most cases instead of this component directly
+    - Supply `dateSettings.min` and `dateSettings.max` to prevent selection of invalid dates
+    - Use `type="daterange"` together with both `value`/`onChange` and `rangeEndValue`/`onChangeRangeEnd`
+  - Don't:
+    - Mount this component without a positioned ancestor - it is absolutely positioned and will overflow otherwise
+    - Use `type="datetime"` when only date or only time is needed
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-core-blue-300`
+- `--pkts-color-core-blue-400`
+- `--pkts-color-core-blue-500`
+- `--pkts-color-core-white-600`
+- `--pkts-color-core-white-900`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-surface-2`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-surface-2`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-circle`
+- `--pkts-size-radius-medium`
+- `--pkts-size-radius-none`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-small`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-typography-copy-1-sans-font`

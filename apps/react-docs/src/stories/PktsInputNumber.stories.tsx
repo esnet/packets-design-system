@@ -52,6 +52,17 @@ type Story = StoryObj<typeof PktsInputNumber>;
 
 export const Default: Story = {};
 
+/**
+ * Can be bound with a min and max, and also rounds to the highest precision given amongst min, max, or step.
+ */
+export const BoundedAndPrecise: Story = {
+  args: {
+    min: "-1",
+    max: "1",
+    step: "0.0001",
+  },
+};
+
 export const Branded: Story = {
   args: {
     variant: "branded",
@@ -69,13 +80,5 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     id: "disabled-password",
-  },
-};
-
-export const WithMinMaxStep: Story = {
-  args: {
-    min: "-10",
-    max: "10",
-    step: "3",
   },
 };

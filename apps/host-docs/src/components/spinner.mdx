@@ -1,0 +1,121 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Spinner" />
+
+# Spinner
+
+### Overview
+
+An animated loading indicator composed of four bouncing dots. It signals to the user that an asynchronous operation is in progress. The component automatically switches to a static "Loading..." text label when the user has enabled the `prefers-reduced-motion` media feature, ensuring the experience remains accessible. Use this component for indeterminate loading states; prefer a progress bar or skeleton when the loading duration or content shape is known in advance.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - When an action or data fetch has been initiated and the completion time is unknown
+  - When a full-page or section-level loading state needs a compact, non-blocking indicator
+- How to use this component
+  - Do:
+    - Pair with an accessible label at the page level (e.g. `aria-live` region) when the spinner replaces meaningful content
+    - Remove the spinner promptly when the operation completes to avoid confusing the user
+  - Don't:
+    - Use multiple spinners simultaneously on the same view - consolidate to a single indicator
+    - Use this component when the expected content shape is known - use skeleton components instead
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-copy-alt`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-copy-alt`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-time-duration-long`
+- `--pkts-typography-label-1-sans-font`

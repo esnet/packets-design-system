@@ -1,64 +1,35 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS InputPassword Component", () => {
-  test("input-password-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text pkts-input-password">
-          <input type="password" placeholder="Default password" />
-        </div>
+type Theme = "light" | "dark";
 
-        <div class="pkts-input-text pkts-input-password pkts-branded">
-          <input type="password" placeholder="Branded password" />
-        </div>
+const VARIANTS = [
+  { key: "default", classes: "" },
+  { key: "branded", classes: " pkts-branded" },
+  { key: "error", classes: " pkts-error" },
+] as const;
 
-        <div class="pkts-input-text pkts-input-password pkts-error">
-          <input type="password" placeholder="Error password" />
-        </div>
+function buildInputRow(classes: string): string {
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <div class="pkts-input-text pkts-input-password${classes}" style="width: 240px;"><input type="password" placeholder="password" /></div>
+      <div id="hover-input" class="pkts-input-text pkts-input-password${classes}" style="width: 240px;"><input type="password" value="password" /></div>
+      <div id="focus-input" class="pkts-input-text pkts-input-password${classes}" style="width: 240px;"><input type="password" value="password" /></div>
+      <div class="pkts-input-text pkts-input-password${classes} pkts-disabled" style="width: 240px;"><input type="password" placeholder="password" disabled /></div>
+    </div>
+  `;
+}
 
-        <div class="pkts-input-text pkts-input-password pkts-disabled">
-          <input type="password" placeholder="Disabled password" disabled />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-password-variants-light.png");
-  });
-
-  test("input-password-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text pkts-input-password">
-          <input type="password" placeholder="Default password" />
-        </div>
-
-        <div class="pkts-input-text pkts-input-password pkts-branded">
-          <input type="password" placeholder="Branded password" />
-        </div>
-
-        <div class="pkts-input-text pkts-input-password pkts-error">
-          <input type="password" placeholder="Error password" />
-        </div>
-
-        <div class="pkts-input-text pkts-input-password pkts-disabled">
-          <input type="password" placeholder="Disabled password" disabled />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-password-variants-dark.png");
+test.describe("Pkts InputPassword Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach(({ key, classes }) => {
+      test(`input-password-${key}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildInputRow(classes));
+        await page.setContent(html);
+        await page.locator("#focus-input input").focus();
+        await page.locator("#hover-input").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`input-password-${key}-${theme}.png`);
+      });
+    });
   });
 });

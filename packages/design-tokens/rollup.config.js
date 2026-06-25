@@ -6,8 +6,8 @@ export default [
   {
     input: "./dist/tokens.js",
     output: {
-      name: "esnet-tokens",
-      file: "./dist/esnet-tokens.umd.js",
+      name: "pkts-tokens",
+      file: "./dist/pkts-tokens.umd.js",
       format: "umd",
     },
     plugins: [
@@ -25,7 +25,7 @@ export default [
   {
     input: "./dist/tokens.js",
     external: [],
-    output: [{ file: "./dist/esnet-tokens.esm.js", format: "es" }],
+    output: [{ file: "./dist/pkts-tokens.esm.js", format: "es" }],
     plugins: [
       resolve(), // so Rollup can find `ms`
     ],
@@ -35,8 +35,8 @@ export default [
     input: "./dist/tokens.js",
     external: [],
     output: [
-      { file: "./dist/esnet-tokens.cjs.js", format: "cjs" },
-      { file: "./dist/esnet-tokens.esm.js", format: "es" },
+      { file: "./dist/pkts-tokens.cjs.js", format: "cjs" },
+      { file: "./dist/pkts-tokens.esm.js", format: "es" },
     ],
     plugins: [
       resolve(), // so Rollup can find `ms`

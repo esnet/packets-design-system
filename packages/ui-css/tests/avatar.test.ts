@@ -8,7 +8,7 @@ import { pathToFileURL } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-test.describe("CSS Avatar Component", () => {
+test.describe("Pkts Avatar Component", () => {
   test("avatar-variants-light", async ({ page }, testInfo) => {
     const imagePath = pathToFileURL(path.join(__dirname, "test_avatar.png")).href;
     const html = createCSSTestHTML(

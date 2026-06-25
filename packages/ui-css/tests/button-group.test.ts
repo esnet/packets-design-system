@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS ButtonGroup Component", () => {
+test.describe("Pkts ButtonGroup Component", () => {
   test("button-group-horizontal", async ({ page }) => {
     const html = createCSSTestHTML(
       "light",

@@ -1,5 +1,0 @@
-.PktsChipGroup {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: var(--esnet-size-spacing-xsmall, 8px);
-}

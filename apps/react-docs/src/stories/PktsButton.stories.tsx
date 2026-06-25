@@ -1,3 +1,4 @@
+// TODO: Manually test, stop using render arg, show of all variants
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";

@@ -5,15 +5,17 @@ import { getIconByCheckedState } from "./PktsInputSwitchUtils";
 import clsx from "clsx";
 
 /**
- * ESInputSwitch Component
+ * Input switch component, essentially a restyled input checkbox.
+ *
+ * TODO: fix issue to allow passing in checked/value prop - useControllableState.
  *
  * @param {ESInputSwitchProps} props
  * @returns {React.FunctionComponent}
  */
 const PktsInputSwitch: FC<PktsInputSwitchProps> = ({
   variant = "primary",
-  hideIcons = false,
   className = "",
+  noIcon,
   defaultChecked,
   disabled,
   ...props
@@ -21,7 +23,7 @@ const PktsInputSwitch: FC<PktsInputSwitchProps> = ({
   const [value, setValue] = useState(defaultChecked);
 
   const icon = useMemo(() => {
-    if (hideIcons === true) {
+    if (noIcon === true) {
       return <></>;
     }
 

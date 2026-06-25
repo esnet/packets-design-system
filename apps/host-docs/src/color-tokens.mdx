@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import * as tokens from "@esnet/pkts-tokens/tokens.json";
 
 <Meta title="Design Tokens/Colors" />
 
@@ -21,7 +21,7 @@ Here are the inital set of color ramps and color alias tokens
           const formattedColorGroups = {};
 
           Object.keys(currentColorRamp).forEach(color => {
-            formattedColorGroups[`--esnet-color-core-${colorRamp}-${color}`] = currentColorRamp[color].value
+            formattedColorGroups[`--pkts-color-core-${colorRamp}-${color}`] = currentColorRamp[color].value
           })
 
           return (<ColorItem
@@ -34,7 +34,7 @@ Here are the inital set of color ramps and color alias tokens
           const formattedColorGroups = {};
 
           Object.keys(currentColorGroup).forEach(color => {
-            formattedColorGroups[`--esnet-color-${colorGroup}-${color}`] = currentColorGroup[color].value
+            formattedColorGroups[`--pkts-color-${colorGroup}-${color}`] = currentColorGroup[color].value
           })
 
           return (<ColorItem

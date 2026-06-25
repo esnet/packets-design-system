@@ -1,11 +1,9 @@
 import React, { FC, useMemo } from "react";
 import clsx from "clsx";
-import { PktsSpacerProps, getESSpacerSizesCSS } from "./PktsSpacer.types";
-
-import styles from "./PktsSpacer.module.css";
+import { PktsSpacerProps, getPktsSpacerSizesCSS } from "./PktsSpacer.types";
 
 /**
- * ESSpacer Component
+ * PktsSpacer Component
  *
  * Spacer component adds a design tokens worth of spacing on a axis/type specified.
  * The distance of the spacing is regulated by the sizing token passed to it.
@@ -19,12 +17,12 @@ const PktsSpacer: FC<PktsSpacerProps> = ({
   className,
 }) => {
   const sizeCSS = useMemo(() => {
-    return getESSpacerSizesCSS(size);
+    return getPktsSpacerSizesCSS(size);
   }, [size]);
 
   return (
     <div
-      className={clsx(styles.PktsSpacer, styles[type], className)}
+      className={clsx("pkts-spacer", `pkts-${type}`, className)}
       style={
         {
           "--size": sizeCSS,

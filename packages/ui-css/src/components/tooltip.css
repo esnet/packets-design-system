@@ -1,0 +1,36 @@
+.pkts-tooltip .pkts-tooltip-anchor {
+  display: contents;
+}
+
+.pkts-tooltip .pkts-tooltip-popup {
+  padding: var(--pkts-size-spacing-xsmall, 0.5rem);
+  border-radius: var(--pkts-size-radius-large);
+  width: max-content;
+  max-width: 240px;
+}
+
+.pkts-tooltip .pkts-tooltip-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pkts-tooltip .pkts-tooltip-title {
+  display: block;
+  font: var(--pkts-typography-header-6-sans-font);
+  margin-bottom: var(--pkts-size-spacing-xxsmall, 0.25rem);
+}
+
+.pkts-tooltip .pkts-tooltip-close {
+  cursor: pointer;
+  width: var(--pkts-size-spacing-medium, 16px);
+  height: var(--pkts-size-spacing-medium, 16px);
+  margin-left: var(--pkts-size-spacing-xsmall, 8px);
+}
+
+.pkts-tooltip .pkts-tooltip-text {
+  display: inline-block;
+  width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+}

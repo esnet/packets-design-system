@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 
-import styles from "./PktsSkeletonChip.module.css";
-
 /**
  * ESSkeletonChip Component
  *
@@ -12,7 +10,7 @@ import styles from "./PktsSkeletonChip.module.css";
  */
 const PktsSkeletonChip: FC = () => {
   return (
-    <div role="alert" aria-busy="true" className={styles.PktsSkeletonChip}></div>
+    <div role="alert" aria-busy="true" className="pkts-skeleton-chip"></div>
   );
 };
 

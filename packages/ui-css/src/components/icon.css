@@ -9,9 +9,9 @@ pkts-icon svg {
 }
 
 .pkts-icon {
-    color: var(--esnet-color-light-surface-2);
+    color: var(--pkts-color-light-surface-2);
 }
 
     .dark .pkts-icon {
-        color: var(--esnet-color-dark-surface-2);
+        color: var(--pkts-color-dark-surface-2);
     }

@@ -3,7 +3,7 @@ import React, { CSSProperties, FC } from "react";
 import { PktsSkeletonSurfaceProps } from "./PktsSkeletonSurfaceProps";
 
 /**
- * ESSkeletonSurface Component
+ * PktsSkeletonSurface Component
  *
  * Visual representation of a Pill/Chip loading.
  *
@@ -13,9 +13,9 @@ import { PktsSkeletonSurfaceProps } from "./PktsSkeletonSurfaceProps";
 const PktsSkeletonSurface: FC<PktsSkeletonSurfaceProps> = ({
   isSquare = false,
   className = "",
-  strokeSize = "var(--esnet-size-border-width-medium, 3px)",
-  strokeRadius = "var(--esnet-size-spacing-large, 2rem)",
-  height = "var(--esnet-size-touchtarget-min, 2rem)",
+  strokeSize = "var(--pkts-size-border-width-medium, 3px)",
+  strokeRadius = "var(--pkts-size-spacing-large, 2rem)",
+  height = "var(--pkts-size-touchtarget-min, 2rem)",
 }) => {
   const inlineStyles = {
     "--stroke-size": strokeSize,

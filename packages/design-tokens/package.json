@@ -1,8 +1,8 @@
 {
-  "name": "@esnet/esnet-tokens",
+  "name": "@esnet/pkts-tokens",
   "version": "1.1.1",
   "type": "module",
-  "description": "A set of reusable UI tokens for the various ESnet frontend systems.",
+  "description": "A set of reusable UI tokens created by ESnet for various frontend systems.",
   "author": "Jason Roeckle",
   "scripts": {
     "build": "node ./build.js && pnpm run format && rollup --config rollup.config.js",
@@ -17,8 +17,8 @@
   "exports": {
     ".": {
       "types": "./dist/tokens.d.ts",
-      "import": "./dist/esnet-tokens.esm.js",
-      "require": "./dist/esnet-tokens.cjs.js",
+      "import": "./dist/pkts-tokens.esm.js",
+      "require": "./dist/pkts-tokens.cjs.js",
       "default": "./dist/tokens.js"
     },
     "./*": "./dist/*"

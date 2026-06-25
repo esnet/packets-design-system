@@ -1,80 +1,38 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS InputCheckbox Component", () => {
-  test("input-checkbox-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" />
-        </div>
+type Theme = "light" | "dark";
 
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" checked />
-        </div>
+const VARIANTS = [
+  { key: "unchecked", checked: false, branded: false },
+  { key: "checked", checked: true, branded: false },
+  { key: "unchecked-branded", checked: false, branded: true },
+  { key: "checked-branded", checked: true, branded: true },
+] as const;
 
-        <div class="pkts-input-checkbox pkts-branded">
-          <input type="checkbox" />
-        </div>
+function buildCheckboxRow(checked: boolean, branded: boolean): string {
+  const checkedAttr = checked ? "checked" : "";
+  const brandedClass = branded ? " pkts-branded" : "";
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <div class="pkts-input-checkbox${brandedClass}"><input type="checkbox" ${checkedAttr} /></div>
+      <div id="hover-cb" class="pkts-input-checkbox${brandedClass}"><input type="checkbox" ${checkedAttr} /></div>
+      <div id="focus-cb" class="pkts-input-checkbox${brandedClass}"><input type="checkbox" ${checkedAttr} /></div>
+      <div class="pkts-input-checkbox${brandedClass}"><input type="checkbox" ${checkedAttr} disabled /></div>
+    </div>
+  `;
+}
 
-        <div class="pkts-input-checkbox pkts-branded">
-          <input type="checkbox" checked />
-        </div>
-
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" disabled />
-        </div>
-
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" disabled checked />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-checkbox-variants-light.png");
-  });
-
-  test("input-checkbox-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" />
-        </div>
-
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" checked />
-        </div>
-
-        <div class="pkts-input-checkbox pkts-branded">
-          <input type="checkbox" />
-        </div>
-
-        <div class="pkts-input-checkbox pkts-branded">
-          <input type="checkbox" checked />
-        </div>
-
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" disabled />
-        </div>
-
-        <div class="pkts-input-checkbox">
-          <input type="checkbox" disabled checked />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-checkbox-variants-dark.png");
+test.describe("Pkts InputCheckbox Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach(({ key, checked, branded }) => {
+      test(`input-checkbox-${key}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildCheckboxRow(checked, branded));
+        await page.setContent(html);
+        await page.locator("#focus-cb input[type='checkbox']").focus();
+        await page.locator("#hover-cb input[type='checkbox']").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`input-checkbox-${key}-${theme}.png`);
+      });
+    });
   });
 });

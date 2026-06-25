@@ -3,7 +3,7 @@
 
     display: grid;
     grid-template-columns: repeat(var(--column-count), 1fr);
-    gap: var(--esnet-size-spacing-medium);
+    gap: var(--pkts-size-spacing-medium);
 
 
     > :last-child {

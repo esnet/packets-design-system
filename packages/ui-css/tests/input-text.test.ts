@@ -1,130 +1,35 @@
 import { test, expect } from "@playwright/test";
 import { createCSSTestHTML } from "./test-utils";
 
-test.describe("CSS InputText Component", () => {
-  test("input-text-variants-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Default input" />
-        </div>
+type Theme = "light" | "dark";
 
-        <div class="pkts-input-text pkts-branded">
-          <input type="text" placeholder="Branded input" />
-        </div>
+const VARIANTS = [
+  { key: "default", classes: "" },
+  { key: "branded", classes: " pkts-branded" },
+  { key: "error", classes: " pkts-error" },
+] as const;
 
-        <div class="pkts-input-text pkts-error">
-          <input type="text" placeholder="Error input" />
-        </div>
+function buildInputRow(classes: string, key: string): string {
+  return `
+    <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
+      <div class="pkts-input-text${classes}" style="width: 240px;"><input type="text" placeholder="${key}" /></div>
+      <div id="hover-input" class="pkts-input-text${classes}" style="width: 240px;"><input type="text" value="${key}" /></div>
+      <div id="focus-input" class="pkts-input-text${classes}" style="width: 240px;"><input type="text" value="${key}" /></div>
+      <div class="pkts-input-text${classes} pkts-disabled" style="width: 240px;"><input type="text" placeholder="${key}" disabled /></div>
+    </div>
+  `;
+}
 
-        <div class="pkts-input-text pkts-disabled">
-          <input type="text" placeholder="Disabled input" disabled />
-        </div>
-
-        <div class="pkts-input-text">
-          <input type="text" value="Input with value" />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-text-variants-light.png");
-  });
-
-  test("input-text-variants-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Default input" />
-        </div>
-
-        <div class="pkts-input-text pkts-branded">
-          <input type="text" placeholder="Branded input" />
-        </div>
-
-        <div class="pkts-input-text pkts-error">
-          <input type="text" placeholder="Error input" />
-        </div>
-
-        <div class="pkts-input-text pkts-disabled">
-          <input type="text" placeholder="Disabled input" disabled />
-        </div>
-
-        <div class="pkts-input-text">
-          <input type="text" value="Input with value" />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-text-variants-dark.png");
-  });
-
-  test("input-text-states-light", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "light",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Normal state" />
-        </div>
-
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Focus this input" id="focus-input" />
-        </div>
-
-        <div class="pkts-input-text pkts-error">
-          <input type="text" placeholder="Error state" />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-
-    // Focus the second input
-    await page.locator("#focus-input").focus();
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-text-states-light.png");
-  });
-
-  test("input-text-states-dark", async ({ page }) => {
-    const html = createCSSTestHTML(
-      "dark",
-      `
-      <div id="container" style="display: flex; flex-direction: column; gap: 16px; padding: 16px; width: 400px;">
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Normal state" />
-        </div>
-
-        <div class="pkts-input-text">
-          <input type="text" placeholder="Focus this input" id="focus-input" />
-        </div>
-
-        <div class="pkts-input-text pkts-error">
-          <input type="text" placeholder="Error state" />
-        </div>
-      </div>
-    `,
-    );
-    await page.setContent(html);
-
-    // Focus the second input
-    await page.locator("#focus-input").focus();
-    await page.waitForTimeout(100);
-
-    const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("input-text-states-dark.png");
+test.describe("Pkts InputText Component", () => {
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    VARIANTS.forEach(({ key, classes }) => {
+      test(`input-text-${key}-${theme}`, async ({ page }) => {
+        const html = createCSSTestHTML(theme, buildInputRow(classes, key));
+        await page.setContent(html);
+        await page.locator("#focus-input input").focus();
+        await page.locator("#hover-input").hover();
+        await expect(page.locator("#container")).toHaveScreenshot(`input-text-${key}-${theme}.png`);
+      });
+    });
   });
 });

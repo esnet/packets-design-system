@@ -2,10 +2,11 @@ import { test, expect } from "@playwright/experimental-ct-react";
 import React from "react";
 
 import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import { PktsDatumProps } from "../PktsDatum.types";
 import PktsDatum from "../PktsDatum";
 
-test.describe("ESDatum", () => {
+test.describe("PktsDatum", () => {
   const { testTable, themes }: ComponentTestTableType<PktsDatumProps> = {
     testTable: [
       {
@@ -29,12 +30,18 @@ test.describe("ESDatum", () => {
 
   testTable.forEach(({ name, props }) => {
     themes.forEach((theme) => {
-      let themedComponent = <PktsDatum {...props} />;
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
       test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
+        const component = await mount(
+          <ComponentTestBox
+            theme={theme}
+            size="fit"
+            component={
+              <div style={{ width: "120px" }}>
+                <PktsDatum {...props} />
+              </div>
+            }
+          />,
+        );
         await expect(component).toHaveScreenshot();
       });
     });

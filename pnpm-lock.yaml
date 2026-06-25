@@ -63,7 +63,7 @@ importers:
 
   apps/host-docs:
     dependencies:
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:*
         version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
@@ -169,15 +169,15 @@ importers:
 
   apps/react-docs:
     dependencies:
-      '@esnet/esnet-tokens':
-        specifier: workspace:*
-        version: link:../../packages/design-tokens
       '@esnet/packets-ui-css':
         specifier: workspace:*
         version: link:../../packages/ui-css
       '@esnet/packets-ui-react':
         specifier: workspace:*
         version: link:../../packages/ui-react
+      '@esnet/pkts-tokens':
+        specifier: workspace:*
+        version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
         specifier: ^4.20.1
         version: 4.20.1(react@18.3.1)
@@ -272,12 +272,12 @@ importers:
 
   apps/web-docs:
     dependencies:
-      '@esnet/esnet-tokens':
-        specifier: workspace:*
-        version: link:../../packages/design-tokens
       '@esnet/packets-ui-web':
         specifier: workspace:*
         version: link:../../packages/ui-web
+      '@esnet/pkts-tokens':
+        specifier: workspace:*
+        version: link:../../packages/design-tokens
       '@rive-app/react-canvas-lite':
         specifier: ^4.20.1
         version: 4.20.1(react@18.3.1)
@@ -501,12 +501,12 @@ importers:
 
   packages/ui-css:
     dependencies:
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
     devDependencies:
       '@playwright/test':
-        specifier: ^1.57.0
+        specifier: 1.57.0
         version: 1.57.0
       chokidar:
         specifier: ^3.5.3
@@ -560,14 +560,14 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.26.0
         version: 7.26.0(@babel/core@7.28.6)
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
       '@playwright/experimental-ct-react':
-        specifier: ^1.57.0
+        specifier: 1.57.0
         version: 1.57.0(vite@5.4.11)
       '@playwright/test':
-        specifier: ^1.57.0
+        specifier: 1.57.0
         version: 1.57.0
       '@repo/eslint-config':
         specifier: workspace:^
@@ -615,7 +615,7 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       playwright:
-        specifier: ^1.57.0
+        specifier: 1.57.0
         version: 1.57.0
       postcss-import:
         specifier: ^16.1.0
@@ -669,11 +669,11 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.26.0
         version: 7.26.0(@babel/core@7.26.0)
-      '@esnet/esnet-tokens':
+      '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
       '@playwright/test':
-        specifier: ^1.57.0
+        specifier: 1.57.0
         version: 1.57.0
       '@repo/eslint-config':
         specifier: workspace:^

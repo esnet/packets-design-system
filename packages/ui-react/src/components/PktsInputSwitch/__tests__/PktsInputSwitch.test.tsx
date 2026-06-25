@@ -1,71 +1,79 @@
 import * as React from "react";
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
 import PktsInputSwitch from "../PktsInputSwitch";
-import { PktsInputSwitchProps } from "../PktsInputSwitch.types";
 import { test, expect } from "@playwright/experimental-ct-react";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 
-test.describe("ESInputSwitch", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsInputSwitchProps> = {
-    testTable: [
-      {
-        name: "unchecked",
-        props: { variant: "primary" },
-      },
-      {
-        name: "primary-checked",
-        props: { variant: "primary", defaultChecked: true },
-      },
-      {
-        name: "secondary-checked",
-        props: { variant: "secondary", defaultChecked: true },
-      },
-      {
-        name: "hideIcons",
-        props: { hideIcons: true },
-      },
-      {
-        name: "disabled",
-        props: { hideIcons: true },
-      },
-      // Add more test cases as needed
-    ],
-    themes: ["light"],
-    actionStates: [],
-  };
-
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      let themedComponent = (
-        <div style={{ padding: "8px" }}>
-          <PktsInputSwitch {...props} />
-        </div>
+test.describe("PktsInputSwitch", () => {
+  ["light", "dark"].forEach((theme: any) => {
+    test(`PktsInputSwitch-variants-${theme}`, async ({ mount }) => {
+      const component = await mount(
+        <ComponentTestBox
+          theme={theme}
+          component={
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+            >
+              {/* primary unchecked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" />
+                <div id="hover-primary">
+                  <PktsInputSwitch variant="primary" />
+                </div>
+                <div id="focus-primary">
+                  <PktsInputSwitch variant="primary" />
+                </div>
+                <PktsInputSwitch variant="primary" disabled />
+              </div>
+              {/* primary checked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked />
+                <PktsInputSwitch variant="primary" defaultChecked disabled />
+              </div>
+              {/* secondary unchecked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" />
+                <PktsInputSwitch variant="secondary" disabled />
+              </div>
+              {/* secondary checked */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked />
+                <PktsInputSwitch variant="secondary" defaultChecked disabled />
+              </div>
+              {/* noIcon variants */}
+              <div
+                style={{ display: "flex", gap: "8px", alignItems: "center" }}
+              >
+                <PktsInputSwitch variant="primary" noIcon />
+                <PktsInputSwitch variant="primary" noIcon />
+                <PktsInputSwitch variant="primary" noIcon defaultChecked />
+                <PktsInputSwitch variant="primary" noIcon disabled />
+              </div>
+            </div>
+          }
+        />,
       );
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
-        await expect(component.locator("input")).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        if (props.disabled) return;
-        test(`${name}-${theme}-${state}`, async ({ mount }) => {
-          // do any locator selection if needed
-          const component = await mount(themedComponent);
-          if (state === "focus") await component.focus();
-          if (state === "hover" || state === "active") await component.hover();
-          if (state === "active") await component.click();
-          await expect(component.locator("input")).toHaveScreenshot();
-        });
-      });
+      await component.locator("#focus-primary input").focus();
+      await component.locator("#hover-primary input").hover();
+      await expect(component).toHaveScreenshot(
+        `PktsInputSwitch-variants-${theme}.png`,
+      );
     });
   });
 
-  // test that radio buttons with same name are grouped together
   test("functions", async ({ mount }) => {
     const component = (await mount(<PktsInputSwitch />)).locator("input");
     await component.click();

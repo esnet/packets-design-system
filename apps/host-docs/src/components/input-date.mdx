@@ -1,0 +1,138 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Input Date" />
+
+# Input Date
+
+### Overview
+
+The Input Date component is a text input paired with a calendar date picker popup. It supports selection of a date, a time, or a combined datetime value. The underlying value is stored as a JavaScript `Date` object rather than a string, making it easier to work with in application logic. The picker popup opens on input focus or by clicking the calendar icon, and closes when the user clicks outside. It supports error and disabled states, and a branded color variant. CSS styles are provided via `input-date-picker.css` - there is no separate `input-date.css` file.
+
+### States and Behaviours
+
+**Variants**: primary, branded
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Focus, Error, Disabled
+
+### Best Practices
+
+- When to use this component
+  - When a form requires a date, time, or combined datetime input with a guided selection UI
+  - When the consuming application needs the value as a `Date` object rather than a formatted string
+- How to use this component
+  - Do:
+    - Use the `type` prop to restrict the picker to `date`, `time`, or `datetime` as required by the field's purpose
+    - Use the controlled pattern (passing `value` and `onChange`) when the date needs to be synchronized with application state
+  - Don't:
+    - Expect users to type a date manually - the input is read-only and requires interaction with the picker
+    - Use this component when a simple native `<input type="date">` is sufficient and the custom picker UX is not needed
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-box-shadow-core-medium`
+- `--pkts-color-core-blue-300`
+- `--pkts-color-core-blue-400`
+- `--pkts-color-core-blue-500`
+- `--pkts-color-core-white-600`
+- `--pkts-color-core-white-900`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-secondary`
+- `--pkts-color-dark-surface-2`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-primary`
+- `--pkts-color-light-surface-2`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-border-width-small`
+- `--pkts-size-radius-circle`
+- `--pkts-size-radius-medium`
+- `--pkts-size-radius-none`
+- `--pkts-size-spacing-large`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-small`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-typography-copy-1-sans-font`

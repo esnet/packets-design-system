@@ -19,7 +19,8 @@ const preview: Preview = {
     docs: { source: { excludeDecorators: true } },
     options: {
       storySort: {
-        order: ["About", "Components"],
+        order: ["About", "RichText", "Components"],
+        method: "alphabetical",
       },
     },
     backgrounds: { disable: true },

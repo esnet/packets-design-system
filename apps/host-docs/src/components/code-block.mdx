@@ -1,0 +1,120 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Code Block" />
+
+# Code Block
+
+### Overview
+
+CodeBlock renders a block of preformatted code text with a language chip label and a built-in copy-to-clipboard button. The copy button defaults to writing the code string to the system clipboard and briefly shows a checkmark confirmation. Use this component for displaying code snippets, configuration examples, or command-line instructions in documentation.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+### Best Practices
+
+- When to use this component
+  - Displaying code snippets, shell commands, or configuration examples that users may need to copy
+  - Inline developer documentation where syntax context (via the language label) aids comprehension
+- How to use this component
+  - Do:
+    - Pass a raw JavaScript template string as `children` to preserve whitespace and line breaks
+    - Set the `language` prop to accurately label the code type (e.g. `"python"`, `"typescript"`)
+  - Don't:
+    - Pass React nodes or rich content as children, only strings
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>Not available</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-black-800`
+- `--pkts-color-dark-copy`
+- `--pkts-color-dark-copy-alt`
+- `--pkts-color-dark-surface-1`
+- `--pkts-color-light-copy`
+- `--pkts-color-light-copy-alt`
+- `--pkts-color-light-surface-1`
+- `--pkts-font-family-body-mono`
+- `--pkts-size-border-width-xsmall`
+- `--pkts-size-radius-large`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-size-spacing-xxsmall`
+- `--pkts-typography-copy-1-mono-font`
+- `--pkts-typography-label-1-mono-font`

@@ -1,0 +1,121 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Component Documentation/Breadcrumbs" />
+
+# Breadcrumbs
+
+### Overview
+
+A horizontal navigation aid that displays the current page's location within a site hierarchy as a list of links separated by `/` dividers. The React component accepts an array of breadcrumb objects and an optional custom `renderLink` function, making it router-agnostic. The Web Component uses slotted `<li>` elements for flexibility. The last item in the list has its divider suppressed automatically.
+
+### States and Behaviours
+
+**Themes**: Light (default), Dark
+
+**States**: Default, Hover
+
+### Best Practices
+
+- When to use this component
+  - When the page is more than one level deep in a site hierarchy and users benefit from knowing their current location
+  - When users may need to navigate up to a parent section without using the browser's back button
+- How to use this component
+  - Do:
+    - List items in hierarchy order from root to current page, left to right
+    - Keep breadcrumb labels short and matching the actual page titles they link to
+  - Don't:
+    - Use breadcrumbs on top-level or single-depth pages where location context adds no value
+    - Duplicate the current page as a link - the last item should be informational only
+
+### Accessibility Scoring
+
+**TODO**
+
+---
+
+## Code
+
+### Sandbox or Storybook
+
+**TODO:** Embed Storybook iframe
+
+### Resources
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Availability
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Component Storybook</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CSS</td>
+      <td>
+        <code>@esnet/packets-ui-css</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>
+        <code>@esnet/packets-ui-react</code>
+      </td>
+      <td>0.9.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Component</td>
+      <td>
+        <code>@esnet/packets-ui-web</code>
+      </td>
+      <td>0.1.0</td>
+      <td>
+        <strong>TODO</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Dependent Design Tokens
+
+- `--pkts-color-core-black-500`
+- `--pkts-color-core-white-800`
+- `--pkts-color-dark-copy`
+- `--pkts-color-light-copy`
+- `--pkts-font-family-body-sans`
+- `--pkts-size-spacing-medium`
+- `--pkts-size-spacing-xsmall`
+- `--pkts-typography-label-2-sans-font`

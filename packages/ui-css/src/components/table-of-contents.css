@@ -1,30 +1,41 @@
 .pkts-table-of-contents {
-  margin: 0 var(--esnet-size-spacing-large) var(--esnet-size-spacing-medium);
+  margin: 0 var(--pkts-size-spacing-large) var(--pkts-size-spacing-medium);
 }
 
   /* List - already using semantic selector */
   .pkts-table-of-contents ul {
     list-style: none;
-    margin: var(--esnet-size-spacing-xsmall, 12px) 0 0;
-    padding: 0px var(--esnet-size-spacing-medium, 16px);
-    border-left: var(--esnet-size-border-width-medium) solid
-      var(--esnet-color-core-white-1000, #9e9e9e);
+    margin: var(--pkts-size-spacing-xsmall, 12px) 0 0;
+    padding: var(--pkts-size-spacing-none, 0) var(--pkts-size-spacing-medium, 16px);
+    border-left: var(--pkts-size-border-width-medium) solid
+      var(--pkts-color-core-white-1000, #9e9e9e);
 
     display: flex;
     flex-direction: column;
-    gap: var(--esnet-size-spacing-xxsmall, 4px);
+    gap: var(--pkts-size-spacing-xxsmall, 4px);
   }
 
   .pkts-table-of-contents a {
-    color: var(--esnet-color-light-copy, #1a1a1a);
+    color: var(--pkts-color-light-copy, #1a1a1a);
     text-decoration: underline;
   }
 
   .dark .pkts-table-of-contents a {
-    color: var(--esnet-color-dark-copy, #e6e6e6);
+    color: var(--pkts-color-dark-copy, #e6e6e6);
   }
 
   .pkts-table-of-contents.pkts-sticky {
     position: sticky;
-    top: var(--esnet-size-spacing-xxlarge, 72px);
+    top: var(--pkts-size-spacing-xxlarge, 72px);
   }
+
+/* TODO: ensure vertical line still exists */
+/*
+  .verticalLine {
+    width: var(--pkts-size-border-width-medium, 4px);
+    align-self: stretch;
+
+    border-radius: var(--pkts-size-radius-large);
+    background: var(--pkts-color-light-copy-alt, #6e6e70);
+  }
+*/

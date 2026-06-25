@@ -1,7 +1,8 @@
-import { LinkType } from "../../lib/types";
+import { LinkType, RenderLink } from "../../lib/utils/link";
 
-export interface BreadcrumbsProps {
+export interface PktsBreadcrumbsProps {
+  /** Breadcrumbs objects, where an `href` and `children` prop must be provided. */
   breadcrumbs: LinkType[];
-  // eslint-disable-next-line no-unused-vars
-  renderLink?: (breadcrumb: LinkType) => React.ReactNode;
+  /** Custom function to render each individual breadcrumb. Default to simply utilizing an anchor tag. */
+  renderLink?: RenderLink;
 }

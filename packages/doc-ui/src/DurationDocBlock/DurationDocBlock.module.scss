@@ -1,31 +1,31 @@
 .durationDocBlock {
   --duration: 1000ms;
   display: block;
-  border-radius: var(--esnet-size-radius-medium);
-  transition: all var(--esnet-time-duration-medium) ease-in;
-  padding: var(--esnet-size-spacing-xsmall);
+  border-radius: var(--pkts-size-radius-medium);
+  transition: all var(--pkts-time-duration-medium) ease-in;
+  padding: var(--pkts-size-spacing-xsmall);
 
   .previewAnimation {
     flex: 1;
   }
 
   .preview {
-    margin-top: var(--esnet-size-spacing-xsmall);
-    background-color: var(--esnet-color-core-white-500);
+    margin-top: var(--pkts-size-spacing-xsmall);
+    background-color: var(--pkts-color-core-white-500);
     height: 12px;
-    border-radius: var(--esnet-size-radius-large);
+    border-radius: var(--pkts-size-radius-large);
     display: flex;
     align-items: center;
 
     .indicator {
-      height: var(--esnet-size-spacing-xsmall);
-      background-color: var(--esnet-color-core-orange-500);
-      border-radius: var(--esnet-size-radius-large);
+      height: var(--pkts-size-spacing-xsmall);
+      background-color: var(--pkts-color-core-orange-500);
+      border-radius: var(--pkts-size-radius-large);
     }
   }
 
   &:hover {
-    background-color: var(--esnet-color-core-white-200);
+    background-color: var(--pkts-color-core-white-200);
 
     .indicator {
       animation: indicatorPreview var(--duration) linear 0ms infinite;

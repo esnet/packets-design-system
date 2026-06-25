@@ -4,7 +4,12 @@ import styles from "./PktsInputNumber.module.css";
 import { PktsInputNumberProps } from "./PktsInputNumber.types";
 import PktsInputText from "../PktsInputText";
 import { Minus, Plus } from "lucide-react";
-import { boundNumber, parseNumber } from "./utils";
+import {
+  boundNumber,
+  getPrecision,
+  parseNumber,
+  roundToPrecision,
+} from "./utils";
 import { clsx } from "clsx";
 
 /**
@@ -36,6 +41,12 @@ const PktsInputNumber: React.FC<PktsInputNumberProps> = ({
   const [value, setValue] = useState<string>(defaultValue as string);
   const [_error, setError] = useState<boolean>(error);
 
+  const precision = Math.max(
+    getPrecision(step ?? 0),
+    getPrecision(max ?? 0),
+    getPrecision(min ?? 0),
+  );
+
   const addValue = useCallback(
     (amount: number) => {
       const numValue = parseNumber(value);
@@ -44,7 +55,10 @@ const PktsInputNumber: React.FC<PktsInputNumberProps> = ({
         setError(true);
         return;
       }
-      const newValue = boundNumber(numValue + amount, minValue, maxValue);
+      const newValue = roundToPrecision(
+        boundNumber(numValue + amount, minValue, maxValue),
+        precision,
+      );
       setValue(String(newValue));
     },
     [value, minValue, maxValue],

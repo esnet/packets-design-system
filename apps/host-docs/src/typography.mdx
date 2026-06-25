@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import * as tokens from "@esnet/esnet-tokens/tokens.json";
+import * as tokens from "@esnet/pkts-tokens/tokens.json";
 import { TypographyDocBlock } from "doc-ui";
 
 {
@@ -13,7 +13,7 @@ console.log("tokens", tokens)
 
 {
 Object.keys(tokens.font.family).map(familyKey => {
-const rampKey = ` --esnet-font-family-${familyKey}`;
+const rampKey = ` --pkts-font-family-${familyKey}`;
 const familyOptions = tokens.font.family[familyKey];
 
         const result = Object.keys(familyOptions).map(familyOptionKey => {
@@ -32,7 +32,7 @@ const familyOptions = tokens.font.family[familyKey];
 
 {
 Object.keys(tokens.typography.header).map(headerRampKey => {
-const rampKey = `--esnet-typography-header-${headerRampKey}`;
+const rampKey = `--pkts-typography-header-${headerRampKey}`;
 const headerOptions = tokens.typography.header[headerRampKey];
 
         const result = Object.keys(headerOptions).map(headerOptionKey => {
@@ -51,7 +51,7 @@ const headerOptions = tokens.typography.header[headerRampKey];
 
 {
 Object.keys(tokens.typography.copy).map(copyRampKey => {
-const rampKey = `--esnet-typography-copy-${copyRampKey}`;
+const rampKey = `--pkts-typography-copy-${copyRampKey}`;
 const copyOptions = tokens.typography.copy[copyRampKey];
 
         const result = Object.keys(copyOptions).map(copyOptionKey => {
@@ -70,7 +70,7 @@ const copyOptions = tokens.typography.copy[copyRampKey];
 
 {
 Object.keys(tokens.typography.label).map(labelRampKey => {
-const rampKey = `--esnet-typography-label-${labelRampKey}`;
+const rampKey = `--pkts-typography-label-${labelRampKey}`;
 const labelOptions = tokens.typography.label[labelRampKey];
 
         const result = Object.keys(labelOptions).map(labelOptionKey => {
@@ -90,7 +90,7 @@ const labelOptions = tokens.typography.label[labelRampKey];
 
 {
 Object.keys(tokens.typography.button).map(buttonRampKey => {
-const rampKey = `--esnet-typography-button-${buttonRampKey}`;
+const rampKey = `--pkts-typography-button-${buttonRampKey}`;
 const buttonOptions = tokens.typography.button[buttonRampKey];
 
         const result = Object.keys(buttonOptions).map(buttonOptionKey => {

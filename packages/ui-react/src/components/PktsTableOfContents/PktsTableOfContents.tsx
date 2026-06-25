@@ -1,18 +1,12 @@
 import React from "react";
 import clsx from "clsx";
 import { PktsTableOfContentsProps } from "./PktsTableOfContents.types";
-
 import { defaultRenderLink } from "../../lib/utils/LinkTypeUtils";
 
 /**
  * PktsTableOfContents Component
  *
  * Visual representation of the sections of a page.
- * Composed from an array of sections(LinkType) ({
- *   href: string;
- *   children: React.ReactNode;
- *   target?: string;
- *   })
  *
  * @param {PktsTableOfContentsProps} props
  * @returns {React.FunctionComponent}
@@ -44,3 +38,5 @@ const PktsTableOfContents: React.FC<PktsTableOfContentsProps> = ({
 PktsTableOfContents.displayName = "PktsTableOfContents";
 
 export default PktsTableOfContents;
+// TODO: improve jsdoc about section - perhaps make composable
+// TODO: refactor to make composable

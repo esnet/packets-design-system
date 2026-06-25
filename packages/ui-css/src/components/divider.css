@@ -10,28 +10,28 @@
 
 .pkts-divider {
   /* Layout */
-  height: var(--esnet-size-border-width-small, 2px);
+  height: var(--pkts-size-border-width-small, 2px);
   width: 100%;
 
   /* Styling */
-  border-radius: var(--esnet-size-radius-circle, 999px);
+  border-radius: var(--pkts-size-radius-circle, 999px);
   border: none;
 
   /* Set the thickness of the line */
-  background-color: var(--esnet-color-light-copy-alt, #6E6E70);
+  background-color: var(--pkts-color-light-copy-alt, #6E6E70);
 }
 
 /* Dark Mode */
 .dark .pkts-divider {
-  background-color: var(--esnet-color-dark-copy-alt, #C2C2C2);
+  background-color: var(--pkts-color-dark-copy-alt, #C2C2C2);
 }
 
 /* Branded variant */
 .pkts-divider.pkts-branded {
-  background-color: var(--esnet-color-light-primary, #0088B5);
+  background-color: var(--pkts-color-light-primary, #0088B5);
 }
 
 /* Dark Mode */
 .dark .pkts-divider.pkts-branded {
-  background-color: var(--esnet-color-dark-primary, #004573);
+  background-color: var(--pkts-color-dark-primary, #004573);
 }

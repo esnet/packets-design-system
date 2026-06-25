@@ -22,18 +22,14 @@ export default meta;
 
 type Story = StoryObj<typeof PktsButtonGroup>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/react/api/csf
- * to learn how to use render functions.
- */
+
 export const Defaultbutton: Story = {
   render: (props) => (
     <PktsButtonGroup direction={props.direction} labelCopy={props.labelCopy}>
       {props.children}
     </PktsButtonGroup>
   ),
-  name: "ES Button Group",
+  name: "Pkts Button Group",
   args: {
     children: (
       <>
@@ -61,7 +57,7 @@ export const VerticalButtonGroup: Story = {
       {props.children}
     </PktsButtonGroup>
   ),
-  name: "Vertical ESButton Group",
+  name: "Vertical PktsButton Group",
   args: {
     children: (
       <>

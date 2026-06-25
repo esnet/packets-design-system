@@ -29,7 +29,7 @@ const TypographyDocBlock: React.FC<TypographyDocBlockProps> = ({
           name="Preview"
           value={
             <div className={styles.previewblock}>
-              ESNet: The Energy Science Network
+              Packets: The Design System
             </div>
           }
         />

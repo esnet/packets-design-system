@@ -1,86 +1,38 @@
 import { test, expect } from "@playwright/experimental-ct-react";
 import React from "react";
-
-import { ComponentTestTableType } from "../../../lib/types/ComponentTestTableType";
-import { PktsInputTextAreaProps } from "../PktsInputTextArea.types";
+import { ComponentTestBox } from "../../../lib/utils/ComponentTestBox";
 import PktsInputTextArea from "../PktsInputTextArea";
 
 test.describe("PktsInputTextArea", () => {
-  const {
-    testTable,
-    themes,
-    actionStates,
-  }: ComponentTestTableType<PktsInputTextAreaProps> = {
-    testTable: [
-      {
-        name: "primary",
-        props: {
-          variant: "primary",
-          placeholder: "primary text area",
-          resize: "both",
-        },
-      },
-      {
-        name: "branded",
-        props: {
-          variant: "branded",
-          placeholder: "branded text area",
-          resize: "both",
-        },
-      },
-    ],
-    themes: ["light", "dark"],
-    // actionStates: [],
-    actionStates: ["hover"],
-  };
-
-  testTable.forEach(({ name, props }) => {
-    themes.forEach((theme) => {
-      let themedComponent = (
-        <div style={{ padding: "8px" }}>
-          <PktsInputTextArea {...props} />
-        </div>
-      );
-      if (theme === "dark") {
-        themedComponent = <div className="dark">{themedComponent}</div>;
-      }
-      test(`${name}-${theme}`, async ({ mount }) => {
-        const component = await mount(themedComponent);
-        await expect(component).toHaveScreenshot();
-      });
-      actionStates.forEach((state) => {
-        test(`${name}-${theme}-${state}`, async ({ mount }) => {
-          const component = await mount(themedComponent);
-          const input = component.locator("textarea");
-          if (state === "focus") await input.focus();
-          if (state === "hover" || state === "active") await input.hover();
-          if (state === "active") await input.press("Space");
-          await expect(component).toHaveScreenshot();
+    ["light", "dark"].forEach((theme: any) => {
+        test(`PktsInputTextArea-variants-${theme}`, async ({ mount }) => {
+            const component = await mount(
+                <ComponentTestBox theme={theme} component={
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="primary" placeholder="primary" /></div>
+                            <div id="hover-primary" style={{ width: "160px" }}><PktsInputTextArea variant="primary" defaultValue="primary" /></div>
+                            <div id="focus-primary" style={{ width: "160px" }}><PktsInputTextArea variant="primary" defaultValue="primary" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="primary" placeholder="primary" disabled /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="branded" placeholder="branded" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="branded" defaultValue="branded" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="branded" defaultValue="branded" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea variant="branded" placeholder="branded" disabled /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+                            <div style={{ width: "160px" }}><PktsInputTextArea error placeholder="error" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea error defaultValue="error" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea error defaultValue="error" /></div>
+                            <div style={{ width: "160px" }}><PktsInputTextArea error placeholder="error" disabled /></div>
+                        </div>
+                    </div>
+                } />,
+            );
+            await component.locator("#focus-primary textarea").focus();
+            await component.locator("#hover-primary textarea").hover();
+            await expect(component).toHaveScreenshot(`PktsInputTextArea-variants-${theme}.png`);
         });
-      });
     });
-  });
-
-  // TODO: These tests use Jest syntax (it, render, toMatchSnapshot) and need to be converted to Playwright syntax
-  // or moved to a separate Jest test file
-  // it("has class and identity", () => {
-  //   const component = render(
-  //     <PktsInputTextArea id="test ID" className="test class" />,
-  //   );
-  //   expect(component).toMatchSnapshot();
-  // });
-  // it("is branded", () => {
-  //   const component = render(<PktsInputTextArea variant="branded" />);
-  //   expect(component).toMatchSnapshot();
-  // });
-  // it("has an error state", () => {
-  //   const component = render(<PktsInputTextArea error={true} />);
-  //   expect(component).toMatchSnapshot();
-  // });
-  // it("matches size correctly", () => {
-  //   const component = render(
-  //     <PktsInputTextArea resize="both" rows={50} cols={30} />,
-  //   );
-  //   expect(component).toMatchSnapshot();
-  // });
 });
