@@ -87,8 +87,8 @@ function App() {
 - `PktsInputRadioButton`: radio button
 - `PktsInputSelect`: select/dropdown input
 - `PktsInputTypeahead`: typeahead/autocomplete input
-- `PktsInputOption`: individual option item
-- `PktsInputRow`: form row wrapper with label, caption, and validation
+- `PktsInputOption`: individual option item used inside `PktsInputSelect` and `PktsInputTypeahead`
+- `PktsInputRow`: form row wrapper providing label, caption, and validation layout
 - `PktsInputDate` / `PktsInputDatePicker` / `PktsInputDateRange`: date inputs
 - `PktsLabel`: form label
 
@@ -97,7 +97,7 @@ function App() {
 - `PktsAlert`: alert messages; variants `error`, `warning`, `success`, `info`
 - `PktsAvatar`: user avatar with initials; sizes `small`, `medium`, `large`
 - `PktsBreadcrumbs`: breadcrumb navigation
-- `PktsChip` / `PktsChipGroup`: chip tags
+- `PktsChip` / `PktsChipGroup`: chip tags and chip grouping
 - `PktsCodeBlock`: syntax-highlighted code block
 - `PktsCommaSeperatedList`: comma-separated list
 - `PktsDataTable`: data table
@@ -116,14 +116,19 @@ function App() {
 
 ### Navigation
 
-- `PktsTabs`: tab navigation
+- `PktsTab` / `PktsTabs`: tab navigation
 - `PktsTableOfContents`: table of contents
 - `PktsListTreeView`: tree view list
 
 ### Utility
 
 - `PktsSpinner`: loading spinner
-- `PktsSkeletonSurface`: skeleton loader
+- `PktsSkeletonSurface`: skeleton loader placeholder
+
+### Providers
+
+- `PacketsDesignTokenProvider`: context provider for design token overrides
+- `usePacketsDesignTokens`: hook to access design tokens from context
 
 ## Dark Mode
 

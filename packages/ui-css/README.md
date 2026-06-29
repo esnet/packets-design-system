@@ -97,9 +97,7 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 - `pkts-input-typeahead`: typeahead/autocomplete input
 - `pkts-input-option`: individual option item
 - `pkts-input-row`: form row wrapper with label, caption, and validation
-- `pkts-input-date`: date input
 - `pkts-input-date-picker`: date picker
-- `pkts-input-date-range`: date range picker
 - `pkts-label`: form label; positions `pkts-label-top`, `pkts-label-left`, `pkts-label-right`, `pkts-label-bottom`
 
 ### Display
@@ -107,6 +105,7 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 - `pkts-alert`: variants `pkts-error`, `pkts-warning`, `pkts-success`, `pkts-info`
 - `pkts-avatar`: sizes `pkts-small`, `pkts-medium`, `pkts-large`; colors `pkts-grape`, `pkts-lime`, `pkts-berry`, `pkts-orange`
 - `pkts-badge`: badge/tag
+- `pkts-card`: card container
 - `pkts-chip`: chip tag
 - `pkts-chip-group`: group of chips
 - `pkts-code-block`: syntax-highlighted code block
@@ -119,7 +118,6 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 ### Layout
 
 - `pkts-accordion`: collapsible section
-- `pkts-card`: card container
 - `pkts-form-section`: form section layout
 - `pkts-module`: module container
 - `pkts-spacer`: spacer; layout options `pkts-horizontal`, `pkts-vertical`, `pkts-square`
@@ -140,7 +138,7 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 ### Utility
 
 - `pkts-spinner`: loading spinner
-- `pkts-skeleton-surface`: skeleton loader; variants `pkts-rounded`
+- `pkts-skeleton-surface`: skeleton loader placeholder; variants `pkts-rounded`
 - `pkts-skeleton-chip`: skeleton chip loader
 
 ## Dark Mode
