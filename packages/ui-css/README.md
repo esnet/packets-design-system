@@ -58,72 +58,90 @@ Optionally add `dark` or `light`:
 
 ## Usage
 
-All components use composable class names with the `es-` prefix. Combine a base component class with shared variant classes.
+All components use composable class names with the `pkts-` prefix. Combine a base component class with shared variant classes.
 
 ```html
-<button class="es-button es-primary">Primary</button>
-<button class="es-button es-secondary">Secondary</button>
-<button class="es-button es-destructive">Delete</button>
+<button class="pkts-button pkts-primary">Primary</button>
+<button class="pkts-button pkts-secondary">Secondary</button>
+<button class="pkts-button pkts-destructive">Delete</button>
 ```
 
 ### Class system
 
 ```
-.es-{component}            // Base component
-.es-{component}__{element} // Child element (BEM-style)
-.es-{variant}              // Shared variant or state
+.pkts-{component}            Base component
+.pkts-{component}__{element} Child element (BEM-style)
+.pkts-{variant}              Shared variant or state
 ```
 
 ## Available Components
 
 ### Buttons
 
-- `es-button`: variants `es-primary`, `es-secondary`, `es-branded`, `es-tertiary`, `es-destructive`; sizes `es-medium`, `es-xxlarge`
-- `es-icon-button`: icon-only button with the same variants
-- `es-button-group`: layout options `es-horizontal`, `es-vertical`
+- `pkts-button`: variants `pkts-primary`, `pkts-secondary`, `pkts-branded`, `pkts-tertiary`, `pkts-destructive`
+- `pkts-icon-button`: icon-only button with the same variants
+- `pkts-button-group`: layout options `pkts-horizontal`, `pkts-vertical`
 
 ### Form Inputs
 
-- `es-input-text`: text input
-- `es-input-email`: email input
-- `es-input-password`: password input
-- `es-input-number`: number input
-- `es-input-search`: search input
-- `es-input-checkbox`: checkbox; variants `es-branded`
-- `es-input-switch`: toggle switch; variants `es-secondary`, `es-checked`
-- `es-input-text-area`: textarea; variants `es-error`
+- `pkts-input-text`: text input
+- `pkts-input-text-area`: textarea; variants `pkts-error`
+- `pkts-input-email`: email input
+- `pkts-input-password`: password input
+- `pkts-input-number`: number input
+- `pkts-input-search`: search input
+- `pkts-input-checkbox`: checkbox; variants `pkts-branded`
+- `pkts-input-switch`: toggle switch; variants `pkts-secondary`, `pkts-checked`
+- `pkts-input-radio`: radio button
+- `pkts-input-select`: select/dropdown input
+- `pkts-input-typeahead`: typeahead/autocomplete input
+- `pkts-input-option`: individual option item
+- `pkts-input-row`: form row wrapper with label, caption, and validation
+- `pkts-input-date`: date input
+- `pkts-input-date-picker`: date picker
+- `pkts-input-date-range`: date range picker
+- `pkts-label`: form label; positions `pkts-label-top`, `pkts-label-left`, `pkts-label-right`, `pkts-label-bottom`
 
 ### Display
 
-- `es-alert`: variants `es-error`, `es-warning`, `es-success`, `es-info`
-- `es-avatar`: sizes `es-small`, `es-medium`, `es-large`; colors `es-grape`, `es-lime`, `es-berry`, `es-orange`
-- `es-datum`: label/value pair
-- `es-divider`: variants `es-branded`
-- `es-icon`: icon display
+- `pkts-alert`: variants `pkts-error`, `pkts-warning`, `pkts-success`, `pkts-info`
+- `pkts-avatar`: sizes `pkts-small`, `pkts-medium`, `pkts-large`; colors `pkts-grape`, `pkts-lime`, `pkts-berry`, `pkts-orange`
+- `pkts-badge`: badge/tag
+- `pkts-chip`: chip tag
+- `pkts-chip-group`: group of chips
+- `pkts-code-block`: syntax-highlighted code block
+- `pkts-datum`: label/value pair
+- `pkts-divider`: horizontal divider; variants `pkts-branded`
+- `pkts-dropdown`: dropdown container
+- `pkts-icon`: icon display
+- `pkts-tooltip`: tooltip; positions `pkts-tooltip-top`
 
 ### Layout
 
-- `es-module`: module container
-- `es-form-section`: form section layout
-- `es-title-section`: title section layout
-- `es-spacer`: layout options `es-horizontal`, `es-vertical`, `es-square`
+- `pkts-accordion`: collapsible section
+- `pkts-card`: card container
+- `pkts-form-section`: form section layout
+- `pkts-module`: module container
+- `pkts-spacer`: spacer; layout options `pkts-horizontal`, `pkts-vertical`, `pkts-square`
+- `pkts-title-section`: title section layout
 
 ### Navigation
 
-- `es-breadcrumbs`: breadcrumb navigation
-- `es-tabs` / `es-tab`: tab navigation; state `es-active`
-- `es-table-of-contents`: table of contents
-- `es-list-tree-view`: tree view list
+- `pkts-breadcrumbs`: breadcrumb navigation
+- `pkts-tab` / `pkts-tabs`: tab navigation; state `pkts-active`
+- `pkts-table-of-contents`: table of contents
+- `pkts-list-tree-view`: tree view list
 
 ### Data Display
 
-- `es-data-table`: semantic table using `<table>`, `<thead>`, `<tbody>`, `<tfoot>`
-- `es-comma-seperated-list`: comma-separated list
+- `pkts-data-table`: semantic table using `<table>`, `<thead>`, `<tbody>`, `<tfoot>`
+- `pkts-comma-seperated-list`: comma-separated list
 
 ### Utility
 
-- `es-spinner`: loading spinner
-- `es-skeleton-surface`: skeleton loader; variants `es-rounded`
+- `pkts-spinner`: loading spinner
+- `pkts-skeleton-surface`: skeleton loader; variants `pkts-rounded`
+- `pkts-skeleton-chip`: skeleton chip loader
 
 ## Dark Mode
 

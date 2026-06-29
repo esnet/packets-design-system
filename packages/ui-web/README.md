@@ -84,6 +84,7 @@ document.body.appendChild(button);
 - `pkts-button-group`: horizontal or vertical button group
 - `pkts-card`: card container
 - `pkts-chip`: chip tag
+- `pkts-chip-group`: group of chips
 - `pkts-comma-separated-list`: comma-separated list
 - `pkts-data-table`: data table
 - `pkts-datum`: label/value pair

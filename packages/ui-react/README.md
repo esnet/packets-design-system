@@ -69,30 +69,61 @@ function App() {
 
 ## Available Components
 
-- `PktsAlert`: alert messages (error, warning, success, info)
-- `PktsAvatar`: user avatar with initials
-- `PktsBreadcrumbs`: breadcrumb navigation
-- `PktsButton`: button (primary, secondary, branded, tertiary, destructive)
+### Buttons
+
+- `PktsButton`: button; variants `primary`, `secondary`, `branded`, `tertiary`, `destructive`; renders as `button` or `a` via the `as` prop
 - `PktsButtonGroup`: horizontal or vertical button group
+- `PktsIconButton`: icon-only button with the same variants; renders as `button` or `a` via the `as` prop
+
+### Form Inputs
+
+- `PktsInputText` / `PktsInputTextArea`: text inputs
+- `PktsInputEmail`: email input
+- `PktsInputPassword`: password input
+- `PktsInputNumber`: number input
+- `PktsInputSearch`: search input
+- `PktsInputCheckbox`: checkbox input
+- `PktsInputSwitch`: toggle switch
+- `PktsInputRadioButton`: radio button
+- `PktsInputSelect`: select/dropdown input
+- `PktsInputTypeahead`: typeahead/autocomplete input
+- `PktsInputOption`: individual option item
+- `PktsInputRow`: form row wrapper with label, caption, and validation
+- `PktsInputDate` / `PktsInputDatePicker` / `PktsInputDateRange`: date inputs
+- `PktsLabel`: form label
+
+### Display
+
+- `PktsAlert`: alert messages; variants `error`, `warning`, `success`, `info`
+- `PktsAvatar`: user avatar with initials; sizes `small`, `medium`, `large`
+- `PktsBreadcrumbs`: breadcrumb navigation
 - `PktsChip` / `PktsChipGroup`: chip tags
+- `PktsCodeBlock`: syntax-highlighted code block
+- `PktsCommaSeperatedList`: comma-separated list
 - `PktsDataTable`: data table
 - `PktsDatum`: label/value pair
 - `PktsDivider`: horizontal divider
+- `PktsTooltip`: tooltip
+
+### Layout
+
+- `PktsAccordion`: collapsible section
+- `PktsDropdown`: dropdown container
 - `PktsFormSection`: form section layout
-- `PktsIconButton`: icon-only button
-- `PktsInputCheckbox`: checkbox input
-- `PktsInputDate` / `PktsInputDatePicker` / `PktsInputDateRange`: date inputs
-- `PktsInputEmail`: email input
-- `PktsInputNumber`: number input
-- `PktsInputPassword`: password input
-- `PktsInputRadioButton`: radio button
-- `PktsInputSearch`: search input
-- `PktsInputSwitch`: toggle switch
-- `PktsInputText` / `PktsInputTextArea`: text inputs
-- `PktsLabel`: form label
-- `PktsListTreeView`: tree view list
 - `PktsModule`: module container
+- `PktsSpacer`: layout spacer
+- `PktsTitleSection`: title section layout
+
+### Navigation
+
+- `PktsTabs`: tab navigation
+- `PktsTableOfContents`: table of contents
+- `PktsListTreeView`: tree view list
+
+### Utility
+
 - `PktsSpinner`: loading spinner
+- `PktsSkeletonSurface`: skeleton loader
 
 ## Dark Mode
 
