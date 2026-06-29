@@ -1,5 +1,13 @@
 # docs
 
+## 0.9.2-beta.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @esnet/packets-ui-react@1.0.0-beta.0
+  - @esnet/packets-ui-css@1.0.0-beta.0
+
 ## 0.9.1
 
 ### Patch Changes
