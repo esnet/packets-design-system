@@ -1,0 +1,71 @@
+.pkts-input-file {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: var(--pkts-size-radius-xlarge, 8px);
+  cursor: pointer;
+}
+
+.pkts-input-file.default {
+  background: var(--pkts-color-core-white-600);
+  color: var(--pkts-color-core-black-100);
+}
+
+.pkts-input-file.default:hover {
+  background: var(--pkts-color-core-white-800);
+}
+
+.pkts-input-file.branded {
+  background: var(--pkts-color-core-white-600);
+  color: var(--pkts-color-core-black-100);
+  border: 2px solid var(--pkts-color-core-blue-600);
+  box-shadow:
+    0px 4px 5px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.pkts-input-file.branded:hover {
+  background: var(--pkts-color-core-blue-200);
+  box-shadow:
+    0px 4px 5px 0px var(--pkts-color-core-blue-400),
+    0px 2px 3px 0px var(--pkts-color-core-blue-400);
+}
+
+.pkts-input-file-hidden {
+  display: none;
+}
+
+.pkts-input-file-filenames {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.pkts-input-file-filename-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.pkts-input-file-filename-x-icon {
+  visibility: hidden;
+}
+
+.pkts-input-file-filename-item:hover .pkts-input-file-filename-x-icon {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.pkts-input-file-wrapper {
+  width: 100%;
+}
+
+.pkts-input-file-btn {
+  display: block;
+  width: 100%;
+}

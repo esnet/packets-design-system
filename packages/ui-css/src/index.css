@@ -34,6 +34,7 @@
 @import './components/input-password.css'; /* PktsInputPassword */
 @import './components/input-option.css'; /* PktsInputOption */
 @import './components/input-number.css'; /* PktsInputNumber */
+@import './components/input-file.css'; /* PktsInputFile */
 @import './components/input-email.css'; /* PktsInputEmail */
 @import './components/input-date-picker.css'; /* PktsInputDatePicker */
 @import './components/input-checkbox.css'; /* PktsInputCheckbox */
