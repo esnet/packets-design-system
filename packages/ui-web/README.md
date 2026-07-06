@@ -5,10 +5,12 @@ Framework-agnostic Web Components for the [Packets Design System](https://github
 ## Installation
 
 ```bash
-npm install @esnet/packets-ui-css @esnet/packets-ui-web
+npm install @esnet/packets-ui-css@beta @esnet/packets-ui-web@beta
 ```
 
 Packets ships styles separately. You must install `@esnet/packets-ui-css` alongside the Web Components package.
+
+Once 2.x reaches a stable release, drop the `@beta` tag.
 
 ### Peer dependencies
 
