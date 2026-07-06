@@ -24,7 +24,7 @@
     "./*": "./dist/*"
   },
   "license": "MIT",
-  "private": false,
+  "private": true,
   "dependencies": {
     "sd-tailwindcss-transformer": "^1.4.6"
   },
