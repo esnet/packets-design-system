@@ -1,6 +1,6 @@
 {
     "name": "@esnet/packets-ui-css",
-    "version": "2.0.1-beta.0",
+    "version": "2.0.1-beta.1",
     "description": "The Packets Design System CSS-Only Components",
     "author": "ESnet",
     "type": "module",

@@ -1,5 +1,12 @@
 # @esnet/packets-ui-web
 
+## 2.0.1-beta.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @esnet/packets-ui-css@2.0.1-beta.1
+
 ## 2.0.1-beta.0
 
 ### Major Changes
@@ -39,7 +46,7 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @esnet/packets-ui-css@2.0.1-beta.0
+  - @esnet/packets-ui-css@2.0.1-beta.1
 
 ## 0.1.1
 

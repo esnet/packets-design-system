@@ -1,5 +1,11 @@
 # @esnet/packets-ui-css
 
+## 2.0.1-beta.1
+
+### Patch Changes
+
+- fix: move pkts-tokens from dependencies to devDependencies — it is a build-time dependency only and was causing install failures for consumers without ESnet registry access
+
 ## 2.0.1-beta.0
 
 ### Major Changes
