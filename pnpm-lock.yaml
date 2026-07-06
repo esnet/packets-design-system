@@ -500,11 +500,10 @@ importers:
         version: 4.9.5
 
   packages/ui-css:
-    dependencies:
+    devDependencies:
       '@esnet/pkts-tokens':
         specifier: workspace:^
         version: link:../design-tokens
-    devDependencies:
       '@playwright/test':
         specifier: 1.57.0
         version: 1.57.0
