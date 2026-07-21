@@ -76,33 +76,54 @@ document.body.appendChild(button);
 
 ## Available Components
 
-- `pkts-alert`: alert messages (error, warning, success, info)
-- `pkts-avatar`: user avatar with initials
+### Buttons
+
+- `pkts-button`: button; variants `primary`, `secondary`, `branded`, `tertiary`, `destructive`
+- `pkts-button-group`: horizontal or vertical button group
+- `pkts-icon-button`: icon-only button with the same variants
+
+### Form Inputs
+
+- `pkts-input-text`: text input
+- `pkts-input-email`: email input
+- `pkts-input-password`: password input
+- `pkts-input-number`: number input
+- `pkts-input-search`: search input
+- `pkts-input-checkbox`: checkbox input
+- `pkts-input-switch`: toggle switch
+- `pkts-input-radio-button`: radio button
+- `pkts-input-date`: date input
+- `pkts-input-date-picker` / `pkts-input-date-picker-date` / `pkts-input-date-picker-time`: date picker and sub-components
+- `pkts-input-date-range`: date range picker
+
+### Display
+
+- `pkts-alert`: alert messages; variants `error`, `warning`, `success`, `info`
+- `pkts-avatar`: user avatar with initials; sizes `small`, `medium`, `large`
 - `pkts-badge`: badge/tag
 - `pkts-breadcrumbs`: breadcrumb navigation
-- `pkts-button`: button (primary, secondary, branded, tertiary, destructive)
-- `pkts-button-group`: horizontal or vertical button group
 - `pkts-card`: card container
 - `pkts-chip`: chip tag
+- `pkts-chip-group`: group of chips
 - `pkts-comma-separated-list`: comma-separated list
 - `pkts-data-table`: data table
 - `pkts-datum`: label/value pair
 - `pkts-divider`: horizontal divider
-- `pkts-form-section`: form section layout
 - `pkts-icon`: icon display
-- `pkts-icon-button`: icon-only button
-- `pkts-input-checkbox`: checkbox input
-- `pkts-input-date` / `pkts-input-date-picker` / `pkts-input-date-range`: date inputs
-- `pkts-input-email`: email input
-- `pkts-input-number`: number input
-- `pkts-input-password`: password input
-- `pkts-input-radio-button`: radio button
-- `pkts-input-search`: search input
-- `pkts-input-switch`: toggle switch
-- `pkts-input-text`: text input
+
+### Layout
+
+- `pkts-form-section`: form section layout
 - `pkts-module`: module container
-- `pkts-spinner`: loading spinner
+- `pkts-title-section`: title section layout
+
+### Navigation
+
 - `pkts-tabs`: tab navigation
+
+### Utility
+
+- `pkts-spinner`: loading spinner
 
 ## Dark Mode
 

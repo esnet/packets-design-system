@@ -1,6 +1,6 @@
 {
     "name": "@esnet/packets-ui-css",
-    "version": "0.1.0",
+    "version": "2.0.1-beta.1",
     "description": "The Packets Design System CSS-Only Components",
     "author": "ESnet",
     "type": "module",
@@ -30,10 +30,9 @@
         "test:ui": "playwright test --ui",
         "test:updatesnaps": "playwright test --update-snapshots"
     },
-    "dependencies": {
-        "@esnet/pkts-tokens": "workspace:^"
-    },
+    "dependencies": {},
     "devDependencies": {
+        "@esnet/pkts-tokens": "workspace:^",
         "@playwright/test": "1.57.0",
         "chokidar": "^3.5.3",
         "cssnano": "^6.0.1",
