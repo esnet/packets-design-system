@@ -20,7 +20,7 @@ RUN pnpm run build
 RUN cd apps/host-docs && pnpm run build
 
 # React docs at /react
-RUN cd apps/react-docs && pnpm run build:storybook
+RUN cd apps/react-docs && pnpm run build
 
 # Web docs at /web
 RUN cd apps/web-docs && pnpm run build
