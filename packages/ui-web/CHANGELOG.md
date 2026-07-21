@@ -1,5 +1,18 @@
 # @esnet/packets-ui-web
 
+## 2.0.1-beta.2
+
+### Patch Changes
+
+- d658985: fix: correct README install commands, remove dead exports, fix avatar example
+
+  - README install commands now use the @beta tag so beta testers get 2.x instead of the old 0.x/1.x stable release
+  - Removed ./style.css export from ui-react exports map: no CSS file ships in the tarball, causing MODULE_NOT_FOUND for consumers who imported it
+  - Fixed PktsAvatar usage example in ui-react README: initials and color are not props; correct props are alt (for the fallback label) and backgroundColor
+
+- Updated dependencies [d658985]
+  - @esnet/packets-ui-css@2.0.1-beta.2
+
 ## 2.0.1-beta.1
 
 ### Patch Changes
