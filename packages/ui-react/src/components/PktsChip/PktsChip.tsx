@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 /**
  * Chip component, built on top of an HTML button element with hover and focus stylings.
  * The chip can have an optional onClick handler, but is not required to be interactive.
- * If an onDelete prop handler is provided, an X icon will be appended to the right of the label text, 
+ * If an onDelete prop handler is provided, an X icon will be appended to the right of the label text,
  * and onClick will trigger the onDelete callback.
  *
  * @param {PktsChipProps} props

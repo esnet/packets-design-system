@@ -70,7 +70,7 @@ export class PktsDataTable extends HTMLElement implements PktsDataTableProps {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
       if (name === "columns" && newVal) {
@@ -109,7 +109,7 @@ export class PktsDataTable extends HTMLElement implements PktsDataTableProps {
       new CustomEvent("sort-change", {
         detail: { sortState: this.sortState },
         bubbles: true,
-      })
+      }),
     );
   };
 
@@ -117,7 +117,7 @@ export class PktsDataTable extends HTMLElement implements PktsDataTableProps {
     if (!this._data) return [];
 
     const sortColumn = Object.keys(this.sortState).find(
-      (key) => this.sortState[key] !== "NONE"
+      (key) => this.sortState[key] !== "NONE",
     );
 
     if (!sortColumn) return this._data;

@@ -16,9 +16,7 @@ const PktsTab: React.FC<PktsTabProps> = ({
   isActive = false,
 }) => {
   return (
-    <li
-      className={clsx("pkts-tab", isActive && "pkts-active", className)}
-    >
+    <li className={clsx("pkts-tab", isActive && "pkts-active", className)}>
       {children}
     </li>
   );

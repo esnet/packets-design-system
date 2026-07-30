@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 /**
  * Packets applies global styling to [Lucide icons](https://lucide.dev/) via the `.lucide` class to standardize color.
@@ -7,8 +7,8 @@ import type { Meta, StoryObj } from '@storybook/html';
  * See Design Tokens / Icons for available icons.
  */
 const meta: Meta = {
-  title: 'RichText/Iconography',
-  tags: ['autodocs'],
+  title: "RichText/Iconography",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -26,8 +26,9 @@ const iconSvg = (label: string) => `
 
 export const Default: Story = {
   render: () => {
-    const root = document.createElement('div');
-    root.style.cssText = 'display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;justify-items:center;align-items:center';
+    const root = document.createElement("div");
+    root.style.cssText =
+      "display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;justify-items:center;align-items:center";
     root.innerHTML = `
       <span>Server</span>
       <svg class="lucide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>

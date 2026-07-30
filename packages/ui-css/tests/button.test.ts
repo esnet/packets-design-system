@@ -3,9 +3,18 @@ import { createCSSTestHTML } from "./test-utils";
 
 type Theme = "light" | "dark";
 
-const VARIANTS = ["primary", "secondary", "branded", "tertiary", "destructive"] as const;
+const VARIANTS = [
+  "primary",
+  "secondary",
+  "branded",
+  "tertiary",
+  "destructive",
+] as const;
 
-function buildButtonRow(variant: string, element: "button" | "a" = "button"): string {
+function buildButtonRow(
+  variant: string,
+  element: "button" | "a" = "button",
+): string {
   const tag = element === "a" ? "a" : "button";
   const href = element === "a" ? ` href="#"` : "";
   return `
@@ -26,22 +35,29 @@ test.describe("Pkts Button Component", () => {
         await page.setContent(html);
         await page.locator("#focus-btn").focus();
         await page.locator("#hover-btn").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`button-${variant}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `button-${variant}-${theme}.png`,
+        );
       });
     });
 
     test(`button-as-link-${theme}`, async ({ page }) => {
-      const html = createCSSTestHTML(theme, `
+      const html = createCSSTestHTML(
+        theme,
+        `
         <div id="container" style="display: inline-flex; gap: 8px; align-items: center; padding: 8px;">
           <a href="#" class="pkts-button pkts-primary pkts-medium">Button</a>
           <a href="#" id="hover-btn" class="pkts-button pkts-primary pkts-medium">Button</a>
           <a href="#" id="focus-btn" class="pkts-button pkts-primary pkts-medium">Button</a>
         </div>
-      `);
+      `,
+      );
       await page.setContent(html);
       await page.locator("#focus-btn").focus();
       await page.locator("#hover-btn").hover();
-      await expect(page.locator("#container")).toHaveScreenshot(`button-as-link-${theme}.png`);
+      await expect(page.locator("#container")).toHaveScreenshot(
+        `button-as-link-${theme}.png`,
+      );
     });
   });
 });

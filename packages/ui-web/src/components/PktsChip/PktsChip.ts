@@ -57,7 +57,7 @@ export class PktsChip extends SlottedComponent implements PktsChipProps {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) this.render();
   }
@@ -81,7 +81,7 @@ export class PktsChip extends SlottedComponent implements PktsChipProps {
   private _addDeleteIcon(): void {
     if (!this.deleteIconEl) {
       this.deleteIconEl = document.createElement(PktsIcon.tagName);
-      if(this.deleteIconEl){
+      if (this.deleteIconEl) {
         this.deleteIconEl.setAttribute("name", "X");
         this.deleteIconEl.classList.add("delete-icon");
         this.buttonEl.appendChild(this.deleteIconEl);
@@ -109,7 +109,9 @@ export class PktsChip extends SlottedComponent implements PktsChipProps {
     }
     if (this.deletable || this.onDelete) {
       // Dispatch custom event for addEventListener pattern
-      this.dispatchEvent(new CustomEvent('delete', { bubbles: true, cancelable: true }));
+      this.dispatchEvent(
+        new CustomEvent("delete", { bubbles: true, cancelable: true }),
+      );
 
       // Call onDelete if set (for direct property assignment pattern)
       if (this.onDelete) {

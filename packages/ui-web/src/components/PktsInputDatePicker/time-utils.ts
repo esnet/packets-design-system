@@ -16,7 +16,7 @@ export function getTimeWheel(
   precision: TimePrecision,
   min: number = defaultSettings[precision].min,
   max: number = defaultSettings[precision].max,
-  step: number = defaultSettings[precision].step
+  step: number = defaultSettings[precision].step,
 ): string[] {
   if (step <= 0) return [];
 
@@ -30,7 +30,7 @@ export function getMeridiem(date: Date): Meridiem {
 
 export function getHoursOnChangeMeridiem(
   hours: number,
-  newMeridiem: Meridiem
+  newMeridiem: Meridiem,
 ): number {
   if (hours <= 11 && newMeridiem === "PM") {
     hours += 12;
@@ -49,7 +49,7 @@ export function getCurrentDateWithoutTime(): Date {
 
 function mergeRange(
   defaultRange: Range,
-  userRange?: boolean | Range
+  userRange?: boolean | Range,
 ): boolean | Range {
   if (typeof userRange === "boolean") return userRange;
 
@@ -65,7 +65,7 @@ function mergeRange(
 }
 
 export function mergeSettings(
-  propSettings?: PktsInputDatePickerTimeSettings
+  propSettings?: PktsInputDatePickerTimeSettings,
 ): Required<PktsInputDatePickerTimeSettings> {
   return {
     format: propSettings?.format ?? defaultSettings.format,

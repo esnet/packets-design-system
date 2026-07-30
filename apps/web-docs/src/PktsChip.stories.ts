@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsChip } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsChip> = {
-  title: 'Components/PktsChip',
+  title: "Components/PktsChip",
   component: PktsChip.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -24,7 +24,9 @@ const meta: Meta<typeof PktsChip> = {
     },
   },
   render: (args) => {
-    const chip = document.createElement(PktsChip.tagName) as InstanceType<typeof PktsChip>;
+    const chip = document.createElement(PktsChip.tagName) as InstanceType<
+      typeof PktsChip
+    >;
     if (args.variant) chip.variant = args.variant;
     if (args.rounded) chip.rounded = args.rounded;
     if (args.deletable) chip.deletable = args.deletable;
@@ -40,24 +42,24 @@ type Story = StoryObj<typeof PktsChip>;
 export const Primary: Story = {
   name: "Primary PktsChip",
   args: {
-    variant: 'primary',
-    label: 'Primary Chip',
+    variant: "primary",
+    label: "Primary Chip",
   },
 };
 
 export const Outline: Story = {
   name: "Outline PktsChip",
   args: {
-    variant: 'outline',
-    label: 'Outline Chip',
+    variant: "outline",
+    label: "Outline Chip",
   },
 };
 
 export const Deletable: Story = {
   name: "Deletable PktsChip",
   args: {
-    variant: 'primary',
-    label: 'Delete Chip',
+    variant: "primary",
+    label: "Delete Chip",
     deletable: true,
   },
 };
@@ -65,8 +67,8 @@ export const Deletable: Story = {
 export const Rounded: Story = {
   name: "Rounded PktsChip",
   args: {
-    variant: 'primary',
-    label: 'Rounded Chip',
+    variant: "primary",
+    label: "Rounded Chip",
     rounded: true,
   },
 };

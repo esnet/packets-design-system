@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 const meta: Meta = {
-  title: 'Components/PktsInputSearch',
-  tags: ['autodocs'],
+  title: "Components/PktsInputSearch",
+  tags: ["autodocs"],
   argTypes: {
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
   },
   render: (args) => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'pkts-input-text pkts-input-search';
+    const wrapper = document.createElement("div");
+    wrapper.className = "pkts-input-text pkts-input-search";
 
-    const input = document.createElement('input');
-    input.type = 'search';
-    input.placeholder = args.placeholder || 'Search...';
+    const input = document.createElement("input");
+    input.type = "search";
+    input.placeholder = args.placeholder || "Search...";
     if (args.value) input.value = args.value;
 
     wrapper.appendChild(input);
@@ -32,12 +32,12 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Search...',
+    placeholder: "Search...",
   },
 };
 
 export const WithValue: Story = {
   args: {
-    value: 'Search query',
+    value: "Search query",
   },
 };

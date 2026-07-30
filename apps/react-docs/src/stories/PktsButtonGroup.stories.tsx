@@ -22,7 +22,6 @@ export default meta;
 
 type Story = StoryObj<typeof PktsButtonGroup>;
 
-
 export const Defaultbutton: Story = {
   render: (props) => (
     <PktsButtonGroup direction={props.direction} labelCopy={props.labelCopy}>

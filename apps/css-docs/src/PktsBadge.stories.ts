@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 const meta: Meta = {
-  title: 'Components/PktsBadge',
-  tags: ['autodocs'],
+  title: "Components/PktsBadge",
+  tags: ["autodocs"],
   argTypes: {
     label: {
-      control: 'text',
+      control: "text",
     },
   },
   render: (args) => {
-    const badge = document.createElement('span');
-    badge.className = 'pkts-badge';
-    badge.textContent = args.label || '0';
+    const badge = document.createElement("span");
+    badge.className = "pkts-badge";
+    badge.textContent = args.label || "0";
     return badge;
   },
 };
@@ -22,18 +22,18 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    label: '3',
+    label: "3",
   },
 };
 
 export const HighCount: Story = {
   args: {
-    label: '99+',
+    label: "99+",
   },
 };
 
 export const SingleDigit: Story = {
   args: {
-    label: '5',
+    label: "5",
   },
 };

@@ -1,10 +1,10 @@
-import type { Preview } from '@storybook/html';
+import type { Preview } from "@storybook/html";
 import { themes } from "@storybook/theming";
 import "../../../packages/ui-css/dist/styles.css";
 
 const PacketsDecorator = (Story: any) => {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'packets';
+  const wrapper = document.createElement("div");
+  wrapper.className = "packets";
 
   const storyElement = Story();
   if (storyElement instanceof HTMLElement) {
@@ -15,7 +15,6 @@ const PacketsDecorator = (Story: any) => {
 
   return wrapper;
 };
-
 
 const preview: Preview = {
   parameters: {

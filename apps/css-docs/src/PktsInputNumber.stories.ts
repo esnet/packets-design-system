@@ -1,45 +1,46 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 const meta: Meta = {
-  title: 'Components/PktsInputNumber',
-  tags: ['autodocs'],
+  title: "Components/PktsInputNumber",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'radio' },
-      options: ['default', 'branded'],
+      control: { type: "radio" },
+      options: ["default", "branded"],
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'boolean',
+      control: "boolean",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'number',
+      control: "number",
     },
     min: {
-      control: 'number',
+      control: "number",
     },
     max: {
-      control: 'number',
+      control: "number",
     },
   },
   render: (args) => {
-    const wrapper = document.createElement('div');
-    const classes = ['pkts-input-text', 'pkts-input-number'];
+    const wrapper = document.createElement("div");
+    const classes = ["pkts-input-text", "pkts-input-number"];
 
-    if (args.variant && args.variant !== 'default') classes.push(`pkts-${args.variant}`);
-    if (args.error) classes.push('pkts-error');
+    if (args.variant && args.variant !== "default")
+      classes.push(`pkts-${args.variant}`);
+    if (args.error) classes.push("pkts-error");
 
-    wrapper.className = classes.join(' ');
+    wrapper.className = classes.join(" ");
 
-    const input = document.createElement('input');
-    input.type = 'number';
+    const input = document.createElement("input");
+    input.type = "number";
 
-    input.placeholder = args.placeholder || 'Enter number...';
+    input.placeholder = args.placeholder || "Enter number...";
     if (args.value !== undefined) input.value = String(args.value);
     if (args.min !== undefined) input.min = String(args.min);
     if (args.max !== undefined) input.max = String(args.max);
@@ -56,14 +57,14 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    variant: 'default',
-    placeholder: '0',
+    variant: "default",
+    placeholder: "0",
   },
 };
 
 export const Branded: Story = {
   args: {
-    variant: 'branded',
+    variant: "branded",
     value: 42,
   },
 };

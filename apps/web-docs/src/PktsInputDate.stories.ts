@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsInputDate } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsInputDate> = {
-  title: 'Components/PktsInputDate',
+  title: "Components/PktsInputDate",
   component: PktsInputDate.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -26,8 +26,8 @@ const meta: Meta<typeof PktsInputDate> = {
   decorators: [
     // a larger height to fully view the absolutely positioned calendar prompt
     (Story) => {
-      const wrapper = document.createElement('div');
-      wrapper.style.minHeight = '280px';
+      const wrapper = document.createElement("div");
+      wrapper.style.minHeight = "280px";
       const story = Story();
       wrapper.appendChild(story);
       return wrapper;
@@ -42,23 +42,23 @@ type Story = StoryObj<typeof PktsInputDate>;
 export const Default: Story = {
   name: "PktsInputDate",
   args: {
-    variant: 'primary',
-    placeholder: 'Select a date',
+    variant: "primary",
+    placeholder: "Select a date",
   },
 };
 
 export const Branded: Story = {
   name: "Branded ESInputDate",
   args: {
-    variant: 'branded',
-    placeholder: 'Select a date',
+    variant: "branded",
+    placeholder: "Select a date",
   },
 };
 
 export const WithValue: Story = {
   name: "ESInputDate With Value",
   args: {
-    variant: 'primary',
+    variant: "primary",
     value: new Date().toISOString(),
   },
 };
@@ -66,17 +66,17 @@ export const WithValue: Story = {
 export const Disabled: Story = {
   name: "Disabled ESInputDate",
   args: {
-    variant: 'primary',
+    variant: "primary",
     disabled: true,
-    placeholder: 'Disabled',
+    placeholder: "Disabled",
   },
 };
 
 export const Error: Story = {
   name: "Error ESInputDate",
   args: {
-    variant: 'primary',
+    variant: "primary",
     error: true,
-    placeholder: 'Error state',
+    placeholder: "Error state",
   },
 };

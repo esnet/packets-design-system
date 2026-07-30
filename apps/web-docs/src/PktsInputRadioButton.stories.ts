@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsInputRadioButton } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsInputRadioButton> = {
-  title: 'Components/PktsInputRadioButton',
+  title: "Components/PktsInputRadioButton",
   component: PktsInputRadioButton.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     options: {
       control: "object",
@@ -17,27 +17,29 @@ const meta: Meta<typeof PktsInputRadioButton> = {
     },
   },
   render: (args) => {
-    const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.gap = '12px';
+    const container = document.createElement("div");
+    container.style.display = "flex";
+    container.style.flexDirection = "column";
+    container.style.gap = "12px";
 
     if (args.options && Array.isArray(args.options)) {
       args.options.forEach((option: any) => {
-        const wrapper = document.createElement('label');
-        wrapper.style.display = 'flex';
-        wrapper.style.alignItems = 'center';
-        wrapper.style.gap = '8px';
-        wrapper.style.cursor = option.disabled ? 'not-allowed' : 'pointer';
-        if (option.disabled) wrapper.style.opacity = '0.5';
+        const wrapper = document.createElement("label");
+        wrapper.style.display = "flex";
+        wrapper.style.alignItems = "center";
+        wrapper.style.gap = "8px";
+        wrapper.style.cursor = option.disabled ? "not-allowed" : "pointer";
+        if (option.disabled) wrapper.style.opacity = "0.5";
 
-        const radio = document.createElement(PktsInputRadioButton.tagName) as InstanceType<typeof PktsInputRadioButton>;
-        radio.name = args.groupName || 'radio-group';
+        const radio = document.createElement(
+          PktsInputRadioButton.tagName,
+        ) as InstanceType<typeof PktsInputRadioButton>;
+        radio.name = args.groupName || "radio-group";
         radio.value = option.value;
         if (args.selectedValue === option.value) radio.checked = true;
         if (option.disabled) radio.disabled = true;
 
-        const labelText = document.createElement('span');
+        const labelText = document.createElement("span");
         labelText.textContent = option.label;
 
         wrapper.appendChild(radio);
@@ -57,12 +59,12 @@ type Story = StoryObj<typeof PktsInputRadioButton>;
 export const Default: Story = {
   name: "Radio Button Group",
   args: {
-    groupName: 'demo-group',
-    selectedValue: 'option1',
+    groupName: "demo-group",
+    selectedValue: "option1",
     options: [
-      { label: 'Option 1', value: 'option1' },
-      { label: 'Option 2', value: 'option2' },
-      { label: 'Option 3', value: 'option3' }
+      { label: "Option 1", value: "option1" },
+      { label: "Option 2", value: "option2" },
+      { label: "Option 3", value: "option3" },
     ],
   },
 };
@@ -70,13 +72,13 @@ export const Default: Story = {
 export const SizeOptions: Story = {
   name: "Size Selection",
   args: {
-    groupName: 'size-group',
-    selectedValue: 'medium',
+    groupName: "size-group",
+    selectedValue: "medium",
     options: [
-      { label: 'Small', value: 'small' },
-      { label: 'Medium', value: 'medium' },
-      { label: 'Large', value: 'large' },
-      { label: 'Extra Large', value: 'xlarge' }
+      { label: "Small", value: "small" },
+      { label: "Medium", value: "medium" },
+      { label: "Large", value: "large" },
+      { label: "Extra Large", value: "xlarge" },
     ],
   },
 };
@@ -84,12 +86,12 @@ export const SizeOptions: Story = {
 export const WithDisabled: Story = {
   name: "With Disabled Option",
   args: {
-    groupName: 'disabled-group',
-    selectedValue: 'option1',
+    groupName: "disabled-group",
+    selectedValue: "option1",
     options: [
-      { label: 'Available Option 1', value: 'option1' },
-      { label: 'Available Option 2', value: 'option2' },
-      { label: 'Disabled Option', value: 'option3', disabled: true }
+      { label: "Available Option 1", value: "option1" },
+      { label: "Available Option 2", value: "option2" },
+      { label: "Disabled Option", value: "option3", disabled: true },
     ],
   },
 };

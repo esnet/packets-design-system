@@ -21,11 +21,7 @@ const PktsButton: React.FC<PktsButtonProps> = ({
   const Tag = as as React.ElementType;
   return (
     <Tag
-      className={clsx(
-        "pkts-button",
-        `pkts-${variant}`,
-        className,
-      )}
+      className={clsx("pkts-button", `pkts-${variant}`, className)}
       {...(as === "button" && { type: "button" })}
       {...props}
     >

@@ -1,39 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 const meta: Meta = {
-  title: 'Components/PktsInputPassword',
-  tags: ['autodocs'],
+  title: "Components/PktsInputPassword",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'radio' },
-      options: ['default', 'branded'],
+      control: { type: "radio" },
+      options: ["default", "branded"],
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'boolean',
+      control: "boolean",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
   },
   render: (args) => {
-    const wrapper = document.createElement('div');
-    const classes = ['pkts-input-text', 'pkts-input-password'];
+    const wrapper = document.createElement("div");
+    const classes = ["pkts-input-text", "pkts-input-password"];
 
-    if (args.variant && args.variant !== 'default') classes.push(`pkts-${args.variant}`);
-    if (args.error) classes.push('pkts-error');
+    if (args.variant && args.variant !== "default")
+      classes.push(`pkts-${args.variant}`);
+    if (args.error) classes.push("pkts-error");
 
-    wrapper.className = classes.join(' ');
+    wrapper.className = classes.join(" ");
 
-    const input = document.createElement('input');
-    input.type = 'password';
+    const input = document.createElement("input");
+    input.type = "password";
 
-    input.placeholder = args.placeholder || 'Enter password...';
+    input.placeholder = args.placeholder || "Enter password...";
     if (args.value) input.value = args.value;
     if (args.disabled) input.disabled = true;
 
@@ -48,35 +49,35 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    variant: 'default',
-    placeholder: 'Enter password',
+    variant: "default",
+    placeholder: "Enter password",
   },
 };
 
 export const Branded: Story = {
   args: {
-    variant: 'branded',
-    placeholder: 'Password',
+    variant: "branded",
+    placeholder: "Password",
   },
 };
 
 export const WithValue: Story = {
   args: {
-    value: 'secretpassword',
-    variant: 'default',
+    value: "secretpassword",
+    variant: "default",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    value: 'secretpassword',
+    value: "secretpassword",
     disabled: true,
   },
 };
 
 export const Error: Story = {
   args: {
-    value: 'weak',
+    value: "weak",
     error: true,
   },
 };

@@ -4,10 +4,15 @@ import { createElement as h } from "react";
 const isDev = window.location.hostname === "localhost";
 
 const NAV = [
-  { key: "home",  label: "Home",  prod: "/",       dev: "http://localhost:6008" },
-  { key: "react", label: "React", prod: "/react/", dev: "http://localhost:6006" },
-  { key: "css",   label: "CSS",   prod: "/css/",   dev: "http://localhost:6009" },
-  { key: "web",   label: "Web",   prod: "/web/",   dev: "http://localhost:6007" },
+  { key: "home", label: "Home", prod: "/", dev: "http://localhost:6008" },
+  {
+    key: "react",
+    label: "React",
+    prod: "/react/",
+    dev: "http://localhost:6006",
+  },
+  { key: "css", label: "CSS", prod: "/css/", dev: "http://localhost:6009" },
+  { key: "web", label: "Web", prod: "/web/", dev: "http://localhost:6007" },
 ];
 
 const CURRENT = "react";
@@ -47,9 +52,9 @@ addons.register("packets-nav", () => {
                 pointerEvents: key === CURRENT ? "none" : "auto",
               },
             },
-            label
-          )
-        )
+            label,
+          ),
+        ),
       ),
   });
 });

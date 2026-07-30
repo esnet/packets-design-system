@@ -39,12 +39,17 @@ test.describe("Pkts InputSwitch Component", () => {
   (["light", "dark"] as Theme[]).forEach((theme) => {
     VARIANTS.forEach(({ key, checked, secondary }) => {
       test(`input-switch-${key}-${theme}`, async ({ page }) => {
-        const html = createCSSTestHTML(theme, buildSwitchRow(checked, secondary));
+        const html = createCSSTestHTML(
+          theme,
+          buildSwitchRow(checked, secondary),
+        );
         await page.setContent(html);
         await page.waitForTimeout(100);
         await page.locator("#focus-switch input").focus();
         await page.locator("#hover-switch").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`input-switch-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `input-switch-${key}-${theme}.png`,
+        );
       });
     });
   });

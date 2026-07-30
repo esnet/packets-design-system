@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 /**
  * Provide simple styling for ordered and unordered lists.
  */
 const meta: Meta = {
-  title: 'RichText/List',
-  tags: ['autodocs'],
+  title: "RichText/List",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -14,7 +14,7 @@ type Story = StoryObj;
 
 export const NestedList: Story = {
   render: () => {
-    const root = document.createElement('div');
+    const root = document.createElement("div");
     root.innerHTML = `
       <ol>
         <li>First item in ordered list</li>
@@ -39,7 +39,7 @@ export const NestedList: Story = {
 
 export const UnorderedList: Story = {
   render: () => {
-    const root = document.createElement('div');
+    const root = document.createElement("div");
     root.innerHTML = `
       <ul>
         <li>First item in unordered list</li>
@@ -53,7 +53,7 @@ export const UnorderedList: Story = {
 
 export const OrderedList: Story = {
   render: () => {
-    const root = document.createElement('div');
+    const root = document.createElement("div");
     root.innerHTML = `
       <ol>
         <li>First item in ordered list</li>

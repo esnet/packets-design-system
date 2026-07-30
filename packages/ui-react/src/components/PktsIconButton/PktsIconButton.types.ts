@@ -1,6 +1,11 @@
 import * as React from "react";
 
-type PktsIconButtonVariantType = "primary" | "secondary" | "branded" | "tertiary" | "destructive";
+type PktsIconButtonVariantType =
+  | "primary"
+  | "secondary"
+  | "branded"
+  | "tertiary"
+  | "destructive";
 
 type PktsIconButtonCustomProps = {
   /** Variant that affects color styling. */
@@ -21,4 +26,5 @@ type AsAnchorProps = {
   as: "a";
 } & React.ComponentPropsWithoutRef<"a">;
 
-export type PktsIconButtonProps = PktsIconButtonCustomProps & (AsButtonProps | AsAnchorProps);
+export type PktsIconButtonProps = PktsIconButtonCustomProps &
+  (AsButtonProps | AsAnchorProps);

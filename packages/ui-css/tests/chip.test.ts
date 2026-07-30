@@ -28,7 +28,9 @@ test.describe("Pkts Chip Component", () => {
         await page.setContent(html);
         await page.locator("#focus-chip").focus();
         await page.locator("#hover-chip").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`chip-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `chip-${key}-${theme}.png`,
+        );
       });
     });
   });

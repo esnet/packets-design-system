@@ -10,14 +10,19 @@ const __dirname = path.dirname(__filename);
 
 test.describe("PktsAvatar Web Component", () => {
   test("default-image", async ({ page }, testInfo) => {
-    const imagePath = pathToFileURL(path.join(__dirname, "test_avatar.png")).href;
+    const imagePath = pathToFileURL(
+      path.join(__dirname, "test_avatar.png"),
+    ).href;
     const html = createTestHTML(
       "light",
       `<pkts-avatar src="${imagePath}" alt="Test User" background-color="grape"></pkts-avatar>`,
     );
 
     // Write HTML to temp file and navigate to it
-    const tempFile = path.join(__dirname, `.avatar-test-default-image-${testInfo.project.name}.html`);
+    const tempFile = path.join(
+      __dirname,
+      `.avatar-test-default-image-${testInfo.project.name}.html`,
+    );
     fs.writeFileSync(tempFile, html);
 
     try {

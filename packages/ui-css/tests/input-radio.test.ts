@@ -29,7 +29,9 @@ test.describe("Pkts InputRadio Component", () => {
         await page.setContent(html);
         await page.locator("#focus-radio input[type='radio']").focus();
         await page.locator("#hover-radio input[type='radio']").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`input-radio-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `input-radio-${key}-${theme}.png`,
+        );
       });
     });
   });

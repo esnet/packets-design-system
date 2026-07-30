@@ -14,11 +14,14 @@ const PktsInputCheckbox: React.FC<PktsInputCheckboxProps> = ({
   ...props
 }) => {
   return (
-    <div className={clsx("pkts-input-checkbox", variant === "branded" && "pkts-branded", className)}>
-      <input
-        {...props}
-        type="checkbox"
-      />
+    <div
+      className={clsx(
+        "pkts-input-checkbox",
+        variant === "branded" && "pkts-branded",
+        className,
+      )}
+    >
+      <input {...props} type="checkbox" />
     </div>
   );
 };

@@ -239,10 +239,7 @@ const PktsInputDatePickerDate = ({
 
     return (
       <div className="nav">
-        <button
-          className="nav-button"
-          onClick={() => onClickNav("left")}
-        >
+        <button className="nav-button" onClick={() => onClickNav("left")}>
           <ChevronLeft />
         </button>
         <div className="nav-info">
@@ -253,10 +250,7 @@ const PktsInputDatePickerDate = ({
             {viewDate.getFullYear()} <ChevronDown />
           </button>
         </div>
-        <button
-          className="nav-button"
-          onClick={() => onClickNav("right")}
-        >
+        <button className="nav-button" onClick={() => onClickNav("right")}>
           <ChevronRight />
         </button>
       </div>

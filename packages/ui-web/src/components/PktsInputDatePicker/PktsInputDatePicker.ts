@@ -59,7 +59,7 @@ export class PktsInputDatePicker
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
       // Don't re-render after initial render - this would destroy child components
@@ -67,8 +67,12 @@ export class PktsInputDatePicker
         this.render();
       } else {
         // Update child component properties directly without re-rendering
-        const datePickerEl = this.querySelector("pkts-input-date-picker-date") as any;
-        const timePickerEl = this.querySelector("pkts-input-date-picker-time") as any;
+        const datePickerEl = this.querySelector(
+          "pkts-input-date-picker-date",
+        ) as any;
+        const timePickerEl = this.querySelector(
+          "pkts-input-date-picker-time",
+        ) as any;
 
         if (datePickerEl) {
           if (name === "value" && this.value) {
@@ -120,10 +124,10 @@ export class PktsInputDatePicker
 
   private _updateChildComponents(): void {
     const datePickerEl = this.querySelector(
-      "pkts-input-date-picker-date"
+      "pkts-input-date-picker-date",
     ) as any;
     const timePickerEl = this.querySelector(
-      "pkts-input-date-picker-time"
+      "pkts-input-date-picker-time",
     ) as any;
 
     if (datePickerEl) {
@@ -138,7 +142,7 @@ export class PktsInputDatePicker
           new CustomEvent("change", {
             detail: { value: e.detail.value },
             bubbles: true,
-          })
+          }),
         );
       });
 
@@ -148,7 +152,7 @@ export class PktsInputDatePicker
           new CustomEvent("range-end-change", {
             detail: { rangeEndValue: e.detail.rangeEndValue },
             bubbles: true,
-          })
+          }),
         );
       });
     }
@@ -164,7 +168,7 @@ export class PktsInputDatePicker
           new CustomEvent("change", {
             detail: { value: e.detail.value },
             bubbles: true,
-          })
+          }),
         );
       });
     }

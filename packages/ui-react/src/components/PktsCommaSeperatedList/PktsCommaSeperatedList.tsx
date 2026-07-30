@@ -18,10 +18,7 @@ const PktsCommaSeperatedList: React.FC<PktsCommaSeperatedListProps> = ({
   return (
     <ul className={clsx("pkts-comma-seperated-list", className)}>
       {items.map((item, i) => (
-        <li
-          key={`escomma-list-${i}`}
-          className="comma-separated-list-item"
-        >
+        <li key={`escomma-list-${i}`} className="comma-separated-list-item">
           {item}
         </li>
       ))}

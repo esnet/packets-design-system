@@ -257,9 +257,19 @@ export function PktsInputTypeahead({
         </div>
 
         {dropdownOpen ? (
-          <ChevronUp className={clsx("pkts-input-typeahead-dropdown-icon", variant && `pkts-${variant}`)} />
+          <ChevronUp
+            className={clsx(
+              "pkts-input-typeahead-dropdown-icon",
+              variant && `pkts-${variant}`,
+            )}
+          />
         ) : (
-          <ChevronDown className={clsx("pkts-input-typeahead-dropdown-icon", variant && `pkts-${variant}`)} />
+          <ChevronDown
+            className={clsx(
+              "pkts-input-typeahead-dropdown-icon",
+              variant && `pkts-${variant}`,
+            )}
+          />
         )}
       </div>
 
@@ -270,7 +280,9 @@ export function PktsInputTypeahead({
           aria-label="Typeahead Dropdown Options"
           className="pkts-input-typeahead-dropdown"
         >
-          <span className="pkts-input-typeahead-result-info">{resultsInfo}</span>
+          <span className="pkts-input-typeahead-result-info">
+            {resultsInfo}
+          </span>
           {loading ? null : (
             <div className="pkts-input-typeahead-dropdown-options">
               {searchedDropdownOptions}

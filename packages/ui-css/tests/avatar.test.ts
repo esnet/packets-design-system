@@ -10,7 +10,9 @@ const __dirname = path.dirname(__filename);
 
 test.describe("Pkts Avatar Component", () => {
   test("avatar-variants-light", async ({ page }, testInfo) => {
-    const imagePath = pathToFileURL(path.join(__dirname, "test_avatar.png")).href;
+    const imagePath = pathToFileURL(
+      path.join(__dirname, "test_avatar.png"),
+    ).href;
     const html = createCSSTestHTML(
       "light",
       `
@@ -32,7 +34,10 @@ test.describe("Pkts Avatar Component", () => {
     );
 
     // Write HTML to temp file with unique name and navigate to it
-    const tempFile = path.join(__dirname, `.avatar-test-light-${testInfo.project.name}.html`);
+    const tempFile = path.join(
+      __dirname,
+      `.avatar-test-light-${testInfo.project.name}.html`,
+    );
     fs.writeFileSync(tempFile, html);
 
     try {
@@ -50,7 +55,9 @@ test.describe("Pkts Avatar Component", () => {
   });
 
   test("avatar-variants-dark", async ({ page }, testInfo) => {
-    const imagePath = pathToFileURL(path.join(__dirname, "test_avatar.png")).href;
+    const imagePath = pathToFileURL(
+      path.join(__dirname, "test_avatar.png"),
+    ).href;
     const html = createCSSTestHTML(
       "dark",
       `
@@ -72,7 +79,10 @@ test.describe("Pkts Avatar Component", () => {
     );
 
     // Write HTML to temp file with unique name and navigate to it
-    const tempFile = path.join(__dirname, `.avatar-test-dark-${testInfo.project.name}.html`);
+    const tempFile = path.join(
+      __dirname,
+      `.avatar-test-dark-${testInfo.project.name}.html`,
+    );
     fs.writeFileSync(tempFile, html);
 
     try {
