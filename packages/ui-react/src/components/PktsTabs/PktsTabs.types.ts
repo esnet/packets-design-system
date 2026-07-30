@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface PktsTabProps {
   children: React.ReactNode;
   className?: string;

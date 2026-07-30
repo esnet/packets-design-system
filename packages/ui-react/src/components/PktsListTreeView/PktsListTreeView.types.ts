@@ -8,8 +8,8 @@ export interface PktsListTreeViewProps {
   alwaysOpen?: boolean;
   icon?: React.ElementType;
   className?: string;
-  onCheckmarkClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onIconClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onCheckmarkClick?: (_e: React.MouseEvent<HTMLInputElement>) => void;
+  onIconClick?: (_e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 export interface PktsListTreeLeafViewProps {
