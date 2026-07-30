@@ -27,7 +27,7 @@ const PktsListTreeView: FC<PktsListTreeViewProps> & {
   onIconClick,
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen || alwaysOpen);
-  const _icon: any = icon || FolderOpenIcon;
+  const _icon = icon || FolderOpenIcon;
 
   // Events
   const _toggleIsOpen = () => {
@@ -69,19 +69,13 @@ const PktsListTreeView: FC<PktsListTreeViewProps> & {
           <ChevronDownIcon />
         </div>
         {_icon && (
-          <div
-            className="icon groupIcon"
-            onClick={_onIconClick}
-          >
+          <div className="icon groupIcon" onClick={_onIconClick}>
             <_icon />
           </div>
         )}
         {!!content && <div>{content}</div>}
         {isSelected == true && (
-          <div
-            className="icon selectedIcon"
-            onClick={_onCheckmarkClick}
-          >
+          <div className="icon selectedIcon" onClick={_onCheckmarkClick}>
             <CheckIcon />
           </div>
         )}

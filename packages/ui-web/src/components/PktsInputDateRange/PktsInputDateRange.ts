@@ -1,4 +1,4 @@
-import { PktsInputDatePickerProps } from "./PktsInputDatePicker.types";
+import { PktsInputDatePickerProps, PktsInputDatePickerDateSettings } from "../PktsInputDatePicker/PktsInputDatePicker.types";
 import { formatValue, formatDate } from "../PktsInputDate/format-utils";
 
 export interface DateRange {
