@@ -1,4 +1,4 @@
-import { PktsInputDatePickerProps } from "./PktsInputDatePicker.types";
+import { PktsInputDatePickerProps, PktsInputDatePickerDateSettings } from "./PktsInputDatePicker.types";
 import {
   flattenedDateGrid,
   getMonthName,

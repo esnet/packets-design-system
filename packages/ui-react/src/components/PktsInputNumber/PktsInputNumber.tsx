@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
 
-import styles from "./PktsInputNumber.module.css";
 import { PktsInputNumberProps } from "./PktsInputNumber.types";
 import PktsInputText from "../PktsInputText";
 import { Minus, Plus } from "lucide-react";

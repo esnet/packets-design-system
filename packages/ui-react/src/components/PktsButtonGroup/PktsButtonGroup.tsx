@@ -16,7 +16,7 @@ const PktsButtonGroup = ({
   label,
   direction = "horizontal",
   ...other
-}: PktsButtonGroupProps): JSX.Element => {
+}: PktsButtonGroupProps): React.ReactElement => {
   return (
     <div className={clsx("pkts-button-group", `pkts-${direction}`)} {...other}>
       {label}

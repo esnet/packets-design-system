@@ -1,7 +1,6 @@
-import { ComponentPropsWithoutRef } from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 
-export interface PktsButtonGroupProps
-  extends ComponentPropsWithoutRef<"div"> {
+export interface PktsButtonGroupProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode;
   /** Optional label to be shown at the top of the button group. */
   label?: React.ReactNode;
