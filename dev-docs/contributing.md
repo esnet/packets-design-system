@@ -85,6 +85,48 @@ pnpm changeset
 
 Select the affected packages, choose the bump type, and write a short description. Commit the generated `.md` file in `.changeset/`.
 
+## Claude Code Skills
+
+Packets ships a set of Claude Code skills in `.claude/skills/` to help contributors work more efficiently. You do not need to install anything extra — Claude Code picks them up automatically when you open the repo.
+
+### Scaffolding a new component
+
+Instead of creating files manually, use the scaffold skills:
+
+```
+/scaffold-css       # Creates the CSS file and registers the @import
+/scaffold-web       # Creates the Web Component, types, index, and story
+/scaffold-react     # Creates the React component, types, index, test, and story
+```
+
+Each scaffold skill reads the existing canonical components (PktsButton) as a reference and generates files that already follow conventions. It also updates the relevant barrel file.
+
+### Reviewing before a PR
+
+Run the review skills on your component before submitting:
+
+```
+/review-css <component-name>      # Checks token usage, naming, states
+/review-web <component-name>      # Checks class structure, attributes, types
+/review-react <component-name>    # Checks JSDoc, clsx, types, stories
+```
+
+### Checking platform parity
+
+```
+/component-audit
+```
+
+Reports which components are missing from which platforms, have no story, or have no documentation page.
+
+### Generating documentation
+
+```
+/generate-component-docs <component-name>
+```
+
+Generates a complete MDX doc page in `apps/host-docs/src/components/`.
+
 ## Adding a New Component
 
 Each component lives in three packages. Build them in this order:

@@ -106,6 +106,41 @@ Packets uses Playwright to execute visual regression tests to ensure that compon
 `make screenshots-test-css` - Run CSS-only tests only
 
 
+# Claude Code Skills
+
+Packets ships a set of Claude Code skills to help both consumers and contributors work more effectively with the design system. Skills are invoked with a `/skill-name` slash command inside Claude Code.
+
+## Consumer skills (for developers using Packets in their apps)
+
+| Skill | Description |
+|---|---|
+| `/pkts-find` | Describe what you need and get the right component recommended |
+| `/pkts-react` | Get correct React import and usage code for any component |
+| `/pkts-web` | Get correct Web Component HTML and JS usage for any component |
+| `/pkts-css` | Get correct CSS class names and HTML markup for any component |
+
+**How to get the skills:**
+
+1. Copy the `.claude/` directory from this repo into your project root.
+2. Open Claude Code in your project. The skills will be available immediately.
+
+Skills are forward-compatible with the [MCP Skills standard](https://modelcontextprotocol.io/community/working-groups/skills-over-mcp) and will work across any MCP-compatible AI client once that spec ships.
+
+## Contributor skills (for Packets team members)
+
+| Skill | Description |
+|---|---|
+| `/scaffold-react` | Generate all boilerplate for a new React component |
+| `/scaffold-web` | Generate all boilerplate for a new Web Component |
+| `/scaffold-css` | Generate the CSS file and register it in the import list |
+| `/review-react` | Check a React component against Packets conventions |
+| `/review-web` | Check a Web Component against Packets conventions |
+| `/review-css` | Check a CSS file for token usage and naming conventions |
+| `/component-audit` | Cross-platform parity report: what is missing where |
+| `/generate-component-docs` | Generate an MDX documentation page for a component |
+
+These skills live in `.claude/skills/` and are available automatically when working inside this repo.
+
 # Development
 
 To add a new component:
