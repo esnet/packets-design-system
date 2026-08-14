@@ -7,10 +7,8 @@ Use this package if you want Packets styles without a JavaScript framework. For 
 ## Installation
 
 ```bash
-npm install @esnet/packets-ui-css@beta
+npm install @esnet/packets-ui-css
 ```
-
-Once 2.x reaches a stable release, drop the `@beta` tag.
 
 ## Setup
 
