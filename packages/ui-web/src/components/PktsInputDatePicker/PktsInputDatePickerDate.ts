@@ -1,4 +1,7 @@
-import { PktsInputDatePickerProps, PktsInputDatePickerDateSettings } from "./PktsInputDatePicker.types";
+import {
+  PktsInputDatePickerProps,
+  PktsInputDatePickerDateSettings,
+} from "./PktsInputDatePicker.types";
 import {
   flattenedDateGrid,
   getMonthName,
@@ -68,7 +71,7 @@ export class PktsInputDatePickerDate extends HTMLElement {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
       this.render();
@@ -108,17 +111,19 @@ export class PktsInputDatePickerDate extends HTMLElement {
     switch (this.view) {
       case "day":
         this.viewDate = new Date(
-          this.viewDate.setMonth(this.viewDate.getMonth() + direction)
+          this.viewDate.setMonth(this.viewDate.getMonth() + direction),
         );
         break;
       case "month":
         this.viewDate = new Date(
-          this.viewDate.setFullYear(this.viewDate.getFullYear() + direction)
+          this.viewDate.setFullYear(this.viewDate.getFullYear() + direction),
         );
         break;
       case "year":
         this.viewDate = new Date(
-          this.viewDate.setFullYear(this.viewDate.getFullYear() + direction * 8)
+          this.viewDate.setFullYear(
+            this.viewDate.getFullYear() + direction * 8,
+          ),
         );
         break;
     }
@@ -131,7 +136,11 @@ export class PktsInputDatePickerDate extends HTMLElement {
   }
 
   private _handleDayClick(dateInfo: Date): void {
-    console.log("_handleDayClick called", { dateInfo, isDateRange: this.isDateRange, firstSelectedDate: this.firstSelectedDate });
+    console.log("_handleDayClick called", {
+      dateInfo,
+      isDateRange: this.isDateRange,
+      firstSelectedDate: this.firstSelectedDate,
+    });
 
     this.viewDate = new Date(dateInfo);
 
@@ -140,7 +149,7 @@ export class PktsInputDatePickerDate extends HTMLElement {
       this.value?.getHours() ?? 0,
       this.value?.getMinutes() ?? 0,
       this.value?.getSeconds() ?? 0,
-      this.value?.getMilliseconds() ?? 0
+      this.value?.getMilliseconds() ?? 0,
     );
 
     if (!this.isDateRange) {
@@ -149,11 +158,14 @@ export class PktsInputDatePickerDate extends HTMLElement {
         new CustomEvent("change", {
           detail: { value: dateInfo },
           bubbles: true,
-        })
+        }),
       );
     } else {
       // Date range logic
-      console.log("Date range logic - firstSelectedDate:", this.firstSelectedDate);
+      console.log(
+        "Date range logic - firstSelectedDate:",
+        this.firstSelectedDate,
+      );
       if (this.firstSelectedDate === null) {
         console.log("Setting first date:", dateInfo);
         this.firstSelectedDate = new Date(dateInfo);
@@ -162,13 +174,13 @@ export class PktsInputDatePickerDate extends HTMLElement {
           new CustomEvent("change", {
             detail: { value: this.firstSelectedDate },
             bubbles: true,
-          })
+          }),
         );
         this.dispatchEvent(
           new CustomEvent("range-end-change", {
             detail: { rangeEndValue: undefined },
             bubbles: true,
-          })
+          }),
         );
       } else {
         console.log("Setting second date (range end):", dateInfo);
@@ -179,13 +191,13 @@ export class PktsInputDatePickerDate extends HTMLElement {
           new CustomEvent("change", {
             detail: { value: start },
             bubbles: true,
-          })
+          }),
         );
         this.dispatchEvent(
           new CustomEvent("range-end-change", {
             detail: { rangeEndValue: end },
             bubbles: true,
-          })
+          }),
         );
         this.firstSelectedDate = null;
       }
@@ -251,34 +263,35 @@ export class PktsInputDatePickerDate extends HTMLElement {
       .join("");
 
     const dates = flattenedDateGrid(this.viewDate);
-    const dateButtons = dates.map((dateInfo) => {
-      const isDisabled =
-        dateInfo.getMonth() !== this.viewDate.getMonth() ||
-        (minSetting && dateInfo < minSetting) ||
-        (maxSetting && dateInfo > maxSetting);
+    const dateButtons = dates
+      .map((dateInfo) => {
+        const isDisabled =
+          dateInfo.getMonth() !== this.viewDate.getMonth() ||
+          (minSetting && dateInfo < minSetting) ||
+          (maxSetting && dateInfo > maxSetting);
 
-      const isSelected =
-        this.value && dateInfo.toDateString() === this.value.toDateString();
-      const isToday = dateInfo.toDateString() === new Date().toDateString();
+        const isSelected =
+          this.value && dateInfo.toDateString() === this.value.toDateString();
+        const isToday = dateInfo.toDateString() === new Date().toDateString();
 
-      let classes = ["day-grid-button"];
-      if (isSelected) classes.push("selected");
-      if (isToday) classes.push("today");
+        let classes = ["day-grid-button"];
+        if (isSelected) classes.push("selected");
+        if (isToday) classes.push("today");
 
-      // Date range specific classes
-      if (this.isDateRange && this.value && this.rangeEndValue) {
-        if (dateInfo.toDateString() === this.value.toDateString()) {
-          classes.push("date-range-start", "date-range-edge");
-        } else if (
-          dateInfo.toDateString() === this.rangeEndValue.toDateString()
-        ) {
-          classes.push("date-range-end", "date-range-edge");
-        } else if (dateInfo > this.value && dateInfo < this.rangeEndValue) {
-          classes.push("date-range-middle");
+        // Date range specific classes
+        if (this.isDateRange && this.value && this.rangeEndValue) {
+          if (dateInfo.toDateString() === this.value.toDateString()) {
+            classes.push("date-range-start", "date-range-edge");
+          } else if (
+            dateInfo.toDateString() === this.rangeEndValue.toDateString()
+          ) {
+            classes.push("date-range-end", "date-range-edge");
+          } else if (dateInfo > this.value && dateInfo < this.rangeEndValue) {
+            classes.push("date-range-middle");
+          }
         }
-      }
 
-      return `
+        return `
         <button
           class="${classes.join(" ")}"
           ${isDisabled ? "disabled" : ""}
@@ -288,7 +301,8 @@ export class PktsInputDatePickerDate extends HTMLElement {
           ${dateInfo.getDate()}
         </button>
       `;
-    }).join("");
+      })
+      .join("");
 
     return `<div class="day-grid">${weekdayHeaders}${dateButtons}</div>`;
   }
@@ -331,7 +345,7 @@ export class PktsInputDatePickerDate extends HTMLElement {
 
     const buttons = Array.from(
       { length: 20 },
-      (_, i) => this.viewDate.getFullYear() + i - 10
+      (_, i) => this.viewDate.getFullYear() + i - 10,
     )
       .map((year) => {
         const yearDate = new Date(0);
