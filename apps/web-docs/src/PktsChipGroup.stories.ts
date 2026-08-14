@@ -1,22 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsChip, PktsChipGroup } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsChipGroup> = {
-  title: 'Components/PktsChipGroup',
+  title: "Components/PktsChipGroup",
   component: PktsChipGroup.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     className: {
-      control: 'text',
+      control: "text",
     },
   },
   render: (args) => {
-    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<typeof PktsChipGroup>;
+    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<
+      typeof PktsChipGroup
+    >;
     if (args.className) group.className = args.className;
 
-    const labels = ['Chip One', 'Chip Two', 'Chip Three'];
+    const labels = ["Chip One", "Chip Two", "Chip Three"];
     labels.forEach((label) => {
-      const chip = document.createElement(PktsChip.tagName) as InstanceType<typeof PktsChip>;
+      const chip = document.createElement(PktsChip.tagName) as InstanceType<
+        typeof PktsChip
+      >;
       chip.textContent = label;
       group.appendChild(chip);
     });
@@ -30,19 +34,23 @@ export default meta;
 type Story = StoryObj<typeof PktsChipGroup>;
 
 export const Default: Story = {
-  name: 'Default PktsChipGroup',
+  name: "Default PktsChipGroup",
   args: {},
 };
 
 export const OutlineChips: Story = {
-  name: 'Outline Chips',
+  name: "Outline Chips",
   render: () => {
-    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<typeof PktsChipGroup>;
+    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<
+      typeof PktsChipGroup
+    >;
 
-    const labels = ['Chip One', 'Chip Two', 'Chip Three'];
+    const labels = ["Chip One", "Chip Two", "Chip Three"];
     labels.forEach((label) => {
-      const chip = document.createElement(PktsChip.tagName) as InstanceType<typeof PktsChip>;
-      chip.variant = 'outline';
+      const chip = document.createElement(PktsChip.tagName) as InstanceType<
+        typeof PktsChip
+      >;
+      chip.variant = "outline";
       chip.textContent = label;
       group.appendChild(chip);
     });
@@ -52,13 +60,17 @@ export const OutlineChips: Story = {
 };
 
 export const DeletableChips: Story = {
-  name: 'Deletable Chips',
+  name: "Deletable Chips",
   render: () => {
-    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<typeof PktsChipGroup>;
+    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<
+      typeof PktsChipGroup
+    >;
 
-    const labels = ['Remove Me', 'Delete Me', 'Dismiss Me'];
+    const labels = ["Remove Me", "Delete Me", "Dismiss Me"];
     labels.forEach((label) => {
-      const chip = document.createElement(PktsChip.tagName) as InstanceType<typeof PktsChip>;
+      const chip = document.createElement(PktsChip.tagName) as InstanceType<
+        typeof PktsChip
+      >;
       chip.deletable = true;
       chip.textContent = label;
       group.appendChild(chip);
@@ -69,13 +81,17 @@ export const DeletableChips: Story = {
 };
 
 export const RoundedChips: Story = {
-  name: 'Rounded Chips',
+  name: "Rounded Chips",
   render: () => {
-    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<typeof PktsChipGroup>;
+    const group = document.createElement(PktsChipGroup.tagName) as InstanceType<
+      typeof PktsChipGroup
+    >;
 
-    const labels = ['Chip One', 'Chip Two', 'Chip Three'];
+    const labels = ["Chip One", "Chip Two", "Chip Three"];
     labels.forEach((label) => {
-      const chip = document.createElement(PktsChip.tagName) as InstanceType<typeof PktsChip>;
+      const chip = document.createElement(PktsChip.tagName) as InstanceType<
+        typeof PktsChip
+      >;
       chip.rounded = true;
       chip.textContent = label;
       group.appendChild(chip);

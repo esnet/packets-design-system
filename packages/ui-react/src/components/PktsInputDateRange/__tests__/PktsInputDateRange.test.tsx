@@ -5,16 +5,17 @@ import { PktsInputDateRangeProps } from "../PktsInputDateRange.types";
 import PktsInputDateRange from "../PktsInputDateRange";
 test.describe("PktsInputDateRange", () => {
   const testTodayDate = new Date(2025, 8, 15);
-  const { testTable, themes }: ComponentTestTableType<PktsInputDateRangeProps> = {
-    testTable: [
-      {
-        name: "daterange",
-        props: {},
-      },
-    ],
-    themes: ["light", "dark"],
-    actionStates: ["hover", "focus", "active"],
-  };
+  const { testTable, themes }: ComponentTestTableType<PktsInputDateRangeProps> =
+    {
+      testTable: [
+        {
+          name: "daterange",
+          props: {},
+        },
+      ],
+      themes: ["light", "dark"],
+      actionStates: ["hover", "focus", "active"],
+    };
   testTable.forEach(({ name, props }) => {
     themes.forEach((theme) => {
       test(`${name}-${theme}`, async ({ page, mount }) => {

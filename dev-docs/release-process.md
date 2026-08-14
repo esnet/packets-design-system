@@ -14,11 +14,11 @@ Published packages are available publicly on [npmjs.com](https://www.npmjs.com/)
 
 ## Infrastructure Overview
 
-| System | Branch | Trigger |
-|---|---|---|
-| npmjs.com (production packages) | `release/*` | Push to `release/**` branch |
-| Cloudflare Pages (production docs) | `main` | Push or merge to `main` |
-| Cloudflare Pages (staging docs) | `develop` | Push or merge to `develop` |
+| System                             | Branch      | Trigger                     |
+| ---------------------------------- | ----------- | --------------------------- |
+| npmjs.com (production packages)    | `release/*` | Push to `release/**` branch |
+| Cloudflare Pages (production docs) | `main`      | Push or merge to `main`     |
+| Cloudflare Pages (staging docs)    | `develop`   | Push or merge to `develop`  |
 
 ## Branch Strategy
 

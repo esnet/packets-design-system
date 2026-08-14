@@ -2,12 +2,9 @@ import * as React from "react";
 import { PktsInputDatePickerTimeWheelProps } from "./PktsInputDatePickerTime.types";
 import clsx from "clsx";
 
-const PktsInputDatePickerTimeWheel: React.FC<PktsInputDatePickerTimeWheelProps> = ({
-  label,
-  values,
-  value,
-  onChange,
-}) => {
+const PktsInputDatePickerTimeWheel: React.FC<
+  PktsInputDatePickerTimeWheelProps
+> = ({ label, values, value, onChange }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const wheelButtonRefs = React.useRef<HTMLButtonElement[]>([]);
 
@@ -32,10 +29,7 @@ const PktsInputDatePickerTimeWheel: React.FC<PktsInputDatePickerTimeWheelProps> 
       return (
         <button
           key={i}
-          className={clsx(
-            "time-wheel-button",
-            v === value && "selected",
-          )}
+          className={clsx("time-wheel-button", v === value && "selected")}
           ref={(el) => (wheelButtonRefs.current[i] = el!)}
           onClick={() => {
             scrollToButton(i, "smooth");

@@ -4,7 +4,7 @@ import { createTestHTML } from "./test-utils";
 type Theme = "light" | "dark";
 
 function buildTabsContent(): string {
-    return `
+  return `
     <div id="container" style="display: inline-flex; flex-direction: column; gap: 12px; padding: 8px;">
       <pkts-tabs>
         <li class="pkts-tab pkts-active"><a href="#">Tab 1</a></li>
@@ -16,14 +16,16 @@ function buildTabsContent(): string {
 }
 
 test.describe("Pkts Tabs Web Component", () => {
-    (["light", "dark"] as Theme[]).forEach((theme) => {
-        test(`PktsTabs-${theme}`, async ({ page }) => {
-            const html = createTestHTML(theme, buildTabsContent());
-            await page.setContent(html);
-            await page.waitForSelector("pkts-tabs");
-            await page.waitForTimeout(200);
-            await page.locator("#hover-tab").hover();
-            await expect(page.locator("#container")).toHaveScreenshot(`PktsTabs-${theme}.png`);
-        });
+  (["light", "dark"] as Theme[]).forEach((theme) => {
+    test(`PktsTabs-${theme}`, async ({ page }) => {
+      const html = createTestHTML(theme, buildTabsContent());
+      await page.setContent(html);
+      await page.waitForSelector("pkts-tabs");
+      await page.waitForTimeout(200);
+      await page.locator("#hover-tab").hover();
+      await expect(page.locator("#container")).toHaveScreenshot(
+        `PktsTabs-${theme}.png`,
+      );
     });
+  });
 });

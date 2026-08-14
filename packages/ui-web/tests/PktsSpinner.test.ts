@@ -13,7 +13,9 @@ test.describe("PktsSpinner Web Component", () => {
 
       // Screenshot the inner div which has the actual styling
       const spinner = page.locator("pkts-spinner div");
-      await expect(spinner).toHaveScreenshot(`PktsSpinner-default-${theme}.png`);
+      await expect(spinner).toHaveScreenshot(
+        `PktsSpinner-default-${theme}.png`,
+      );
     });
   }
 
@@ -40,7 +42,9 @@ test.describe("PktsSpinner Web Component", () => {
       el.style.setProperty("animation", "none");
     });
 
-    await expect(spinner).toHaveScreenshot("PktsSpinner-prefers-reduced-motion.png");
+    await expect(spinner).toHaveScreenshot(
+      "PktsSpinner-prefers-reduced-motion.png",
+    );
 
     // Verify dots are hidden and message is visible
     const dots = page.locator("pkts-spinner .dot");

@@ -110,7 +110,11 @@ export const AllColorsAllSizes: Story = {
       <PktsAvatar alt="Ernest Lawrence" size="medium" backgroundColor="grape" />
       <PktsAvatar alt="Ernest Lawrence" size="medium" backgroundColor="lime" />
       <PktsAvatar alt="Ernest Lawrence" size="medium" backgroundColor="berry" />
-      <PktsAvatar alt="Ernest Lawrence" size="medium" backgroundColor="orange" />
+      <PktsAvatar
+        alt="Ernest Lawrence"
+        size="medium"
+        backgroundColor="orange"
+      />
       <PktsAvatar
         alt="Ernest Lawrence"
         size="medium"

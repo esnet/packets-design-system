@@ -9,7 +9,7 @@ test.describe("PktsInputDateRange Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date-range></pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
@@ -20,7 +20,9 @@ test.describe("PktsInputDateRange Web Component", () => {
     await page.waitForTimeout(300);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-default-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-default-light.png",
+    );
   });
 
   test("default-dark", async ({ page }) => {
@@ -30,7 +32,7 @@ test.describe("PktsInputDateRange Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date-range></pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
@@ -41,7 +43,9 @@ test.describe("PktsInputDateRange Web Component", () => {
     await page.waitForTimeout(300);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-default-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-default-dark.png",
+    );
   });
 
   test("with-values-light", async ({ page }) => {
@@ -54,7 +58,7 @@ test.describe("PktsInputDateRange Web Component", () => {
             value-end="2025-09-20T00:00:00.000Z">
           </pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
@@ -65,7 +69,9 @@ test.describe("PktsInputDateRange Web Component", () => {
     await page.waitForTimeout(300);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-with-values-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-with-values-light.png",
+    );
   });
 
   test("branded-light", async ({ page }) => {
@@ -75,7 +81,7 @@ test.describe("PktsInputDateRange Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date-range variant="branded"></pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
@@ -86,7 +92,9 @@ test.describe("PktsInputDateRange Web Component", () => {
     await page.waitForTimeout(300);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-branded-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-branded-light.png",
+    );
   });
 
   test("error-light", async ({ page }) => {
@@ -96,14 +104,16 @@ test.describe("PktsInputDateRange Web Component", () => {
         <div id="container" style="width: 400px;">
           <pkts-input-date-range error></pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-error-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-error-light.png",
+    );
   });
 
   test("disabled-light", async ({ page }) => {
@@ -117,13 +127,15 @@ test.describe("PktsInputDateRange Web Component", () => {
             value-end="2025-09-20T00:00:00.000Z">
           </pkts-input-date-range>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date-range");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDateRange-disabled-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDateRange-disabled-light.png",
+    );
   });
 });

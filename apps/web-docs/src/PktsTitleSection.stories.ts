@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsTitleSection } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsTitleSection> = {
-  title: 'Components/PktsTitleSection',
+  title: "Components/PktsTitleSection",
   component: PktsTitleSection.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     title: {
       control: "text",
@@ -22,14 +22,14 @@ type Story = StoryObj<typeof PktsTitleSection>;
 export const Default: Story = {
   name: "PktsTitleSection",
   args: {
-    title: 'Page Title',
-    subtitle: 'Page subtitle or description',
+    title: "Page Title",
+    subtitle: "Page subtitle or description",
   },
 };
 
 export const WithoutSubtitle: Story = {
   name: "Without Subtitle",
   args: {
-    title: 'Page Title',
+    title: "Page Title",
   },
 };

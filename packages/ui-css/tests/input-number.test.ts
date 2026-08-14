@@ -28,7 +28,9 @@ test.describe("Pkts InputNumber Component", () => {
         await page.setContent(html);
         await page.locator("#focus-input input").focus();
         await page.locator("#hover-input").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`input-number-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `input-number-${key}-${theme}.png`,
+        );
       });
     });
   });

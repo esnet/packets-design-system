@@ -57,12 +57,7 @@ export function PktsInputDate({
   return (
     <div
       ref={containerRef}
-      className={clsx(
-        "pkts-input-date",
-        focus && "focus",
-        variant,
-        className,
-      )}
+      className={clsx("pkts-input-date", focus && "focus", variant, className)}
     >
       <PktsInputText
         {...props}

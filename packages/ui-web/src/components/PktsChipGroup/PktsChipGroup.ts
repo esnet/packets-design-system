@@ -1,7 +1,10 @@
 import { SlottedComponent } from "../../lib/SlottedComponent";
 import { PktsChipGroupProps } from "./PktsChipGroup.types";
 
-export class PktsChipGroup extends SlottedComponent implements PktsChipGroupProps {
+export class PktsChipGroup
+  extends SlottedComponent
+  implements PktsChipGroupProps
+{
   static tagName = "pkts-chip-group";
 
   static get observedAttributes() {
@@ -24,7 +27,7 @@ export class PktsChipGroup extends SlottedComponent implements PktsChipGroupProp
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) this.render();
   }

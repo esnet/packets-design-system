@@ -32,7 +32,7 @@ export class PktsModule extends SlottedComponent implements PktsModuleProps {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) this.render();
   }

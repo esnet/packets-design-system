@@ -42,7 +42,9 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
   }
 
   get size(): "small" | "medium" | "large" {
-    return (this.getAttribute("size") as "small" | "medium" | "large") ?? "medium";
+    return (
+      (this.getAttribute("size") as "small" | "medium" | "large") ?? "medium"
+    );
   }
 
   set size(v: "small" | "medium" | "large") {
@@ -50,7 +52,13 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
   }
 
   get backgroundColor(): "grape" | "lime" | "berry" | "orange" {
-    return (this.getAttribute("background-color") as "grape" | "lime" | "berry" | "orange") ?? "grape";
+    return (
+      (this.getAttribute("background-color") as
+        | "grape"
+        | "lime"
+        | "berry"
+        | "orange") ?? "grape"
+    );
   }
 
   set backgroundColor(v: "grape" | "lime" | "berry" | "orange") {
@@ -78,7 +86,8 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
   constructor() {
     super();
     // Compute random background color once
-    this._computedBackgroundColor = _colorOptions[Math.floor(_colorOptions.length * Math.random())];
+    this._computedBackgroundColor =
+      _colorOptions[Math.floor(_colorOptions.length * Math.random())];
   }
 
   connectedCallback(): void {
@@ -116,7 +125,8 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
     const hasImageSrc = !!this.src || !!this.srcset;
     const size = this.size;
     const hoverable = this.hoverable;
-    const bgColor = this.getAttribute("background-color") || this._computedBackgroundColor;
+    const bgColor =
+      this.getAttribute("background-color") || this._computedBackgroundColor;
 
     // Update container classes
     this.containerEl.className = [
@@ -152,4 +162,5 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
 
 customElements.define(PktsAvatarElement.tagName, PktsAvatarElement);
 
-export const PktsAvatar = PktsAvatarElement as typeof PktsAvatarElement & PktsAvatarProps;
+export const PktsAvatar = PktsAvatarElement as typeof PktsAvatarElement &
+  PktsAvatarProps;

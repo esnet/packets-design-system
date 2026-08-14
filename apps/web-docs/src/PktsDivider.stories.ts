@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsDivider } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsDivider> = {
-  title: 'Components/PktsDivider',
+  title: "Components/PktsDivider",
   component: PktsDivider.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -21,13 +21,13 @@ type Story = StoryObj<typeof PktsDivider>;
 export const Primary: Story = {
   name: "Primary ESDivider",
   args: {
-    variant: 'primary',
+    variant: "primary",
   },
 };
 
 export const Branded: Story = {
   name: "Branded ESDivider",
   args: {
-    variant: 'branded',
+    variant: "branded",
   },
 };

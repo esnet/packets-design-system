@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 
 /**
  * Provide simple styling for link and link variants.
  */
 const meta: Meta = {
-  title: 'RichText/Link',
-  tags: ['autodocs'],
+  title: "RichText/Link",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -17,9 +17,9 @@ type Story = StoryObj;
  */
 export const Links: Story = {
   render: () => {
-    const a = document.createElement('a');
-    a.href = '/';
-    a.textContent = 'Example Link';
+    const a = document.createElement("a");
+    a.href = "/";
+    a.textContent = "Example Link";
     return a;
   },
 };
@@ -30,8 +30,8 @@ export const Links: Story = {
  */
 export const Inactive: Story = {
   render: () => {
-    const a = document.createElement('a');
-    a.textContent = 'Inactive Link';
+    const a = document.createElement("a");
+    a.textContent = "Inactive Link";
     return a;
   },
 };

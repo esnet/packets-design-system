@@ -24,7 +24,9 @@ type Story = StoryObj<typeof PktsDatum>;
  * to learn how to use render functions.
  */
 export const DefaultDatumExample: Story = {
-  render: (props) => <PktsDatum title={props.title}>{props.children}</PktsDatum>,
+  render: (props) => (
+    <PktsDatum title={props.title}>{props.children}</PktsDatum>
+  ),
   name: "PktsDatum Example",
   args: {
     title: "Bandwidth",
@@ -33,7 +35,9 @@ export const DefaultDatumExample: Story = {
 };
 
 export const DatumWithNoTitle: Story = {
-  render: (props) => <PktsDatum title={props.title}>{props.children}</PktsDatum>,
+  render: (props) => (
+    <PktsDatum title={props.title}>{props.children}</PktsDatum>
+  ),
   name: "PktsDatum No Title",
   args: {
     children: "100vh",

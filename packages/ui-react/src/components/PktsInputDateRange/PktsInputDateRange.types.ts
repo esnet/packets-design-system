@@ -7,10 +7,11 @@ export type DateRange = {
   end?: Date;
 };
 
-export interface PktsInputDateRangeProps extends Omit<
-  ComponentPropsWithRef<"input">,
-  "value" | "onChange" | "defaultValue"
-> {
+export interface PktsInputDateRangeProps
+  extends Omit<
+    ComponentPropsWithRef<"input">,
+    "value" | "onChange" | "defaultValue"
+  > {
   variant?: "primary" | "branded";
   error?: boolean;
 

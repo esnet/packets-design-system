@@ -19,7 +19,7 @@ const CSS_PATH = path.resolve(__dirname, "../dist/styles.css");
  */
 export function createCSSTestHTML(
   theme: "light" | "dark",
-  content: string
+  content: string,
 ): string {
   // Read CSS content to inject inline
   const cssContent = fs.readFileSync(CSS_PATH, "utf-8");
@@ -51,7 +51,7 @@ export function createCSSTestHTML(
  */
 export function createVariantGrid(
   theme: "light" | "dark",
-  items: string[]
+  items: string[],
 ): string {
   const gridContent = items
     .map((item) => `<div style="margin: 8px;">${item}</div>`)
@@ -63,7 +63,7 @@ export function createVariantGrid(
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
         ${gridContent}
       </div>
-    `
+    `,
   );
 }
 
@@ -72,7 +72,7 @@ export function createVariantGrid(
  */
 export function createStateStack(
   theme: "light" | "dark",
-  items: string[]
+  items: string[],
 ): string {
   const stackContent = items
     .map((item) => `<div style="margin-bottom: 16px;">${item}</div>`)
@@ -80,6 +80,6 @@ export function createStateStack(
 
   return createCSSTestHTML(
     theme,
-    `<div style="display: flex; flex-direction: column;">${stackContent}</div>`
+    `<div style="display: flex; flex-direction: column;">${stackContent}</div>`,
   );
 }

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 /**
  * Demonstrates the default styling for h1-h6 elements as provided by the design system stylesheet.
  */
 const meta: Meta = {
-  title: 'RichText/Headings',
-  tags: ['autodocs'],
+  title: "RichText/Headings",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -14,8 +14,9 @@ type Story = StoryObj;
 
 export const Headings: Story = {
   render: () => {
-    const root = document.createElement('div');
-    root.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,auto);gap:2rem';
+    const root = document.createElement("div");
+    root.style.cssText =
+      "display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,auto);gap:2rem";
     root.innerHTML = `
       <h1>Heading 1</h1>
       <h1 class="accent">Heading 1</h1>
@@ -47,7 +48,7 @@ export const Headings: Story = {
 
 export const HeadingLink: Story = {
   render: () => {
-    const root = document.createElement('h3');
+    const root = document.createElement("h3");
     root.innerHTML = '<a href="/">Packets</a>';
     return root;
   },
@@ -55,7 +56,7 @@ export const HeadingLink: Story = {
 
 export const Example: Story = {
   render: () => {
-    const root = document.createElement('div');
+    const root = document.createElement("div");
     root.innerHTML = `
       <h1>Parts of Packets Docs</h1>
       <h2>Key Concepts</h2>

@@ -27,11 +27,16 @@ test.describe("Pkts InputCheckbox Component", () => {
   (["light", "dark"] as Theme[]).forEach((theme) => {
     VARIANTS.forEach(({ key, checked, branded }) => {
       test(`input-checkbox-${key}-${theme}`, async ({ page }) => {
-        const html = createCSSTestHTML(theme, buildCheckboxRow(checked, branded));
+        const html = createCSSTestHTML(
+          theme,
+          buildCheckboxRow(checked, branded),
+        );
         await page.setContent(html);
         await page.locator("#focus-cb input[type='checkbox']").focus();
         await page.locator("#hover-cb input[type='checkbox']").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`input-checkbox-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `input-checkbox-${key}-${theme}.png`,
+        );
       });
     });
   });

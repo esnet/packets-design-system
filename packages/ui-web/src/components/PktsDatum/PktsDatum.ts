@@ -66,4 +66,5 @@ class PktsDatumElement extends SlottedComponent implements PktsDatumProps {
 
 customElements.define(PktsDatumElement.tagName, PktsDatumElement);
 
-export const PktsDatum = PktsDatumElement as typeof PktsDatumElement & PktsDatumProps;
+export const PktsDatum = PktsDatumElement as typeof PktsDatumElement &
+  PktsDatumProps;

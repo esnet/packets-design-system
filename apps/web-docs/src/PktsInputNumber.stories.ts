@@ -1,32 +1,32 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsInputNumber } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsInputNumber> = {
-    title: 'Components/PktsInputNumber',
-    component: PktsInputNumber.tagName,
-    tags: ['autodocs'],
-    argTypes: {
-          variant: {
-          control: { type: "radio" },
-          options: ["default", "branded"],
-          defaultValue: "default",
-        },
-        error: {
-          control: { type: "boolean" },
-        },
-        disabled: {
-          control: { type: "boolean" },
-        },
-        min: {
-          control: "number",
-        },
-        max: {
-          control: "number",
-        },
-        step: {
-          control: "number",
-        },
+  title: "Components/PktsInputNumber",
+  component: PktsInputNumber.tagName,
+  tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "radio" },
+      options: ["default", "branded"],
+      defaultValue: "default",
     },
+    error: {
+      control: { type: "boolean" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    min: {
+      control: "number",
+    },
+    max: {
+      control: "number",
+    },
+    step: {
+      control: "number",
+    },
+  },
 };
 
 export default meta;
@@ -34,10 +34,10 @@ export default meta;
 type Story = StoryObj<typeof PktsInputNumber>;
 
 export const Default: Story = {
-    name: "PktsInputNumber",
-    args: {
-        variant: "default",
-    },
+  name: "PktsInputNumber",
+  args: {
+    variant: "default",
+  },
 };
 
 export const Branded: Story = {

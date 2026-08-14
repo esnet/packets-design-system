@@ -2,7 +2,10 @@ import { SlottedComponent } from "../../lib/SlottedComponent";
 import { PktsTitleSectionProps } from "./PktsTitleSection.types";
 import { PktsModule } from "../PktsModule/PktsModule";
 
-export class PktsTitleSection extends SlottedComponent implements PktsTitleSectionProps {
+export class PktsTitleSection
+  extends SlottedComponent
+  implements PktsTitleSectionProps
+{
   static tagName = "pkts-title-section";
 
   static get observedAttributes() {
@@ -34,7 +37,7 @@ export class PktsTitleSection extends SlottedComponent implements PktsTitleSecti
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) this.render();
   }

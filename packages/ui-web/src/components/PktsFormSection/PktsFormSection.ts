@@ -1,7 +1,10 @@
 import { SlottedComponent } from "../../lib/SlottedComponent";
 import { PktsFormSectionProps } from "./PktsFormSection.types";
 
-export class PktsFormSection extends SlottedComponent implements PktsFormSectionProps {
+export class PktsFormSection
+  extends SlottedComponent
+  implements PktsFormSectionProps
+{
   static tagName = "pkts-form-section";
 
   static get observedAttributes() {
@@ -34,7 +37,7 @@ export class PktsFormSection extends SlottedComponent implements PktsFormSection
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) this.render();
   }
