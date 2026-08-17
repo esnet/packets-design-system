@@ -1,5 +1,31 @@
 # @esnet/packets-ui-react
 
+## 2.0.2
+
+### Patch Changes
+
+- 306d407: chore: bump to 2.0.2 to avoid conflict with accidental 2.0.1 stable tag
+- c37260c: fix: resolve TypeScript build warnings in ui-react and ui-web
+
+  - Fixed icon prop type in PktsListTreeView (ReactNode to ElementType)
+  - Fixed missing PktsInputDatePickerDateSettings imports in ui-web
+  - Fixed broken import path in PktsInputDateRange
+  - Added @types/node to both packages for playwright and test files
+  - Resolved all eslint errors in ui-react (missing React imports, unused vars, prop-types)
+
+- d658985: fix: correct README install commands, remove dead exports, fix avatar example
+
+  - README install commands now use the @beta tag so beta testers get 2.x instead of the old 0.x/1.x stable release
+  - Removed ./style.css export from ui-react exports map: no CSS file ships in the tarball, causing MODULE_NOT_FOUND for consumers who imported it
+  - Fixed PktsAvatar usage example in ui-react README: initials and color are not props; correct props are alt (for the fallback label) and backgroundColor
+
+- c37260c: chore: apply formatter across codebase for consistent code style
+- ceb5ab6: fix: restore ./src/\* export in ui-react package exports map, required by internal Storybook stories
+- Updated dependencies [306d407]
+- Updated dependencies [d658985]
+- Updated dependencies [c37260c]
+  - @esnet/packets-ui-css@2.0.1
+
 ## 2.0.1-beta.1
 
 ### Patch Changes
