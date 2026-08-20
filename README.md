@@ -138,6 +138,7 @@ Skills are forward-compatible with the [MCP Skills standard](https://modelcontex
 | `/review-css` | Check a CSS file for token usage and naming conventions |
 | `/component-audit` | Cross-platform parity report: what is missing where |
 | `/generate-component-docs` | Generate an MDX documentation page for a component |
+| `/set-alias-colors` | Update alias color tokens and rebuild CSS for rebranding or theming |
 
 These skills live in `.claude/skills/` and are available automatically when working inside this repo.
 

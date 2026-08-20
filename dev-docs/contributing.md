@@ -127,6 +127,14 @@ Reports which components are missing from which platforms, have no story, or hav
 
 Generates a complete MDX doc page in `apps/host-docs/src/components/`.
 
+### Updating alias color tokens
+
+```
+/set-alias-colors
+```
+
+Guides you through updating the semantic color tokens in `packages/design-tokens/tokens/color/light.json` and `dark.json`, then rebuilds the CSS output. Use this when rebranding or adjusting the default Packets color palette. Accepts any color format (hex, RGB, HSL, named colors) and handles conversion, core palette matching, and accessibility warnings automatically.
+
 ## Adding a New Component
 
 Each component lives in three packages. Build them in this order:
