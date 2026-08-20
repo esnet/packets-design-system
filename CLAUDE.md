@@ -1,4 +1,4 @@
-# Packets Design System — Developer Reference
+# Packets Design System: Developer Reference
 
 ## Packages
 
@@ -61,7 +61,7 @@ Given a component name like `PktsIconButton`:
 
 ## Platform Parity
 
-### All three platforms — CSS, React, Web (26 components)
+### All three platforms: CSS, React, Web (26 components)
 
 PktsAlert, PktsAvatar, PktsBreadcrumbs, PktsButton, PktsButtonGroup, PktsChip, PktsChipGroup, PktsCommaSeperatedList, PktsDataTable, PktsDatum, PktsDivider, PktsFormSection, PktsIconButton, PktsInputCheckbox, PktsInputDatePicker, PktsInputEmail, PktsInputNumber, PktsInputPassword, PktsInputRadioButton, PktsInputSearch, PktsInputSwitch, PktsInputText, PktsModule, PktsSpinner, PktsTabs, PktsTitleSection
 
@@ -85,7 +85,7 @@ PktsSkeletonChip
 
 PktsInputFile
 
-### Sub-components (not standalone — used inside a parent)
+### Sub-components (not standalone; used inside a parent)
 
 PktsTab (inside PktsTabs), PktsInputDatePickerDate, PktsInputDatePickerTime (inside PktsInputDatePicker)
 
@@ -94,7 +94,7 @@ PktsTab (inside PktsTabs), PktsInputDatePickerDate, PktsInputDatePickerTime (ins
 ### React
 
 - Functional components with `React.FC<Props>` or typed return
-- `clsx` for class composition — never string concatenation
+- `clsx` for class composition. Never use string concatenation.
 - JSDoc block at the top of every component
 - `displayName` set on every component
 - Props in a separate `.types.ts` file
@@ -120,7 +120,7 @@ PktsTab (inside PktsTabs), PktsInputDatePickerDate, PktsInputDatePickerTime (ins
 - All border radii use `var(--pkts-size-radius-*)` with fallback
 - Spacing values must be on the 4px grid
 - Interactive components must have `:hover`, `:focus`, `:active`, `.pkts-disabled`, and `.pkts-error` states
-- Dark theme via CSS custom properties (no separate class needed — tokens handle it)
+- Dark theme via CSS custom properties. No separate class needed; tokens handle it.
 
 ## Story Formats
 
