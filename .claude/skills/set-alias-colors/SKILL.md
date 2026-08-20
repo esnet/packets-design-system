@@ -149,4 +149,4 @@ Produce a summary showing:
 - Always get explicit confirmation at Step 5 (diff) before writing.
 - Always rebuild after writing.
 - Warn on accessibility issues but do not block the user from proceeding.
-- Do not edit `blds.json` — it is a separate brand palette unrelated to the alias token system.
+- Do not edit `blds.json`: it is a separate brand palette unrelated to the alias token system.

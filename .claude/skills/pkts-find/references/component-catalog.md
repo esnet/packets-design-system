@@ -12,7 +12,7 @@ Platform availability is derived from the package barrel files and CSS index. CL
 | PktsButton | Actions | Clickable button with primary, secondary, tertiary, branded, destructive variants | CSS, React, Web | button, click, action, submit, cta, call-to-action, button-as-link |
 | PktsButtonGroup | Layout | Groups multiple buttons with shared layout and spacing | CSS, React, Web | button group, toolbar, actions, row of buttons |
 | PktsCard | Layout | Bordered container for grouped content | CSS, Web | card, container, panel, box, bordered container |
-| PktsChip | Display | Compact interactive tag for filters or selections — removable | CSS, React, Web | chip, filter chip, interactive tag, filter, selection, removable |
+| PktsChip | Display | Compact interactive tag for filters or selections: removable | CSS, React, Web | chip, filter chip, interactive tag, filter, selection, removable |
 | PktsChipGroup | Layout | Manages a set of chips with consistent spacing | CSS, React, Web | chip group, tag list, filter group, multi-select |
 | PktsCodeBlock | Display | Syntax-highlighted code snippet display | CSS, React | code, snippet, syntax, highlight, pre, monospace |
 | PktsCommaSeperatedList | Display | Renders a list of items separated by commas | CSS, React, Web | list, comma, inline, separated, values |
@@ -30,7 +30,7 @@ Platform availability is derived from the package barrel files and CSS index. CL
 | PktsInputDatePickerTime | Forms | Sub-component: time wheel selector used inside PktsInputDatePicker | Web | time picker, time wheel (sub-component of PktsInputDatePicker) |
 | PktsInputDateRange | Forms | Input for selecting a start and end date range | React, Web | date range, start date, end date, range picker |
 | PktsInputEmail | Forms | Email address text input with validation | CSS, React, Web | email, input, text field, address |
-| PktsInputFile | Forms | File upload drop zone or button trigger (not yet in package barrel — use source directly) | React | file, upload, drag and drop, drop zone, file input, attachment |
+| PktsInputFile | Forms | File upload drop zone or button trigger (not yet in package barrel: use source directly) | React | file, upload, drag and drop, drop zone, file input, attachment |
 | PktsInputNumber | Forms | Numeric input with increment and decrement controls | CSS, React, Web | number, numeric, spinner, stepper, quantity, input |
 | PktsInputOption | Forms | Single option item used inside a radio or checkbox group | CSS, React | option, radio item, checkbox item |
 | PktsInputPassword | Forms | Password input with visibility toggle | CSS, React, Web | password, input, secret, masked, show hide |

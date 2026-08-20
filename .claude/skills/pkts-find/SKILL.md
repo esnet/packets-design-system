@@ -1,6 +1,6 @@
 ---
 name: pkts-find
-description: Find the right Packets Design System component for a given need. Use when the user describes what they want to build or display and is unsure which component to use. Trigger phrases: "what component should I use for", "which Packets component", "I need a Packets component that", "help me find a Packets component", "is there a Packets component for", "what's the best component for". Do not trigger for parity gap questions like "which components are missing from Web" or "find missing components" — those are handled by component-audit.
+description: Find the right Packets Design System component for a given need. Use when the user describes what they want to build or display and is unsure which component to use. Trigger phrases: "what component should I use for", "which Packets component", "I need a Packets component that", "help me find a Packets component", "is there a Packets component for", "what's the best component for". Do not trigger for parity gap questions like "which components are missing from Web" or "find missing components": those are handled by component-audit.
 metadata:
   author: ESnet
   category: discovery
@@ -35,7 +35,7 @@ To get usage code: `/pkts-react <ComponentName>` or `/pkts-web <ComponentName>` 
 
 ## Rules
 
-- Do NOT load any component source files — only the catalog.
-- Do NOT generate usage code — that is the job of `pkts-react`, `pkts-web`, and `pkts-css`.
+- Do NOT load any component source files: only the catalog.
+- Do NOT generate usage code: that is the job of `pkts-react`, `pkts-web`, and `pkts-css`.
 - Return at most 3 results. If many components match, prefer the most specific one.
 - If the user specifies a platform (e.g. "in React"), note which matches are available there.

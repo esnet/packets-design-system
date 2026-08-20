@@ -122,7 +122,7 @@ Packets ships a set of AI coding skills to help both consumers and contributors 
 **How to get the skills:**
 
 1. Copy the `.claude/skills/` directory from this repo into your project root.
-2. If you use Cursor, rename the folder to `.cursor/skills/`. If you use Windsurf, rename it to `.windsurf/skills/`. No other changes needed — the skill files are identical across all clients.
+2. If you use Cursor, rename the folder to `.cursor/skills/`. If you use Windsurf, rename it to `.windsurf/skills/`. No other changes needed: the skill files are identical across all clients.
 3. Open your AI coding client. The skills will be available immediately.
 
 ## Contributor skills (for Packets team members)

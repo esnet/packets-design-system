@@ -58,7 +58,7 @@ All color tokens must include a raw hex fallback. All spacing tokens must includ
   cursor: default;
 }
 
-/* Variants — remove if no variants */
+/* Variants: remove if no variants */
 .pkts-<kebab>.pkts-branded {
   border: var(--pkts-size-border-width-small, 0.125rem) solid
     var(--pkts-color-core-blue-600, #0058b0);
@@ -67,7 +67,7 @@ All color tokens must include a raw hex fallback. All spacing tokens must includ
     0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* Interactive states — remove sections that do not apply */
+/* Interactive states: remove sections that do not apply */
 .pkts-<kebab>:hover {
   background: var(--pkts-color-core-white-800, #e5e5e5);
 }
@@ -89,18 +89,18 @@ All color tokens must include a raw hex fallback. All spacing tokens must includ
   pointer-events: none;
 }
 
-/* Form inputs only — remove if not a form element */
+/* Form inputs only: remove if not a form element */
 .pkts-<kebab>.pkts-error {
   border-color: var(--pkts-color-core-red-600, #c00000);
 }
 
-/* Dark mode overrides — use dark alias tokens for any color that changes in dark mode */
+/* Dark mode overrides: use dark alias tokens for any color that changes in dark mode */
 .dark .pkts-<kebab> {
   background: var(--pkts-color-dark-surface-1, #19191a);
   color: var(--pkts-color-dark-copy, #ffffff);
 }
 
-/* Dark mode variant overrides — add if variants have different dark colors */
+/* Dark mode variant overrides: add if variants have different dark colors */
 /* .dark .pkts-<kebab>.pkts-branded { ... } */
 ```
 

@@ -22,7 +22,7 @@ If the component does not exist in `packages/ui-web/src/components/`, say so and
 ### Step 2: Read source files
 
 Read these files:
-- `packages/ui-web/src/components/<Name>/<Name>.ts` (required — resolve actual path from barrel if needed)
+- `packages/ui-web/src/components/<Name>/<Name>.ts` (required: resolve actual path from barrel if needed)
 - `packages/ui-web/src/components/<Name>/<Name>.types.ts` if it exists
 
 Do not read React or CSS files.
@@ -35,8 +35,8 @@ Check each item. Report every failure with: severity, file, line (if known), iss
 - [ ] Component class extends `SlottedComponent` (from `../../lib/SlottedComponent`)
 - [ ] `static tagName` defined as `pkts-<kebab>` (e.g. `pkts-button`)
 - [ ] `static get observedAttributes()` is defined
-- [ ] `_renderInitial()` is implemented — sets `this.innerHTML` with the component template and includes a `<slot>` element
-- [ ] `render()` is implemented — updates className and attributes based on current prop values
+- [ ] `_renderInitial()` is implemented: sets `this.innerHTML` with the component template and includes a `<slot>` element
+- [ ] `render()` is implemented: updates className and attributes based on current prop values
 - [ ] `attributeChangedCallback(name, oldVal, newVal)` is implemented and calls `this.render()` when `oldVal !== newVal`
 - [ ] `customElements.define(ClassName.tagName, ClassName)` is present at the bottom of the file
 - [ ] `index.ts` re-export file exists at `packages/ui-web/src/components/<Name>/index.ts`
@@ -49,7 +49,7 @@ Check each item. Report every failure with: severity, file, line (if known), iss
 - [ ] Props in the types interface that are not functions and not internally derived should appear in `observedAttributes` (note: function props like `onClick` and JS-only props are exempt from this)
 - [ ] `observedAttributes` strings use kebab-case (e.g. `is-active`, not `isActive`)
 
-Note: if a prop has a getter/setter but is absent from `observedAttributes`, note it as a potential gap — it may be intentional (JS-only property) or an oversight. Do not automatically flag it as an error.
+Note: if a prop has a getter/setter but is absent from `observedAttributes`, note it as a potential gap: it may be intentional (JS-only property) or an oversight. Do not automatically flag it as an error.
 
 #### Types
 - [ ] Types interface extends `Partial<HTMLElement>` or a more specific HTML element base
@@ -72,7 +72,7 @@ List findings grouped by severity (errors first):
 Fix: <Suggested fix>
 ```
 
-End with: `Passed: <list of checks that passed>` — only if at least half passed.
+End with: `Passed: <list of checks that passed>`. Include this line only if at least half the checks passed.
 
 ## Rules
 

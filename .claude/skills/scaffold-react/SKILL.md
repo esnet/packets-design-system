@@ -38,7 +38,7 @@ Read these files to understand the patterns to follow:
 - `packages/ui-react/src/components/PktsButton/PktsButton.tsx`
 - `packages/ui-react/src/components/PktsButton/__tests__/PktsButton.test.tsx`
 
-Use the story file only to confirm the import path and meta structure — the generated template starts minimal.
+Use the story file only to confirm the import path and meta structure. The generated template starts minimal.
 
 ### Step 3: Generate files
 
@@ -55,7 +55,7 @@ import clsx from "clsx";
 import { <Name>Props } from "./<Name>.types";
 
 /**
- * <Display Name> — <one-line description of the component's purpose>
+ * <Display Name>: <one-line description of the component's purpose>
  *
  * @param {<Name>Props} props
  * @returns {React.ReactElement}
@@ -157,7 +157,7 @@ export const Default: Story = {};
 
 ### Step 4: Update the barrel file
 
-Read `packages/ui-react/src/components/index.ts`. The file is approximately (but not strictly) alphabetical — insert the new export near similar names without reordering existing lines:
+Read `packages/ui-react/src/components/index.ts`. The file is approximately (but not strictly) alphabetical. Insert the new export near similar names without reordering existing lines:
 ```ts
 export { default as <Name> } from "./<Name>";
 ```
@@ -175,4 +175,4 @@ List all files created and modified. Remind the contributor to:
 
 - Do not create the component if it already exists.
 - Do not generate variant code (variant prop, variant argTypes, Branded story) when the component has no variants.
-- Keep generated code minimal — do not add features beyond what is requested.
+- Keep generated code minimal. Do not add features beyond what is requested.

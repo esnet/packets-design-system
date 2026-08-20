@@ -18,27 +18,27 @@ See `CLAUDE.md` at the repo root for the full naming convention table and all fi
 
 Steps are ordered to match the document sections they fill.
 
-1. **Overview** — read JSDoc `/**` block at top of `<Name>.tsx`. If no JSDoc exists, derive from the component's display name and render output.
-2. **States/Variants** — read CSS file for class selectors (`.pkts-branded`, `.pkts-error`, `.pkts-disabled`, etc.) and the `variant` prop in `<Name>.types.ts` to enumerate variants. Themes are always light/dark.
-3. **Best Practices** — draw 2-4 bullets each for Do/Don't from JSDoc, component usage patterns in stories, and component intent.
-4. **Availability versions** — read `version` field from `packages/ui-react/package.json`, `packages/ui-web/package.json`, `packages/ui-css/package.json`.
-5. **Design Tokens** — extract and sort alphabetically:
+1. **Overview**: read JSDoc `/**` block at top of `<Name>.tsx`. If no JSDoc exists, derive from the component's display name and render output.
+2. **States/Variants**: read CSS file for class selectors (`.pkts-branded`, `.pkts-error`, `.pkts-disabled`, etc.) and the `variant` prop in `<Name>.types.ts` to enumerate variants. Themes are always light/dark.
+3. **Best Practices**: draw 2-4 bullets each for Do/Don't from JSDoc, component usage patterns in stories, and component intent.
+4. **Availability versions**: read `version` field from `packages/ui-react/package.json`, `packages/ui-web/package.json`, `packages/ui-css/package.json`.
+5. **Design Tokens**: extract and sort alphabetically:
    ```
    grep -oE "var\(--pkts-[a-z0-9-]+" packages/ui-css/src/components/<kebab>.css | sort -u
    ```
-   Note: multi-line `var(` calls won't be captured — visually scan the CSS for any missed tokens.
+   Note: multi-line `var(` calls won't be captured: visually scan the CSS for any missed tokens.
 
 ## Output
 
 Write the completed documentation to `apps/host-docs/src/components/<kebab>.mdx` (e.g. `apps/host-docs/src/components/input-text.mdx`).
 
-The file must be clean MDX: a `<Meta>` import + tag at the top, then pure markdown at zero indentation. Do NOT wrap content in `<div>` blocks — 4-space indentation inside JSX breaks GFM list and heading parsing.
+The file must be clean MDX: a `<Meta>` import + tag at the top, then pure markdown at zero indentation. Do NOT wrap content in `<div>` blocks: 4-space indentation inside JSX breaks GFM list and heading parsing.
 
 Tables MUST use JSX `<table>` syntax, not markdown pipe tables. The Storybook MDX pipeline does not enable GFM table parsing.
 
 ## Output Template
 
-Fill `[...]` with researched content. Leave **TODO** markers as-is — do not invent URLs.
+Fill `[...]` with researched content. Leave **TODO** markers as-is: do not invent URLs.
 
 Only include States that actually exist for the component. If there are no interaction states beyond default, omit the States line entirely.
 

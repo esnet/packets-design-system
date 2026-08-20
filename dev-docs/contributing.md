@@ -87,7 +87,7 @@ Select the affected packages, choose the bump type, and write a short descriptio
 
 ## Claude Code Skills
 
-Packets ships a set of AI coding skills in `.claude/skills/` to help contributors work more efficiently. Skills use the standard `SKILL.md` format and work in Claude Code, Cursor, and Windsurf — the files are identical across clients, only the folder name differs per client. You do not need to install anything extra — your client picks them up automatically when you open the repo.
+Packets ships a set of AI coding skills in `.claude/skills/` to help contributors work more efficiently. Skills use the standard `SKILL.md` format and work in Claude Code, Cursor, and Windsurf: the files are identical across clients, only the folder name differs per client. You do not need to install anything extra: your client picks them up automatically when you open the repo.
 
 ### Scaffolding a new component
 

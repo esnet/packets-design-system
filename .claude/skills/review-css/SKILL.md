@@ -33,7 +33,7 @@ Use this table to suggest the nearest token for raw px spacing values:
 
 Accept the component name or kebab filename (e.g. `PktsButton` or `button`). Convert to kebab-case if needed. If not provided, ask.
 
-Note: some filenames do not follow strict kebab conversion — `PktsInputRadioButton` maps to `input-radio.css`.
+Note: some filenames do not follow strict kebab conversion: `PktsInputRadioButton` maps to `input-radio.css`.
 
 ### Step 2: Read source file
 
@@ -45,7 +45,7 @@ Check each item. Report every failure with: severity, line (if known), issue, cu
 
 #### Naming
 - [ ] Base class is `.pkts-<kebab>` matching the filename
-- [ ] All classes are prefixed with `.pkts-<component-kebab>` or a shared modifier (`.pkts-primary`, `.pkts-branded`, etc.) — no unprefixed or arbitrarily named classes
+- [ ] All classes are prefixed with `.pkts-<component-kebab>` or a shared modifier (`.pkts-primary`, `.pkts-branded`, etc.): no unprefixed or arbitrarily named classes
 
 #### Spacing (gap, margin, padding)
 - [ ] All `gap`, `margin`, `padding` values use `var(--pkts-size-spacing-*)` with a raw fallback
@@ -101,7 +101,7 @@ Fix: <suggested replacement with token>
 
 For spacing errors, use the spacing token reference table above to suggest the nearest token.
 
-End with: `Passed: <list of checks that passed>` — only if at least half passed.
+End with: `Passed: <list of checks that passed>`. Include this line only if at least half the checks passed.
 
 ## Rules
 

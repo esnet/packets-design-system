@@ -47,14 +47,14 @@ The `forwardRef` check applies only to components whose root element is interact
 
 #### Styling
 - [ ] All `className` composition uses `clsx` (no template literals or `+` concatenation on className)
-- [ ] No raw px values for spacing (gap, margin, padding) — must use `var(--pkts-size-spacing-*)` tokens
-- [ ] No raw hex or opaque rgb color values — must use `var(--pkts-color-*)` tokens (translucent rgba for overlays/shadows is acceptable)
+- [ ] No raw px values for spacing (gap, margin, padding): must use `var(--pkts-size-spacing-*)` tokens
+- [ ] No raw hex or opaque rgb color values: must use `var(--pkts-color-*)` tokens (translucent rgba for overlays/shadows is acceptable)
 - [ ] Variant class names match CSS pattern: `` `pkts-${variant}` `` (e.g. `pkts-primary`)
 
 #### Props and types
 - [ ] `variant` prop options match CSS modifier classes if variants exist
 - [ ] `forwardRef` used when the component renders an interactive or focusable DOM element (warning if absent on inputs, buttons, modals)
-- [ ] No use of `any` type in props (warning — sometimes unavoidable)
+- [ ] No use of `any` type in props (warning: sometimes unavoidable)
 - [ ] Event handler props use React event types (e.g. `React.MouseEvent<HTMLDivElement>` matching the actual element)
 
 #### Stories
@@ -73,7 +73,7 @@ List findings grouped by severity (errors first):
 Fix: <Suggested fix>
 ```
 
-End with: `Passed: <list of checks that passed>` — only if at least half passed.
+End with: `Passed: <list of checks that passed>`. Include this line only if at least half the checks passed.
 
 ## Rules
 

@@ -23,7 +23,7 @@ Ask for the component name if not provided. It must:
 Check: run `ls packages/ui-web/src/components/ | grep -i "^<Name>$"` and also check `packages/ui-web/src/components/index.ts` for an existing export matching `<Name>`. Stop if either exists.
 
 Derive:
-- `<kebab>` (e.g. `PktsIconButton` becomes `icon-button`) — strip `Pkts`, convert PascalCase to kebab-case
+- `<kebab>` (e.g. `PktsIconButton` becomes `icon-button`): strip `Pkts`, convert PascalCase to kebab-case
 - `<tag>` (e.g. `pkts-icon-button`)
 - `<display>` (e.g. `Icon Button`)
 
@@ -187,7 +187,7 @@ Read `packages/ui-web/src/components/index.ts`. Find the nearest alphabetical ne
 ```ts
 export { <Name> } from "./<Name>";
 ```
-Check whether other exports near the insertion point use sub-paths (e.g. `./PktsInputDatePicker/PktsInputDatePicker`) — if so, use the same path format if applicable.
+Check whether other exports near the insertion point use sub-paths (e.g. `./PktsInputDatePicker/PktsInputDatePicker`): if so, use the same path format if applicable.
 
 ### Step 5: Confirm
 
@@ -200,7 +200,7 @@ List all files created and modified. Remind the contributor to:
 ## Rules
 
 - Do not create the component if it already exists (folder or barrel export).
-- Boolean attributes must use `hasAttribute`/`setAttribute('')`/`removeAttribute()` — never string `"true"`/`"false"`.
+- Boolean attributes must use `hasAttribute`/`setAttribute('')`/`removeAttribute()`. Never use string `"true"`/`"false"`.
 - `customElements.define` must be at the bottom of the file.
-- The `render()` method should update in-place without replacing `innerHTML` — that is what `_renderInitial()` is for.
+- The `render()` method should update in-place without replacing `innerHTML`. That is what `_renderInitial()` is for.
 - Remove boilerplate sections that do not apply to the specific component (e.g. no variant if the component has none).

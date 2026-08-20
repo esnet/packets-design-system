@@ -26,7 +26,7 @@ Note: some component CSS filenames do not follow strict kebab conversion. Known 
 
 ### Step 2: Read the CSS file
 
-Attempt to read `packages/ui-css/src/components/<kebab>.css`. If the file does not exist, report that no CSS implementation exists for this component and suggest `/pkts-react` or `/pkts-web` instead. Do not reference CLAUDE.md platform tables to determine existence — attempt the read and let the result speak.
+Attempt to read `packages/ui-css/src/components/<kebab>.css`. If the file does not exist, report that no CSS implementation exists for this component and suggest `/pkts-react` or `/pkts-web` instead. Do not reference CLAUDE.md platform tables to determine existence: attempt the read and let the result speak.
 
 ### Step 3: Generate usage output
 
@@ -52,10 +52,10 @@ Add the `packets` class to your root element so design tokens resolve correctly:
 A minimal HTML snippet using the base class `.pkts-<kebab>`.
 
 **Modifier classes**
-A table of variant/modifier classes only (e.g. `.pkts-primary`, `.pkts-branded`). Derive these from class selectors in the CSS file. Do not include state classes here — those go in States.
+A table of variant/modifier classes only (e.g. `.pkts-primary`, `.pkts-branded`). Derive these from class selectors in the CSS file. Do not include state classes here: those go in States.
 
 **States**
-List interactive states the component uses and how to apply them. Check for both pseudo-class patterns (`:disabled`, `:hover`, `:focus`) and explicit class patterns (`.pkts-disabled`, `.pkts-error`) — document whichever the file actually uses. Include `:active` if present.
+List interactive states the component uses and how to apply them. Check for both pseudo-class patterns (`:disabled`, `:hover`, `:focus`) and explicit class patterns (`.pkts-disabled`, `.pkts-error`): document whichever the file actually uses. Include `:active` if present.
 
 If the component is CSS-only (no React or Web Component counterpart), note this explicitly.
 If the component exists in React or Web but is being used here via CSS only, note that.
@@ -67,6 +67,6 @@ List all `var(--pkts-*)` tokens used in the file, sorted alphabetically.
 
 - Only read files under `packages/ui-css/`. Never read `packages/ui-react/` or `packages/ui-web/`.
 - Derive all class names directly from the CSS file. Do not invent classes.
-- Modifier classes (variants) and state classes (disabled, error) are separate — do not mix them in the Modifier table.
+- Modifier classes (variants) and state classes (disabled, error) are separate: do not mix them in the Modifier table.
 - If a modifier class requires a specific HTML element (e.g. `<button>` vs `<a>`), note it.
-- Keep markup examples semantic — use the correct HTML element for the component's role.
+- Keep markup examples semantic: use the correct HTML element for the component's role.

@@ -21,11 +21,11 @@ If the user described a need, read `.claude/skills/pkts-find/references/componen
 
 ### Step 2: Read the component source
 
-Read `packages/ui-web/src/components/index.ts` to find the correct export path for the component and confirm the exported symbol name — some class names inside a file differ from the barrel export (e.g. `PktsAvatarElement` is exported as `PktsAvatar`). Use the exported name in all examples. Some components live in subdirectories; the barrel is the authoritative path.
+Read `packages/ui-web/src/components/index.ts` to find the correct export path for the component and confirm the exported symbol name: some class names inside a file differ from the barrel export (e.g. `PktsAvatarElement` is exported as `PktsAvatar`). Use the exported name in all examples. Some components live in subdirectories; the barrel is the authoritative path.
 
 Then read:
 - The component `.ts` file at the resolved path
-- `<Name>.types.ts` only if it exists in the same folder — if absent, derive attributes from `observedAttributes` and getter/setter pairs in the `.ts` file
+- `<Name>.types.ts` only if it exists in the same folder: if absent, derive attributes from `observedAttributes` and getter/setter pairs in the `.ts` file
 
 For components exported from subdirectories (e.g. PktsInputDatePicker is split across multiple files), read all `.ts` files in that folder that contain a `customElements.define` call, and generate separate usage blocks for each registered element.
 
@@ -47,7 +47,7 @@ Add `class="packets"` to your root element for design tokens to resolve.
 
 **Register**
 
-Importing the class is sufficient — each module self-registers its custom element on import:
+Importing the class is sufficient: each module self-registers its custom element on import:
 ```js
 import { PktsButton } from "@esnet/packets-ui-web"; // auto-registered on import
 ```
@@ -63,7 +63,7 @@ A minimal working HTML snippet using the correct tag name and key attributes.
 
 Build the attributes table from `observedAttributes` only. These are the reactive HTML attributes that trigger re-renders. Classify each as its type (string, boolean) with default and description.
 
-If a prop appears in the types file but NOT in `observedAttributes`, list it separately under "JavaScript-only properties" with a note that setting it as an HTML attribute has no effect — it must be set via JS property assignment.
+If a prop appears in the types file but NOT in `observedAttributes`, list it separately under "JavaScript-only properties" with a note that setting it as an HTML attribute has no effect: it must be set via JS property assignment.
 
 **JavaScript API**
 Show how to set properties and listen to events programmatically.
@@ -77,4 +77,4 @@ One HTML snippet per variant, if the component has a `variant` attribute.
 - Derive the HTML tag name from `static tagName` in the component class.
 - Do not invent attributes. Only use what is in `observedAttributes` and the source files.
 - Boolean attributes follow HTML convention: present = true, absent = false.
-- Do not call `customElements.define()` manually in examples — all components self-register on import.
+- Do not call `customElements.define()` manually in examples: all components self-register on import.
