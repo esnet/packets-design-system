@@ -57,27 +57,37 @@ Given a component name like `PktsIconButton`:
 
 | Asset | Path |
 |---|---|
-| MDX doc page | `apps/host-docs/src/<kebab>.mdx` |
+| MDX doc page | `apps/host-docs/src/components/<kebab>.mdx` |
 
 ## Platform Parity
 
-### Shared across all three platforms (28 components)
+### All three platforms — CSS, React, Web (26 components)
 
-PktsAlert, PktsAvatar, PktsBreadcrumbs, PktsButton, PktsButtonGroup, PktsChip, PktsChipGroup, PktsCommaSeperatedList, PktsDataTable, PktsDatum, PktsDivider, PktsFormSection, PktsIconButton, PktsInputCheckbox, PktsInputDate, PktsInputDatePicker, PktsInputDateRange, PktsInputEmail, PktsInputNumber, PktsInputPassword, PktsInputRadioButton, PktsInputSearch, PktsInputSwitch, PktsInputText, PktsModule, PktsSpinner, PktsTabs, PktsTitleSection
+PktsAlert, PktsAvatar, PktsBreadcrumbs, PktsButton, PktsButtonGroup, PktsChip, PktsChipGroup, PktsCommaSeperatedList, PktsDataTable, PktsDatum, PktsDivider, PktsFormSection, PktsIconButton, PktsInputCheckbox, PktsInputDatePicker, PktsInputEmail, PktsInputNumber, PktsInputPassword, PktsInputRadioButton, PktsInputSearch, PktsInputSwitch, PktsInputText, PktsModule, PktsSpinner, PktsTabs, PktsTitleSection
 
-### React only (no Web Component equivalent)
+### CSS and React only (no Web Component)
 
-PktsAccordion, PktsCodeBlock, PktsDropdown, PktsInputFile, PktsInputOption, PktsInputRow, PktsInputSelect, PktsInputTextArea, PktsInputTypeahead, PktsLabel, PktsListTreeView, PktsSkeletonChip, PktsSkeletonSurface, PktsSpacer, PktsTableOfContents, PktsTooltip
+PktsAccordion, PktsCodeBlock, PktsDropdown, PktsInputOption, PktsInputRow, PktsInputSelect, PktsInputTextArea, PktsInputTypeahead, PktsLabel, PktsListTreeView, PktsSkeletonSurface, PktsSpacer, PktsTableOfContents, PktsTooltip
 
-Note: some of these have CSS styles (accordion, tooltip, etc.) even though they have no Web Component.
+### React and Web only (no CSS)
 
-### Web Components only (3 components)
+PktsInputDate, PktsInputDateRange
+
+### CSS and Web only (no React)
 
 PktsBadge, PktsCard, PktsIcon
 
-### CSS only (additional styles)
+### CSS only
 
-accordion, input-file, input-text-area, input-typeahead, label, list-tree-view, skeleton-chip, skeleton-surface, spacer, table-of-contents, tooltip
+PktsSkeletonChip
+
+### Not yet in published barrel (React component exists but is not exported)
+
+PktsInputFile
+
+### Sub-components (not standalone — used inside a parent)
+
+PktsTab (inside PktsTabs), PktsInputDatePickerDate, PktsInputDatePickerTime (inside PktsInputDatePicker)
 
 ## Architecture Patterns
 
