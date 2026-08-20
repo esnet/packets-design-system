@@ -2,7 +2,7 @@
 
 ## How the token system works
 
-All color tokens originate in `packages/design-tokens/tokens/color/`. After editing, run `pnpm run build` from the repo root to regenerate `dist/pkts-tokens.css`, which is imported by every component.
+All color tokens originate in `packages/design-tokens/tokens/color/`. After editing, run the build command below to regenerate `dist/pkts-tokens.css`, which is imported by every component.
 
 There are two layers:
 
@@ -84,7 +84,7 @@ Each hue has steps 100-1000. Use these as reference values in alias tokens.
 
 ## Build command
 
-After editing JSON files, rebuild from the repo root:
+After editing JSON files, rebuild from the repo root. The `--force` flag is required to bypass the Turbo cache, which does not detect token JSON changes as a cache-busting input:
 ```bash
-pnpm run build
+turbo run build --filter=@esnet/packets-ui-css --force
 ```

@@ -40,9 +40,9 @@ Produce the following sections:
 
 **Install**
 ```bash
-npm install @esnet/packets-ui-react@beta @esnet/packets-ui-css@beta
+npm install @esnet/packets-ui-react @esnet/packets-ui-css
 ```
-Note: `@beta` can be dropped once v2 reaches a stable release. Import the CSS in your app entry point:
+Import the CSS in your app entry point:
 ```css
 @import '@esnet/packets-ui-css/styles.css';
 ```

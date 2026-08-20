@@ -37,9 +37,9 @@ Produce the following sections:
 
 **Install**
 ```bash
-npm install @esnet/packets-ui-web@beta @esnet/packets-ui-css@beta
+npm install @esnet/packets-ui-web @esnet/packets-ui-css
 ```
-Note: `@beta` can be dropped once v2 reaches a stable release. Import the CSS:
+Import the CSS:
 ```css
 @import '@esnet/packets-ui-css/styles.css';
 ```
