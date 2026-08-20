@@ -43,7 +43,7 @@ function useControllableState<T>({
       }
       onChange(nextValue);
     },
-    [controlled, onChange, value, _value]
+    [controlled, onChange, value, _value],
   );
 
   return [controlled ? (value as T) : _value, setValue] as const;

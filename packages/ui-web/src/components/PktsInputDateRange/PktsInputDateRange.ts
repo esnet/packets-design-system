@@ -1,4 +1,7 @@
-import { PktsInputDatePickerProps } from "./PktsInputDatePicker.types";
+import {
+  PktsInputDatePickerProps,
+  PktsInputDatePickerDateSettings,
+} from "../PktsInputDatePicker/PktsInputDatePicker.types";
 import { formatValue, formatDate } from "../PktsInputDate/format-utils";
 
 export interface DateRange {
@@ -21,7 +24,14 @@ export class PktsInputDateRange
   static tagName = "pkts-input-date-range";
 
   static get observedAttributes() {
-    return ["variant", "error", "disabled", "placeholder", "value-start", "value-end"];
+    return [
+      "variant",
+      "error",
+      "disabled",
+      "placeholder",
+      "value-start",
+      "value-end",
+    ];
   }
 
   get variant(): "primary" | "branded" {
@@ -102,10 +112,15 @@ export class PktsInputDateRange
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
-      console.log("PktsInputDateRange attributeChangedCallback", { name, oldVal, newVal, focused: this._focused });
+      console.log("PktsInputDateRange attributeChangedCallback", {
+        name,
+        oldVal,
+        newVal,
+        focused: this._focused,
+      });
       // Don't re-render while picker is open to avoid destroying it mid-selection
       if (!this._focused) {
         console.log("Re-rendering (focused=false)");
@@ -155,7 +170,7 @@ export class PktsInputDateRange
               },
             },
             bubbles: true,
-          })
+          }),
         );
       });
 
@@ -171,14 +186,17 @@ export class PktsInputDateRange
               },
             },
             bubbles: true,
-          })
+          }),
         );
       });
     }
   }
 
   private _handleOutsideClick = (e: Event): void => {
-    console.log("Outside click handler", { target: e.target, contains: this.contains(e.target as Node) });
+    console.log("Outside click handler", {
+      target: e.target,
+      contains: this.contains(e.target as Node),
+    });
     if (!this.contains(e.target as Node)) {
       console.log("Click was outside, closing picker");
       this._focused = false;

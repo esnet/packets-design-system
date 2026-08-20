@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 
 /**
  * Provide default typography and color for text, as well as styling for paragraphs, highlighting, italics, bold, strikethrough.
  */
 const meta: Meta = {
-  title: 'RichText/Body',
-  tags: ['autodocs'],
+  title: "RichText/Body",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -14,8 +14,9 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => {
-    const root = document.createElement('div');
-    root.style.cssText = 'display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem';
+    const root = document.createElement("div");
+    root.style.cssText =
+      "display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem";
     root.innerHTML = `
       <div style="display:flex;flex-direction:column;gap:1rem">
         No highlight
@@ -72,8 +73,9 @@ export const Default: Story = {
 
 export const DefaultTextStyling: Story = {
   render: () => {
-    const root = document.createElement('span');
-    root.textContent = 'This is how text is styled as default, with this font and this size. There are no additional stylings added to this text, no tag wrapped it to apply styling.';
+    const root = document.createElement("span");
+    root.textContent =
+      "This is how text is styled as default, with this font and this size. There are no additional stylings added to this text, no tag wrapped it to apply styling.";
     return root;
   },
 };

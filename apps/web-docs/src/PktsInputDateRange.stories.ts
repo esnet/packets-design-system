@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsInputDateRange } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsInputDateRange> = {
-  title: 'Components/PktsInputDateRange',
+  title: "Components/PktsInputDateRange",
   component: PktsInputDateRange.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -26,8 +26,8 @@ const meta: Meta<typeof PktsInputDateRange> = {
   decorators: [
     // a larger height to fully view the absolutely positioned calendar prompt
     (Story) => {
-      const wrapper = document.createElement('div');
-      wrapper.style.minHeight = '280px';
+      const wrapper = document.createElement("div");
+      wrapper.style.minHeight = "280px";
       const story = Story();
       wrapper.appendChild(story);
       return wrapper;
@@ -42,33 +42,33 @@ type Story = StoryObj<typeof PktsInputDateRange>;
 export const Default: Story = {
   name: "PktsInputDateRange",
   args: {
-    variant: 'primary',
-    placeholder: 'Select date range',
+    variant: "primary",
+    placeholder: "Select date range",
   },
 };
 
 export const Branded: Story = {
   name: "Branded ESInputDateRange",
   args: {
-    variant: 'branded',
-    placeholder: 'Select date range',
+    variant: "branded",
+    placeholder: "Select date range",
   },
 };
 
 export const Disabled: Story = {
   name: "Disabled ESInputDateRange",
   args: {
-    variant: 'primary',
+    variant: "primary",
     disabled: true,
-    placeholder: 'Disabled',
+    placeholder: "Disabled",
   },
 };
 
 export const Error: Story = {
   name: "Error ESInputDateRange",
   args: {
-    variant: 'primary',
+    variant: "primary",
     error: true,
-    placeholder: 'Error state',
+    placeholder: "Error state",
   },
 };

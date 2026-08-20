@@ -33,14 +33,18 @@ test.describe("Pkts Dropdown Component", () => {
       const html = createCSSTestHTML(theme, buildDropdownContent(false));
       await page.setContent(html);
       await page.waitForTimeout(100);
-      await expect(page.locator("#container")).toHaveScreenshot(`dropdown-default-${theme}.png`);
+      await expect(page.locator("#container")).toHaveScreenshot(
+        `dropdown-default-${theme}.png`,
+      );
     });
 
     test(`dropdown-caret-${theme}`, async ({ page }) => {
       const html = createCSSTestHTML(theme, buildDropdownContent(true));
       await page.setContent(html);
       await page.waitForTimeout(100);
-      await expect(page.locator("#container")).toHaveScreenshot(`dropdown-caret-${theme}.png`);
+      await expect(page.locator("#container")).toHaveScreenshot(
+        `dropdown-caret-${theme}.png`,
+      );
     });
   });
 });

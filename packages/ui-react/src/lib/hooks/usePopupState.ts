@@ -20,7 +20,7 @@ function usePopupState(
   anchorRef: RefObject<HTMLElement>,
   popupRef: RefObject<HTMLElement>,
   defaultOpen: boolean = false,
-  mode: "hover" | "active" | "both" = "both"
+  mode: "hover" | "active" | "both" = "both",
 ): [boolean, (next: boolean) => void] {
   // The wanted behavior is when the popup is clicked, it stays open, even when the user hovers off of it
   // This state is only managed internally, users of this hook can only set open on click/focus and closed, not the open on hover

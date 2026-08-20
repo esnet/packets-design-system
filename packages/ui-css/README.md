@@ -7,10 +7,8 @@ Use this package if you want Packets styles without a JavaScript framework. For 
 ## Installation
 
 ```bash
-npm install @esnet/packets-ui-css@beta
+npm install @esnet/packets-ui-css
 ```
-
-Once 2.x reaches a stable release, drop the `@beta` tag.
 
 ## Setup
 
@@ -31,17 +29,20 @@ Add this to your `<head>`:
 
 ```html
 <!-- In HTML -->
-<link rel="stylesheet" href="node_modules/@esnet/packets-ui-css/dist/styles.css">
+<link
+  rel="stylesheet"
+  href="node_modules/@esnet/packets-ui-css/dist/styles.css"
+/>
 ```
 
 ```css
 /* In CSS */
-@import '@esnet/packets-ui-css/styles.css';
+@import "@esnet/packets-ui-css/styles.css";
 ```
 
 ```js
 // In JavaScript
-import '@esnet/packets-ui-css/styles.css';
+import "@esnet/packets-ui-css/styles.css";
 ```
 
 ### 3. Add the root class
@@ -49,13 +50,13 @@ import '@esnet/packets-ui-css/styles.css';
 Add the `packets` class to your app's root element:
 
 ```html
-<body class="packets">
+<body class="packets"></body>
 ```
 
 Optionally add `dark` or `light`:
 
 ```html
-<body class="packets dark">
+<body class="packets dark"></body>
 ```
 
 ## Usage
@@ -148,7 +149,7 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 Toggle dark mode by adding or removing the `dark` class on the root element:
 
 ```js
-document.body.classList.toggle('dark');
+document.body.classList.toggle("dark");
 ```
 
 ## Output Files
@@ -159,10 +160,10 @@ document.body.classList.toggle('dark');
 
 ## Related Packages
 
-| Package | Description |
-|---|---|
-| [`@esnet/packets-ui-react`](https://www.npmjs.com/package/@esnet/packets-ui-react) | React components |
-| [`@esnet/packets-ui-web`](https://www.npmjs.com/package/@esnet/packets-ui-web) | Web Components, framework-agnostic |
+| Package                                                                            | Description                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------- |
+| [`@esnet/packets-ui-react`](https://www.npmjs.com/package/@esnet/packets-ui-react) | React components                   |
+| [`@esnet/packets-ui-web`](https://www.npmjs.com/package/@esnet/packets-ui-web)     | Web Components, framework-agnostic |
 
 ## License
 

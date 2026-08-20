@@ -32,7 +32,9 @@ type Story = StoryObj<typeof PktsFormSection>;
  * to learn how to use render functions.
  */
 export const DefaultDatumExample: Story = {
-  render: (props) => <PktsFormSection {...props}>{props.children}</PktsFormSection>,
+  render: (props) => (
+    <PktsFormSection {...props}>{props.children}</PktsFormSection>
+  ),
   name: "ES Form Section Example",
   args: {
     title: "Section Title",
@@ -52,7 +54,9 @@ export const DefaultDatumExample: Story = {
 };
 
 export const FormSectionWithDescrition: Story = {
-  render: (props) => <PktsFormSection {...props}>{props.children}</PktsFormSection>,
+  render: (props) => (
+    <PktsFormSection {...props}>{props.children}</PktsFormSection>
+  ),
   name: "ES Form Section with Description",
   args: {
     title: "Circuit",
@@ -77,7 +81,9 @@ export const FormSectionWithDescrition: Story = {
 };
 
 export const FormSectionWithTitleLikn: Story = {
-  render: (props) => <PktsFormSection {...props}>{props.children}</PktsFormSection>,
+  render: (props) => (
+    <PktsFormSection {...props}>{props.children}</PktsFormSection>
+  ),
   name: "With Title Link",
   args: {
     title: "I'm a link",

@@ -1,6 +1,7 @@
 import * as React from "react";
 
-export interface PktsChipProps extends React.ComponentPropsWithoutRef<"button"> {
+export interface PktsChipProps
+  extends React.ComponentPropsWithoutRef<"button"> {
   variant?: "primary" | "outline";
   /** For prepending icons or avatars, ideally using `ESIcon` or `ESAvatar`. */
   prepend?: React.ReactNode;

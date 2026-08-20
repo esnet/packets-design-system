@@ -95,7 +95,7 @@ export class PktsInputDate extends HTMLElement implements PktsInputDateProps {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
       this.render();
@@ -134,7 +134,7 @@ export class PktsInputDate extends HTMLElement implements PktsInputDateProps {
           new CustomEvent("change", {
             detail: { value: customEvent.detail.value },
             bubbles: true,
-          })
+          }),
         );
       });
     }

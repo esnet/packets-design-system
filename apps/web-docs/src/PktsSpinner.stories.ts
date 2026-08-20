@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsSpinner } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsSpinner> = {
-  title: 'Components/PktsSpinner',
+  title: "Components/PktsSpinner",
   component: PktsSpinner.tagName,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;

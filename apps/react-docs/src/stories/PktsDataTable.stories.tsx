@@ -128,7 +128,10 @@ export const TableLoadingExample: Story = {
         </PktsDataTable.PktsDataTableHeaderCell>
       </PktsDataTable.PktsDataTableHead>
       <PktsDataTable.PktsDataTableBody>
-        <PktsDataTable.PktsDataTableSkeletonLoading columnCount={3} rowCount={3} />
+        <PktsDataTable.PktsDataTableSkeletonLoading
+          columnCount={3}
+          rowCount={3}
+        />
       </PktsDataTable.PktsDataTableBody>
       <PktsDataTable.PktsDataTableFooter>
         <PktsDataTable.PktsDataTableRow>

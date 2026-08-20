@@ -28,7 +28,9 @@ test.describe("Pkts InputSearch Component", () => {
         await page.setContent(html);
         await page.locator("#focus-input input").focus();
         await page.locator("#hover-input").hover();
-        await expect(page.locator("#container")).toHaveScreenshot(`input-search-${key}-${theme}.png`);
+        await expect(page.locator("#container")).toHaveScreenshot(
+          `input-search-${key}-${theme}.png`,
+        );
       });
     });
   });

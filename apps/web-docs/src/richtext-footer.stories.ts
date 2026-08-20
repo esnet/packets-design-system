@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 
 /**
  * Provide default typography and color for footer text using the `<footer>` element or `.footer` class.
  */
 const meta: Meta = {
-  title: 'RichText/Footer',
-  tags: ['autodocs'],
+  title: "RichText/Footer",
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -14,8 +14,8 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => {
-    const el = document.createElement('footer');
-    el.textContent = 'Footer text.';
+    const el = document.createElement("footer");
+    el.textContent = "Footer text.";
     return el;
   },
 };
@@ -25,7 +25,7 @@ export const Default: Story = {
  */
 export const DefaultTextStyling: Story = {
   render: () => {
-    const root = document.createElement('div');
+    const root = document.createElement("div");
     root.innerHTML = `
       <header><h1>Fake Text Header</h1></header>
       <div>

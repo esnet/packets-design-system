@@ -21,6 +21,7 @@ pnpm run build
 Then choose how to run the docs:
 
 **Option A - Docker (recommended for a full preview):**
+
 ```bash
 make docs-build
 make docs-run
@@ -28,6 +29,7 @@ make docs-run
 ```
 
 **Option B - Local with hot reload (recommended for development):**
+
 ```bash
 pnpm run dev
 # React docs:          http://localhost:6006
@@ -56,10 +58,10 @@ dev-docs/          Internal documentation for contributors
 
 Branches are always cut from `develop`.
 
-| Type | Format (ESnet) | Format (external) | Example |
-|---|---|---|---|
-| Feature | `feat/PKTS-<ticket>-<short-name>` | `feat/<short-name>` | `feat/PKTS-134-tabs` |
-| Bug fix | `fix/PKTS-<ticket>-<short-name>` | `fix/<short-name>` | `fix/PKTS-210-button-focus` |
+| Type    | Format (ESnet)                    | Format (external)   | Example                     |
+| ------- | --------------------------------- | ------------------- | --------------------------- |
+| Feature | `feat/PKTS-<ticket>-<short-name>` | `feat/<short-name>` | `feat/PKTS-134-tabs`        |
+| Bug fix | `fix/PKTS-<ticket>-<short-name>`  | `fix/<short-name>`  | `fix/PKTS-210-button-focus` |
 
 Keep the short name brief (2 to 4 words). Avoid long branch names as they can cause CI issues.
 
@@ -67,15 +69,15 @@ Keep the short name brief (2 to 4 words). Avoid long branch names as they can ca
 
 Ask yourself: **does this change affect a published npm package?**
 
-| Change type | Needs changeset |
-|---|---|
-| New or updated component in `packages/ui-*` | Yes |
-| Bug fix in a published package | Yes |
-| Design token change affecting CSS output | Yes |
-| Storybook docs or `apps/` changes | No |
-| Cloudflare / CI / build config | No |
-| `README.md` or `dev-docs/` updates | No |
-| Internal tooling or scripts | No |
+| Change type                                 | Needs changeset |
+| ------------------------------------------- | --------------- |
+| New or updated component in `packages/ui-*` | Yes             |
+| Bug fix in a published package              | Yes             |
+| Design token change affecting CSS output    | Yes             |
+| Storybook docs or `apps/` changes           | No              |
+| Cloudflare / CI / build config              | No              |
+| `README.md` or `dev-docs/` updates          | No              |
+| Internal tooling or scripts                 | No              |
 
 If your change needs a changeset, run this on your branch before merging:
 
@@ -148,11 +150,13 @@ Each component lives in three packages. Build them in this order:
 Packets uses Playwright for visual regression testing. Screenshots must be generated inside Docker to match the CI environment.
 
 **First time only:**
+
 ```bash
 make pull-image
 ```
 
 **Before submitting a PR that changes component styles:**
+
 ```bash
 make screenshots-build       # Build packages
 make screenshots-regenerate  # Update screenshots
@@ -160,6 +164,7 @@ make screenshots-test        # Run all tests
 ```
 
 Individual package tests:
+
 ```bash
 make screenshots-test-react
 make screenshots-test-web
@@ -192,10 +197,10 @@ External contributors: feel free to omit the ticket key from your branch name. T
 
 ## Infrastructure
 
-| System | Branch | URL |
-|---|---|---|
-| Production Storybook docs | `main` | Cloudflare Pages |
-| Staging Storybook docs | `develop` | Cloudflare Pages |
-| npm packages | `release/*` | npmjs.com |
+| System                    | Branch      | URL              |
+| ------------------------- | ----------- | ---------------- |
+| Production Storybook docs | `main`      | Cloudflare Pages |
+| Staging Storybook docs    | `develop`   | Cloudflare Pages |
+| npm packages              | `release/*` | npmjs.com        |
 
 Pushing to `main` or `develop` deploys the Storybook docs automatically. Publishing to npm only happens when a `release/*` branch is pushed and GitHub Actions runs. See [release-process.md](release-process.md) for the full release workflow.

@@ -44,7 +44,9 @@ export const Example2: Story = {
     children: Array.from({ length: 24 }, (_, i) => (
       <PktsChip
         key={i}
-        prepend={<PktsAvatar alt={i.toString().padStart(2, "0")} size="small" />}
+        prepend={
+          <PktsAvatar alt={i.toString().padStart(2, "0")} size="small" />
+        }
         variant="outline"
         rounded={false}
         onDelete={() => {}}

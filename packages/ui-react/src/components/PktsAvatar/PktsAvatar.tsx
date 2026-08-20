@@ -60,13 +60,7 @@ const PktsAvatar: React.FC<PktsAvatarProps> = ({
       )}
     >
       {hasImageSrc && (
-        <img
-          alt={alt}
-          src={src}
-          srcSet={srcSet}
-          onError={onError}
-          {...props}
-        />
+        <img alt={alt} src={src} srcSet={srcSet} onError={onError} {...props} />
       )}
       {(!hasImageSrc || !!error) && <span>{fallbackLabel}</span>}
     </div>

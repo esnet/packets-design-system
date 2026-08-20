@@ -18,9 +18,7 @@ const PktsTableOfContents: React.FC<PktsTableOfContentsProps> = ({
   renderSectionLink = defaultRenderLink,
 }) => {
   return (
-    <nav
-      className={clsx("pkts-table-of-contents", isSticky && "pkts-sticky")}
-    >
+    <nav className={clsx("pkts-table-of-contents", isSticky && "pkts-sticky")}>
       <h6>{title}</h6>
       <ul>
         {sections.map((sectionLink, index) => {

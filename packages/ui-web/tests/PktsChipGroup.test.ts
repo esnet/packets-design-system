@@ -13,7 +13,7 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip>Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
@@ -34,7 +34,7 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip>Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
@@ -55,14 +55,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip variant="outline">Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-outline-chips-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-outline-chips-light.png",
+    );
   });
 
   test("outline-chips-dark", async ({ page }) => {
@@ -76,14 +78,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip variant="outline">Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-outline-chips-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-outline-chips-dark.png",
+    );
   });
 
   test("rounded-chips-light", async ({ page }) => {
@@ -97,14 +101,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip rounded>Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-rounded-chips-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-rounded-chips-light.png",
+    );
   });
 
   test("rounded-chips-dark", async ({ page }) => {
@@ -118,14 +124,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip rounded>Three</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-rounded-chips-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-rounded-chips-dark.png",
+    );
   });
 
   test("mixed-chips-light", async ({ page }) => {
@@ -139,14 +147,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip disabled>Disabled</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-mixed-chips-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-mixed-chips-light.png",
+    );
   });
 
   test("mixed-chips-dark", async ({ page }) => {
@@ -160,14 +170,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip disabled>Disabled</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-mixed-chips-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-mixed-chips-dark.png",
+    );
   });
 
   test("wrapping-light", async ({ page }) => {
@@ -184,14 +196,16 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip>Zeta</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsChipGroup-wrapping-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsChipGroup-wrapping-light.png",
+    );
   });
 
   test("wrapping-dark", async ({ page }) => {
@@ -208,7 +222,7 @@ test.describe("PktsChipGroup Web Component", () => {
             <pkts-chip>Zeta</pkts-chip>
           </pkts-chip-group>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-chip-group");

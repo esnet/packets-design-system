@@ -150,7 +150,9 @@ export function PktsInputSelect({
           className="pkts-input-select-dropdown"
         >
           {options.length === 0 && (
-            <span className="pkts-input-select-no-options">No options provided.</span>
+            <span className="pkts-input-select-no-options">
+              No options provided.
+            </span>
           )}
           {options}
         </div>

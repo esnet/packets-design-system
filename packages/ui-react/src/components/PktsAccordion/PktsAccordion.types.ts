@@ -1,9 +1,7 @@
 import React, { ComponentPropsWithoutRef } from "react";
 
-export interface PktsAccordionProps extends Omit<
-  ComponentPropsWithoutRef<"div">,
-  "children"
-> {
+export interface PktsAccordionProps
+  extends Omit<ComponentPropsWithoutRef<"div">, "children"> {
   /** State variable to open the accordion. */
   open?: boolean;
   /** Title string to be shown at the top of the accordion */

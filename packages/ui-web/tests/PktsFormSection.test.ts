@@ -11,14 +11,16 @@ test.describe("PktsFormSection Web Component", () => {
             <p>Form content goes here</p>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-default-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-default-light.png",
+    );
   });
 
   test("default-dark", async ({ page }) => {
@@ -30,14 +32,16 @@ test.describe("PktsFormSection Web Component", () => {
             <p>Form content goes here</p>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-default-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-default-dark.png",
+    );
   });
 
   test("no-title-light", async ({ page }) => {
@@ -49,14 +53,16 @@ test.describe("PktsFormSection Web Component", () => {
             <p>Form content without title</p>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-no-title-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-no-title-light.png",
+    );
   });
 
   test("no-column-layout-light", async ({ page }) => {
@@ -68,14 +74,16 @@ test.describe("PktsFormSection Web Component", () => {
             <p>Form content with no column layout</p>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-no-column-layout-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-no-column-layout-light.png",
+    );
   });
 
   test("with-content-light", async ({ page }) => {
@@ -90,14 +98,16 @@ test.describe("PktsFormSection Web Component", () => {
             </div>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-with-content-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-with-content-light.png",
+    );
   });
 
   test("with-content-dark", async ({ page }) => {
@@ -112,13 +122,15 @@ test.describe("PktsFormSection Web Component", () => {
             </div>
           </pkts-form-section>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-form-section");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsFormSection-with-content-dark.png");
+    await expect(container).toHaveScreenshot(
+      "PktsFormSection-with-content-dark.png",
+    );
   });
 });

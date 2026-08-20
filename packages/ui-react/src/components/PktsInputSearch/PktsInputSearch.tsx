@@ -1,6 +1,5 @@
 import React, { useCallback, useState, useMemo } from "react";
 
-import styles from "./PktsInputSearch.module.css";
 import { PktsInputSearchProps } from "./PktsInputSearch.types";
 import PktsInputText from "../PktsInputText";
 import { Search, X } from "lucide-react";

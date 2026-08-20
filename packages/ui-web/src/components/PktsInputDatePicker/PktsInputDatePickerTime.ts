@@ -45,7 +45,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
   attributeChangedCallback(
     name: string,
     oldVal: string | null,
-    newVal: string | null
+    newVal: string | null,
   ) {
     if (oldVal !== newVal) {
       this.render();
@@ -118,7 +118,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
       new CustomEvent("change", {
         detail: { value: updateDate },
         bubbles: true,
-      })
+      }),
     );
   }
 
@@ -132,7 +132,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
     label: string,
     precision: TimePrecision | "meridiem",
     values: string[],
-    currentValue: string
+    currentValue: string,
   ): string {
     const buttons = values
       .map(
@@ -143,7 +143,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
         >
           ${v}
         </button>
-      `
+      `,
       )
       .join("");
 
@@ -179,7 +179,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
               "hour",
               hourSetting.min,
               formatSetting === "12-hour" ? hourSetting.max : 23,
-              hourSetting.step
+              hourSetting.step,
             );
 
       const hourValue = this.value
@@ -200,7 +200,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
               "minute",
               minuteSetting.min,
               minuteSetting.max,
-              minuteSetting.step
+              minuteSetting.step,
             );
 
       const minuteValue = String(this.value?.getMinutes() ?? "");
@@ -216,7 +216,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
               "second",
               secondSetting.min,
               secondSetting.max,
-              secondSetting.step
+              secondSetting.step,
             );
 
       const secondValue = String(this.value?.getSeconds() ?? "");
@@ -227,7 +227,7 @@ export class PktsInputDatePickerTime extends HTMLElement {
     if (formatSetting === "12-hour") {
       const merValue = this.value ? getMeridiem(this.value) : "";
       wheels.push(
-        this._renderTimeWheel("Mer", "meridiem", ["AM", "PM"], merValue)
+        this._renderTimeWheel("Mer", "meridiem", ["AM", "PM"], merValue),
       );
     }
 

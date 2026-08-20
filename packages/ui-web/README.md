@@ -5,12 +5,10 @@ Framework-agnostic Web Components for the [Packets Design System](https://github
 ## Installation
 
 ```bash
-npm install @esnet/packets-ui-css@beta @esnet/packets-ui-web@beta
+npm install @esnet/packets-ui-css @esnet/packets-ui-web
 ```
 
 Packets ships styles separately. You must install `@esnet/packets-ui-css` alongside the Web Components package.
-
-Once 2.x reaches a stable release, drop the `@beta` tag.
 
 ### Peer dependencies
 
@@ -36,8 +34,8 @@ Add this to your `<head>`:
 ### 2. Import the styles and components
 
 ```js
-import '@esnet/packets-ui-css/styles.css';
-import '@esnet/packets-ui-web';
+import "@esnet/packets-ui-css/styles.css";
+import "@esnet/packets-ui-web";
 ```
 
 ### 3. Add the root class
@@ -45,13 +43,13 @@ import '@esnet/packets-ui-web';
 Add the `packets` class to your app's root element:
 
 ```html
-<body class="packets">
+<body class="packets"></body>
 ```
 
 Optionally add `dark` or `light`:
 
 ```html
-<body class="packets dark">
+<body class="packets dark"></body>
 ```
 
 ## Usage
@@ -67,12 +65,12 @@ Web Components work in any HTML environment or JavaScript framework:
 Or in JavaScript:
 
 ```js
-import '@esnet/packets-ui-css/styles.css';
-import '@esnet/packets-ui-web';
+import "@esnet/packets-ui-css/styles.css";
+import "@esnet/packets-ui-web";
 
-const button = document.createElement('pkts-button');
-button.setAttribute('variant', 'primary');
-button.textContent = 'Save';
+const button = document.createElement("pkts-button");
+button.setAttribute("variant", "primary");
+button.textContent = "Save";
 document.body.appendChild(button);
 ```
 
@@ -132,15 +130,15 @@ document.body.appendChild(button);
 Toggle dark mode by adding or removing the `dark` class on the root element:
 
 ```js
-document.body.classList.toggle('dark');
+document.body.classList.toggle("dark");
 ```
 
 ## Related Packages
 
-| Package | Description |
-|---|---|
-| [`@esnet/packets-ui-css`](https://www.npmjs.com/package/@esnet/packets-ui-css) | CSS-only components, no framework required |
-| [`@esnet/packets-ui-react`](https://www.npmjs.com/package/@esnet/packets-ui-react) | React components |
+| Package                                                                            | Description                                |
+| ---------------------------------------------------------------------------------- | ------------------------------------------ |
+| [`@esnet/packets-ui-css`](https://www.npmjs.com/package/@esnet/packets-ui-css)     | CSS-only components, no framework required |
+| [`@esnet/packets-ui-react`](https://www.npmjs.com/package/@esnet/packets-ui-react) | React components                           |
 
 ## License
 

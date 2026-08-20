@@ -1,25 +1,25 @@
-import type { Meta, StoryObj} from '@storybook/web-components';
+import type { Meta, StoryObj } from "@storybook/web-components";
 import { PktsInputSwitch } from "@esnet/packets-ui-web";
 
 const meta: Meta<typeof PktsInputSwitch> = {
-    title: 'Components/PktsInputSwitch',
-    component: PktsInputSwitch.tagName,
-    tags: ['autodocs'],
-    argTypes: {
-        variant: {
-            control: { type: "radio" },
-            options: ["primary", "secondary"],
-            defaultValue: "default",
-        },
-        hideIcon: {
-            control: { type: "boolean" },
-            defaultValue: false,
-        },
-        disabled: {
-            control: { type: "boolean" },
-            defaultValue: false,
-        },
+  title: "Components/PktsInputSwitch",
+  component: PktsInputSwitch.tagName,
+  tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "radio" },
+      options: ["primary", "secondary"],
+      defaultValue: "default",
     },
+    hideIcon: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+  },
 };
 
 export default meta;
@@ -47,4 +47,3 @@ export const SwitchInitiallyCheckedAndDisabled: Story = {
     defaultChecked: true,
   },
 };
-

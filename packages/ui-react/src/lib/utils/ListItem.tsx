@@ -77,7 +77,7 @@ export type RenderListItemType = (
   // eslint-disable-next-line no-unused-vars
   item: ListItemBaseProps,
   // eslint-disable-next-line no-unused-vars
-  key: React.Key
+  key: React.Key,
 ) => React.ReactNode;
 
 /**

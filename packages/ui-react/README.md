@@ -5,12 +5,10 @@ React components for the [Packets Design System](https://github.com/esnet/packet
 ## Installation
 
 ```bash
-npm install @esnet/packets-ui-css@beta @esnet/packets-ui-react@beta
+npm install @esnet/packets-ui-css @esnet/packets-ui-react
 ```
 
 Packets ships styles separately. You must install `@esnet/packets-ui-css` alongside the React package.
-
-Once 2.x reaches a stable release, drop the `@beta` tag.
 
 ### Peer dependencies
 
@@ -36,7 +34,7 @@ Add this to your `<head>`:
 ### 2. Import the styles
 
 ```js
-import '@esnet/packets-ui-css/styles.css';
+import "@esnet/packets-ui-css/styles.css";
 ```
 
 ### 3. Add the root class
@@ -44,19 +42,19 @@ import '@esnet/packets-ui-css/styles.css';
 Add the `packets` class to your app's root element:
 
 ```html
-<body class="packets">
+<body class="packets"></body>
 ```
 
 Optionally add `dark` or `light`:
 
 ```html
-<body class="packets dark">
+<body class="packets dark"></body>
 ```
 
 ## Usage
 
 ```jsx
-import { PktsButton, PktsAlert, PktsAvatar } from '@esnet/packets-ui-react';
+import { PktsButton, PktsAlert, PktsAvatar } from "@esnet/packets-ui-react";
 
 function App() {
   return (
@@ -137,15 +135,15 @@ function App() {
 Toggle dark mode by adding or removing the `dark` class on the root element:
 
 ```js
-document.body.classList.toggle('dark');
+document.body.classList.toggle("dark");
 ```
 
 ## Related Packages
 
-| Package | Description |
-|---|---|
+| Package                                                                        | Description                                |
+| ------------------------------------------------------------------------------ | ------------------------------------------ |
 | [`@esnet/packets-ui-css`](https://www.npmjs.com/package/@esnet/packets-ui-css) | CSS-only components, no framework required |
-| [`@esnet/packets-ui-web`](https://www.npmjs.com/package/@esnet/packets-ui-web) | Web Components, framework-agnostic |
+| [`@esnet/packets-ui-web`](https://www.npmjs.com/package/@esnet/packets-ui-web) | Web Components, framework-agnostic         |
 
 ## License
 

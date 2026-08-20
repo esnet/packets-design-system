@@ -13,7 +13,7 @@ export { PktsInputText } from "./PktsInputText";
 export { PktsInputNumber } from "./PktsInputNumber";
 export { PktsInputEmail } from "./PktsInputEmail";
 export { PktsInputPassword } from "./PktsInputPassword";
-export { PktsIcon} from "./PktsIcon";
+export { PktsIcon } from "./PktsIcon";
 export { PktsInputSwitch } from "./PktsInputSwitch";
 export { PktsInputSearch } from "./PktsInputSearch";
 export { PktsInputCheckbox } from "./PktsInputCheckbox";
@@ -37,4 +37,3 @@ export { PktsInputDatePicker } from "./PktsInputDatePicker/PktsInputDatePicker";
 export { PktsInputDate } from "./PktsInputDate/PktsInputDate";
 export { PktsInputDateRange } from "./PktsInputDateRange/PktsInputDateRange";
 export { PktsDataTable } from "./PktsDataTable/PktsDataTable";
-

@@ -60,7 +60,12 @@ export const ErrorClearsOnChange: Story = {
       setValue(event.target.value);
     };
     return (
-      <PktsInputText {...args} value={value} onChange={onChange} error={error} />
+      <PktsInputText
+        {...args}
+        value={value}
+        onChange={onChange}
+        error={error}
+      />
     );
   },
   args: {

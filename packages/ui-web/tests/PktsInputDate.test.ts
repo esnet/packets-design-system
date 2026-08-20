@@ -9,7 +9,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date type="date" value="2025-09-15T00:00:00.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -30,7 +30,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date type="date" value="2025-09-15T00:00:00.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -51,7 +51,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date type="time" value="2025-09-15T14:30:45.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -72,7 +72,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 600px; height: 400px;">
           <pkts-input-date type="datetime" value="2025-09-15T14:30:45.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -83,7 +83,9 @@ test.describe("PktsInputDate Web Component", () => {
     await page.waitForTimeout(300);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDate-datetime-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDate-datetime-light.png",
+    );
   });
 
   test("branded-light", async ({ page }) => {
@@ -93,7 +95,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px; height: 400px;">
           <pkts-input-date type="date" variant="branded" value="2025-09-15T00:00:00.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -114,7 +116,7 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px;">
           <pkts-input-date type="date" error></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
@@ -131,13 +133,15 @@ test.describe("PktsInputDate Web Component", () => {
         <div id="container" style="width: 400px;">
           <pkts-input-date type="date" disabled value="2025-09-15T00:00:00.000Z"></pkts-input-date>
         </div>
-      `
+      `,
     );
     await page.setContent(html);
     await page.waitForSelector("pkts-input-date");
     await page.waitForTimeout(100);
 
     const container = page.locator("#container");
-    await expect(container).toHaveScreenshot("PktsInputDate-disabled-light.png");
+    await expect(container).toHaveScreenshot(
+      "PktsInputDate-disabled-light.png",
+    );
   });
 });

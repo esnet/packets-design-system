@@ -2,10 +2,8 @@ import { ComponentPropsWithoutRef } from "react";
 
 type SupportedCodeLanguages = "python" | "javascript" | "typescript";
 
-export interface PktsCodeBlockProps extends Omit<
-  ComponentPropsWithoutRef<"pre">,
-  "children"
-> {
+export interface PktsCodeBlockProps
+  extends Omit<ComponentPropsWithoutRef<"pre">, "children"> {
   /** Text to be shown as code.  Recommended to use a Javascript raw string rather than a regular string. */
   children: string;
   /** Code language, shown as a chip above the code. */
