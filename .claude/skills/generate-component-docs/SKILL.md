@@ -24,13 +24,13 @@ Steps are ordered to match the document sections they fill.
 4. **Availability versions** — read `version` field from `packages/ui-react/package.json`, `packages/ui-web/package.json`, `packages/ui-css/package.json`.
 5. **Design Tokens** — extract and sort alphabetically:
    ```
-   grep -oP "var\(--pkts-[a-z0-9\-]+" packages/ui-css/src/components/<kebab>.css | sort -u
+   grep -oE "var\(--pkts-[a-z0-9-]+" packages/ui-css/src/components/<kebab>.css | sort -u
    ```
    Note: multi-line `var(` calls won't be captured — visually scan the CSS for any missed tokens.
 
 ## Output
 
-Write the completed documentation to `apps/host-docs/src/<kebab>.mdx` (e.g. `apps/host-docs/src/input-text.mdx`).
+Write the completed documentation to `apps/host-docs/src/components/<kebab>.mdx` (e.g. `apps/host-docs/src/components/input-text.mdx`).
 
 The file must be clean MDX: a `<Meta>` import + tag at the top, then pure markdown at zero indentation. Do NOT wrap content in `<div>` blocks — 4-space indentation inside JSX breaks GFM list and heading parsing.
 

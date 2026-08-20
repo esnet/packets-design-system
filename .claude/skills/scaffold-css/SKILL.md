@@ -93,6 +93,15 @@ All color tokens must include a raw hex fallback. All spacing tokens must includ
 .pkts-<kebab>.pkts-error {
   border-color: var(--pkts-color-core-red-600, #c00000);
 }
+
+/* Dark mode overrides — use dark alias tokens for any color that changes in dark mode */
+.dark .pkts-<kebab> {
+  background: var(--pkts-color-dark-surface-1, #19191a);
+  color: var(--pkts-color-dark-copy, #ffffff);
+}
+
+/* Dark mode variant overrides — add if variants have different dark colors */
+/* .dark .pkts-<kebab>.pkts-branded { ... } */
 ```
 
 Adapt the template:
@@ -127,3 +136,4 @@ List all files created and modified. Remind the contributor to:
 - No raw px spacing values that are not multiples of 4.
 - The import in `index.css` must be inserted in reverse-alphabetical order, not appended.
 - Remove boilerplate sections that do not apply to the specific component.
+- Always include the `.dark .pkts-<kebab>` block. Dark mode is required for all components that use background or text color tokens. Remove only if the component genuinely has no color differences in dark mode (rare).
