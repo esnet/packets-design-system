@@ -1,6 +1,6 @@
 ---
 name: pkts-find
-description: Find the right Packets Design System component for a given need. Use when the user describes what they want to build or display and is unsure which component to use. Trigger phrases: "what component should I use for", "which Packets component", "I need a Packets component that", "help me find a Packets component", "is there a Packets component for", "what's the best component for", "which components are missing from the design system", "find missing components".
+description: Find the right Packets Design System component for a given need. Use when the user describes what they want to build or display and is unsure which component to use. Trigger phrases: "what component should I use for", "which Packets component", "I need a Packets component that", "help me find a Packets component", "is there a Packets component for", "what's the best component for". Do not trigger for parity gap questions like "which components are missing from Web" or "find missing components" — those are handled by component-audit.
 metadata:
   author: ESnet
   category: discovery

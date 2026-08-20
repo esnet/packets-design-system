@@ -62,7 +62,15 @@ Check each item. Report every failure with: severity, line (if known), issue, cu
 - [ ] All `border-radius` values use `var(--pkts-size-radius-*)` with a fallback
 
 #### Border width
-- [ ] All `border-width` or `border` shorthand pixel widths use `var(--pkts-size-border-width-*)` with a fallback where a token exists
+
+Available border-width tokens:
+
+| Token | Value |
+|---|---|
+| `--pkts-size-border-width-small` | 0.125rem (2px) |
+| `--pkts-size-border-width-medium` | 0.25rem (4px) |
+
+- [ ] All `border-width` or `border` shorthand pixel widths of 2px or 4px use the corresponding `var(--pkts-size-border-width-*)` token with a rem fallback. Other pixel widths (e.g. 1px hairlines) may be left as raw values.
 
 #### Typography
 - [ ] All font shorthand values use `var(--pkts-typography-*)` with a raw font shorthand fallback (e.g. `var(--pkts-typography-body-1-sans-font, 400 16px/140% sans-serif)`)

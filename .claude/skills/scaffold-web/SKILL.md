@@ -124,6 +124,8 @@ export { <Name> } from "./<Name>";
 ```
 
 **`apps/web-docs/src/<Name>.stories.ts`**
+
+If the component has variants:
 ```ts
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { <Name> } from "@esnet/packets-ui-web";
@@ -154,6 +156,29 @@ export const Default: Story = {
 export const Branded: Story = {
   args: { variant: "branded" },
 };
+```
+
+If the component has no variants:
+```ts
+import type { Meta, StoryObj } from "@storybook/web-components";
+import { <Name> } from "@esnet/packets-ui-web";
+
+const meta: Meta<typeof <Name>> = {
+  title: "Components/<Name>",
+  component: <Name>.tagName,
+  tags: ["autodocs"],
+  argTypes: {
+    disabled: {
+      control: { type: "boolean" },
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof <Name>>;
+
+export const Default: Story = {};
 ```
 
 ### Step 4: Update the barrel file

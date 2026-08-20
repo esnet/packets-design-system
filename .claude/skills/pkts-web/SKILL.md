@@ -21,13 +21,13 @@ If the user described a need, read `.claude/skills/pkts-find/references/componen
 
 ### Step 2: Read the component source
 
-First read `packages/ui-web/src/components/index.ts` to find the correct export path for the component (some components live in subdirectories). Then read:
+Read `packages/ui-web/src/components/index.ts` to find the correct export path for the component and confirm the exported symbol name — some class names inside a file differ from the barrel export (e.g. `PktsAvatarElement` is exported as `PktsAvatar`). Use the exported name in all examples. Some components live in subdirectories; the barrel is the authoritative path.
+
+Then read:
 - The component `.ts` file at the resolved path
 - `<Name>.types.ts` only if it exists in the same folder — if absent, derive attributes from `observedAttributes` and getter/setter pairs in the `.ts` file
 
 For components exported from subdirectories (e.g. PktsInputDatePicker is split across multiple files), read all `.ts` files in that folder that contain a `customElements.define` call, and generate separate usage blocks for each registered element.
-
-Also read `packages/ui-web/src/components/index.ts` to confirm the exported symbol name — some class names inside the file differ from the exported name (e.g. `PktsAvatarElement` is exported as `PktsAvatar`). Use the exported name in all examples.
 
 If the component does not exist in Web Components (check CLAUDE.md platform parity), say so clearly and suggest `/pkts-react` or `/pkts-css` as appropriate.
 
