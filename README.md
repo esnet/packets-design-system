@@ -108,7 +108,7 @@ Packets uses Playwright to execute visual regression tests to ensure that compon
 
 # Claude Code Skills
 
-Packets ships a set of Claude Code skills to help both consumers and contributors work more effectively with the design system. Skills are invoked with a `/skill-name` slash command inside Claude Code.
+Packets ships a set of AI coding skills to help both consumers and contributors work more effectively with the design system. Skills follow the MCP Skills standard and work across all major AI coding clients: Claude Code, Cursor, Windsurf, and any other MCP-compatible client. Invoke a skill with a `/skill-name` slash command.
 
 ## Consumer skills (for developers using Packets in their apps)
 
@@ -122,9 +122,9 @@ Packets ships a set of Claude Code skills to help both consumers and contributor
 **How to get the skills:**
 
 1. Copy the `.claude/` directory from this repo into your project root.
-2. Open Claude Code in your project. The skills will be available immediately.
+2. Open your AI coding client (Claude Code, Cursor, Windsurf, or any MCP-compatible client). The skills will be available immediately.
 
-Skills are forward-compatible with the [MCP Skills standard](https://modelcontextprotocol.io/community/working-groups/skills-over-mcp) and will work across any MCP-compatible AI client once that spec ships.
+Skills follow the [MCP Skills standard](https://modelcontextprotocol.io/community/working-groups/skills-over-mcp) and work across all major AI coding clients — Claude Code, Cursor, Windsurf, and any other MCP-compatible client.
 
 ## Contributor skills (for Packets team members)
 
