@@ -25,6 +25,7 @@ export { default as PktsInputDate } from "./PktsInputDate";
 export { default as PktsInputDatePicker } from "./PktsInputDatePicker";
 export { default as PktsInputDateRange } from "./PktsInputDateRange";
 export { default as PktsInputEmail } from "./PktsInputEmail";
+export { default as PktsInputFile } from "./PktsInputFile";
 export { default as PktsLabel } from "./PktsLabel";
 export { default as PktsInputNumber } from "./PktsInputNumber";
 export { default as PktsInputOption } from "./PktsInputOption";
