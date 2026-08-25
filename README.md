@@ -108,6 +108,42 @@ Packets uses Playwright to execute visual regression tests to ensure that compon
 `make screenshots-test-web` - Run Web Component tests only
 `make screenshots-test-css` - Run CSS-only tests only
 
+
+# AI Coding Skills
+
+Packets ships a set of AI coding skills to help both consumers and contributors work more effectively with the design system. Skills use the standard `SKILL.md` format and work in Claude Code, Cursor, and Windsurf. Invoke a skill with a `/skill-name` slash command.
+
+## Consumer skills (for developers using Packets in their apps)
+
+| Skill | Description |
+|---|---|
+| `/pkts-find` | Describe what you need and get the right component recommended |
+| `/pkts-react` | Get correct React import and usage code for any component |
+| `/pkts-web` | Get correct Web Component HTML and JS usage for any component |
+| `/pkts-css` | Get correct CSS class names and HTML markup for any component |
+
+**How to get the skills:**
+
+1. Copy the `.claude/skills/` directory from this repo into your project root.
+2. If you use Cursor, rename the folder to `.cursor/skills/`. If you use Windsurf, rename it to `.windsurf/skills/`. No other changes needed: the skill files are identical across all clients.
+3. Open your AI coding client. The skills will be available immediately.
+
+## Contributor skills (for Packets team members)
+
+| Skill | Description |
+|---|---|
+| `/scaffold-react` | Generate all boilerplate for a new React component |
+| `/scaffold-web` | Generate all boilerplate for a new Web Component |
+| `/scaffold-css` | Generate the CSS file and register it in the import list |
+| `/review-react` | Check a React component against Packets conventions |
+| `/review-web` | Check a Web Component against Packets conventions |
+| `/review-css` | Check a CSS file for token usage and naming conventions |
+| `/component-audit` | Cross-platform parity report: what is missing where |
+| `/generate-component-docs` | Generate an MDX documentation page for a component |
+| `/set-alias-colors` | Update alias color tokens and rebuild CSS for rebranding or theming |
+
+These skills live in `.claude/skills/` and are available automatically when working inside this repo.
+
 # Development
 
 To add a new component:
