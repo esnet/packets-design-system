@@ -10,7 +10,7 @@ Published packages are available publicly on [npmjs.com](https://www.npmjs.com/)
 - `@esnet/packets-ui-web`
 - `@esnet/packets-ui-css`
 
-`@esnet/esnet-tokens` is an internal package marked private and is not published.
+`@esnet/pkts-tokens` is an internal package marked private and is not published.
 
 ## Infrastructure Overview
 
