@@ -18,6 +18,7 @@
         "value": "{color.core.black.300.value}"
       },
       "background": {
+        "type": "color",
         "value": "{color.core.black.800.value}"
       },
       "surface-1": {
