@@ -1,5 +1,12 @@
 ![Packets Design System](apps/react-docs/public/imgs/packetslogo.neutral.png "Packets Design System")
 
+[![Website](https://img.shields.io/badge/Website-packets.es.net-29ABE2?style=flat-square)](https://packets.es.net)
+[![Storybook](https://img.shields.io/badge/Storybook-Live%20Docs-FF4785?style=flat-square&logo=storybook&logoColor=white)](https://packets.es.net)
+[![npm React](https://img.shields.io/badge/npm-packets--ui--react-CB3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/@esnet/packets-ui-react)
+[![npm Web](https://img.shields.io/badge/npm-packets--ui--web-CB3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/@esnet/packets-ui-web)
+[![npm CSS](https://img.shields.io/badge/npm-packets--ui--css-CB3837?style=flat-square&logo=npm)](https://www.npmjs.com/package/@esnet/packets-ui-css)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE.txt)
+
 Packets Design System (Packets) Copyright (c) 2026, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy). All rights reserved.
 
 If you have questions about your rights to use or distribute this software,
