@@ -12,6 +12,7 @@
   - `/pkts-react` - Get correct React usage code and props
   - `/pkts-web` - Get correct Web Component usage code
   - `/pkts-css` - Get correct CSS classes and markup
+  - `/set-alias-colors` - Customize colors for your app by updating alias tokens
 
   **Contributor skills** (for Packets team members):
 
@@ -19,7 +20,6 @@
   - `/review-react`, `/review-web`, `/review-css` - Check code against Packets conventions
   - `/generate-component-docs` - Auto-generate documentation pages
   - `/component-audit` - Find parity gaps across platforms
-  - `/set-alias-colors` - Rebrand Packets by updating color tokens
 
   All skills read from actual source files (no hallucination), work in Claude Code, Cursor, and Windsurf, and ship in `.claude/skills/`.
 

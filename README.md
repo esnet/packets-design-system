@@ -131,6 +131,7 @@ Packets ships a set of AI coding skills to help both consumers and contributors 
 | `/pkts-react` | Get correct React import and usage code for any component |
 | `/pkts-web` | Get correct Web Component HTML and JS usage for any component |
 | `/pkts-css` | Get correct CSS class names and HTML markup for any component |
+| `/set-alias-colors` | Customize Packets colors for your app by updating alias tokens and rebuilding CSS |
 
 **How to get the skills:**
 
@@ -150,7 +151,6 @@ Packets ships a set of AI coding skills to help both consumers and contributors 
 | `/review-css` | Check a CSS file for token usage and naming conventions |
 | `/component-audit` | Cross-platform parity report: what is missing where |
 | `/generate-component-docs` | Generate an MDX documentation page for a component |
-| `/set-alias-colors` | Update alias color tokens and rebuild CSS for rebranding or theming |
 
 These skills live in `.claude/skills/` and are available automatically when working inside this repo.
 
