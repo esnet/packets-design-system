@@ -25,13 +25,13 @@ const preview: Preview = {
       dark: {
         ...themes.dark,
         brandTitle: "Packets Design System",
-        brandImage: "/imgs/packetslogo.light-color.png",
+        brandImage: "/imgs/packetslogo.dark-color.png",
         brandTarget: "/?path=/docs/getting-started--docs",
       },
       light: {
         ...themes.normal,
         brandTitle: "Packets Design System",
-        brandImage: "/imgs/packetslogo.dark-color.png",
+        brandImage: "/imgs/packetslogo.light-color.png",
         brandTarget: "/?path=/docs/getting-started--docs",
       },
     },
