@@ -1,4 +1,7 @@
-![Packets Design System](apps/react-docs/public/imgs/packetslogo.dark-color.png "Packets Design System")
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="apps/react-docs/public/imgs/packetslogo.light-color.png">
+  <img alt="Packets Design System" src="apps/react-docs/public/imgs/packetslogo.dark-color.png" width="380">
+</picture>
 
 [![Website](https://img.shields.io/badge/Website-packets.es.net-29ABE2?style=flat-square)](https://packets.es.net)
 [![Storybook](https://img.shields.io/badge/Storybook-Live%20Docs-FF4785?style=flat-square&logo=storybook&logoColor=white)](https://packets.es.net)
