@@ -3,7 +3,8 @@ name: set-alias-colors
 description: Set or replace Packets Design System alias color tokens. Use when someone says "set the primary color to", "change the background color to", "replace Packets colors with my brand colors", "update alias tokens", "set accent color to", "customize Packets theme colors". Accepts any color format (hex, RGB, HSL, CSS named colors) and maps them to the correct token source files. Do not trigger for questions about CSS custom property overrides at the application level.
 metadata:
   author: ESnet
-  category: development
+  category: consumer
+  audience: Developers using Packets in their apps who want to customize colors for rebranding or theming
   tags: [packets, design-system, tokens, colors, theming, branding]
 ---
 
