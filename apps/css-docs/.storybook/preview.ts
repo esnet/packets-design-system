@@ -38,14 +38,14 @@ const preview: Preview = {
       dark: {
         ...themes.dark,
         brandTitle: "Packets Design System - CSS",
-        brandImage: "/imgs/packetslogo.dark.png",
+        brandImage: "/imgs/packetslogo.light-color.png",
         brandTarget: "/?path=/docs/getting-started--docs",
       },
       // Override the default light theme
       light: {
         ...themes.normal,
         brandTitle: "Packets Design System - CSS",
-        brandImage: "/imgs/packetslogo.light.png",
+        brandImage: "/imgs/packetslogo.dark-color.png",
         brandTarget: "/?path=/docs/getting-started--docs",
       },
     },
