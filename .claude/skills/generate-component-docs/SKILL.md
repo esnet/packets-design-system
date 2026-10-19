@@ -1,6 +1,11 @@
 ---
 name: generate-component-docs
 description: Use when generating documentation for a Packets Design System UI component, to produce a complete design + code doc page matching the standard section format.
+metadata:
+  author: ESnet
+  category: contributor
+  audience: Packets Design System team members documenting new or updated components
+  tags: [packets, design-system, documentation, components]
 ---
 
 # Generate Component Docs

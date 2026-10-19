@@ -3,7 +3,7 @@ name: scaffold-react
 description: Scaffold a new React component for the Packets Design System. Use when a contributor wants to create a new React component, "create a new React component", "scaffold a React component", "scaffold PktsXxx in React", "add a new React component to Packets", "generate React component boilerplate". Requires a component name in PascalCase starting with Pkts.
 metadata:
   author: ESnet
-  category: development
+  category: contributor
   tags: [packets, design-system, react, scaffold, boilerplate]
 ---
 

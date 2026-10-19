@@ -3,7 +3,7 @@ name: pkts-web
 description: Generate correct Web Component usage code for a Packets Design System component. Use when user asks how to use a Packets component as a Web Component or custom element, in vanilla HTML/JS, without a framework, or asks "how do I use pkts-button", "Web Component usage for", "custom element example", "Packets in plain HTML", "vanilla JS usage", "use Packets in a non-framework project", "use Packets without React". Also triggers when user describes a need and specifies no framework or vanilla JS context.
 metadata:
   author: ESnet
-  category: usage
+  category: consumer
   tags: [packets, design-system, web-components, usage]
 ---
 

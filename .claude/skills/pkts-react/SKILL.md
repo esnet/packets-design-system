@@ -3,7 +3,7 @@ name: pkts-react
 description: Generate correct React usage code for a Packets Design System component. Use when user asks how to use a Packets component in React, wants an import statement, needs prop examples, or asks "how do I use PktsButton in React", "show me PktsInputText props", "Packets React usage for", "how to implement a Packets component", "Packets React example for". Also triggers when user describes a need in a React context like "I need a file upload in React" and no component has been identified yet. Do not trigger for generic React questions unrelated to Packets.
 metadata:
   author: ESnet
-  category: usage
+  category: consumer
   tags: [packets, design-system, react, usage]
 ---
 

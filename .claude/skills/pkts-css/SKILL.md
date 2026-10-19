@@ -3,7 +3,7 @@ name: pkts-css
 description: Generate correct CSS class and HTML markup usage for a Packets Design System component. Use when user asks how to use Packets with plain CSS or HTML class names, "CSS usage for a Packets component", "HTML markup for a pkts- component", "what class names does", "Packets CSS classes", "how to style with Packets CSS without React", "Packets in a Django template", "Packets in static HTML", "Packets CSS only". Do not trigger for generic CSS questions unrelated to Packets.
 metadata:
   author: ESnet
-  category: usage
+  category: consumer
   tags: [packets, design-system, css, usage]
 ---
 
