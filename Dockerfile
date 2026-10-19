@@ -12,6 +12,9 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 FROM base AS build
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
+ENV STORYBOOK_DISABLE_TELEMETRY=1
+ENV CI=true
+
 # Build all packages first
 RUN pnpm run build
 
