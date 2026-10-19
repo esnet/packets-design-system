@@ -3,7 +3,7 @@ name: scaffold-web
 description: Scaffold a new Web Component for the Packets Design System. Use when a contributor wants to create a new Web Component or custom element, "scaffold a Web Component", "scaffold a Packets Web Component", "add a new custom element to Packets", "create a new web component", "new web component", "create PktsXxx Web Component". Requires a component name in PascalCase starting with Pkts.
 metadata:
   author: ESnet
-  category: development
+  category: contributor
   tags: [packets, design-system, web-components, scaffold, boilerplate]
 ---
 

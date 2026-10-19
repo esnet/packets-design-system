@@ -3,7 +3,7 @@ name: review-react
 description: Review a Packets Design System React component against project conventions and quality standards. Use when contributor asks to review a React component, "does this React component follow Packets standards", "review my React component", "check this .tsx component", "review my React component for a pull request", or when preparing a React component for a pull request.
 metadata:
   author: ESnet
-  category: review
+  category: contributor
   tags: [packets, design-system, react, review, conventions]
 ---
 

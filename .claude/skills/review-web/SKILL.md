@@ -3,7 +3,7 @@ name: review-web
 description: Review a Packets Design System Web Component against project conventions and quality standards. Use when contributor asks to review a Packets Web Component, "check this Packets Web Component", "does this follow Packets Web Component patterns", "review my pkts- custom element", or when preparing a Web Component for a pull request.
 metadata:
   author: ESnet
-  category: review
+  category: contributor
   tags: [packets, design-system, web-components, review, conventions]
 ---
 

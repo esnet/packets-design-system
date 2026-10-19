@@ -3,7 +3,7 @@ name: component-audit
 description: Audit the Packets Design System for component parity gaps, missing stories, and missing documentation pages. Use when contributor asks for a parity report, "what components are missing from Web", "which components have no docs", "audit Packets components", "find gaps between platforms", "which components are missing from the design system", "find missing components in the design system".
 metadata:
   author: ESnet
-  category: maintenance
+  category: contributor
   tags: [packets, design-system, audit, parity, maintenance]
 ---
 

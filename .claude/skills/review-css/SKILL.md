@@ -3,7 +3,7 @@ name: review-css
 description: Review a Packets Design System CSS component file against project conventions. Use when contributor asks to review a Packets CSS file, "check my Packets CSS", "does this Packets CSS follow conventions", "review Packets component styles", "check token usage in ui-css", or when preparing a CSS component for a pull request.
 metadata:
   author: ESnet
-  category: review
+  category: contributor
   tags: [packets, design-system, css, review, conventions, tokens]
 ---
 

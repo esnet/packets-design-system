@@ -3,7 +3,7 @@ name: scaffold-css
 description: Scaffold a new CSS component file for the Packets Design System. Use when a contributor wants to create CSS styles for a new Packets component, "create CSS for a Packets component", "scaffold a pkts- CSS component", "scaffold CSS component", "add styles for a new Packets component", "new CSS component file". Requires a component name or kebab-case filename.
 metadata:
   author: ESnet
-  category: development
+  category: contributor
   tags: [packets, design-system, css, scaffold, boilerplate]
 ---
 
