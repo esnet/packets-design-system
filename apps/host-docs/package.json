@@ -1,12 +1,12 @@
 {
-    "name": "host-docs",
-    "version": "1.0.0",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "storybook dev -p 6008",
-        "build": "storybook build"
-    },
+  "name": "host-docs",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6008",
+    "build": "storybook build"
+  },
   "dependencies": {
     "@esnet/pkts-tokens": "workspace:*",
     "@rive-app/react-canvas-lite": "^4.20.1",

@@ -1,5 +1,14 @@
 # css-docs
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [202fee8]
+- Updated dependencies [d86f22c]
+  - @esnet/packets-ui-css@3.0.0
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,40 @@
 # @esnet/packets-ui-css
 
+## 3.0.0
+
+### Major Changes
+
+- d86f22c: Remove LBNL/Berkeley Lab Design System (BLDS) color tokens from the public package.
+
+  The 14 `--pkts-color-blds-*` CSS custom properties are no longer included in the published stylesheet. These properties mapped the Berkeley Lab Design System palette (dark-blue, teal, cloud, etc.) and were not referenced by any Packets component internally.
+
+  If your application referenced these variables directly, replace them with values from your own design system or from the LBNL BLDS package.
+
+### Minor Changes
+
+- Add 13 Claude Code skills for building with Packets Design System.
+
+  **Consumer skills** (for developers using Packets):
+
+  - `/pkts-find` - Find the right component by description
+  - `/pkts-react` - Get correct React usage code and props
+  - `/pkts-web` - Get correct Web Component usage code
+  - `/pkts-css` - Get correct CSS classes and markup
+
+  **Contributor skills** (for Packets team members):
+
+  - `/scaffold-react`, `/scaffold-web`, `/scaffold-css` - Generate component boilerplate
+  - `/review-react`, `/review-web`, `/review-css` - Check code against Packets conventions
+  - `/generate-component-docs` - Auto-generate documentation pages
+  - `/component-audit` - Find parity gaps across platforms
+  - `/set-alias-colors` - Rebrand Packets by updating color tokens
+
+  All skills read from actual source files (no hallucination), work in Claude Code, Cursor, and Windsurf, and ship in `.claude/skills/`.
+
+### Patch Changes
+
+- 202fee8: Fix missing `"type": "color"` field on dark mode background token in design-tokens source. Without this field, Style Dictionary skips the token during build, causing the dark background CSS custom property to be absent from the compiled output.
+
 ## 2.0.2
 
 ### Patch Changes

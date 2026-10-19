@@ -1,5 +1,35 @@
 # @esnet/packets-ui-react
 
+## 2.1.0
+
+### Minor Changes
+
+- Add 13 Claude Code skills for building with Packets Design System.
+
+  **Consumer skills** (for developers using Packets):
+
+  - `/pkts-find` - Find the right component by description
+  - `/pkts-react` - Get correct React usage code and props
+  - `/pkts-web` - Get correct Web Component usage code
+  - `/pkts-css` - Get correct CSS classes and markup
+
+  **Contributor skills** (for Packets team members):
+
+  - `/scaffold-react`, `/scaffold-web`, `/scaffold-css` - Generate component boilerplate
+  - `/review-react`, `/review-web`, `/review-css` - Check code against Packets conventions
+  - `/generate-component-docs` - Auto-generate documentation pages
+  - `/component-audit` - Find parity gaps across platforms
+  - `/set-alias-colors` - Rebrand Packets by updating color tokens
+
+  All skills read from actual source files (no hallucination), work in Claude Code, Cursor, and Windsurf, and ship in `.claude/skills/`.
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [202fee8]
+- Updated dependencies [d86f22c]
+  - @esnet/packets-ui-css@3.0.0
+
 ## 2.0.2
 
 ### Patch Changes
