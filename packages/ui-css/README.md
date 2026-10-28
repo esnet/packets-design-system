@@ -106,7 +106,7 @@ All components use composable class names with the `pkts-` prefix. Combine a bas
 ### Display
 
 - `pkts-alert`: variants `pkts-error`, `pkts-warning`, `pkts-success`, `pkts-info`
-- `pkts-avatar`: sizes `pkts-small`, `pkts-medium`, `pkts-large`; colors `pkts-grape`, `pkts-lime`, `pkts-berry`, `pkts-orange`
+- `pkts-avatar`: sizes `pkts-small`, `pkts-medium`, `pkts-large`; colors `pkts-grape`, `pkts-teal`, `pkts-berry`, `pkts-orange`
 - `pkts-badge`: badge/tag
 - `pkts-card`: card container
 - `pkts-chip`: chip tag
