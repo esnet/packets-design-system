@@ -261,7 +261,7 @@
           "font": {
             "value": {
               "fontFamily": "{font.family.body.sans.value}",
-              "fontWeight": "700",
+              "fontWeight": "600",
               "fontSize": "16px",
               "lineHeight": "100%"
             },
