@@ -40,7 +40,7 @@ function setupDirectories() {
 function copyGlobalStyles() {
   console.log('\n📋 Copying global styles...');
 
-  const styleFiles = ['tokens.css', 'typography.css', 'surfaces.css', 'grid.css', 'animations.css'];
+  const styleFiles = ['tokens.css', 'typography.css', 'surfaces.css', 'grid.css', 'animations.css', 'color-mode.css'];
   const sourceDir = path.join(UI_DIR, 'src/style');
   const targetDir = path.join(SRC_DIR, 'base');
 
@@ -71,6 +71,7 @@ function generateIndexCSS(registry) {
   css += "@import './base/typography.css';\n";
   css += "@import './base/surfaces.css';\n";
   css += "@import './base/grid.css';\n";
+  css += "@import './base/color-mode.css';\n";
   css += "@import './base/animations.css';\n\n";
 
   // Composable utilities
