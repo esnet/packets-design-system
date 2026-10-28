@@ -1,0 +1,108 @@
+/* Default theme: light */
+.packets {
+  color-scheme: light;
+
+  --pkts-color-primary: var(--pkts-color-light-primary);
+  --pkts-color-secondary: var(--pkts-color-light-secondary);
+  --pkts-color-tertiary: var(--pkts-color-light-tertiary);
+  --pkts-color-accent: var(--pkts-color-light-accent);
+
+  --pkts-color-background: var(--pkts-color-light-background);
+  --pkts-color-surface-1: var(--pkts-color-light-surface-1);
+  --pkts-color-surface-2: var(--pkts-color-light-surface-2);
+  --pkts-color-shadow: var(--pkts-color-light-shadow);
+
+  --pkts-color-copy: var(--pkts-color-light-copy);
+  --pkts-color-copy-alt: var(--pkts-color-light-copy-alt);
+  --pkts-color-copy-alt-2: var(--pkts-color-light-copy-alt-2);
+
+  --pkts-color-success: var(--pkts-color-light-success);
+  --pkts-color-warning: var(--pkts-color-light-warning);
+  --pkts-color-error: var(--pkts-color-light-error);
+  --pkts-color-link: var(--pkts-color-light-link);
+
+  --pkts-color-actions-white: var(--pkts-color-light-actions-white);
+  --pkts-color-actions-copy: var(--pkts-color-light-actions-copy);
+  --pkts-color-actions-black: var(--pkts-color-light-actions-black);
+  --pkts-color-actions-berry: var(--pkts-color-light-actions-berry);
+  --pkts-color-actions-purple: var(--pkts-color-light-actions-purple);
+  --pkts-color-actions-teal: var(--pkts-color-light-actions-teal);
+  --pkts-color-actions-orange: var(--pkts-color-light-actions-orange);
+  --pkts-color-actions-grey: var(--pkts-color-light-actions-grey);
+  --pkts-color-actions-dark-grey: var(--pkts-color-light-actions-dark-grey);
+
+  --pkts-color-actions-branded-rest: var(--pkts-color-light-actions-branded-rest);
+  --pkts-color-actions-branded-hover: var(--pkts-color-light-actions-branded-hover);
+  --pkts-color-actions-branded-active: var(--pkts-color-light-actions-branded-active);
+
+  --pkts-color-actions-default-rest: var(--pkts-color-light-actions-default-rest);
+  --pkts-color-actions-default-hover: var(--pkts-color-light-actions-default-hover);
+  --pkts-color-actions-default-active: var(--pkts-color-light-actions-default-active);
+
+  --pkts-color-actions-error-rest: var(--pkts-color-light-actions-error-rest);
+  --pkts-color-actions-error-hover: var(--pkts-color-light-actions-error-hover);
+  --pkts-color-actions-error-active: var(--pkts-color-light-actions-error-active);
+
+  --pkts-color-actions-success-hover: var(--pkts-color-light-actions-success-hover);
+  --pkts-color-actions-success-active: var(--pkts-color-light-actions-success-active);
+
+  --pkts-color-actions-highlight-yellow: var(--pkts-color-light-actions-highlight-yellow);
+  --pkts-color-actions-highlight-blue: var(--pkts-color-light-actions-highlight-blue);
+  --pkts-color-actions-highlight-pink: var(--pkts-color-light-actions-highlight-pink);
+}
+
+
+/* Dark theme on .packets, on an ancestor, or on a section inside .packets */
+.packets.dark,
+.dark .packets,
+.packets .dark {
+  color-scheme: dark;
+
+  --pkts-color-primary: var(--pkts-color-dark-primary);
+  --pkts-color-secondary: var(--pkts-color-dark-secondary);
+  --pkts-color-tertiary: var(--pkts-color-dark-tertiary);
+  --pkts-color-accent: var(--pkts-color-dark-accent);
+
+  --pkts-color-background: var(--pkts-color-dark-background);
+  --pkts-color-surface-1: var(--pkts-color-dark-surface-1);
+  --pkts-color-surface-2: var(--pkts-color-dark-surface-2);
+  --pkts-color-shadow: var(--pkts-color-dark-shadow);
+
+  --pkts-color-copy: var(--pkts-color-dark-copy);
+  --pkts-color-copy-alt: var(--pkts-color-dark-copy-alt);
+  --pkts-color-copy-alt-2: var(--pkts-color-dark-copy-alt-2);
+
+  --pkts-color-success: var(--pkts-color-dark-success);
+  --pkts-color-warning: var(--pkts-color-dark-warning);
+  --pkts-color-error: var(--pkts-color-dark-error);
+  --pkts-color-link: var(--pkts-color-dark-link);
+
+  --pkts-color-actions-white: var(--pkts-color-dark-actions-white);
+  --pkts-color-actions-copy: var(--pkts-color-dark-actions-copy);
+  --pkts-color-actions-black: var(--pkts-color-dark-actions-black);
+  --pkts-color-actions-berry: var(--pkts-color-dark-actions-berry);
+  --pkts-color-actions-purple: var(--pkts-color-dark-actions-purple);
+  --pkts-color-actions-teal: var(--pkts-color-dark-actions-teal);
+  --pkts-color-actions-orange: var(--pkts-color-dark-actions-orange);
+  --pkts-color-actions-grey: var(--pkts-color-dark-actions-grey);
+  --pkts-color-actions-dark-grey: var(--pkts-color-dark-actions-dark-grey);
+
+  --pkts-color-actions-branded-rest: var(--pkts-color-dark-actions-branded-rest);
+  --pkts-color-actions-branded-hover: var(--pkts-color-dark-actions-branded-hover);
+  --pkts-color-actions-branded-active: var(--pkts-color-dark-actions-branded-active);
+
+  --pkts-color-actions-default-rest: var(--pkts-color-dark-actions-default-rest);
+  --pkts-color-actions-default-hover: var(--pkts-color-dark-actions-default-hover);
+  --pkts-color-actions-default-active: var(--pkts-color-dark-actions-default-active);
+
+  --pkts-color-actions-error-rest: var(--pkts-color-dark-actions-error-rest);
+  --pkts-color-actions-error-hover: var(--pkts-color-dark-actions-error-hover);
+  --pkts-color-actions-error-active: var(--pkts-color-dark-actions-error-active);
+
+  --pkts-color-actions-success-hover: var(--pkts-color-dark-actions-success-hover);
+  --pkts-color-actions-success-active: var(--pkts-color-dark-actions-success-active);
+
+  --pkts-color-actions-highlight-yellow: var(--pkts-color-dark-actions-highlight-yellow);
+  --pkts-color-actions-highlight-blue: var(--pkts-color-dark-actions-highlight-blue);
+  --pkts-color-actions-highlight-pink: var(--pkts-color-dark-actions-highlight-pink);
+}
