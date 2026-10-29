@@ -64,6 +64,7 @@ a.pkts-button {
 
   line-height: normal;
   text-decoration: none;
+  white-space: nowrap;
 
   transition:
     background ease-in-out var(--pkts-time-duration-quick, 250ms),
