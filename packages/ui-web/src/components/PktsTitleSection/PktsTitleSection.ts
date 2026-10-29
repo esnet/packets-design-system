@@ -1,6 +1,10 @@
 import { SlottedComponent } from "../../lib/SlottedComponent";
-import { PktsTitleSectionProps } from "./PktsTitleSection.types";
-import { PktsModule } from "../PktsModule/PktsModule";
+import {
+  PktsTitleSectionDirection,
+  PktsTitleSectionIconPosition,
+  PktsTitleSectionIconTarget,
+  PktsTitleSectionProps,
+} from "./PktsTitleSection.types";
 
 export class PktsTitleSection
   extends SlottedComponent
@@ -8,8 +12,10 @@ export class PktsTitleSection
 {
   static tagName = "pkts-title-section";
 
+  // direction and background are styled purely with CSS attribute
+  // selectors, so only the attributes that change the DOM are observed.
   static get observedAttributes() {
-    return ["title", "subtitle"];
+    return ["title", "subtitle", "icon", "icon-target", "icon-position"];
   }
 
   get title(): string {
@@ -26,9 +32,51 @@ export class PktsTitleSection
     this.setAttribute("subtitle", v);
   }
 
-  private moduleEl!: HTMLElement;
+  get icon(): string {
+    return this.getAttribute("icon") || "";
+  }
+  set icon(v: string) {
+    this.setAttribute("icon", v);
+  }
+
+  get iconTarget(): PktsTitleSectionIconTarget {
+    return this.getAttribute("icon-target") === "title" ? "title" : "subtitle";
+  }
+  set iconTarget(v: PktsTitleSectionIconTarget) {
+    this.setAttribute("icon-target", v);
+  }
+
+  get iconPosition(): PktsTitleSectionIconPosition {
+    return this.getAttribute("icon-position") === "start" ? "start" : "end";
+  }
+  set iconPosition(v: PktsTitleSectionIconPosition) {
+    this.setAttribute("icon-position", v);
+  }
+
+  get direction(): PktsTitleSectionDirection {
+    return this.getAttribute("direction") === "horizontal"
+      ? "horizontal"
+      : "vertical";
+  }
+  set direction(v: PktsTitleSectionDirection) {
+    this.setAttribute("direction", v);
+  }
+
+  get background(): boolean {
+    return this.hasAttribute("background");
+  }
+  set background(v: boolean) {
+    this.toggleAttribute("background", v);
+  }
+
+  // attributeChangedCallback can fire before the first render, so render()
+  // waits for this flag instead of checking for a wrapper element.
+  private ready = false;
   private titleEl?: HTMLHeadingElement;
+  private titleTextEl?: HTMLSpanElement;
   private subtitleEl?: HTMLHeadingElement;
+  private subtitleTextEl?: HTMLSpanElement;
+  private iconEl?: HTMLElement;
 
   constructor() {
     super();
@@ -43,51 +91,95 @@ export class PktsTitleSection
   }
 
   protected _renderInitial(): void {
-    this.innerHTML = `
-      <${PktsModule.tagName} class="titleLayout">
-        ${this.title ? `<h1 class="title">${this.title}</h1>` : ""}
-        ${this.subtitle ? `<h4 class="subtitle">${this.subtitle}</h4>` : ""}
-        <slot></slot>
-      </${PktsModule.tagName}>
-    `;
+    this.innerHTML = `<slot></slot>`;
 
-    this.moduleEl = this.querySelector(PktsModule.tagName)!;
-    this.titleEl = this.querySelector("h1.title") || undefined;
-    this.subtitleEl = this.querySelector("h4.subtitle") || undefined;
+    this.ready = true;
+    this.render();
   }
 
   protected render(): void {
-    if (!this.moduleEl) return;
+    if (!this.ready) return;
 
-    // Update title
-    if (this.title && !this.titleEl) {
-      this.titleEl = document.createElement("h1");
-      this.titleEl.className = "title";
-      this.titleEl.textContent = this.title;
-      this.moduleEl.prepend(this.titleEl);
-    } else if (this.title && this.titleEl) {
-      this.titleEl.textContent = this.title;
-    } else if (!this.title && this.titleEl) {
-      this.titleEl.remove();
+    this.renderTitle();
+    this.renderSubtitle();
+    // Last, because it needs to know which headings exist.
+    this.renderIcon();
+  }
+
+  private renderTitle(): void {
+    if (!this.title) {
+      this.titleEl?.remove();
       this.titleEl = undefined;
+      this.titleTextEl = undefined;
+      return;
     }
 
-    // Update subtitle
-    const slot = this.moduleEl.querySelector("slot");
-    if (this.subtitle && !this.subtitleEl) {
+    if (!this.titleEl) {
+      this.titleEl = document.createElement("h1");
+      this.titleEl.className = "title";
+
+      // Text lives in its own span so the icon can sit before or after it
+      // and text updates never wipe the icon.
+      this.titleTextEl = document.createElement("span");
+      this.titleTextEl.className = "title-text";
+      this.titleEl.appendChild(this.titleTextEl);
+
+      this.prepend(this.titleEl);
+    }
+
+    this.titleTextEl!.textContent = this.title;
+  }
+
+  private renderSubtitle(): void {
+    if (!this.subtitle) {
+      this.subtitleEl?.remove();
+      this.subtitleEl = undefined;
+      this.subtitleTextEl = undefined;
+      return;
+    }
+
+    if (!this.subtitleEl) {
       this.subtitleEl = document.createElement("h4");
       this.subtitleEl.className = "subtitle";
-      this.subtitleEl.textContent = this.subtitle;
-      if (slot) {
-        this.moduleEl.insertBefore(this.subtitleEl, slot);
+
+      this.subtitleTextEl = document.createElement("span");
+      this.subtitleTextEl.className = "subtitle-text";
+      this.subtitleEl.appendChild(this.subtitleTextEl);
+
+      if (this.titleEl) {
+        this.titleEl.after(this.subtitleEl);
       } else {
-        this.moduleEl.appendChild(this.subtitleEl);
+        this.prepend(this.subtitleEl);
       }
-    } else if (this.subtitle && this.subtitleEl) {
-      this.subtitleEl.textContent = this.subtitle;
-    } else if (!this.subtitle && this.subtitleEl) {
-      this.subtitleEl.remove();
-      this.subtitleEl = undefined;
+    }
+
+    this.subtitleTextEl!.textContent = this.subtitle;
+  }
+
+  private renderIcon(): void {
+    const target =
+      this.iconTarget === "title" ? this.titleEl : this.subtitleEl;
+
+    // No icon name, or the heading it should attach to doesn't exist.
+    if (!this.icon || !target) {
+      this.iconEl?.remove();
+      this.iconEl = undefined;
+      return;
+    }
+
+    if (!this.iconEl) {
+      this.iconEl = document.createElement("pkts-icon");
+      this.iconEl.setAttribute("aria-hidden", "true");
+    }
+
+    this.iconEl.setAttribute("name", this.icon);
+
+    // prepend/append move an element that is already in the DOM, so this
+    // also handles the target or position changing after the first render.
+    if (this.iconPosition === "start") {
+      target.prepend(this.iconEl);
+    } else {
+      target.append(this.iconEl);
     }
   }
 }

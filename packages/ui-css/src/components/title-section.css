@@ -1,21 +1,64 @@
-.titleLayout {
+pkts-title-section,
+.pkts-title-section {
+  display: block;
   margin-bottom: var(--pkts-size-spacing-large);
 }
 
-  .titleLayout .title {
-    display: flex;
-    align-items: center;
-    gap: var(--pkts-size-spacing-xsmall, 9px);
+/* Child combinators keep these from matching headings inside slotted content */
+:is(pkts-title-section, .pkts-title-section) > h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--pkts-size-spacing-xsmall, 8px);
+  font: var(--pkts-typography-header-1-display-font);
+}
 
-    font: var(--pkts-typography-header-1-display-font);
-  }
+:is(pkts-title-section, .pkts-title-section) > h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--pkts-size-spacing-xsmall, 8px);
+  font: var(--pkts-typography-header-4-sans-font);
+  color: var(--pkts-color-copy-alt);
+  padding: 0;
+}
 
-  .titleLayout .subtitle {
-    display: flex;
-    align-items: center;
-    gap: var(--pkts-size-spacing-xsmall, 9px);
+:is(pkts-title-section, .pkts-title-section) > :is(h1, h4) pkts-icon {
+  flex-shrink: 0;
+  width: var(--pkts-title-section-icon-size, 1em);
+  height: var(--pkts-title-section-icon-size, 1em);
+}
 
-    font: var(--pkts-typography-header-4-sans-font);
-    padding: 0;
-  }
+/* The title's font is much larger, so a 1em icon would dwarf the text */
+:is(pkts-title-section, .pkts-title-section) > h1 pkts-icon {
+  --pkts-title-section-icon-size: 0.6em;
+}
 
+/* ----------------------------------------------------------
+   direction="horizontal" / .horizontal: subtitle sits beside the title,
+   aligned on the text baseline. Vertical is the default.
+   ---------------------------------------------------------- */
+pkts-title-section[direction="horizontal"],
+.pkts-title-section.horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  column-gap: var(--pkts-size-spacing-small, 12px);
+}
+
+:is(pkts-title-section[direction="horizontal"], .pkts-title-section.horizontal) > :is(h1, h4) {
+  margin: 0;
+}
+
+/* Slotted content drops to its own row below the title and subtitle */
+:is(pkts-title-section[direction="horizontal"], .pkts-title-section.horizontal) > :not(h1):not(h4) {
+  flex-basis: 100%;
+}
+
+/* ----------------------------------------------------------
+   background: box behind the title block
+   ---------------------------------------------------------- */
+pkts-title-section[background],
+.pkts-title-section.background {
+  background: var(--pkts-color-surface-1);
+  border-radius: var(--pkts-size-radius-medium, 8px);
+  padding: var(--pkts-size-spacing-medium) var(--pkts-size-spacing-large);
+}
