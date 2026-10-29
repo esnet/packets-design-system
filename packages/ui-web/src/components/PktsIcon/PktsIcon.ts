@@ -1,6 +1,13 @@
-import { PktsIconProps } from "./PktsIcon.types";
+import { PktsIconProps, PktsIconSize } from "./PktsIcon.types";
 
 import { createElement, icons } from "lucide";
+
+const SIZE_MAP: Record<PktsIconSize, string> = {
+  large:      "32px",
+  standalone: "24px",
+  control:    "20px",
+  inline:     "16px",
+};
 
 export class PktsIcon extends HTMLElement implements PktsIconProps {
   static tagName = "pkts-icon";
@@ -37,10 +44,10 @@ export class PktsIcon extends HTMLElement implements PktsIconProps {
   }
 
   get strokeWidth() {
-    return this.getAttribute("strokeWidth") ?? "";
+    return this.getAttribute("stroke-width") ?? "";
   }
   set strokeWidth(v: number | string) {
-    this.setAttribute("strokeWidth", String(v));
+    this.setAttribute("stroke-width", String(v));
   }
 
   get fill() {
@@ -88,8 +95,9 @@ export class PktsIcon extends HTMLElement implements PktsIconProps {
     if (this.color) attrs.stroke = this.color;
     if (this.strokeWidth) attrs["stroke-width"] = String(this.strokeWidth);
     if (this.size) {
-      attrs.width = String(this.size);
-      attrs.height = String(this.size);
+      const resolved = SIZE_MAP[this.size as PktsIconSize] ?? String(this.size);
+      attrs.width = resolved;
+      attrs.height = resolved;
     }
     if (this.fill) attrs.fill = this.fill;
 
