@@ -1,6 +1,6 @@
 .pkts-breadcrumbs {
-  --divider-color: var(--pkts-color-core-black-500, #4d4d4f);
-  --link-color: var(--pkts-color-light-copy, #3d3d3d);
+  --divider-color: var(--pkts-color-copy-alt, #4d4d4f);
+  --link-color: var(--pkts-color-copy, #3d3d3d);
 
   display: flex;
   gap: var(--pkts-size-spacing-xsmall);
@@ -10,11 +10,6 @@
   padding: 0;
   margin: 0;
   flex-direction: row;
-}
-
-.dark .pkts-breadcrumbs {
-  --divider-color: var(--pkts-color-core-white-800, #b3b3b3);
-  --link-color: var(--pkts-color-dark-copy, #e6e6e6);
 }
 
 .pkts-breadcrumbs li {
