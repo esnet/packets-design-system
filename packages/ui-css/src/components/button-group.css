@@ -1,12 +1,10 @@
 .pkts-button-group {
   --spacing: var(--pkts-size-spacing-xsmall, 8px);
-  --label-color: var(--pkts-color-light-copy, #3d3d3d);
-  --label-color-dark: var(--pkts-color-dark-copy, #e6e6e6);
+  --label-color: var(--pkts-color-copy, #3d3d3d);
   width: fit-content;
-}
-
-.dark .pkts-button-group {
-  --label-color: var(--label-color-dark);
+  display: flex;
+  flex-direction: column;
+  gap: var(--pkts-size-spacing-xsmall)
 }
 
 .pkts-button-group label {
