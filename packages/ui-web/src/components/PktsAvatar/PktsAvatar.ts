@@ -1,12 +1,12 @@
 import { PktsAvatarProps } from "./PktsAvatar.types";
 
-const _colorOptions = ["grape", "lime", "berry", "orange"];
+const _colorOptions = ["grape", "teal", "berry", "orange"];
 
 class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
   static tagName = "pkts-avatar";
 
   static get observedAttributes(): string[] {
-    return ["alt", "src", "srcset", "size", "background-color", "hoverable"];
+    return ["alt", "label", "src", "srcset", "size", "color", "background-color", "hoverable"];
   }
 
   get alt(): string {
@@ -51,17 +51,17 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
     this.setAttribute("size", v ?? "medium");
   }
 
-  get backgroundColor(): "grape" | "lime" | "berry" | "orange" {
+  get backgroundColor(): "grape" | "teal" | "berry" | "orange" {
     return (
       (this.getAttribute("background-color") as
         | "grape"
-        | "lime"
+        | "teal"
         | "berry"
         | "orange") ?? "grape"
     );
   }
 
-  set backgroundColor(v: "grape" | "lime" | "berry" | "orange") {
+  set backgroundColor(v: "grape" | "teal" | "berry" | "orange") {
     this.setAttribute("background-color", v);
   }
 
@@ -126,7 +126,9 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
     const size = this.size;
     const hoverable = this.hoverable;
     const bgColor =
-      this.getAttribute("background-color") || this._computedBackgroundColor;
+      this.getAttribute("background-color") ||
+      this.getAttribute("color") ||
+      this._computedBackgroundColor;
 
     // Update container classes
     this.containerEl.className = [
@@ -139,8 +141,9 @@ class PktsAvatarElement extends HTMLElement implements PktsAvatarProps {
       .filter(Boolean)
       .join(" ");
 
-    // Generate fallback label
-    const fallbackLabel = this.alt.slice(0, 2);
+    // Generate fallback label — prefer explicit label attr, then alt
+    const labelText = this.getAttribute("label") || this.alt;
+    const fallbackLabel = labelText.slice(0, 2);
 
     // Update content
     if (hasImageSrc && !this._error) {
