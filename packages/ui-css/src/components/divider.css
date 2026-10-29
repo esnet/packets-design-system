@@ -18,20 +18,10 @@
   border: none;
 
   /* Set the thickness of the line */
-  background-color: var(--pkts-color-light-copy-alt, #6E6E70);
-}
-
-/* Dark Mode */
-.dark .pkts-divider {
-  background-color: var(--pkts-color-dark-copy-alt, #C2C2C2);
+  background-color: var(--pkts-color-copy-alt, #6E6E70);
 }
 
 /* Branded variant */
 .pkts-divider.pkts-branded {
-  background-color: var(--pkts-color-light-primary, #0088B5);
-}
-
-/* Dark Mode */
-.dark .pkts-divider.pkts-branded {
-  background-color: var(--pkts-color-dark-primary, #004573);
+  background-color: var(--pkts-color-primary, #0088B5);
 }
