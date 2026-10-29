@@ -10,8 +10,19 @@
 
 .pkts-button,
 a.pkts-button {
+  --rest-color: var(--pkts-color-actions-default-rest);
+  --rest-border: var(--pkts-color-primary);
+  --rest-box-shadow: var(--pkts-box-shadow-core-none);
+  --hover-color:  var(--pkts-color-actions-default-rest);
+  --hover-border: var(--pkts-color-actions-branded-hover);
+  --hover-box-shadow: var(--pkts-box-shadow-core-none);
+  --active-color: var(--pkts-color-actions-default-rest);
+  --active-border: var(--pkts-color-actions-branded-active);
+  --active-box-shadow: var(--pkts-box-shadow-core-none);
+
   --spacing-horizontal-layout-gap: var(--pkts-size-spacing-xxsmall, 4px);
 
+  --spacing-height-small: var(--pkts-size-spacing-large, 2rem);
   --spacing-height-medium: var(--pkts-size-spacing-xlarge, 2.5rem);
   --spacing-height-xxlarge: var(--pkts-size-spacing-xxlarge, 64px);
 
@@ -23,7 +34,7 @@ a.pkts-button {
 
   --typography-font: var(
     --pkts-typography-button-1-sans-font,
-    700 16px/120% var(--pkts-font-family-body-sans)
+    600 16px/120% var(--pkts-font-family-body-sans)
   );
 
   /* Layout */
@@ -41,11 +52,12 @@ a.pkts-button {
   /* Styling */
   border-radius: var(--spacing-border-radius);
   border: var(--spacing-border-width) solid
-    var(--pkts-color-core-blue-900, #004573);
-  box-shadow: var(--pkts-box-shadow-core-light);
+    var(--rest-border, #004573);
+  background: var(--rest-color);
+  box-shadow: var(--rest-box-shadow);
 
   /* Typography */
-  color: var(--pkts-color-core-slate-900, #3f424d);
+  color: var(--pkts-color-copy, #3f424d);
   text-align: center;
 
   font: var(--typography-font);
@@ -64,10 +76,25 @@ a.pkts-button {
 .pkts-button:hover,
 a.pkts-button:hover {
   cursor: pointer;
-  box-shadow: var(--pkts-box-shadow-core-medium);
-
   padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
     var(--pkts-size-spacing-medium, 16px);
+  
+  border-width: 3px;
+  background: var(--hover-color);
+  border-color: var(--hover-border);
+    box-shadow: var(--hover-box-shadow);
+}
+
+.pkts-button:active,
+a.pkts-button:active {
+  cursor: pointer;
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
+  
+  border-width: 3px;
+  background: var(--active-color);
+  border-color: var(--active-border);
+  box-shadow: var(--active-box-shadow);
 }
 
 .pkts-button:disabled,
