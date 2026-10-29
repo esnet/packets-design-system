@@ -453,70 +453,91 @@
   }
 
   /* Code */
-  .code,
-  .code-block,
-  pkts-code > code {
+  code,
+  .pkts-code-block {
     --pkts-code-color: var(--pkts-color-primary, #0088b5);
     --pkts-code-comment: var(--pkts-color-success, #0a7d0a);
     --pkts-code-border: var(--pkts-color-copy-alt-2, #6e6e70);
     --pkts-code-surface: var(--pkts-color-actions-default-rest, #fff);
-
+    font-size: 1rem;
     font-family: "Source Code Pro", ui-monospace, monospace;
   }
 
-/* Inline: a pill */
-.code,
-pkts-code > code {
-  display: inline-block;
-  padding: 0.125rem 0.75rem;
-  border: 1px solid var(--pkts-code-border);
-  border-radius: 999px;
-  background: var(--pkts-code-surface);
-  color: var(--pkts-code-color);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  white-space: nowrap;
-}
-
-.code.comment,
-pkts-code[comment] > code,
-.code-block.comment pre {
-  color: var(--pkts-code-comment);
-}
-
-  /* Inline: a pill */
+  /* Inline: a pill.
+    Any <code> that isn't inside a <pre> gets it, so a bare <code> and the
+    <code> rendered by <pkts-code> are styled by the same rule.
+    .code is kept as an alias for existing markup. */
+  code:not(pre > code),
   .code {
-    display: inline-block;
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
     padding: 0.125rem 0.75rem;
     border: 1px solid var(--pkts-code-border);
     border-radius: 999px;
     background: var(--pkts-code-surface);
     color: var(--pkts-code-color);
-    font-size: 0.75rem;
     line-height: 1.5;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
+  /* Nested code (<code><code>, <code class="code"><code>, and so on):
+    only the outermost one draws the pill. Higher specificity than the rule
+    above, so it always wins. */
+  :is(code, .code) :is(code, .code) {
+    display: inline;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    white-space: inherit;
+  }
+
+  /* Code inside .pkts-code-block: reset all pill styles so the block
+     renders as pre-formatted text that wraps at the container boundary. */
+  .pkts-code-block code {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: inherit;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: visible;
+    font-size: 0.75rem;
+  }
+
+  /* Inline comment color */
+  code.comment,
   .code.comment,
-  .code-block.comment pre {
+  pkts-code[comment] > code,
+  .pkts-code-block.comment pre {
     color: var(--pkts-code-comment);
   }
 
   /* Block: rounded card with a header row */
-  .code-block {
+  .pkts-code-block {
     margin: 0;
     padding: 0.5rem 0.75rem 0.75rem;
     border: 1px solid var(--pkts-code-border);
     border-radius: 0.5rem;
     background: var(--pkts-code-surface);
     color: var(--pkts-color-copy, #3d3d3d);
+    font-size: 0.75rem;
   }
 
-  .code-block-header {
+  .pkts-code-block-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .code-language {
@@ -537,12 +558,12 @@ pkts-code[comment] > code,
     cursor: pointer;
   }
 
-  /* NEW: keeps the button on the right when there is no language badge */
-  .code-block-header .code-copy {
+  /* Keeps the button on the right when there is no language badge */
+  .pkts-code-block-header .code-copy {
     margin-left: auto;
   }
 
-  /* NEW: hover and keyboard focus. Color change only, so nothing shifts. */
+  /* Hover and keyboard focus. Color change only, so nothing shifts. */
   .code-copy:hover {
     color: var(--pkts-color-primary, #0088b5);
   }
@@ -567,6 +588,8 @@ pkts-code[comment] > code,
     white-space: pre;
   }
 
+  /* Block code is never a pill: it's a direct child of <pre>, which the
+    inline rule excludes */
   .code-block pre code {
     font: inherit;
     color: inherit;
