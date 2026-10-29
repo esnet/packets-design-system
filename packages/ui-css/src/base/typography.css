@@ -138,7 +138,7 @@
     &.copy {
       --pkts-link-color: var(--pkts-color-copy, #3d3d3d);
       --pkts-link-hover: var(--pkts-color-copy, #3d3d3d);
-      --pkts-link-active: var(--pkts-color-copy, #3d3d3d);
+      --pkts-link-active: var(--pkts-color-secondary, #3d3d3d);
       --pkts-link-decoration: none;
     }
 
@@ -152,7 +152,7 @@
     &.pkts-hover {
       color: var(--pkts-link-hover);
       font-weight: 600;
-      text-decoration: underline;
+      text-decoration: var(--pkts-link-decoration, underline);
     }
 
     &:active,
