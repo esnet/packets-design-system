@@ -473,7 +473,7 @@ pkts-code > code {
   border-radius: 999px;
   background: var(--pkts-code-surface);
   color: var(--pkts-code-color);
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: 1.5;
   white-space: nowrap;
 }
@@ -492,7 +492,7 @@ pkts-code[comment] > code,
     border-radius: 999px;
     background: var(--pkts-code-surface);
     color: var(--pkts-code-color);
-    font-size: 1rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     white-space: nowrap;
   }
@@ -505,9 +505,9 @@ pkts-code[comment] > code,
   /* Block: rounded card with a header row */
   .code-block {
     margin: 0;
-    padding: 0.75rem 1rem 1rem;
+    padding: 0.5rem 0.75rem 0.75rem;
     border: 1px solid var(--pkts-code-border);
-    border-radius: 1.25rem;
+    border-radius: 0.5rem;
     background: var(--pkts-code-surface);
     color: var(--pkts-color-copy, #3d3d3d);
   }
@@ -516,7 +516,7 @@ pkts-code[comment] > code,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .code-language {
