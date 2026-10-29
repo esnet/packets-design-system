@@ -405,13 +405,13 @@
   }
 
   /* Quotes */
-  .quote {
+  blockquote {
     margin: 0;
     color: var(--pkts-color-copy, #3d3d3d);
   }
 
   /* Block: left rule, smaller regular text */
-  .quote.block {
+  blockquote.block {
     max-width: 40ch;
     padding-left: 1rem;
     border-left: 2px solid var(--pkts-color-copy-alt, #6e6e70);
@@ -420,7 +420,7 @@
   }
 
   /* Pull: centered, bold, ruled above and below */
-  .quote.pull {
+  blockquote.pull {
     padding: 1.5rem 0;
     border-top: 2px solid var(--pkts-color-primary, #0088b5);
     border-bottom: 2px solid var(--pkts-color-primary, #0088b5);
@@ -430,7 +430,7 @@
   }
 
   /* Branded: icon on the left, bold text, ruled above and below */
-  .quote.branded {
+  blockquote.branded {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
@@ -441,11 +441,11 @@
     font-weight: 600;
   }
 
-  .quote.branded p {
+  blockquote.branded p {
     margin: 0;
   }
 
-  .quote.branded pkts-icon {
+  blockquote.branded pkts-icon {
     flex: 0 0 auto;
     width: 2rem;
     height: 2rem;
