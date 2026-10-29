@@ -11,6 +11,7 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
       "disabled",
       "error",
       "action-buttons",
+      "readonly",
     ];
   }
 
@@ -47,6 +48,13 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
   }
   set error(v: boolean) {
     v ? this.setAttribute("error", "") : this.removeAttribute("error");
+  }
+
+  get readonly(): boolean {
+    return this.hasAttribute("readonly");
+  }
+  set readonly(v: boolean) {
+    v ? this.setAttribute("readonly", "") : this.removeAttribute("readonly");
   }
 
   protected inputEl!: HTMLInputElement;
@@ -98,6 +106,7 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
       this.variant === "branded" ? "pkts-branded" : "",
       this.error ? "pkts-error" : "",
       this.disabled ? "pkts-disabled" : "",
+      this.readonly ? "pkts-readonly" : "",
       this.getAttribute("class") || "",
     ]
       .filter(Boolean)
