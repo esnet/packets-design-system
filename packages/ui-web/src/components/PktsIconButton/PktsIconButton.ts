@@ -11,18 +11,29 @@ export class PktsIconButton
   }
 
   get variant():
-    | "primary"
-    | "secondary"
+    | "default"
     | "branded"
-    | "tertiary"
+    | "fancy"
+    | "destructive"
+    | "borderless"
+    | "minimal"
+    | "simple"
     | "destructive" {
     return (this.getAttribute("variant") as any) ?? "secondary";
   }
   set variant(
-    v: "primary" | "secondary" | "branded" | "tertiary" | "destructive",
+    v:  "default" | "branded" | "fancy" | "destructive" | "borderless" | "minimal" | "simple",
   ) {
     this.setAttribute("variant", v ?? "secondary");
   }
+
+  get size(): "medium" | "xxlarge" {
+    return (this.getAttribute("size") as any) ?? "medium";
+  }
+  set size(v: "medium" | "xxlarge") {
+    this.setAttribute("size", v);
+  }
+
 
   get disabled(): boolean {
     return this.hasAttribute("disabled");
@@ -68,6 +79,7 @@ export class PktsIconButton
     this.buttonEl.className = [
       "pkts-icon-button",
       `pkts-${this.variant}`,
+      `pkts-${this.size}`,
       this.square ? "pkts-square" : "",
       this.getAttribute("class") || "",
     ]

@@ -1,5 +1,5 @@
 export interface PktsIconButtonProps {
-  variant?: "primary" | "secondary" | "branded" | "tertiary" | "destructive";
+  variant?: "default" | "branded" | "fancy" | "destructive" | "borderless" | "minimal" | "simple";
   disabled?: boolean;
   square?: boolean;
 }
