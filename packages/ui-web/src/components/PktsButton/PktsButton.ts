@@ -31,15 +31,18 @@ export class PktsButton extends SlottedComponent implements PktsButtonProps {
   }
 
   get variant():
-    | "primary"
-    | "secondary"
+    | "default"
     | "branded"
-    | "tertiary"
-    | "destructive" {
+    | "gradient"
+    | "destructive"
+    | "success"
+    | "minimal"
+    | "access"
+    | "borderless" {
     return (this.getAttribute("variant") as any) ?? "secondary";
   }
   set variant(
-    v: "primary" | "secondary" | "branded" | "tertiary" | "destructive",
+    v: "default" | "branded" | "gradient" | "destructive" | "success" | "minimal"| "access"| "borderless",
   ) {
     this.setAttribute("variant", v ?? "secondary");
   }
