@@ -10,7 +10,7 @@ export class PktsInputPassword extends PktsInputText {
 
   connectedCallback(): void {
     this.actionButtons = `
-            <div>
+            <div class="action-buttons">
                 <div id='eyeBtn'><${PktsIcon.tagName} name='eye'></${PktsIcon.tagName}></div>
                 <div id='clearBtn'><${PktsIcon.tagName} name='X'></${PktsIcon.tagName}></div>
             </div>
