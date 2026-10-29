@@ -10,8 +10,20 @@
 */
 
 .pkts-icon-button {
+  --rest-color: var(--pkts-color-actions-default-rest);
+  --rest-border: var(--pkts-color-primary);
+  --rest-box-shadow: var(--pkts-box-shadow-core-none);
+  --hover-color:  var(--pkts-color-actions-default-rest);
+  --hover-border: var(--pkts-color-actions-branded-hover);
+  --hover-box-shadow: var(--pkts-box-shadow-core-none);
+  --active-color: var(--pkts-color-actions-default-rest);
+  --active-border: var(--pkts-color-actions-branded-active);
+  --active-box-shadow: var(--pkts-box-shadow-core-none);
+
   --spacing-horizontal-layout-gap: var(--pkts-size-spacing-xxsmall, 4px);
 
+  --spacing-height-xsmall: var(--pkts-size-spacing-medium, 1rem);
+  --spacing-height-small: var(--pkts-size-spacing-large, 2rem);
   --spacing-height-medium: var(--pkts-size-spacing-xlarge, 2.5rem);
   --spacing-height-xxlarge: var(--pkts-size-spacing-xxlarge, 64px);
 
@@ -20,6 +32,8 @@
 
   --spacing-border-radius: var(--pkts-size-radius-xxlarge, 18px);
   --spacing-border-width: var(--pkts-size-border-width-small, 0.125rem);
+
+  --icon-size: 1.25rem;
 
   /* Layout */
   display: inline-flex;
@@ -37,9 +51,9 @@
   /* Styling */
   border-radius: var(--spacing-border-radius);
   border: var(--spacing-border-width) solid
-    var(--pkts-color-core-blue-900, #004573);
-  box-shadow: var(--pkts-box-shadow-core-light);
-  color: var(--pkts-color-core-slate-900, #3f424d);
+    var(--rest-border, #004573);
+  background: var(--rest-color);
+  color: var(--pkts-color-copy, #3f424d);
 
   transition:
     background ease-in-out var(--pkts-time-duration-quick, 250ms),
@@ -51,11 +65,34 @@
 
 .pkts-icon-button:hover {
   cursor: pointer;
-  box-shadow: var(--pkts-box-shadow-core-light);
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
+  
+  border-width: 3px;
+  background: var(--hover-color);
+  border-color: var(--hover-border);
+    box-shadow: var(--hover-box-shadow);
 }
 
-.pkts-icon-button:disabled {
-  cursor: not-allowed;
+
+.pkts-icon-button:active {
+  cursor: pointer;
+  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
+    var(--pkts-size-spacing-medium, 16px);
+  
+  border-width: 3px;
+  background: var(--active-color);
+  border-color: var(--active-border);
+  box-shadow: var(--active-box-shadow);
+}
+
+/* Icon sizing — inherits --icon-size from parent */
+.pkts-icon-button svg,
+.pkts-icon-button i {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: var(--icon-size);
+  flex-shrink: 0;
 }
 
 /* Square variant — equal width and height, no horizontal padding, circular border-radius */
