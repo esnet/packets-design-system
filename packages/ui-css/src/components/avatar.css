@@ -4,7 +4,7 @@
 
    Base styles for avatar component. Variants are applied via composable classes:
    - Size variants: .pkts-small, .pkts-medium, .pkts-large
-   - Color variants: .pkts-grape, .pkts-lime, .pkts-berry, .pkts-orange
+   - Color variants: .pkts-grape, .pkts-teal, .pkts-berry, .pkts-orange
 
    Usage: <div class="pkts-avatar es-medium es-grape">
 */
@@ -128,17 +128,17 @@
 /* Color Variants */
 
 .pkts-avatar.pkts-grape {
-  background-color: var(--pkts-color-core-purple-500, #a350ff);
+  background-color: var(--pkts-color-actions-purple, #a350ff);
 }
 
-.pkts-avatar.pkts-lime {
-  background-color: var(--pkts-color-core-green-500, #11ad2b);
+.pkts-avatar.pkts-teal {
+  background-color: var(--pkts-color-actions-teal, #11ad2b);
 }
 
 .pkts-avatar.pkts-berry {
-  background-color: var(--pkts-color-core-berry-500, #ff2377);
+  background-color: var(--pkts-color-actions-berry, #ff2377);
 }
 
 .pkts-avatar.pkts-orange {
-  background-color: var(--pkts-color-core-orange-500, #ff8000);
+  background-color: var(--pkts-color-actions-orange, #ff8000);
 }
