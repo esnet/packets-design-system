@@ -11,6 +11,7 @@ export class PktsInputNumber extends PktsInputText {
       "variant",
       "disabled",
       "error",
+      "readonly",
       "step",
       "min",
       "max",
@@ -48,7 +49,7 @@ export class PktsInputNumber extends PktsInputText {
 
   connectedCallback(): void {
     this.actionButtons = `
-            <div>
+            <div class="action-buttons">
                 <div id="addBtn"><${PktsIcon.tagName} name="plus"></${PktsIcon.tagName}></div>
                 <div id="minusBtn"><${PktsIcon.tagName} name="minus"></${PktsIcon.tagName}></div>
             </div>  `;
