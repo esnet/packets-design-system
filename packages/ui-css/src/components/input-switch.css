@@ -10,9 +10,9 @@
 */
 
 .pkts-input-switch {
-  --interaction-color: var(--pkts-color-core-blue-600);
-  --interaction-border: var(--pkts-color-core-blue-700);
-  --interaction-shadow: var(--pkts-color-core-blue-300);
+  --interaction-rest: var(--pkts-color-actions-branded-rest);
+  --interaction-hover: var(--pkts-color-actions-branded-hover);
+  --interaction-active: var(--pkts-color-actions-branded-active);
 
   position: relative;
   overflow: hidden;
@@ -25,62 +25,46 @@
     background-color var(--pkts-time-duration-quick, 250ms) ease;
 
   border-style: solid;
-  border-width: var(--pkts-size-border-width-small, 0.125rem);
+  border-width: var(--pkts-size-border-width-xsmall, 0.125rem);
   border-radius: var(--pkts-size-radius-circle, 999px);
 
-  background-color: var(--pkts-color-core-white-700, #c2c2c2);
-  border-color: var(--pkts-color-core-white-700, #c2c2c2);
+  background-color: var(--pkts-color-copy-alt, #c2c2c2);
+  border-color: var(--pkts-color-copy-alt, #c2c2c2);
 }
 
 /* Secondary color variant */
 .pkts-input-switch.pkts-secondary {
-  --interaction-color: var(--pkts-color-core-orange-600);
-  --interaction-border: var(--pkts-color-core-orange-700);
-  --interaction-shadow: var(--pkts-color-core-orange-300);
+  --interaction-rest: var(--pkts-color-core-orange-600);
+  --interaction-hover: var(--pkts-color-core-orange-700);
+  --interaction-active: var(--pkts-color-core-orange-700);
 }
 
 /* Checked state - automatic detection */
 .pkts-input-switch:has(input:checked) {
-  background-color: var(--interaction-color);
-  border-color: var(--interaction-border);
+  background-color: var(--interaction-rest);
+  border-color: var(--interaction-rest);
 }
 
+/* false and hover/focus */
 .pkts-input-switch:hover:not(:has(input:disabled)),
 .pkts-input-switch:focus-within:not(:has(input:disabled)) {
-  box-shadow: 0 0 0 var(--pkts-size-border-width-small, 0.125rem)
-    var(--pkts-color-core-white-400);
+  background-color: var(--pkts-color-actions-default-hover, #c2c2c2);
 }
 
+/* true and hover/focus */
 .pkts-input-switch:hover:not(:has(input:disabled)):has(input:checked),
 .pkts-input-switch:focus-within:not(:has(input:disabled)):has(input:checked) {
-  box-shadow: 0 0 0 var(--pkts-size-border-width-small, 0.125rem)
-    var(--interaction-shadow);
+  background-color: var(--interaction-hover, #c2c2c2);
 }
 
-.pkts-input-switch:has(input:checked):has(input:active):not(:has(input:disabled)),
-.pkts-input-switch:has(input:active):not(:has(input:disabled)) {
-  box-shadow: none;
+/* false and active */
+.pkts-input-switch:has(input:active):not(:has(input:checked)):not(:has(input:disabled)) {
+  background-color: var(--pkts-color-actions-default-active, #c2c2c2);
 }
 
-/* Disabled state - automatic detection */
-.pkts-input-switch:has(input:disabled) {
-  cursor: default;
-  border-color: var(--pkts-color-core-white-500, #d9d9d9);
-  box-shadow: none;
-  background-color: var(--pkts-color-core-white-500, #d9d9d9);
-}
-
-.pkts-input-switch:has(input:disabled:checked) {
-  border-color: color-mix(
-    in srgb,
-    var(--interaction-color),
-    var(--pkts-color-core-white-500, #d9d9d9) 70%
-  );
-  background-color: color-mix(
-    in srgb,
-    var(--interaction-color),
-    var(--pkts-color-core-white-500, #d9d9d9) 70%
-  );
+/* true and active */
+.pkts-input-switch:has(input:checked):has(input:active):not(:has(input:disabled)) {
+  background-color: var(--interaction-active, #c2c2c2);
 }
 
 /* Actual input element, invisible but spans entire component for functionality */
@@ -114,14 +98,19 @@
   border-radius: var(--pkts-size-radius-circle, 999px);
 
   background-color: var(--pkts-color-core-white-100, #ffffff);
-  color: var(--pkts-color-core-white-600, #cccccc);
+  color: var(--pkts-color-copy-alt);
+}
+
+.pkts-input-switch .indicator pkts-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Move indicator to right when checked */
 .pkts-input-switch:has(input:checked) .indicator {
   right: 0;
   left: auto;
-  color: var(--interaction-color);
+  color: var(--interaction-rest);
 }
 
 /* Active state for checked indicator */
