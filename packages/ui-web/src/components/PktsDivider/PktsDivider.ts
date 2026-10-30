@@ -1,6 +1,6 @@
 import { PktsDividerProps } from "./PktsDivider.types";
 
-class PktsDividerElement extends HTMLElement implements PktsDividerProps {
+class PktsDividerElement extends HTMLHRElement implements PktsDividerProps {
   static tagName = "pkts-divider";
 
   static get observedAttributes(): string[] {
@@ -15,14 +15,11 @@ class PktsDividerElement extends HTMLElement implements PktsDividerProps {
     this.setAttribute("variant", v ?? "primary");
   }
 
-  protected hrEl!: HTMLHRElement;
-
   constructor() {
     super();
   }
 
   connectedCallback(): void {
-    this._renderInitial();
     this.render();
   }
 
@@ -36,26 +33,19 @@ class PktsDividerElement extends HTMLElement implements PktsDividerProps {
     }
   }
 
-  private _renderInitial(): void {
-    this.innerHTML = `<hr class="pkts-divider">`;
-    this.hrEl = this.querySelector("hr")!;
-  }
-
   protected render(): void {
-    if (!this.hrEl) return;
-
-    const variant = this.variant;
-
-    this.hrEl.className = [
+    this.className = [
       "pkts-divider",
-      variant === "branded" && "pkts-branded",
+      this.variant === "branded" && "pkts-branded",
     ]
       .filter(Boolean)
       .join(" ");
   }
 }
 
-customElements.define(PktsDividerElement.tagName, PktsDividerElement);
+customElements.define(PktsDividerElement.tagName, PktsDividerElement, {
+  extends: "hr",
+});
 
 export const PktsDivider = PktsDividerElement as typeof PktsDividerElement &
   PktsDividerProps;
