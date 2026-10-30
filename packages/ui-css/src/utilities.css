@@ -284,14 +284,20 @@ a.pkts-icon-button.pkts-square {
 .pkts-berry  { --pkts-color-variant: var(--pkts-color-core-berry-500,  #ff2377); }
 .pkts-orange { --pkts-color-variant: var(--pkts-color-core-orange-500, #ff8000); }
 
-/* Avatar — uses shared variant as background fill */
-.pkts-avatar:where(.pkts-grape, .pkts-teal, .pkts-berry, .pkts-orange) {
+/* Avatar — background fill from shared color variant */
+.pkts-avatar.pkts-grape,
+.pkts-avatar.pkts-teal,
+.pkts-avatar.pkts-berry,
+.pkts-avatar.pkts-orange {
   background-color: var(--pkts-color-variant);
 }
 
 /* Badge — routes shared variant into badge's internal fill token */
-.pkts-badge:where(.pkts-grape, .pkts-teal, .pkts-berry, .pkts-orange) {
-  --_badge-fill: var(--pkts-color-variant);
+.pkts-badge.pkts-grape,
+.pkts-badge.pkts-teal,
+.pkts-badge.pkts-berry,
+.pkts-badge.pkts-orange {
+  --badge-fill: var(--pkts-color-variant);
 }
 
 /* ============================================

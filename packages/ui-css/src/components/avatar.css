@@ -125,20 +125,3 @@
   --border-radius: var(--pkts-size-radius-xxlarge, 18px);
 }
 
-/* Color Variants */
-
-.pkts-avatar.pkts-grape {
-  background-color: var(--pkts-color-actions-purple, #a350ff);
-}
-
-.pkts-avatar.pkts-teal {
-  background-color: var(--pkts-color-actions-teal, #11ad2b);
-}
-
-.pkts-avatar.pkts-berry {
-  background-color: var(--pkts-color-actions-berry, #ff2377);
-}
-
-.pkts-avatar.pkts-orange {
-  background-color: var(--pkts-color-actions-orange, #ff8000);
-}
