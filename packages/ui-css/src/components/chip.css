@@ -11,8 +11,8 @@
   overflow: hidden;
 
   /* Styling */
-  background-color: var(--pkts-color-core-white-600, #CCC);
-  color: var(--pkts-color-core-black-600, #454547);
+  background-color: var(--pkts-color-actions-grey, #CCC);
+  color: var(--pkts-color-copy, #454547);
   border-style: solid;
   border-width: var(--pkts-size-border-width-xsmall, 0.0625rem);
   border-color: transparent;
@@ -27,105 +27,48 @@
   transition: border-color, background-color var(--pkts-time-duration-quick, 250ms) ease;
 }
 
-.dark .pkts-chip {
-  background-color: var(--pkts-color-core-black-600, #454547);
-  color: var(--pkts-color-core-white-300, #e6e6e6);
-}
-
 /* Hover state */
 
 .pkts-chip:hover:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-white-700, #C2C2C2);
-}
-
-.dark .pkts-chip:hover:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-black-300, #5E5E5E);
+  background-color: var(--pkts-color-actions-default-hover, #C2C2C2);
 }
 
 /* Focus state */
 
 .pkts-chip:focus:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-white-800, #B3B3B3);
-}
-
-.dark .pkts-chip:focus:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-black-200, #656566);
+  background-color: var(--pkts-color-actions-default-hover, #B3B3B3);
 }
 
 /* Active state */
 
 .pkts-chip:active:not(.pkts-disabled) {
-  border-color: var(--pkts-color-core-blue-500, #00a0d6);
+  background-color: var(--pkts-color-actions-default-active, #cff1ff);
+
+  /* border-color: var(--pkts-color-core-blue-500, #00a0d6);
   background-color: var(--pkts-color-core-blue-100, #cff1ff);
-  color: var(--pkts-color-core-blue-800, #00608c);
-}
-
-.dark .pkts-chip:active:not(.pkts-disabled) {
-  border-color: var(--pkts-color-core-blue-600, #0088B5);
-  background-color: var(--pkts-color-core-blue-200, #9CE2FF);
-}
-
-/* Disabled state */
-
-.pkts-chip.pkts-disabled,
-.pkts-chip:disabled {
-  background-color: var(--pkts-color-core-white-400, #E3E3E3);
-  cursor: default;
-  pointer-events: none;
-}
-
-.dark .pkts-chip.pkts-disabled,
-.dark .pkts-chip:disabled {
-  background-color: var(--pkts-color-core-black-600, #454547);
+  color: var(--pkts-color-core-blue-800, #00608c); */
 }
 
 /* Outline variant */
 
 .pkts-chip.pkts-outline {
   background-color: transparent;
-  border-color: var(--pkts-color-core-white-600, #CCC);
-}
-
-.dark .pkts-chip.pkts-outline {
-  border-color: var(--pkts-color-core-black-600, #CCC);
+  border-color: var(--pkts-color-actions-grey, #CCC);
 }
 
 .pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-white-200, #F2F2F2);
-}
-
-.dark .pkts-chip.pkts-outline:hover:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-black-800, #252526);
+  background-color: var(--pkts-color-actions-default-rest, #F2F2F2);
+  border-color: var(--pkts-color-actions-default-hover, #CCC);
 }
 
 .pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-white-800, #B3B3B3);
-}
-
-.dark .pkts-chip.pkts-outline:focus:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-black-200, #656566);
+  background-color: var(--pkts-color-actions-default-rest, #F2F2F2);
+  border-color: var(--pkts-color-actions-default-hover, #CCC);
 }
 
 .pkts-chip.pkts-outline:active:not(.pkts-disabled) {
-  border-color: var(--pkts-color-core-blue-500, #00A0D6);
-  background-color: var(--pkts-color-core-blue-100, #CFF1FF);
-  color: var(--pkts-color-core-blue-800, #00608c);
-}
-
-.dark .pkts-chip.pkts-outline:active:not(.pkts-disabled) {
-  background-color: var(--pkts-color-core-blue-200, #9ce2ff);
-}
-
-.pkts-chip.pkts-outline.pkts-disabled,
-.pkts-chip.pkts-outline:disabled {
-  background-color: var(--pkts-color-core-white-200, #f2f2f2);
-  border-color: var(--pkts-color-core-white-300, #E6E6E6);
-}
-
-.dark .pkts-chip.pkts-outline.pkts-disabled,
-.dark .pkts-chip.pkts-outline:disabled {
-  background-color: var(--pkts-color-core-black-800, #252526);
-  border-color: transparent;
+  background-color: var(--pkts-color-actions-grey, #ccc);
+  border-color: var(--pkts-color-actions-default-active, #ccc);
 }
 
 /* Rounded variant */
