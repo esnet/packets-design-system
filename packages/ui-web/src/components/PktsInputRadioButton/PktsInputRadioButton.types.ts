@@ -3,4 +3,5 @@ export interface PktsInputRadioButtonProps {
   checked?: boolean;
   name?: string;
   value?: string;
+  variant?: "default" | "branded";
 }

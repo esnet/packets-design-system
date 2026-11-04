@@ -6,7 +6,7 @@ export class PktsInputRadioButton
 {
   static tagName = "pkts-input-radio";
   static get observedAttributes() {
-    return ["class", "disabled", "checked", "name", "value"];
+    return ["class", "disabled", "checked", "name", "value", "variant"];
   }
 
   get disabled(): boolean {
@@ -36,6 +36,13 @@ export class PktsInputRadioButton
   }
   set value(v: string) {
     this.setAttribute("value", v);
+  }
+
+  get variant(): "default" | "branded" {
+    return (this.getAttribute("variant") as any) ?? "default";
+  }
+  set variant(v: "default" | "branded") {
+    this.setAttribute("variant", v);
   }
 
   private inputEl!: HTMLInputElement;
@@ -88,6 +95,7 @@ export class PktsInputRadioButton
 
     this.containerEl.className = [
       "pkts-input-radio",
+      this.variant === "branded" ? "pkts-branded" : "",
       this.hasAttribute("disabled") ? "pkts-disabled" : "",
       this.getAttribute("class") || "",
     ]
