@@ -363,7 +363,9 @@
     justify-content: flex-start;
   }
 
-  caption.italic {
+  caption.italic,
+  caption.italic .caption-label,
+  caption.italic .caption-text {
     font-style: italic;
   }
 
