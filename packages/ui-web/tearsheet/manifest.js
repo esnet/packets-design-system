@@ -1,24 +1,5 @@
-[
-  {
-    "id": "color-palette",
-    "tagName": null,
-    "className": null,
-    "displayName": "Color Palette",
-    "kind": "no-web-component",
-    "availability": "html-native",
-    "noDemo": false,
-    "category": "Foundation",
-    "subcategory": "Color",
-    "order": 1,
-    "figma": null,
-    "markup": "<div style=\"display:flex;gap:16px;flex-wrap:wrap;\"><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-primary)\"></div><span>Primary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-secondary)\"></div><span>Secondary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-tertiary)\"></div><span>Tertiary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-accent)\"></div><span>Accent</span></div></div>",
-    "variants": null,
-    "hasSlot": false,
-    "customElementExtends": null,
-    "observedAttributes": [],
-    "hasTypesFile": false,
-    "props": []
-  },
+/* Auto-generated — do not edit. Run: npm run generate-manifest */
+window.__PKTS_MANIFEST__ = [
   {
     "id": "display",
     "tagName": null,
@@ -1422,11 +1403,89 @@
     "hasSlot": false,
     "customElementExtends": null,
     "observedAttributes": [],
-    "hasTypesFile": false,
-    "props": [],
+    "hasTypesFile": true,
+    "inheritsTypesFrom": "PktsInputText",
+    "props": [
+      {
+        "name": "variant",
+        "attrName": "variant",
+        "kind": "union",
+        "allowedValues": [
+          "default",
+          "branded"
+        ],
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "error",
+        "attrName": "error",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      },
+      {
+        "name": "actionButtons",
+        "attrName": "action-buttons",
+        "kind": "string",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "readonly",
+        "attrName": "readonly",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      }
+    ],
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "variant": {
+          "x-attribute": "variant",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string",
+          "enum": [
+            "default",
+            "branded"
+          ]
+        },
+        "error": {
+          "x-attribute": "error",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        },
+        "actionButtons": {
+          "x-attribute": "action-buttons",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string"
+        },
+        "readonly": {
+          "x-attribute": "readonly",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        }
+      }
     },
     "events": []
   },
@@ -1513,7 +1572,7 @@
     "className": "PktsInputText",
     "displayName": "Input Text",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1618,7 +1677,11 @@
         }
       }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text\"><input type=\"text\" placeholder=\"Text\"></div>",
+    "cssVariants": [
+      "pkts-branded"
+    ]
   },
   {
     "id": "pkts-input-password",
@@ -1626,7 +1689,7 @@
     "className": "PktsInputPassword",
     "displayName": "Input Password",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1639,13 +1702,95 @@
     "hasSlot": false,
     "customElementExtends": null,
     "observedAttributes": [],
-    "hasTypesFile": false,
-    "props": [],
+    "hasTypesFile": true,
+    "inheritsTypesFrom": "PktsInputText",
+    "props": [
+      {
+        "name": "variant",
+        "attrName": "variant",
+        "kind": "union",
+        "allowedValues": [
+          "default",
+          "branded"
+        ],
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "error",
+        "attrName": "error",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      },
+      {
+        "name": "actionButtons",
+        "attrName": "action-buttons",
+        "kind": "string",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "readonly",
+        "attrName": "readonly",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      }
+    ],
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "variant": {
+          "x-attribute": "variant",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string",
+          "enum": [
+            "default",
+            "branded"
+          ]
+        },
+        "error": {
+          "x-attribute": "error",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        },
+        "actionButtons": {
+          "x-attribute": "action-buttons",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string"
+        },
+        "readonly": {
+          "x-attribute": "readonly",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        }
+      }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text\"><input type=\"password\" placeholder=\"Password\"></div>",
+    "cssVariants": [
+      "pkts-branded"
+    ]
   },
   {
     "id": "pkts-input-email",
@@ -1653,7 +1798,7 @@
     "className": "PktsInputEmail",
     "displayName": "Input Email",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1666,13 +1811,95 @@
     "hasSlot": false,
     "customElementExtends": null,
     "observedAttributes": [],
-    "hasTypesFile": false,
-    "props": [],
+    "hasTypesFile": true,
+    "inheritsTypesFrom": "PktsInputText",
+    "props": [
+      {
+        "name": "variant",
+        "attrName": "variant",
+        "kind": "union",
+        "allowedValues": [
+          "default",
+          "branded"
+        ],
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "error",
+        "attrName": "error",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      },
+      {
+        "name": "actionButtons",
+        "attrName": "action-buttons",
+        "kind": "string",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "readonly",
+        "attrName": "readonly",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      }
+    ],
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "variant": {
+          "x-attribute": "variant",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string",
+          "enum": [
+            "default",
+            "branded"
+          ]
+        },
+        "error": {
+          "x-attribute": "error",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        },
+        "actionButtons": {
+          "x-attribute": "action-buttons",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string"
+        },
+        "readonly": {
+          "x-attribute": "readonly",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        }
+      }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text pkts-input-email\"><input type=\"email\" placeholder=\"Email\"></div>",
+    "cssVariants": [
+      "pkts-branded"
+    ]
   },
   {
     "id": "pkts-input-search",
@@ -1680,7 +1907,7 @@
     "className": "PktsInputSearch",
     "displayName": "Input Search",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1693,13 +1920,93 @@
     "hasSlot": false,
     "customElementExtends": null,
     "observedAttributes": [],
-    "hasTypesFile": false,
-    "props": [],
+    "hasTypesFile": true,
+    "inheritsTypesFrom": "PktsInputText",
+    "props": [
+      {
+        "name": "variant",
+        "attrName": "variant",
+        "kind": "union",
+        "allowedValues": [
+          "default",
+          "branded"
+        ],
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "error",
+        "attrName": "error",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      },
+      {
+        "name": "actionButtons",
+        "attrName": "action-buttons",
+        "kind": "string",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "readonly",
+        "attrName": "readonly",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      }
+    ],
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "variant": {
+          "x-attribute": "variant",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string",
+          "enum": [
+            "default",
+            "branded"
+          ]
+        },
+        "error": {
+          "x-attribute": "error",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        },
+        "actionButtons": {
+          "x-attribute": "action-buttons",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string"
+        },
+        "readonly": {
+          "x-attribute": "readonly",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        }
+      }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text\"><input type=\"search\" placeholder=\"Search\"></div>",
+    "cssVariants": []
   },
   {
     "id": "pkts-input-number",
@@ -1707,7 +2014,7 @@
     "className": "PktsInputNumber",
     "displayName": "Input Number",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1731,13 +2038,97 @@
       "min",
       "max"
     ],
-    "hasTypesFile": false,
-    "props": [],
+    "hasTypesFile": true,
+    "inheritsTypesFrom": "PktsInputText",
+    "props": [
+      {
+        "name": "variant",
+        "attrName": "variant",
+        "kind": "union",
+        "allowedValues": [
+          "default",
+          "branded"
+        ],
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": null
+      },
+      {
+        "name": "error",
+        "attrName": "error",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      },
+      {
+        "name": "actionButtons",
+        "attrName": "action-buttons",
+        "kind": "string",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": false,
+        "booleanStyle": null,
+        "warning": "\"actionButtons\" (action-buttons) not in observedAttributes"
+      },
+      {
+        "name": "readonly",
+        "attrName": "readonly",
+        "kind": "boolean",
+        "allowedValues": null,
+        "optional": true,
+        "description": "",
+        "default": null,
+        "inObservedAttributes": true,
+        "booleanStyle": "toggle"
+      }
+    ],
     "schema": {
       "type": "object",
-      "properties": {}
+      "properties": {
+        "variant": {
+          "x-attribute": "variant",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "string",
+          "enum": [
+            "default",
+            "branded"
+          ]
+        },
+        "error": {
+          "x-attribute": "error",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        },
+        "actionButtons": {
+          "x-attribute": "action-buttons",
+          "x-kind": "attribute",
+          "x-inObserved": false,
+          "x-warning": "\"actionButtons\" (action-buttons) not in observedAttributes",
+          "type": "string"
+        },
+        "readonly": {
+          "x-attribute": "readonly",
+          "x-kind": "attribute",
+          "x-inObserved": true,
+          "type": "boolean"
+        }
+      }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text\"><input type=\"number\" placeholder=\"0\"></div>",
+    "cssVariants": [
+      "pkts-branded"
+    ]
   },
   {
     "id": "pkts-input-date",
@@ -1781,7 +2172,7 @@
     "className": "PktsInputTextArea",
     "displayName": "Input Text Area",
     "kind": "web-component",
-    "availability": "web",
+    "availability": "ui-css",
     "noDemo": false,
     "category": "Controls",
     "subcategory": "Text Control",
@@ -1947,7 +2338,15 @@
         }
       }
     },
-    "events": []
+    "events": [],
+    "cssMarkup": "<div class=\"pkts-input-text-area\"><textarea placeholder=\"Text\"></textarea></div>",
+    "cssVariants": [
+      "pkts-branded",
+      "pkts-vertical",
+      "pkts-horizontal",
+      "pkts-both",
+      "pkts-none"
+    ]
   },
   {
     "id": "pkts-input-select",
@@ -3868,4 +4267,4 @@
     },
     "events": []
   }
-]
+];

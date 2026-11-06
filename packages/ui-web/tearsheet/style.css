@@ -14,7 +14,7 @@ html, body {
    Top bar
    ========================================================== */
 
-.ts2-topbar {
+.ts-topbar {
   position: sticky;
   top: 0;
   z-index: 200;
@@ -28,23 +28,23 @@ html, body {
   flex-shrink: 0;
 }
 
-.ts2-logo {
+.ts-logo {
   margin-right: 4px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
 
-.ts2-logo-dark { display: none; }
-body.dark .ts2-logo-light { display: none; }
-body.dark .ts2-logo-dark { display: block; }
+.ts-logo-dark { display: none; }
+body.dark .ts-logo-light { display: none; }
+body.dark .ts-logo-dark { display: block; }
 
-.ts2-topbar-search {
+.ts-topbar-search {
   flex: 1;
   max-width: 320px;
 }
 
-.ts2-topbar-search input {
+.ts-topbar-search input {
   width: 100%;
   height: 32px;
   padding: 0 10px;
@@ -56,12 +56,12 @@ body.dark .ts2-logo-dark { display: block; }
   font-size: 0.875rem;
 }
 
-.ts2-topbar-search input:focus {
+.ts-topbar-search input:focus {
   outline: 2px solid var(--pkts-color-primary);
   outline-offset: 1px;
 }
 
-.ts2-topbar-actions {
+.ts-topbar-actions {
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ body.dark .ts2-logo-dark { display: block; }
   flex-shrink: 0;
 }
 
-.ts2-theme-label {
+.ts-theme-label {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -102,7 +102,7 @@ body.dark .palette-swatch {
    Two-column shell: sidebar + panel
    ========================================================== */
 
-.ts2-shell {
+.ts-shell {
   display: flex;
   height: calc(100vh - 48px);
   overflow: hidden;
@@ -112,7 +112,7 @@ body.dark .palette-swatch {
    Sidebar
    ========================================================== */
 
-.ts2-sidebar {
+.ts-sidebar {
   width: 220px;
   flex-shrink: 0;
   overflow-y: auto;
@@ -122,9 +122,9 @@ body.dark .palette-swatch {
 }
 
 /* Collapsible category — <details>/<summary> */
-.ts2-nav-cat { border: none; }
+.ts-nav-cat { border: none; }
 
-.ts2-nav-cat-summary {
+.ts-nav-cat-summary {
   padding: 8px 16px 6px;
   cursor: pointer;
   font-size: 0.6875rem;
@@ -139,21 +139,21 @@ body.dark .palette-swatch {
   user-select: none;
 }
 
-.ts2-nav-cat-summary::-webkit-details-marker { display: none; }
+.ts-nav-cat-summary::-webkit-details-marker { display: none; }
 
-.ts2-nav-cat-summary::before {
+.ts-nav-cat-summary::before {
   content: '▾';
   font-size: 0.625rem;
   line-height: 1;
   transition: transform 0.15s;
 }
 
-.ts2-nav-cat:not([open]) .ts2-nav-cat-summary::before {
+.ts-nav-cat:not([open]) .ts-nav-cat-summary::before {
   transform: rotate(-90deg);
 }
 
 /* Subcategory header bar — mirrors tearsheet-1's .subcategory-header */
-.ts2-nav-subcat {
+.ts-nav-subcat {
   padding: 5px 16px;
   background: var(--pkts-color-copy-alt);
   color: var(--pkts-color-actions-copy, #fff);
@@ -164,7 +164,7 @@ body.dark .palette-swatch {
   margin-top: 2px;
 }
 
-.ts2-nav-item {
+.ts-nav-item {
   text-decoration: none;
   display: block;
   padding: 5px 16px;
@@ -175,12 +175,12 @@ body.dark .palette-swatch {
   transition: background 0.1s, color 0.1s;
 }
 
-.ts2-nav-item:hover {
+.ts-nav-item:hover {
   background: var(--pkts-color-actions-default-hover);
   color: var(--pkts-color-primary);
 }
 
-.ts2-nav-item.ts2-active {
+.ts-nav-item.ts-active {
   border-left-color: var(--pkts-color-primary);
   color: var(--pkts-color-primary);
   background: var(--pkts-color-actions-default-active);
@@ -188,10 +188,10 @@ body.dark .palette-swatch {
   /* text-decoration: none; */
 }
 
-.ts2-nav-item.ts2-hidden { display: none; }
+.ts-nav-item.ts-hidden { display: none; }
 
 /* Sidebar filter controls */
-.ts2-sidebar-controls {
+.ts-sidebar-controls {
   padding: 8px 16px;
   border-bottom: 1px solid var(--pkts-color-border, rgba(0,0,0,0.1));
   display: flex;
@@ -199,14 +199,14 @@ body.dark .palette-swatch {
   gap: 8px;
 }
 
-.ts2-filter-label {
+.ts-filter-label {
   font-size: 0.75rem;
   color: var(--pkts-color-copy-alt);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.ts2-filter-select {
+.ts-filter-select {
   flex: 1;
   min-width: 0;
   padding: 3px 6px;
@@ -220,7 +220,7 @@ body.dark .palette-swatch {
 }
 
 /* Availability chips in sidebar */
-.ts2-avail-chip {
+.ts-avail-chip {
   margin-left: 6px;
   padding: 1px 6px;
   border-radius: 10px;
@@ -234,26 +234,26 @@ body.dark .palette-swatch {
 }
 
 /* HTML native chip — filled */
-.ts2-html-native-chip {
+.ts-html-native-chip {
   background: var(--pkts-color-surface-1, #e8e8e8);
   color: var(--pkts-color-copy-alt);
   border: 1px solid var(--pkts-color-border, rgba(0,0,0,0.15));
 }
 
-.ts2-nav-item.ts2-active .ts2-html-native-chip {
+.ts-nav-item.ts-active .ts-html-native-chip {
   background: color-mix(in srgb, var(--pkts-color-primary) 12%, transparent);
   border-color: var(--pkts-color-primary);
   color: var(--pkts-color-primary);
 }
 
 /* ui-css chip — outline */
-.ts2-ui-css-chip {
+.ts-ui-css-chip {
   background: transparent;
   color: var(--pkts-color-copy-alt);
   border: 1px solid var(--pkts-color-border, rgba(0,0,0,0.3));
 }
 
-.ts2-nav-item.ts2-active .ts2-ui-css-chip {
+.ts-nav-item.ts-active .ts-ui-css-chip {
   border-color: var(--pkts-color-primary);
   color: var(--pkts-color-primary);
 }
@@ -262,28 +262,28 @@ body.dark .palette-swatch {
    Main panel
    ========================================================== */
 
-.ts2-panel {
+.ts-panel {
   flex: 1;
   overflow-y: auto;
   padding: 28px 32px 48px;
   background: var(--pkts-color-background);
 }
 
-.ts2-loading {
+.ts-loading {
   color: var(--pkts-color-copy-alt);
   font-style: italic;
   margin-top: 32px;
 }
 
-.ts2-error {
+.ts-error {
   padding: 24px;
   background: var(--pkts-color-surface-1);
   border-radius: 8px;
   max-width: 480px;
 }
 
-.ts2-error h2 { margin: 0 0 8px; color: var(--pkts-color-error); }
-.ts2-error pre {
+.ts-error h2 { margin: 0 0 8px; color: var(--pkts-color-error); }
+.ts-error pre {
   background: var(--pkts-color-background);
   padding: 10px 14px;
   border-radius: 4px;
@@ -291,16 +291,16 @@ body.dark .palette-swatch {
 }
 
 /* Component header */
-.ts2-comp-header { margin-bottom: 20px; }
+.ts-comp-header { margin-bottom: 20px; }
 
-.ts2-comp-name {
+.ts-comp-name {
   margin: 0 0 4px;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--pkts-color-copy);
 }
 
-.ts2-tag-name {
+.ts-tag-name {
   font-family: 'Source Code Pro', monospace;
   font-size: 0.8125rem;
   color: var(--pkts-color-copy-alt);
@@ -312,7 +312,7 @@ body.dark .palette-swatch {
 }
 
 /* No-types notice */
-.ts2-no-types {
+.ts-no-types {
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -325,13 +325,13 @@ body.dark .palette-swatch {
   color: var(--pkts-color-copy);
 }
 
-.ts2-obs-attrs {
+.ts-obs-attrs {
   font-size: 0.8125rem;
   color: var(--pkts-color-copy-alt);
   margin: 0;
 }
 
-.ts2-obs-attrs code {
+.ts-obs-attrs code {
   font-family: 'Source Code Pro', monospace;
   background: var(--pkts-color-surface-1);
   padding: 1px 4px;
@@ -339,10 +339,56 @@ body.dark .palette-swatch {
 }
 
 /* ==========================================================
+   Playground layout — ts2-playground and its three regions
+   ─────────────────────────────────────────────────────────
+   Edit these custom properties to change the layout:
+     --pg-gap         space between all grid cells
+     --pg-col-preview minimum width of the preview column
+     --pg-col-form    fixed width of the form column
+   ========================================================== */
+
+.ts2-playground {
+  /* ── layout custom properties ─────────────────── */
+  --pg-gap:         24px;
+  --pg-col-preview: minmax(300px, 1fr);
+  --pg-col-form:    320px;
+  /* ─────────────────────────────────────────────── */
+
+  display: grid;
+  grid-template-areas:
+    "preview form"
+    "code    code";
+  grid-template-columns: var(--pg-col-preview) var(--pg-col-form);
+  gap: var(--pg-gap);
+}
+
+/* When no form is present (no-props components) */
+.ts2-playground--no-form {
+  grid-template-areas:
+    "preview"
+    "code";
+  grid-template-columns: 1fr;
+}
+
+.ts2-playground__preview { grid-area: preview; }
+.ts2-playground__form    { grid-area: form; }
+.ts2-playground__code    { grid-area: code; }
+
+@media (max-width: 900px) {
+  .ts2-playground {
+    grid-template-areas:
+      "preview"
+      "form"
+      "code";
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
    Preview sandbox
    ========================================================== */
 
-.ts2-section-title {
+.ts-section-title {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -351,7 +397,7 @@ body.dark .palette-swatch {
   margin: 0 0 10px;
 }
 
-.ts2-preview {
+.ts-preview {
   min-height: 100px;
   padding: 32px;
   background: var(--pkts-color-surface-1);
@@ -366,25 +412,21 @@ body.dark .palette-swatch {
 }
 
 /* ==========================================================
-   Controls panel
+   Form region  (.ts2-playground__form)
    ========================================================== */
 
-.ts2-controls {
-  margin-bottom: 28px;
-}
-
 /* Space between form section and events list / reset button */
-.ts2-controls pkts-form-section {
+.ts2-playground__form pkts-form-section {
   display: block;
   margin-bottom: 16px;
 }
 
 /* object/array fallback field (pkts-input-text-area with manual label) */
-.ts2-form-field {
+.ts-form-field {
   margin-bottom: 16px;
 }
 
-.ts2-form-label {
+.ts-form-label {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--pkts-color-copy);
@@ -395,27 +437,27 @@ body.dark .palette-swatch {
   gap: 4px;
 }
 
-.ts2-form-optional {
+.ts-form-optional {
   font-size: 0.6875rem;
   font-weight: 400;
   color: var(--pkts-color-copy-alt);
   font-family: 'Source Sans 3', sans-serif;
 }
 
-.ts2-form-desc {
+.ts-form-desc {
   font-size: 0.75rem;
   color: var(--pkts-color-copy-alt);
   margin-bottom: 4px;
   font-family: 'Source Sans 3', sans-serif;
 }
 
-.ts2-form-field pkts-input-text-area {
+.ts-form-field pkts-input-text-area {
   display: block;
   max-width: 400px;
 }
 
 /* "not observed" badge on individual controls */
-.ts2-not-observed {
+.ts-not-observed {
   display: inline-block;
   font-size: 0.6rem;
   font-weight: 700;
@@ -432,13 +474,13 @@ body.dark .palette-swatch {
 }
 
 /* Events read-only list */
-.ts2-events-list {
+.ts-events-list {
   margin-top: 16px;
   padding-top: 12px;
   border-top: 1px solid var(--pkts-color-border, rgba(0,0,0,0.1));
 }
 
-.ts2-section-subtitle {
+.ts-section-subtitle {
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -447,7 +489,7 @@ body.dark .palette-swatch {
   margin: 0 0 8px;
 }
 
-.ts2-event-field {
+.ts-event-field {
   display: flex;
   align-items: baseline;
   gap: 10px;
@@ -455,39 +497,35 @@ body.dark .palette-swatch {
   font-size: 0.8125rem;
 }
 
-.ts2-event-label {
+.ts-event-label {
   font-weight: 600;
   font-family: 'Source Code Pro', monospace;
   color: var(--pkts-color-copy);
   flex-shrink: 0;
 }
 
-.ts2-event-value {
+.ts-event-value {
   color: var(--pkts-color-copy-alt);
   font-style: italic;
 }
 
 /* Reset button (pkts-button) */
-.ts2-controls pkts-button {
+.ts2-playground__form pkts-button {
   display: inline-block;
   margin-top: 12px;
 }
 
 /* ==========================================================
-   Code snippet — pkts-code handles its own styling & copy button
+   Code region (.ts2-playground__code) — pkts-code handles its own styling & copy button
    ========================================================== */
 
-.ts2-snippet-section {
-  margin-bottom: 24px;
-}
-
-.ts2-snippet-section pkts-code {
+.ts2-playground__code pkts-code {
   display: block;
   margin-bottom: 16px;
 }
 
-/* Snippet sub-label (for two-snippet web+css layout) */
-.ts2-snippet-label {
+/* Snippet sub-label (for two-snippet ui-css layout) */
+.ts-snippet-label {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -497,12 +535,12 @@ body.dark .palette-swatch {
   margin-top: 16px;
 }
 
-.ts2-snippet-label:first-child {
+.ts-snippet-label:first-child {
   margin-top: 0;
 }
 
-/* CSS preview inside web+css panel */
-.ts2-css-preview {
+/* CSS preview inside ui-css panel */
+.ts-css-preview {
   padding: 16px;
   border: 1px solid var(--pkts-color-border, rgba(0,0,0,0.15));
   border-radius: 6px;
@@ -514,21 +552,21 @@ body.dark .palette-swatch {
    CSS-only panel
    ========================================================== */
 
-.ts2-css-note {
+.ts-css-note {
   margin: 2px 0 0;
   font-size: 0.8125rem;
   color: var(--pkts-color-copy-alt);
   font-style: italic;
 }
 
-.ts2-variant-row {
+.ts-variant-row {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
 }
 
-.ts2-variant-select {
+.ts-variant-select {
   padding: 5px 9px;
   border: 1px solid var(--pkts-color-border, rgba(0,0,0,0.2));
   border-radius: 5px;
@@ -544,14 +582,14 @@ body.dark .palette-swatch {
    Mirrors tearsheet-1's .demo-split / .demo-figma rules.
    ========================================================== */
 
-.ts2-panel-split {
+.ts-panel-split {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }
 
-.ts2-panel-main {
+.ts-panel-main {
   min-width: 0; /* prevent grid blowout */
 }
 
@@ -592,7 +630,7 @@ body.dark .palette-swatch {
 }
 
 @media (max-width: 1100px) {
-  .ts2-panel-split {
+  .ts-panel-split {
     grid-template-columns: 1fr;
   }
 

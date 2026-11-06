@@ -1,15 +1,6 @@
 {
   "entries": [
     {
-      "id": "color-palette",
-      "label": "Color Palette",
-      "category": "Foundation",
-      "subcategory": "Color",
-      "order": 1,
-      "figmaHeading": null,
-      "markup": "<div style=\"display:flex;gap:16px;flex-wrap:wrap;\"><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-primary)\"></div><span>Primary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-secondary)\"></div><span>Secondary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-tertiary)\"></div><span>Tertiary</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:8px\"><div style=\"width:64px;height:64px;border-radius:8px;background:var(--pkts-color-accent)\"></div><span>Accent</span></div></div>"
-    },
-    {
       "id": "display",
       "label": "Display",
       "category": "Foundation",
@@ -113,6 +104,30 @@
     "pkts-button": {
       "markup": "<button class=\"pkts-button\">Label</button>",
       "variants": ["pkts-branded", "pkts-destructive", "pkts-primary", "pkts-secondary", "pkts-tertiary"]
+    },
+    "pkts-input-text": {
+      "markup": "<div class=\"pkts-input-text\"><input type=\"text\" placeholder=\"Text\"></div>",
+      "variants": ["pkts-branded"]
+    },
+    "pkts-input-password": {
+      "markup": "<div class=\"pkts-input-text\"><input type=\"password\" placeholder=\"Password\"></div>",
+      "variants": ["pkts-branded"]
+    },
+    "pkts-input-email": {
+      "markup": "<div class=\"pkts-input-text pkts-input-email\"><input type=\"email\" placeholder=\"Email\"></div>",
+      "variants": ["pkts-branded"]
+    },
+    "pkts-input-search": {
+      "markup": "<div class=\"pkts-input-text\"><input type=\"search\" placeholder=\"Search\"></div>",
+      "variants": []
+    },
+    "pkts-input-number": {
+      "markup": "<div class=\"pkts-input-text\"><input type=\"number\" placeholder=\"0\"></div>",
+      "variants": ["pkts-branded"]
+    },
+    "pkts-input-text-area": {
+      "markup": "<div class=\"pkts-input-text-area\"><textarea placeholder=\"Text\"></textarea></div>",
+      "variants": ["pkts-branded", "pkts-vertical", "pkts-horizontal", "pkts-both", "pkts-none"]
     }
   }
 }

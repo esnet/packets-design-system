@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packets — Component Playground</title>
+
+  <link rel="stylesheet" href="../../ui-css/dist/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Signika:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Palette CSS must exist before first paint -->
+  <script src="../tearsheet/scripts/palettes.js"></script>
+</head>
+
+<body class="packets">
+  <!-- Restore saved theme/palette before anything renders -->
+  <script src="../tearsheet/scripts/theme-init.js"></script>
+
+  <!-- ── Top bar ───────────────────────────────────────────────────────── -->
+  <header class="ts-topbar">
+    <span class="ts-logo">
+      <img class="ts-logo-light" src="packets-logo-light-mono.svg" alt="Packets" height="32">
+      <img class="ts-logo-dark" src="packets-logo-dark-mono.svg" alt="Packets" height="32">
+    </span>
+
+    <div class="ts-topbar-search">
+      <input
+        id="ts-search"
+        type="search"
+        placeholder="Search components…"
+        autocomplete="off"
+        aria-label="Search components"
+      >
+    </div>
+
+    <div class="ts-topbar-actions">
+      <!-- Palette picker — populated by buildPalettePicker() from theme.js -->
+      <div class="palette-picker" id="palette-picker" role="group" aria-label="Color palette">
+        <span class="palette-picker-label">Palette</span>
+      </div>
+
+      <label class="ts-theme-label">
+        <span class="palette-picker-label">Dark</span>
+        <!-- CSS-class switch (consistent with existing tearsheet chrome) -->
+        <div class="pkts-input-switch" id="ts-theme-toggle">
+          <input type="checkbox" aria-label="Toggle dark mode">
+          <span class="indicator"></span>
+        </div>
+      </label>
+    </div>
+  </header>
+
+  <!-- ── Shell ─────────────────────────────────────────────────────────── -->
+  <div class="ts-shell">
+    <!-- Sidebar: component navigation, populated by app.js -->
+    <nav id="ts-nav" class="ts-sidebar" aria-label="Components"></nav>
+
+    <!-- Main panel: filled by renderPanel() in app.js -->
+    <main id="ts-panel" class="ts-panel">
+      <div class="ts-loading">Loading manifest…</div>
+    </main>
+  </div>
+
+  <!--
+    Load order (important):
+    1. Classic scripts execute synchronously during HTML parsing.
+    2. type="module" scripts are always deferred — they execute after parsing,
+       in declaration order. The bundle registers custom elements, then app.js runs.
+  -->
+
+  <!-- Register all Packets custom elements -->
+  <script type="module" src="../dist/esm/bundle.js"></script>
+
+  <!-- Inject manifest (window.__PKTS_MANIFEST__) — classic script, runs during parse -->
+  <script src="manifest.js"></script>
+
+  <!-- Theme helpers: toggleTheme, applyPalette, buildPalettePicker -->
+  <script src="../tearsheet/scripts/theme.js"></script>
+
+  <!-- Tearsheet app — runs after bundle.js (module ordering) -->
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
