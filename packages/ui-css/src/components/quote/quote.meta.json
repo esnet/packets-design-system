@@ -1,0 +1,51 @@
+{
+  "id": "quote",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9987:52272",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tristique diam.</blockquote>",
+  "demo": {
+    "props": {
+      "variant": "default",
+      "type": "block"
+    }
+  },
+  "props": {
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "branded"
+      }
+    },
+    "type": {
+      "options": {
+        "pull": "pull",
+        "block": "block"
+      }
+    }
+  },
+  "overview": "A component for displaying quoted text — pull quotes, testimonials, or referenced passages — in a visually distinct, styled format. Quotes give excerpted content emphasis and separation from surrounding body copy. ",
+  "bestPractices": {
+    "whenToUse": [
+      "To attribute a direct quotation to a source within editorial or documentation content (block type)",
+      "To visually call out a compelling excerpt from surrounding prose and draw readers in (pull type)"
+    ],
+    "do": [
+      "Use the block type for direct quotations where a clear source attribution is known",
+      "Use the pull type for striking one- or two-sentence excerpts lifted from the surrounding text",
+      "Use the branded variant when the quote needs to carry extra visual weight aligned with the product's primary color"
+    ],
+    "dont": [
+      "Don't use a quote for non-quotation styled callouts — use a Card or Alert for general highlighted content",
+      "Don't omit attribution on block quotes when the source is known; attribution is both an editorial and accessibility expectation",
+      "Don't use pull quotes for entire paragraphs — keep them short and impactful to serve their purpose"
+    ]
+  }
+}
