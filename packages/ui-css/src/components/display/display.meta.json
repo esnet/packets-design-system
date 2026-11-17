@@ -1,0 +1,54 @@
+{
+  "id": "display",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9982-47091",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<h1>Display Text</h1>",
+  "demo": {
+    "props": {
+      "size": "1",
+      "variant": "default"
+    },
+    "slots": {
+      "default": "Display Text"
+    }
+  },
+  "props": {
+    "size": {
+      "options": {
+        "1": "display",
+        "2": "display2"
+      }
+    },
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "branded"
+      }
+    }
+  },
+  "overview": "The largest text component in the type system, reserved for high-impact, oversized text. Use it for hero moments, key metrics, feature callouts, or prominent identifiers where maximum visual weight is needed. Sits above Heading in the typographic scale.",
+  "bestPractices": {
+    "whenToUse": [
+      "For large hero or landing-page headlines that need maximum visual impact above the fold",
+      "When a typographic centrepiece is needed for a marketing-style section or splash view"
+    ],
+    "do": [
+      "Use size 1 for the primary display headline and size 2 for a secondary or sub-display line beneath it",
+      "Use the branded variant when the headline should carry the product's primary color identity",
+      "Test legibility at smaller breakpoints — display text is very large and may need adjustment at mobile sizes"
+    ],
+    "dont": [
+      "Don't use display text for section headings or body copy — it's purely large-scale decorative typography; use Headings instead",
+      "Don't place more than one display headline in a single view; it dilutes the visual impact of each",
+      "Don't use the branded variant when the surrounding palette already supplies strong color — it can create excessive contrast"
+    ]
+  }
+}
