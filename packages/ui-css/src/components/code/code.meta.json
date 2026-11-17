@@ -1,0 +1,37 @@
+{
+  "id": "code",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9987:53065",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<code></code>",
+  "demo": {
+    "slots": {
+      "default": "const greeting = 'Hello, world!';"
+    }
+  },
+  "overview": "The native HTML code element styled by Packets typography tokens. Use it for inline references to code, variables, file names, or any short technical string that should be visually distinct from surrounding prose. For multi-line code samples with syntax highlighting and copy support, use the Code Block component instead.",
+  "bestPractices": {
+    "whenToUse": [
+      "To mark up a function name, variable, file path, or command inline within a sentence of body text",
+      "When you need a visually distinct typographic treatment for a short code reference with no interactive features",
+      "In documentation or instructional copy where technical terms appear alongside prose"
+    ],
+    "do": [
+      "Keep inline code short — a single identifier, short expression, or file name — so it reads naturally within a sentence",
+      "Use it inside a pre element when you need to preserve whitespace and line breaks in a plain preformatted block",
+      "Pair with the Code Block component when the content is multi-line or needs copy functionality, syntax highlighting, or a language label"
+    ],
+    "dont": [
+      "Don't use the code element for multi-line blocks that users need to copy or scan — use the Code Block component instead",
+      "Don't apply it to entire paragraphs or long passages; it is an inline typographic element, not a container",
+      "Don't use it as a styling shortcut for monospace text that is not genuinely code — it carries semantic meaning for assistive technology"
+    ]
+  }
+}
