@@ -1,0 +1,74 @@
+{
+  "id": "body",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "figmaNodeId": "9982-51537",
+  "markup": "<p>Body Text</p>",
+  "demo": {
+    "props": {
+      "type": "default",
+      "size": "1",
+      "highlight": "none"
+    },
+    "slots": {
+      "default": "Body Text"
+    }
+  },
+  "props": {
+    "type": {
+      "options": {
+        "default": {
+          "tag": "p"
+        },
+        "bold": {
+          "tag": "strong"
+        },
+        "italic": {
+          "tag": "em"
+        },
+        "strikethrough": {
+          "tag": "del"
+        }
+      }
+    },
+    "size": {
+      "options": {
+        "1": null,
+        "2": "pkts-body2"
+      }
+    },
+    "highlight": {
+      "options": {
+        "none": null,
+        "blue": "pkts-highlight",
+        "yellow": "pkts-highlight-yellow",
+        "pink": "pkts-highlight-pink"
+      }
+    }
+  },
+  "overview": "The core text component for paragraph and running copy. Use it for body content, descriptions, and any standard reading text throughout your product.",
+  "bestPractices": {
+    "whenToUse": [
+      "For paragraph and body copy throughout the UI — prose descriptions, instructions, and supporting text",
+      "When you need inline text emphasis such as bold, italic, or strikethrough within a passage",
+      "When you need a highlighted callout inline within body copy to draw attention to a key term"
+    ],
+    "do": [
+      "Use size 1 for primary body copy and size 2 for supporting or secondary text at a smaller visual weight",
+      "Use the highlight prop sparingly — one or two key terms per passage — so it retains its attention-drawing effect",
+      "Use the type prop (bold, italic, strikethrough) rather than raw HTML tags to ensure consistent token-based styling"
+    ],
+    "dont": [
+      "Don't use body text for section or page titles — use the Headings component instead",
+      "Don't apply strikethrough for decorative purposes; reserve it for content that is explicitly deleted or no longer valid",
+      "Don't stack multiple highlight colors in the same paragraph — it creates visual noise and dilutes emphasis"
+    ]
+  }
+}
