@@ -10,7 +10,7 @@
     "ui-react"
   ],
   "figmaNodeId": "9982-51537",
-  "markup": "<p>Body Text</p>",
+  "markup": "<p>Lorem ipsum dolor sit amet</p>",
   "demo": {
     "props": {
       "type": "default",
@@ -18,7 +18,7 @@
       "highlight": "none"
     },
     "slots": {
-      "default": "Body Text"
+      "default": "Lorem ipsum dolor sit amet"
     }
   },
   "props": {
