@@ -1,0 +1,56 @@
+{
+  "id": "link",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9300:37990",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<a href=\"#\">This is a link</a>",
+  "demo": {
+    "props": {
+      "variant": "default",
+      "visited": "false"
+    },
+    "slots": {
+      "default": "This is a link"
+    }
+  },
+  "props": {
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "branded",
+        "copy": "copy"
+      }
+    },
+    "visited": {
+      "options": {
+        "false": null,
+        "true": "visited"
+      }
+    }
+  },
+  "overview": "A text link for navigating to other pages, sections, or external resources within body copy and rich text.",
+  "bestPractices": {
+    "whenToUse": [
+      "For any navigation to another URL, page, or in-page anchor embedded within body copy or standalone",
+      "When you need an inline text link that fits naturally within a sentence or paragraph"
+    ],
+    "do": [
+      "Write descriptive, meaningful link text that communicates the destination without surrounding context (e.g. \"View network map\", not \"click here\")",
+      "Use the branded variant for standalone or prominent links that sit outside of body copy and need visual weight",
+      "Use the copy variant for links that should blend with surrounding text color without the default underline treatment",
+      "Reflect visit history with the visited prop where relevant so users know which destinations they've already navigated to"
+    ],
+    "dont": [
+      "Don't use a link for actions that change application state — use a Button instead",
+      "Don't use generic link text like \"click here\" or \"read more\" — it's inaccessible to screen reader users navigating by links",
+      "Don't open links in a new tab without signaling it to the user (e.g. an external link icon and descriptive aria-label)"
+    ]
+  }
+}
