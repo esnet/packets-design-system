@@ -1,0 +1,53 @@
+{
+  "id": "caption",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9989-53865",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<figcaption><span class='caption-label'>Label</span><span class='caption-text'>Lorem ipsum dolor sit amet</span></figcaption>",
+  "demo": {
+    "props": {
+      "align": "center",
+      "style": "default"
+    }
+  },
+  "props": {
+    "align": {
+      "options": {
+        "center": null,
+        "left": "left"
+      }
+    },
+    "style": {
+      "options": {
+        "default": null,
+        "italic": "italic",
+        "caps": "caps"
+      }
+    }
+  },
+  "overview": "A media caption component that pairs an image with descriptive label text. Use it to provide context, attribution, or supplementary information beneath figures, photos, and illustrations.",
+  "bestPractices": {
+    "whenToUse": [
+      "Beneath a figure, photo, or illustration to attribute the source or provide supplementary context",
+      "When an image needs a short descriptive label that clarifies its subject or origin for the reader"
+    ],
+    "do": [
+      "Keep caption text concise — one or two short sentences at most",
+      "Use the label (bold) portion for the attribution or primary identifier, and the description for supporting detail",
+      "Use left alignment when the caption sits beneath a left-aligned or full-bleed image in a text-heavy layout",
+      "Use the italics style for editorial or journalistic contexts where captions are conventionally set in italic"
+    ],
+    "dont": [
+      "Don't use a caption as a substitute for meaningful alt text — the two serve different purposes and both are needed",
+      "Don't repeat the surrounding body copy verbatim in the caption; add value with attribution or additional context",
+      "Don't use all-caps style for long captions — it reduces legibility and should be reserved for very short labels or identifiers"
+    ]
+  }
+}
