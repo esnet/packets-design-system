@@ -1,0 +1,29 @@
+{
+  "id": "footer",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9982:51120",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<footer>\u00a9 2026 ESnet. All rights reserved. Navigation links, legal text, and supplementary information go here.</footer>",
+  "overview": "A full-width container anchored to the bottom of a page or layout. Use it to hold closing content such as navigation links, legal text, contact details, or supplementary information.",
+  "bestPractices": {
+    "whenToUse": [
+      "At the bottom of a page or layout to hold copyright notices, legal text, navigation links, and supplementary information",
+      "When content needs to be semantically marked as a footer landmark for assistive technology"
+    ],
+    "do": [
+      "Include copyright, contact information, and legal links within the footer element",
+      "Keep footer content brief and supplementary — it supports the page but should not carry primary actions"
+    ],
+    "dont": [
+      "Don't place primary calls-to-action or important user-facing content in the footer — users are unlikely to look there first",
+      "Don't use multiple footer elements within a single page section; use one per distinct landmark region"
+    ]
+  }
+}
