@@ -1,0 +1,72 @@
+{
+  "id": "headings",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9982-48434",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<h1>Heading Text</h1>",
+  "demo": {
+    "props": {
+      "type": "default",
+      "size": "1",
+      "highlight": "none"
+    },
+    "slots": {
+      "default": "Body Text"
+    }
+  },
+  "props": {
+    "size": {
+      "options": {
+        "1": {
+          "tag": "h1"
+        },
+        "2": {
+          "tag": "h2"
+        },
+        "3": {
+          "tag": "h3"
+        },
+        "4": {
+          "tag": "h4"
+        },
+        "5": {
+          "tag": "h5"
+        },
+        "6": {
+          "tag": "h6"
+        }
+      }
+    },
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "branded",
+        "accent": "accent"
+      }
+    }
+  },
+  "overview": "The primary component for section headers. Use it to establish visual hierarchy across pages and layouts, from major page titles down to smaller subsection labels. ",
+  "bestPractices": {
+    "whenToUse": [
+      "For all page and section titles that establish document structure and in-page hierarchy (h1–h6)",
+      "When you need headings that assistive technologies can navigate between to understand page outline"
+    ],
+    "do": [
+      "Follow a logical heading order (h1 → h2 → h3) without skipping levels — this is required for accessibility",
+      "Use size 1 (h1) only once per page as the primary page title",
+      "Use the branded variant to anchor major branded sections; use accent for callout sub-headings that need extra visual distinction"
+    ],
+    "dont": [
+      "Don't choose a heading size based on how it looks — always match the size to the correct semantic level in the document hierarchy",
+      "Don't skip heading levels (e.g. h1 → h3); it breaks the accessibility tree and confuses screen reader users",
+      "Don't use a heading just to make text larger — use Display for decorative scale or Body Bold for emphasis within prose"
+    ]
+  }
+}
