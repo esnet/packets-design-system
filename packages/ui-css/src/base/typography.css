@@ -144,6 +144,7 @@
 
     /* Order matters: visited, hover, pressed, active, disabled */
     &:visited,
+    &.visited,
     &.pkts-visited {
       color: var(--pkts-link-visited);
     }
@@ -286,13 +287,12 @@
   h6,
   .h6,
   .header6 {
-    &.accent1,
-    &.accent {
+    &.branded {
       color: var(--pkts-color-secondary, #004573);
     }
 
-    &.accent2 {
-      color: var(--pkts-color-primary, #0088b5);
+    &.accent {
+      color: var(--pkts-color-accent, #0088b5);
     }
 
     a {
@@ -349,6 +349,7 @@
   }
 
   /* Caption */
+  figcaption,
   caption {
     display: flex;
     align-items: baseline;
@@ -359,21 +360,27 @@
     justify-content: center;
   }
 
+  figcaption.left,
   caption.left {
     justify-content: flex-start;
   }
 
+  figcaption.italic,
+  figcaption.italic .caption-label,
+  figcaption.italic .caption-text,
   caption.italic,
   caption.italic .caption-label,
   caption.italic .caption-text {
     font-style: italic;
   }
-
+  
+  figcaption.caps,
   caption.caps {
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
 
+  figcaption .caption-label,
   caption .caption-label {
     font: var(
       --pkts-typography-label-2-sans-font,
@@ -382,6 +389,7 @@
     color: inherit;
   }
 
+  figcaption .caption-text,
   caption .caption-text {
     font: var(
       --pkts-typography-label-1-sans-font,
@@ -396,7 +404,7 @@
     display: block;
     width: 100%;
     padding: var(--pkts-size-spacing-large, 24px) var(--pkts-size-spacing-xlarge, 40px);
-    background-color: var(--pkts-color-light-surface-2, #f2f2f2);
+    background: none;
     color: var(--pkts-color-copy-alt, #6e6e70);
     font: var(
       --pkts-typography-label-1-sans-font,
@@ -421,18 +429,22 @@
     font-weight: 400;
   }
 
+  blockquote.block.branded {
+    border-left: 2px solid var(--pkts-color-primary, #6e6e70);
+  }
+
   /* Pull: centered, bold, ruled above and below */
   blockquote.pull {
     padding: 1.5rem 0;
-    border-top: 2px solid var(--pkts-color-primary, #0088b5);
-    border-bottom: 2px solid var(--pkts-color-primary, #0088b5);
+    border-top: 2px solid var(--pkts-color-copy-alt, #0088b5);
+    border-bottom: 2px solid var(--pkts-color-copy-alt, #0088b5);
     font-size: 1.25rem;
     font-weight: 600;
     text-align: center;
   }
 
   /* Branded: icon on the left, bold text, ruled above and below */
-  blockquote.branded {
+  blockquote.pull.branded {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
@@ -454,9 +466,10 @@
     transform: scaleX(-1); /* mirror left to right */
   }
 
-  /* Code */
-  code,
-  .pkts-code-block {
+  /* Inline code — pill. .code is kept as an alias for existing markup.
+     Block variant and pkts-code web component styles live in
+     components/code/code.css. */
+  code {
     --pkts-code-color: var(--pkts-color-primary, #0088b5);
     --pkts-code-comment: var(--pkts-color-success, #0a7d0a);
     --pkts-code-border: var(--pkts-color-copy-alt-2, #6e6e70);
@@ -465,10 +478,6 @@
     font-family: "Source Code Pro", ui-monospace, monospace;
   }
 
-  /* Inline: a pill.
-    Any <code> that isn't inside a <pre> gets it, so a bare <code> and the
-    <code> rendered by <pkts-code> are styled by the same rule.
-    .code is kept as an alias for existing markup. */
   code:not(pre > code),
   .code {
     display: inline-flex;
@@ -485,9 +494,7 @@
     text-overflow: ellipsis;
   }
 
-  /* Nested code (<code><code>, <code class="code"><code>, and so on):
-    only the outermost one draws the pill. Higher specificity than the rule
-    above, so it always wins. */
+  /* Nested code — only the outermost draws the pill. */
   :is(code, .code) :is(code, .code) {
     display: inline;
     padding: 0;
@@ -499,102 +506,10 @@
     white-space: inherit;
   }
 
-  /* Code inside .pkts-code-block: reset all pill styles so the block
-     renders as pre-formatted text that wraps at the container boundary. */
-  .pkts-code-block code {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: none;
-    color: inherit;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    overflow: visible;
-    font-size: 0.75rem;
-  }
-
-  /* Inline comment color */
+  /* Inline comment color (native <code> only; web component handled in code.css) */
   code.comment,
-  .code.comment,
-  pkts-code[comment] > code,
-  .pkts-code-block.comment pre {
+  .code.comment {
     color: var(--pkts-code-comment);
-  }
-
-  /* Block: rounded card with a header row */
-  .pkts-code-block {
-    margin: 0;
-    padding: 0.5rem 0.75rem 0.75rem;
-    border: 1px solid var(--pkts-code-border);
-    border-radius: 0.5rem;
-    background: var(--pkts-code-surface);
-    color: var(--pkts-color-copy, #3d3d3d);
-    font-size: 0.75rem;
-  }
-
-  .pkts-code-block-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
-  }
-
-  .code-language {
-    padding: 0 0.5rem;
-    border-radius: 0.5rem;
-    background: var(--pkts-color-secondary, #9be1f5);
-    color: var(--pkts-code-surface);
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .code-copy {
-    display: inline-flex;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-  }
-
-  /* Keeps the button on the right when there is no language badge */
-  .pkts-code-block-header .code-copy {
-    margin-left: auto;
-  }
-
-  /* Hover and keyboard focus. Color change only, so nothing shifts. */
-  .code-copy:hover {
-    color: var(--pkts-color-primary, #0088b5);
-  }
-
-  .code-copy:focus-visible {
-    outline: 2px solid var(--pkts-color-primary, #0088b5);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  .code-copy pkts-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .code-block pre {
-    margin: 0;
-    overflow-x: auto;
-    font: inherit;
-    font-size: 1rem;
-    line-height: 1.5;
-    white-space: pre;
-  }
-
-  /* Block code is never a pill: it's a direct child of <pre>, which the
-    inline rule excludes */
-  .code-block pre code {
-    font: inherit;
-    color: inherit;
   }
 
   /* Lists */
