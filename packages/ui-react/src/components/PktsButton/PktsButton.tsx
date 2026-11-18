@@ -10,7 +10,7 @@ import { PktsButtonProps } from "./PktsButton.types";
  * @returns {React.ReactElement}
  */
 const PktsButton: React.FC<PktsButtonProps> = ({
-  variant = "secondary",
+  variant = "default",
   as = "button",
   className,
   prepend,

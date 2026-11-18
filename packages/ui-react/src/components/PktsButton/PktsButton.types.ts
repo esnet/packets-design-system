@@ -1,11 +1,14 @@
 import * as React from "react";
 
 type PktsButtonVariantType =
-  | "primary"
-  | "secondary"
+  | "default"
   | "branded"
-  | "tertiary"
-  | "destructive";
+  | "gradient"
+  | "destructive"
+  | "success"
+  | "minimal"
+  | "accent"
+  | "borderless";
 
 type PktsButtonCustomProps = {
   /** Variant that affects color styling. */
