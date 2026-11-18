@@ -1,13 +1,33 @@
-/* Make pkts-icon custom element behave as inline-flex for proper centering */
 pkts-icon {
     display: inline-flex;
     vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    color: var(--pkts-color-copy, currentColor);
 }
 
 pkts-icon svg {
     display: block;
+    width: 24px;
+    height: 24px;
 }
 
-.pkts-icon {
-    color: var(--pkts-color-actions-copy);
+pkts-icon[size="inline"] svg {
+    width: 16px;
+    height: 16px;
+}
+
+pkts-icon[size="control"] svg {
+    width: 20px;
+    height: 20px;
+}
+
+pkts-icon[size="standalone"] svg {
+    width: 24px;
+    height: 24px;
+}
+
+pkts-icon[size="large"] svg {
+    width: 32px;
+    height: 32px;
 }

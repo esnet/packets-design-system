@@ -2,63 +2,39 @@ import { PktsIconProps, PktsIconSize } from "./PktsIcon.types";
 
 import { createElement, icons } from "lucide";
 
-const SIZE_MAP: Record<PktsIconSize, string> = {
-  large:      "32px",
-  standalone: "24px",
-  control:    "20px",
-  inline:     "16px",
-};
-
 export class PktsIcon extends HTMLElement implements PktsIconProps {
   static tagName = "pkts-icon";
+
   static get observedAttributes() {
-    return ["name", "size", "color", "stroke-width", "class", "fill"];
+    return ["name", "size", "color", "stroke-width"];
   }
 
-  get name() {
+  get name(): string {
     return this.getAttribute("name") ?? "";
   }
   set name(v: string) {
     this.setAttribute("name", v);
   }
 
-  get class() {
-    return this.getAttribute("class") ?? "";
+  get size(): PktsIconSize | "" {
+    return (this.getAttribute("size") as PktsIconSize) ?? "";
   }
-  set class(v: string) {
-    this.setAttribute("class", v);
-  }
-
-  get size() {
-    return this.getAttribute("size") ?? "24px";
-  }
-  set size(v: number | string) {
-    this.setAttribute("size", String(v));
+  set size(v: PktsIconSize) {
+    this.setAttribute("size", v);
   }
 
-  get color() {
+  get color(): string {
     return this.getAttribute("color") ?? "";
   }
   set color(v: string) {
     this.setAttribute("color", v);
   }
 
-  get strokeWidth() {
+  get strokeWidth(): string {
     return this.getAttribute("stroke-width") ?? "";
   }
   set strokeWidth(v: number | string) {
     this.setAttribute("stroke-width", String(v));
-  }
-
-  get fill() {
-    return this.getAttribute("fill") ?? "";
-  }
-  set fill(v: string) {
-    this.setAttribute("fill", v);
-  }
-
-  constructor() {
-    super();
   }
 
   connectedCallback(): void {
@@ -69,11 +45,11 @@ export class PktsIcon extends HTMLElement implements PktsIconProps {
     name: string,
     oldVal: string | null,
     newVal: string | null,
-  ) {
+  ): void {
     if (oldVal !== newVal) this.render();
   }
 
-  private _toPascalCase(str: string) {
+  private _toPascalCase(str: string): string {
     return str
       .split(/-|_/)
       .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
@@ -81,32 +57,14 @@ export class PktsIcon extends HTMLElement implements PktsIconProps {
   }
 
   protected render(): void {
-    const rawName = this.name;
-    const iconName = this._toPascalCase(rawName);
-    const key = iconName as keyof typeof icons;
-
-    const iconNode = icons[key];
+    const iconNode = icons[this._toPascalCase(this.name) as keyof typeof icons];
     if (!iconNode) return;
 
     const attrs: Record<string, string> = {};
-
-    // Only set attributes if the values exist
-    if (this.class) attrs.class = this.class;
     if (this.color) attrs.stroke = this.color;
-    if (this.strokeWidth) attrs["stroke-width"] = String(this.strokeWidth);
-    if (this.size) {
-      const resolved = SIZE_MAP[this.size as PktsIconSize] ?? String(this.size);
-      attrs.width = resolved;
-      attrs.height = resolved;
-    }
-    if (this.fill) attrs.fill = this.fill;
+    if (this.strokeWidth) attrs["stroke-width"] = this.strokeWidth;
 
-    // Create the SVG element
-    const svg = createElement(iconNode, attrs);
-
-    // Clear existing content and append SVG
-    this.innerHTML = "";
-    this.appendChild(svg);
+    this.replaceChildren(createElement(iconNode, attrs));
   }
 }
 
