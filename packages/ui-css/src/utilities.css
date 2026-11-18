@@ -222,6 +222,7 @@ a.pkts-button.pkts-xsmall,
 a.pkts-icon-button.pkts-xsmall {
   min-height: var(--spacing-height-xsmall, 16px);
   --icon-size: 0.75rem;
+  --typography-font: var(--pkts-typography-label-1-sans-font);
 }
 
 .pkts-button.pkts-small,
@@ -246,6 +247,8 @@ a.pkts-button.pkts-xxlarge,
 a.pkts-icon-button.pkts-xxlarge {
   min-height: var(--spacing-height-xxlarge, 64px);
   --icon-size: 2rem;
+  --typography-font: var( --pkts-typography-button-2-sans-font);
+
 }
 
 /* ============================================
@@ -374,7 +377,10 @@ a.pkts-icon-button.pkts-square {
 .pkts-input-text:has(*:active):not(.pkts-disabled),
 .pkts-input-text-area:hover:not(.pkts-disabled),
 .pkts-input-text-area:focus-within:not(.pkts-disabled),
-.pkts-input-text-area:has(*:active):not(.pkts-disabled) {
+.pkts-input-text-area:has(*:active):not(.pkts-disabled),
+.pkts-input-select:hover:not(.pkts-disabled):not(.pkts-readonly),
+.pkts-input-select:focus-within:not(.pkts-disabled):not(.pkts-readonly),
+.pkts-input-select:has(*:active):not(.pkts-disabled):not(.pkts-readonly) {
   box-shadow: 0 0 3px var(--pkts-size-border-width-xsmall) var(--Primary, #0088B5), 0 0 0 var(--pkts-size-border-width-xsmall) var(--Primary, #0088B5);
 }
 

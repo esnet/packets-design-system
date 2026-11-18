@@ -9,6 +9,7 @@ export class PktsButton extends SlottedComponent implements PktsButtonProps {
       "label",
       "variant",
       "type",
+      "size",
       "fill",
       "disabled",
       "as",
@@ -54,10 +55,10 @@ export class PktsButton extends SlottedComponent implements PktsButtonProps {
     this.setAttribute("type", v);
   }
 
-  get size(): "medium" | "xxlarge" {
+  get size(): "xsmall" | "small" | "medium" | "xxlarge" {
     return (this.getAttribute("size") as any) ?? "medium";
   }
-  set size(v: "medium" | "xxlarge") {
+  set size(v: "xsmall" | "small" | "medium" | "xxlarge") {
     this.setAttribute("size", v);
   }
 

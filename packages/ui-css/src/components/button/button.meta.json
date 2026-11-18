@@ -1,0 +1,96 @@
+{
+  "id": "button",
+  "category": [
+    "Controls",
+    "Button Control"
+  ],
+  "figmaNodeId": "9223:8426",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<button class=\"pkts-button\">Label</button>",
+  "demo": {
+    "props": {
+      "label": "Button label",
+      "size": "medium"
+    },
+    "slots": {
+      "default": "Button"
+    }
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "pkts-branded",
+        "gradient": "pkts-gradient",
+        "destructive": "pkts-destructive",
+        "success": "pkts-sucess",
+        "minimal": "pkts-minimal",
+        "accent": "pkts-accent",
+        "borderless": "pkts-borderless"
+      }
+    },
+    "type": {
+      "options": {
+        "button": null,
+        "submit": null,
+        "reset": null
+      }
+    },
+    "size": {
+      "options": {
+        "xsmall": "pkts-xsmall",
+        "small": "pkts-small",
+        "medium": "pkts-medium",
+        "xxlarge": "pkts-xxlarge"
+      }
+    },
+    "fill": {
+      "type": "boolean",
+      "css": "pkts-full"
+    },
+    "disabled": {
+      "type": "boolean",
+      "css": {
+        "attribute": "disabled"
+      }
+    },
+    "as": {
+      "options": {
+        "button": null,
+        "a": "a"
+      }
+    },
+    "href": {
+      "type": "string",
+      "css": {
+        "attribute": "href"
+      }
+    }
+  },
+  "overview": "An extension of the HTML `<button>` element (or an `<a>` tag styled as a button) that communicates action intent through five color variants. Optional `prepend` and `append` slots allow icons or avatars to be placed before or after the label. The `as` prop lets the button render as an anchor for navigation actions while retaining button styling and accessibility attributes.",
+  "bestPractices": {
+    "whenToUse": [
+      "When triggering an action or submitting a form",
+      "When navigating to another page or URL, but should appear as a button"
+    ],
+    "do": [
+      "Use default for the single most important action on a view",
+      "Use secondary for secondary or supporting actions alongside a primary button",
+      "Use destructive for irreversible actions such as delete or remove",
+      "Use as=\"a\" with an href for navigation - this ensures correct semantics and keyboard behavior",
+      "Add icons via prepend or append only when they aid comprehension, not for decoration"
+    ],
+    "dont": [
+      "Use buttons with no click handler (make disabled if so)",
+      "Use a button when a plain text link is sufficient for low-emphasis navigation"
+    ]
+  }
+}

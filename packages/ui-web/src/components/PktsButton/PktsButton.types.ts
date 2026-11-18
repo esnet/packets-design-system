@@ -2,7 +2,7 @@ export interface PktsButtonProps extends Partial<HTMLButtonElement> {
   label: string;
   variant?: "default" | "branded" | "gradient" | "destructive" | "success" | "minimal"| "access"| "borderless";
   type?: "button" | "submit" | "reset";
-  size?: "medium" | "xxlarge";
+  size?: "xsmall" | "small" | "medium" | "xxlarge";
   fill?: boolean;
   disabled?: boolean;
   as?: "button" | "a";
