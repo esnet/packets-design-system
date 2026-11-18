@@ -7,7 +7,7 @@
 
    Usage: <hr class="pkts-divider es-branded">
 */
-
+hr,
 .pkts-divider {
   /* Layout */
   height: var(--pkts-size-border-width-small, 2px);

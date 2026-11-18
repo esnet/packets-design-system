@@ -1,0 +1,37 @@
+{
+  "id": "divider",
+  "category": [
+    "Foundation",
+    "Visual Primitives"
+  ],
+  "figmaNodeId": "9186:1777",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<hr class=\"pkts-divider\"></hr>",
+  "props": {
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "pkts-branded"
+      }
+    }
+  },
+  "overview": "The Divider is a styled HTML `<hr>` element used to visually separate sections of content, rendering as a thin horizontal line. Prefer semantic section structure or spacing utilities when a visual separator is not strictly needed.",
+  "bestPractices": {
+    "whenToUse": [
+      "Between logically distinct sections of a page or form",
+      "As a lightweight visual cue when additional whitespace alone is insufficient"
+    ],
+    "do": [
+      "Use the default (primary) variant for general-purpose separation",
+      "Use the branded variant sparingly to draw attention to a meaningful section boundary"
+    ],
+    "dont": [
+      "Use a divider as a substitute for proper heading hierarchy or spacing",
+      "Stack multiple dividers in close proximity"
+    ]
+  }
+}

@@ -10,7 +10,7 @@ import { PktsDividerProps } from "./PktsDivider.types";
  * @returns {React.ReactElement}
  */
 const PktsDivider: React.FC<PktsDividerProps> = ({
-  variant = "primary",
+  variant = "default",
   className,
 }) => {
   return (

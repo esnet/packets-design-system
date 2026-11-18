@@ -1,3 +1,3 @@
 export interface PktsDividerProps extends Partial<HTMLHRElement> {
-  variant?: "primary" | "branded";
+  variant?: "default" | "branded";
 }

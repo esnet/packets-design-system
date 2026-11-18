@@ -1,18 +1,18 @@
 import { PktsDividerProps } from "./PktsDivider.types";
 
-class PktsDividerElement extends HTMLHRElement implements PktsDividerProps {
+class PktsDividerElement extends HTMLElement implements PktsDividerProps {
   static tagName = "pkts-divider";
 
   static get observedAttributes(): string[] {
     return ["variant"];
   }
 
-  get variant(): "primary" | "branded" {
-    return (this.getAttribute("variant") as "primary" | "branded") ?? "primary";
+  get variant(): "default" | "branded" {
+    return (this.getAttribute("variant") as "default" | "branded") ?? "default";
   }
 
-  set variant(v: "primary" | "branded") {
-    this.setAttribute("variant", v ?? "primary");
+  set variant(v: "default" | "branded") {
+    this.setAttribute("variant", v ?? "default");
   }
 
   constructor() {
@@ -43,9 +43,7 @@ class PktsDividerElement extends HTMLHRElement implements PktsDividerProps {
   }
 }
 
-customElements.define(PktsDividerElement.tagName, PktsDividerElement, {
-  extends: "hr",
-});
+customElements.define(PktsDividerElement.tagName, PktsDividerElement);
 
 export const PktsDivider = PktsDividerElement as typeof PktsDividerElement &
   PktsDividerProps;

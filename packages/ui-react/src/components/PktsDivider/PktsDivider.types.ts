@@ -1,4 +1,4 @@
 export type PktsDividerProps = {
-  variant?: "primary" | "branded";
+  variant?: "default" | "branded";
   className?: string;
 };
