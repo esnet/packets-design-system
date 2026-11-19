@@ -1,11 +1,13 @@
 import * as React from "react";
 
 type PktsIconButtonVariantType =
-  | "primary"
-  | "secondary"
+  | "default"
   | "branded"
-  | "tertiary"
-  | "destructive";
+  | "fancy"
+  | "destructive"
+  | "borderless"
+  | "minimal"
+  | "simple";
 
 type PktsIconButtonCustomProps = {
   /** Variant that affects color styling. */

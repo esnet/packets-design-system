@@ -14,7 +14,7 @@ import { PktsIconButtonProps } from "./PktsIconButton.types";
  * @returns {React.ReactElement}
  */
 const PktsIconButton: React.FC<PktsIconButtonProps> = ({
-  variant = "secondary",
+  variant = "default",
   as = "button",
   className,
   children,
