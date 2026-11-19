@@ -1,0 +1,58 @@
+{
+  "id": "icon-button",
+  "category": [
+    "Controls",
+    "Button Control"
+  ],
+  "figmaNodeId": "9289:29939",
+  "packages": [
+    "ui-web",
+    "ui-react"
+  ],
+  "demo": {
+    "props": {
+      "variant": "default"
+    },
+    "slots": {
+      "default": { "type": "icon", "name": "star" }
+    }
+  },
+  "props": {
+    "variant": {
+      "options": {
+        "default": null,
+        "branded": "pkts-branded",
+        "fancy": "pkts-fancy",
+        "destructive": "pkts-destructive",
+        "borderless": "pkts-borderless",
+        "minimal": "pkts-minimal",
+        "simple": "pkts-simple"
+      }
+    },
+    "disabled": {
+      "type": "boolean",
+      "css": {
+        "attribute": "disabled"
+      }
+    },
+    "square": {
+      "type": "boolean",
+      "css": true
+    }
+  },
+  "overview": "The Icon Button is a generic icon-only button component. It renders a button (or optionally an anchor) containing a single Lucide icon, and supports multiple color variants to convey different action intents. A square modifier removes horizontal padding and applies a circular border radius for a compact, symmetrical appearance. Use this component when an action needs to be represented by an icon without accompanying text.",
+  "bestPractices": {
+    "whenToUse": [
+      "When an interactive action can be clearly represented by a recognized icon glyph in a space-constrained context",
+      "When a compact circular or pill-shaped button is needed alongside other elements such as in toolbars or card headers"
+    ],
+    "do": [
+      "Always provide an aria-label attribute so screen readers can announce the button's purpose — without it the button has no accessible name",
+      "Choose the variant that reflects the action's intent — use destructive for delete actions, branded for primary brand-colored actions"
+    ],
+    "dont": [
+      "Don't place more than one icon or text inside the button — it should contain a single icon only",
+      "Don't use Icon Button when a text label can fit — labeled buttons communicate intent more clearly and require less cognitive load"
+    ]
+  }
+}
