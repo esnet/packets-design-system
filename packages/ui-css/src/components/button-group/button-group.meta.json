@@ -1,0 +1,49 @@
+{
+  "id": "button-group",
+  "category": [
+    "Controls",
+    "Button Control"
+  ],
+  "figmaNodeId": "9764:10054",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<div class=\"pkts-button-group\"><button class=\"pkts-button\"><button class=\"pkts-button\"><button class=\"pkts-button\"></div>",
+  "demo": {
+    "props": {
+      "label": "Button Group Label",
+      "direction": "horizontal"
+    },
+    "slots": {
+      "default": "<pkts-button label=\"Button 1\"></pkts-button><pkts-button label=\"Button 2\"></pkts-button><pkts-button label=\"Button 3\"></pkts-button>"
+    }
+  },
+  "props": {
+    "label": {
+      "type": "string"
+    },
+    "direction": {
+      "options": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  },
+  "overview": "A compositional layout wrapper that arranges one or more buttons with consistent spacing and responsive behavior. Buttons are passed as children and rendered inside an unstyled list. An optional `label` can be displayed above the group. The `direction` prop controls horizontal or vertical layout; horizontal groups automatically switch to a vertical column on viewports narrower than 640 px.",
+  "bestPractices": {
+    "whenToUse": [
+      "When two or more related actions need to be presented together with uniform spacing",
+      "When a set of buttons must reflow to a vertical stack on small screens"
+    ],
+    "do": [
+      "Use `direction=\"vertical\"` when actions are stacked in a side panel or a form footer with limited width",
+      "Provide a `label` when the group of actions benefits from a short heading for context",
+      "Keep the number of buttons in a group small - typically two to four actions"
+    ],
+    "dont": [
+      "Mix buttons of very different sizes inside the same group"
+    ]
+  }
+}

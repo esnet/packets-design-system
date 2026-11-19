@@ -13,12 +13,14 @@ type PktsButtonVariantType =
 type PktsButtonCustomProps = {
   /** Variant that affects color styling. */
   variant?: PktsButtonVariantType;
+  /** Text label for the button. When set, takes precedence over children. */
+  label?: string;
   /** Element to render before the button label. Typically an icon or avatar. */
   append?: React.ReactNode;
   /** Element to render after the button label. Typically an icon or avatar. */
   prepend?: React.ReactNode;
   /** Button label content. */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 type AsButtonProps = {

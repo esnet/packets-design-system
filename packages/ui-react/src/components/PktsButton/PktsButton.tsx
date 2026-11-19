@@ -13,6 +13,7 @@ const PktsButton: React.FC<PktsButtonProps> = ({
   variant = "default",
   as = "button",
   className,
+  label,
   prepend,
   append,
   children,
@@ -26,7 +27,7 @@ const PktsButton: React.FC<PktsButtonProps> = ({
       {...props}
     >
       {prepend}
-      {children}
+      {label ?? children}
       {append}
     </Tag>
   );
