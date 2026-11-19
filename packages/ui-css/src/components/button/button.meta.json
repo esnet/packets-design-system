@@ -13,7 +13,7 @@
   "markup": "<button class=\"pkts-button\">Label</button>",
   "demo": {
     "props": {
-      "label": "Button label",
+      "label": "Button Label",
       "size": "medium"
     },
     "slots": {
