@@ -5,9 +5,8 @@
     "Rich Text"
   ],
   "packages": [
-    "ui-css",
-    "ui-web",
-    "ui-react"
+    "html-native",
+    "ui-css"
   ],
   "figmaNodeId": "9982-51537",
   "markup": "<p>Lorem ipsum dolor sit amet</p>",
@@ -41,15 +40,15 @@
     "size": {
       "options": {
         "1": null,
-        "2": "pkts-body2"
+        "2": "body2"
       }
     },
     "highlight": {
       "options": {
         "none": null,
-        "blue": "pkts-highlight",
-        "yellow": "pkts-highlight-yellow",
-        "pink": "pkts-highlight-pink"
+        "blue": { "tag": "mark", "class": "highlight" },
+        "yellow": { "tag": "mark", "class": "highlight-yellow" },
+        "pink": { "tag": "mark", "class": "highlight-pink" }
       }
     }
   },
