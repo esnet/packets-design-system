@@ -1,0 +1,98 @@
+/* pkts-code web component styles.
+   Inline <code> pill and typography.css custom properties live in
+   base/typography.css. This file owns the block variant and copy button. */
+
+.pkts-code-block {
+  --pkts-code-color: var(--pkts-color-primary, #0088b5);
+  --pkts-code-comment: var(--pkts-color-success, #0a7d0a);
+  --pkts-code-border: var(--pkts-color-copy-alt-2, #6e6e70);
+  --pkts-code-surface: var(--pkts-color-actions-default-rest, #fff);
+  position: relative;
+  margin: 0;
+  padding: 0.5rem 0.75rem 0.75rem;
+  border: 1px solid var(--pkts-code-border);
+  border-radius: 0.5rem;
+  background: var(--pkts-code-surface);
+  color: var(--pkts-color-copy, #3d3d3d);
+  font-size: 0.75rem;
+  font-family: "Source Code Pro", ui-monospace, monospace;
+}
+
+/* Reset pill styles on <code> inside the block so it renders as pre-formatted text. */
+.pkts-code-block code {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  overflow: visible;
+  font-size: 0.75rem;
+}
+
+/* Comment color — web component attribute selector and block variant */
+pkts-code[comment] > code,
+.pkts-code-block.comment code {
+  color: var(--pkts-code-comment);
+}
+
+.pkts-code-block-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-right: 2rem;
+}
+
+.pkts-code-block-lang-chip {
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--pkts-color-secondary, #9be1f5);
+  color: var(--pkts-code-surface);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.pkts-code-block-top button {
+  display: inline-flex;
+  padding: 2px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+}
+
+.pkts-code-block-top button:hover {
+  color: var(--pkts-color-primary, #0088b5);
+}
+
+.pkts-code-block-top button:focus-visible {
+  outline: 2px solid var(--pkts-color-primary, #0088b5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.pkts-code-block-top button pkts-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.code-block pre {
+  margin: 0;
+  overflow-x: auto;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.code-block pre code {
+  font: inherit;
+  color: inherit;
+}

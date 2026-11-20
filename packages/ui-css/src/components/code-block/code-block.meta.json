@@ -1,0 +1,53 @@
+{
+  "id": "code-block",
+  "category": [
+    "Foundation",
+    "Rich Text"
+  ],
+  "figmaNodeId": "9987:53065",
+  "packages": [
+    "ui-web",
+    "ui-react"
+  ],
+  "demo": {
+    "props": {
+      "language": "javascript",
+      "code": "const greeting = 'Hello, world!';",
+      "copyable": true
+    }
+  },
+  "props": {
+    "language": {
+      "type": "string"
+    },
+    "comment": {
+      "options": {
+        "false": null,
+        "true": "comment"
+      }
+    },
+    "copyable": {
+      "options": {
+        "false": null,
+        "true": null
+      }
+    },
+    "code": {
+      "type": "string"
+    }
+  },
+  "overview": "A styled code display component for presenting code samples, terminal output, and technical snippets in a monospaced block format. Supports syntax highlighting via a language label, an optional copy button, and comment-line styling. For a short inline code reference within prose, use the Code element instead.",
+  "bestPractices": {
+    "whenToUse": [
+      "Displaying code snippets, shell commands, or configuration examples that users may need to copy",
+      "Inline developer documentation where syntax context (via the language label) aids comprehension"
+    ],
+    "do": [
+      "Pass a raw JavaScript template string as `children` to preserve whitespace and line breaks",
+      "Set the `language` prop to accurately label the code type (e.g. `\"python\"`, `\"typescript\"`)"
+    ],
+    "dont": [
+      "Pass React nodes or rich content as children, only strings"
+    ]
+  }
+}
