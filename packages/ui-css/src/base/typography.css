@@ -33,10 +33,7 @@
     );
 
     .body2 {
-      font: var(
-        --pkts-typography-copy-2-sans-font,
-        400 16px/120% var(--pkts-font-family-body-sans)
-      );
+      font-size: 18px;
     }
 
     b,
@@ -59,13 +56,17 @@
 
     mark,
     .highlight,
-    .highlight-blue {
+    .body2.highlight,
+    .highlight-blue,
+    .body2.highlight-blue {
       background-color: var(--pkts-color-actions-highlight-blue, #9ce2ff);
     }
-    .highlight-yellow {
+    .highlight-yellow,
+    .body2.highlight-yellow {
       background-color: var(--pkts-color-actions-highlight-yellow, #fffb7d);
     }
-    .highlight-pink {
+    .highlight-pink,
+    .body2.highlight-pink {
       background-color: var(--pkts-color-actions-highlight-pink, #ffa5cb);
     }
   }
