@@ -6,9 +6,7 @@
   ],
   "figmaNodeId": "9987:53065",
   "packages": [
-    "ui-css",
-    "ui-web",
-    "ui-react"
+    "html-native"
   ],
   "markup": "<code></code>",
   "demo": {
