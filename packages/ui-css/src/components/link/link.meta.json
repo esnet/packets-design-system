@@ -6,9 +6,8 @@
   ],
   "figmaNodeId": "9300:37990",
   "packages": [
-    "ui-css",
-    "ui-web",
-    "ui-react"
+    "html-native",
+    "ui-css"
   ],
   "markup": "<a href=\"#\">This is a link</a>",
   "demo": {
