@@ -6,9 +6,8 @@
   ],
   "figmaNodeId": "9989-53865",
   "packages": [
-    "ui-css",
-    "ui-web",
-    "ui-react"
+    "html-native",
+    "ui-css"
   ],
   "markup": "<figcaption><span class='caption-label'>Label</span><span class='caption-text'>Lorem ipsum dolor sit amet</span></figcaption>",
   "demo": {
