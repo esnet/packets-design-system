@@ -6,9 +6,8 @@
   ],
   "figmaNodeId": "9987:52272",
   "packages": [
-    "ui-css",
-    "ui-web",
-    "ui-react"
+    "html-native",
+    "ui-css"
   ],
   "markup": "<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac tristique diam.</blockquote>",
   "demo": {
