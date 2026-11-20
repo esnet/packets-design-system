@@ -8,6 +8,10 @@ export interface PktsCodeBlockProps
   children: string;
   /** Code language, shown as a chip above the code. */
   language?: SupportedCodeLanguages | string;
+  /** Whether to show the copy button. Defaults to true. */
+  copyable?: boolean;
+  /** Applies comment color styling to the code content. */
+  comment?: boolean;
   /** Callback function for clicking the copy button. Defaults to copying to clipboard, not recommended to change. */
   // eslint-disable-next-line no-unused-vars
   onClickCopy?: (code: PktsCodeBlockProps["children"]) => void;

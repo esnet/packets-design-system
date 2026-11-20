@@ -16,6 +16,8 @@ import type { PktsCodeBlockProps } from "./PktsCodeBlock.types";
 export function PktsCodeBlock({
   children,
   language = "code",
+  copyable = true,
+  comment = false,
   onClickCopy = undefined,
   className,
   ...props
@@ -30,12 +32,14 @@ export function PktsCodeBlock({
       };
 
   return (
-    <pre className={clsx("pkts-code-block", className)} {...props}>
+    <pre className={clsx("pkts-code-block", { comment }, className)} {...props}>
       <div className="pkts-code-block-top">
         <span className="pkts-code-block-lang-chip">{language}</span>
-        <button onClick={() => _onCopy()}>
-          {copied ? <Check /> : <Copy />}
-        </button>
+        {copyable && (
+          <button onClick={() => _onCopy()}>
+            {copied ? <Check /> : <Copy />}
+          </button>
+        )}
       </div>
       <code>{children}</code>
     </pre>
