@@ -9,20 +9,20 @@ import { PktsInputCheckboxProps } from "./PktsInputCheckbox.types";
  * @returns {React.ReactElement}
  */
 const PktsInputCheckbox: React.FC<PktsInputCheckboxProps> = ({
-  variant = "primary",
+  variant = "default",
   className,
   ...props
 }) => {
   return (
-    <div
+    <input
+      {...props}
+      type="checkbox"
       className={clsx(
         "pkts-input-checkbox",
         variant === "branded" && "pkts-branded",
         className,
       )}
-    >
-      <input {...props} type="checkbox" />
-    </div>
+    />
   );
 };
 

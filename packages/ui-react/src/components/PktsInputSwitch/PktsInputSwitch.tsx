@@ -1,57 +1,40 @@
-import React, { FC, ChangeEvent, useState, useMemo } from "react";
+import React, { FC, ChangeEvent, useState } from "react";
 import { PktsInputSwitchProps } from "./PktsInputSwitch.types";
-
-import { getIconByCheckedState } from "./PktsInputSwitchUtils";
 import clsx from "clsx";
 
 /**
- * Input switch component, essentially a restyled input checkbox.
- *
- * TODO: fix issue to allow passing in checked/value prop - useControllableState.
- *
- * @param {ESInputSwitchProps} props
- * @returns {React.FunctionComponent}
+ * Input switch — a restyled checkbox rendered as a toggle.
+ * No wrapper div or indicator span required; the thumb is drawn via CSS ::before.
  */
 const PktsInputSwitch: FC<PktsInputSwitchProps> = ({
-  variant = "primary",
-  className = "",
-  noIcon,
+  variant = "default",
+  className,
   defaultChecked,
   disabled,
+  onChange,
   ...props
 }) => {
-  const [value, setValue] = useState(defaultChecked);
+  const [checked, setChecked] = useState(defaultChecked ?? false);
 
-  const icon = useMemo(() => {
-    if (noIcon === true) {
-      return <></>;
-    }
-
-    return getIconByCheckedState(value);
-  }, [value]);
-
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.checked);
-    props?.onChange?.(event);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+    onChange?.(e);
   };
 
   return (
-    <div
+    <input
+      {...props}
+      type="checkbox"
+      role="switch"
       className={clsx(
         "pkts-input-switch",
-        variant === "secondary" && "pkts-secondary",
+        variant === "branded" && "pkts-branded",
         className,
       )}
-    >
-      <input
-        {...props}
-        type="checkbox"
-        disabled={disabled}
-        checked={value}
-        onChange={onChange}
-      />
-      <span className="indicator">{icon}</span>
-    </div>
+      checked={checked}
+      disabled={disabled}
+      onChange={handleChange}
+    />
   );
 };
 
