@@ -1,11 +1,22 @@
 import { PktsInputText } from "../PktsInputText/PktsInputText";
 import { PktsIcon } from "../PktsIcon/PktsIcon";
+import { PktsInputEmailProps } from "./PktsInputEmail.types";
 
-export class PktsInputEmail extends PktsInputText {
+export class PktsInputEmail extends PktsInputText implements PktsInputEmailProps {
   static tagName = "pkts-input-email";
 
   private _clearBtn?: HTMLDivElement;
   private _actionIcon?: HTMLElement;
+  private _onXClickHandler?: () => void;
+
+  get onXClick(): (() => void) | undefined {
+    return this._onXClickHandler;
+  }
+  set onXClick(fn: (() => void) | undefined) {
+    if (fn && typeof fn === "function") {
+      this._onXClickHandler = fn;
+    }
+  }
 
   connectedCallback(): void {
     this._actionButtonsHtml = `
@@ -35,11 +46,10 @@ export class PktsInputEmail extends PktsInputText {
     if (!this.inputEl.value) return;
 
     this.inputEl.value = "";
-    this.inputEl.dispatchEvent(
-      new Event("input", { bubbles: true }),
-    );
+    this.inputEl.dispatchEvent(new Event("input", { bubbles: true }));
     this._syncActionIcon();
     this.inputEl.focus();
+    this._onXClickHandler?.();
   };
 
   private _syncActionIcon = (): void => {
