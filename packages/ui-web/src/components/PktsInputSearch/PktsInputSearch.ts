@@ -1,12 +1,32 @@
 import { PktsInputText } from "../PktsInputText/PktsInputText";
 import { PktsIcon } from "../PktsIcon/PktsIcon";
+import { PktsInputSearchProps } from "./PktsInputSearch.types";
 
-export class PktsInputSearch extends PktsInputText {
+export class PktsInputSearch extends PktsInputText implements PktsInputSearchProps {
   static tagName = "pkts-input-search";
 
   private _clearBtn!: HTMLDivElement;
   private _searchBtn!: HTMLDivElement;
-  public onSearchClick?: () => void;
+  private _onSearchClickHandler?: () => void;
+  private _onXClickHandler?: () => void;
+
+  get onSearchClick(): (() => void) | undefined {
+    return this._onSearchClickHandler;
+  }
+  set onSearchClick(fn: (() => void) | undefined) {
+    if (fn && typeof fn === "function") {
+      this._onSearchClickHandler = fn;
+    }
+  }
+
+  get onXClick(): (() => void) | undefined {
+    return this._onXClickHandler;
+  }
+  set onXClick(fn: (() => void) | undefined) {
+    if (fn && typeof fn === "function") {
+      this._onXClickHandler = fn;
+    }
+  }
 
   connectedCallback(): void {
     super.connectedCallback();
@@ -28,14 +48,13 @@ export class PktsInputSearch extends PktsInputText {
   };
 
   private _onSearchClick = (): void => {
-    if (typeof this.onSearchClick === "function") {
-      this.onSearchClick();
-    }
+    this._onSearchClickHandler?.();
   };
 
-  private _onXClick = () => {
+  private _onXClick = (): void => {
     this.inputEl.value = "";
     this._renderActionButton();
+    this._onXClickHandler?.();
   };
 
   private _renderActionButton(): void {

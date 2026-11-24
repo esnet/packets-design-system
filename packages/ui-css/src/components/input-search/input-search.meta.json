@@ -1,0 +1,45 @@
+{
+  "id": "input-search",
+  "category": [
+    "Controls",
+    "Text Control"
+  ],
+  "figmaNodeId": "9460:71505",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<div class=\"pkts-input-text\"><input type=\"search\" placeholder=\"Search\"></div>",
+  "props": {
+    "variant": {
+      "options": [
+        "default",
+        "branded"
+      ]
+    },
+    "error": {
+      "type": "boolean"
+    },
+     "disabled": {
+      "type": "boolean",
+      "css": {
+        "attribute": "disabled"
+      }
+    }
+  },
+  "overview": "InputSearch is a specialized text input for search interactions. It renders a search icon when the field is empty and automatically replaces it with a clear (X) icon once the user begins typing, allowing one-click clearing of the query. It is built on top of InputText and accepts the same props.",
+  "bestPractices": {
+    "whenToUse": [
+      "Use InputSearch whenever a field is dedicated to filtering or querying a data set",
+      "Use it in page headers, toolbars, or sidebars where a search affordance is expected"
+    ],
+    "do": [
+      "Wrap InputSearch in an InputRow or label to provide an accessible label and error messaging",
+      "Provide a meaningful placeholder that describes what users can search for"
+    ],
+    "dont": [
+      "Don't use InputSearch for non-search inputs, use InputText for free-form text entry"
+    ]
+  }
+}
