@@ -1,7 +1,8 @@
 import { PktsInputText } from "../PktsInputText/PktsInputText";
 import { PktsIcon } from "../PktsIcon/PktsIcon";
+import { PktsInputNumberProps } from "./PktsInputNumber.types";
 
-export class PktsInputNumber extends PktsInputText {
+export class PktsInputNumber extends PktsInputText implements PktsInputNumberProps {
   static tagName = "pkts-input-number";
   static get observedAttributes() {
     return [
@@ -43,12 +44,29 @@ export class PktsInputNumber extends PktsInputText {
   private _minusBtn!: HTMLDivElement;
   private _addClickHandler!: EventListener;
   private _minusClickHandler!: EventListener;
+  private _onAddClickHandler?: () => void;
+  private _onMinusClickHandler?: () => void;
 
-  onAddClick?: () => void;
-  onMinusClick?: () => void;
+  get onAddClick(): (() => void) | undefined {
+    return this._onAddClickHandler;
+  }
+  set onAddClick(fn: (() => void) | undefined) {
+    if (fn && typeof fn === "function") {
+      this._onAddClickHandler = fn;
+    }
+  }
+
+  get onMinusClick(): (() => void) | undefined {
+    return this._onMinusClickHandler;
+  }
+  set onMinusClick(fn: (() => void) | undefined) {
+    if (fn && typeof fn === "function") {
+      this._onMinusClickHandler = fn;
+    }
+  }
 
   connectedCallback(): void {
-    this.actionButtons = `
+    this._actionButtonsHtml = `
             <div class="action-buttons">
                 <div id="addBtn"><${PktsIcon.tagName} name="plus"></${PktsIcon.tagName}></div>
                 <div id="minusBtn"><${PktsIcon.tagName} name="minus"></${PktsIcon.tagName}></div>
@@ -65,15 +83,16 @@ export class PktsInputNumber extends PktsInputText {
   }
 
   private _attachAdditionalListeners(): void {
-    this._addClickHandler = (e: Event) => {
-      if (this.onAddClick) this.onAddClick();
-      else this._changeValue(1);
+    this._addClickHandler = () => {
+      this._changeValue(1);
+      this._onAddClickHandler?.();
     };
 
-    this._minusClickHandler = (e: Event) => {
-      if (this.onMinusClick) this.onMinusClick();
-      else this._changeValue(-1);
+    this._minusClickHandler = () => {
+      this._changeValue(-1);
+      this._onMinusClickHandler?.();
     };
+
     this._addBtn.addEventListener("click", this._addClickHandler);
     this._minusBtn.addEventListener("click", this._minusClickHandler);
   }
