@@ -1,7 +1,8 @@
 import { PktsInputText } from "../PktsInputText/PktsInputText";
 import { PktsIcon } from "../PktsIcon/PktsIcon";
+import { PktsInputPasswordProps } from "./PktsInputPassword.types";
 
-export class PktsInputPassword extends PktsInputText {
+export class PktsInputPassword extends PktsInputText implements PktsInputPasswordProps {
   static tagName = "pkts-input-password";
 
   private _hidden = true;
@@ -9,7 +10,7 @@ export class PktsInputPassword extends PktsInputText {
   private _clearBtn!: HTMLDivElement;
 
   connectedCallback(): void {
-    this.actionButtons = `
+    this._actionButtonsHtml = `
             <div class="action-buttons">
                 <div id='eyeBtn'><${PktsIcon.tagName} name='eye'></${PktsIcon.tagName}></div>
                 <div id='clearBtn'><${PktsIcon.tagName} name='X'></${PktsIcon.tagName}></div>
