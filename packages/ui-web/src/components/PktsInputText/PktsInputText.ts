@@ -10,7 +10,6 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
       "variant",
       "disabled",
       "error",
-      "action-buttons",
       "readonly",
     ];
   }
@@ -59,7 +58,7 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
 
   protected inputEl!: HTMLInputElement;
   protected containerEl!: HTMLDivElement;
-  public actionButtons: string | undefined = undefined;
+  protected _actionButtonsHtml: string | undefined = undefined;
 
   constructor() {
     super();
@@ -79,16 +78,27 @@ export class PktsInputText extends HTMLElement implements PktsInputTextProps {
     if (oldVal !== newVal) this.render();
   }
 
-  private _renderInitial(): void {
+  protected _renderInitial(): void {
+    const slottedChildren = Array.from(
+      this.querySelectorAll<HTMLElement>('[slot="action-buttons"]'),
+    );
+
     this.innerHTML = `
             <div class="pkts-input-text">
                 <input type="text" />
-                ${this.actionButtons || this.getAttribute("action-buttons") || ""}
+                ${this._actionButtonsHtml ?? ""}
             </div>
         `;
 
     this.containerEl = this.querySelector("div")!;
     this.inputEl = this.querySelector("input")!;
+
+    if (slottedChildren.length) {
+      const slotContainer = document.createElement("div");
+      slotContainer.className = "action-buttons";
+      slottedChildren.forEach((el) => slotContainer.appendChild(el));
+      this.containerEl.appendChild(slotContainer);
+    }
   }
 
   private _attachEventListener(): void {
