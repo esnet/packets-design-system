@@ -8,7 +8,7 @@ export class PktsInputEmail extends PktsInputText {
   private _actionIcon?: HTMLElement;
 
   connectedCallback(): void {
-    this.actionButtons = `
+    this._actionButtonsHtml = `
       <div class="action-buttons" id="clearBtn">
         <${PktsIcon.tagName} name="mail"></${PktsIcon.tagName}>
       </div>

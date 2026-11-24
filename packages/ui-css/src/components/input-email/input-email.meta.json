@@ -1,0 +1,52 @@
+{
+  "id": "input-email",
+  "category": [
+    "Controls",
+    "Text Control"
+  ],
+  "figmaNodeId": "9510:90325",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<div class=\"pkts-input-text pkts-input-email\"><input type=\"email\" placeholder=\"Email\"></div>",
+  "props": {
+    "variant": {
+      "options": [
+        "default",
+        "branded"
+      ]
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "readonly": {
+      "type": "boolean",
+      "css": {
+        "attribute": "readonly"
+      }
+    },
+     "disabled": {
+      "type": "boolean",
+      "css": {
+        "attribute": "disabled"
+      }
+    }
+  },
+  "overview": "A specialised text input for email address entry, built on top of `InputText`. It renders an `<input type=\"email\">` element, which provides browser-native email validation, and includes a clear (X) action button that empties the field when clicked. Use this component whenever the expected value is an email address; for plain text use `InputText` instead.",
+  "bestPractices": {
+    "whenToUse": [
+      "When collecting an email address from a user",
+      "When browser-native email format validation is desired without additional custom logic"
+    ],
+    "do": [
+      "Always pair with a visible label or `aria-label` so screen readers identify the field as an email input",
+      "Use the `error` prop to signal invalid or unrecognised email addresses after server-side validation"
+    ],
+    "dont": [
+      "Use this component for general text input - use `InputText` instead",
+      "Rely solely on browser validation for critical email flows - always validate server-side as well"
+    ]
+  }
+}
