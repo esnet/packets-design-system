@@ -50,8 +50,7 @@ a.pkts-button {
 
   /* Styling */
   border-radius: var(--spacing-border-radius);
-  border: var(--spacing-border-width) solid
-    var(--rest-border, #004573);
+  border: var(--spacing-border-width) solid var(--rest-border, #004573);
   background: var(--rest-color);
   box-shadow: var(--rest-box-shadow);
 
@@ -75,25 +74,17 @@ a.pkts-button {
 .pkts-button:hover,
 a.pkts-button:hover {
   cursor: pointer;
-  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
-    var(--pkts-size-spacing-medium, 16px);
-  
-  border-width: 3px;
-  background: var(--hover-color);
   border-color: var(--hover-border);
-    box-shadow: var(--hover-box-shadow);
+  background: var(--hover-color);
+  box-shadow: 0 0 0 1px var(--hover-border);
 }
 
 .pkts-button:active,
 a.pkts-button:active {
   cursor: pointer;
-  padding: var(--pkts-size-spacing-xxsmall, 0.25rem)
-    var(--pkts-size-spacing-medium, 16px);
-  
-  border-width: 3px;
-  background: var(--active-color);
   border-color: var(--active-border);
-  box-shadow: var(--active-box-shadow);
+  background: var(--active-color);
+  box-shadow: 0 0 0 1px var(--active-border);
 }
 
 .pkts-button:disabled,
