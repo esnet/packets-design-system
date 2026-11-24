@@ -1,0 +1,68 @@
+{
+  "id": "input-text-area",
+  "category": [
+    "Controls",
+    "Text Control"
+  ],
+  "figmaNodeId": "9389:60071",
+  "packages": [
+    "ui-css",
+    "ui-web",
+    "ui-react"
+  ],
+  "markup": "<div class=\"pkts-input-text-area\"><textarea placeholder=\"Text\"></textarea></div>",
+  "props": {
+    "value": {
+      "type": "string",
+      "css": {
+        "attribute": "value"
+      }
+    },
+    "placeholder": {
+      "type": "string",
+      "css": {
+        "attribute": "placeholder"
+      }
+    },
+    "variant": {
+      "options": [
+        "default",
+        "branded"
+      ]
+    },
+    "resize": {
+      "options": ["none", "vertical", "horizontal", "both"]
+    },
+    "disabled": {
+      "type": "boolean",
+      "css": {
+        "attribute": "disabled"
+      }
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "readonly": {
+      "type": "boolean",
+      "css": {
+        "attribute": "readonly"
+      }
+    }
+  },
+  "overview": "InputTextArea is a styled wrapper around the native `<textarea>` element, providing consistent border, background, typography, and state colors aligned with the Packets design system. It supports error styling, a branded rounded variant, and configurable resize behavior.",
+  "bestPractices": {
+    "whenToUse": [
+      "Use InputTextArea for comment fields, description inputs, or any other context where multiple lines of text are expected",
+      "Use it when the user may need to review or edit longer passages of text"
+    ],
+    "do": [
+      "Wrap in InputRow to attach a visible label and display validation messages",
+      "Set resize=\"vertical\" when only vertical resizing makes layout sense; set resize=\"none\" in fixed-height layouts",
+      "Pass error as a boolean or string to trigger the error border and shadow"
+    ],
+    "dont": [
+      "Don't use InputTextArea for single-line inputs - use PktsInputText for that purpose",
+      "Don't rely on the resize handle as the only way to indicate to users that the field can hold more text - use a visible row count or min-height"
+    ]
+  }
+}
